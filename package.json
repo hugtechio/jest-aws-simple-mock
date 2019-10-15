@@ -1,0 +1,28 @@
+{
+  "name": "jest-aws-simple-mock",
+  "version": "0.0.1",
+  "description": "simple mocking aws and dynamodb data mapper by jest",
+  "main": "index.js",
+  "scripts": {
+    "test": "yarn jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hugtechio/jest-aws-simple-mock.git"
+  },
+  "keywords": [
+    "jest",
+    "aws-sdk",
+    "dynamodb-data-mapper"
+  ],
+  "author": "hugtech.io",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hugtechio/jest-aws-simple-mock/issues"
+  },
+  "homepage": "https://github.com/hugtechio/jest-aws-simple-mock#readme",
+  "dependencies": {
+    "@aws/dynamodb-data-mapper": "^0.7.3",
+    "jest": "^24.9.0"
+  }
+}
