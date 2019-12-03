@@ -88,6 +88,12 @@ exports.mockDynamo = {
             .mockImplementationOnce(async () => result1)
             .mockImplementationOnce(async () => result2);
     },
+    getThirth: function (result1, result2, result3) {
+        return jest.spyOn(dynamodb_data_mapper_1.DataMapper.prototype, 'get')
+            .mockImplementationOnce(async () => result1)
+            .mockImplementationOnce(async () => result2)
+            .mockImplementationOnce(async () => result3);
+    },
     put: function (result) {
         return jest.spyOn(dynamodb_data_mapper_1.DataMapper.prototype, 'put')
             .mockImplementationOnce(async () => result);
@@ -95,6 +101,11 @@ exports.mockDynamo = {
     update: function (result) {
         return jest.spyOn(dynamodb_data_mapper_1.DataMapper.prototype, 'update')
             .mockImplementationOnce(async () => result);
+    },
+    updateTwice: function (result1, result2) {
+        return jest.spyOn(dynamodb_data_mapper_1.DataMapper.prototype, 'update')
+            .mockImplementationOnce(async () => result1)
+            .mockImplementationOnce(async () => result2);
     },
     delete: function (result) {
         return jest.spyOn(dynamodb_data_mapper_1.DataMapper.prototype, 'delete')
@@ -104,7 +115,11 @@ exports.mockDynamo = {
         return jest.spyOn(dynamodb_data_mapper_1.DataMapper.prototype, 'batchDelete')
             .mockImplementationOnce(() => { return mockAsyncIterator(result); });
     },
-    throw: function () {
+    queryWithThrow: function () {
+        return jest.spyOn(dynamodb_data_mapper_1.DataMapper.prototype, 'query')
+            .mockImplementationOnce(() => { throw new Error('mock exception'); });
+    },
+    getWIthThrow: function () {
         return jest.spyOn(dynamodb_data_mapper_1.DataMapper.prototype, 'query')
             .mockImplementationOnce(() => { throw new Error('mock exception'); });
     }
@@ -125,9 +140,51 @@ exports.mockLambda = {
     }
 };
 exports.mockS3 = {
+    headObject: function (meta) {
+        // @ts-ignore
+        return jest.spyOn(AWS.S3.services['2006-03-01'].prototype, 'headObject').mockImplementation(() => {
+            return {
+                promise: () => Promise.resolve(meta)
+            };
+        });
+    },
+    headObjectRejection: function (exception) {
+        // @ts-ignore
+        return jest.spyOn(AWS.S3.services['2006-03-01'].prototype, 'headObject').mockImplementation(() => {
+            return {
+                promise: () => Promise.reject(exception)
+            };
+        });
+    },
     getSignedUrl: function (url) {
         return jest.spyOn(AWS.S3.prototype, 'getSignedUrl').mockImplementation(() => {
             return url;
+        });
+    }
+};
+exports.mockCloudFront = {
+    getDistribution: function (result) {
+        // @ts-ignore
+        return jest.spyOn(AWS.CloudFront.services['2019-03-26'].prototype, 'getDistribution').mockImplementation(() => {
+            return {
+                promise: () => Promise.resolve(result)
+            };
+        });
+    },
+    getDistributionConfig: function (result) {
+        // @ts-ignore
+        return jest.spyOn(AWS.CloudFront.services['2019-03-26'].prototype, 'getDistributionConfig').mockImplementation(() => {
+            return {
+                promise: () => Promise.resolve(result)
+            };
+        });
+    },
+    updateDistribution: function (result) {
+        // @ts-ignore
+        return jest.spyOn(AWS.CloudFront.services['2019-03-26'].prototype, 'updateDistribution').mockImplementation(() => {
+            return {
+                promise: () => Promise.resolve(result)
+            };
         });
     }
 };
