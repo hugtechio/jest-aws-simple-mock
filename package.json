@@ -4,7 +4,7 @@
   "description": "simple mocking aws and dynamodb data mapper by jest",
   "main": "index.js",
   "scripts": {
-    "test": "yarn jest"
+    "test": "yarn jest --silent --verbose"
   },
   "repository": {
     "type": "git",
@@ -21,8 +21,15 @@
     "url": "https://github.com/hugtechio/jest-aws-simple-mock/issues"
   },
   "homepage": "https://github.com/hugtechio/jest-aws-simple-mock#readme",
+  "jest": {
+    "preset": "ts-jest"
+  },
   "dependencies": {
     "@aws/dynamodb-data-mapper": "^0.7.3",
     "jest": "^24.9.0"
+  },
+  "devDependencies": {
+    "ts-jest": "^24.2.0",
+    "typescript": "^3.7.3"
   }
 }

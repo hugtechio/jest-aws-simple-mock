@@ -29,59 +29,6 @@ const currentVersion = (services: any): any => {
     return service
 }
 
-// public (exported) function
-export const mockStripe = {
-    once: function (payload?: {}): jest.SpyInstance {
-        // @ts-ignore
-        return jest.spyOn(currentVersion(AWS.Lambda.services).prototype, 'invoke').mockImplementation(() => {
-            return {
-                promise: () => {
-                    return {
-                        StatusCode: 200,
-                        Payload: (payload) ? JSON.stringify(payload) : null
-                    }
-                }
-            }
-        })
-    },
-    twice: function (payload1: {}, payload2: {}): jest.SpyInstance {
-        // @ts-ignore
-        const promiseObject = (payload: {}) => {
-            return {
-                promise: () => {
-                    return {
-                        StatusCode: 200,
-                        Payload: JSON.stringify(payload)
-                    }
-                }
-            }
-        }
-        // @ts-ignore
-        return jest.spyOn(currentVersion(AWS.Lambda.services).prototype, 'invoke')
-            .mockImplementationOnce(() => promiseObject(payload1))
-            .mockImplementationOnce(() => promiseObject(payload2))
-    },
-
-    three: function (payload1: {}, payload2: {}, payload3: {}): jest.SpyInstance {
-        // @ts-ignore
-        const promiseObject = (payload: {}) => {
-            return {
-                promise: () => {
-                    return {
-                        StatusCode: 200,
-                        Payload: JSON.stringify(payload)
-                    }
-                }
-            }
-        }
-        // @ts-ignore
-        return jest.spyOn(currentVersion(AWS.Lambda.services).prototype, 'invoke')
-            .mockImplementationOnce(() => promiseObject(payload1))
-            .mockImplementationOnce(() => promiseObject(payload2))
-            .mockImplementationOnce(() => promiseObject(payload3))
-    }
-}
-
 export const mockDynamo = {
     query: function (queryResult: any): jest.SpyInstance {
         return jest.spyOn(DataMapper.prototype, 'query')
