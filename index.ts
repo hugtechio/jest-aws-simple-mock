@@ -17,11 +17,23 @@ const mockAsyncIterator = (result: any) => {
     return ret
 }
 
+const currentVersion = (services: any): any => {
+    const keys = Object.keys(services)
+    let service = null
+    keys.forEach(versionStr => {
+        if (services.hasOwnProperty(versionStr) && services[versionStr] !== null) {
+            service = services[versionStr]
+            return
+        }
+    });
+    return service
+}
+
 // public (exported) function
 export const mockStripe = {
     once: function (payload?: {}): jest.SpyInstance {
         // @ts-ignore
-        return jest.spyOn(AWS.Lambda.services['2015-03-31'].prototype, 'invoke').mockImplementation(() => {
+        return jest.spyOn(currentVersion(AWS.Lambda.services).prototype, 'invoke').mockImplementation(() => {
             return {
                 promise: () => {
                     return {
@@ -45,7 +57,7 @@ export const mockStripe = {
             }
         }
         // @ts-ignore
-        return jest.spyOn(AWS.Lambda.services['2015-03-31'].prototype, 'invoke')
+        return jest.spyOn(currentVersion(AWS.Lambda.services).prototype, 'invoke')
             .mockImplementationOnce(() => promiseObject(payload1))
             .mockImplementationOnce(() => promiseObject(payload2))
     },
@@ -63,7 +75,7 @@ export const mockStripe = {
             }
         }
         // @ts-ignore
-        return jest.spyOn(AWS.Lambda.services['2015-03-31'].prototype, 'invoke')
+        return jest.spyOn(currentVersion(AWS.Lambda.services).prototype, 'invoke')
             .mockImplementationOnce(() => promiseObject(payload1))
             .mockImplementationOnce(() => promiseObject(payload2))
             .mockImplementationOnce(() => promiseObject(payload3))
@@ -139,7 +151,7 @@ export const mockDynamo = {
 export const mockLambda = {
     invoke: function (payload = {}): jest.SpyInstance {
         // @ts-ignore
-        return jest.spyOn(AWS.Lambda.services['2015-03-31'].prototype, 'invoke').mockImplementation(() => {
+        return jest.spyOn(currentVersion(AWS.Lambda.services).prototype, 'invoke').mockImplementation(() => {
             return {
                 promise: () => {
                     return {
@@ -155,7 +167,7 @@ export const mockLambda = {
 export const mockS3 = {
     headObject: function (meta: {}): jest.SpyInstance {
         // @ts-ignore
-        return jest.spyOn(AWS.S3.services['2006-03-01'].prototype, 'headObject').mockImplementation(() => {
+        return jest.spyOn(currentVersion(AWS.S3.services).prototype, 'headObject').mockImplementation(() => {
             return {
                 promise: () => Promise.resolve(meta)
             }
@@ -163,7 +175,7 @@ export const mockS3 = {
     },
     headObjectRejection: function (exception: {}): jest.SpyInstance {
         // @ts-ignore
-        return jest.spyOn(AWS.S3.services['2006-03-01'].prototype, 'headObject').mockImplementation(() => {
+        return jest.spyOn(currentVersion(AWS.S3.services), 'headObject').mockImplementation(() => {
             return {
                 promise: () => Promise.reject(exception)
             }
@@ -180,7 +192,7 @@ export const mockS3 = {
 export const mockCloudFront = {
     getDistribution: function (result: {}): jest.SpyInstance {
         // @ts-ignore
-        return jest.spyOn(AWS.CloudFront.services['2019-03-26'].prototype, 'getDistribution').mockImplementation(() => {
+        return jest.spyOn(currentVersion(AWS.CloudFront.services).prototype, 'getDistribution').mockImplementation(() => {
             return {
                 promise: () => Promise.resolve(result)
             }
@@ -189,7 +201,7 @@ export const mockCloudFront = {
 
     getDistributionConfig: function (result: {}): jest.SpyInstance {
         // @ts-ignore
-        return jest.spyOn(AWS.CloudFront.services['2019-03-26'].prototype, 'getDistributionConfig').mockImplementation(() => {
+        return jest.spyOn(currentVersion(AWS.CloudFront.services).prototype, 'getDistributionConfig').mockImplementation(() => {
             return {
                 promise: () => Promise.resolve(result)
             }
@@ -198,7 +210,7 @@ export const mockCloudFront = {
 
     updateDistribution: function (result: {}): jest.SpyInstance {
         // @ts-ignore
-        return jest.spyOn(AWS.CloudFront.services['2019-03-26'].prototype, 'updateDistribution').mockImplementation(() => {
+        return jest.spyOn(currentVersion(AWS.CloudFront.services).prototype, 'updateDistribution').mockImplementation(() => {
             return {
                 promise: () => Promise.resolve(result)
             }
