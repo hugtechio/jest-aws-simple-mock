@@ -2,7 +2,7 @@ import * as AWS from 'aws-sdk'
 import { DataMapper } from '@aws/dynamodb-data-mapper'
 
 // private function
-const mockAsyncIterator = (result: any) => {
+export const mockAsyncIterator = (result: any) => {
     const ret: any = {}
     ret[Symbol.asyncIterator] = async function * () {
         if (Array.isArray(result)) {
@@ -17,11 +17,13 @@ const mockAsyncIterator = (result: any) => {
     return ret
 }
 
-const currentVersion = (services: any): any => {
+export const currentVersion = (services: any): any => {
     const keys = Object.keys(services)
     let service = null
     keys.forEach(versionStr => {
-        if (services.hasOwnProperty(versionStr) && services[versionStr] !== null) {
+        if (services.hasOwnProperty(versionStr) &&
+            services[versionStr] !== null &&
+            services[versionStr] !== undefined) {
             service = services[versionStr]
             return
         }
