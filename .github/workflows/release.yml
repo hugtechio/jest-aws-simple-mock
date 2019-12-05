@@ -20,4 +20,5 @@ jobs:
         yarn test
     - name: deploy
       run: |
+        tsc
         npm publish
