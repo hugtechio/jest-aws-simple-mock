@@ -1,6 +1,6 @@
 {
   "name": "jest-aws-simple-mock",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "simple mocking aws and dynamodb data mapper by jest",
   "main": "index.js",
   "scripts": {
