@@ -1,0 +1,23 @@
+name: Simple CI
+
+on:
+  push:
+    branches: 
+      - master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: node
+      uses: actions/setup-node@v1
+    - name: yarn install, build, and test
+      run: |
+        yarn install
+        yarn test
+    - name: deploy
+      run: |
+        npm publish
