@@ -19,6 +19,12 @@ jobs:
         yarn install
         yarn test
     - name: deploy
+      env:
+        NPM_USER: ${{ secrets.npm_user }}
+        NPM_PASSWORD: ${{ secrets.npm_password }}
+        NPM_EMAIL: ${{ secrets.npm_email }}
       run: |
+        npm install -g npm-cli-login
+        npm-cli-login
         tsc
         npm publish
