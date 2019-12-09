@@ -1,6 +1,6 @@
 {
   "name": "jest-aws-simple-mock",
-  "version": "0.0.8",
+  "version": "0.0.7",
   "description": "simple mocking aws and dynamodb data mapper by jest",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -23,7 +23,8 @@
   },
   "homepage": "https://github.com/hugtechio/jest-aws-simple-mock#readme",
   "files": [
-    "dist/"
+    "dist/",
+    "node_modules"
   ],
   "jest": {
     "preset": "ts-jest"
