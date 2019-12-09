@@ -26,7 +26,10 @@
     "dist/"
   ],
   "jest": {
-    "preset": "ts-jest"
+    "preset": "ts-jest",
+    "testPathIgnorePatterns": [
+      "dist/"
+    ]
   },
   "dependencies": {
     "@aws/dynamodb-data-mapper": "^0.7.3"
