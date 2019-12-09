@@ -21,7 +21,7 @@ jobs:
     - name: deploy
       env:
         NPM_USER: ${{ secrets.npm_user }}
-        NPM_PASSWORD: ${{ secrets.npm_password }}
+        NPM_PASS: ${{ secrets.npm_password }}
         NPM_EMAIL: ${{ secrets.npm_email }}
       run: |
         npm install -g npm-cli-login
