@@ -22,4 +22,19 @@ describe('#index', () => {
             expect(service).toBe(null)
         })
     })
+
+    describe('#getting mock object', () => {
+        describe('#dynamodb doc client', () => {
+            it('#get', async () => {
+                const result = await target.mockDynamoDocClient.get({})
+                // @ts-ignore
+                expect(result).toHaveProperty('mock')
+            }),
+            it('#put', async () => {
+                const result = await target.mockDynamoDocClient.put({})
+                // @ts-ignore
+                expect(result).toHaveProperty('mock')
+            })
+        })
+    })
 })

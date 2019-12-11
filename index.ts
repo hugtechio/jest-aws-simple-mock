@@ -97,6 +97,25 @@ export const mockDynamo = {
     }
 }
 
+export const mockDynamoDocClient = {
+    get: function (result: any): jest.SpyInstance {
+        // @ts-ignore
+        return jest.spyOn(AWS.DynamoDB.DocumentClient.prototype, 'get').mockImplementation(() => {
+            return {
+                promise: () => Promise.resolve(result)
+            }
+        })
+    },
+    put: function (result: any): jest.SpyInstance {
+        // @ts-ignore
+        return jest.spyOn(AWS.DynamoDB.DocumentClient.prototype, 'put').mockImplementation(() => {
+            return {
+                promise: () => Promise.resolve(result)
+            }
+        })
+    }
+}
+
 export const mockLambda = {
     invoke: function (payload = {}): jest.SpyInstance {
         // @ts-ignore
