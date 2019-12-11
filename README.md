@@ -56,6 +56,7 @@ describe('Test Sample fnction', () => {
 
 # Exported functions(2019.12.09)
 ```
+/// <reference types="jest" />
 export declare const mockAsyncIterator: (result: any) => any;
 export declare const currentVersion: (services: any) => any;
 export declare const mockDynamo: {
@@ -72,6 +73,10 @@ export declare const mockDynamo: {
     queryWithThrow: () => jest.SpyInstance<any, any>;
     getWIthThrow: () => jest.SpyInstance<any, any>;
 };
+export declare const mockDynamoDocClient: {
+    get: (result: any) => jest.SpyInstance<any, any>;
+    put: (result: any) => jest.SpyInstance<any, any>;
+};
 export declare const mockLambda: {
     invoke: (payload?: {}) => jest.SpyInstance<any, any>;
 };
@@ -85,5 +90,6 @@ export declare const mockCloudFront: {
     getDistributionConfig: (result: {}) => jest.SpyInstance<any, any>;
     updateDistribution: (result: {}) => jest.SpyInstance<any, any>;
 };
+
 
 ```
