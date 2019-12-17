@@ -277,6 +277,22 @@ export const mockCloudFront = {
                 promise: () => Promise.resolve(result)
             }
         })
+    },
+    createInvalidation: function (result: {}): jest.SpyInstance {
+        // @ts-ignore
+        return jest.spyOn(currentVersion(AWS.CloudFront.services).prototype, 'createInvalidation').mockImplementation(() => {
+            return {
+                promise: () => Promise.resolve(result)
+            }
+        })
+    },
+    createInvalidationAll: function (result: {}): jest.SpyInstance {
+        // @ts-ignore
+        return jest.spyOn(currentVersion(AWS.CloudFront.services).prototype, 'createInvalidation').mockImplementation(() => {
+            return {
+                promise: () => Promise.resolve(result)
+            }
+        })
     }
 }
 
