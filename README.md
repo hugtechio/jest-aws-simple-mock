@@ -1,15 +1,42 @@
 # jest-aws-simple-mock
-simple mocking aws sdk and dynamodb-datamapper by jest
+simple mocking aws sdk and dynamodb-datamapper by jest.
+
+You can only specfiy expectation of result object to mock some AWS-SDK function.
+And if You use DynamoDB data mapper to access to dynamoDB, It's is also able to mock.
+
 # Usage
 
-mocking all calls of aws method --> call mocking method with suffix 'All'
--- e.g for all calls of sqs.sendMessage,  call mockSqs.sendMessageAll(res1)
------> all calls in the code return res1
+## for DynamoDB Data mapper
+```
+import { mockDynamo } from 'jest-aws-simple-mock'
 
-mocking several times of was method ---> call mocking method without suffix or times
--- e.g only twice calls of dynamodb get ---> call mockDynamo.getTwice(res1, res2)
------> first call of dynamodb get, return res1,
------> second call of dynamodb get, return res2,
+mockDynamo.query([resultObject1-1, resultObject1-2])
+mockDynamo.get({resultObject})
+```
+
+## for DynamoDB Document Client
+```
+import { mockDynamoDocClient } from 'jest-aws-simple-mock'
+mockDynamoDocClient.get({Item: {xxxxx}}
+mockDynamoDocClient.query({Items: [{result1}, {result2},...]
+```
+
+## for other AWS-SDK method
+```
+import { mockLambda } from 'jest-aws-simple-mock'
+mockLambda.invoke(resultObject}
+```
+
+## mock all and mock once
+### mock All invocation (all call target function will return same resultObject)
+```
+mockLambda.invokeAll(resultObject}
+```
+
+### mock once invocation(only first call target function will return resultObject)
+```
+mockLambda.invoke(resultObject}
+```
 
 # Example
 
@@ -64,7 +91,7 @@ describe('Test Sample fnction', () => {
 })
 ```
 
-# Exported functions(2019.12.13)
+# Exported functions(2019.12.17)
 ```
 /// <reference types="jest" />
 export declare const mockAsyncIterator: (result: any) => any;
@@ -113,12 +140,13 @@ export declare const mockCloudFront: {
     getDistributionConfigAll: (result: {}) => jest.SpyInstance<any, any>;
     updateDistribution: (result: {}) => jest.SpyInstance<any, any>;
     updateDistributionAll: (result: {}) => jest.SpyInstance<any, any>;
+    createInvalidation: (result: {}) => jest.SpyInstance<any, any>;
+    createInvalidationAll: (result: {}) => jest.SpyInstance<any, any>;
 };
 export declare const mockSqs: {
     sendMessage: (result: {}) => jest.SpyInstance<any, any>;
     sendMessageAll: (result: {}) => jest.SpyInstance<any, any>;
 };
-
 
 
 ```
