@@ -127,11 +127,11 @@ export const mockDynamo = {
     },
     executeUpdateExpression: function (result: any): jest.SpyInstance {
         return jest.spyOn(DataMapper.prototype, 'executeUpdateExpression')
-            .mockImplementationOnce(() => { return mockAsyncIterator(result) })
+            .mockImplementationOnce(async () => result )
     },
     executeUpdateExpressionAll: function (result: any): jest.SpyInstance {
         return jest.spyOn(DataMapper.prototype, 'executeUpdateExpression')
-          .mockImplementation(() => { return mockAsyncIterator(result) })
+          .mockImplementation(async () => result )
     }
 }
 
