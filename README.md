@@ -91,7 +91,7 @@ describe('Test Sample fnction', () => {
 })
 ```
 
-# Exported functions(2019.12.17)
+# Exported functions(2019.12.18)
 ```
 /// <reference types="jest" />
 export declare const mockAsyncIterator: (result: any) => any;
@@ -115,6 +115,8 @@ export declare const mockDynamo: {
     batchDeleteAll: (result: any) => jest.SpyInstance<any, any>;
     queryWithThrow: () => jest.SpyInstance<any, any>;
     getWIthThrow: () => jest.SpyInstance<any, any>;
+    executeUpdateExpression: (result: any) => jest.SpyInstance<any, any>;
+    executeUpdateExpressionAll: (result: any) => jest.SpyInstance<any, any>;
 };
 export declare const mockDynamoDocClient: {
     get: (result: any) => jest.SpyInstance<any, any>;
@@ -147,6 +149,7 @@ export declare const mockSqs: {
     sendMessage: (result: {}) => jest.SpyInstance<any, any>;
     sendMessageAll: (result: {}) => jest.SpyInstance<any, any>;
 };
+
 
 
 ```
