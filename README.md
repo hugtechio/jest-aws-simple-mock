@@ -18,7 +18,6 @@ mockDynamo.get({resultObject})
 ```
 import { mockDynamoDocClient } from 'jest-aws-simple-mock'
 mockDynamoDocClient.get({Item: {xxxxx}}
-mockDynamoDocClient.query({Items: [{result1}, {result2},...]
 ```
 
 ## for other AWS-SDK method
@@ -77,7 +76,7 @@ function async target (input: string): Promise<boolean> {
 
 
 // test function
-describe('Test Sample fnction', () => {
+describe('Test Sample function', () => {
     beforeAll(() => {
         jest.resetAllMocks()
     })
@@ -91,7 +90,7 @@ describe('Test Sample fnction', () => {
 })
 ```
 
-# Exported functions(2019.12.18)
+# Exported functions(2020.01.06)
 ```
 /// <reference types="jest" />
 export declare const mockAsyncIterator: (result: any) => any;
@@ -123,6 +122,8 @@ export declare const mockDynamoDocClient: {
     getAll: (result: any) => jest.SpyInstance<any, any>;
     put: (result: any) => jest.SpyInstance<any, any>;
     putAll: (result: any) => jest.SpyInstance<any, any>;
+    update: (result: any) => jest.SpyInstance<any, any>;
+    updateAll: (result: any) => jest.SpyInstance<any, any>;
 };
 export declare const mockLambda: {
     invoke: (payload?: {}) => jest.SpyInstance<any, any>;

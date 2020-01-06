@@ -167,6 +167,22 @@ export const mockDynamoDocClient = {
                 promise: () => Promise.resolve(result)
             }
         })
+    },
+    update: function (result: any): jest.SpyInstance {
+        // @ts-ignore
+        return jest.spyOn(AWS.DynamoDB.DocumentClient.prototype, 'update').mockImplementationOnce(() => {
+            return {
+                promise: () => Promise.resolve(result)
+            }
+        })
+    },
+    updateAll: function (result: any): jest.SpyInstance {
+        // @ts-ignore
+        return jest.spyOn(AWS.DynamoDB.DocumentClient.prototype, 'update').mockImplementation(() => {
+            return {
+                promise: () => Promise.resolve(result)
+            }
+        })
     }
 }
 
