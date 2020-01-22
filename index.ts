@@ -342,7 +342,50 @@ export const mockSqs = {
 export const mockAcm = {
     describeCertificate: function (result = {}) {
         // @ts-ignore
+        return jest.spyOn(currentVersion(AWS.ACM.services).prototype, 'describeCertificate').mockImplementationOnce(() => {
+            return {
+                promise: () => Promise.resolve(result)
+            }
+        })
+    },
+    describeCertificateAll: function (result = {}) {
+        // @ts-ignore
         return jest.spyOn(currentVersion(AWS.ACM.services).prototype, 'describeCertificate').mockImplementation(() => {
+            return {
+                promise: () => Promise.resolve(result)
+            }
+        })
+    }
+}
+
+export const mockCognitoIdp = {
+    listUsers: function (result = {}) {
+        // @ts-ignore
+        return jest.spyOn(currentVersion(AWS.CognitoIdentityServiceProvider.services).prototype, 'listUser').mockImplementationOnce(() => {
+            return {
+                promise: () => Promise.resolve(result)
+            }
+        })
+    },
+    listUsersAll: function (result = {}) {
+        // @ts-ignore
+        return jest.spyOn(currentVersion(AWS.CognitoIdentityServiceProvider.services).prototype, 'listUser').mockImplementation(() => {
+            return {
+                promise: () => Promise.resolve(result)
+            }
+        })
+    },
+    getUser: function (result = {}) {
+        // @ts-ignore
+        return jest.spyOn(currentVersion(AWS.CognitoIdentityServiceProvider.services).prototype, 'getUser').mockImplementationOnce(() => {
+            return {
+                promise: () => Promise.resolve(result)
+            }
+        })
+    },
+    getUserAll: function (result = {}) {
+        // @ts-ignore
+        return jest.spyOn(currentVersion(AWS.CognitoIdentityServiceProvider.services).prototype, 'getUser').mockImplementation(() => {
             return {
                 promise: () => Promise.resolve(result)
             }

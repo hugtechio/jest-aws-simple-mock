@@ -90,7 +90,7 @@ describe('Test Sample function', () => {
 })
 ```
 
-# Exported functions(2020.01.06)
+# Exported functions(2020.01.22)
 ```
 /// <reference types="jest" />
 export declare const mockAsyncIterator: (result: any) => any;
@@ -152,6 +152,13 @@ export declare const mockSqs: {
 };
 export declare const mockAcm: {
     describeCertificate: (result?: {}) => jest.SpyInstance<any, unknown[]>;
+    describeCertificateAll: (result?: {}) => jest.SpyInstance<any, unknown[]>;
+};
+export declare const mockCognitoIdp: {
+    listUsers: (result?: {}) => jest.SpyInstance<any, unknown[]>;
+    listUsersAll: (result?: {}) => jest.SpyInstance<any, unknown[]>;
+    getUser: (result?: {}) => jest.SpyInstance<any, unknown[]>;
+    getUserAll: (result?: {}) => jest.SpyInstance<any, unknown[]>;
 };
 
 ```
