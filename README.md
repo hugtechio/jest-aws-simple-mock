@@ -159,6 +159,8 @@ export declare const mockCognitoIdp: {
     listUsersAll: (result?: {}) => jest.SpyInstance<any, unknown[]>;
     getUser: (result?: {}) => jest.SpyInstance<any, unknown[]>;
     getUserAll: (result?: {}) => jest.SpyInstance<any, unknown[]>;
+    adminGetUser: (result?: {}) => jest.SpyInstance<any, unknown[]>;
+    adminGetUserAll: (result?: {}) => jest.SpyInstance<any, unknown[]>;
 };
 
 ```
