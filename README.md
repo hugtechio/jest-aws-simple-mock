@@ -150,7 +150,8 @@ export declare const mockSqs: {
     sendMessage: (result: {}) => jest.SpyInstance<any, any>;
     sendMessageAll: (result: {}) => jest.SpyInstance<any, any>;
 };
-
-
+export declare const mockAcm: {
+    describeCertificate: (result?: {}) => jest.SpyInstance<any, unknown[]>;
+};
 
 ```

@@ -338,3 +338,14 @@ export const mockSqs = {
         })
     }
 }
+
+export const mockAcm = {
+    describeCertificate: function (result = {}) {
+        // @ts-ignore
+        return jest.spyOn(currentVersion(AWS.ACM.services).prototype, 'describeCertificate').mockImplementation(() => {
+            return {
+                promise: () => Promise.resolve(result)
+            }
+        })
+    }
+}
