@@ -390,5 +390,21 @@ export const mockCognitoIdp = {
                 promise: () => Promise.resolve(result)
             }
         })
+    },
+    adminGetUser: function (result = {}) {
+        // @ts-ignore
+        return jest.spyOn(currentVersion(AWS.CognitoIdentityServiceProvider.services).prototype, 'adminGetUser').mockImplementationOnce(() => {
+            return {
+                promise: () => Promise.resolve(result)
+            }
+        })
+    },
+    adminGetUserAll: function (result = {}) {
+        // @ts-ignore
+        return jest.spyOn(currentVersion(AWS.CognitoIdentityServiceProvider.services).prototype, 'adminGetUser').mockImplementation(() => {
+            return {
+                promise: () => Promise.resolve(result)
+            }
+        })
     }
 }
