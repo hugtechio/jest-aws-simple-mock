@@ -234,7 +234,7 @@ export const mockS3 = {
     },
     headObjectRejection: function (exception: {}): jest.SpyInstance {
         // @ts-ignore
-        return jest.spyOn(currentVersion(AWS.S3.services), 'headObject').mockImplementation(() => {
+        return jest.spyOn(currentVersion(AWS.S3.services).prototype, 'headObject').mockImplementation(() => {
             return {
                 promise: () => Promise.reject(exception)
             }
