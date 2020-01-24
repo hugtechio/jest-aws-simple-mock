@@ -367,6 +367,14 @@ export const mockCognitoIdp = {
             }
         })
     },
+    listUsersThrow: function (result = {}) {
+        // @ts-ignore
+        return jest.spyOn(currentVersion(AWS.CognitoIdentityServiceProvider.services).prototype, 'listUser').mockImplementationOnce(() => {
+            return {
+                promise: () => Promise.reject(result)
+            }
+        })
+    },
     listUsersAll: function (result = {}) {
         // @ts-ignore
         return jest.spyOn(currentVersion(AWS.CognitoIdentityServiceProvider.services).prototype, 'listUser').mockImplementation(() => {
@@ -380,6 +388,14 @@ export const mockCognitoIdp = {
         return jest.spyOn(currentVersion(AWS.CognitoIdentityServiceProvider.services).prototype, 'getUser').mockImplementationOnce(() => {
             return {
                 promise: () => Promise.resolve(result)
+            }
+        })
+    },
+    getUserThrow: function (result = {}) {
+        // @ts-ignore
+        return jest.spyOn(currentVersion(AWS.CognitoIdentityServiceProvider.services).prototype, 'getUser').mockImplementationOnce(() => {
+            return {
+                promise: () => Promise.reject(result)
             }
         })
     },
@@ -404,6 +420,14 @@ export const mockCognitoIdp = {
         return jest.spyOn(currentVersion(AWS.CognitoIdentityServiceProvider.services).prototype, 'adminGetUser').mockImplementation(() => {
             return {
                 promise: () => Promise.resolve(result)
+            }
+        })
+    },
+    adminGetUserThrow: function (result = {}) {
+        // @ts-ignore
+        return jest.spyOn(currentVersion(AWS.CognitoIdentityServiceProvider.services).prototype, 'adminGetUser').mockImplementation(() => {
+            return {
+                promise: () => Promise.reject(result)
             }
         })
     }
