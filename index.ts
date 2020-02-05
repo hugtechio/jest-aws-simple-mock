@@ -43,6 +43,13 @@ export const mockDynamo = {
             .mockImplementationOnce(() => { return mockAsyncIterator(result2) })
     },
 
+    queryThrice: function (result1: any, result2: any, result3: any): jest.SpyInstance {
+        return jest.spyOn(DataMapper.prototype, 'query')
+            .mockImplementationOnce(() => { return mockAsyncIterator(result1) })
+            .mockImplementationOnce(() => { return mockAsyncIterator(result2) })
+            .mockImplementationOnce(() => { return mockAsyncIterator(result3) })
+    },
+
     queryAll: function (queryResult: any): jest.SpyInstance {
         return jest.spyOn(DataMapper.prototype, 'query')
             .mockImplementation(() => { return mockAsyncIterator(queryResult) })
@@ -59,7 +66,7 @@ export const mockDynamo = {
             .mockImplementationOnce(async () => result2)
     },
 
-    getThirth: function (result1: any, result2: any, result3: any): jest.SpyInstance {
+    getThrice: function (result1: any, result2: any, result3: any): jest.SpyInstance {
         return jest.spyOn(DataMapper.prototype, 'get')
             .mockImplementationOnce(async () => result1)
             .mockImplementationOnce(async () => result2)
@@ -121,7 +128,7 @@ export const mockDynamo = {
         return jest.spyOn(DataMapper.prototype, 'query')
             .mockImplementationOnce(() => { throw new Error('mock exception') })
     },
-    getWIthThrow: function (): jest.SpyInstance {
+    getWithThrow: function (): jest.SpyInstance {
         return jest.spyOn(DataMapper.prototype, 'query')
             .mockImplementationOnce(() => { throw new Error('mock exception') })
     },

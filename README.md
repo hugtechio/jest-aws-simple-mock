@@ -90,18 +90,20 @@ describe('Test Sample function', () => {
 })
 ```
 
-# Exported functions(2020.01.22)
+# Exported functions(2020.02.05)
 ```
+
 /// <reference types="jest" />
 export declare const mockAsyncIterator: (result: any) => any;
 export declare const currentVersion: (services: any) => any;
 export declare const mockDynamo: {
     query: (queryResult: any) => jest.SpyInstance<any, any>;
     queryTwice: (result1: any, result2: any) => jest.SpyInstance<any, any>;
+    queryThrice: (result1: any, result2: any, result3: any) => jest.SpyInstance<any, any>;
     queryAll: (queryResult: any) => jest.SpyInstance<any, any>;
     get: (result: any) => jest.SpyInstance<any, any>;
     getTwice: (result1: any, result2: any) => jest.SpyInstance<any, any>;
-    getThirth: (result1: any, result2: any, result3: any) => jest.SpyInstance<any, any>;
+    getThrice: (result1: any, result2: any, result3: any) => jest.SpyInstance<any, any>;
     getAll: (result: any) => jest.SpyInstance<any, any>;
     put: (result: any) => jest.SpyInstance<any, any>;
     putAll: (result: any) => jest.SpyInstance<any, any>;
@@ -113,7 +115,7 @@ export declare const mockDynamo: {
     batchDelete: (result: any) => jest.SpyInstance<any, any>;
     batchDeleteAll: (result: any) => jest.SpyInstance<any, any>;
     queryWithThrow: () => jest.SpyInstance<any, any>;
-    getWIthThrow: () => jest.SpyInstance<any, any>;
+    getWithThrow: () => jest.SpyInstance<any, any>;
     executeUpdateExpression: (result: any) => jest.SpyInstance<any, any>;
     executeUpdateExpressionAll: (result: any) => jest.SpyInstance<any, any>;
 };
@@ -156,11 +158,15 @@ export declare const mockAcm: {
 };
 export declare const mockCognitoIdp: {
     listUsers: (result?: {}) => jest.SpyInstance<any, unknown[]>;
+    listUsersThrow: (result?: {}) => jest.SpyInstance<any, unknown[]>;
     listUsersAll: (result?: {}) => jest.SpyInstance<any, unknown[]>;
     getUser: (result?: {}) => jest.SpyInstance<any, unknown[]>;
+    getUserThrow: (result?: {}) => jest.SpyInstance<any, unknown[]>;
     getUserAll: (result?: {}) => jest.SpyInstance<any, unknown[]>;
     adminGetUser: (result?: {}) => jest.SpyInstance<any, unknown[]>;
     adminGetUserAll: (result?: {}) => jest.SpyInstance<any, unknown[]>;
+    adminGetUserThrow: (result?: {}) => jest.SpyInstance<any, unknown[]>;
 };
+
 
 ```
