@@ -90,16 +90,56 @@ describe('Test Sample function', () => {
 })
 ```
 
-# Exported functions(2020.02.05)
+# example (dynamodb data mapper query method) * here is a part of test code in this library.
+
+```javascript
+
+    it('#query (new)', async () => {
+        const dataMapper = new DataMapper({client: new DynamoDB()})
+        target.mockDynamo.query([{id: 1}])
+        // @ts-ignore
+        const q = dataMapper.query()
+        let result = [] 
+        for await (const item of q) {
+            result.push(item)
+        }
+        expect(result).toEqual([{id: 1}])
+    });
+
+    it('#query (add)', async () => {
+        const dataMapper = new DataMapper({client: new DynamoDB()})
+        let mock = target.mockDynamo.query([{id: 1}])
+        target.mockDynamo.query([{id: 2}], mock)
+
+        // @ts-ignore
+        let q = dataMapper.query()
+        let result = [] 
+        for await (const item of q) {
+            result.push(item)
+        }
+        expect(result).toEqual([{id: 1}])
+
+        // @ts-ignore
+        q = dataMapper.query()
+        result = [] 
+        for await (const item of q) {
+            result.push(item)
+        }
+        expect(result).toEqual([{id: 2}])
+        
+    });
+
 ```
 
+# Exported functions(2020.02.05)
+```
 /// <reference types="jest" />
 export declare const mockAsyncIterator: (result: any) => any;
 export declare const currentVersion: (services: any) => any;
 export declare const mockDynamo: {
-    query: (queryResult: any) => jest.SpyInstance<any, any>;
-    queryTwice: (result1: any, result2: any) => jest.SpyInstance<any, any>;
-    queryThrice: (result1: any, result2: any, result3: any) => jest.SpyInstance<any, any>;
+    query: (queryResult: any, mock?: jest.SpyInstance<any, any> | undefined) => jest.SpyInstance<any, any>;
+    queryTwice: (result1: any, result2: any, mock?: jest.SpyInstance<any, any> | undefined) => jest.SpyInstance<any, any>;
+    queryThrice: (result1: any, result2: any, result3: any, mock?: jest.SpyInstance<any, any> | undefined) => jest.SpyInstance<any, any>;
     queryAll: (queryResult: any) => jest.SpyInstance<any, any>;
     get: (result: any) => jest.SpyInstance<any, any>;
     getTwice: (result1: any, result2: any) => jest.SpyInstance<any, any>;
