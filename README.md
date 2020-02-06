@@ -39,7 +39,7 @@ mockLambda.invoke(resultObject}
 
 # Example
 
-```
+```javascript
 import * as mock from 'jest-aws-simple-mock'
 
 // Target function
@@ -131,7 +131,7 @@ describe('Test Sample function', () => {
 
 ```
 
-# Exported functions(2020.02.05)
+# Exported functions(2020.02.06)
 ```
 /// <reference types="jest" />
 export declare const mockAsyncIterator: (result: any) => any;
@@ -147,8 +147,8 @@ export declare const mockDynamo: {
     getAll: (result: any) => jest.SpyInstance<any, any>;
     put: (result: any) => jest.SpyInstance<any, any>;
     putAll: (result: any) => jest.SpyInstance<any, any>;
-    update: (result: any) => jest.SpyInstance<any, any>;
-    updateTwice: (result1: any, result2: any) => jest.SpyInstance<any, any>;
+    update: (result: any, mock?: jest.SpyInstance<any, any> | undefined) => jest.SpyInstance<any, any>;
+    updateTwice: (result1: any, result2: any, mock?: jest.SpyInstance<any, any> | undefined) => jest.SpyInstance<any, any>;
     updateAll: (result: any) => jest.SpyInstance<any, any>;
     delete: (result: any) => jest.SpyInstance<any, any>;
     deleteAll: (result: any) => jest.SpyInstance<any, any>;
@@ -207,6 +207,7 @@ export declare const mockCognitoIdp: {
     adminGetUserAll: (result?: {}) => jest.SpyInstance<any, unknown[]>;
     adminGetUserThrow: (result?: {}) => jest.SpyInstance<any, unknown[]>;
 };
+
 
 
 ```

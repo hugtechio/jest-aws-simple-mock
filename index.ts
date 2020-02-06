@@ -87,15 +87,17 @@ export const mockDynamo = {
             .mockImplementation(async () => result)
     },
 
-    update: function (result: any): jest.SpyInstance {
-        return jest.spyOn(DataMapper.prototype, 'update')
-            .mockImplementationOnce(async () => result)
+    update: function (result: any, mock?: jest.SpyInstance): jest.SpyInstance {
+        let tmp = (mock) ? mock : jest.spyOn(DataMapper.prototype, 'update')
+            tmp.mockImplementationOnce(async () => result)
+        return tmp
     },
 
-    updateTwice: function (result1: any, result2: any): jest.SpyInstance {
-        return jest.spyOn(DataMapper.prototype, 'update')
-            .mockImplementationOnce(async () => result1)
-            .mockImplementationOnce(async () => result2)
+    updateTwice: function (result1: any, result2: any, mock?: jest.SpyInstance): jest.SpyInstance {
+        let tmp = (mock) ? mock : jest.spyOn(DataMapper.prototype, 'update')
+            tmp.mockImplementationOnce(async () => result1)
+                .mockImplementationOnce(async () => result2)
+        return tmp
     },
 
     updateAll: function (result: any): jest.SpyInstance {
