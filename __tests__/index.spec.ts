@@ -1,4 +1,7 @@
 import * as target from '../index'
+import * as AWS from 'aws-sdk'
+import { DataMapper } from '@aws/dynamodb-data-mapper'
+import { DynamoDB } from 'aws-sdk'
 
 describe('#index', () => {
     describe('#method currentVersion', () => {
@@ -35,6 +38,47 @@ describe('#index', () => {
                 // @ts-ignore
                 expect(result).toHaveProperty('mock')
             })
+        })
+
+        describe('#dynamodb data mapper', () => {
+            beforeEach(() => {
+                jest.restoreAllMocks()
+            })
+
+            it('#query (new)', async () => {
+                const dataMapper = new DataMapper({client: new DynamoDB()})
+                target.mockDynamo.query([{id: 1}])
+                // @ts-ignore
+                const q = dataMapper.query()
+                let result = [] 
+                for await (const item of q) {
+                    result.push(item)
+                }
+                expect(result).toEqual([{id: 1}])
+            });
+
+            it('#query (add)', async () => {
+                const dataMapper = new DataMapper({client: new DynamoDB()})
+                let mock = target.mockDynamo.query([{id: 1}])
+                target.mockDynamo.query([{id: 2}], mock)
+
+                // @ts-ignore
+                let q = dataMapper.query()
+                let result = [] 
+                for await (const item of q) {
+                    result.push(item)
+                }
+                expect(result).toEqual([{id: 1}])
+
+                // @ts-ignore
+                q = dataMapper.query()
+                result = [] 
+                for await (const item of q) {
+                    result.push(item)
+                }
+                expect(result).toEqual([{id: 2}])
+                
+            });
         })
     })
 })

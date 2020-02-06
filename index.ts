@@ -1,7 +1,6 @@
 import * as AWS from 'aws-sdk'
 import { DataMapper } from '@aws/dynamodb-data-mapper'
 
-// private function
 export const mockAsyncIterator = (result: any) => {
     const ret: any = {}
     ret[Symbol.asyncIterator] = async function * () {
@@ -32,22 +31,22 @@ export const currentVersion = (services: any): any => {
 }
 
 export const mockDynamo = {
-    query: function (queryResult: any): jest.SpyInstance {
-        return jest.spyOn(DataMapper.prototype, 'query')
-            .mockImplementationOnce(() => { return mockAsyncIterator(queryResult) })
+    query: function (queryResult: any, mock?: jest.SpyInstance): jest.SpyInstance {
+        let tmp = (mock) ? mock : jest.spyOn(DataMapper.prototype, 'query')
+        return tmp.mockImplementationOnce(() => { return mockAsyncIterator(queryResult) })
     },
 
-    queryTwice: function (result1: any, result2: any): jest.SpyInstance {
-        return jest.spyOn(DataMapper.prototype, 'query')
-            .mockImplementationOnce(() => { return mockAsyncIterator(result1) })
-            .mockImplementationOnce(() => { return mockAsyncIterator(result2) })
+    queryTwice: function (result1: any, result2: any, mock?: jest.SpyInstance): jest.SpyInstance {
+        let tmp = (mock) ? mock : jest.spyOn(DataMapper.prototype, 'query')
+        return tmp.mockImplementationOnce(() => { return mockAsyncIterator(result1) })
+                .mockImplementationOnce(() => { return mockAsyncIterator(result2) })
     },
 
-    queryThrice: function (result1: any, result2: any, result3: any): jest.SpyInstance {
-        return jest.spyOn(DataMapper.prototype, 'query')
-            .mockImplementationOnce(() => { return mockAsyncIterator(result1) })
-            .mockImplementationOnce(() => { return mockAsyncIterator(result2) })
-            .mockImplementationOnce(() => { return mockAsyncIterator(result3) })
+    queryThrice: function (result1: any, result2: any, result3: any, mock?: jest.SpyInstance): jest.SpyInstance {
+        let tmp = (mock) ? mock : jest.spyOn(DataMapper.prototype, 'query')
+        return tmp.mockImplementationOnce(() => { return mockAsyncIterator(result1) })
+                .mockImplementationOnce(() => { return mockAsyncIterator(result2) })
+                .mockImplementationOnce(() => { return mockAsyncIterator(result3) })
     },
 
     queryAll: function (queryResult: any): jest.SpyInstance {
