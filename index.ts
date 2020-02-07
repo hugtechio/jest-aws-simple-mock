@@ -49,6 +49,14 @@ export const mockDynamo = {
                 .mockImplementationOnce(() => { return mockAsyncIterator(result3) })
     },
 
+    queryFourth: function (result1: any, result2: any, result3: any, result4: any, mock?: jest.SpyInstance): jest.SpyInstance {
+        let tmp = (mock) ? mock : jest.spyOn(DataMapper.prototype, 'query')
+        return tmp.mockImplementationOnce(() => { return mockAsyncIterator(result1) })
+                .mockImplementationOnce(() => { return mockAsyncIterator(result2) })
+                .mockImplementationOnce(() => { return mockAsyncIterator(result3) })
+                .mockImplementationOnce(() => { return mockAsyncIterator(result4) })
+    },
+
     queryAll: function (queryResult: any): jest.SpyInstance {
         return jest.spyOn(DataMapper.prototype, 'query')
             .mockImplementation(() => { return mockAsyncIterator(queryResult) })

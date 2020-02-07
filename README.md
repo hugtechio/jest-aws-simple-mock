@@ -131,8 +131,9 @@ describe('Test Sample function', () => {
 
 ```
 
-# Exported functions(2020.02.06)
+# Exported functions(2020.02.07)
 ```
+
 /// <reference types="jest" />
 export declare const mockAsyncIterator: (result: any) => any;
 export declare const currentVersion: (services: any) => any;
@@ -140,6 +141,7 @@ export declare const mockDynamo: {
     query: (queryResult: any, mock?: jest.SpyInstance<any, any> | undefined) => jest.SpyInstance<any, any>;
     queryTwice: (result1: any, result2: any, mock?: jest.SpyInstance<any, any> | undefined) => jest.SpyInstance<any, any>;
     queryThrice: (result1: any, result2: any, result3: any, mock?: jest.SpyInstance<any, any> | undefined) => jest.SpyInstance<any, any>;
+    queryFourth: (result1: any, result2: any, result3: any, result4: any, mock?: jest.SpyInstance<any, any> | undefined) => jest.SpyInstance<any, any>;
     queryAll: (queryResult: any) => jest.SpyInstance<any, any>;
     get: (result: any) => jest.SpyInstance<any, any>;
     getTwice: (result1: any, result2: any) => jest.SpyInstance<any, any>;
@@ -207,7 +209,5 @@ export declare const mockCognitoIdp: {
     adminGetUserAll: (result?: {}) => jest.SpyInstance<any, unknown[]>;
     adminGetUserThrow: (result?: {}) => jest.SpyInstance<any, unknown[]>;
 };
-
-
 
 ```
