@@ -216,6 +216,30 @@ export const mockLambda = {
             }
         })
     },
+    invokeTwice: function (payload1 = {}, payload2 = {}): jest.SpyInstance {
+        // @ts-ignore
+        return jest.spyOn(currentVersion(AWS.Lambda.services).prototype, 'invoke')
+        .mockImplementationOnce(() => {
+            return {
+                promise: () => {
+                    return {
+                        statusCode: 200,
+                        Payload: JSON.stringify(payload1)
+                    }
+                }
+            }
+        })
+        .mockImplementationOnce(() => {
+            return {
+                promise: () => {
+                    return {
+                        statusCode: 200,
+                        Payload: JSON.stringify(payload2)
+                    }
+                }
+            }
+        })
+    },
     invokeAll: function (payload = {}): jest.SpyInstance {
         // @ts-ignore
         return jest.spyOn(currentVersion(AWS.Lambda.services).prototype, 'invoke').mockImplementation(() => {

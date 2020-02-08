@@ -131,8 +131,8 @@ describe('Test Sample function', () => {
 
 ```
 
-# Exported functions(2020.02.07)
-```
+# Exported functions(2020.02.08)
+```javascript
 
 /// <reference types="jest" />
 export declare const mockAsyncIterator: (result: any) => any;
@@ -171,6 +171,7 @@ export declare const mockDynamoDocClient: {
 };
 export declare const mockLambda: {
     invoke: (payload?: {}) => jest.SpyInstance<any, any>;
+    invokeTwice: (payload1?: {}, payload2?: {}) => jest.SpyInstance<any, any>;
     invokeAll: (payload?: {}) => jest.SpyInstance<any, any>;
 };
 export declare const mockS3: {
