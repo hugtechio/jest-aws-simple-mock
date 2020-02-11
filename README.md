@@ -148,11 +148,16 @@ export declare const mockDynamo: {
     getThrice: (result1: any, result2: any, result3: any) => jest.SpyInstance<any, any>;
     getAll: (result: any) => jest.SpyInstance<any, any>;
     put: (result: any) => jest.SpyInstance<any, any>;
+    putTwice: (result1: any, result2: any) => jest.SpyInstance<any, any>;
+    putThrice: (result1: any, result2: any, result3: any) => jest.SpyInstance<any, any>;
     putAll: (result: any) => jest.SpyInstance<any, any>;
     update: (result: any, mock?: jest.SpyInstance<any, any> | undefined) => jest.SpyInstance<any, any>;
     updateTwice: (result1: any, result2: any, mock?: jest.SpyInstance<any, any> | undefined) => jest.SpyInstance<any, any>;
+    updateThrice: (result1: any, result2: any, result3: any, mock?: jest.SpyInstance<any, any> | undefined) => jest.SpyInstance<any, any>;
     updateAll: (result: any) => jest.SpyInstance<any, any>;
     delete: (result: any) => jest.SpyInstance<any, any>;
+    deleteTwice: (result1: any, result2: any) => jest.SpyInstance<any, any>;
+    deleteThrice: (result1: any, result2: any, result3: any) => jest.SpyInstance<any, any>;
     deleteAll: (result: any) => jest.SpyInstance<any, any>;
     batchDelete: (result: any) => jest.SpyInstance<any, any>;
     batchDeleteAll: (result: any) => jest.SpyInstance<any, any>;
@@ -210,5 +215,6 @@ export declare const mockCognitoIdp: {
     adminGetUserAll: (result?: {}) => jest.SpyInstance<any, unknown[]>;
     adminGetUserThrow: (result?: {}) => jest.SpyInstance<any, unknown[]>;
 };
+
 
 ```
