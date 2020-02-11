@@ -90,6 +90,19 @@ export const mockDynamo = {
             .mockImplementationOnce(async () => result)
     },
 
+    putTwice: function (result1: any, result2: any): jest.SpyInstance {
+        return jest.spyOn(DataMapper.prototype, 'put')
+            .mockImplementationOnce(async () => result1)
+            .mockImplementationOnce(async () => result2)
+    },
+
+    putThrice: function (result1: any, result2: any, result3: any): jest.SpyInstance {
+        return jest.spyOn(DataMapper.prototype, 'put')
+            .mockImplementationOnce(async () => result1)
+            .mockImplementationOnce(async () => result2)
+            .mockImplementationOnce(async () => result3)
+    },
+
     putAll: function (result: any): jest.SpyInstance {
         return jest.spyOn(DataMapper.prototype, 'put')
             .mockImplementation(async () => result)
@@ -108,6 +121,14 @@ export const mockDynamo = {
         return tmp
     },
 
+    updateThrice: function (result1: any, result2: any, result3: any, mock?: jest.SpyInstance): jest.SpyInstance {
+        let tmp = (mock) ? mock : jest.spyOn(DataMapper.prototype, 'update')
+            tmp.mockImplementationOnce(async () => result1)
+                .mockImplementationOnce(async () => result2)
+                .mockImplementationOnce(async () => result3)
+        return tmp
+    },
+
     updateAll: function (result: any): jest.SpyInstance {
         return jest.spyOn(DataMapper.prototype, 'update')
             .mockImplementation(async () => result)
@@ -116,6 +137,19 @@ export const mockDynamo = {
     delete: function (result: any): jest.SpyInstance {
         return jest.spyOn(DataMapper.prototype, 'delete')
             .mockImplementationOnce(async () => result)
+    },
+
+    deleteTwice: function (result1: any, result2: any): jest.SpyInstance {
+        return jest.spyOn(DataMapper.prototype, 'delete')
+            .mockImplementationOnce(async () => result1)
+            .mockImplementationOnce(async () => result2)
+    },
+
+    deleteThrice: function (result1: any, result2: any, result3: any): jest.SpyInstance {
+        return jest.spyOn(DataMapper.prototype, 'delete')
+            .mockImplementationOnce(async () => result1)
+            .mockImplementationOnce(async () => result2)
+            .mockImplementationOnce(async () => result3)
     },
 
     deleteAll: function (result: any): jest.SpyInstance {
