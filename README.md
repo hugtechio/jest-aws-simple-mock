@@ -131,7 +131,7 @@ describe('Test Sample function', () => {
 
 ```
 
-# Exported functions(2020.02.08)
+# Exported functions(2020.02.15)
 ```javascript
 
 /// <reference types="jest" />
@@ -143,9 +143,9 @@ export declare const mockDynamo: {
     queryThrice: (result1: any, result2: any, result3: any, mock?: jest.SpyInstance<any, any> | undefined) => jest.SpyInstance<any, any>;
     queryFourth: (result1: any, result2: any, result3: any, result4: any, mock?: jest.SpyInstance<any, any> | undefined) => jest.SpyInstance<any, any>;
     queryAll: (queryResult: any) => jest.SpyInstance<any, any>;
-    get: (result: any) => jest.SpyInstance<any, any>;
-    getTwice: (result1: any, result2: any) => jest.SpyInstance<any, any>;
-    getThrice: (result1: any, result2: any, result3: any) => jest.SpyInstance<any, any>;
+    get: (result: any, mock?: jest.SpyInstance<any, any> | undefined) => jest.SpyInstance<any, any>;
+    getTwice: (result1: any, result2: any, mock?: jest.SpyInstance<any, any> | undefined) => jest.SpyInstance<any, any>;
+    getThrice: (result1: any, result2: any, result3: any, mock?: jest.SpyInstance<any, any> | undefined) => jest.SpyInstance<any, any>;
     getAll: (result: any) => jest.SpyInstance<any, any>;
     put: (result: any) => jest.SpyInstance<any, any>;
     putTwice: (result1: any, result2: any) => jest.SpyInstance<any, any>;
@@ -215,6 +215,7 @@ export declare const mockCognitoIdp: {
     adminGetUserAll: (result?: {}) => jest.SpyInstance<any, unknown[]>;
     adminGetUserThrow: (result?: {}) => jest.SpyInstance<any, unknown[]>;
 };
+
 
 
 ```

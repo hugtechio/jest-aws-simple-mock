@@ -62,20 +62,20 @@ export const mockDynamo = {
             .mockImplementation(() => { return mockAsyncIterator(queryResult) })
     },
 
-    get: function (result: any): jest.SpyInstance {
-        return jest.spyOn(DataMapper.prototype, 'get')
-            .mockImplementationOnce(async () => result)
+    get: function (result: any, mock?: jest.SpyInstance): jest.SpyInstance {
+        let tmp = (mock) ? mock : jest.spyOn(DataMapper.prototype, 'get')
+        return tmp.mockImplementationOnce(async () => result)
     },
 
-    getTwice: function (result1: any, result2: any): jest.SpyInstance {
-        return jest.spyOn(DataMapper.prototype, 'get')
-            .mockImplementationOnce(async () => result1)
+    getTwice: function (result1: any, result2: any, mock?: jest.SpyInstance): jest.SpyInstance {
+        let tmp = (mock) ? mock : jest.spyOn(DataMapper.prototype, 'get')
+        return tmp.mockImplementationOnce(async () => result1)
             .mockImplementationOnce(async () => result2)
     },
 
-    getThrice: function (result1: any, result2: any, result3: any): jest.SpyInstance {
-        return jest.spyOn(DataMapper.prototype, 'get')
-            .mockImplementationOnce(async () => result1)
+    getThrice: function (result1: any, result2: any, result3: any, mock?: jest.SpyInstance): jest.SpyInstance {
+        let tmp = (mock) ? mock : jest.spyOn(DataMapper.prototype, 'get')
+        return tmp.mockImplementationOnce(async () => result1)
             .mockImplementationOnce(async () => result2)
             .mockImplementationOnce(async () => result3)
     },
