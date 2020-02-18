@@ -157,6 +157,16 @@ export const mockDynamo = {
             .mockImplementation(async () => result)
     },
 
+    batchGet: function (result: any, mock?: jest.SpyInstance): jest.SpyInstance {
+        let tmp = (mock) ? mock : jest.spyOn(DataMapper.prototype, 'batchGet')
+        return tmp.mockImplementationOnce(() => { return mockAsyncIterator(result) })
+    },
+
+    batchGetAll: function (result: any): jest.SpyInstance {
+        return jest.spyOn(DataMapper.prototype, 'batchGet')
+            .mockImplementation(() => { return mockAsyncIterator(result) })
+    },
+
     batchDelete: function (result: any): jest.SpyInstance {
         return jest.spyOn(DataMapper.prototype, 'batchDelete')
             .mockImplementationOnce(() => { return mockAsyncIterator(result) })

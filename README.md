@@ -131,9 +131,8 @@ describe('Test Sample function', () => {
 
 ```
 
-# Exported functions(2020.02.15)
+# Exported functions(2020.02.18)
 ```javascript
-
 /// <reference types="jest" />
 export declare const mockAsyncIterator: (result: any) => any;
 export declare const currentVersion: (services: any) => any;
@@ -159,6 +158,8 @@ export declare const mockDynamo: {
     deleteTwice: (result1: any, result2: any) => jest.SpyInstance<any, any>;
     deleteThrice: (result1: any, result2: any, result3: any) => jest.SpyInstance<any, any>;
     deleteAll: (result: any) => jest.SpyInstance<any, any>;
+    batchGet: (result: any, mock?: jest.SpyInstance<any, any> | undefined) => jest.SpyInstance<any, any>;
+    batchGetAll: (result: any) => jest.SpyInstance<any, any>;
     batchDelete: (result: any) => jest.SpyInstance<any, any>;
     batchDeleteAll: (result: any) => jest.SpyInstance<any, any>;
     queryWithThrow: () => jest.SpyInstance<any, any>;
@@ -215,7 +216,5 @@ export declare const mockCognitoIdp: {
     adminGetUserAll: (result?: {}) => jest.SpyInstance<any, unknown[]>;
     adminGetUserThrow: (result?: {}) => jest.SpyInstance<any, unknown[]>;
 };
-
-
 
 ```
