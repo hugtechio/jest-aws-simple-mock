@@ -27,6 +27,14 @@ describe('#index', () => {
     })
 
     describe('#getting mock object', () => {
+        describe('#dynamodb data mapper', () => {
+            it('#query', async () => {
+                const result = await target.mockDynamo.query([{}])
+                // @ts-ignore
+                expect(result).toHaveProperty('mock')
+            });
+            
+        });
         describe('#dynamodb doc client', () => {
             it('#get', async () => {
                 const result = await target.mockDynamoDocClient.get({})
@@ -78,6 +86,17 @@ describe('#index', () => {
                 }
                 expect(result).toEqual([{id: 2}])
                 
+            });
+
+            it('#query (pages)', async () => {
+                const dataMapper = new DataMapper({client: new DynamoDB()})
+                let mock = target.mockDynamo.queryPages([[{id: 1}]])
+                // @ts-ignore
+                let q = dataMapper.query().pages()
+                expect(q).toHaveProperty('lastEvaluatedKey')
+                for await (const page of q) {
+                    expect(Array.isArray(page)).toBeTruthy()
+                }
             });
         })
     })

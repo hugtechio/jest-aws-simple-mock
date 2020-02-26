@@ -13,6 +13,7 @@ export const mockAsyncIterator = (result: any) => {
         }
     }
     ret.count = (result) ? Object.keys(result).length : 0
+    ret.lastEvaluatedKey = 'dummyKey'
     return ret
 }
 
@@ -34,6 +35,15 @@ export const mockDynamo = {
     query: function (queryResult: any, mock?: jest.SpyInstance): jest.SpyInstance {
         let tmp = (mock) ? mock : jest.spyOn(DataMapper.prototype, 'query')
         return tmp.mockImplementationOnce(() => { return mockAsyncIterator(queryResult) })
+    },
+
+    queryPages: function (queryResult: any, mock?: jest.SpyInstance): jest.SpyInstance {
+        let tmp = (mock) ? mock : jest.spyOn(DataMapper.prototype, 'query')
+        return tmp.mockImplementationOnce(() => { 
+            return { 
+                pages: () => { return mockAsyncIterator(queryResult) }
+            }
+        })
     },
 
     queryTwice: function (result1: any, result2: any, mock?: jest.SpyInstance): jest.SpyInstance {
