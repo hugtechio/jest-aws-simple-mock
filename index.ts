@@ -17,6 +17,22 @@ export const mockAsyncIterator = (result: any) => {
     return ret
 }
 
+export const mockAsyncIteratorPage = (result: any, last: boolean = false) => {
+    const ret: any = {}
+    ret[Symbol.asyncIterator] = async function * () {
+        if (Array.isArray(result)) {
+            for (const item of result) {
+                yield item
+            }
+        } else {
+            yield result
+        }
+    }
+    ret.count = (result) ? Object.keys(result).length : 0
+    if (!last) ret.lastEvaluatedKey = 'dummyKey'
+    return ret
+}
+
 export const currentVersion = (services: any): any => {
     const keys = Object.keys(services)
     let service = null
@@ -37,11 +53,11 @@ export const mockDynamo = {
         return tmp.mockImplementationOnce(() => { return mockAsyncIterator(queryResult) })
     },
 
-    queryPages: function (queryResult: any, mock?: jest.SpyInstance): jest.SpyInstance {
+    queryPages: function (queryResult: any, last?: boolean, mock?: jest.SpyInstance): jest.SpyInstance {
         let tmp = (mock) ? mock : jest.spyOn(DataMapper.prototype, 'query')
         return tmp.mockImplementationOnce(() => { 
             return { 
-                pages: () => { return mockAsyncIterator(queryResult) }
+                pages: () => { return mockAsyncIteratorPage(queryResult, last) }
             }
         })
     },
