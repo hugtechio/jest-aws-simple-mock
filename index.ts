@@ -360,7 +360,39 @@ export const mockS3 = {
         return jest.spyOn(AWS.S3.prototype, 'getSignedUrl').mockImplementation(() => {
             return url
         })
-    }
+    },
+    getBucketAcl: function (result: {}): jest.SpyInstance {
+        // @ts-ignore
+        return jest.spyOn(currentVersion(AWS.S3.services).prototype, 'getBucketAcl').mockImplementation(() => {
+            return {
+                promise: () => Promise.resolve(result)
+            }
+        })
+    },
+    getBucketAclThrow: function (result: {}): jest.SpyInstance {
+        // @ts-ignore
+        return jest.spyOn(currentVersion(AWS.S3.services).prototype, 'getBucketAcl').mockImplementation(() => {
+            return {
+                promise: () => Promise.reject(result)
+            }
+        })
+    },
+    putBucketAcl: function (result: {}): jest.SpyInstance {
+        // @ts-ignore
+        return jest.spyOn(currentVersion(AWS.S3.services).prototype, 'getBucketAcl').mockImplementation(() => {
+            return {
+                promise: () => Promise.resolve(result)
+            }
+        })
+    },
+    putBucketAclThrow: function (result: {}): jest.SpyInstance {
+        // @ts-ignore
+        return jest.spyOn(currentVersion(AWS.S3.services).prototype, 'getBucketAcl').mockImplementation(() => {
+            return {
+                promise: () => Promise.reject(result)
+            }
+        })
+    },
 }
 
 export const mockCloudFront = {
