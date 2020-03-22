@@ -131,7 +131,7 @@ describe('Test Sample function', () => {
 
 ```
 
-# Exported functions(2020.02.27)
+# Exported functions(2020.03.23)
 
 ```javascript
 /// <reference types="jest" />
@@ -189,6 +189,10 @@ export declare const mockS3: {
     headObjectRejection: (exception: {}) => jest.SpyInstance<any, any>;
     getSignedUrl: (url: string) => jest.SpyInstance<any, any>;
     getSignedUrlAll: (url: string) => jest.SpyInstance<any, any>;
+    getBucketAcl: (result: {}) => jest.SpyInstance<any, any>;
+    getBucketAclThrow: (result: {}) => jest.SpyInstance<any, any>;
+    putBucketAcl: (result: {}) => jest.SpyInstance<any, any>;
+    putBucketAclThrow: (result: {}) => jest.SpyInstance<any, any>;
 };
 export declare const mockCloudFront: {
     getDistribution: (result: {}) => jest.SpyInstance<any, any>;
