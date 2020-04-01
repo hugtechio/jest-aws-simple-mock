@@ -1,5 +1,6 @@
 import * as AWS from 'aws-sdk'
 import { DataMapper } from '@aws/dynamodb-data-mapper'
+import responseTemplate, * as res from './responseTemplate'
 
 export const mockAsyncIterator = (result: any) => {
     const ret: any = {}
@@ -273,55 +274,21 @@ export const mockDynamoDocClient = {
 }
 
 export const mockLambda = {
-    invoke: function (payload = {}): jest.SpyInstance {
+    invoke: function (payload: any, mock?: jest.SpyInstance): jest.SpyInstance {
         // @ts-ignore
-        return jest.spyOn(currentVersion(AWS.Lambda.services).prototype, 'invoke').mockImplementationOnce(() => {
-            return {
-                promise: () => {
-                    return {
-                        statusCode: 200,
-                        Payload: JSON.stringify(payload)
-                    }
-                }
-            }
-        })
+        const tmp = (mock) ? mock : jest.spyOn(currentVersion(AWS.Lambda.services).prototype, 'invoke')
+        return tmp.mockImplementationOnce(() => { responseTemplate.lambda(payload) })
     },
-    invokeTwice: function (payload1 = {}, payload2 = {}): jest.SpyInstance {
+    invokeTwice: function (payload1: any, payload2: any, mock?: jest.SpyInstance): jest.SpyInstance {
         // @ts-ignore
-        return jest.spyOn(currentVersion(AWS.Lambda.services).prototype, 'invoke')
-        .mockImplementationOnce(() => {
-            return {
-                promise: () => {
-                    return {
-                        statusCode: 200,
-                        Payload: JSON.stringify(payload1)
-                    }
-                }
-            }
-        })
-        .mockImplementationOnce(() => {
-            return {
-                promise: () => {
-                    return {
-                        statusCode: 200,
-                        Payload: JSON.stringify(payload2)
-                    }
-                }
-            }
-        })
+        const tmp = (mock) ? mock : jest.spyOn(currentVersion(AWS.Lambda.services).prototype, 'invoke')
+        return tmp.mockImplementationOnce(() => { responseTemplate.lambda(payload1) })
+            .mockImplementationOnce(() => { responseTemplate.lambda(payload2) })
     },
-    invokeAll: function (payload = {}): jest.SpyInstance {
+    invokeAll: function (payload: any = {}): jest.SpyInstance {
         // @ts-ignore
-        return jest.spyOn(currentVersion(AWS.Lambda.services).prototype, 'invoke').mockImplementation(() => {
-            return {
-                promise: () => {
-                    return {
-                        statusCode: 200,
-                        Payload: JSON.stringify(payload)
-                    }
-                }
-            }
-        })
+        const tmp = (mock) ? mock : jest.spyOn(currentVersion(AWS.Lambda.services).prototype, 'invoke')
+        return tmp.mockImplementation(() => { responseTemplate.lambda(payload) })
     }
 }
 

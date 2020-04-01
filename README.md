@@ -179,9 +179,9 @@ export declare const mockDynamoDocClient: {
     updateAll: (result: any) => jest.SpyInstance<any, any>;
 };
 export declare const mockLambda: {
-    invoke: (payload?: {}) => jest.SpyInstance<any, any>;
-    invokeTwice: (payload1?: {}, payload2?: {}) => jest.SpyInstance<any, any>;
-    invokeAll: (payload?: {}) => jest.SpyInstance<any, any>;
+    invoke: (payload: any, mock?: jest.SpyInstance<any, any> | undefined) => jest.SpyInstance<any, any>;
+    invokeTwice: (payload1: any, payload2: any, mock?: jest.SpyInstance<any, any> | undefined) => jest.SpyInstance<any, any>;
+    invokeAll: (payload?: any) => jest.SpyInstance<any, any>;
 };
 export declare const mockS3: {
     headObject: (meta: {}) => jest.SpyInstance<any, any>;
@@ -223,5 +223,6 @@ export declare const mockCognitoIdp: {
     adminGetUserAll: (result?: {}) => jest.SpyInstance<any, unknown[]>;
     adminGetUserThrow: (result?: {}) => jest.SpyInstance<any, unknown[]>;
 };
+
 
 ```
