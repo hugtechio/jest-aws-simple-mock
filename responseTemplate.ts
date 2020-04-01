@@ -3,7 +3,7 @@ export default {
         return {
             promise: () => {
                 return {
-                    statusCode: (statusCode) ? statusCode : 200,
+                    StatusCode: (statusCode) ? statusCode : 200,
                     Payload: JSON.stringify(payload)
                 }
             }

@@ -277,18 +277,18 @@ export const mockLambda = {
     invoke: function (payload: any, mock?: jest.SpyInstance): jest.SpyInstance {
         // @ts-ignore
         const tmp = (mock) ? mock : jest.spyOn(currentVersion(AWS.Lambda.services).prototype, 'invoke')
-        return tmp.mockImplementationOnce(() => { responseTemplate.lambda(payload) })
+        return tmp.mockImplementationOnce(() => { return responseTemplate.lambda(payload) })
     },
     invokeTwice: function (payload1: any, payload2: any, mock?: jest.SpyInstance): jest.SpyInstance {
         // @ts-ignore
         const tmp = (mock) ? mock : jest.spyOn(currentVersion(AWS.Lambda.services).prototype, 'invoke')
-        return tmp.mockImplementationOnce(() => { responseTemplate.lambda(payload1) })
-            .mockImplementationOnce(() => { responseTemplate.lambda(payload2) })
+        return tmp.mockImplementationOnce(() => { return responseTemplate.lambda(payload1) })
+            .mockImplementationOnce(() => { return responseTemplate.lambda(payload2) })
     },
     invokeAll: function (payload: any = {}): jest.SpyInstance {
         // @ts-ignore
         const tmp = (mock) ? mock : jest.spyOn(currentVersion(AWS.Lambda.services).prototype, 'invoke')
-        return tmp.mockImplementation(() => { responseTemplate.lambda(payload) })
+        return tmp.mockImplementation(() => { return responseTemplate.lambda(payload) })
     }
 }
 
