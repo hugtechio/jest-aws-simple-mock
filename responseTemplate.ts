@@ -8,5 +8,14 @@ export default {
                 }
             }
         }
-    }
+    },
+    lambdaAsync: function (statusCode?: number): any {
+        return {
+            promise: () => {
+                return {
+                    Status: (statusCode) ? statusCode : 200
+                }
+            }
+        }
+    },
 }

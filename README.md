@@ -131,7 +131,7 @@ describe('Test Sample function', () => {
 
 ```
 
-# Exported functions(2020.03.23)
+# Exported functions(2020.04.03)
 
 ```javascript
 /// <reference types="jest" />
@@ -182,8 +182,8 @@ export declare const mockLambda: {
     invoke: (payload: any, mock?: jest.SpyInstance<any, any> | undefined) => jest.SpyInstance<any, any>;
     invokeTwice: (payload1: any, payload2: any, mock?: jest.SpyInstance<any, any> | undefined) => jest.SpyInstance<any, any>;
     invokeAll: (payload?: any) => jest.SpyInstance<any, any>;
-    invokeAsync: (payload: any, mock?: jest.SpyInstance<any, any> | undefined) => jest.SpyInstance<any, any>;
-    invokeAsyncAll: (payload?: any) => jest.SpyInstance<any, any>;
+    invokeAsync: (status: number, mock?: jest.SpyInstance<any, any> | undefined) => jest.SpyInstance<any, any>;
+    invokeAsyncAll: (status: number) => jest.SpyInstance<any, any>;
 };
 export declare const mockS3: {
     headObject: (meta: {}) => jest.SpyInstance<any, any>;
@@ -225,7 +225,5 @@ export declare const mockCognitoIdp: {
     adminGetUserAll: (result?: {}) => jest.SpyInstance<any, unknown[]>;
     adminGetUserThrow: (result?: {}) => jest.SpyInstance<any, unknown[]>;
 };
-
-
 
 ```
