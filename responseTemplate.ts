@@ -18,4 +18,9 @@ export default {
             }
         }
     },
+    promise: function (result: any): any {
+        return {
+            promise: () => Promise.resolve(result)
+        }
+    }
 }

@@ -131,13 +131,16 @@ describe('Test Sample function', () => {
 
 ```
 
-# Exported functions(2020.04.03)
+# Exported functions(2020.04.14)
 
 ```javascript
 /// <reference types="jest" />
 export declare const mockAsyncIterator: (result: any) => any;
 export declare const mockAsyncIteratorPage: (result: any, last?: boolean) => any;
 export declare const currentVersion: (services: any) => any;
+interface Mock {
+    [method: string]: (result: any, mock?: jest.SpyInstance) => jest.SpyInstance;
+}
 export declare const mockDynamo: {
     query: (queryResult: any, mock?: jest.SpyInstance<any, any> | undefined) => jest.SpyInstance<any, any>;
     queryPages: (queryResult: any, last?: boolean | undefined, mock?: jest.SpyInstance<any, any> | undefined) => jest.SpyInstance<any, any>;
@@ -196,24 +199,12 @@ export declare const mockS3: {
     putBucketAcl: (result: {}) => jest.SpyInstance<any, any>;
     putBucketAclThrow: (result: {}) => jest.SpyInstance<any, any>;
 };
-export declare const mockCloudFront: {
-    getDistribution: (result: {}) => jest.SpyInstance<any, any>;
-    getDistributionAll: (result: {}) => jest.SpyInstance<any, any>;
-    getDistributionConfig: (result: {}) => jest.SpyInstance<any, any>;
-    getDistributionConfigAll: (result: {}) => jest.SpyInstance<any, any>;
-    updateDistribution: (result: {}) => jest.SpyInstance<any, any>;
-    updateDistributionAll: (result: {}) => jest.SpyInstance<any, any>;
-    createInvalidation: (result: {}) => jest.SpyInstance<any, any>;
-    createInvalidationAll: (result: {}) => jest.SpyInstance<any, any>;
-};
+export declare const mockCloudFront: Mock; // exported all of CloudFront function mock. [methodlist](../blob/master/methodList.ts)
 export declare const mockSqs: {
     sendMessage: (result: {}) => jest.SpyInstance<any, any>;
     sendMessageAll: (result: {}) => jest.SpyInstance<any, any>;
 };
-export declare const mockAcm: {
-    describeCertificate: (result?: {}) => jest.SpyInstance<any, unknown[]>;
-    describeCertificateAll: (result?: {}) => jest.SpyInstance<any, unknown[]>;
-};
+export declare const mockAcm: Mock; // exorted all of Acm function mock. [methodlist](../blob/master/methodList.ts)
 export declare const mockCognitoIdp: {
     listUsers: (result?: {}) => jest.SpyInstance<any, unknown[]>;
     listUsersThrow: (result?: {}) => jest.SpyInstance<any, unknown[]>;
@@ -225,5 +216,5 @@ export declare const mockCognitoIdp: {
     adminGetUserAll: (result?: {}) => jest.SpyInstance<any, unknown[]>;
     adminGetUserThrow: (result?: {}) => jest.SpyInstance<any, unknown[]>;
 };
-
+export {};
 ```

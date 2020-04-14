@@ -99,5 +99,46 @@ describe('#index', () => {
                 }
             });
         })
+
+        describe ('#acm', () => {
+            beforeEach(() => {
+                jest.restoreAllMocks()
+            })
+            it('should get requestCertificate', async () => {
+                const acm = new AWS.ACM()
+                let mock = target.mockAcm.requestCertificate({})
+                const result = await acm.requestCertificate().promise()
+                expect(result).toEqual({})
+            });
+            it('should get requestCertificateAll', async () => {
+                const acm = new AWS.ACM()
+                let mock = target.mockAcm.requestCertificateAll({})
+                const result1 = await acm.requestCertificate().promise()
+                const result2 = await acm.requestCertificate().promise()
+                expect(result1).toEqual({})
+                expect(result2).toEqual({})
+            });
+        })
+
+        describe ('#cloudfront', () => {
+            beforeEach(() => {
+                jest.restoreAllMocks()
+            })
+            it('should get getDistributionConfig', async () => {
+                const cf = new AWS.CloudFront()
+                let mock = target.mockCloudFront.getDistributionConfig({})
+                const result = await cf.getDistributionConfig().promise()
+                expect(result).toEqual({})
+            });
+
+            it('should get getDistributionConfigAll', async () => {
+                const cf = new AWS.CloudFront()
+                let mock = target.mockCloudFront.getDistributionConfigAll({})
+                const result1 = await cf.getDistributionConfig().promise()
+                const result2 = await cf.getDistributionConfig().promise()
+                expect(result1).toEqual({})
+                expect(result2).toEqual({})
+            });
+        })
     })
 })

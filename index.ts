@@ -1,5 +1,6 @@
 import * as AWS from 'aws-sdk'
 import { DataMapper } from '@aws/dynamodb-data-mapper'
+import * as methodList from './methodList'
 import responseTemplate, * as res from './responseTemplate'
 
 export const mockAsyncIterator = (result: any) => {
@@ -46,6 +47,32 @@ export const currentVersion = (services: any): any => {
         }
     });
     return service
+}
+
+interface Mock {
+    [method: string]: (result: any, mock?: jest.SpyInstance) => jest.SpyInstance
+}
+
+const doMock = (services: any, method: any, result: any, mockOnce: boolean, mock?: jest.SpyInstance): jest.SpyInstance => {
+    // @ts-ignore
+    const tmp = (mock) ? mock : jest.spyOn(currentVersion(services).prototype, method)
+    return (mockOnce) ?
+        tmp.mockImplementationOnce(() => responseTemplate.promise(result)) :
+        tmp.mockImplementation(() => responseTemplate.promise(result))
+}
+
+const genMock = (services: any, methods: string[]) => {
+    let ret: Mock = {}
+    methods.forEach(method => {
+        ret[method] = function (result: any, mock?: jest.SpyInstance): jest.SpyInstance {
+            return doMock(services, method, result, true, mock)
+        }
+
+        ret[`${method}All`] = function (result: any, mock?: jest.SpyInstance): jest.SpyInstance {
+            return doMock(services, method, result, false, mock)
+        } 
+    })
+    return ret
 }
 
 export const mockDynamo = {
@@ -371,73 +398,9 @@ export const mockS3 = {
         })
     },
 }
-
-export const mockCloudFront = {
-    getDistribution: function (result: {}): jest.SpyInstance {
-        // @ts-ignore
-        return jest.spyOn(currentVersion(AWS.CloudFront.services).prototype, 'getDistribution').mockImplementationOnce(() => {
-            return {
-                promise: () => Promise.resolve(result)
-            }
-        })
-    },
-    getDistributionAll: function (result: {}): jest.SpyInstance {
-        // @ts-ignore
-        return jest.spyOn(currentVersion(AWS.CloudFront.services).prototype, 'getDistribution').mockImplementation(() => {
-            return {
-                promise: () => Promise.resolve(result)
-            }
-        })
-    },
-    getDistributionConfig: function (result: {}): jest.SpyInstance {
-        // @ts-ignore
-        return jest.spyOn(currentVersion(AWS.CloudFront.services).prototype, 'getDistributionConfig').mockImplementationOnce(() => {
-            return {
-                promise: () => Promise.resolve(result)
-            }
-        })
-    },
-    getDistributionConfigAll: function (result: {}): jest.SpyInstance {
-        // @ts-ignore
-        return jest.spyOn(currentVersion(AWS.CloudFront.services).prototype, 'getDistributionConfig').mockImplementation(() => {
-            return {
-                promise: () => Promise.resolve(result)
-            }
-        })
-    },
-    updateDistribution: function (result: {}): jest.SpyInstance {
-        // @ts-ignore
-        return jest.spyOn(currentVersion(AWS.CloudFront.services).prototype, 'updateDistribution').mockImplementationOnce(() => {
-            return {
-                promise: () => Promise.resolve(result)
-            }
-        })
-    },
-    updateDistributionAll: function (result: {}): jest.SpyInstance {
-        // @ts-ignore
-        return jest.spyOn(currentVersion(AWS.CloudFront.services).prototype, 'updateDistribution').mockImplementation(() => {
-            return {
-                promise: () => Promise.resolve(result)
-            }
-        })
-    },
-    createInvalidation: function (result: {}): jest.SpyInstance {
-        // @ts-ignore
-        return jest.spyOn(currentVersion(AWS.CloudFront.services).prototype, 'createInvalidation').mockImplementation(() => {
-            return {
-                promise: () => Promise.resolve(result)
-            }
-        })
-    },
-    createInvalidationAll: function (result: {}): jest.SpyInstance {
-        // @ts-ignore
-        return jest.spyOn(currentVersion(AWS.CloudFront.services).prototype, 'createInvalidation').mockImplementation(() => {
-            return {
-                promise: () => Promise.resolve(result)
-            }
-        })
-    }
-}
+// @ts-ignore
+const mocksCloudFront = genMock(AWS.CloudFront.services, methodList.CloudFront)
+export const mockCloudFront: Mock = mocksCloudFront
 
 export const mockSqs = {
     sendMessage: function (result: {}): jest.SpyInstance {
@@ -458,24 +421,10 @@ export const mockSqs = {
     }
 }
 
-export const mockAcm = {
-    describeCertificate: function (result = {}) {
-        // @ts-ignore
-        return jest.spyOn(currentVersion(AWS.ACM.services).prototype, 'describeCertificate').mockImplementationOnce(() => {
-            return {
-                promise: () => Promise.resolve(result)
-            }
-        })
-    },
-    describeCertificateAll: function (result = {}) {
-        // @ts-ignore
-        return jest.spyOn(currentVersion(AWS.ACM.services).prototype, 'describeCertificate').mockImplementation(() => {
-            return {
-                promise: () => Promise.resolve(result)
-            }
-        })
-    }
-}
+
+// @ts-ignore
+const mocksAcm = genMock(AWS.ACM.services, methodList.Acm)
+export const mockAcm: Mock = mocksAcm
 
 export const mockCognitoIdp = {
     listUsers: function (result = {}) {
