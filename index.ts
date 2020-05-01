@@ -299,35 +299,9 @@ export const mockDynamoDocClient = {
         })
     }
 }
-
-export const mockLambda = {
-    invoke: function (payload: any, mock?: jest.SpyInstance): jest.SpyInstance {
-        // @ts-ignore
-        const tmp = (mock) ? mock : jest.spyOn(currentVersion(AWS.Lambda.services).prototype, 'invoke')
-        return tmp.mockImplementationOnce(() => { return responseTemplate.lambda(payload) })
-    },
-    invokeTwice: function (payload1: any, payload2: any, mock?: jest.SpyInstance): jest.SpyInstance {
-        // @ts-ignore
-        const tmp = (mock) ? mock : jest.spyOn(currentVersion(AWS.Lambda.services).prototype, 'invoke')
-        return tmp.mockImplementationOnce(() => { return responseTemplate.lambda(payload1) })
-            .mockImplementationOnce(() => { return responseTemplate.lambda(payload2) })
-    },
-    invokeAll: function (payload: any = {}): jest.SpyInstance {
-        // @ts-ignore
-        const tmp = (mock) ? mock : jest.spyOn(currentVersion(AWS.Lambda.services).prototype, 'invoke')
-        return tmp.mockImplementation(() => { return responseTemplate.lambda(payload) })
-    },
-    invokeAsync: function (status: number, mock?: jest.SpyInstance): jest.SpyInstance {
-        // @ts-ignore
-        const tmp = (mock) ? mock : jest.spyOn(currentVersion(AWS.Lambda.services).prototype, 'invokeAsync')
-        return tmp.mockImplementationOnce(() => { return responseTemplate.lambdaAsync(status) })
-    },
-    invokeAsyncAll: function (status: number): jest.SpyInstance {
-        // @ts-ignore
-        const tmp = (mock) ? mock : jest.spyOn(currentVersion(AWS.Lambda.services).prototype, 'invokeAsync')
-        return tmp.mockImplementation(() => { return responseTemplate.lambdaAsync(status) }) 
-    }
-}
+// @ts-ignore
+const mocksLambda = genMock(AWS.Lambda.services, methodList.Lambda)
+export const mockLambda: Mock = mocksLambda
 
 export const mockS3 = {
     headObject: function (meta: {}): jest.SpyInstance {

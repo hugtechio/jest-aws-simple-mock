@@ -140,5 +140,26 @@ describe('#index', () => {
                 expect(result2).toEqual({})
             });
         })
+
+        describe ('#lambda', () => {
+            beforeEach(() => {
+                jest.restoreAllMocks()
+            })
+            it('should get invoke', async () => {
+                const lambda = new AWS.Lambda()
+                let mock = target.mockLambda.invoke({})
+                const result = await lambda.invoke().promise()
+                expect(result).toEqual({})
+            });
+
+            it('should get invokeAll', async () => {
+                const lambda = new AWS.Lambda()
+                let mock = target.mockLambda.invokeAll({})
+                const result1 = await lambda.invoke().promise()
+                const result2 = await lambda.invoke().promise()
+                expect(result1).toEqual({})
+                expect(result2).toEqual({})
+            });
+        })
     })
 })
