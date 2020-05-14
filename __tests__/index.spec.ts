@@ -139,6 +139,17 @@ describe('#index', () => {
                 expect(result1).toEqual({})
                 expect(result2).toEqual({})
             });
+
+            it('should throw getDistributionConfigThrow', async () => {
+                const cf = new AWS.CloudFront()
+                let mock = target.mockCloudFront.getDistributionConfigThrow({})
+                try {
+                    const result1 = await cf.getDistributionConfig().promise()
+                    expect(null).toBe('This path is fault of the test') // should be
+                } catch (e) {
+                    expect(e).toEqual({})
+                }
+            });
         })
 
         describe ('#lambda', () => {

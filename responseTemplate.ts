@@ -22,5 +22,10 @@ export default {
         return {
             promise: () => Promise.resolve(result)
         }
+    },
+    throw: function (result: any): any {
+        return {
+            promise: () => Promise.reject(result)
+        }
     }
 }

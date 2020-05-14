@@ -53,12 +53,13 @@ interface Mock {
     [method: string]: (result: any, mock?: jest.SpyInstance) => jest.SpyInstance
 }
 
-const doMock = (services: any, method: any, result: any, mockOnce: boolean, mock?: jest.SpyInstance): jest.SpyInstance => {
+const doMock = (services: any, method: any, result: any, mockOnce: boolean, mock?: jest.SpyInstance, isThrow?: boolean): jest.SpyInstance => {
     // @ts-ignore
     const tmp = (mock) ? mock : jest.spyOn(currentVersion(services).prototype, method)
+    const mockResultFunction = (!isThrow) ? responseTemplate.promise(result) : responseTemplate.throw(result)
     return (mockOnce) ?
-        tmp.mockImplementationOnce(() => responseTemplate.promise(result)) :
-        tmp.mockImplementation(() => responseTemplate.promise(result))
+        tmp.mockImplementationOnce(() => mockResultFunction) :
+        tmp.mockImplementation(() => mockResultFunction)
 }
 
 const genMock = (services: any, methods: string[]) => {
@@ -70,6 +71,10 @@ const genMock = (services: any, methods: string[]) => {
 
         ret[`${method}All`] = function (result: any, mock?: jest.SpyInstance): jest.SpyInstance {
             return doMock(services, method, result, false, mock)
+        }
+
+        ret[`${method}Throw`] = function (result: any, mock?: jest.SpyInstance): jest.SpyInstance {
+            return doMock(services, method, result, false, mock, true)
         } 
     })
     return ret

@@ -1,137 +1,72 @@
 # jest-aws-simple-mock
-simple mocking aws sdk and dynamodb-datamapper by jest.
+Simple mocking aws sdk version 2 and the dynamodb-datamapper  with jest.
 
-You can only specfiy expectation of result object to mock some AWS-SDK function.
+You can only specify expectation of the target function to mock some AWS-SDK feature.
 And if You use DynamoDB data mapper to access to dynamoDB, It's is also able to mock.
 
-# Usage
+# Examples 
 
-## for DynamoDB Data mapper
+## DynamoDB Data Mapper
 ```
 import { mockDynamo } from 'jest-aws-simple-mock'
 
+<!-- mocking once -->
 mockDynamo.query([resultObject1-1, resultObject1-2])
 mockDynamo.get({resultObject})
+
+<!-- mocking all invocation -->
+mockDynamo.queryAll([resultObject1-1, resultObject1-2])
+mockDynamo.getAll({resultObject})
+
+<!-- mocking with throw -->
+mockDynamo.queryThrow([resultObject1-1, resultObject1-2])
+mockDynamo.getThrow({resultObject})
 ```
 
-## for DynamoDB Document Client
+## DynamoDB Document Client
 ```
 import { mockDynamoDocClient } from 'jest-aws-simple-mock'
 mockDynamoDocClient.get({Item: {xxxxx}}
 ```
 
-## for other AWS-SDK method
+## The other AWS-SDK method
 ```
 import { mockLambda } from 'jest-aws-simple-mock'
 mockLambda.invoke(resultObject}
 ```
 
-## mock all and mock once
-### mock All invocation (all call target function will return same resultObject)
+To see all generated functions, check below.
+
+## Mocking patterns
+
+### mock at once (only mock first invocation)
+```
+mockLambda.invoke(resultObject)
+```
+
+### mock All invocation (mocking all calls of target function)
 ```
 mockLambda.invokeAll(resultObject}
 ```
 
-### mock once invocation(only first call target function will return resultObject)
+### mock with throw 
 ```
-mockLambda.invoke(resultObject}
-```
-
-# Example
-
-```javascript
-import * as mock from 'jest-aws-simple-mock'
-
-// Target function
-import * as AWS from 'aws-sdk'
-import { DataMapper } from '@aws/dynamodb-data-mapper'
-const dataMapper = new DataMapper({client: new DynamoDB()})
-
-@table('Sample')
-interface SampleModel {
-    @hash_key()
-    id: string;
-
-    @attribute()
-    name: string;
-
-    @attribute()
-    address: string;
-}
-
-function async target (input: string): Promise<boolean> {
-    const query = dataMapper.query<SampleModel>(
-        SampleModel,
-        {id: input}
-    )
-
-    let result: boolean = false
-    for await (const item of query) {
-        if (item) {
-            result = true
-        }
-    }
-    return result
-}
-
-
-// test function
-describe('Test Sample function', () => {
-    beforeAll(() => {
-        jest.resetAllMocks()
-    })
-
-    it ('expect result true', async () => {
-        // mock result of dynamodb.query method for dynamodb data mapper.
-        mock.mockDynamo.query([{id: 'id1', name: 'name1', address: 'address1'}])
-        const result = await target('id')
-        expect(result).toBeTruthy()
-    })
-})
+mockLambda.invokeThrow(resultObject}
 ```
 
-# example (dynamodb data mapper query method) * here is a part of test code in this library.
+## mock chaining
+You can add additional mock function by passing mock object
 
-```javascript
-
-    it('#query (new)', async () => {
-        const dataMapper = new DataMapper({client: new DynamoDB()})
-        target.mockDynamo.query([{id: 1}])
-        // @ts-ignore
-        const q = dataMapper.query()
-        let result = [] 
-        for await (const item of q) {
-            result.push(item)
-        }
-        expect(result).toEqual([{id: 1}])
-    });
-
-    it('#query (add)', async () => {
-        const dataMapper = new DataMapper({client: new DynamoDB()})
-        let mock = target.mockDynamo.query([{id: 1}])
-        target.mockDynamo.query([{id: 2}], mock)
-
-        // @ts-ignore
-        let q = dataMapper.query()
-        let result = [] 
-        for await (const item of q) {
-            result.push(item)
-        }
-        expect(result).toEqual([{id: 1}])
-
-        // @ts-ignore
-        q = dataMapper.query()
-        result = [] 
-        for await (const item of q) {
-            result.push(item)
-        }
-        expect(result).toEqual([{id: 2}])
-        
-    });
+following exampke, mockLambda will return result1 when first call the lambda invoke.
+And it will return result2 when second call.
+(If the lambda invoke method was called 3 times, The third call was call original AWS method.)
 
 ```
+let mock = mockLambda.invoke(result1)
+mock = mockLambda.invoke(result2, mock)
+```
 
-# Exported functions(2020.05.01)
+# Exported functions(2020.05.14)
 
 ```javascript
 /// <reference types="jest" />
