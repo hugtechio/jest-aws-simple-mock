@@ -117,18 +117,8 @@ export declare const mockDynamoDocClient: {
     updateAll: (result: any) => jest.SpyInstance<any, any>;
 };
 export declare const mockLambda: Mock; // exorted all of Lambda function mock. [methodlist](../blob/master/methodList.ts)
+export declare const mockS3: Mock; // exorted all of Lambda function mock. [methodlist](../blob/master/methodList.ts)
 
-export declare const mockS3: {
-    headObject: (meta: {}) => jest.SpyInstance<any, any>;
-    headObjectAll: (meta: {}) => jest.SpyInstance<any, any>;
-    headObjectRejection: (exception: {}) => jest.SpyInstance<any, any>;
-    getSignedUrl: (url: string) => jest.SpyInstance<any, any>;
-    getSignedUrlAll: (url: string) => jest.SpyInstance<any, any>;
-    getBucketAcl: (result: {}) => jest.SpyInstance<any, any>;
-    getBucketAclThrow: (result: {}) => jest.SpyInstance<any, any>;
-    putBucketAcl: (result: {}) => jest.SpyInstance<any, any>;
-    putBucketAclThrow: (result: {}) => jest.SpyInstance<any, any>;
-};
 export declare const mockCloudFront: Mock; // exported all of CloudFront function mock. [methodlist](../blob/master/methodList.ts)
 export declare const mockSqs: {
     sendMessage: (result: {}) => jest.SpyInstance<any, any>;

@@ -308,75 +308,33 @@ export const mockDynamoDocClient = {
 const mocksLambda = genMock(AWS.Lambda.services, methodList.Lambda)
 export const mockLambda: Mock = mocksLambda
 
-export const mockS3 = {
-    headObject: function (meta: {}): jest.SpyInstance {
-        // @ts-ignore
-        return jest.spyOn(currentVersion(AWS.S3.services).prototype, 'headObject').mockImplementationOnce(() => {
-            return {
-                promise: () => Promise.resolve(meta)
-            }
-        })
-    },
-    headObjectAll: function (meta: {}): jest.SpyInstance {
-        // @ts-ignore
-        return jest.spyOn(currentVersion(AWS.S3.services).prototype, 'headObject').mockImplementation(() => {
-            return {
-                promise: () => Promise.resolve(meta)
-            }
-        })
-    },
-    headObjectRejection: function (exception: {}): jest.SpyInstance {
-        // @ts-ignore
-        return jest.spyOn(currentVersion(AWS.S3.services).prototype, 'headObject').mockImplementation(() => {
-            return {
-                promise: () => Promise.reject(exception)
-            }
-        })
-    },
-
-    getSignedUrl: function (url: string): jest.SpyInstance {
-        return jest.spyOn(AWS.S3.prototype, 'getSignedUrl').mockImplementationOnce(() => {
-            return url
-        })
-    },
-    getSignedUrlAll: function (url: string): jest.SpyInstance {
-        return jest.spyOn(AWS.S3.prototype, 'getSignedUrl').mockImplementation(() => {
-            return url
-        })
-    },
-    getBucketAcl: function (result: {}): jest.SpyInstance {
-        // @ts-ignore
-        return jest.spyOn(currentVersion(AWS.S3.services).prototype, 'getBucketAcl').mockImplementation(() => {
-            return {
-                promise: () => Promise.resolve(result)
-            }
-        })
-    },
-    getBucketAclThrow: function (result: {}): jest.SpyInstance {
-        // @ts-ignore
-        return jest.spyOn(currentVersion(AWS.S3.services).prototype, 'getBucketAcl').mockImplementation(() => {
-            return {
-                promise: () => Promise.reject(result)
-            }
-        })
-    },
-    putBucketAcl: function (result: {}): jest.SpyInstance {
-        // @ts-ignore
-        return jest.spyOn(currentVersion(AWS.S3.services).prototype, 'getBucketAcl').mockImplementation(() => {
-            return {
-                promise: () => Promise.resolve(result)
-            }
-        })
-    },
-    putBucketAclThrow: function (result: {}): jest.SpyInstance {
-        // @ts-ignore
-        return jest.spyOn(currentVersion(AWS.S3.services).prototype, 'getBucketAcl').mockImplementation(() => {
-            return {
-                promise: () => Promise.reject(result)
-            }
-        })
-    },
+// @ts-ignore
+const mocksS3 = genMock(AWS.S3.services, methodList.s3)
+// The methods for presign urls not exist in the services scope. Adding these mocks with individually.
+mocksS3.getSignedUrl = (url: string): jest.SpyInstance => {
+    return jest.spyOn(AWS.S3.prototype, 'getSignedUrl').mockImplementationOnce(() => {
+        return url
+    })
 }
+mocksS3.getSignedUrlAll = (url: string): jest.SpyInstance => {
+    return jest.spyOn(AWS.S3.prototype, 'getSignedUrl').mockImplementation(() => {
+        return url
+    })
+}
+// The methods for presign urls not exist in the services scope. Adding these mocks with individually.
+mocksS3.getSignedUrlPromise = (url: string): jest.SpyInstance => {
+    return jest.spyOn(AWS.S3.prototype, 'getSignedUrlPromise').mockImplementationOnce(() => {
+        return Promise.resolve(url)
+    })
+}
+mocksS3.getSignedUrlPromiseAll = (url: string): jest.SpyInstance => {
+    return jest.spyOn(AWS.S3.prototype, 'getSignedUrlPromise').mockImplementation(() => {
+        return Promise.resolve(url)
+    })
+}
+export const mockS3: Mock = mocksS3
+
+
 // @ts-ignore
 const mocksCloudFront = genMock(AWS.CloudFront.services, methodList.CloudFront)
 export const mockCloudFront: Mock = mocksCloudFront

@@ -172,5 +172,31 @@ describe('#index', () => {
                 expect(result2).toEqual({})
             });
         })
+
+        describe ('#s3', () => {
+            beforeEach(() => {
+                jest.restoreAllMocks()
+            })
+            it('should get getObject mock', async () => {
+                const s3 = new AWS.S3()
+                let mock = target.mockS3.getObject({})
+                const result = await s3.getObject().promise()
+                expect(result).toEqual({})
+            });
+            it('should get getpresignedurl mock', async () => {
+                const s3 = new AWS.S3()
+                let mock = target.mockS3.getSignedUrl({})
+                // @ts-ignore
+                const result = s3.getSignedUrl()
+                expect(result).toEqual({})
+            });
+            it('should get getpresignedurlPromise mock', async () => {
+                const s3 = new AWS.S3()
+                let mock = target.mockS3.getSignedUrlPromise({})
+                // @ts-ignore
+                const result = await s3.getSignedUrlPromise()
+                expect(result).toEqual({})
+            });
+        })
     })
 })
