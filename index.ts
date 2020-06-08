@@ -62,7 +62,7 @@ const doMock = (services: any, method: any, result: any, mockOnce: boolean, mock
         tmp.mockImplementation(() => mockResultFunction)
 }
 
-const genMock = (services: any, methods: string[]) => {
+export const genMock = (services: any, methods: string[]) => {
     let ret: Mock = {}
     methods.forEach(method => {
         ret[method] = function (result: any, mock?: jest.SpyInstance): jest.SpyInstance {
