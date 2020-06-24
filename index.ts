@@ -236,13 +236,13 @@ export const mockDynamo = {
             .mockImplementation(() => { return mockAsyncIterator(result) })
     },
 
-    queryWithThrow: function (): jest.SpyInstance {
-        return jest.spyOn(DataMapper.prototype, 'query')
-            .mockImplementationOnce(() => { throw new Error('mock exception') })
+    queryWithThrow: function (mock?: jest.SpyInstance): jest.SpyInstance {
+        const m = (mock) ? mock : jest.spyOn(DataMapper.prototype, 'query') 
+        return m.mockImplementationOnce(() => { throw new Error('mock exception') })
     },
-    getWithThrow: function (): jest.SpyInstance {
-        return jest.spyOn(DataMapper.prototype, 'query')
-            .mockImplementationOnce(() => { throw new Error('mock exception') })
+    getWithThrow: function (mock?: jest.SpyInstance): jest.SpyInstance {
+        const m = (mock) ? mock : jest.spyOn(DataMapper.prototype, 'get') 
+        return m.mockImplementationOnce(() => { throw new Error('mock exception') })
     },
     executeUpdateExpression: function (result: any): jest.SpyInstance {
         return jest.spyOn(DataMapper.prototype, 'executeUpdateExpression')
