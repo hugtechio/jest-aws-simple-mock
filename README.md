@@ -118,6 +118,7 @@ export declare const mockDynamoDocClient: {
 };
 export declare const mockLambda: Mock; // exorted all of Lambda function mock. [methodlist](../blob/master/methodList.ts)
 export declare const mockS3: Mock; // exorted all of Lambda function mock. [methodlist](../blob/master/methodList.ts)
+export declare const mockEventBridge: Mock; // exorted all of Lambda function mock. [methodlist](../blob/master/methodList.ts)
 
 export declare const mockCloudFront: Mock; // exported all of CloudFront function mock. [methodlist](../blob/master/methodList.ts)
 export declare const mockSqs: {

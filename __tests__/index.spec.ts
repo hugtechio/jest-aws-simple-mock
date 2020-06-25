@@ -198,5 +198,17 @@ describe('#index', () => {
                 expect(result).toEqual({})
             });
         })
+
+        describe ('#EventBridge', () => {
+            beforeEach(() => {
+                jest.restoreAllMocks()
+            })
+            it('should get createEventBus mock', async () => {
+                const eb = new AWS.EventBridge()
+                let mock = target.mockEventBridge.createEventBus({})
+                const result = await eb.createEventBus().promise()
+                expect(result).toEqual({})                
+            })
+        })
     })
 })

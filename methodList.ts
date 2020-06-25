@@ -209,3 +209,37 @@ export const s3 = [
     'uploadPart',
     'uploadPartCopy'
 ]
+
+export const EventBridge = [
+    'activateEventSource',
+    'createEventBus',
+    'createPartnerEventSource',
+    'deactivateEventSource',
+    'deleteEventBus',
+    'deletePartnerEventSource',
+    'deleteRule',
+    'describeEventBus',
+    'describeEventSource',
+    'describePartnerEventSource',
+    'describeRule',
+    'disableRule',
+    'enableRule',
+    'listEventBuses',
+    'listEventSources',
+    'listPartnerEventSourceAccounts',
+    'listPartnerEventSources',
+    'listRuleNamesByTarget',
+    'listRules',
+    'listTagsForResource',
+    'listTargetsByRule',
+    'putEvents',
+    'putPartnerEvents',
+    'putPermission',
+    'putRule',
+    'putTargets',
+    'removePermission',
+    'removeTargets',
+    'tagResource',
+    'testEventPattern',
+    'untagResource'
+]
