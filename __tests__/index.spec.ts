@@ -209,6 +209,12 @@ describe('#index', () => {
                 const result = await eb.createEventBus().promise()
                 expect(result).toEqual({})                
             })
+            it('should get putEvents mock', async () => {
+                const eb = new AWS.EventBridge()
+                let mock = target.mockEventBridge.putEvents({})
+                const result = await eb.putEvents().promise()
+                expect(result).toEqual({})                
+            })
         })
     })
 })
