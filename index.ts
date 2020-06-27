@@ -345,7 +345,6 @@ const mocksCloudFront = genMock(AWS.CloudFront.services, methodList.CloudFront)
 export const mockCloudFront: Mock = mocksCloudFront
 
 // @ts-ignore
-new AWS.EventBridge()
 const mocksEventBridge = genMock(AWS.EventBridge.services, methodList.EventBridge)
 export const mockEventBridge: Mock = mocksEventBridge
 
