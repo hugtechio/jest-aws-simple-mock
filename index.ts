@@ -236,6 +236,11 @@ export const mockDynamo = {
             .mockImplementation(() => { return mockAsyncIterator(result) })
     },
 
+    batchPut: function (result: any): jest.SpyInstance {
+        return jest.spyOn(DataMapper.prototype, 'batchPut')
+            .mockImplementation(() => { return mockAsyncIterator(result) })
+    },
+
     queryWithThrow: function (mock?: jest.SpyInstance): jest.SpyInstance {
         const m = (mock) ? mock : jest.spyOn(DataMapper.prototype, 'query') 
         return m.mockImplementationOnce(() => { throw new Error('mock exception') })
