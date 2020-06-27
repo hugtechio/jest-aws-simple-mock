@@ -100,6 +100,7 @@ export declare const mockDynamo: {
     deleteThrice: (result1: any, result2: any, result3: any) => jest.SpyInstance<any, any>;
     deleteAll: (result: any) => jest.SpyInstance<any, any>;
     batchGet: (result: any, mock?: jest.SpyInstance<any, any> | undefined) => jest.SpyInstance<any, any>;
+    batchPut: (result: any, mock?: jest.SpyInstance<any, any> | undefined) => jest.SpyInstance<any, any>;
     batchGetAll: (result: any) => jest.SpyInstance<any, any>;
     batchDelete: (result: any) => jest.SpyInstance<any, any>;
     batchDeleteAll: (result: any) => jest.SpyInstance<any, any>;
@@ -119,6 +120,7 @@ export declare const mockDynamoDocClient: {
 export declare const mockLambda: Mock; // exorted all of Lambda function mock. [methodlist](../blob/master/methodList.ts)
 export declare const mockS3: Mock; // exorted all of Lambda function mock. [methodlist](../blob/master/methodList.ts)
 export declare const mockEventBridge: Mock; // exorted all of Lambda function mock. [methodlist](../blob/master/methodList.ts)
+export declare const mockStepFunctions: Mock; // exorted all of Lambda function mock. [methodlist](../blob/master/methodList.ts)
 
 export declare const mockCloudFront: Mock; // exported all of CloudFront function mock. [methodlist](../blob/master/methodList.ts)
 export declare const mockSqs: {
