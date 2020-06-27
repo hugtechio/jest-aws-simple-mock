@@ -243,3 +243,28 @@ export const EventBridge = [
     'testEventPattern',
     'untagResource'
 ]
+
+export const StepFunctions = [
+    'createActivity',
+    'createStateMachine',
+    'deleteActivity',
+    'deleteStateMachine',
+    'describeActivity',
+    'describeExecution',
+    'describeStateMachine',
+    'describeStateMachineForExecution',
+    'getActivityTask',
+    'getExecutionHistory',
+    'listActivities',
+    'listExecutions',
+    'listStateMachines',
+    'listTagsForResource',
+    'sendTaskFailure',
+    'sendTaskHeartbeat',
+    'sendTaskSuccess',
+    'startExecution',
+    'stopExecution',
+    'tagResource',
+    'untagResource',
+    'updateStateMachine'
+]

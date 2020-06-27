@@ -216,5 +216,17 @@ describe('#index', () => {
                 expect(result).toEqual({})                
             })
         })
+
+        describe ('#StepFunction', () => {
+            beforeEach(() => {
+                jest.restoreAllMocks()
+            })
+            it('should get startExecution mock', async () => {
+                const sf = new AWS.StepFunctions()
+                let mock = target.mockStepFunctions.startExecution({})
+                const result = await sf.startExecution().promise()
+                expect(result).toEqual({})                
+            })
+        })
     })
 })

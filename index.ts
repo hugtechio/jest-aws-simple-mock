@@ -348,6 +348,10 @@ export const mockCloudFront: Mock = mocksCloudFront
 const mocksEventBridge = genMock(AWS.EventBridge.services, methodList.EventBridge)
 export const mockEventBridge: Mock = mocksEventBridge
 
+// @ts-ignore
+const mocksStepFunctions = genMock(AWS.StepFunctions.services, methodList.StepFunctions)
+export const mockStepFunctions: Mock = mocksStepFunctions
+
 export const mockSqs = {
     sendMessage: function (result: {}): jest.SpyInstance {
         // @ts-ignore
