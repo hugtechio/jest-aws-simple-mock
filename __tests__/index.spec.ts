@@ -228,5 +228,17 @@ describe('#index', () => {
                 expect(result).toEqual({})                
             })
         })
+
+        describe ('#CognitoIdp', () => {
+            beforeEach(() => {
+                jest.restoreAllMocks()
+            })
+            it('should get listUsers mock', async () => {
+                const idp = new AWS.CognitoIdentityServiceProvider()
+                let mock = target.mockCognitoIdp.listUsers({})
+                const result = await idp.listUsers().promise()
+                expect(result).toEqual({})                
+            })
+        })
     })
 })

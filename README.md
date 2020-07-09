@@ -117,27 +117,18 @@ export declare const mockDynamoDocClient: {
     update: (result: any) => jest.SpyInstance<any, any>;
     updateAll: (result: any) => jest.SpyInstance<any, any>;
 };
-export declare const mockLambda: Mock; // exorted all of Lambda function mock. [methodlist](../blob/master/methodList.ts)
-export declare const mockS3: Mock; // exorted all of Lambda function mock. [methodlist](../blob/master/methodList.ts)
-export declare const mockEventBridge: Mock; // exorted all of Lambda function mock. [methodlist](../blob/master/methodList.ts)
-export declare const mockStepFunctions: Mock; // exorted all of Lambda function mock. [methodlist](../blob/master/methodList.ts)
+export declare const mockLambda: Mock; // exported all of Lambda function mock. [methodlist](../blob/master/methodList.ts)
+export declare const mockS3: Mock; // exported all of Lambda function mock. [methodlist](../blob/master/methodList.ts)
+export declare const mockEventBridge: Mock; // exported all of Lambda function mock. [methodlist](../blob/master/methodList.ts)
+export declare const mockStepFunctions: Mock; // exported all of Lambda function mock. [methodlist](../blob/master/methodList.ts)
 
 export declare const mockCloudFront: Mock; // exported all of CloudFront function mock. [methodlist](../blob/master/methodList.ts)
 export declare const mockSqs: {
     sendMessage: (result: {}) => jest.SpyInstance<any, any>;
     sendMessageAll: (result: {}) => jest.SpyInstance<any, any>;
 };
-export declare const mockAcm: Mock; // exorted all of Acm function mock. [methodlist](../blob/master/methodList.ts)
-export declare const mockCognitoIdp: {
-    listUsers: (result?: {}) => jest.SpyInstance<any, unknown[]>;
-    listUsersThrow: (result?: {}) => jest.SpyInstance<any, unknown[]>;
-    listUsersAll: (result?: {}) => jest.SpyInstance<any, unknown[]>;
-    getUser: (result?: {}) => jest.SpyInstance<any, unknown[]>;
-    getUserThrow: (result?: {}) => jest.SpyInstance<any, unknown[]>;
-    getUserAll: (result?: {}) => jest.SpyInstance<any, unknown[]>;
-    adminGetUser: (result?: {}) => jest.SpyInstance<any, unknown[]>;
-    adminGetUserAll: (result?: {}) => jest.SpyInstance<any, unknown[]>;
-    adminGetUserThrow: (result?: {}) => jest.SpyInstance<any, unknown[]>;
-};
+export declare const mockAcm: Mock; // exported all of Acm function mock. [methodlist](../blob/master/methodList.ts)
+export declare const mockCognitoIdp: Mock; // exported all of Lambda function mock. [methodlist](../blob/master/methodList.ts)
+
 export {};
 ```
