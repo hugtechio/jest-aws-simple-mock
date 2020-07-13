@@ -1,26 +1,36 @@
 # jest-aws-simple-mock
-Simple mocking aws sdk version 2 and the dynamodb-datamapper  with jest.
+Simple mocking aws sdk and the dynamodb-datamapper by using Jest.
+This module only has compatibility AWS SDK version 2.
 
-You can only specify expectation of the target function to mock some AWS-SDK feature.
-And if You use DynamoDB data mapper to access to dynamoDB, It's is also able to mock.
+# Specification
+```
+import { mock<ServiceName> } from 'jest-aws-simple-mock'
+
+let spy mock<ServiceName>.<methodName>(<<returns>>)
+```
 
 # Examples 
+
+## AWS Lambda
+```
+import { mockLambda } from 'jest-aws-simple-mock'
+
+let spyLambda = mockLambda.invoke({
+  StatusCode: 200,
+  Payload: JSON.stringify({
+    hoge: 1
+  })
+})
+
+```
 
 ## DynamoDB Data Mapper
 ```
 import { mockDynamo } from 'jest-aws-simple-mock'
 
-<!-- mocking once -->
-mockDynamo.query([resultObject1-1, resultObject1-2])
-mockDynamo.get({resultObject})
+mockDynamo.query([{1}, {2}])
+mockDynamo.get({3})
 
-<!-- mocking all invocation -->
-mockDynamo.queryAll([resultObject1-1, resultObject1-2])
-mockDynamo.getAll({resultObject})
-
-<!-- mocking with throw -->
-mockDynamo.queryThrow([resultObject1-1, resultObject1-2])
-mockDynamo.getThrow({resultObject})
 ```
 
 ## DynamoDB Document Client
@@ -29,15 +39,9 @@ import { mockDynamoDocClient } from 'jest-aws-simple-mock'
 mockDynamoDocClient.get({Item: {xxxxx}}
 ```
 
-## The other AWS-SDK method
-```
-import { mockLambda } from 'jest-aws-simple-mock'
-mockLambda.invoke(resultObject}
-```
+To see all functions which current handled, check below.
 
-To see all generated functions, check below.
-
-## Mocking patterns
+# Mocking patterns
 
 ### mock at once (only mock first invocation)
 ```
@@ -55,15 +59,12 @@ mockLambda.invokeThrow(resultObject}
 ```
 
 ## mock chaining
-You can add additional mock function by passing mock object
-
-following exampke, mockLambda will return result1 when first call the lambda invoke.
-And it will return result2 when second call.
-(If the lambda invoke method was called 3 times, The third call was call original AWS method.)
+all mock method returns jest.SpyInstance object.
+You can add mock if target function will be call multiply in the test.
 
 ```
-let mock = mockLambda.invoke(result1)
-mock = mockLambda.invoke(result2, mock)
+let mock = mockLambda.invoke(result1) <-- first call mocking
+mock = mockLambda.invoke(result2, mock) <-- second call mocking
 ```
 
 # Exported functions(2020.05.14)
