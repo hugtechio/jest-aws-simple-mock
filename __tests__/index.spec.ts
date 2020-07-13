@@ -247,7 +247,7 @@ describe('#index', () => {
             })
             it('should encrypt mock', async () => {
                 const kms = new AWS.KMS()
-                let mock = target.mocksKms.encrypt({})
+                let mock = target.mockKms.encrypt({})
                 const result = await kms.encrypt().promise()
                 expect(result).toEqual({})                
             })

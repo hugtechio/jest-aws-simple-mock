@@ -77,6 +77,7 @@ export declare const currentVersion: (services: any) => any;
 interface Mock {
     [method: string]: (result: any, mock?: jest.SpyInstance) => jest.SpyInstance;
 }
+export declare const genMock: (services: any, methods: string[]) => Mock;
 export declare const mockDynamo: {
     query: (queryResult: any, mock?: jest.SpyInstance<any, any> | undefined) => jest.SpyInstance<any, any>;
     queryPages: (queryResult: any, last?: boolean | undefined, mock?: jest.SpyInstance<any, any> | undefined) => jest.SpyInstance<any, any>;
@@ -101,12 +102,12 @@ export declare const mockDynamo: {
     deleteThrice: (result1: any, result2: any, result3: any) => jest.SpyInstance<any, any>;
     deleteAll: (result: any) => jest.SpyInstance<any, any>;
     batchGet: (result: any, mock?: jest.SpyInstance<any, any> | undefined) => jest.SpyInstance<any, any>;
-    batchPut: (result: any, mock?: jest.SpyInstance<any, any> | undefined) => jest.SpyInstance<any, any>;
     batchGetAll: (result: any) => jest.SpyInstance<any, any>;
     batchDelete: (result: any) => jest.SpyInstance<any, any>;
     batchDeleteAll: (result: any) => jest.SpyInstance<any, any>;
-    queryWithThrow: () => jest.SpyInstance<any, any>;
-    getWithThrow: () => jest.SpyInstance<any, any>;
+    batchPut: (result: any) => jest.SpyInstance<any, any>;
+    queryWithThrow: (mock?: jest.SpyInstance<any, any> | undefined) => jest.SpyInstance<any, any>;
+    getWithThrow: (mock?: jest.SpyInstance<any, any> | undefined) => jest.SpyInstance<any, any>;
     executeUpdateExpression: (result: any) => jest.SpyInstance<any, any>;
     executeUpdateExpressionAll: (result: any) => jest.SpyInstance<any, any>;
 };
@@ -118,19 +119,17 @@ export declare const mockDynamoDocClient: {
     update: (result: any) => jest.SpyInstance<any, any>;
     updateAll: (result: any) => jest.SpyInstance<any, any>;
 };
-export declare const mockLambda: Mock; // exported all of Lambda function mock. [methodlist](../blob/master/methodList.ts)
-export declare const mockS3: Mock; // exported all of Lambda function mock. [methodlist](../blob/master/methodList.ts)
-export declare const mockEventBridge: Mock; // exported all of Lambda function mock. [methodlist](../blob/master/methodList.ts)
-export declare const mockStepFunctions: Mock; // exported all of Lambda function mock. [methodlist](../blob/master/methodList.ts)
-
-export declare const mockCloudFront: Mock; // exported all of CloudFront function mock. [methodlist](../blob/master/methodList.ts)
+export declare const mockLambda: Mock;
+export declare const mockS3: Mock;
+export declare const mockCloudFront: Mock;
+export declare const mockEventBridge: Mock;
+export declare const mockStepFunctions: Mock;
 export declare const mockSqs: {
     sendMessage: (result: {}) => jest.SpyInstance<any, any>;
     sendMessageAll: (result: {}) => jest.SpyInstance<any, any>;
 };
-export declare const mockAcm: Mock; // exported all of Acm function mock. [methodlist](../blob/master/methodList.ts)
-export declare const mockCognitoIdp: Mock; // exported all of Lambda function mock. [methodlist](../blob/master/methodList.ts)
-export declare const mockKms: Mock; // exported all of Lambda function mock. [methodlist](../blob/master/methodList.ts)
-
+export declare const mockAcm: Mock;
+export declare const mockCognitoIdp: Mock;
+export declare const mockKms: Mock;
 export {};
 ```
