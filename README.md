@@ -129,6 +129,7 @@ export declare const mockSqs: {
 };
 export declare const mockAcm: Mock; // exported all of Acm function mock. [methodlist](../blob/master/methodList.ts)
 export declare const mockCognitoIdp: Mock; // exported all of Lambda function mock. [methodlist](../blob/master/methodList.ts)
+export declare const mockKms: Mock; // exported all of Lambda function mock. [methodlist](../blob/master/methodList.ts)
 
 export {};
 ```

@@ -240,5 +240,17 @@ describe('#index', () => {
                 expect(result).toEqual({})                
             })
         })
+
+        describe ('#Kms', () => {
+            beforeEach(() => {
+                jest.restoreAllMocks()
+            })
+            it('should encrypt mock', async () => {
+                const kms = new AWS.KMS()
+                let mock = target.mocksKms.encrypt({})
+                const result = await kms.encrypt().promise()
+                expect(result).toEqual({})                
+            })
+        })
     })
 })

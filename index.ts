@@ -379,3 +379,7 @@ export const mockAcm: Mock = mocksAcm
 // @ts-ignore
 const mocksCognitoIdps = genMock(AWS.CognitoIdentityServiceProvider.services, methodList.CognitoIdp)
 export const mockCognitoIdp: Mock = mocksCognitoIdps
+
+// @ts-ignore
+const mocksKmses = genMock(AWS.KMS.services, methodList.Kms)
+export const mocksKms: Mock = mocksKmses
