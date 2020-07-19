@@ -46,6 +46,7 @@ export const currentVersion = (services: any): any => {
             return
         }
     });
+
     return service
 }
 
@@ -259,56 +260,6 @@ export const mockDynamo = {
     }
 }
 
-export const mockDynamoDocClient = {
-    get: function (result: any): jest.SpyInstance {
-        // @ts-ignore
-        return jest.spyOn(AWS.DynamoDB.DocumentClient.prototype, 'get').mockImplementationOnce(() => {
-            return {
-                promise: () => Promise.resolve(result)
-            }
-        })
-    },
-    getAll: function (result: any): jest.SpyInstance {
-        // @ts-ignore
-        return jest.spyOn(AWS.DynamoDB.DocumentClient.prototype, 'get').mockImplementation(() => {
-            return {
-                promise: () => Promise.resolve(result)
-            }
-        })
-    },
-    put: function (result: any): jest.SpyInstance {
-        // @ts-ignore
-        return jest.spyOn(AWS.DynamoDB.DocumentClient.prototype, 'put').mockImplementationOnce(() => {
-            return {
-                promise: () => Promise.resolve(result)
-            }
-        })
-    },
-    putAll: function (result: any): jest.SpyInstance {
-        // @ts-ignore
-        return jest.spyOn(AWS.DynamoDB.DocumentClient.prototype, 'put').mockImplementation(() => {
-            return {
-                promise: () => Promise.resolve(result)
-            }
-        })
-    },
-    update: function (result: any): jest.SpyInstance {
-        // @ts-ignore
-        return jest.spyOn(AWS.DynamoDB.DocumentClient.prototype, 'update').mockImplementationOnce(() => {
-            return {
-                promise: () => Promise.resolve(result)
-            }
-        })
-    },
-    updateAll: function (result: any): jest.SpyInstance {
-        // @ts-ignore
-        return jest.spyOn(AWS.DynamoDB.DocumentClient.prototype, 'update').mockImplementation(() => {
-            return {
-                promise: () => Promise.resolve(result)
-            }
-        })
-    }
-}
 // @ts-ignore
 const mocksLambda = genMock(AWS.Lambda.services, methodList.Lambda)
 export const mockLambda: Mock = mocksLambda
@@ -387,3 +338,8 @@ export const mockKms: Mock = mocksKms
 // @ts-ignore
 const mocksSsm = genMock(AWS.SSM.services, methodList.Ssm)
 export const mockSsm: Mock = mocksSsm
+
+// @ts-ignore
+// Impersonate aws service configuration 
+const mocksDynamoDocClient = genMock({latest: AWS.DynamoDB.DocumentClient}, methodList.DynamoDocClient)
+export const mockDynamoDocClient: Mock = mocksDynamoDocClient

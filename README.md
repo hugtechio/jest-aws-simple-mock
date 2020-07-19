@@ -111,14 +111,6 @@ export declare const mockDynamo: {
     executeUpdateExpression: (result: any) => jest.SpyInstance<any, any>;
     executeUpdateExpressionAll: (result: any) => jest.SpyInstance<any, any>;
 };
-export declare const mockDynamoDocClient: {
-    get: (result: any) => jest.SpyInstance<any, any>;
-    getAll: (result: any) => jest.SpyInstance<any, any>;
-    put: (result: any) => jest.SpyInstance<any, any>;
-    putAll: (result: any) => jest.SpyInstance<any, any>;
-    update: (result: any) => jest.SpyInstance<any, any>;
-    updateAll: (result: any) => jest.SpyInstance<any, any>;
-};
 export declare const mockLambda: Mock;
 export declare const mockS3: Mock;
 export declare const mockCloudFront: Mock;
@@ -132,5 +124,6 @@ export declare const mockAcm: Mock;
 export declare const mockCognitoIdp: Mock;
 export declare const mockKms: Mock;
 export declare const mockSsm: Mock;
+export declare const mockDynamoDocClient: Mock;
 export {};
 ```

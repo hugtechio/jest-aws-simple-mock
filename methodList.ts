@@ -545,3 +545,17 @@ export const Ssm = [
     'updateResourceDataSync',
     'updateServiceSetting'    
 ]
+
+export const DynamoDocClient = [
+    'batchGet',
+    'batchWrite',
+    'createSet',
+    'delete',
+    'get',
+    'put',
+    'query',
+    'scan',
+    'transactGet',
+    'transactWrite',
+    'update'
+]
