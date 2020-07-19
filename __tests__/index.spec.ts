@@ -252,5 +252,17 @@ describe('#index', () => {
                 expect(result).toEqual({})                
             })
         })
+
+        describe ('#Ssm', () => {
+            beforeEach(() => {
+                jest.restoreAllMocks()
+            })
+            it('should GetParameter mock', async () => {
+                const ssm = new AWS.SSM()
+                let mock = target.mockSsm.getParameter({})
+                const result = await ssm.getParameter().promise()
+                expect(result).toEqual({})                
+            })
+        })
     })
 })

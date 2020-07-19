@@ -67,7 +67,7 @@ let mock = mockLambda.invoke(result1) <-- first call mocking
 mock = mockLambda.invoke(result2, mock) <-- second call mocking
 ```
 
-# Exported functions(2020.07.12)
+# all mockable functions(2020.07.19)
 
 ```javascript
 /// <reference types="jest" />
@@ -131,5 +131,6 @@ export declare const mockSqs: {
 export declare const mockAcm: Mock;
 export declare const mockCognitoIdp: Mock;
 export declare const mockKms: Mock;
+export declare const mockSsm: Mock;
 export {};
 ```
