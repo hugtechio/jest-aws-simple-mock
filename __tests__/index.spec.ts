@@ -271,5 +271,17 @@ describe('#index', () => {
                 expect(result).toEqual({})                
             })
         })
+
+        describe ('#Ecs', () => {
+            beforeEach(() => {
+                jest.restoreAllMocks()
+            })
+            it('should createCapacityProvider mock', async () => {
+                const ecs = new AWS.ECS()
+                let mock = target.mockEcs.createCapacityProvider({})
+                const result = await ecs.createCapacityProvider().promise()
+                expect(result).toEqual({})                
+            })
+        })
     })
 })

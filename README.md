@@ -1,15 +1,43 @@
 # jest-aws-simple-mock
-Simple mocking aws sdk and the dynamodb-datamapper by using Jest.
-This module only has compatibility AWS SDK version 2.
+The jest-aws-simple-mock is simple aws sdk mocking library.
+Currently only compatible AWS-SDK v2
 
-# Specification
+
+## Mockable module
+
+- @aws/dynamodb-datamapper
+- aws-sdk(vesion2)  **not all services.**
+
+## Basic Usage
 ```
 import { mock<ServiceName> } from 'jest-aws-simple-mock'
 
 let spy mock<ServiceName>.<methodName>(<<returns>>)
 ```
 
-# Examples 
+This example is to mock dynamodb data mapper, 
+
+```javascript
+import { mockDynamo } from 'jest-aws-simple-mock'
+
+mockDynamo.query([{ key: 'dummyReturn1'}, {key: dummyReturn2}])
+```
+
+
+## Features
+
+### mocking dynamodb datamapper
+[dynamodb-data-mappar-js](https://github.com/awslabs/dynamodb-data-mapper-js/)
+
+```javascript
+import { mockDynamo } from 'jest-aws-simple-mock'
+
+mockDynamo.query([{1}, {2}])
+mockDynamo.get({3})
+```
+
+
+## Samples
 
 ## AWS Lambda
 ```
@@ -41,35 +69,52 @@ mockDynamoDocClient.get({Item: {xxxxx}}
 
 To see all functions which current handled, check below.
 
-# Mocking patterns
+
+# Mocking pattern
+Jest-aws-simple-mock generate 3 types mock which return different result.
+
 
 ### mock at once (only mock first invocation)
-```
+This mocking invocation is to mock only a call of target function.
+
+```javascript
 mockLambda.invoke(resultObject)
 ```
 
 ### mock All invocation (mocking all calls of target function)
-```
+This mocking invocation is to mock **all** calls of target function.
+
+```javascript
 mockLambda.invokeAll(resultObject}
 ```
 
-### mock with throw 
-```
+
+### mock with throw
+This mocking invocation is to throw exception when target function was called.
+
+```javascript
 mockLambda.invokeThrow(resultObject}
 ```
 
-## mock chaining
-all mock method returns jest.SpyInstance object.
-You can add mock if target function will be call multiply in the test.
 
-```
+## mock chaining
+when you want to mock target function only several times in all calls. 
+You can chain mock object.
+
+these example, when the lamba.invoke is called more than 3 times in your logic, 
+only first 2 calls is mocked.
+
+```javascript
 let mock = mockLambda.invoke(result1) <-- first call mocking
 mock = mockLambda.invoke(result2, mock) <-- second call mocking
 ```
 
-# all mockable functions(2020.07.19)
+
+
+# all mockable functions and utilities (2020.09.09)
 
 ```javascript
+
 /// <reference types="jest" />
 export declare const mockAsyncIterator: (result: any) => any;
 export declare const mockAsyncIteratorPage: (result: any, last?: boolean) => any;
@@ -125,5 +170,7 @@ export declare const mockCognitoIdp: Mock;
 export declare const mockKms: Mock;
 export declare const mockSsm: Mock;
 export declare const mockDynamoDocClient: Mock;
+export declare const mockEcs: Mock;
 export {};
+
 ```

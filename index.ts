@@ -343,3 +343,7 @@ export const mockSsm: Mock = mocksSsm
 // Impersonate aws service configuration 
 const mocksDynamoDocClient = genMock({latest: AWS.DynamoDB.DocumentClient}, methodList.DynamoDocClient)
 export const mockDynamoDocClient: Mock = mocksDynamoDocClient
+
+// @ts-ignore
+const mocksEcs = genMock(AWS.ECS.services, methodList.Ecs)
+export const mockEcs: Mock = mocksEcs
