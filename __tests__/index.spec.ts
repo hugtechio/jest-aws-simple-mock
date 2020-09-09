@@ -239,6 +239,13 @@ describe('#index', () => {
                 const result = await idp.listUsers().promise()
                 expect(result).toEqual({})                
             })
+
+            it('should get adminInitiateAuth mock', async () => {
+                const idp = new AWS.CognitoIdentityServiceProvider()
+                let mock = target.mockCognitoIdp.adminInitiateAuth({})
+                const result = await idp.adminInitiateAuth().promise()
+                expect(result).toEqual({})                
+            })
         })
 
         describe ('#Kms', () => {
