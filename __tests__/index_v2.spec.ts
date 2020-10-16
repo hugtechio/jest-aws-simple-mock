@@ -1,9 +1,9 @@
-import * as target from '../index'
+import * as target from '../index_v2'
 import * as AWS from 'aws-sdk'
 import { DataMapper } from '@aws/dynamodb-data-mapper'
 import { DynamoDB } from 'aws-sdk'
 
-describe('#index', () => {
+describe('#index_V2', () => {
     describe('#method currentVersion', () => {
         it('return valid service', async () => {
             const data = {

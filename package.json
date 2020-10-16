@@ -32,6 +32,7 @@
     ]
   },
   "dependencies": {
+    "@aws-sdk/client-dynamodb": "^1.0.0-gamma.11",
     "@aws/dynamodb-data-mapper": "^0.7.3"
   },
   "devDependencies": {
