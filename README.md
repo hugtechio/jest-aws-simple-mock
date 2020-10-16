@@ -1,74 +1,297 @@
 # jest-aws-simple-mock
-The jest-aws-simple-mock is simple aws sdk mocking library.
-Currently only compatible AWS-SDK v2
-
-
-## Mockable module
+The jest-aws-simple-mock is a mocking library of AWS-SDK for javascript.
+Currently, only these module you can mock is. 
 
 - @aws/dynamodb-datamapper
-- aws-sdk(vesion2)  **not all services.**
+- aws-sdk(vesion 2)  **not all services.**
+- aws-sdk(version 3) ** currently only @aws-sdk/client-dynamodb::getItem method **
 
 ## Basic Usage
-```
+```ts
 import { mock<ServiceName> } from 'jest-aws-simple-mock'
 
-let spy mock<ServiceName>.<methodName>(<<returns>>)
+let spy = mock<ServiceName>.<methodName>(<<returns>>)
 ```
 
-This example is to mock dynamodb data mapper, 
+```ts
+import { V3 } from 'jest-aws-simple-mock'
 
-```javascript
-import { mockDynamo } from 'jest-aws-simple-mock'
-
-mockDynamo.query([{ key: 'dummyReturn1'}, {key: dummyReturn2}])
-```
-
-
-## Features
-
-### mocking dynamodb datamapper
-[dynamodb-data-mappar-js](https://github.com/awslabs/dynamodb-data-mapper-js/)
-
-```javascript
-import { mockDynamo } from 'jest-aws-simple-mock'
-
-mockDynamo.query([{1}, {2}])
-mockDynamo.get({3})
+let spy = V3.mockDynamo.getItem(<<returns>>)
 ```
 
 
-## Samples
+## Mocking example
+Our test code is useful that how to use this library.
 
-## AWS Lambda
-```
-import { mockLambda } from 'jest-aws-simple-mock'
-
-let spyLambda = mockLambda.invoke({
-  StatusCode: 200,
-  Payload: JSON.stringify({
-    hoge: 1
+```ts
+  describe('#dynamodb doc client', () => {
+      it('#get', async () => {
+          const result = await target.mockDynamoDocClient.get({})
+          // @ts-ignore
+          expect(result).toHaveProperty('mock')
+      }),
+      it('#put', async () => {
+          const result = await target.mockDynamoDocClient.put({})
+          // @ts-ignore
+          expect(result).toHaveProperty('mock')
+      })
   })
-})
+
+  describe('#dynamodb data mapper', () => {
+      beforeEach(() => {
+          jest.restoreAllMocks()
+      })
+
+      it('#query', async () => {
+          const result = await target.mockDynamo.query([{}])
+          // @ts-ignore
+          expect(result).toHaveProperty('mock')
+      });
+
+      it('#query (new)', async () => {
+          const dataMapper = new DataMapper({client: new DynamoDB()})
+          target.mockDynamo.query([{id: 1}])
+          // @ts-ignore
+          const q = dataMapper.query()
+          let result = [] 
+          for await (const item of q) {
+              result.push(item)
+          }
+          expect(result).toEqual([{id: 1}])
+      });
+
+      it('#query (add)', async () => {
+          const dataMapper = new DataMapper({client: new DynamoDB()})
+          let mock = target.mockDynamo.query([{id: 1}])
+          target.mockDynamo.query([{id: 2}], mock)
+
+          // @ts-ignore
+          let q = dataMapper.query()
+          let result = [] 
+          for await (const item of q) {
+              result.push(item)
+          }
+          expect(result).toEqual([{id: 1}])
+
+          // @ts-ignore
+          q = dataMapper.query()
+          result = [] 
+          for await (const item of q) {
+              result.push(item)
+          }
+          expect(result).toEqual([{id: 2}])
+          
+      });
+
+      it('#query (pages)', async () => {
+          const dataMapper = new DataMapper({client: new DynamoDB()})
+          let mock = target.mockDynamo.queryPages([[{id: 1}]])
+          // @ts-ignore
+          let q = dataMapper.query().pages()
+          expect(q).toHaveProperty('lastEvaluatedKey')
+          for await (const page of q) {
+              expect(Array.isArray(page)).toBeTruthy()
+          }
+      });
+  })
+
+  describe ('#acm', () => {
+      beforeEach(() => {
+          jest.restoreAllMocks()
+      })
+      it('should get requestCertificate', async () => {
+          const acm = new AWS.ACM()
+          let mock = target.mockAcm.requestCertificate({})
+          const result = await acm.requestCertificate().promise()
+          expect(result).toEqual({})
+      });
+      it('should get requestCertificateAll', async () => {
+          const acm = new AWS.ACM()
+          let mock = target.mockAcm.requestCertificateAll({})
+          const result1 = await acm.requestCertificate().promise()
+          const result2 = await acm.requestCertificate().promise()
+          expect(result1).toEqual({})
+          expect(result2).toEqual({})
+      });
+  })
+
+  describe ('#cloudfront', () => {
+      beforeEach(() => {
+          jest.restoreAllMocks()
+      })
+      it('should get getDistributionConfig', async () => {
+          const cf = new AWS.CloudFront()
+          let mock = target.mockCloudFront.getDistributionConfig({})
+          const result = await cf.getDistributionConfig().promise()
+          expect(result).toEqual({})
+      });
+
+      it('should get getDistributionConfigAll', async () => {
+          const cf = new AWS.CloudFront()
+          let mock = target.mockCloudFront.getDistributionConfigAll({})
+          const result1 = await cf.getDistributionConfig().promise()
+          const result2 = await cf.getDistributionConfig().promise()
+          expect(result1).toEqual({})
+          expect(result2).toEqual({})
+      });
+
+      it('should throw getDistributionConfigThrow', async () => {
+          const cf = new AWS.CloudFront()
+          let mock = target.mockCloudFront.getDistributionConfigThrow({})
+          try {
+              const result1 = await cf.getDistributionConfig().promise()
+              expect(null).toBe('This path is fault of the test') // should be
+          } catch (e) {
+              expect(e).toEqual({})
+          }
+      });
+  })
+
+  describe ('#lambda', () => {
+      beforeEach(() => {
+          jest.restoreAllMocks()
+      })
+      it('should get invoke', async () => {
+          const lambda = new AWS.Lambda()
+          let mock = target.mockLambda.invoke({})
+          const result = await lambda.invoke().promise()
+          expect(result).toEqual({})
+      });
+
+      it('should get invokeAll', async () => {
+          const lambda = new AWS.Lambda()
+          let mock = target.mockLambda.invokeAll({})
+          const result1 = await lambda.invoke().promise()
+          const result2 = await lambda.invoke().promise()
+          expect(result1).toEqual({})
+          expect(result2).toEqual({})
+      });
+  })
+
+  describe ('#s3', () => {
+      beforeEach(() => {
+          jest.restoreAllMocks()
+      })
+      it('should get getObject mock', async () => {
+          const s3 = new AWS.S3()
+          let mock = target.mockS3.getObject({})
+          const result = await s3.getObject().promise()
+          expect(result).toEqual({})
+      });
+      it('should get getpresignedurl mock', async () => {
+          const s3 = new AWS.S3()
+          let mock = target.mockS3.getSignedUrl({})
+          // @ts-ignore
+          const result = s3.getSignedUrl()
+          expect(result).toEqual({})
+      });
+      it('should get getpresignedurlPromise mock', async () => {
+          const s3 = new AWS.S3()
+          let mock = target.mockS3.getSignedUrlPromise({})
+          // @ts-ignore
+          const result = await s3.getSignedUrlPromise()
+          expect(result).toEqual({})
+      });
+  })
+
+  describe ('#EventBridge', () => {
+      beforeEach(() => {
+          jest.restoreAllMocks()
+      })
+      it('should get createEventBus mock', async () => {
+          const eb = new AWS.EventBridge()
+          let mock = target.mockEventBridge.createEventBus({})
+          const result = await eb.createEventBus().promise()
+          expect(result).toEqual({})                
+      })
+      it('should get putEvents mock', async () => {
+          const eb = new AWS.EventBridge()
+          let mock = target.mockEventBridge.putEvents({})
+          const result = await eb.putEvents().promise()
+          expect(result).toEqual({})                
+      })
+  })
+
+  describe ('#StepFunction', () => {
+      beforeEach(() => {
+          jest.restoreAllMocks()
+      })
+      it('should get startExecution mock', async () => {
+          const sf = new AWS.StepFunctions()
+          let mock = target.mockStepFunctions.startExecution({})
+          const result = await sf.startExecution().promise()
+          expect(result).toEqual({})                
+      })
+  })
+
+  describe ('#CognitoIdp', () => {
+      beforeEach(() => {
+          jest.restoreAllMocks()
+      })
+      it('should get listUsers mock', async () => {
+          const idp = new AWS.CognitoIdentityServiceProvider()
+          let mock = target.mockCognitoIdp.listUsers({})
+          const result = await idp.listUsers().promise()
+          expect(result).toEqual({})                
+      })
+
+      it('should get adminInitiateAuth mock', async () => {
+          const idp = new AWS.CognitoIdentityServiceProvider()
+          let mock = target.mockCognitoIdp.adminInitiateAuth({})
+          const result = await idp.adminInitiateAuth().promise()
+          expect(result).toEqual({})                
+      })
+  })
+
+  describe ('#Kms', () => {
+      beforeEach(() => {
+          jest.restoreAllMocks()
+      })
+      it('should encrypt mock', async () => {
+          const kms = new AWS.KMS()
+          let mock = target.mockKms.encrypt({})
+          const result = await kms.encrypt().promise()
+          expect(result).toEqual({})                
+      })
+  })
+
+  describe ('#Ssm', () => {
+      beforeEach(() => {
+          jest.restoreAllMocks()
+      })
+      it('should GetParameter mock', async () => {
+          const ssm = new AWS.SSM()
+          let mock = target.mockSsm.getParameter({})
+          const result = await ssm.getParameter().promise()
+          expect(result).toEqual({})                
+      })
+  })
+
+  describe ('#Ecs', () => {
+      beforeEach(() => {
+          jest.restoreAllMocks()
+      })
+      it('should createCapacityProvider mock', async () => {
+          const ecs = new AWS.ECS()
+          let mock = target.mockEcs.createCapacityProvider({})
+          const result = await ecs.createCapacityProvider().promise()
+          expect(result).toEqual({})                
+      })
+  })
+
+  describe('#index_v3', () => {
+      describe('#dynamodb', () => {
+          it ('should be return dynamoDB mock', async () => {
+              V3.mockDynamo.getItem({})
+              const dynamodb = new DynamoDB({region: 'us-east-1'})
+              // @ts-ignore
+              const result = await dynamodb.getItem({})
+              expect(result).toEqual({})
+          })
+      })
+  })
 
 ```
-
-## DynamoDB Data Mapper
-```
-import { mockDynamo } from 'jest-aws-simple-mock'
-
-mockDynamo.query([{1}, {2}])
-mockDynamo.get({3})
-
-```
-
-## DynamoDB Document Client
-```
-import { mockDynamoDocClient } from 'jest-aws-simple-mock'
-mockDynamoDocClient.get({Item: {xxxxx}}
-```
-
-To see all functions which current handled, check below.
-
 
 # Mocking pattern
 Jest-aws-simple-mock generate 3 types mock which return different result.

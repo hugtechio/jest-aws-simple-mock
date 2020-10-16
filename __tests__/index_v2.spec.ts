@@ -27,14 +27,6 @@ describe('#index_V2', () => {
     })
 
     describe('#getting mock object', () => {
-        describe('#dynamodb data mapper', () => {
-            it('#query', async () => {
-                const result = await target.mockDynamo.query([{}])
-                // @ts-ignore
-                expect(result).toHaveProperty('mock')
-            });
-            
-        });
         describe('#dynamodb doc client', () => {
             it('#get', async () => {
                 const result = await target.mockDynamoDocClient.get({})
@@ -52,6 +44,12 @@ describe('#index_V2', () => {
             beforeEach(() => {
                 jest.restoreAllMocks()
             })
+
+            it('#query', async () => {
+                const result = await target.mockDynamo.query([{}])
+                // @ts-ignore
+                expect(result).toHaveProperty('mock')
+            });
 
             it('#query (new)', async () => {
                 const dataMapper = new DataMapper({client: new DynamoDB()})
