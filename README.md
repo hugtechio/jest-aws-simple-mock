@@ -390,8 +390,7 @@ only first 2 calls is mocked.
 ## all mockable methods (2020.10.16)
 
 ### aws-sdk-v2
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+```ts
 exports.Acm = [
     'addTagsToCertificate',
     'deleteCertificate',
@@ -995,6 +994,7 @@ exports.Ecs = [
     'updateServicePrimaryTaskSet',
     'updateTaskSet'
 ];
+```
 
 ### aws-sdk v3
 #### @aws-sdk/client-dynamodb
