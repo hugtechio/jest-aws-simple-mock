@@ -368,7 +368,7 @@ mockLambda.invoke(resultObject)
 This mocking invocation is to mock **all** calls of target function.
 
 ```javascript
-mockLambda.invokeAll(resultObject}
+mockLambda.invokeAll(resultObject)
 ```
 
 
@@ -376,7 +376,7 @@ mockLambda.invokeAll(resultObject}
 This mocking invocation is to throw exception when target function was called.
 
 ```javascript
-mockLambda.invokeThrow(resultObject}
+mockLambda.invokeThrow(resultObject)
 ```
 
 
@@ -384,8 +384,19 @@ mockLambda.invokeThrow(resultObject}
 when you want to mock target function only several times in all calls. 
 You can chain mock object.
 
-these example, when the lamba.invoke is called more than 3 times in your logic, 
-only first 2 calls is mocked.
+```javascript
+# test code
+let spy = mockLambda.invoke(resultObject1)
+spy = mockLambda.invoke(resultObject2, m)
+spy = mockLambda.invoke(resultObject3, m)
+
+# caller
+const lambda = new Lambda()
+const result1 = await lambda.invoke(xxx) // will return resultObject1
+const result2 = await lambda.invoke(xxx) // will return resultObject2
+const result3 = await lambda.invoke(xxx) // will return resultObject3
+const result4 = await lambda.invoke(xxx) // This is real call of AWS lambda
+```
 
 ## all mockable methods (2020.10.16)
 
