@@ -386,9 +386,9 @@ You can chain mock object.
 
 ```javascript
 # test code
-let spy = mockLambda.invoke(resultObject1)
-spy = mockLambda.invoke(resultObject2, m)
-spy = mockLambda.invoke(resultObject3, m)
+let m = mockLambda.invoke(resultObject1)
+m = mockLambda.invoke(resultObject2, m)
+m = mockLambda.invoke(resultObject3, m)
 
 # caller
 const lambda = new Lambda()
