@@ -351,6 +351,30 @@ describe('#index_v3', () => {
     })
 })
 
+describe ('#TimestreamQuery', () => {
+    beforeEach(() => {
+        jest.restoreAllMocks()
+    })
+    it('should query mock', async () => {
+        const tsq = new AWS.TimestreamQuery()
+        let mock = target.mockTimestreamQuery.query({})
+        const result = await tsq.query().promise()
+        expect(result).toEqual({})                
+    })
+})
+
+describe ('#TimestreamWrite', () => {
+    beforeEach(() => {
+        jest.restoreAllMocks()
+    })
+    it('should createDatabase mock', async () => {
+        const tsw = new AWS.TimestreamWrite()
+        let mock = target.mockTimestreamWrite.createDatabase({})
+        const result = await tsw.createDatabase().promise()
+        expect(result).toEqual({})                
+    })
+})
+
 ```
 
 # Mocking pattern
@@ -1005,6 +1029,37 @@ exports.Ecs = [
     'updateServicePrimaryTaskSet',
     'updateTaskSet'
 ];
+
+/**
+ * TimestreamQuery method list
+ */
+export const TimestreamQuery = [
+    'cancelQuery',
+    'describeEndpoints',
+    'query'
+]
+
+/**
+ * TimestreamWrite method list
+ */
+export const TimestreamWrite = [
+    'createDatabase',
+    'createTable',
+    'deleteDatabase',
+    'deleteTable',
+    'describeDatabase',
+    'describeEndpoints',
+    'describeTable',
+    'listDatabases',
+    'listTables',
+    'listTagsForResource',
+    'tagResource',
+    'untagResource',
+    'updateDatabase',
+    'updateTable',
+    'writeRecords'
+]
+
 ```
 
 ### aws-sdk v3
