@@ -611,3 +611,33 @@ export const Ecs = [
     'updateServicePrimaryTaskSet',
     'updateTaskSet'
 ]
+
+/**
+ * TimestreamQuery method list
+ */
+export const TimestreamQuery = [
+    'cancelQuery',
+    'describeEndpoints',
+    'query'
+]
+
+/**
+ * TimestreamWrite method list
+ */
+export const TimestreamWrite = [
+    'createDatabase',
+    'createTable',
+    'deleteDatabase',
+    'deleteTable',
+    'describeDatabase',
+    'describeEndpoints',
+    'describeTable',
+    'listDatabases',
+    'listTables',
+    'listTagsForResource',
+    'tagResource',
+    'untagResource',
+    'updateDatabase',
+    'updateTable',
+    'writeRecords'
+]

@@ -281,5 +281,29 @@ describe('#index_V2', () => {
                 expect(result).toEqual({})                
             })
         })
+
+        describe ('#TimestreamQuery', () => {
+            beforeEach(() => {
+                jest.restoreAllMocks()
+            })
+            it('should query mock', async () => {
+                const tsq = new AWS.TimestreamQuery()
+                let mock = target.mockTimestreamQuery.query({})
+                const result = await tsq.query().promise()
+                expect(result).toEqual({})                
+            })
+        })
+
+        describe ('#TimestreamWrite', () => {
+            beforeEach(() => {
+                jest.restoreAllMocks()
+            })
+            it('should createDatabase mock', async () => {
+                const tsw = new AWS.TimestreamWrite()
+                let mock = target.mockTimestreamWrite.createDatabase({})
+                const result = await tsw.createDatabase().promise()
+                expect(result).toEqual({})                
+            })
+        })
     })
 })

@@ -347,3 +347,11 @@ export const mockDynamoDocClient: Mock = mocksDynamoDocClient
 // @ts-ignore
 const mocksEcs = genMock(AWS.ECS.services, methodList.Ecs)
 export const mockEcs: Mock = mocksEcs
+
+// @ts-ignore
+const mocksTimestreamQuery = genMock(AWS.TimestreamQuery.services, methodList.TimestreamQuery)
+export const mockTimestreamQuery: Mock = mocksTimestreamQuery
+
+// @ts-ignore
+const mocksTimestreamWrite = genMock(AWS.TimestreamWrite.services, methodList.TimestreamWrite)
+export const mockTimestreamWrite: Mock = mocksTimestreamWrite 
