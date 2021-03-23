@@ -305,5 +305,29 @@ describe('#index_V2', () => {
                 expect(result).toEqual({})                
             })
         })
+
+        describe ('#SES', () => {
+            beforeEach(() => {
+                jest.restoreAllMocks()
+            })
+            it('should sendEmail mock', async () => {
+                const ses = new AWS.SES()
+                let mock = target.mockSes.sendEmail({})
+                const result = await ses.sendEmail().promise()
+                expect(result).toEqual({})                
+            })
+        })
+
+        describe ('#SESv2', () => {
+            beforeEach(() => {
+                jest.restoreAllMocks()
+            })
+            it('should sendEmail mock', async () => {
+                const sesv2 = new AWS.SESV2()
+                let mock = target.mockSesV2.sendEmail({})
+                const result = await sesv2.sendEmail().promise()
+                expect(result).toEqual({})                
+            })
+        })
     })
 })

@@ -355,3 +355,11 @@ export const mockTimestreamQuery: Mock = mocksTimestreamQuery
 // @ts-ignore
 const mocksTimestreamWrite = genMock(AWS.TimestreamWrite.services, methodList.TimestreamWrite)
 export const mockTimestreamWrite: Mock = mocksTimestreamWrite 
+
+// @ts-ignore
+const mocksSes = genMock(AWS.SES.services, methodList.SES)
+export const mockSes: Mock = mocksSes
+
+// @ts-ignore
+const mocksSesV2 = genMock(AWS.SESV2.services, methodList.SESv2)
+export const mockSesV2: Mock = mocksSesV2
