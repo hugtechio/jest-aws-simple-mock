@@ -1,6 +1,6 @@
 {
   "name": "jest-aws-simple-mock",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "description": "simple mocking aws and dynamodb data mapper by jest",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -32,7 +32,10 @@
     ]
   },
   "dependencies": {
-    "@aws-sdk/client-dynamodb": "^1.0.0-gamma.11",
+    "@aws-sdk/client-cloudfront": "^3.13.1",
+    "@aws-sdk/client-dynamodb": "^3.13.1",
+    "@aws-sdk/client-lambda": "^3.13.1",
+    "@aws-sdk/client-s3": "^3.13.1",
     "@aws/dynamodb-data-mapper": "^0.7.3"
   },
   "devDependencies": {

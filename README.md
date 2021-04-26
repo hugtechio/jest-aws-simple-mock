@@ -3,8 +3,8 @@ The jest-aws-simple-mock is a mocking library of AWS-SDK for javascript.
 Currently, only these module you can mock is. 
 
 - @aws/dynamodb-datamapper
-- aws-sdk(vesion 2)  **not all services.**
-- aws-sdk(version 3) ** currently only @aws-sdk/client-dynamodb::getItem method **
+- aws-sdk(version 2) ** not all services **
+- aws-sdk(version 3) ** DynamoDB, Lambda, S3, and CloudFront **
 
 ## Basic Usage
 ```ts
@@ -21,68 +21,92 @@ let spy = V3.mockDynamo.getItem(<<returns>>)
 
 
 ## Mocking example
-Our test code is useful that how to use this library.
+Test code of this library is helpful how to use.
+
+### aws-sdk version 3 Modular style
 ```ts
 describe('#index_v3', () => {
     describe('#dynamodb', () => {
         beforeEach(() => {
             jest.restoreAllMocks()
         })
-
-        it ('should be return dynamoDB mock', async () => {
-            V3.mockDynamo.getItem({})
-            const dynamodb = new DynamoDB({region: 'us-east-1'})
+        it ('should be return mock result (v3 style send)', async () => {
+            V3.mockDynamo.send({})
+            const command = new GetItemCommand({
+                TableName: 'dummy',
+                Key: {
+                    ID: { S: 'aaaa'}
+                }
+            })
+            const client = new DynamoDBClient({region: 'us-east-1'})
             // @ts-ignore
-            const result = await dynamodb.getItem({})
+            const result = await client.send(command)
             expect(result).toEqual({})
         })
+        :
+    })
 
-        it ('should be return dynamoDB mock(chaining)', async () => {
-            let m = V3.mockDynamo.getItem({
-                times:1
+    describe ('#s3', () => {
+        beforeEach(() => {
+            jest.restoreAllMocks()
+        })
+        it ('should be return mock result (v3 style send)', async () => {
+            V3.mockS3.send({})
+            const command = new GetObjectCommand({
+                Bucket: 'dummy',
+                Key: 'key'
             })
-            m = V3.mockDynamo.getItem({
-                times:2
-            }, m)
-            const dynamodb = new DynamoDB({region: 'us-east-1'})
+            const client = new S3Client({region: 'us-east-1'})
             // @ts-ignore
-            const result1 = await dynamodb.getItem({})
-            expect(result1).toEqual({times: 1})
-            // @ts-ignore
-            const result2 = await dynamodb.getItem({})
-            expect(result2).toEqual({times: 2})
+            const result = await client.send(command)
+            expect(result).toEqual({})
+        })
+        :
+    })
+
+    describe ('#lambda', () => {
+        const lambdaParam = {
+            FunctionName: 'dummy',
+            Payload: undefined
+        }
+
+        beforeEach(() => {
+            jest.restoreAllMocks()
         })
 
-        it ('should be return dynamoDB mock(all)', async () => {
-            let m = V3.mockDynamo.getItemAll({
-                times: 'all'
-            })
-            const dynamodb = new DynamoDB({region: 'us-east-1'})
+        it ('should be return mock result (v3 style send)', async () => {
+            V3.mockLambda.send({})
+            const command = new InvokeCommand(lambdaParam)
+            const client = new LambdaClient({region: 'us-east-1'})
             // @ts-ignore
-            const result1 = await dynamodb.getItem({})
-            expect(result1).toEqual({times: 'all'})
-            // @ts-ignore
-            const result2 = await dynamodb.getItem({})
-            expect(result2).toEqual({times: 'all'})
+            const result = await client.send(command)
+            expect(result).toEqual({})
+        })
+        :
+    })
+
+    describe ('#cloudfront', () => {
+        const getDistributionParam = {
+            Id: 'dummy'
+        }
+        beforeEach(() => {
+            jest.restoreAllMocks()
         })
 
-        it ('should be return dynamoDB mock(throw)', async () => {
-            let m = V3.mockDynamo.getItemThrow({
-                error: 'error'
-            })
-            const dynamodb = new DynamoDB({region: 'us-east-1'})
-            try {
-                // @ts-ignore
-                await dynamodb.getItem({})
-                expect('Test fail').toBe(null)
-            } catch (e) {
-                expect(e).toEqual({error: 'error'})
-            }
+        it ('should be return mock result (v3 style send)', async () => {
+            V3.mockCloudFront.send({})
+            const command = new GetDistributionCommand(getDistributionParam)
+            const client = new CloudFrontClient({region: 'us-east-1'})
+            // @ts-ignore
+            const result = await client.send(command)
+            expect(result).toEqual({})
         })
+        :
     })
 })
 ```
 
+### aws-sdk Version 2 (This is the same as the v2 style of aws-sdk version 3)
 ```ts
 describe('#dynamodb doc client', () => {
     it('#get', async () => {
@@ -422,11 +446,11 @@ const result3 = await lambda.invoke(xxx) // will return resultObject3
 const result4 = await lambda.invoke(xxx) // This is real call of AWS lambda
 ```
 
-## all mockable methods (2021.03.22)
+## all mockable methods (2021.04.26)
 
 ### aws-sdk-v2
 ```ts
-exports.Acm = [
+export const Acm = [
     'addTagsToCertificate',
     'deleteCertificate',
     'describeCertificate',
@@ -440,8 +464,9 @@ exports.Acm = [
     'requestCertificate',
     'resendValidationEmail',
     'updateCertificateOptions'
-];
-exports.CloudFront = [
+]
+
+export const CloudFront = [
     'createCloudFrontOriginAccessIdentity',
     'createDistribution',
     'createDistributionWithTags',
@@ -488,8 +513,9 @@ exports.CloudFront = [
     'updateFieldLevelEncryptionProfile',
     'updatePublicKey',
     'updateStreamingDistribution'
-];
-exports.Lambda = [
+]
+
+export const Lambda =  [
     'addLayerVersionPermission',
     'addPermission',
     'createAlias',
@@ -539,8 +565,9 @@ exports.Lambda = [
     'updateFunctionCode',
     'updateFunctionConfiguration',
     'updateFunctionEventInvokeConfig',
-];
-exports.s3 = [
+]
+
+export const s3 = [
     'abortMultipartUpload',
     'completeMultipartUpload',
     'copyObject',
@@ -633,8 +660,9 @@ exports.s3 = [
     'upload',
     'uploadPart',
     'uploadPartCopy'
-];
-exports.EventBridge = [
+]
+
+export const EventBridge = [
     'activateEventSource',
     'createEventBus',
     'createPartnerEventSource',
@@ -666,8 +694,9 @@ exports.EventBridge = [
     'tagResource',
     'testEventPattern',
     'untagResource'
-];
-exports.StepFunctions = [
+]
+
+export const StepFunctions = [
     'createActivity',
     'createStateMachine',
     'deleteActivity',
@@ -690,8 +719,9 @@ exports.StepFunctions = [
     'tagResource',
     'untagResource',
     'updateStateMachine'
-];
-exports.CognitoIdp = [
+]
+
+export const CognitoIdp = [
     'addCustomAttributes',
     'adminAddUserToGroup',
     'adminConfirmSignUp',
@@ -792,8 +822,9 @@ exports.CognitoIdp = [
     'updateUserPoolDomain',
     'verifySoftwareToken',
     'verifyUserAttribute'
-];
-exports.Kms = [
+]
+
+export const Kms = [
     'cancelKeyDeletion',
     'connectCustomKeyStore',
     'createAlias',
@@ -840,8 +871,9 @@ exports.Kms = [
     'updateCustomKeyStore',
     'updateKeyDescription',
     'verify'
-];
-exports.Ssm = [
+]
+
+export const Ssm = [
     'addTagsToResource',
     'cancelCommand',
     'cancelMaintenanceWindowExecution',
@@ -963,9 +995,10 @@ exports.Ssm = [
     'updateOpsItem',
     'updatePatchBaseline',
     'updateResourceDataSync',
-    'updateServiceSetting'
-];
-exports.DynamoDocClient = [
+    'updateServiceSetting'    
+]
+
+export const DynamoDocClient = [
     'batchGet',
     'batchWrite',
     'createSet',
@@ -977,8 +1010,62 @@ exports.DynamoDocClient = [
     'transactGet',
     'transactWrite',
     'update'
-];
-exports.Ecs = [
+]
+
+export const DynamoDB = [
+    'batchExecuteStatement',
+    'batchGetItem',
+    'batchWriteItem',
+    'createBackup',
+    'createGlobalTable',
+    'createTable',
+    'deleteBackup',
+    'deleteItem',
+    'deleteTable',
+    'describeBackup',
+    'describeContinuousBackups',
+    'describeContributorInsights',
+    'describeEndpoints',
+    'describeExport',
+    'describeGlobalTable',
+    'describeGlobalTableSettings',
+    'describeKinesisStreamingDestination',
+    'describeLimits',
+    'describeTable',
+    'describeTableReplicaAutoScaling',
+    'describeTimeToLive',
+    'disableKinesisStreamingDestination',
+    'enableKinesisStreamingDestination',
+    'executeStatement',
+    'executeTransaction',
+    'exportTableToPointInTime',
+    'getItem',
+    'listBackups',
+    'listContributorInsights',
+    'listExports',
+    'listGlobalTables',
+    'listTables',
+    'listTagsOfResource',
+    'putItem',
+    'query',
+    'restoreTableFromBackup',
+    'restoreTableToPointInTime',
+    'scan',
+    'tagResource',
+    'transactGetItems',
+    'transactWriteItems',
+    'untagResource',
+    'updateContinuousBackups',
+    'updateContributorInsights',
+    'updateGlobalTable',
+    'updateGlobalTableSettings',
+    'updateItem',
+    'updateTable',
+    'updateTableReplicaAutoScaling',
+    'updateTimeToLive'
+]
+
+export const Ecs = [
     'createCapacityProvider',
     'createCluster',
     'createService',
@@ -1028,7 +1115,7 @@ exports.Ecs = [
     'updateService',
     'updateServicePrimaryTaskSet',
     'updateTaskSet'
-];
+]
 
 /**
  * TimestreamQuery method list
@@ -1227,5 +1314,262 @@ export const SESv2 = [
 ```
 
 ### aws-sdk v3
+```ts
+export const DynamoDB = [
+    'batchExecuteStatement',
+    'batchGetItem',
+    'batchWriteItem',
+    'createBackup',
+    'createGlobalTable',
+    'createTable',
+    'deleteBackup',
+    'deleteItem',
+    'deleteTable',
+    'describeBackup',
+    'describeContinuousBackups',
+    'describeContributorInsights',
+    'describeEndpoints',
+    'describeExport',
+    'describeGlobalTable',
+    'describeGlobalTableSettings',
+    'describeKinesisStreamingDestination',
+    'describeLimits',
+    'describeTable',
+    'describeTableReplicaAutoScaling',
+    'describeTimeToLive',
+    'disableKinesisStreamingDestination',
+    'enableKinesisStreamingDestination',
+    'executeStatement',
+    'executeTransaction',
+    'exportTableToPointInTime',
+    'getItem',
+    'listBackups',
+    'listContributorInsights',
+    'listExports',
+    'listGlobalTables',
+    'listTables',
+    'listTagsOfResource',
+    'putItem',
+    'query',
+    'restoreTableFromBackup',
+    'restoreTableToPointInTime',
+    'scan',
+    'tagResource',
+    'transactGetItems',
+    'transactWriteItems',
+    'untagResource',
+    'updateContinuousBackups',
+    'updateContributorInsights',
+    'updateGlobalTable',
+    'updateGlobalTableSettings',
+    'updateItem',
+    'updateTable',
+    'updateTableReplicaAutoScaling',
+    'updateTimeToLive'
+],
+
+export const CloudFront = [
+    'createCloudFrontOriginAccessIdentity',
+    'createDistribution',
+    'createDistributionWithTags',
+    'createFieldLevelEncryptionConfig',
+    'createFieldLevelEncryptionProfile',
+    'createInvalidation',
+    'createPublicKey',
+    'createStreamingDistribution',
+    'createStreamingDistributionWithTags',
+    'deleteCloudFrontOriginAccessIdentity',
+    'deleteDistribution',
+    'deleteFieldLevelEncryptionConfig',
+    'deleteFieldLevelEncryptionProfile',
+    'deletePublicKey',
+    'deleteStreamingDistribution',
+    'getCloudFrontOriginAccessIdentity',
+    'getCloudFrontOriginAccessIdentityConfig',
+    'getDistribution',
+    'getDistributionConfig',
+    'getFieldLevelEncryption',
+    'getFieldLevelEncryptionConfig',
+    'getFieldLevelEncryptionProfile',
+    'getFieldLevelEncryptionProfileConfig',
+    'getInvalidation',
+    'getPublicKey',
+    'getPublicKeyConfig',
+    'getStreamingDistribution',
+    'getStreamingDistributionConfig',
+    'listCloudFrontOriginAccessIdentities',
+    'listDistributions',
+    'listDistributionsByWebACLId',
+    'listFieldLevelEncryptionConfigs',
+    'listFieldLevelEncryptionProfiles',
+    'listInvalidations',
+    'listPublicKeys',
+    'listStreamingDistributions',
+    'listTagsForResource',
+    'setupRequestListeners',
+    'tagResource',
+    'untagResource',
+    'updateCloudFrontOriginAccessIdentity',
+    'updateDistribution',
+    'updateFieldLevelEncryptionConfig',
+    'updateFieldLevelEncryptionProfile',
+    'updatePublicKey',
+    'updateStreamingDistribution'
+]
+
+export const Lambda =  [
+    'addLayerVersionPermission',
+    'addPermission',
+    'createAlias',
+    'createEventSourceMapping',
+    'createFunction',
+    'deleteAlias',
+    'deleteEventSourceMapping',
+    'deleteFunction',
+    'deleteFunctionConcurrency',
+    'deleteFunctionEventInvokeConfig',
+    'deleteLayerVersion',
+    'deleteProvisionedConcurrencyConfig',
+    'getAccountSettings',
+    'getAlias',
+    'getEventSourceMapping',
+    'getFunction',
+    'getFunctionConcurrency',
+    'getFunctionConfiguration',
+    'getFunctionEventInvokeConfig',
+    'getLayerVersion',
+    'getLayerVersionByArn',
+    'getLayerVersionPolicy',
+    'getPolicy',
+    'getProvisionedConcurrencyConfig',
+    'invoke',
+    'invokeAsync',
+    'listAliases',
+    'listEventSourceMappings',
+    'listFunctionEventInvokeConfigs',
+    'listFunctions',
+    'listLayers',
+    'listLayerVersions',
+    'listProvisionedConcurrencyConfigs',
+    'listTags',
+    'listVersionsByFunction',
+    'publishLayerVersion',
+    'publishVersion',
+    'putFunctionConcurrency',
+    'putFunctionEventInvokeConfig',
+    'putProvisionedConcurrencyConfig',
+    'removeLayerVersionPermission',
+    'removePermission',
+    'tagResource',
+    'untagResource',
+    'updateAlias',
+    'updateEventSourceMapping',
+    'updateFunctionCode',
+    'updateFunctionConfiguration',
+    'updateFunctionEventInvokeConfig',
+]
+
+export const s3 = [
+    'abortMultipartUpload',
+    'completeMultipartUpload',
+    'copyObject',
+    'createBucket',
+    'createMultipartUpload',
+    'createPresignedPost',
+    'deleteBucket',
+    'deleteBucketAnalyticsConfiguration',
+    'deleteBucketCors',
+    'deleteBucketEncryption',
+    'deleteBucketInventoryConfiguration',
+    'deleteBucketLifecycle',
+    'deleteBucketMetricsConfiguration',
+    'deleteBucketPolicy',
+    'deleteBucketReplication',
+    'deleteBucketTagging',
+    'deleteBucketWebsite',
+    'deleteObject',
+    'deleteObjects',
+    'deleteObjectTagging',
+    'deletePublicAccessBlock',
+    'getBucketAccelerateConfiguration',
+    'getBucketAcl',
+    'getBucketAnalyticsConfiguration',
+    'getBucketCors',
+    'getBucketEncryption',
+    'getBucketInventoryConfiguration',
+    'getBucketLifecycle',
+    'getBucketLifecycleConfiguration',
+    'getBucketLocation',
+    'getBucketLogging',
+    'getBucketMetricsConfiguration',
+    'getBucketNotification',
+    'getBucketNotificationConfiguration',
+    'getBucketPolicy',
+    'getBucketPolicyStatus',
+    'getBucketReplication',
+    'getBucketRequestPayment',
+    'getBucketTagging',
+    'getBucketVersioning',
+    'getBucketWebsite',
+    'getObject',
+    'getObjectAcl',
+    'getObjectLegalHold',
+    'getObjectLockConfiguration',
+    'getObjectRetention',
+    'getObjectTagging',
+    'getObjectTorrent',
+    'getPublicAccessBlock',
+    'getSignedUrl',
+    'getSignedUrlPromise',
+    'headBucket',
+    'headObject',
+    'listBucketAnalyticsConfigurations',
+    'listBucketInventoryConfigurations',
+    'listBucketMetricsConfigurations',
+    'listBuckets',
+    'listMultipartUploads',
+    'listObjects',
+    'listObjectsV2',
+    'listObjectVersions',
+    'listParts',
+    'putBucketAccelerateConfiguration',
+    'putBucketAcl',
+    'putBucketAnalyticsConfiguration',
+    'putBucketCors',
+    'putBucketEncryption',
+    'putBucketInventoryConfiguration',
+    'putBucketLifecycle',
+    'putBucketLifecycleConfiguration',
+    'putBucketLogging',
+    'putBucketMetricsConfiguration',
+    'putBucketNotification',
+    'putBucketNotificationConfiguration',
+    'putBucketPolicy',
+    'putBucketReplication',
+    'putBucketRequestPayment',
+    'putBucketTagging',
+    'putBucketVersioning',
+    'putBucketWebsite',
+    'putObject',
+    'putObjectAcl',
+    'putObjectLegalHold',
+    'putObjectLockConfiguration',
+    'putObjectRetention',
+    'putObjectTagging',
+    'putPublicAccessBlock',
+    'restoreObject',
+    'selectObjectContent',
+    'upload',
+    'uploadPart',
+    'uploadPartCopy'
+],
+
+/**
+ * Send method is used for v3 modular style.
+ */
+export const V3Client = [
+    'send'
+]
+```
 #### @aws-sdk/client-dynamodb
 - getItem

@@ -1,2 +1,2 @@
 export * from './index_v2'
-export * from './index_v3'
+export * as V3 from './index_v3'

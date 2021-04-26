@@ -560,6 +560,59 @@ export const DynamoDocClient = [
     'update'
 ]
 
+export const DynamoDB = [
+    'batchExecuteStatement',
+    'batchGetItem',
+    'batchWriteItem',
+    'createBackup',
+    'createGlobalTable',
+    'createTable',
+    'deleteBackup',
+    'deleteItem',
+    'deleteTable',
+    'describeBackup',
+    'describeContinuousBackups',
+    'describeContributorInsights',
+    'describeEndpoints',
+    'describeExport',
+    'describeGlobalTable',
+    'describeGlobalTableSettings',
+    'describeKinesisStreamingDestination',
+    'describeLimits',
+    'describeTable',
+    'describeTableReplicaAutoScaling',
+    'describeTimeToLive',
+    'disableKinesisStreamingDestination',
+    'enableKinesisStreamingDestination',
+    'executeStatement',
+    'executeTransaction',
+    'exportTableToPointInTime',
+    'getItem',
+    'listBackups',
+    'listContributorInsights',
+    'listExports',
+    'listGlobalTables',
+    'listTables',
+    'listTagsOfResource',
+    'putItem',
+    'query',
+    'restoreTableFromBackup',
+    'restoreTableToPointInTime',
+    'scan',
+    'tagResource',
+    'transactGetItems',
+    'transactWriteItems',
+    'untagResource',
+    'updateContinuousBackups',
+    'updateContributorInsights',
+    'updateGlobalTable',
+    'updateGlobalTableSettings',
+    'updateItem',
+    'updateTable',
+    'updateTableReplicaAutoScaling',
+    'updateTimeToLive'
+]
+
 export const Ecs = [
     'createCapacityProvider',
     'createCluster',
@@ -804,4 +857,11 @@ export const SESv2 = [
     'updateCustomVerificationEmailTemplate',
     'updateEmailIdentityPolicy',
     'updateEmailTemplate'
+]
+
+/**
+ * Send method is used for v3 modular style.
+ */
+export const V3Client = [
+    'send'
 ]
