@@ -10,16 +10,15 @@ describe('#index_V2', () => {
             jest.restoreAllMocks()
         })
         it('should be combine any mocking to the chain', async () => {
-            const lambda = new Lambda()
-            const db = new DynamoDB.DocumentClient()
-            // construct mock chain
             const chain = new MockChain()
             chain
-                .add(target.mockLambda.invoke, {result: 1})
                 .add(target.mockDynamoDocClient.get, {result: 2})
+                .add(target.mockLambda.invoke, {result: 1})
                 .add(target.mockLambda.invoke, {result: 3}, 0)
             const spies = chain.getSpies()
 
+            const lambda = new Lambda()
+            const db = new DynamoDB.DocumentClient()
             // call methods
             const result1 = await lambda.invoke().promise()
             // @ts-ignore

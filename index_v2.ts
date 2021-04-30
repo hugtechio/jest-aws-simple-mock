@@ -260,10 +260,12 @@ export const mockDynamo = {
     }
 }
 
+new AWS.Lambda()
 // @ts-ignore
 const mocksLambda = genMock(AWS.Lambda.services, methodList.Lambda)
 export const mockLambda: Mock = mocksLambda
 
+new AWS.S3()
 // @ts-ignore
 const mocksS3 = genMock(AWS.S3.services, methodList.s3)
 // The methods for presign urls not exist in the services scope. Adding these mocks with individually.
@@ -290,19 +292,22 @@ mocksS3.getSignedUrlPromiseAll = (url: string): jest.SpyInstance => {
 }
 export const mockS3: Mock = mocksS3
 
-
+new AWS.CloudFront()
 // @ts-ignore
 const mocksCloudFront = genMock(AWS.CloudFront.services, methodList.CloudFront)
 export const mockCloudFront: Mock = mocksCloudFront
 
+new AWS.EventBridge()
 // @ts-ignore
 const mocksEventBridge = genMock(AWS.EventBridge.services, methodList.EventBridge)
 export const mockEventBridge: Mock = mocksEventBridge
 
+new AWS.StepFunctions()
 // @ts-ignore
 const mocksStepFunctions = genMock(AWS.StepFunctions.services, methodList.StepFunctions)
 export const mockStepFunctions: Mock = mocksStepFunctions
 
+new AWS.SQS()
 export const mockSqs = {
     sendMessage: function (result: {}): jest.SpyInstance {
         // @ts-ignore
@@ -323,43 +328,53 @@ export const mockSqs = {
 }
 
 
+new AWS.ACM()
 // @ts-ignore
 const mocksAcm = genMock(AWS.ACM.services, methodList.Acm)
 export const mockAcm: Mock = mocksAcm
 
+new AWS.CognitoIdentityServiceProvider()
 // @ts-ignore
 const mocksCognitoIdp = genMock(AWS.CognitoIdentityServiceProvider.services, methodList.CognitoIdp)
 export const mockCognitoIdp: Mock = mocksCognitoIdp
 
+new AWS.KMS()
 // @ts-ignore
 const mocksKms = genMock(AWS.KMS.services, methodList.Kms)
 export const mockKms: Mock = mocksKms
 
+new AWS.SSM()
 // @ts-ignore
 const mocksSsm = genMock(AWS.SSM.services, methodList.Ssm)
 export const mockSsm: Mock = mocksSsm
 
+new AWS.DynamoDB.DocumentClient()
 // @ts-ignore
 // Impersonate aws service configuration 
 const mocksDynamoDocClient = genMock({latest: AWS.DynamoDB.DocumentClient}, methodList.DynamoDocClient)
 export const mockDynamoDocClient: Mock = mocksDynamoDocClient
 
+new AWS.ECS()
 // @ts-ignore
 const mocksEcs = genMock(AWS.ECS.services, methodList.Ecs)
 export const mockEcs: Mock = mocksEcs
 
+new AWS.TimestreamQuery()
 // @ts-ignore
 const mocksTimestreamQuery = genMock(AWS.TimestreamQuery.services, methodList.TimestreamQuery)
 export const mockTimestreamQuery: Mock = mocksTimestreamQuery
 
+new AWS.TimestreamWrite()
 // @ts-ignore
 const mocksTimestreamWrite = genMock(AWS.TimestreamWrite.services, methodList.TimestreamWrite)
 export const mockTimestreamWrite: Mock = mocksTimestreamWrite 
 
+new AWS.SES()
 // @ts-ignore
 const mocksSes = genMock(AWS.SES.services, methodList.SES)
 export const mockSes: Mock = mocksSes
 
+new AWS.SESV2()
 // @ts-ignore
 const mocksSesV2 = genMock(AWS.SESV2.services, methodList.SESv2)
 export const mockSesV2: Mock = mocksSesV2
