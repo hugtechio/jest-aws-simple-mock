@@ -1,9 +1,38 @@
 import * as target from '../index_v2'
 import * as AWS from 'aws-sdk'
 import { DataMapper } from '@aws/dynamodb-data-mapper'
-import { DynamoDB } from 'aws-sdk'
+import { DynamoDB, Lambda } from 'aws-sdk'
+import { MockChain } from '../chain'
 
 describe('#index_V2', () => {
+    describe('#methodChaining', async () => {
+        beforeEach(() => {
+            jest.restoreAllMocks()
+        })
+        it('should be combine any mocking to the chain', async () => {
+            const lambda = new Lambda()
+            const db = new DynamoDB.DocumentClient()
+            // construct mock chain
+            const chain = new MockChain()
+            chain
+                .add(target.mockLambda.invoke, {result: 1})
+                .add(target.mockDynamoDocClient.get, {result: 2})
+                .add(target.mockLambda.invoke, {result: 3}, 0)
+            const spies = chain.getSpies()
+
+            // call methods
+            const result1 = await lambda.invoke().promise()
+            // @ts-ignore
+            const result2 = await db.get().promise()
+            const result3 = await lambda.invoke().promise()
+
+            // check results
+            expect(result1).toEqual({result: 1})
+            expect(result2).toEqual({result: 2})
+            expect(result3).toEqual({result: 3})
+        })
+    })
+
     describe('#method currentVersion', () => {
         it('return valid service', async () => {
             const data = {

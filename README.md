@@ -7,12 +7,14 @@ Currently, only these module you can mock is.
 - aws-sdk(version 3) ** DynamoDB, Lambda, S3, and CloudFront **
 
 ## Basic Usage
-```ts
+**AWS-SDK v2**
+```ts 
 import { mock<ServiceName> } from 'jest-aws-simple-mock'
 
 let spy = mock<ServiceName>.<methodName>(<<returns>>)
 ```
 
+**AWS-SDK v3**
 ```ts
 import { V3 } from 'jest-aws-simple-mock'
 
@@ -23,387 +25,131 @@ let spy = V3.mockDynamo.getItem(<<returns>>)
 ## Mocking example
 Test code of this library is helpful how to use.
 
+### Chaining example (using MockChain object)
+
+```ts
+    // construct mock chain
+    const chain = new MockChain()
+    chain
+        .add(V3.mockDynamo.send, 1)
+        .add(V3.mockLambda.send, {})
+        .add(V3.mockDynamo.send, 2, 0)
+    const spies = chain.getSpies()
+
+    // call methods
+    const dynamoClient = new DynamoDBClient({region: 'us-east-1'})
+    const dynamoCommandParam1 = {
+        TableName: 'dummy',
+        Key: {
+            ID: { S: 'aaaa'}
+        }
+    }
+    const dynamoCommand1 = new GetItemCommand(dynamoCommandParam1)
+    const result1 = await dynamoClient.send(dynamoCommand1)
+
+    const lambdaCommand = new InvokeCommand(lambdaParam)
+    const lambdaClient = new LambdaClient({region: 'us-east-1'})
+    const result2 = await lambdaClient.send(lambdaCommand)
+
+    const dynamoCommandParam2 = {
+        TableName: 'dummy',
+        Key: {
+            ID: { S: 'bbbb'}
+        }
+    }
+    const dynamoCommand2 = new GetItemCommand(dynamoCommandParam2)
+    const result3 = await dynamoClient.send(dynamoCommand2)
+
+    // check results
+    expect(result1).toBe(1)
+    expect(result2).toEqual({})
+    expect(result3).toEqual(2)
+    expect(spies[0]).toHaveBeenNthCalledWith(1, expect.objectContaining({
+        input: dynamoCommandParam1
+    }))
+    expect(spies[1]).toHaveBeenNthCalledWith(1, expect.objectContaining({
+        input: lambdaParam
+    }))
+    expect(spies[0]).toHaveBeenNthCalledWith(2, expect.objectContaining({
+        input: dynamoCommandParam2
+    }))
+```
+
 ### aws-sdk version 3 Modular style
 ```ts
-describe('#index_v3', () => {
-    describe('#dynamodb', () => {
-        beforeEach(() => {
-            jest.restoreAllMocks()
-        })
-        it ('should be return mock result (v3 style send)', async () => {
-            V3.mockDynamo.send({})
-            const command = new GetItemCommand({
-                TableName: 'dummy',
-                Key: {
-                    ID: { S: 'aaaa'}
-                }
-            })
-            const client = new DynamoDBClient({region: 'us-east-1'})
-            // @ts-ignore
-            const result = await client.send(command)
-            expect(result).toEqual({})
-        })
-        :
-    })
-
-    describe ('#s3', () => {
-        beforeEach(() => {
-            jest.restoreAllMocks()
-        })
-        it ('should be return mock result (v3 style send)', async () => {
-            V3.mockS3.send({})
-            const command = new GetObjectCommand({
-                Bucket: 'dummy',
-                Key: 'key'
-            })
-            const client = new S3Client({region: 'us-east-1'})
-            // @ts-ignore
-            const result = await client.send(command)
-            expect(result).toEqual({})
-        })
-        :
-    })
-
-    describe ('#lambda', () => {
-        const lambdaParam = {
-            FunctionName: 'dummy',
-            Payload: undefined
+    V3.mockDynamo.send({})
+    const command = new GetItemCommand({
+        TableName: 'dummy',
+        Key: {
+            ID: { S: 'aaaa'}
         }
-
-        beforeEach(() => {
-            jest.restoreAllMocks()
-        })
-
-        it ('should be return mock result (v3 style send)', async () => {
-            V3.mockLambda.send({})
-            const command = new InvokeCommand(lambdaParam)
-            const client = new LambdaClient({region: 'us-east-1'})
-            // @ts-ignore
-            const result = await client.send(command)
-            expect(result).toEqual({})
-        })
-        :
     })
+    const client = new DynamoDBClient({region: 'us-east-1'})
+    // @ts-ignore
+    const result = await client.send(command)
+    expect(result).toEqual({})
+```
 
-    describe ('#cloudfront', () => {
-        const getDistributionParam = {
-            Id: 'dummy'
-        }
-        beforeEach(() => {
-            jest.restoreAllMocks()
-        })
-
-        it ('should be return mock result (v3 style send)', async () => {
-            V3.mockCloudFront.send({})
-            const command = new GetDistributionCommand(getDistributionParam)
-            const client = new CloudFrontClient({region: 'us-east-1'})
-            // @ts-ignore
-            const result = await client.send(command)
-            expect(result).toEqual({})
-        })
-        :
+```ts
+    V3.mockS3.send({})
+    const command = new GetObjectCommand({
+        Bucket: 'dummy',
+        Key: 'key'
     })
-})
+    const client = new S3Client({region: 'us-east-1'})
+    // @ts-ignore
+    const result = await client.send(command)
+    expect(result).toEqual({})
 ```
 
 ### aws-sdk Version 2 (This is the same as the v2 style of aws-sdk version 3)
+```ts DynamoDBDataMapper
+    const result = await target.mockDynamoDocClient.get({})
+    // @ts-ignore
+    expect(result).toHaveProperty('mock')
+```
+
+```ts DynamoDBDataMapper twice calls
+    const dataMapper = new DataMapper({client: new DynamoDB()})
+    let mock = target.mockDynamo.query([{id: 1}])
+    target.mockDynamo.query([{id: 2}], mock)
+
+    // @ts-ignore
+    let q = dataMapper.query()
+    let result = [] 
+    for await (const item of q) {
+        result.push(item)
+    }
+    expect(result).toEqual([{id: 1}])
+
+    // @ts-ignore
+    q = dataMapper.query()
+    result = [] 
+    for await (const item of q) {
+        result.push(item)
+    }
+    expect(result).toEqual([{id: 2}])
+```
+
+```ts mock DynamoDBDataMapper.pages
+    const dataMapper = new DataMapper({client: new DynamoDB()})
+    let mock = target.mockDynamo.queryPages([[{id: 1}]])
+    // @ts-ignore
+    let q = dataMapper.query().pages()
+    expect(q).toHaveProperty('lastEvaluatedKey')
+    for await (const page of q) {
+        expect(Array.isArray(page)).toBeTruthy()
+```
+
 ```ts
-describe('#dynamodb doc client', () => {
-    it('#get', async () => {
-        const result = await target.mockDynamoDocClient.get({})
-        // @ts-ignore
-        expect(result).toHaveProperty('mock')
-    }),
-    it('#put', async () => {
-        const result = await target.mockDynamoDocClient.put({})
-        // @ts-ignore
-        expect(result).toHaveProperty('mock')
-    })
-})
-
-describe('#dynamodb data mapper', () => {
-    beforeEach(() => {
-        jest.restoreAllMocks()
-    })
-
-    it('#query', async () => {
-        const result = await target.mockDynamo.query([{}])
-        // @ts-ignore
-        expect(result).toHaveProperty('mock')
-    });
-
-    it('#query (new)', async () => {
-        const dataMapper = new DataMapper({client: new DynamoDB()})
-        target.mockDynamo.query([{id: 1}])
-        // @ts-ignore
-        const q = dataMapper.query()
-        let result = [] 
-        for await (const item of q) {
-            result.push(item)
-        }
-        expect(result).toEqual([{id: 1}])
-    });
-
-    it('#query (add)', async () => {
-        const dataMapper = new DataMapper({client: new DynamoDB()})
-        let mock = target.mockDynamo.query([{id: 1}])
-        target.mockDynamo.query([{id: 2}], mock)
-
-        // @ts-ignore
-        let q = dataMapper.query()
-        let result = [] 
-        for await (const item of q) {
-            result.push(item)
-        }
-        expect(result).toEqual([{id: 1}])
-
-        // @ts-ignore
-        q = dataMapper.query()
-        result = [] 
-        for await (const item of q) {
-            result.push(item)
-        }
-        expect(result).toEqual([{id: 2}])
-        
-    });
-
-    it('#query (pages)', async () => {
-        const dataMapper = new DataMapper({client: new DynamoDB()})
-        let mock = target.mockDynamo.queryPages([[{id: 1}]])
-        // @ts-ignore
-        let q = dataMapper.query().pages()
-        expect(q).toHaveProperty('lastEvaluatedKey')
-        for await (const page of q) {
-            expect(Array.isArray(page)).toBeTruthy()
-        }
-    });
-})
-
-describe ('#acm', () => {
-    beforeEach(() => {
-        jest.restoreAllMocks()
-    })
-    it('should get requestCertificate', async () => {
-        const acm = new AWS.ACM()
-        let mock = target.mockAcm.requestCertificate({})
-        const result = await acm.requestCertificate().promise()
-        expect(result).toEqual({})
-    });
-    it('should get requestCertificateAll', async () => {
-        const acm = new AWS.ACM()
-        let mock = target.mockAcm.requestCertificateAll({})
-        const result1 = await acm.requestCertificate().promise()
-        const result2 = await acm.requestCertificate().promise()
-        expect(result1).toEqual({})
-        expect(result2).toEqual({})
-    });
-})
-
-describe ('#cloudfront', () => {
-    beforeEach(() => {
-        jest.restoreAllMocks()
-    })
-    it('should get getDistributionConfig', async () => {
-        const cf = new AWS.CloudFront()
-        let mock = target.mockCloudFront.getDistributionConfig({})
-        const result = await cf.getDistributionConfig().promise()
-        expect(result).toEqual({})
-    });
-
-    it('should get getDistributionConfigAll', async () => {
-        const cf = new AWS.CloudFront()
-        let mock = target.mockCloudFront.getDistributionConfigAll({})
-        const result1 = await cf.getDistributionConfig().promise()
-        const result2 = await cf.getDistributionConfig().promise()
-        expect(result1).toEqual({})
-        expect(result2).toEqual({})
-    });
-
-    it('should throw getDistributionConfigThrow', async () => {
-        const cf = new AWS.CloudFront()
-        let mock = target.mockCloudFront.getDistributionConfigThrow({})
-        try {
-            const result1 = await cf.getDistributionConfig().promise()
-            expect(null).toBe('This path is fault of the test') // should be
-        } catch (e) {
-            expect(e).toEqual({})
-        }
-    });
-})
-
-describe ('#lambda', () => {
-    beforeEach(() => {
-        jest.restoreAllMocks()
-    })
-    it('should get invoke', async () => {
-        const lambda = new AWS.Lambda()
-        let mock = target.mockLambda.invoke({})
-        const result = await lambda.invoke().promise()
-        expect(result).toEqual({})
-    });
-
-    it('should get invokeAll', async () => {
-        const lambda = new AWS.Lambda()
-        let mock = target.mockLambda.invokeAll({})
-        const result1 = await lambda.invoke().promise()
-        const result2 = await lambda.invoke().promise()
-        expect(result1).toEqual({})
-        expect(result2).toEqual({})
-    });
-})
-
-describe ('#s3', () => {
-    beforeEach(() => {
-        jest.restoreAllMocks()
-    })
-    it('should get getObject mock', async () => {
-        const s3 = new AWS.S3()
-        let mock = target.mockS3.getObject({})
-        const result = await s3.getObject().promise()
-        expect(result).toEqual({})
-    });
-    it('should get getpresignedurl mock', async () => {
-        const s3 = new AWS.S3()
-        let mock = target.mockS3.getSignedUrl({})
-        // @ts-ignore
-        const result = s3.getSignedUrl()
-        expect(result).toEqual({})
-    });
-    it('should get getpresignedurlPromise mock', async () => {
-        const s3 = new AWS.S3()
-        let mock = target.mockS3.getSignedUrlPromise({})
-        // @ts-ignore
-        const result = await s3.getSignedUrlPromise()
-        expect(result).toEqual({})
-    });
-})
-
-describe ('#EventBridge', () => {
-    beforeEach(() => {
-        jest.restoreAllMocks()
-    })
-    it('should get createEventBus mock', async () => {
-        const eb = new AWS.EventBridge()
-        let mock = target.mockEventBridge.createEventBus({})
-        const result = await eb.createEventBus().promise()
-        expect(result).toEqual({})                
-    })
-    it('should get putEvents mock', async () => {
-        const eb = new AWS.EventBridge()
-        let mock = target.mockEventBridge.putEvents({})
-        const result = await eb.putEvents().promise()
-        expect(result).toEqual({})                
-    })
-})
-
-describe ('#StepFunction', () => {
-    beforeEach(() => {
-        jest.restoreAllMocks()
-    })
-    it('should get startExecution mock', async () => {
-        const sf = new AWS.StepFunctions()
-        let mock = target.mockStepFunctions.startExecution({})
-        const result = await sf.startExecution().promise()
-        expect(result).toEqual({})                
-    })
-})
-
-describe ('#CognitoIdp', () => {
-    beforeEach(() => {
-        jest.restoreAllMocks()
-    })
-    it('should get listUsers mock', async () => {
-        const idp = new AWS.CognitoIdentityServiceProvider()
-        let mock = target.mockCognitoIdp.listUsers({})
-        const result = await idp.listUsers().promise()
-        expect(result).toEqual({})                
-    })
-
-    it('should get adminInitiateAuth mock', async () => {
-        const idp = new AWS.CognitoIdentityServiceProvider()
-        let mock = target.mockCognitoIdp.adminInitiateAuth({})
-        const result = await idp.adminInitiateAuth().promise()
-        expect(result).toEqual({})                
-    })
-})
-
-describe ('#Kms', () => {
-    beforeEach(() => {
-        jest.restoreAllMocks()
-    })
-    it('should encrypt mock', async () => {
-        const kms = new AWS.KMS()
-        let mock = target.mockKms.encrypt({})
-        const result = await kms.encrypt().promise()
-        expect(result).toEqual({})                
-    })
-})
-
-describe ('#Ssm', () => {
-    beforeEach(() => {
-        jest.restoreAllMocks()
-    })
-    it('should GetParameter mock', async () => {
-        const ssm = new AWS.SSM()
-        let mock = target.mockSsm.getParameter({})
-        const result = await ssm.getParameter().promise()
-        expect(result).toEqual({})                
-    })
-})
-
-describe ('#Ecs', () => {
-    beforeEach(() => {
-        jest.restoreAllMocks()
-    })
-    it('should createCapacityProvider mock', async () => {
-        const ecs = new AWS.ECS()
-        let mock = target.mockEcs.createCapacityProvider({})
-        const result = await ecs.createCapacityProvider().promise()
-        expect(result).toEqual({})                
-    })
-})
-
-describe('#index_v3', () => {
-    describe('#dynamodb', () => {
-        it ('should be return dynamoDB mock', async () => {
-            V3.mockDynamo.getItem({})
-            const dynamodb = new DynamoDB({region: 'us-east-1'})
-            // @ts-ignore
-            const result = await dynamodb.getItem({})
-            expect(result).toEqual({})
-        })
-    })
-})
-
-describe ('#TimestreamQuery', () => {
-    beforeEach(() => {
-        jest.restoreAllMocks()
-    })
-    it('should query mock', async () => {
-        const tsq = new AWS.TimestreamQuery()
-        let mock = target.mockTimestreamQuery.query({})
-        const result = await tsq.query().promise()
-        expect(result).toEqual({})                
-    })
-})
-
-describe ('#TimestreamWrite', () => {
-    beforeEach(() => {
-        jest.restoreAllMocks()
-    })
-    it('should createDatabase mock', async () => {
-        const tsw = new AWS.TimestreamWrite()
-        let mock = target.mockTimestreamWrite.createDatabase({})
-        const result = await tsw.createDatabase().promise()
-        expect(result).toEqual({})                
-    })
-})
-
+    const acm = new AWS.ACM()
+    let mock = target.mockAcm.requestCertificate({})
+    const result = await acm.requestCertificate().promise()
+    expect(result).toEqual({})
 ```
 
 # Mocking pattern
-Jest-aws-simple-mock generate 3 types mock which return different result.
-
+Jest-aws-simple-mock generates 3 types mock which return different result.
 
 ### mock at once (only mock first invocation)
 This mocking invocation is to mock only a call of target function.
@@ -428,7 +174,8 @@ mockLambda.invokeThrow(resultObject)
 ```
 
 
-## mock chaining
+## mock on several calls
+
 when you want to mock target function only several times in all calls. 
 You can chain mock object.
 
@@ -446,6 +193,28 @@ const result3 = await lambda.invoke(xxx) // will return resultObject3
 const result4 = await lambda.invoke(xxx) // This is real call of AWS lambda
 ```
 
+## mock by chain object
+You can also make mocks like method chaining
+
+```ts
+# test code
+const chain = new MockChain()
+chain
+    .add(V3.mockDynamo.send, object1)  // stack the DynamoDBClient.send mocking behavior to spies[0]
+    .add(V3.mockDynamo.send, object2, 0) // add the DynamoDBClient.send mocking behavior for the second call (it needs to add the behavior to spies[0])
+    .add(V3.mockDynamo.send, object3, 0) // add the DynamoDBClient.send mocking behavior for the third call (it needs to add the behavior to spies[0])
+    .add(V3.mockLambda.send, object4) // stack the LambdaClient.send mocking behavior to spies[1]
+    .add(V3.mockLambda.send, object5, 1) // add the LambdaClient.send mocking behavior for the second call (it needs to add the behavior to spies[0])
+
+# caller
+const db = new DynamoDBClient()
+const lambda = new LambdaClient()
+const result1 = db.send(command1) // will return object1
+const result2 = db.send(command2) // will return object2
+const result3 = db.send(command3) // will return object3
+const result4 = lambda.send(command4) // will return object4
+const result5 = lambda.send(command5) // will return object5
+```
 ## all mockable methods (2021.04.26)
 
 ### aws-sdk-v2
@@ -1571,5 +1340,3 @@ export const V3Client = [
     'send'
 ]
 ```
-#### @aws-sdk/client-dynamodb
-- getItem

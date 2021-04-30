@@ -4,12 +4,73 @@ import { Lambda, LambdaClient, InvokeCommand } from '@aws-sdk/client-lambda'
 import { CloudFront, CloudFrontClient, GetDistributionCommand } from '@aws-sdk/client-cloudfront'
 
 import { V3 } from '../index'
+import { MockChain } from '../chain'
+
+const lambdaParam = {
+    FunctionName: 'dummy',
+    Payload: undefined
+}
 
 describe('#index_v3', () => {
+    describe('#methodChaining', async () => {
+        beforeEach(() => {
+            jest.restoreAllMocks()
+        })
+        it('should be combine any mocking to the chain', async () => {
+
+            // construct mock chain
+            const chain = new MockChain()
+            chain
+                .add(V3.mockDynamo.send, 1)
+                .add(V3.mockLambda.send, {})
+                .add(V3.mockDynamo.send, 2, 0)
+            const spies = chain.getSpies()
+
+            // call methods
+            const dynamoClient = new DynamoDBClient({region: 'us-east-1'})
+            const dynamoCommandParam1 = {
+                TableName: 'dummy',
+                Key: {
+                    ID: { S: 'aaaa'}
+                }
+            }
+            const dynamoCommand1 = new GetItemCommand(dynamoCommandParam1)
+            const result1 = await dynamoClient.send(dynamoCommand1)
+
+            const lambdaCommand = new InvokeCommand(lambdaParam)
+            const lambdaClient = new LambdaClient({region: 'us-east-1'})
+            const result2 = await lambdaClient.send(lambdaCommand)
+
+            const dynamoCommandParam2 = {
+                TableName: 'dummy',
+                Key: {
+                    ID: { S: 'bbbb'}
+                }
+            }
+            const dynamoCommand2 = new GetItemCommand(dynamoCommandParam2)
+            const result3 = await dynamoClient.send(dynamoCommand2)
+
+            // check results
+            expect(result1).toBe(1)
+            expect(result2).toEqual({})
+            expect(result3).toEqual(2)
+            expect(spies[0]).toHaveBeenNthCalledWith(1, expect.objectContaining({
+                input: dynamoCommandParam1
+            }))
+            expect(spies[1]).toHaveBeenNthCalledWith(1, expect.objectContaining({
+                input: lambdaParam
+            }))
+            expect(spies[0]).toHaveBeenNthCalledWith(2, expect.objectContaining({
+                input: dynamoCommandParam2
+            }))
+        })
+    })
+
     describe('#dynamodb', () => {
         beforeEach(() => {
             jest.restoreAllMocks()
         })
+
         it ('should be return mock result (v3 style send)', async () => {
             V3.mockDynamo.send({})
             const command = new GetItemCommand({
@@ -104,10 +165,6 @@ describe('#index_v3', () => {
     })
 
     describe ('#lambda', () => {
-        const lambdaParam = {
-            FunctionName: 'dummy',
-            Payload: undefined
-        }
 
         beforeEach(() => {
             jest.restoreAllMocks()

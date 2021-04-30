@@ -3,11 +3,7 @@ import { Lambda, LambdaClient } from '@aws-sdk/client-lambda'
 import { S3, S3Client } from '@aws-sdk/client-s3'
 import { CloudFront, CloudFrontClient } from '@aws-sdk/client-cloudfront'
 import * as methodList from './methodList'
-import responseTemplate, * as res from './responseTemplate'
-
-interface Mock {
-    [method: string]: (result: any, mock?: jest.SpyInstance) => jest.SpyInstance
-}
+import { Mock } from './base' 
 
 const doMock = (awsObjectPrototype: any, method: any, result: any, mockOnce: boolean, mock?: jest.SpyInstance, isThrow?: boolean): jest.SpyInstance => {
     // @ts-ignore
@@ -31,7 +27,7 @@ export const genMock = (awsObjectPrototype: any, methods: string[]) => {
 
         ret[`${method}Throw`] = function (result: any, mock?: jest.SpyInstance): jest.SpyInstance {
             return doMock(awsObjectPrototype, method, result, false, mock, true)
-        } 
+        }
     })
     return ret
 }
