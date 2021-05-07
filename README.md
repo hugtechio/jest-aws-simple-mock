@@ -6,6 +6,10 @@ Currently, only these module you can mock is.
 - aws-sdk(version 2) ** not all services **
 - aws-sdk(version 3) ** DynamoDB, Lambda, S3, and CloudFront **
 
+# Important Note
+Version less than equal 0.3.x is unstable release.
+So that Please update to 0.4.0 if you use above version.
+
 ## Basic Usage
 **AWS-SDK v2**
 ```ts 
