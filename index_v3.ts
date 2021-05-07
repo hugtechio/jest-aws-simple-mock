@@ -1,9 +1,14 @@
-import { DynamoDB, DynamoDBClient } from '@aws-sdk/client-dynamodb'
-import { Lambda, LambdaClient } from '@aws-sdk/client-lambda'
-import { S3, S3Client } from '@aws-sdk/client-s3'
-import { CloudFront, CloudFrontClient } from '@aws-sdk/client-cloudfront'
 import * as methodList from './methodList'
-import { Mock } from './base' 
+import { Mock } from './base'
+import { isUsing } from './dynamicImport'
+
+/**
+ * mocked aws object
+ */
+export let mockLambda: Mock
+export let mockDynamo: Mock
+export let mockS3: Mock
+export let mockCloudFront: Mock
 
 const doMock = (awsObjectPrototype: any, method: any, result: any, mockOnce: boolean, mock?: jest.SpyInstance, isThrow?: boolean): jest.SpyInstance => {
     // @ts-ignore
@@ -32,87 +37,51 @@ export const genMock = (awsObjectPrototype: any, methods: string[]) => {
     return ret
 }
 
-// @ts-ignore
-const mocksLambda = genMock(Lambda.prototype, methodList.Lambda)
-const mocksLambdaSend = genMock(LambdaClient.prototype, methodList.V3Client)
-export const mockLambda: Mock = Object.assign(mocksLambda, mocksLambdaSend)
+async function importLambda(): Promise<void> {
+    const moduleName = '@aws-sdk/client-lambda'
+    if (!isUsing(moduleName)) return undefined
 
-// @ts-ignore
-// Impersonate aws service configuration 
-const mocksDynamo = genMock(DynamoDB.prototype, methodList.DynamoDB)
-const mocksDynamoSend = genMock(DynamoDBClient.prototype, methodList.V3Client)
-export const mockDynamo: Mock = Object.assign(mocksDynamo, mocksDynamoSend)
+    const { Lambda, LambdaClient } = await import(moduleName)
+    const mocksLambda = genMock(Lambda.prototype, methodList.Lambda)
+    const mocksLambdaSend = genMock(LambdaClient.prototype, methodList.V3Client)
+    mockLambda = Object.assign(mocksLambda, mocksLambdaSend)
+}
 
-// @ts-ignore
-const mocksS3 = genMock(S3.prototype, methodList.s3)
-const mocksS3Send = genMock(S3Client.prototype, methodList.V3Client)
-export const mockS3: Mock = Object.assign(mocksS3, mocksS3Send) 
+async function importDynamoDB(): Promise<void> {
+    const moduleName = '@aws-sdk/client-dynamodb'
+    if (!isUsing(moduleName)) return undefined
 
-// @ts-ignore
-const mocksCloudFront = genMock(CloudFront.prototype, methodList.CloudFront)
-const mocksCloudFrontSend = genMock(CloudFrontClient.prototype, methodList.V3Client)
-export const mockCloudFront: Mock = Object.assign(mocksCloudFront, mocksCloudFrontSend) 
+    const { DynamoDB, DynamoDBClient } = await import(moduleName)
+    const mocksDynamo = genMock(DynamoDB.prototype, methodList.DynamoDB)
+    const mocksDynamoSend = genMock(DynamoDBClient.prototype, methodList.V3Client)
+    mockDynamo = Object.assign(mocksDynamo, mocksDynamoSend)
+}
 
-// // @ts-ignore
-// const mocksEventBridge = genMock(AWS.EventBridge.services, methodList.EventBridge)
-// export const mockEventBridge: Mock = mocksEventBridge
+async function importS3(): Promise<void> {
+    const moduleName = '@aws-sdk/client-s3'
+    if (!isUsing(moduleName)) return undefined
 
-// // @ts-ignore
-// const mocksStepFunctions = genMock(AWS.StepFunctions.services, methodList.StepFunctions)
-// export const mockStepFunctions: Mock = mocksStepFunctions
+    const { S3, S3Client } = await import(moduleName)
+    const mocksS3 = genMock(S3.prototype, methodList.s3)
+    const mocksS3Send = genMock(S3Client.prototype, methodList.V3Client)
+    mockS3 = Object.assign(mocksS3, mocksS3Send) 
+}
 
-// export const mockSqs = {
-//     sendMessage: function (result: {}): jest.SpyInstance {
-//         // @ts-ignore
-//         return jest.spyOn(currentVersion(AWS.SQS.services).prototype, 'sendMessage').mockImplementationOnce(() => {
-//             return {
-//                 promise: () => Promise.resolve(result)
-//             }
-//         })
-//     },
-//     sendMessageAll: function (result: {}): jest.SpyInstance {
-//         // @ts-ignore
-//         return jest.spyOn(currentVersion(AWS.SQS.services).prototype, 'sendMessage').mockImplementation(() => {
-//             return {
-//                 promise: () => Promise.resolve(result)
-//             }
-//         })
-//     }
-// }
+async function importCloudFront(): Promise<void> {
+    const moduleName = '@aws-sdk/client-cloudfront'
+    if (!isUsing(moduleName)) return undefined
 
-// // @ts-ignore
-// const mocksAcm = genMock(AWS.ACM.services, methodList.Acm)
-// export const mockAcm: Mock = mocksAcm
+    const { CloudFront, CloudFrontClient } = await import(moduleName)
+    const mocksCloudFront = genMock(CloudFront.prototype, methodList.CloudFront)
+    const mocksCloudFrontSend = genMock(CloudFrontClient.prototype, methodList.V3Client)
+    mockCloudFront = Object.assign(mocksCloudFront, mocksCloudFrontSend) 
+}
 
-// // @ts-ignore
-// const mocksCognitoIdp = genMock(AWS.CognitoIdentityServiceProvider.services, methodList.CognitoIdp)
-// export const mockCognitoIdp: Mock = mocksCognitoIdp
+async function mock(): Promise<void> {
+    await importLambda()
+    await importDynamoDB()
+    await importS3()
+    await importCloudFront()
+}
 
-// // @ts-ignore
-// const mocksKms = genMock(AWS.KMS.services, methodList.Kms)
-// export const mockKms: Mock = mocksKms
-
-// // @ts-ignore
-// const mocksSsm = genMock(AWS.SSM.services, methodList.Ssm)
-// export const mockSsm: Mock = mocksSsm
-
-
-// // @ts-ignore
-// const mocksEcs = genMock(AWS.ECS.services, methodList.Ecs)
-// export const mockEcs: Mock = mocksEcs
-
-// // @ts-ignore
-// const mocksTimestreamQuery = genMock(AWS.TimestreamQuery.services, methodList.TimestreamQuery)
-// export const mockTimestreamQuery: Mock = mocksTimestreamQuery
-
-// // @ts-ignore
-// const mocksTimestreamWrite = genMock(AWS.TimestreamWrite.services, methodList.TimestreamWrite)
-// export const mockTimestreamWrite: Mock = mocksTimestreamWrite 
-
-// // @ts-ignore
-// const mocksSes = genMock(AWS.SES.services, methodList.SES)
-// export const mockSes: Mock = mocksSes
-
-// // @ts-ignore
-// const mocksSesV2 = genMock(AWS.SESV2.services, methodList.SESv2)
-// export const mockSesV2: Mock = mocksSesV2
+mock()

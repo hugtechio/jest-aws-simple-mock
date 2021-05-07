@@ -8,6 +8,8 @@
       "declaration": true,
       "pretty": true,
       "newLine": "lf",
-      "outDir": "dist"
+      "outDir": "dist",
+      "resolveJsonModule": true,
+      "esModuleInterop": true
     }
   }
