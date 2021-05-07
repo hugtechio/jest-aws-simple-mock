@@ -1,6 +1,6 @@
 import * as methodList from './methodList'
 import responseTemplate, * as res from './responseTemplate'
-import { isUsing } from './dynamicImport'
+import { dynamicImport } from './base'
 
 interface Mock {
     [method: string]: (result: any, mock?: jest.SpyInstance) => jest.SpyInstance
@@ -75,7 +75,6 @@ export const currentVersion = (services: any): any => {
     return service
 }
 
-
 const doMock = (services: any, method: any, result: any, mockOnce: boolean, mock?: jest.SpyInstance, isThrow?: boolean): jest.SpyInstance => {
     // @ts-ignore
     const tmp = (mock) ? mock : jest.spyOn(currentVersion(services).prototype, method)
@@ -103,11 +102,16 @@ export const genMock = (services: any, methods: string[]) => {
     return ret
 }
 
+
+
 async function importDataMapper(): Promise<Mock | undefined>{
     const moduleName = '@aws/dynamodb-data-mapper'
-    if (!isUsing(moduleName)) return undefined
 
-    const { DataMapper } = await import(moduleName)
+    const mod = await dynamicImport(moduleName)
+    if (!mod) return undefined
+
+    const { DataMapper } = mod
+
     const mocks: Mock = {
         query: function (queryResult: any, mock?: jest.SpyInstance): jest.SpyInstance {
             let tmp = (mock) ? mock : jest.spyOn(DataMapper.prototype, 'query')
@@ -297,9 +301,8 @@ async function importDataMapper(): Promise<Mock | undefined>{
 
 async function importAwsSdkV2() {
     const moduleName = 'aws-sdk'
-    if (!isUsing(moduleName)) return undefined
-
-    const AWS = await import(moduleName)
+    const AWS = await dynamicImport(moduleName)
+    if (!AWS) return undefined 
 
     new AWS.Lambda()
     // @ts-ignore

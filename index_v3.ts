@@ -1,6 +1,5 @@
 import * as methodList from './methodList'
-import { Mock } from './base'
-import { isUsing } from './dynamicImport'
+import { Mock, dynamicImport } from './base'
 
 /**
  * mocked aws object
@@ -39,9 +38,10 @@ export const genMock = (awsObjectPrototype: any, methods: string[]) => {
 
 async function importLambda(): Promise<void> {
     const moduleName = '@aws-sdk/client-lambda'
-    if (!isUsing(moduleName)) return undefined
+    const mod = await dynamicImport(moduleName)
+    if (!mod) return
 
-    const { Lambda, LambdaClient } = await import(moduleName)
+    const { Lambda, LambdaClient } = mod
     const mocksLambda = genMock(Lambda.prototype, methodList.Lambda)
     const mocksLambdaSend = genMock(LambdaClient.prototype, methodList.V3Client)
     mockLambda = Object.assign(mocksLambda, mocksLambdaSend)
@@ -49,9 +49,10 @@ async function importLambda(): Promise<void> {
 
 async function importDynamoDB(): Promise<void> {
     const moduleName = '@aws-sdk/client-dynamodb'
-    if (!isUsing(moduleName)) return undefined
+    const mod = await dynamicImport(moduleName)
+    if (!mod) return
 
-    const { DynamoDB, DynamoDBClient } = await import(moduleName)
+    const { DynamoDB, DynamoDBClient } = mod 
     const mocksDynamo = genMock(DynamoDB.prototype, methodList.DynamoDB)
     const mocksDynamoSend = genMock(DynamoDBClient.prototype, methodList.V3Client)
     mockDynamo = Object.assign(mocksDynamo, mocksDynamoSend)
@@ -59,9 +60,10 @@ async function importDynamoDB(): Promise<void> {
 
 async function importS3(): Promise<void> {
     const moduleName = '@aws-sdk/client-s3'
-    if (!isUsing(moduleName)) return undefined
+    const mod = await dynamicImport(moduleName)
+    if (!mod) return
 
-    const { S3, S3Client } = await import(moduleName)
+    const { S3, S3Client } = mod 
     const mocksS3 = genMock(S3.prototype, methodList.s3)
     const mocksS3Send = genMock(S3Client.prototype, methodList.V3Client)
     mockS3 = Object.assign(mocksS3, mocksS3Send) 
@@ -69,9 +71,10 @@ async function importS3(): Promise<void> {
 
 async function importCloudFront(): Promise<void> {
     const moduleName = '@aws-sdk/client-cloudfront'
-    // if (!isUsing(moduleName)) return undefined
+    const mod = await dynamicImport(moduleName)
+    if (!mod) return
 
-    const { CloudFront, CloudFrontClient } = await import(moduleName)
+    const { CloudFront, CloudFrontClient } = mod 
     const mocksCloudFront = genMock(CloudFront.prototype, methodList.CloudFront)
     const mocksCloudFrontSend = genMock(CloudFrontClient.prototype, methodList.V3Client)
     mockCloudFront = Object.assign(mocksCloudFront, mocksCloudFrontSend) 
