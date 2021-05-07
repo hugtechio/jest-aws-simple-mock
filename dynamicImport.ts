@@ -1,13 +1,14 @@
-import packageJson from './package.json'
-const { dependencies, devDependencies } = packageJson
+import * as cp from 'child_process'
+const modules = cp.execSync('npm list --depth=0', {encoding: 'utf-8'})
+
+console.log(modules)
 
 /**
  * 
- * @param moduleName module name
- * @returns 
+ * @param moduleName name of library
+ * @returns true: module is currently using, otherwise false
  */
-export function isUsing(moduleName: string): boolean {
-    return Object.keys(dependencies).indexOf(moduleName) >= 0 ||
-        Object.keys(devDependencies).indexOf(moduleName) >= 0
+export function isUsing (moduleName: string): boolean {
+    return modules.includes(moduleName)
 }
 

@@ -69,7 +69,7 @@ async function importS3(): Promise<void> {
 
 async function importCloudFront(): Promise<void> {
     const moduleName = '@aws-sdk/client-cloudfront'
-    if (!isUsing(moduleName)) return undefined
+    // if (!isUsing(moduleName)) return undefined
 
     const { CloudFront, CloudFrontClient } = await import(moduleName)
     const mocksCloudFront = genMock(CloudFront.prototype, methodList.CloudFront)
