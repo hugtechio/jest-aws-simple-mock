@@ -408,4 +408,4 @@ async function mock(): Promise<void> {
     await importAwsSdkV2()
 }
 
-mock().then(() => console.log('aws-sdk v2 has been mocked'))
+mock()
