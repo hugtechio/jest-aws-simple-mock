@@ -9,6 +9,7 @@
       "pretty": true,
       "newLine": "lf",
       "outDir": "dist",
-      "resolveJsonModule": true
+      "resolveJsonModule": true,
+      "esModuleInterop": true
     }
   }
