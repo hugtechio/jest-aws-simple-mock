@@ -10,7 +10,7 @@ interface Mock {
 /**
  * mock objects
  */
- export let mockDynamo: Mock // mock of DynamoDB DataMapper
+ export let mockDynamo: any // mock of DynamoDB DataMapper
  export let mockLambda: Mock 
  export let mockS3: Mock
  export let mockCloudFront: Mock
@@ -104,7 +104,7 @@ export const genMock = (services: any, methods: string[]) => {
 
 
 
-async function importDataMapper(): Promise<Mock | undefined>{
+async function importDataMapper(): Promise<any | undefined>{
     const moduleName = '@aws/dynamodb-data-mapper'
 
     const mod = await dynamicImport(moduleName)
@@ -112,7 +112,7 @@ async function importDataMapper(): Promise<Mock | undefined>{
 
     const { DataMapper } = mod
 
-    const mocks: Mock = {
+    const mocks = {
         query: function (queryResult: any, mock?: jest.SpyInstance): jest.SpyInstance {
             let tmp = (mock) ? mock : jest.spyOn(DataMapper.prototype, 'query')
             return tmp.mockImplementationOnce(() => { return mockAsyncIterator(queryResult) })
