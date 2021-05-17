@@ -5,7 +5,7 @@ import { DynamoDB, Lambda } from 'aws-sdk'
 import { MockChain } from '../chain'
 
 describe('#index_V2', () => {
-    describe('#methodChaining', async () => {
+    describe('#methodChaining', () => {
         beforeEach(() => {
             jest.restoreAllMocks()
         })

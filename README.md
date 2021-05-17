@@ -4,7 +4,7 @@ Currently, only these module you can mock is.
 
 - @aws/dynamodb-datamapper
 - aws-sdk(version 2) ** not all services **
-- aws-sdk(version 3) ** DynamoDB, Lambda, S3, and CloudFront **
+- aws-sdk(version 3) ** DynamoDB, Lambda, S3, CloudFront, SESv2, CognitoIdentityProvider **
 
 # Important Note
 Version less than equal 0.3.x is unstable release.

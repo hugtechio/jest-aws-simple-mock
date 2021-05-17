@@ -1,11 +1,10 @@
-import * as methodList from './methodList'
+import { methodList } from './methodList'
 import responseTemplate, * as res from './responseTemplate'
 import { dynamicImport } from './base'
 
 interface Mock {
     [method: string]: (result: any, mock?: jest.SpyInstance) => jest.SpyInstance
 }
-
 
 /**
  * mock objects
@@ -101,8 +100,6 @@ export const genMock = (services: any, methods: string[]) => {
     })
     return ret
 }
-
-
 
 async function importDataMapper(): Promise<any | undefined>{
     const moduleName = '@aws/dynamodb-data-mapper'
@@ -310,7 +307,7 @@ async function importAwsSdkV2() {
 
     new AWS.S3()
     // @ts-ignore
-    const mocksS3 = genMock(AWS.S3.services, methodList.s3)
+    const mocksS3 = genMock(AWS.S3.services, methodList.S3)
     // The methods for presign urls not exist in the services scope. Adding these mocks with individually.
     mocksS3.getSignedUrl = (url: string): jest.SpyInstance => {
         return jest.spyOn(AWS.S3.prototype, 'getSignedUrl').mockImplementationOnce(() => {
@@ -366,23 +363,23 @@ async function importAwsSdkV2() {
 
 
     new AWS.ACM()
-    mockAcm = genMock(AWS.ACM.services, methodList.Acm)
+    mockAcm = genMock(AWS.ACM.services, methodList.ACM)
 
     new AWS.CognitoIdentityServiceProvider()
-    mockCognitoIdp = genMock(AWS.CognitoIdentityServiceProvider.services, methodList.CognitoIdp)
+    mockCognitoIdp = genMock(AWS.CognitoIdentityServiceProvider.services, methodList.CognitoIdentityProvider)
 
     new AWS.KMS()
-    mockKms = genMock(AWS.KMS.services, methodList.Kms)
+    mockKms = genMock(AWS.KMS.services, methodList.KMS)
 
     new AWS.SSM()
-    mockSsm = genMock(AWS.SSM.services, methodList.Ssm)
+    mockSsm = genMock(AWS.SSM.services, methodList.SSM)
 
     new AWS.DynamoDB.DocumentClient()
     // Impersonate aws service configuration 
     mockDynamoDocClient = genMock({latest: AWS.DynamoDB.DocumentClient}, methodList.DynamoDocClient)
 
     new AWS.ECS()
-    mockEcs = genMock(AWS.ECS.services, methodList.Ecs)
+    mockEcs = genMock(AWS.ECS.services, methodList.ECS)
 
     new AWS.TimestreamQuery()
     mockTimestreamQuery = genMock(AWS.TimestreamQuery.services, methodList.TimestreamQuery)

@@ -13,7 +13,7 @@ const lambdaParam = {
 }
 
 describe('#index_v3', () => {
-    describe('#methodChaining', async () => {
+    describe('#methodChaining', () => {
         beforeEach(() => {
             jest.restoreAllMocks()
         })

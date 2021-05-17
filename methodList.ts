@@ -1,4 +1,4 @@
-export const Acm = [
+const ACM = [
     'addTagsToCertificate',
     'deleteCertificate',
     'describeCertificate',
@@ -14,7 +14,7 @@ export const Acm = [
     'updateCertificateOptions'
 ]
 
-export const CloudFront = [
+const CloudFront = [
     'createCloudFrontOriginAccessIdentity',
     'createDistribution',
     'createDistributionWithTags',
@@ -63,7 +63,7 @@ export const CloudFront = [
     'updateStreamingDistribution'
 ]
 
-export const Lambda =  [
+const Lambda =  [
     'addLayerVersionPermission',
     'addPermission',
     'createAlias',
@@ -115,7 +115,7 @@ export const Lambda =  [
     'updateFunctionEventInvokeConfig',
 ]
 
-export const s3 = [
+const S3 = [
     'abortMultipartUpload',
     'completeMultipartUpload',
     'copyObject',
@@ -210,7 +210,7 @@ export const s3 = [
     'uploadPartCopy'
 ]
 
-export const EventBridge = [
+const EventBridge = [
     'activateEventSource',
     'createEventBus',
     'createPartnerEventSource',
@@ -244,7 +244,7 @@ export const EventBridge = [
     'untagResource'
 ]
 
-export const StepFunctions = [
+const StepFunctions = [
     'createActivity',
     'createStateMachine',
     'deleteActivity',
@@ -269,7 +269,7 @@ export const StepFunctions = [
     'updateStateMachine'
 ]
 
-export const CognitoIdp = [
+const CognitoIdentityProvider = [
     'addCustomAttributes',
     'adminAddUserToGroup',
     'adminConfirmSignUp',
@@ -372,7 +372,7 @@ export const CognitoIdp = [
     'verifyUserAttribute'
 ]
 
-export const Kms = [
+const KMS = [
     'cancelKeyDeletion',
     'connectCustomKeyStore',
     'createAlias',
@@ -421,7 +421,7 @@ export const Kms = [
     'verify'
 ]
 
-export const Ssm = [
+const SSM = [
     'addTagsToResource',
     'cancelCommand',
     'cancelMaintenanceWindowExecution',
@@ -546,7 +546,7 @@ export const Ssm = [
     'updateServiceSetting'    
 ]
 
-export const DynamoDocClient = [
+const DynamoDocClient = [
     'batchGet',
     'batchWrite',
     'createSet',
@@ -560,7 +560,7 @@ export const DynamoDocClient = [
     'update'
 ]
 
-export const DynamoDB = [
+const DynamoDB = [
     'batchExecuteStatement',
     'batchGetItem',
     'batchWriteItem',
@@ -613,7 +613,7 @@ export const DynamoDB = [
     'updateTimeToLive'
 ]
 
-export const Ecs = [
+const ECS = [
     'createCapacityProvider',
     'createCluster',
     'createService',
@@ -668,7 +668,7 @@ export const Ecs = [
 /**
  * TimestreamQuery method list
  */
-export const TimestreamQuery = [
+const TimestreamQuery = [
     'cancelQuery',
     'describeEndpoints',
     'query'
@@ -677,7 +677,7 @@ export const TimestreamQuery = [
 /**
  * TimestreamWrite method list
  */
-export const TimestreamWrite = [
+const TimestreamWrite = [
     'createDatabase',
     'createTable',
     'deleteDatabase',
@@ -698,7 +698,7 @@ export const TimestreamWrite = [
 /**
  * SES method list
  */
-export const SES = [
+const SES = [
     'cloneReceiptRuleSet',
     'createConfigurationSet',
     'createConfigurationSetEventDestination',
@@ -775,7 +775,7 @@ export const SES = [
 /**
  * SESv2 method list
  */
-export const SESv2 = [
+const SESv2 = [
     'createConfigurationSet',
     'createConfigurationSetEventDestination',
     'createContact',
@@ -865,3 +865,26 @@ export const SESv2 = [
 export const V3Client = [
     'send'
 ]
+
+interface Modules {
+    [name: string]: string[];
+}
+
+export const methodList: Modules = {
+    DynamoDB,
+    ACM,
+    CloudFront,
+    Lambda,
+    S3,
+    EventBridge,
+    StepFunctions,
+    ECS,
+    SSM,
+    TimestreamWrite,
+    TimestreamQuery,
+    KMS,
+    SES,
+    SESv2,
+    CognitoIdentityProvider,
+    DynamoDocClient
+}
