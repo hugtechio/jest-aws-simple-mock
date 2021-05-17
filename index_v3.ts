@@ -8,6 +8,7 @@ export let mockLambda: Mock
 export let mockDynamo: Mock
 export let mockS3: Mock
 export let mockCloudFront: Mock
+export let mockSesV2: Mock
 
 const doMock = (awsObjectPrototype: any, method: any, result: any, mockOnce: boolean, mock?: jest.SpyInstance, isThrow?: boolean): jest.SpyInstance => {
     // @ts-ignore
@@ -80,11 +81,23 @@ async function importCloudFront(): Promise<void> {
     mockCloudFront = Object.assign(mocksCloudFront, mocksCloudFrontSend) 
 }
 
+async function importSesV2(): Promise<void> {
+    const moduleName = '@aws-sdk/client-sesv2'
+    const mod = await dynamicImport(moduleName)
+    if (!mod) return
+
+    const { SESv2, SESv2Client } = mod 
+    const mocksSesV2 = genMock(SESv2.prototype, methodList.SESv2)
+    const mocksSesV2Send = genMock(SESv2Client.prototype, methodList.V3Client)
+    mockSesV2 = Object.assign(mocksSesV2, mocksSesV2Send) 
+}
+
 async function mock(): Promise<void> {
     await importLambda()
     await importDynamoDB()
     await importS3()
     await importCloudFront()
+    await importSesV2()
 }
 
 mock()

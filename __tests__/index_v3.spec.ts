@@ -2,6 +2,7 @@ import { DynamoDB, DynamoDBClient, GetItemCommand } from '@aws-sdk/client-dynamo
 import { S3, S3Client, GetObjectCommand } from '@aws-sdk/client-s3'
 import { Lambda, LambdaClient, InvokeCommand } from '@aws-sdk/client-lambda'
 import { CloudFront, CloudFrontClient, GetDistributionCommand } from '@aws-sdk/client-cloudfront'
+import { SESv2, SESv2Client, GetAccountCommand } from '@aws-sdk/client-sesv2'
 
 import { V3 } from '../index'
 import { MockChain } from '../chain'
@@ -193,6 +194,48 @@ describe('#index_v3', () => {
             const result2 = await lambda.invoke(lambdaParam)
             expect(result1).toEqual({})
             expect(result2).toEqual({})
+        });
+    })
+
+    describe ('#sesv2', () => {
+        beforeEach(() => {
+            jest.restoreAllMocks()
+        })
+
+        it ('should be return mock result (v3 style send)', async () => {
+            V3.mockSesV2.send({})
+            const command = new GetAccountCommand({})
+            const client = new SESv2Client({region: 'us-east-1'})
+            // @ts-ignore
+            const result = await client.send(command)
+            expect(result).toEqual({})
+        })
+
+        it('should get getAccount', async () => {
+            const sesV2 = new SESv2({region: 'us-east-1'})
+            V3.mockSesV2.getAccount({})
+            const result = await sesV2.getAccount({})
+            expect(result).toEqual({})
+        });
+
+        it('should get getAccount for all calls', async () => {
+            const sesV2 = new SESv2({region: 'us-east-1'})
+            V3.mockSesV2.getAccountAll({})
+            const result1 = await sesV2.getAccount({})
+            const result2 = await sesV2.getAccount({})
+            expect(result1).toEqual({})
+            expect(result2).toEqual({})
+        });
+
+        it('should throw getAccount with throw', async () => {
+            const sesV2 = new SESv2({region: 'us-east-1'})
+            let mock = V3.mockSesV2.getAccountThrow({})
+            try {
+                await sesV2.getAccount({})
+                expect(null).toBe('This path is fault of the test') // should be
+            } catch (e) {
+                expect(e).toEqual({})
+            }
         });
     })
 
