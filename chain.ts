@@ -66,25 +66,26 @@ export class MockChain {
     }
 
     /**
-     * Adding a behavior to mock chain and stack spyInstances
-     * @param name index of spy 
+     * Add a mock with name
+     * chain the mock to which is indexed with name
+     * @param name index of spy. If the name exists in the spies stack, the mock object is chained to the existing key.
      * @param func target mock function of AWS-SDK
      * @param result mock will return this value
      *  example: when you want to mock dynamodb GetItem command twice, you will chain behavior by target spy 
      *      const chain = new MockChain()
-            chain
-                .add('getItem', V3.mockDynamo.getItem, 1) <-- for the first call 
-                .add('getItem', V3.mockDynamo.getItem, 2) <-- for the second call
+        chain
+            .add('getItem', V3.mockDynamo.getItem, 1) <-- for the first call 
+            .add('getItem', V3.mockDynamo.getItem, 2) <-- for the second call
         * @returns {MockChain}
         */
-        public addWithName(name: string, func: MockFunctionReturnSpy, result: any, targetSpyIndex?: number): MockChain {
-            let mock: jest.SpyInstance
-            if (Object.keys(this.namedSpies).indexOf(name) < 0) {
-                this.namedSpies[name] = func(result)
-            } else {
-                this.namedSpies[name] = func(result, this.namedSpies[name])
-            }
-            return this
+    public addWithName(name: string, func: MockFunctionReturnSpy, result: any, targetSpyIndex?: number): MockChain {
+        let mock: jest.SpyInstance
+        if (Object.keys(this.namedSpies).indexOf(name) < 0) {
+            this.namedSpies[name] = func(result)
+        } else {
+            this.namedSpies[name] = func(result, this.namedSpies[name])
         }
+        return this
+    }
                 
 }
