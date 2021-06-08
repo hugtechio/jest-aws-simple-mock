@@ -22,10 +22,10 @@ describe('#index_v3', () => {
             // construct mock chain
             const chain = new MockChain()
             chain
-                .add(V3.mockDynamo.send, 1)
-                .add(V3.mockLambda.send, {})
-                .add(V3.mockDynamo.send, 2, 0)
-            const spies = chain.getSpies()
+                .addWithName('dynamoSend', V3.mockDynamo.send, 1)
+                .addWithName('lambdaSend', V3.mockLambda.send, {})
+                .addWithName('dynamoSend', V3.mockDynamo.send, 2)
+            const spies = chain.getNamedSpies()
 
             // call methods
             const dynamoClient = new DynamoDBClient({region: 'us-east-1'})
@@ -55,13 +55,13 @@ describe('#index_v3', () => {
             expect(result1).toBe(1)
             expect(result2).toEqual({})
             expect(result3).toEqual(2)
-            expect(spies[0]).toHaveBeenNthCalledWith(1, expect.objectContaining({
+            expect(spies.dynamoSend).toHaveBeenNthCalledWith(1, expect.objectContaining({
                 input: dynamoCommandParam1
             }))
-            expect(spies[1]).toHaveBeenNthCalledWith(1, expect.objectContaining({
+            expect(spies.lambdaSend).toHaveBeenNthCalledWith(1, expect.objectContaining({
                 input: lambdaParam
             }))
-            expect(spies[0]).toHaveBeenNthCalledWith(2, expect.objectContaining({
+            expect(spies.dynamoSend).toHaveBeenNthCalledWith(2, expect.objectContaining({
                 input: dynamoCommandParam2
             }))
         })

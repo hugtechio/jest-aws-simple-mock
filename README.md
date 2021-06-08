@@ -6,10 +6,6 @@ Currently, only these module you can mock is.
 - aws-sdk(version 2) ** not all services **
 - aws-sdk(version 3) ** DynamoDB, Lambda, S3, CloudFront, SESv2, CognitoIdentityProvider **
 
-# Important Note
-Version less than equal 0.3.x is unstable release.
-So that Please update to 0.4.0 if you use above version.
-
 ## Basic Usage
 **AWS-SDK v2**
 ```ts 
@@ -29,16 +25,16 @@ let spy = V3.mockDynamo.getItem(<<returns>>)
 ## Mocking example
 Test code of this library is helpful how to use.
 
-### Chaining example (using MockChain object)
+### Chaining example
 
 ```ts
     // construct mock chain
     const chain = new MockChain()
     chain
-        .add(V3.mockDynamo.send, 1)
-        .add(V3.mockLambda.send, {})
-        .add(V3.mockDynamo.send, 2, 0)
-    const spies = chain.getSpies()
+        .addWithName('dynamo', V3.mockDynamo.send, 1) // mock the first call of DynamoDB.send method (AWS SDK V3)
+        .addWithName('lambda', V3.mockLambda.send, {}) // mock the first call of Lambda.send method (AWS SDK V3)
+        .addWithName('dynamo', V3.mockDynamo.send, 2) // mock the second call of DynamoDB.send method (AWS SDK V3)
+    const spies = chain.getNamedSpies()
 
     // call methods
     const dynamoClient = new DynamoDBClient({region: 'us-east-1'})
@@ -68,13 +64,15 @@ Test code of this library is helpful how to use.
     expect(result1).toBe(1)
     expect(result2).toEqual({})
     expect(result3).toEqual(2)
-    expect(spies[0]).toHaveBeenNthCalledWith(1, expect.objectContaining({
+
+    // access spies.
+    expect(spies.dynamo).toHaveBeenNthCalledWith(1, expect.objectContaining({
         input: dynamoCommandParam1
     }))
-    expect(spies[1]).toHaveBeenNthCalledWith(1, expect.objectContaining({
+    expect(spies.lambda).toHaveBeenNthCalledWith(1, expect.objectContaining({
         input: lambdaParam
     }))
-    expect(spies[0]).toHaveBeenNthCalledWith(2, expect.objectContaining({
+    expect(spies.dynamo).toHaveBeenNthCalledWith(2, expect.objectContaining({
         input: dynamoCommandParam2
     }))
 ```
@@ -204,19 +202,19 @@ You can also make mocks like method chaining
 # test code
 const chain = new MockChain()
 chain
-    .add(V3.mockDynamo.send, object1)  // stack the DynamoDBClient.send mocking behavior to spies[0]
-    .add(V3.mockDynamo.send, object2, 0) // add the DynamoDBClient.send mocking behavior for the second call (it needs to add the behavior to spies[0])
-    .add(V3.mockDynamo.send, object3, 0) // add the DynamoDBClient.send mocking behavior for the third call (it needs to add the behavior to spies[0])
-    .add(V3.mockLambda.send, object4) // stack the LambdaClient.send mocking behavior to spies[1]
-    .add(V3.mockLambda.send, object5, 1) // add the LambdaClient.send mocking behavior for the second call (it needs to add the behavior to spies[0])
+    .addWithName('db', V3.mockDynamo.send, object1)
+    .addWithName('db', V3.mockDynamo.send, object2)
+    .addWithName('lambda', V3.mockLambda.send, object3)
+    .addWithName('db', V3.mockDynamo.send, object4)
+    .addWithName('lambda', V3.mockDynamo.send, object5)
 
 # caller
 const db = new DynamoDBClient()
 const lambda = new LambdaClient()
 const result1 = db.send(command1) // will return object1
 const result2 = db.send(command2) // will return object2
-const result3 = db.send(command3) // will return object3
-const result4 = lambda.send(command4) // will return object4
+const result3 = db.send(command3) // will return object4
+const result4 = lambda.send(command4) // will return object3
 const result5 = lambda.send(command5) // will return object5
 ```
 ## all mockable methods (2021.04.26)

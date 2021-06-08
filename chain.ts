@@ -1,5 +1,8 @@
 import { MockFunctionReturnSpy } from './base'
 
+export interface Spies {
+    [name: string]: jest.SpyInstance;
+}
 /**
  * MockChain provides chaining mocks functionalities
  * @example         
@@ -19,11 +22,20 @@ import { MockFunctionReturnSpy } from './base'
  */
 export class MockChain {
     private spies: jest.SpyInstance[] = []
+    private namedSpies: Spies = {}
+
     /**
      * @returns Array of {jest.SpyInstance}
      */
     getSpies() {
         return this.spies
+    }
+
+    /**
+     * @returns {Spies}
+     */
+    getNamedSpies() {
+        return this.namedSpies
     }
 
     /**
@@ -52,4 +64,27 @@ export class MockChain {
         }
         return this
     }
+
+    /**
+     * Adding a behavior to mock chain and stack spyInstances
+     * @param name index of spy 
+     * @param func target mock function of AWS-SDK
+     * @param result mock will return this value
+     *  example: when you want to mock dynamodb GetItem command twice, you will chain behavior by target spy 
+     *      const chain = new MockChain()
+            chain
+                .add('getItem', V3.mockDynamo.getItem, 1) <-- for the first call 
+                .add('getItem', V3.mockDynamo.getItem, 2) <-- for the second call
+        * @returns {MockChain}
+        */
+        public addWithName(name: string, func: MockFunctionReturnSpy, result: any, targetSpyIndex?: number): MockChain {
+            let mock: jest.SpyInstance
+            if (Object.keys(this.namedSpies).indexOf(name) < 0) {
+                this.namedSpies[name] = func(result)
+            } else {
+                this.namedSpies[name] = func(result, this.namedSpies[name])
+            }
+            return this
+        }
+                
 }
