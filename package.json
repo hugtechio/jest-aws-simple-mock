@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "start": "tsdx watch",
-    "build": "tsdx build",
+    "build": "node --max_old_space_size=8192 tsdx build",
     "test": "tsdx test --silent --verbose",
     "test:debug": "tsdx test",
     "watch": "tsdx test --watch",
