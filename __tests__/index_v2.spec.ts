@@ -1,8 +1,8 @@
-import * as target from '../index_v2'
+import * as target from '../src/index_v2'
 import * as AWS from 'aws-sdk'
 import { DataMapper } from '@aws/dynamodb-data-mapper'
 import { DynamoDB, Lambda } from 'aws-sdk'
-import { MockChain } from '../chain'
+import { MockChain } from '../src/chain'
 
 describe('#index_V2', () => {
     describe('#methodChaining', () => {
@@ -15,7 +15,7 @@ describe('#index_V2', () => {
                 .add(target.mockDynamoDocClient.get, {result: 2})
                 .add(target.mockLambda.invoke, {result: 1})
                 .add(target.mockLambda.invoke, {result: 3}, 0)
-            const spies = chain.getSpies()
+            chain.getSpies()
 
             const lambda = new Lambda()
             const db = new DynamoDB.DocumentClient()
@@ -116,7 +116,7 @@ describe('#index_V2', () => {
 
             it('#query (pages)', async () => {
                 const dataMapper = new DataMapper({client: new DynamoDB()})
-                let mock = target.mockDynamo.queryPages([[{id: 1}]])
+                target.mockDynamo.queryPages([[{id: 1}]])
                 // @ts-ignore
                 let q = dataMapper.query().pages()
                 expect(q).toHaveProperty('lastEvaluatedKey')
@@ -132,13 +132,13 @@ describe('#index_V2', () => {
             })
             it('should get requestCertificate', async () => {
                 const acm = new AWS.ACM()
-                let mock = target.mockAcm.requestCertificate({})
+                target.mockAcm.requestCertificate({})
                 const result = await acm.requestCertificate().promise()
                 expect(result).toEqual({})
             });
             it('should get requestCertificateAll', async () => {
                 const acm = new AWS.ACM()
-                let mock = target.mockAcm.requestCertificateAll({})
+                target.mockAcm.requestCertificateAll({})
                 const result1 = await acm.requestCertificate().promise()
                 const result2 = await acm.requestCertificate().promise()
                 expect(result1).toEqual({})
@@ -152,14 +152,14 @@ describe('#index_V2', () => {
             })
             it('should get getDistributionConfig', async () => {
                 const cf = new AWS.CloudFront()
-                let mock = target.mockCloudFront.getDistributionConfig({})
+                target.mockCloudFront.getDistributionConfig({})
                 const result = await cf.getDistributionConfig().promise()
                 expect(result).toEqual({})
             });
 
             it('should get getDistributionConfigAll', async () => {
                 const cf = new AWS.CloudFront()
-                let mock = target.mockCloudFront.getDistributionConfigAll({})
+                target.mockCloudFront.getDistributionConfigAll({})
                 const result1 = await cf.getDistributionConfig().promise()
                 const result2 = await cf.getDistributionConfig().promise()
                 expect(result1).toEqual({})
@@ -168,9 +168,9 @@ describe('#index_V2', () => {
 
             it('should throw getDistributionConfigThrow', async () => {
                 const cf = new AWS.CloudFront()
-                let mock = target.mockCloudFront.getDistributionConfigThrow({})
+                target.mockCloudFront.getDistributionConfigThrow({})
                 try {
-                    const result1 = await cf.getDistributionConfig().promise()
+                    await cf.getDistributionConfig().promise()
                     expect(null).toBe('This path is fault of the test') // should be
                 } catch (e) {
                     expect(e).toEqual({})
@@ -184,14 +184,14 @@ describe('#index_V2', () => {
             })
             it('should get invoke', async () => {
                 const lambda = new AWS.Lambda()
-                let mock = target.mockLambda.invoke({})
+                target.mockLambda.invoke({})
                 const result = await lambda.invoke().promise()
                 expect(result).toEqual({})
             });
 
             it('should get invokeAll', async () => {
                 const lambda = new AWS.Lambda()
-                let mock = target.mockLambda.invokeAll({})
+                target.mockLambda.invokeAll({})
                 const result1 = await lambda.invoke().promise()
                 const result2 = await lambda.invoke().promise()
                 expect(result1).toEqual({})
@@ -205,20 +205,20 @@ describe('#index_V2', () => {
             })
             it('should get getObject mock', async () => {
                 const s3 = new AWS.S3()
-                let mock = target.mockS3.getObject({})
+                target.mockS3.getObject({})
                 const result = await s3.getObject().promise()
                 expect(result).toEqual({})
             });
             it('should get getpresignedurl mock', async () => {
                 const s3 = new AWS.S3()
-                let mock = target.mockS3.getSignedUrl({})
+                target.mockS3.getSignedUrl({})
                 // @ts-ignore
                 const result = s3.getSignedUrl()
                 expect(result).toEqual({})
             });
             it('should get getpresignedurlPromise mock', async () => {
                 const s3 = new AWS.S3()
-                let mock = target.mockS3.getSignedUrlPromise({})
+                target.mockS3.getSignedUrlPromise({})
                 // @ts-ignore
                 const result = await s3.getSignedUrlPromise()
                 expect(result).toEqual({})
@@ -231,13 +231,13 @@ describe('#index_V2', () => {
             })
             it('should get createEventBus mock', async () => {
                 const eb = new AWS.EventBridge()
-                let mock = target.mockEventBridge.createEventBus({})
+                target.mockEventBridge.createEventBus({})
                 const result = await eb.createEventBus().promise()
                 expect(result).toEqual({})                
             })
             it('should get putEvents mock', async () => {
                 const eb = new AWS.EventBridge()
-                let mock = target.mockEventBridge.putEvents({})
+                target.mockEventBridge.putEvents({})
                 const result = await eb.putEvents().promise()
                 expect(result).toEqual({})                
             })
@@ -249,7 +249,7 @@ describe('#index_V2', () => {
             })
             it('should get startExecution mock', async () => {
                 const sf = new AWS.StepFunctions()
-                let mock = target.mockStepFunctions.startExecution({})
+                target.mockStepFunctions.startExecution({})
                 const result = await sf.startExecution().promise()
                 expect(result).toEqual({})                
             })
@@ -261,14 +261,14 @@ describe('#index_V2', () => {
             })
             it('should get listUsers mock', async () => {
                 const idp = new AWS.CognitoIdentityServiceProvider()
-                let mock = target.mockCognitoIdp.listUsers({})
+                target.mockCognitoIdp.listUsers({})
                 const result = await idp.listUsers().promise()
                 expect(result).toEqual({})                
             })
 
             it('should get adminInitiateAuth mock', async () => {
                 const idp = new AWS.CognitoIdentityServiceProvider()
-                let mock = target.mockCognitoIdp.adminInitiateAuth({})
+                target.mockCognitoIdp.adminInitiateAuth({})
                 const result = await idp.adminInitiateAuth().promise()
                 expect(result).toEqual({})                
             })
@@ -280,7 +280,7 @@ describe('#index_V2', () => {
             })
             it('should encrypt mock', async () => {
                 const kms = new AWS.KMS()
-                let mock = target.mockKms.encrypt({})
+                target.mockKms.encrypt({})
                 const result = await kms.encrypt().promise()
                 expect(result).toEqual({})                
             })
@@ -292,7 +292,7 @@ describe('#index_V2', () => {
             })
             it('should GetParameter mock', async () => {
                 const ssm = new AWS.SSM()
-                let mock = target.mockSsm.getParameter({})
+                target.mockSsm.getParameter({})
                 const result = await ssm.getParameter().promise()
                 expect(result).toEqual({})                
             })
@@ -304,7 +304,7 @@ describe('#index_V2', () => {
             })
             it('should createCapacityProvider mock', async () => {
                 const ecs = new AWS.ECS()
-                let mock = target.mockEcs.createCapacityProvider({})
+                target.mockEcs.createCapacityProvider({})
                 const result = await ecs.createCapacityProvider().promise()
                 expect(result).toEqual({})                
             })
@@ -316,7 +316,7 @@ describe('#index_V2', () => {
             })
             it('should query mock', async () => {
                 const tsq = new AWS.TimestreamQuery()
-                let mock = target.mockTimestreamQuery.query({})
+                target.mockTimestreamQuery.query({})
                 const result = await tsq.query().promise()
                 expect(result).toEqual({})                
             })
@@ -328,7 +328,7 @@ describe('#index_V2', () => {
             })
             it('should createDatabase mock', async () => {
                 const tsw = new AWS.TimestreamWrite()
-                let mock = target.mockTimestreamWrite.createDatabase({})
+                target.mockTimestreamWrite.createDatabase({})
                 const result = await tsw.createDatabase().promise()
                 expect(result).toEqual({})                
             })
@@ -340,7 +340,7 @@ describe('#index_V2', () => {
             })
             it('should sendEmail mock', async () => {
                 const ses = new AWS.SES()
-                let mock = target.mockSes.sendEmail({})
+                target.mockSes.sendEmail({})
                 const result = await ses.sendEmail().promise()
                 expect(result).toEqual({})                
             })
@@ -352,7 +352,7 @@ describe('#index_V2', () => {
             })
             it('should sendEmail mock', async () => {
                 const sesv2 = new AWS.SESV2()
-                let mock = target.mockSesV2.sendEmail({})
+                target.mockSesV2.sendEmail({})
                 const result = await sesv2.sendEmail().promise()
                 expect(result).toEqual({})                
             })
