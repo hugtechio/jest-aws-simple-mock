@@ -4,8 +4,8 @@ import { Lambda, LambdaClient, InvokeCommand } from '@aws-sdk/client-lambda'
 import { CloudFront, CloudFrontClient, GetDistributionCommand } from '@aws-sdk/client-cloudfront'
 import { SESv2, SESv2Client, GetAccountCommand } from '@aws-sdk/client-sesv2'
 
-import { V3 } from '../index'
-import { MockChain } from '../chain'
+import { V3 } from '../src/index'
+import { MockChain } from '../src/chain'
 
 const lambdaParam = {
     FunctionName: 'dummy',
@@ -111,7 +111,7 @@ describe('#index_v3', () => {
         })
 
         it ('should be return dynamoDB mock(all)', async () => {
-            let m = V3.mockDynamo.getItemAll({
+            V3.mockDynamo.getItemAll({
                 times: 'all'
             })
             const dynamodb = new DynamoDB({region: 'us-east-1'})
@@ -124,7 +124,7 @@ describe('#index_v3', () => {
         })
 
         it ('should be return dynamoDB mock(throw)', async () => {
-            let m = V3.mockDynamo.getItemThrow({
+            V3.mockDynamo.getItemThrow({
                 error: 'error'
             })
             const dynamodb = new DynamoDB({region: 'us-east-1'})
@@ -203,7 +203,7 @@ describe('#index_v3', () => {
         })
 
         it ('should be return mock result (v3 style send)', async () => {
-            V3.mockSesV2.send({})
+            V3.mockSESv2.send({})
             const command = new GetAccountCommand({})
             const client = new SESv2Client({region: 'us-east-1'})
             // @ts-ignore
@@ -213,14 +213,14 @@ describe('#index_v3', () => {
 
         it('should get getAccount', async () => {
             const sesV2 = new SESv2({region: 'us-east-1'})
-            V3.mockSesV2.getAccount({})
+            V3.mockSESv2.getAccount({})
             const result = await sesV2.getAccount({})
             expect(result).toEqual({})
         });
 
         it('should get getAccount for all calls', async () => {
             const sesV2 = new SESv2({region: 'us-east-1'})
-            V3.mockSesV2.getAccountAll({})
+            V3.mockSESv2.getAccountAll({})
             const result1 = await sesV2.getAccount({})
             const result2 = await sesV2.getAccount({})
             expect(result1).toEqual({})
@@ -229,7 +229,7 @@ describe('#index_v3', () => {
 
         it('should throw getAccount with throw', async () => {
             const sesV2 = new SESv2({region: 'us-east-1'})
-            let mock = V3.mockSesV2.getAccountThrow({})
+            V3.mockSESv2.getAccountThrow({})
             try {
                 await sesV2.getAccount({})
                 expect(null).toBe('This path is fault of the test') // should be
@@ -274,9 +274,9 @@ describe('#index_v3', () => {
 
         it('should throw getDistributionThrow', async () => {
             const cf = new CloudFront({region: 'us-east-1'})
-            let mock = V3.mockCloudFront.getDistributionThrow({})
+            V3.mockCloudFront.getDistributionThrow({})
             try {
-                const result1 = await cf.getDistribution(getDistributionParam)
+                await cf.getDistribution(getDistributionParam)
                 expect(null).toBe('This path is fault of the test') // should be
             } catch (e) {
                 expect(e).toEqual({})

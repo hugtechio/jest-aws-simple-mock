@@ -4,8 +4,19 @@
   "description": "simple mocking aws and dynamodb data mapper by jest",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
-    "test": "yarn jest --silent --verbose"
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test --silent --verbose",
+    "test:debug": "tsdx test",
+    "watch": "tsdx test --watch",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit"
   },
   "repository": {
     "type": "git",
@@ -22,28 +33,23 @@
     "url": "https://github.com/hugtechio/jest-aws-simple-mock/issues"
   },
   "homepage": "https://github.com/hugtechio/jest-aws-simple-mock#readme",
-  "files": [
-    "dist/"
-  ],
-  "jest": {
-    "preset": "ts-jest",
-    "testPathIgnorePatterns": [
-      "dist/"
-    ]
-  },
   "dependencies": {
-    "jest": "^26.6.3"
+    "tsdx": "^0.14.1"
   },
   "devDependencies": {
-    "@aws-sdk/client-cloudfront": "^3.14.0",
-    "@aws-sdk/client-cognito-identity-provider": "^3.16.0",
-    "@aws-sdk/client-dynamodb": "^3.14.0",
-    "@aws-sdk/client-lambda": "^3.14.0",
-    "@aws-sdk/client-s3": "^3.14.0",
-    "@aws-sdk/client-sesv2": "^3.16.0",
+    "@aws-sdk/client-accessanalyzer": "^3.42.0",
+    "@aws-sdk/client-cloudfront": "^3.42.0",
+    "@aws-sdk/client-dynamodb": "^3.42.0",
+    "@aws-sdk/client-lambda": "^3.42.0",
+    "@aws-sdk/client-s3": "^3.42.0",
+    "@aws-sdk/client-sesv2": "^3.42.0",
     "@aws/dynamodb-data-mapper": "^0.7.3",
     "@types/jest": "^24.0.23",
     "aws-sdk": "^2.902.0",
+    "axios": "^0.22.0",
+    "html-dom-parser": "^1.0.2",
+    "jest": "^27.3.1",
+    "node-html-parser": "^5.1.0",
     "ts-jest": "^26.5.5",
     "typescript": "3.9.7"
   }
