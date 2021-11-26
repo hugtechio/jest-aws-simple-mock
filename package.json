@@ -45,7 +45,14 @@
     }
   ],
   "devDependencies": {
+    "@aws-sdk/client-cloudfront": "^3.42.0",
+    "@aws-sdk/client-dynamodb": "^3.42.0",
+    "@aws-sdk/client-lambda": "^3.42.0",
+    "@aws-sdk/client-s3": "^3.42.0",
+    "@aws-sdk/client-sesv2": "^3.42.0",
+    "@aws/dynamodb-data-mapper": "^0.7.3",
     "@size-limit/preset-small-lib": "^7.0.3",
+    "aws-sdk": "^2.1037.0",
     "husky": "^7.0.4",
     "size-limit": "^7.0.3",
     "tsdx": "^0.14.1",
