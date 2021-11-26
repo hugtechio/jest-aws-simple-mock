@@ -16,9 +16,10 @@ jobs:
       uses: actions/setup-node@v1
     - name: yarn install, build, and test
       env:
-        NODE_OPTIONS: "--max_old_space_size=8192" 
+        NODE_OPTIONS: "--max_old_space_size=8192"
+        NODE_ENV: "production"
       run: |
-        yarn install
+        yarn install --prod
         yarn test
     - name: deploy
       env:
@@ -26,6 +27,7 @@ jobs:
         NPM_PASS: ${{ secrets.npm_password }}
         NPM_EMAIL: ${{ secrets.npm_email }}
         NODE_OPTIONS: "--max_old_space_size=8192" 
+        NODE_ENV: "production"
       run: |
         yarn build
         npm install -g npm-cli-login
