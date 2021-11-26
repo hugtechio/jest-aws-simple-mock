@@ -1,0 +1,33 @@
+name: Simple CI
+
+on:
+  push:
+    branches: 
+      - master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: node
+      uses: actions/setup-node@v1
+    - name: yarn install, build, and test
+      env:
+        NODE_OPTIONS: "--max_old_space_size=8192"
+      run: |
+        yarn install
+        yarn test
+    - name: deploy
+      env:
+        NPM_USER: ${{ secrets.npm_user }}
+        NPM_PASS: ${{ secrets.npm_password }}
+        NPM_EMAIL: ${{ secrets.npm_email }}
+        NODE_OPTIONS: "--max_old_space_size=8192" 
+        NODE_ENV: "production"
+      run: |
+        npm install -g npm-cli-login
+        npm-cli-login
+        npm publish
