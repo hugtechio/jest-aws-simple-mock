@@ -1,6 +1,19 @@
 # jest-aws-simple-mock
 This library provides simple mock methods for aws-sdk in Jest testing.
 
+# [Important Note]
+Version 0.8.0 has a breaking changes from previous version.
+## Breaking changes
+- [AWS-SDK-V3] mockSesV2 was deprecated. use mockSESv2 instead.
+
+- [AWS-SDK-V2] mockAcm was deprecated. use mockACM instead.
+- [AWS-SDK-V2] mockAcm was deprecated. use mockACM instead.
+- [AWS-SDK-V2] mockSes was deprecated. use mockSES instead.
+- [AWS-SDK-V2] mockSesV2 was deprecated. use mockSESV2 instead.
+- [AWS-SDK-V2] mockEcs was deprecated. use mockECS instead.
+- [AWS-SDK-V2] mockSsm was deprecated. use mockSSM instead.
+- [AWS-SDK-V2] mockKms was deprecated. use mockKMS instead.
+
 **Supported AWS-SDK**
 - @aws/dynamodb-datamapper
 - aws-sdk(version 2)
