@@ -23,20 +23,29 @@ const Template = {
 
 export function attachMock(method:string, name:string, result:any, once:boolean=true, resolved=true, mock?:jest.SpyInstance): jest.SpyInstance {
   const mod = require('aws-sdk')
-  const awsSdkObject = mod[name]
-  new awsSdkObject
-  // @ts-ignore
-  const tmp = (mock) ? mock : jest.spyOn(currentVersion(awsSdkObject.services).prototype, method)
-  if (!resolved) return tmp.mockImplementationOnce(() => Template.throw(result)) 
-  return (once) ? tmp.mockImplementationOnce(() => Template.promise(result)) : tmp.mockImplementation(() => Template.promise(result))
-}
+  let awsSdkObject 
+  let service
+  let returnValue = Template.promise(result)
+  if (name === 'DocumentClient') {
+    awsSdkObject = mod.DynamoDB.DocumentClient
+    new awsSdkObject
+    service = awsSdkObject
+  } else {
+    awsSdkObject = mod[name]
+    new awsSdkObject
+    service = currentVersion(mod[name].services)
+  }
 
-export function attachMockForDynamoDocClient(method:string, result:any, once:boolean=true, resolved=true, mock?:jest.SpyInstance): jest.SpyInstance {
-  const mod = require('aws-sdk')
+  if (name === 'S3' && ['getSignedUrl', 'getSignedUrlPromise'].indexOf(method) >= 0) {
+    service = awsSdkObject
+    if (method === 'getSignedUrl') returnValue = result
+    else if (method === 'getSignedUrlPromise') returnValue = Promise.resolve(result)
+  }
+
   // @ts-ignore
-  const tmp = (mock) ? mock : jest.spyOn(mod.DynamoDB.DocumentClient.prototype, method)
+  const tmp = (mock) ? mock : jest.spyOn(service.prototype, method)
   if (!resolved) return tmp.mockImplementationOnce(() => Template.throw(result)) 
-  return (once) ? tmp.mockImplementationOnce(() => Template.promise(result)) : tmp.mockImplementation(() => Template.promise(result))
+  return (once) ? tmp.mockImplementationOnce(() => returnValue) : tmp.mockImplementation(() => returnValue)
 }
 
 export const currentVersion = (services: any): any => {

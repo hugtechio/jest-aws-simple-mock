@@ -24,10 +24,11 @@ fi
 
 cd ..
 
-mkdir ./tmp/mocks_v2
-node ./mock_generator/v2.js ./tmp/client_list.txt false
-rm -rf ./src/mocks_v2 && mv ./tmp/mocks_v2 ./src/mocks_v2
 
 mkdir ./tmp/mocks_v3
-node ./mock_generator/v3.js ./tmp/client_list.txt false
+node ./generator/v3.js ./tmp/client_list.txt false
 rm -rf ./src/mocks_v3 && mv ./tmp/mocks_v3 ./src/mocks_v3
+
+mkdir ./tmp/mocks_v2
+node ./generator/v2.js ./tmp/client_list.txt false 
+rm -rf ./src/mocks_v2 && mv ./tmp/mocks_v2 ./src/mocks_v2

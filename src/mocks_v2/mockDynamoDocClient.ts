@@ -7,105 +7,105 @@
 * Author: hugtechio
 */
 
-import {attachMockForDynamoDocClient} from './common'
+import {attachMock} from './common'
 export const mockDynamoDocClient = {
   batchGet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMockForDynamoDocClient('batchGet', result, true, true, mock)
+    return attachMock('batchGet', 'DocumentClient', result, true, true, mock)
   },
   batchGetAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMockForDynamoDocClient('batchGet', result, false, true, mock)
+    return attachMock('batchGet', 'DocumentClient', result, false, true, mock)
   },
   batchGetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMockForDynamoDocClient('batchGet', result, true, false, mock)
+    return attachMock('batchGet', 'DocumentClient', result, true, false, mock)
   },
   batchWrite: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMockForDynamoDocClient('batchWrite', result, true, true, mock)
+    return attachMock('batchWrite', 'DocumentClient', result, true, true, mock)
   },
   batchWriteAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMockForDynamoDocClient('batchWrite', result, false, true, mock)
+    return attachMock('batchWrite', 'DocumentClient', result, false, true, mock)
   },
   batchWriteThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMockForDynamoDocClient('batchWrite', result, true, false, mock)
+    return attachMock('batchWrite', 'DocumentClient', result, true, false, mock)
   },
   createSet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMockForDynamoDocClient('createSet', result, true, true, mock)
+    return attachMock('createSet', 'DocumentClient', result, true, true, mock)
   },
   createSetAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMockForDynamoDocClient('createSet', result, false, true, mock)
+    return attachMock('createSet', 'DocumentClient', result, false, true, mock)
   },
   createSetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMockForDynamoDocClient('createSet', result, true, false, mock)
+    return attachMock('createSet', 'DocumentClient', result, true, false, mock)
   },
   delete: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMockForDynamoDocClient('delete', result, true, true, mock)
+    return attachMock('delete', 'DocumentClient', result, true, true, mock)
   },
   deleteAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMockForDynamoDocClient('delete', result, false, true, mock)
+    return attachMock('delete', 'DocumentClient', result, false, true, mock)
   },
   deleteThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMockForDynamoDocClient('delete', result, true, false, mock)
+    return attachMock('delete', 'DocumentClient', result, true, false, mock)
   },
   get: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMockForDynamoDocClient('get', result, true, true, mock)
+    return attachMock('get', 'DocumentClient', result, true, true, mock)
   },
   getAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMockForDynamoDocClient('get', result, false, true, mock)
+    return attachMock('get', 'DocumentClient', result, false, true, mock)
   },
   getThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMockForDynamoDocClient('get', result, true, false, mock)
+    return attachMock('get', 'DocumentClient', result, true, false, mock)
   },
   put: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMockForDynamoDocClient('put', result, true, true, mock)
+    return attachMock('put', 'DocumentClient', result, true, true, mock)
   },
   putAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMockForDynamoDocClient('put', result, false, true, mock)
+    return attachMock('put', 'DocumentClient', result, false, true, mock)
   },
   putThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMockForDynamoDocClient('put', result, true, false, mock)
+    return attachMock('put', 'DocumentClient', result, true, false, mock)
   },
   query: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMockForDynamoDocClient('query', result, true, true, mock)
+    return attachMock('query', 'DocumentClient', result, true, true, mock)
   },
   queryAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMockForDynamoDocClient('query', result, false, true, mock)
+    return attachMock('query', 'DocumentClient', result, false, true, mock)
   },
   queryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMockForDynamoDocClient('query', result, true, false, mock)
+    return attachMock('query', 'DocumentClient', result, true, false, mock)
   },
   scan: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMockForDynamoDocClient('scan', result, true, true, mock)
+    return attachMock('scan', 'DocumentClient', result, true, true, mock)
   },
   scanAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMockForDynamoDocClient('scan', result, false, true, mock)
+    return attachMock('scan', 'DocumentClient', result, false, true, mock)
   },
   scanThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMockForDynamoDocClient('scan', result, true, false, mock)
+    return attachMock('scan', 'DocumentClient', result, true, false, mock)
   },
   transactGet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMockForDynamoDocClient('transactGet', result, true, true, mock)
+    return attachMock('transactGet', 'DocumentClient', result, true, true, mock)
   },
   transactGetAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMockForDynamoDocClient('transactGet', result, false, true, mock)
+    return attachMock('transactGet', 'DocumentClient', result, false, true, mock)
   },
   transactGetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMockForDynamoDocClient('transactGet', result, true, false, mock)
+    return attachMock('transactGet', 'DocumentClient', result, true, false, mock)
   },
   transactWrite: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMockForDynamoDocClient('transactWrite', result, true, true, mock)
+    return attachMock('transactWrite', 'DocumentClient', result, true, true, mock)
   },
   transactWriteAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMockForDynamoDocClient('transactWrite', result, false, true, mock)
+    return attachMock('transactWrite', 'DocumentClient', result, false, true, mock)
   },
   transactWriteThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMockForDynamoDocClient('transactWrite', result, true, false, mock)
+    return attachMock('transactWrite', 'DocumentClient', result, true, false, mock)
   },
   update: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMockForDynamoDocClient('update', result, true, true, mock)
+    return attachMock('update', 'DocumentClient', result, true, true, mock)
   },
   updateAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMockForDynamoDocClient('update', result, false, true, mock)
+    return attachMock('update', 'DocumentClient', result, false, true, mock)
   },
   updateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMockForDynamoDocClient('update', result, true, false, mock)
+    return attachMock('update', 'DocumentClient', result, true, false, mock)
   },
 }
