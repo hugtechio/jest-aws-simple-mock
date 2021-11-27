@@ -1,9 +1,6 @@
 name: Simple CI
 
-on:
-  push:
-    branches: 
-      - master
+on: [push]
 
 jobs:
   build:
@@ -23,6 +20,7 @@ jobs:
         yarn install
         yarn test
     - name: deploy
+      if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/heads/master') }}
       env:
         NPM_USER: ${{ secrets.npm_user }}
         NPM_PASS: ${{ secrets.npm_password }}
