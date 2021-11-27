@@ -846,4 +846,22 @@ export const mockS3 = {
   writeGetObjectResponseThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('writeGetObjectResponse', 'S3', result, true, false, mock)
   },
+  getSignedUrl: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('getSignedUrl', 'S3', result, true, true, mock)
+  },
+  getSignedUrlAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('getSignedUrl', 'S3', result, false, true, mock)
+  },
+  getSignedUrlThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('getSignedUrl', 'S3', result, true, false, mock)
+  },
+  getSignedUrlPromise: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('getSignedUrlPromise', 'S3', result, true, true, mock)
+  },
+  getSignedUrlPromiseAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('getSignedUrlPromise', 'S3', result, false, true, mock)
+  },
+  getSignedUrlPromiseThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('getSignedUrlPromise', 'S3', result, true, false, mock)
+  },
 }

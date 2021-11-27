@@ -35,7 +35,6 @@ npm install jest-aws-simple-mock --save-dev
 
 ```ts
 export * from './mocks_v2' // For AWS-SDK version 2
-export * as V2 from './mocks_v2' // Alias for AWS-SDK version 2 (Same as the above)
 export * as V3 from './mocks_v3' // For AWS-SDK version 3
 export * from './chain' // Mock chaining Utility
 ```

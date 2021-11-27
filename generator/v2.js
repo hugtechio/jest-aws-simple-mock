@@ -392,20 +392,29 @@ const Template = {
 
 export function attachMock(method:string, name:string, result:any, once:boolean=true, resolved=true, mock?:jest.SpyInstance): jest.SpyInstance {
   const mod = require('aws-sdk')
-  const awsSdkObject = mod[name]
-  new awsSdkObject
-  // @ts-ignore
-  const tmp = (mock) ? mock : jest.spyOn(currentVersion(awsSdkObject.services).prototype, method)
-  if (!resolved) return tmp.mockImplementationOnce(() => Template.throw(result)) 
-  return (once) ? tmp.mockImplementationOnce(() => Template.promise(result)) : tmp.mockImplementation(() => Template.promise(result))
-}
+  let awsSdkObject 
+  let service
+  let returnValue = Template.promise(result)
+  if (name === 'DocumentClient') {
+    awsSdkObject = mod.DynamoDB.DocumentClient
+    new awsSdkObject
+    service = awsSdkObject
+  } else {
+    awsSdkObject = mod[name]
+    new awsSdkObject
+    service = currentVersion(mod[name].services)
+  }
 
-export function attachMockForDynamoDocClient(method:string, result:any, once:boolean=true, resolved=true, mock?:jest.SpyInstance): jest.SpyInstance {
-  const mod = require('aws-sdk')
+  if (name === 'S3' && ['getSignedUrl', 'getSignedUrlPromise'].indexOf(method) >= 0) {
+    service = awsSdkObject
+    if (method === 'getSignedUrl') returnValue = result
+    else if (method === 'getSignedUrlPromise') returnValue = Promise.resolve(result)
+  }
+
   // @ts-ignore
-  const tmp = (mock) ? mock : jest.spyOn(mod.DynamoDB.DocumentClient.prototype, method)
+  const tmp = (mock) ? mock : jest.spyOn(service.prototype, method)
   if (!resolved) return tmp.mockImplementationOnce(() => Template.throw(result)) 
-  return (once) ? tmp.mockImplementationOnce(() => Template.promise(result)) : tmp.mockImplementation(() => Template.promise(result))
+  return (once) ? tmp.mockImplementationOnce(() => returnValue) : tmp.mockImplementation(() => returnValue)
 }
 
 export const currentVersion = (services: any): any => {
@@ -466,7 +475,15 @@ fs.writeFileSync('./tmp/mocks_v2/common.ts', commonCode, 'utf8')
       writeMockMethodObject(m, m, className, true, true)
       writeMockMethodObject(`${m}All`, m, className, false, true)
       writeMockMethodObject(`${m}Throw`, m, className, true, false)
-    }) 
+    })
+
+    if (r.name === 'S3') {
+      ['getSignedUrl', 'getSignedUrlPromise'].forEach(m => {
+        writeMockMethodObject(m, m, className, true, true)
+        writeMockMethodObject(`${m}All`, m, className, false, true)
+        writeMockMethodObject(`${m}Throw`, m, className, true, false)
+      })
+    }
     code += `}\n`
     // console.log('[Debug]:', code)
     fs.writeFileSync(`./tmp/mocks_v2/${mockName}.ts`, code, 'utf8')
@@ -474,16 +491,6 @@ fs.writeFileSync('./tmp/mocks_v2/common.ts', commonCode, 'utf8')
     console.log('[End]:', r.mockName)
   });
 
-  function writeMockMethodObjectForDynamoDBDocClient(mockMethod, method, once=true, resolved=true, eof=false) {
-    code += (`  ${mockMethod}: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {\n`)
-    code += (`    return attachMockForDynamoDocClient('${method}', result, ${once}, ${resolved}, mock)\n`)
-    if (eof) {
-      code += (`  }\n`)
-    } else 
-    {
-      code += (`  },\n`)
-    }
-  }
   const DynamoDocClientMethods = [
     'batchGet',
     'batchWrite',
@@ -500,12 +507,13 @@ fs.writeFileSync('./tmp/mocks_v2/common.ts', commonCode, 'utf8')
 
   index += `export * from './mockDynamoDocClient'\n`
   code = Header('mockDynamoDocClient.ts')
-  code += `import {attachMockForDynamoDocClient} from './common'\n`
+  code += `import {attachMock} from './common'\n`
   code += `export const mockDynamoDocClient = {\n`
+  const DocumentClient = 'DocumentClient'
   DynamoDocClientMethods.forEach(m => {
-    writeMockMethodObjectForDynamoDBDocClient(m, m, true, true)
-    writeMockMethodObjectForDynamoDBDocClient(`${m}All`, m, false, true)
-    writeMockMethodObjectForDynamoDBDocClient(`${m}Throw`, m, true, false)
+    writeMockMethodObject(m, m, DocumentClient, true, true)
+    writeMockMethodObject(`${m}All`, m, DocumentClient, false, true)
+    writeMockMethodObject(`${m}Throw`, m, DocumentClient, true, false)
   })
   code += `}\n`
   fs.writeFileSync(`./tmp/mocks_v2/mockDynamoDocClient.ts`, code, 'utf8')
