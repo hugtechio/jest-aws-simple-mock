@@ -93,6 +93,9 @@ chain
   .append('spyLambdaInvoke', mockLambda.invoke, {}) // (1): mock for 1st lambda invoke
   .append('spyDynamoGet', mockDynamoDB.getItem, {}) // (2): mock for dynamodb getItem
   .append('spyDynamoUpdate', mockDynamoDB.updateItem, {}) // (3): mock for dynamodb updateItem
-  .append('spyLambdaInvoke', mockLambda.invoke, {}) // (4): mock for 2nd lambda invoke (by specify the same name of the (1)) 
+  .append('spyLambdaInvoke', mockLambda.invoke, {}) // (4): mock for 2nd lambda invoke (by specify the same name of the (1))
+  
+const spy = chain.spies.spyLambdaInvoke
+expect(spy).toHaveBeenCall()
 
 ```
