@@ -1,6 +1,11 @@
 # jest-aws-simple-mock
 This library provides simple mock methods for aws-sdk in Jest testing.
 
+SDK references are here.  
+
+[AWS SDK for Javascript Version 2](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/)  
+[AWS SDK for Javascript v3](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/index.html)
+
 # [Important Note]
 Version 0.8.0 has a breaking changes from previous version.
 ## Breaking changes
@@ -96,6 +101,6 @@ chain
   .append('spyLambdaInvoke', mockLambda.invoke, {}) // (4): mock for 2nd lambda invoke (by specify the same name of the (1))
   
 const spy = chain.spies.spyLambdaInvoke
-expect(spy).toHaveBeenCall()
+expect(spy).toHaveBeenCalled()
 
 ```
