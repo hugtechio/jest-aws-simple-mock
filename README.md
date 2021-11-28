@@ -114,14 +114,17 @@ use mockDynamo module
 import { mockDynamo } from 'jest-aws-simple-mock'
 import { DataMapper } from '@aws/dynamodb-data-mapper'
 const dataMapper = new DataMapper({Client: new DynamoDB()})
+
+// Mock DataMapper.query method
 mockDynamo.query([{a}, {b}])
 
-const q = query(...)
+// Run DataMapper method
+const q = dataMapper.query(...)
 
 let res = []
 for await (const data of q) res.push(data)
 
-// res ==> [{a}, {b}]
+// Result: would be the one that have been mocked. ==> [{a}, {b}]
 return res
 
 ```
