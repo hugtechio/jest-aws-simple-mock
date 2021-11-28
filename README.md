@@ -4,7 +4,8 @@ This library provides simple mock methods for aws-sdk in Jest testing.
 SDK references are here.  
 
 [AWS SDK for Javascript Version 2](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/)  
-[AWS SDK for Javascript v3](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/index.html)
+[AWS SDK for Javascript v3](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/index.html)  
+[DynamoDB Data Mapper](https://github.com/awslabs/dynamodb-data-mapper-js)
 
 # [Important Note]
 Version 0.8.0 has a breaking changes from previous version.
@@ -92,6 +93,7 @@ function a () {
 
 SampleMock.ts
 ```ts
+import { MockChain } from 'jest-aws-simple-mock'
 
 const chain = new MockChain()
 chain
@@ -102,5 +104,24 @@ chain
   
 const spy = chain.spies.spyLambdaInvoke
 expect(spy).toHaveBeenCalled()
+
+```
+
+# For DynamoDB DataMapper
+use mockDynamo module
+
+```ts
+import { mockDynamo } from 'jest-aws-simple-mock'
+import { DataMapper } from '@aws/dynamodb-data-mapper'
+const dataMapper = new DataMapper({Client: new DynamoDB()})
+mockDynamo.query([{a}, {b}])
+
+const q = query(...)
+
+let res = []
+for await (const data of q) res.push(data)
+
+// res ==> [{a}, {b}]
+return res
 
 ```
