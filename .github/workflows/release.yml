@@ -12,7 +12,8 @@ jobs:
     - name: node
       uses: actions/setup-node@v2
       with:
-        node-version: '14'
+        node-version: '20'
+        registry-url: 'https://registry.npmjs.org'
     - name: yarn install, build, and test
       env:
         NODE_OPTIONS: "--max_old_space_size=8192"
@@ -21,13 +22,6 @@ jobs:
         yarn test
     - name: deploy
       if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/heads/master') }}
+      run: npm publish
       env:
-        NPM_USER: ${{ secrets.npm_user }}
-        NPM_PASS: ${{ secrets.npm_password }}
-        NPM_EMAIL: ${{ secrets.npm_email }}
-        NODE_OPTIONS: "--max_old_space_size=8192" 
-        NODE_ENV: "production"
-      run: |
-        npm install -g npm-cli-login
-        npm-cli-login
-        npm publish
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
