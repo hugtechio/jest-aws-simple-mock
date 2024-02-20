@@ -7,14 +7,14 @@ SDK references are here.
 [AWS SDK for Javascript v3](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/index.html)  
 [DynamoDB Data Mapper](https://github.com/awslabs/dynamodb-data-mapper-js)
 
-**Latest version is 0.11.5**
+**Latest version is 0.12.0**
 See [npm](https://www.npmjs.com/package/jest-aws-simple-mock)
+Compatible with AWS-SDK v3 version v3.517.0.
 
 # [Important Note]
 Version 0.8.0 has a breaking changes from previous version.
 ## Breaking changes
 - [AWS-SDK-V3] mockSesV2 was deprecated. use mockSESv2 instead.  
-
 - [AWS-SDK-V2] mockAcm was deprecated. use mockACM instead.
 - [AWS-SDK-V2] mockSes was deprecated. use mockSES instead.
 - [AWS-SDK-V2] mockSesV2 was deprecated. use mockSESV2 instead.
