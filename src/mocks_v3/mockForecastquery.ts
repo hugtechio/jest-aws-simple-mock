@@ -15,17 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockForecastquery = {
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-forecastquery', 'destroy', 'Forecastquery', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-forecastquery', 'destroy', 'Forecastquery', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-forecastquery', 'destroy', 'Forecastquery', Promise.reject(result), true, mock)
-  },
+export const mockForecastquery = {
   queryForecast: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-forecastquery', 'queryForecast', 'Forecastquery', Promise.resolve(result), true, mock)
   },
@@ -34,6 +24,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   queryForecastThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-forecastquery', 'queryForecast', 'Forecastquery', Promise.reject(result), true, mock)
+  },
+  queryWhatIfForecast: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecastquery', 'queryWhatIfForecast', 'Forecastquery', Promise.resolve(result), true, mock)
+  },
+  queryWhatIfForecastAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecastquery', 'queryWhatIfForecast', 'Forecastquery', Promise.resolve(result), false, mock)
+  },
+  queryWhatIfForecastThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecastquery', 'queryWhatIfForecast', 'Forecastquery', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-forecastquery', 'send', 'ForecastqueryClient', Promise.resolve(result), true, mock)

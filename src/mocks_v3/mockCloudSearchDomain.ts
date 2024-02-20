@@ -15,17 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockCloudSearchDomain = {
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cloudsearch-domain', 'destroy', 'CloudSearchDomain', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cloudsearch-domain', 'destroy', 'CloudSearchDomain', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cloudsearch-domain', 'destroy', 'CloudSearchDomain', Promise.reject(result), true, mock)
-  },
+export const mockCloudSearchDomain = {
   search: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudsearch-domain', 'search', 'CloudSearchDomain', Promise.resolve(result), true, mock)
   },

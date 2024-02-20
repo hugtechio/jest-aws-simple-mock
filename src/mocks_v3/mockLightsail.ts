@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockLightsail = {
+export const mockLightsail = {
   allocateStaticIp: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lightsail', 'allocateStaticIp', 'Lightsail', Promise.resolve(result), true, mock)
   },
@@ -89,15 +88,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   copySnapshotThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lightsail', 'copySnapshot', 'Lightsail', Promise.reject(result), true, mock)
   },
-  createBucket: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lightsail', 'createBucket', 'Lightsail', Promise.resolve(result), true, mock)
-  },
-  createBucketAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lightsail', 'createBucket', 'Lightsail', Promise.resolve(result), false, mock)
-  },
-  createBucketThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lightsail', 'createBucket', 'Lightsail', Promise.reject(result), true, mock)
-  },
   createBucketAccessKey: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lightsail', 'createBucketAccessKey', 'Lightsail', Promise.resolve(result), true, mock)
   },
@@ -106,6 +96,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createBucketAccessKeyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lightsail', 'createBucketAccessKey', 'Lightsail', Promise.reject(result), true, mock)
+  },
+  createBucket: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lightsail', 'createBucket', 'Lightsail', Promise.resolve(result), true, mock)
+  },
+  createBucketAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lightsail', 'createBucket', 'Lightsail', Promise.resolve(result), false, mock)
+  },
+  createBucketThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lightsail', 'createBucket', 'Lightsail', Promise.reject(result), true, mock)
   },
   createCertificate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lightsail', 'createCertificate', 'Lightsail', Promise.resolve(result), true, mock)
@@ -215,6 +214,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createDomainEntryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lightsail', 'createDomainEntry', 'Lightsail', Promise.reject(result), true, mock)
   },
+  createGUISessionAccessDetails: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lightsail', 'createGUISessionAccessDetails', 'Lightsail', Promise.resolve(result), true, mock)
+  },
+  createGUISessionAccessDetailsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lightsail', 'createGUISessionAccessDetails', 'Lightsail', Promise.resolve(result), false, mock)
+  },
+  createGUISessionAccessDetailsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lightsail', 'createGUISessionAccessDetails', 'Lightsail', Promise.reject(result), true, mock)
+  },
   createInstanceSnapshot: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lightsail', 'createInstanceSnapshot', 'Lightsail', Promise.resolve(result), true, mock)
   },
@@ -314,15 +322,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteAutoSnapshotThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lightsail', 'deleteAutoSnapshot', 'Lightsail', Promise.reject(result), true, mock)
   },
-  deleteBucket: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lightsail', 'deleteBucket', 'Lightsail', Promise.resolve(result), true, mock)
-  },
-  deleteBucketAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lightsail', 'deleteBucket', 'Lightsail', Promise.resolve(result), false, mock)
-  },
-  deleteBucketThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lightsail', 'deleteBucket', 'Lightsail', Promise.reject(result), true, mock)
-  },
   deleteBucketAccessKey: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lightsail', 'deleteBucketAccessKey', 'Lightsail', Promise.resolve(result), true, mock)
   },
@@ -331,6 +330,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteBucketAccessKeyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lightsail', 'deleteBucketAccessKey', 'Lightsail', Promise.reject(result), true, mock)
+  },
+  deleteBucket: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lightsail', 'deleteBucket', 'Lightsail', Promise.resolve(result), true, mock)
+  },
+  deleteBucketAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lightsail', 'deleteBucket', 'Lightsail', Promise.resolve(result), false, mock)
+  },
+  deleteBucketThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lightsail', 'deleteBucket', 'Lightsail', Promise.reject(result), true, mock)
   },
   deleteCertificate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lightsail', 'deleteCertificate', 'Lightsail', Promise.resolve(result), true, mock)
@@ -484,15 +492,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteRelationalDatabaseSnapshotThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lightsail', 'deleteRelationalDatabaseSnapshot', 'Lightsail', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lightsail', 'destroy', 'Lightsail', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lightsail', 'destroy', 'Lightsail', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lightsail', 'destroy', 'Lightsail', Promise.reject(result), true, mock)
   },
   detachCertificateFromDistribution: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lightsail', 'detachCertificateFromDistribution', 'Lightsail', Promise.resolve(result), true, mock)
@@ -737,6 +736,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getContainerServicesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lightsail', 'getContainerServices', 'Lightsail', Promise.reject(result), true, mock)
   },
+  getCostEstimate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lightsail', 'getCostEstimate', 'Lightsail', Promise.resolve(result), true, mock)
+  },
+  getCostEstimateAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lightsail', 'getCostEstimate', 'Lightsail', Promise.resolve(result), false, mock)
+  },
+  getCostEstimateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lightsail', 'getCostEstimate', 'Lightsail', Promise.reject(result), true, mock)
+  },
   getDisk: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lightsail', 'getDisk', 'Lightsail', Promise.resolve(result), true, mock)
   },
@@ -836,15 +844,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getExportSnapshotRecordsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lightsail', 'getExportSnapshotRecords', 'Lightsail', Promise.reject(result), true, mock)
   },
-  getInstance: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lightsail', 'getInstance', 'Lightsail', Promise.resolve(result), true, mock)
-  },
-  getInstanceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lightsail', 'getInstance', 'Lightsail', Promise.resolve(result), false, mock)
-  },
-  getInstanceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lightsail', 'getInstance', 'Lightsail', Promise.reject(result), true, mock)
-  },
   getInstanceAccessDetails: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lightsail', 'getInstanceAccessDetails', 'Lightsail', Promise.resolve(result), true, mock)
   },
@@ -853,6 +852,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getInstanceAccessDetailsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lightsail', 'getInstanceAccessDetails', 'Lightsail', Promise.reject(result), true, mock)
+  },
+  getInstance: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lightsail', 'getInstance', 'Lightsail', Promise.resolve(result), true, mock)
+  },
+  getInstanceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lightsail', 'getInstance', 'Lightsail', Promise.resolve(result), false, mock)
+  },
+  getInstanceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lightsail', 'getInstance', 'Lightsail', Promise.reject(result), true, mock)
   },
   getInstanceMetricData: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lightsail', 'getInstanceMetricData', 'Lightsail', Promise.resolve(result), true, mock)
@@ -953,6 +961,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getLoadBalancerTlsCertificatesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lightsail', 'getLoadBalancerTlsCertificates', 'Lightsail', Promise.reject(result), true, mock)
   },
+  getLoadBalancerTlsPolicies: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lightsail', 'getLoadBalancerTlsPolicies', 'Lightsail', Promise.resolve(result), true, mock)
+  },
+  getLoadBalancerTlsPoliciesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lightsail', 'getLoadBalancerTlsPolicies', 'Lightsail', Promise.resolve(result), false, mock)
+  },
+  getLoadBalancerTlsPoliciesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lightsail', 'getLoadBalancerTlsPolicies', 'Lightsail', Promise.reject(result), true, mock)
+  },
   getLoadBalancers: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lightsail', 'getLoadBalancers', 'Lightsail', Promise.resolve(result), true, mock)
   },
@@ -998,15 +1015,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getRegionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lightsail', 'getRegions', 'Lightsail', Promise.reject(result), true, mock)
   },
-  getRelationalDatabase: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lightsail', 'getRelationalDatabase', 'Lightsail', Promise.resolve(result), true, mock)
-  },
-  getRelationalDatabaseAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lightsail', 'getRelationalDatabase', 'Lightsail', Promise.resolve(result), false, mock)
-  },
-  getRelationalDatabaseThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lightsail', 'getRelationalDatabase', 'Lightsail', Promise.reject(result), true, mock)
-  },
   getRelationalDatabaseBlueprints: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lightsail', 'getRelationalDatabaseBlueprints', 'Lightsail', Promise.resolve(result), true, mock)
   },
@@ -1024,6 +1032,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getRelationalDatabaseBundlesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lightsail', 'getRelationalDatabaseBundles', 'Lightsail', Promise.reject(result), true, mock)
+  },
+  getRelationalDatabase: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lightsail', 'getRelationalDatabase', 'Lightsail', Promise.resolve(result), true, mock)
+  },
+  getRelationalDatabaseAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lightsail', 'getRelationalDatabase', 'Lightsail', Promise.resolve(result), false, mock)
+  },
+  getRelationalDatabaseThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lightsail', 'getRelationalDatabase', 'Lightsail', Promise.reject(result), true, mock)
   },
   getRelationalDatabaseEvents: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lightsail', 'getRelationalDatabaseEvents', 'Lightsail', Promise.resolve(result), true, mock)
@@ -1105,6 +1122,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getRelationalDatabasesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lightsail', 'getRelationalDatabases', 'Lightsail', Promise.reject(result), true, mock)
+  },
+  getSetupHistory: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lightsail', 'getSetupHistory', 'Lightsail', Promise.resolve(result), true, mock)
+  },
+  getSetupHistoryAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lightsail', 'getSetupHistory', 'Lightsail', Promise.resolve(result), false, mock)
+  },
+  getSetupHistoryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lightsail', 'getSetupHistory', 'Lightsail', Promise.reject(result), true, mock)
   },
   getStaticIp: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lightsail', 'getStaticIp', 'Lightsail', Promise.resolve(result), true, mock)
@@ -1250,6 +1276,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   setResourceAccessForBucketThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lightsail', 'setResourceAccessForBucket', 'Lightsail', Promise.reject(result), true, mock)
   },
+  setupInstanceHttps: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lightsail', 'setupInstanceHttps', 'Lightsail', Promise.resolve(result), true, mock)
+  },
+  setupInstanceHttpsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lightsail', 'setupInstanceHttps', 'Lightsail', Promise.resolve(result), false, mock)
+  },
+  setupInstanceHttpsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lightsail', 'setupInstanceHttps', 'Lightsail', Promise.reject(result), true, mock)
+  },
+  startGUISession: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lightsail', 'startGUISession', 'Lightsail', Promise.resolve(result), true, mock)
+  },
+  startGUISessionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lightsail', 'startGUISession', 'Lightsail', Promise.resolve(result), false, mock)
+  },
+  startGUISessionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lightsail', 'startGUISession', 'Lightsail', Promise.reject(result), true, mock)
+  },
   startInstance: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lightsail', 'startInstance', 'Lightsail', Promise.resolve(result), true, mock)
   },
@@ -1267,6 +1311,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   startRelationalDatabaseThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lightsail', 'startRelationalDatabase', 'Lightsail', Promise.reject(result), true, mock)
+  },
+  stopGUISession: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lightsail', 'stopGUISession', 'Lightsail', Promise.resolve(result), true, mock)
+  },
+  stopGUISessionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lightsail', 'stopGUISession', 'Lightsail', Promise.resolve(result), false, mock)
+  },
+  stopGUISessionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lightsail', 'stopGUISession', 'Lightsail', Promise.reject(result), true, mock)
   },
   stopInstance: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lightsail', 'stopInstance', 'Lightsail', Promise.resolve(result), true, mock)
@@ -1322,15 +1375,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   untagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lightsail', 'untagResource', 'Lightsail', Promise.reject(result), true, mock)
   },
-  updateBucket: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lightsail', 'updateBucket', 'Lightsail', Promise.resolve(result), true, mock)
-  },
-  updateBucketAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lightsail', 'updateBucket', 'Lightsail', Promise.resolve(result), false, mock)
-  },
-  updateBucketThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lightsail', 'updateBucket', 'Lightsail', Promise.reject(result), true, mock)
-  },
   updateBucketBundle: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lightsail', 'updateBucketBundle', 'Lightsail', Promise.resolve(result), true, mock)
   },
@@ -1339,6 +1383,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateBucketBundleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lightsail', 'updateBucketBundle', 'Lightsail', Promise.reject(result), true, mock)
+  },
+  updateBucket: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lightsail', 'updateBucket', 'Lightsail', Promise.resolve(result), true, mock)
+  },
+  updateBucketAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lightsail', 'updateBucket', 'Lightsail', Promise.resolve(result), false, mock)
+  },
+  updateBucketThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lightsail', 'updateBucket', 'Lightsail', Promise.reject(result), true, mock)
   },
   updateContainerService: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lightsail', 'updateContainerService', 'Lightsail', Promise.resolve(result), true, mock)
@@ -1349,15 +1402,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   updateContainerServiceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lightsail', 'updateContainerService', 'Lightsail', Promise.reject(result), true, mock)
   },
-  updateDistribution: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lightsail', 'updateDistribution', 'Lightsail', Promise.resolve(result), true, mock)
-  },
-  updateDistributionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lightsail', 'updateDistribution', 'Lightsail', Promise.resolve(result), false, mock)
-  },
-  updateDistributionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lightsail', 'updateDistribution', 'Lightsail', Promise.reject(result), true, mock)
-  },
   updateDistributionBundle: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lightsail', 'updateDistributionBundle', 'Lightsail', Promise.resolve(result), true, mock)
   },
@@ -1367,6 +1411,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   updateDistributionBundleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lightsail', 'updateDistributionBundle', 'Lightsail', Promise.reject(result), true, mock)
   },
+  updateDistribution: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lightsail', 'updateDistribution', 'Lightsail', Promise.resolve(result), true, mock)
+  },
+  updateDistributionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lightsail', 'updateDistribution', 'Lightsail', Promise.resolve(result), false, mock)
+  },
+  updateDistributionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lightsail', 'updateDistribution', 'Lightsail', Promise.reject(result), true, mock)
+  },
   updateDomainEntry: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lightsail', 'updateDomainEntry', 'Lightsail', Promise.resolve(result), true, mock)
   },
@@ -1375,6 +1428,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateDomainEntryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lightsail', 'updateDomainEntry', 'Lightsail', Promise.reject(result), true, mock)
+  },
+  updateInstanceMetadataOptions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lightsail', 'updateInstanceMetadataOptions', 'Lightsail', Promise.resolve(result), true, mock)
+  },
+  updateInstanceMetadataOptionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lightsail', 'updateInstanceMetadataOptions', 'Lightsail', Promise.resolve(result), false, mock)
+  },
+  updateInstanceMetadataOptionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lightsail', 'updateInstanceMetadataOptions', 'Lightsail', Promise.reject(result), true, mock)
   },
   updateLoadBalancerAttribute: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lightsail', 'updateLoadBalancerAttribute', 'Lightsail', Promise.resolve(result), true, mock)

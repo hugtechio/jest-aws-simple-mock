@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockWAFV2 = {
+export const mockWAFV2 = {
   associateWebACL: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wafv2', 'associateWebACL', 'WAFV2', Promise.resolve(result), true, mock)
   },
@@ -34,6 +33,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   checkCapacityThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wafv2', 'checkCapacity', 'WAFV2', Promise.reject(result), true, mock)
+  },
+  createAPIKey: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wafv2', 'createAPIKey', 'WAFV2', Promise.resolve(result), true, mock)
+  },
+  createAPIKeyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wafv2', 'createAPIKey', 'WAFV2', Promise.resolve(result), false, mock)
+  },
+  createAPIKeyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wafv2', 'createAPIKey', 'WAFV2', Promise.reject(result), true, mock)
   },
   createIPSet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wafv2', 'createIPSet', 'WAFV2', Promise.resolve(result), true, mock)
@@ -70,6 +78,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createWebACLThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wafv2', 'createWebACL', 'WAFV2', Promise.reject(result), true, mock)
+  },
+  deleteAPIKey: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wafv2', 'deleteAPIKey', 'WAFV2', Promise.resolve(result), true, mock)
+  },
+  deleteAPIKeyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wafv2', 'deleteAPIKey', 'WAFV2', Promise.resolve(result), false, mock)
+  },
+  deleteAPIKeyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wafv2', 'deleteAPIKey', 'WAFV2', Promise.reject(result), true, mock)
   },
   deleteFirewallManagerRuleGroups: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wafv2', 'deleteFirewallManagerRuleGroups', 'WAFV2', Promise.resolve(result), true, mock)
@@ -134,6 +151,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteWebACLThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wafv2', 'deleteWebACL', 'WAFV2', Promise.reject(result), true, mock)
   },
+  describeAllManagedProducts: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wafv2', 'describeAllManagedProducts', 'WAFV2', Promise.resolve(result), true, mock)
+  },
+  describeAllManagedProductsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wafv2', 'describeAllManagedProducts', 'WAFV2', Promise.resolve(result), false, mock)
+  },
+  describeAllManagedProductsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wafv2', 'describeAllManagedProducts', 'WAFV2', Promise.reject(result), true, mock)
+  },
+  describeManagedProductsByVendor: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wafv2', 'describeManagedProductsByVendor', 'WAFV2', Promise.resolve(result), true, mock)
+  },
+  describeManagedProductsByVendorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wafv2', 'describeManagedProductsByVendor', 'WAFV2', Promise.resolve(result), false, mock)
+  },
+  describeManagedProductsByVendorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wafv2', 'describeManagedProductsByVendor', 'WAFV2', Promise.reject(result), true, mock)
+  },
   describeManagedRuleGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wafv2', 'describeManagedRuleGroup', 'WAFV2', Promise.resolve(result), true, mock)
   },
@@ -143,15 +178,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeManagedRuleGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wafv2', 'describeManagedRuleGroup', 'WAFV2', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-wafv2', 'destroy', 'WAFV2', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-wafv2', 'destroy', 'WAFV2', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-wafv2', 'destroy', 'WAFV2', Promise.reject(result), true, mock)
-  },
   disassociateWebACL: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wafv2', 'disassociateWebACL', 'WAFV2', Promise.resolve(result), true, mock)
   },
@@ -160,6 +186,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   disassociateWebACLThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wafv2', 'disassociateWebACL', 'WAFV2', Promise.reject(result), true, mock)
+  },
+  generateMobileSdkReleaseUrl: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wafv2', 'generateMobileSdkReleaseUrl', 'WAFV2', Promise.resolve(result), true, mock)
+  },
+  generateMobileSdkReleaseUrlAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wafv2', 'generateMobileSdkReleaseUrl', 'WAFV2', Promise.resolve(result), false, mock)
+  },
+  generateMobileSdkReleaseUrlThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wafv2', 'generateMobileSdkReleaseUrl', 'WAFV2', Promise.reject(result), true, mock)
+  },
+  getDecryptedAPIKey: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wafv2', 'getDecryptedAPIKey', 'WAFV2', Promise.resolve(result), true, mock)
+  },
+  getDecryptedAPIKeyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wafv2', 'getDecryptedAPIKey', 'WAFV2', Promise.resolve(result), false, mock)
+  },
+  getDecryptedAPIKeyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wafv2', 'getDecryptedAPIKey', 'WAFV2', Promise.reject(result), true, mock)
   },
   getIPSet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wafv2', 'getIPSet', 'WAFV2', Promise.resolve(result), true, mock)
@@ -187,6 +231,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getManagedRuleSetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wafv2', 'getManagedRuleSet', 'WAFV2', Promise.reject(result), true, mock)
+  },
+  getMobileSdkRelease: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wafv2', 'getMobileSdkRelease', 'WAFV2', Promise.resolve(result), true, mock)
+  },
+  getMobileSdkReleaseAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wafv2', 'getMobileSdkRelease', 'WAFV2', Promise.resolve(result), false, mock)
+  },
+  getMobileSdkReleaseThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wafv2', 'getMobileSdkRelease', 'WAFV2', Promise.reject(result), true, mock)
   },
   getPermissionPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wafv2', 'getPermissionPolicy', 'WAFV2', Promise.resolve(result), true, mock)
@@ -251,6 +304,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getWebACLForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wafv2', 'getWebACLForResource', 'WAFV2', Promise.reject(result), true, mock)
   },
+  listAPIKeys: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wafv2', 'listAPIKeys', 'WAFV2', Promise.resolve(result), true, mock)
+  },
+  listAPIKeysAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wafv2', 'listAPIKeys', 'WAFV2', Promise.resolve(result), false, mock)
+  },
+  listAPIKeysThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wafv2', 'listAPIKeys', 'WAFV2', Promise.reject(result), true, mock)
+  },
   listAvailableManagedRuleGroupVersions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wafv2', 'listAvailableManagedRuleGroupVersions', 'WAFV2', Promise.resolve(result), true, mock)
   },
@@ -295,6 +357,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listManagedRuleSetsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wafv2', 'listManagedRuleSets', 'WAFV2', Promise.reject(result), true, mock)
+  },
+  listMobileSdkReleases: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wafv2', 'listMobileSdkReleases', 'WAFV2', Promise.resolve(result), true, mock)
+  },
+  listMobileSdkReleasesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wafv2', 'listMobileSdkReleases', 'WAFV2', Promise.resolve(result), false, mock)
+  },
+  listMobileSdkReleasesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wafv2', 'listMobileSdkReleases', 'WAFV2', Promise.reject(result), true, mock)
   },
   listRegexPatternSets: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wafv2', 'listRegexPatternSets', 'WAFV2', Promise.resolve(result), true, mock)

@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockIvs = {
+export const mockIvs = {
   batchGetChannel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ivs', 'batchGetChannel', 'Ivs', Promise.resolve(result), true, mock)
   },
@@ -35,6 +34,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   batchGetStreamKeyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ivs', 'batchGetStreamKey', 'Ivs', Promise.reject(result), true, mock)
   },
+  batchStartViewerSessionRevocation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ivs', 'batchStartViewerSessionRevocation', 'Ivs', Promise.resolve(result), true, mock)
+  },
+  batchStartViewerSessionRevocationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ivs', 'batchStartViewerSessionRevocation', 'Ivs', Promise.resolve(result), false, mock)
+  },
+  batchStartViewerSessionRevocationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ivs', 'batchStartViewerSessionRevocation', 'Ivs', Promise.reject(result), true, mock)
+  },
   createChannel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ivs', 'createChannel', 'Ivs', Promise.resolve(result), true, mock)
   },
@@ -43,6 +51,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createChannelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ivs', 'createChannel', 'Ivs', Promise.reject(result), true, mock)
+  },
+  createPlaybackRestrictionPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ivs', 'createPlaybackRestrictionPolicy', 'Ivs', Promise.resolve(result), true, mock)
+  },
+  createPlaybackRestrictionPolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ivs', 'createPlaybackRestrictionPolicy', 'Ivs', Promise.resolve(result), false, mock)
+  },
+  createPlaybackRestrictionPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ivs', 'createPlaybackRestrictionPolicy', 'Ivs', Promise.reject(result), true, mock)
   },
   createRecordingConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ivs', 'createRecordingConfiguration', 'Ivs', Promise.resolve(result), true, mock)
@@ -80,6 +97,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deletePlaybackKeyPairThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ivs', 'deletePlaybackKeyPair', 'Ivs', Promise.reject(result), true, mock)
   },
+  deletePlaybackRestrictionPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ivs', 'deletePlaybackRestrictionPolicy', 'Ivs', Promise.resolve(result), true, mock)
+  },
+  deletePlaybackRestrictionPolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ivs', 'deletePlaybackRestrictionPolicy', 'Ivs', Promise.resolve(result), false, mock)
+  },
+  deletePlaybackRestrictionPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ivs', 'deletePlaybackRestrictionPolicy', 'Ivs', Promise.reject(result), true, mock)
+  },
   deleteRecordingConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ivs', 'deleteRecordingConfiguration', 'Ivs', Promise.resolve(result), true, mock)
   },
@@ -98,15 +124,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteStreamKeyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ivs', 'deleteStreamKey', 'Ivs', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ivs', 'destroy', 'Ivs', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ivs', 'destroy', 'Ivs', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ivs', 'destroy', 'Ivs', Promise.reject(result), true, mock)
-  },
   getChannel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ivs', 'getChannel', 'Ivs', Promise.resolve(result), true, mock)
   },
@@ -124,6 +141,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getPlaybackKeyPairThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ivs', 'getPlaybackKeyPair', 'Ivs', Promise.reject(result), true, mock)
+  },
+  getPlaybackRestrictionPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ivs', 'getPlaybackRestrictionPolicy', 'Ivs', Promise.resolve(result), true, mock)
+  },
+  getPlaybackRestrictionPolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ivs', 'getPlaybackRestrictionPolicy', 'Ivs', Promise.resolve(result), false, mock)
+  },
+  getPlaybackRestrictionPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ivs', 'getPlaybackRestrictionPolicy', 'Ivs', Promise.reject(result), true, mock)
   },
   getRecordingConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ivs', 'getRecordingConfiguration', 'Ivs', Promise.resolve(result), true, mock)
@@ -152,6 +178,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getStreamKeyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ivs', 'getStreamKey', 'Ivs', Promise.reject(result), true, mock)
   },
+  getStreamSession: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ivs', 'getStreamSession', 'Ivs', Promise.resolve(result), true, mock)
+  },
+  getStreamSessionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ivs', 'getStreamSession', 'Ivs', Promise.resolve(result), false, mock)
+  },
+  getStreamSessionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ivs', 'getStreamSession', 'Ivs', Promise.reject(result), true, mock)
+  },
   importPlaybackKeyPair: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ivs', 'importPlaybackKeyPair', 'Ivs', Promise.resolve(result), true, mock)
   },
@@ -179,6 +214,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listPlaybackKeyPairsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ivs', 'listPlaybackKeyPairs', 'Ivs', Promise.reject(result), true, mock)
   },
+  listPlaybackRestrictionPolicies: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ivs', 'listPlaybackRestrictionPolicies', 'Ivs', Promise.resolve(result), true, mock)
+  },
+  listPlaybackRestrictionPoliciesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ivs', 'listPlaybackRestrictionPolicies', 'Ivs', Promise.resolve(result), false, mock)
+  },
+  listPlaybackRestrictionPoliciesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ivs', 'listPlaybackRestrictionPolicies', 'Ivs', Promise.reject(result), true, mock)
+  },
   listRecordingConfigurations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ivs', 'listRecordingConfigurations', 'Ivs', Promise.resolve(result), true, mock)
   },
@@ -196,6 +240,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listStreamKeysThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ivs', 'listStreamKeys', 'Ivs', Promise.reject(result), true, mock)
+  },
+  listStreamSessions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ivs', 'listStreamSessions', 'Ivs', Promise.resolve(result), true, mock)
+  },
+  listStreamSessionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ivs', 'listStreamSessions', 'Ivs', Promise.resolve(result), false, mock)
+  },
+  listStreamSessionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ivs', 'listStreamSessions', 'Ivs', Promise.reject(result), true, mock)
   },
   listStreams: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ivs', 'listStreams', 'Ivs', Promise.resolve(result), true, mock)
@@ -223,6 +276,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   putMetadataThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ivs', 'putMetadata', 'Ivs', Promise.reject(result), true, mock)
+  },
+  startViewerSessionRevocation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ivs', 'startViewerSessionRevocation', 'Ivs', Promise.resolve(result), true, mock)
+  },
+  startViewerSessionRevocationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ivs', 'startViewerSessionRevocation', 'Ivs', Promise.resolve(result), false, mock)
+  },
+  startViewerSessionRevocationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ivs', 'startViewerSessionRevocation', 'Ivs', Promise.reject(result), true, mock)
   },
   stopStream: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ivs', 'stopStream', 'Ivs', Promise.resolve(result), true, mock)
@@ -259,6 +321,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateChannelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ivs', 'updateChannel', 'Ivs', Promise.reject(result), true, mock)
+  },
+  updatePlaybackRestrictionPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ivs', 'updatePlaybackRestrictionPolicy', 'Ivs', Promise.resolve(result), true, mock)
+  },
+  updatePlaybackRestrictionPolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ivs', 'updatePlaybackRestrictionPolicy', 'Ivs', Promise.resolve(result), false, mock)
+  },
+  updatePlaybackRestrictionPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ivs', 'updatePlaybackRestrictionPolicy', 'Ivs', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ivs', 'send', 'IvsClient', Promise.resolve(result), true, mock)

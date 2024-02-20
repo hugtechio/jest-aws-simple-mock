@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockIotDeviceAdvisor = {
+export const mockIotDeviceAdvisor = {
   createSuiteDefinition: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotdeviceadvisor', 'createSuiteDefinition', 'IotDeviceAdvisor', Promise.resolve(result), true, mock)
   },
@@ -35,14 +34,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteSuiteDefinitionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotdeviceadvisor', 'deleteSuiteDefinition', 'IotDeviceAdvisor', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iotdeviceadvisor', 'destroy', 'IotDeviceAdvisor', Promise.resolve(result), true, mock)
+  getEndpoint: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotdeviceadvisor', 'getEndpoint', 'IotDeviceAdvisor', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iotdeviceadvisor', 'destroy', 'IotDeviceAdvisor', Promise.resolve(result), false, mock)
+  getEndpointAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotdeviceadvisor', 'getEndpoint', 'IotDeviceAdvisor', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iotdeviceadvisor', 'destroy', 'IotDeviceAdvisor', Promise.reject(result), true, mock)
+  getEndpointThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotdeviceadvisor', 'getEndpoint', 'IotDeviceAdvisor', Promise.reject(result), true, mock)
   },
   getSuiteDefinition: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotdeviceadvisor', 'getSuiteDefinition', 'IotDeviceAdvisor', Promise.resolve(result), true, mock)

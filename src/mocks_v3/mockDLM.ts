@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockDLM = {
+export const mockDLM = {
   createLifecyclePolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-dlm', 'createLifecyclePolicy', 'DLM', Promise.resolve(result), true, mock)
   },
@@ -34,15 +33,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteLifecyclePolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-dlm', 'deleteLifecyclePolicy', 'DLM', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-dlm', 'destroy', 'DLM', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-dlm', 'destroy', 'DLM', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-dlm', 'destroy', 'DLM', Promise.reject(result), true, mock)
   },
   getLifecyclePolicies: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-dlm', 'getLifecyclePolicies', 'DLM', Promise.resolve(result), true, mock)

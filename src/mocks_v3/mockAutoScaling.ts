@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockAutoScaling = {
+export const mockAutoScaling = {
   attachInstances: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-auto-scaling', 'attachInstances', 'AutoScaling', Promise.resolve(result), true, mock)
   },
@@ -43,6 +42,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   attachLoadBalancersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-auto-scaling', 'attachLoadBalancers', 'AutoScaling', Promise.reject(result), true, mock)
+  },
+  attachTrafficSources: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-auto-scaling', 'attachTrafficSources', 'AutoScaling', Promise.resolve(result), true, mock)
+  },
+  attachTrafficSourcesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-auto-scaling', 'attachTrafficSources', 'AutoScaling', Promise.resolve(result), false, mock)
+  },
+  attachTrafficSourcesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-auto-scaling', 'attachTrafficSources', 'AutoScaling', Promise.reject(result), true, mock)
   },
   batchDeleteScheduledAction: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-auto-scaling', 'batchDeleteScheduledAction', 'AutoScaling', Promise.resolve(result), true, mock)
@@ -350,6 +358,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeTerminationPolicyTypesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-auto-scaling', 'describeTerminationPolicyTypes', 'AutoScaling', Promise.reject(result), true, mock)
   },
+  describeTrafficSources: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-auto-scaling', 'describeTrafficSources', 'AutoScaling', Promise.resolve(result), true, mock)
+  },
+  describeTrafficSourcesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-auto-scaling', 'describeTrafficSources', 'AutoScaling', Promise.resolve(result), false, mock)
+  },
+  describeTrafficSourcesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-auto-scaling', 'describeTrafficSources', 'AutoScaling', Promise.reject(result), true, mock)
+  },
   describeWarmPool: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-auto-scaling', 'describeWarmPool', 'AutoScaling', Promise.resolve(result), true, mock)
   },
@@ -358,15 +375,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeWarmPoolThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-auto-scaling', 'describeWarmPool', 'AutoScaling', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-auto-scaling', 'destroy', 'AutoScaling', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-auto-scaling', 'destroy', 'AutoScaling', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-auto-scaling', 'destroy', 'AutoScaling', Promise.reject(result), true, mock)
   },
   detachInstances: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-auto-scaling', 'detachInstances', 'AutoScaling', Promise.resolve(result), true, mock)
@@ -394,6 +402,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   detachLoadBalancersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-auto-scaling', 'detachLoadBalancers', 'AutoScaling', Promise.reject(result), true, mock)
+  },
+  detachTrafficSources: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-auto-scaling', 'detachTrafficSources', 'AutoScaling', Promise.resolve(result), true, mock)
+  },
+  detachTrafficSourcesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-auto-scaling', 'detachTrafficSources', 'AutoScaling', Promise.resolve(result), false, mock)
+  },
+  detachTrafficSourcesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-auto-scaling', 'detachTrafficSources', 'AutoScaling', Promise.reject(result), true, mock)
   },
   disableMetricsCollection: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-auto-scaling', 'disableMetricsCollection', 'AutoScaling', Promise.resolve(result), true, mock)
@@ -511,6 +528,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   resumeProcessesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-auto-scaling', 'resumeProcesses', 'AutoScaling', Promise.reject(result), true, mock)
+  },
+  rollbackInstanceRefresh: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-auto-scaling', 'rollbackInstanceRefresh', 'AutoScaling', Promise.resolve(result), true, mock)
+  },
+  rollbackInstanceRefreshAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-auto-scaling', 'rollbackInstanceRefresh', 'AutoScaling', Promise.resolve(result), false, mock)
+  },
+  rollbackInstanceRefreshThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-auto-scaling', 'rollbackInstanceRefresh', 'AutoScaling', Promise.reject(result), true, mock)
   },
   setDesiredCapacity: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-auto-scaling', 'setDesiredCapacity', 'AutoScaling', Promise.resolve(result), true, mock)

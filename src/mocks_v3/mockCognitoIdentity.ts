@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockCognitoIdentity = {
+export const mockCognitoIdentity = {
   createIdentityPool: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cognito-identity', 'createIdentityPool', 'CognitoIdentity', Promise.resolve(result), true, mock)
   },
@@ -61,15 +60,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeIdentityPoolThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cognito-identity', 'describeIdentityPool', 'CognitoIdentity', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cognito-identity', 'destroy', 'CognitoIdentity', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cognito-identity', 'destroy', 'CognitoIdentity', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cognito-identity', 'destroy', 'CognitoIdentity', Promise.reject(result), true, mock)
   },
   getCredentialsForIdentity: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cognito-identity', 'getCredentialsForIdentity', 'CognitoIdentity', Promise.resolve(result), true, mock)

@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockOpsWorksCM = {
+export const mockOpsWorksCM = {
   associateNode: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-opsworkscm', 'associateNode', 'OpsWorksCM', Promise.resolve(result), true, mock)
   },
@@ -106,15 +105,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeServersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-opsworkscm', 'describeServers', 'OpsWorksCM', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-opsworkscm', 'destroy', 'OpsWorksCM', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-opsworkscm', 'destroy', 'OpsWorksCM', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-opsworkscm', 'destroy', 'OpsWorksCM', Promise.reject(result), true, mock)
   },
   disassociateNode: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-opsworkscm', 'disassociateNode', 'OpsWorksCM', Promise.resolve(result), true, mock)

@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockCodeCommit = {
+export const mockCodeCommit = {
   associateApprovalRuleTemplateWithRepository: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codecommit', 'associateApprovalRuleTemplateWithRepository', 'CodeCommit', Promise.resolve(result), true, mock)
   },
@@ -98,15 +97,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createCommitThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codecommit', 'createCommit', 'CodeCommit', Promise.reject(result), true, mock)
   },
-  createPullRequest: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-codecommit', 'createPullRequest', 'CodeCommit', Promise.resolve(result), true, mock)
-  },
-  createPullRequestAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-codecommit', 'createPullRequest', 'CodeCommit', Promise.resolve(result), false, mock)
-  },
-  createPullRequestThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-codecommit', 'createPullRequest', 'CodeCommit', Promise.reject(result), true, mock)
-  },
   createPullRequestApprovalRule: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codecommit', 'createPullRequestApprovalRule', 'CodeCommit', Promise.resolve(result), true, mock)
   },
@@ -115,6 +105,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createPullRequestApprovalRuleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codecommit', 'createPullRequestApprovalRule', 'CodeCommit', Promise.reject(result), true, mock)
+  },
+  createPullRequest: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codecommit', 'createPullRequest', 'CodeCommit', Promise.resolve(result), true, mock)
+  },
+  createPullRequestAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codecommit', 'createPullRequest', 'CodeCommit', Promise.resolve(result), false, mock)
+  },
+  createPullRequestThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codecommit', 'createPullRequest', 'CodeCommit', Promise.reject(result), true, mock)
   },
   createRepository: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codecommit', 'createRepository', 'CodeCommit', Promise.resolve(result), true, mock)
@@ -205,15 +204,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describePullRequestEventsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codecommit', 'describePullRequestEvents', 'CodeCommit', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-codecommit', 'destroy', 'CodeCommit', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-codecommit', 'destroy', 'CodeCommit', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-codecommit', 'destroy', 'CodeCommit', Promise.reject(result), true, mock)
   },
   disassociateApprovalRuleTemplateFromRepository: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codecommit', 'disassociateApprovalRuleTemplateFromRepository', 'CodeCommit', Promise.resolve(result), true, mock)
@@ -359,15 +349,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getMergeOptionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codecommit', 'getMergeOptions', 'CodeCommit', Promise.reject(result), true, mock)
   },
-  getPullRequest: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-codecommit', 'getPullRequest', 'CodeCommit', Promise.resolve(result), true, mock)
-  },
-  getPullRequestAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-codecommit', 'getPullRequest', 'CodeCommit', Promise.resolve(result), false, mock)
-  },
-  getPullRequestThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-codecommit', 'getPullRequest', 'CodeCommit', Promise.reject(result), true, mock)
-  },
   getPullRequestApprovalStates: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codecommit', 'getPullRequestApprovalStates', 'CodeCommit', Promise.resolve(result), true, mock)
   },
@@ -376,6 +357,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getPullRequestApprovalStatesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codecommit', 'getPullRequestApprovalStates', 'CodeCommit', Promise.reject(result), true, mock)
+  },
+  getPullRequest: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codecommit', 'getPullRequest', 'CodeCommit', Promise.resolve(result), true, mock)
+  },
+  getPullRequestAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codecommit', 'getPullRequest', 'CodeCommit', Promise.resolve(result), false, mock)
+  },
+  getPullRequestThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codecommit', 'getPullRequest', 'CodeCommit', Promise.reject(result), true, mock)
   },
   getPullRequestOverrideState: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codecommit', 'getPullRequestOverrideState', 'CodeCommit', Promise.resolve(result), true, mock)
@@ -430,6 +420,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listBranchesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codecommit', 'listBranches', 'CodeCommit', Promise.reject(result), true, mock)
+  },
+  listFileCommitHistory: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codecommit', 'listFileCommitHistory', 'CodeCommit', Promise.resolve(result), true, mock)
+  },
+  listFileCommitHistoryAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codecommit', 'listFileCommitHistory', 'CodeCommit', Promise.resolve(result), false, mock)
+  },
+  listFileCommitHistoryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codecommit', 'listFileCommitHistory', 'CodeCommit', Promise.reject(result), true, mock)
   },
   listPullRequests: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codecommit', 'listPullRequests', 'CodeCommit', Promise.resolve(result), true, mock)
@@ -709,6 +708,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateRepositoryDescriptionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codecommit', 'updateRepositoryDescription', 'CodeCommit', Promise.reject(result), true, mock)
+  },
+  updateRepositoryEncryptionKey: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codecommit', 'updateRepositoryEncryptionKey', 'CodeCommit', Promise.resolve(result), true, mock)
+  },
+  updateRepositoryEncryptionKeyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codecommit', 'updateRepositoryEncryptionKey', 'CodeCommit', Promise.resolve(result), false, mock)
+  },
+  updateRepositoryEncryptionKeyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codecommit', 'updateRepositoryEncryptionKey', 'CodeCommit', Promise.reject(result), true, mock)
   },
   updateRepositoryName: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codecommit', 'updateRepositoryName', 'CodeCommit', Promise.resolve(result), true, mock)

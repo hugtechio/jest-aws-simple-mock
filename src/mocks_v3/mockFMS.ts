@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockFMS = {
+export const mockFMS = {
   associateAdminAccount: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fms', 'associateAdminAccount', 'FMS', Promise.resolve(result), true, mock)
   },
@@ -25,6 +24,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   associateAdminAccountThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fms', 'associateAdminAccount', 'FMS', Promise.reject(result), true, mock)
+  },
+  associateThirdPartyFirewall: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'associateThirdPartyFirewall', 'FMS', Promise.resolve(result), true, mock)
+  },
+  associateThirdPartyFirewallAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'associateThirdPartyFirewall', 'FMS', Promise.resolve(result), false, mock)
+  },
+  associateThirdPartyFirewallThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'associateThirdPartyFirewall', 'FMS', Promise.reject(result), true, mock)
+  },
+  batchAssociateResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'batchAssociateResource', 'FMS', Promise.resolve(result), true, mock)
+  },
+  batchAssociateResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'batchAssociateResource', 'FMS', Promise.resolve(result), false, mock)
+  },
+  batchAssociateResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'batchAssociateResource', 'FMS', Promise.reject(result), true, mock)
+  },
+  batchDisassociateResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'batchDisassociateResource', 'FMS', Promise.resolve(result), true, mock)
+  },
+  batchDisassociateResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'batchDisassociateResource', 'FMS', Promise.resolve(result), false, mock)
+  },
+  batchDisassociateResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'batchDisassociateResource', 'FMS', Promise.reject(result), true, mock)
   },
   deleteAppsList: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fms', 'deleteAppsList', 'FMS', Promise.resolve(result), true, mock)
@@ -62,14 +88,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteProtocolsListThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fms', 'deleteProtocolsList', 'FMS', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-fms', 'destroy', 'FMS', Promise.resolve(result), true, mock)
+  deleteResourceSet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'deleteResourceSet', 'FMS', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-fms', 'destroy', 'FMS', Promise.resolve(result), false, mock)
+  deleteResourceSetAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'deleteResourceSet', 'FMS', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-fms', 'destroy', 'FMS', Promise.reject(result), true, mock)
+  deleteResourceSetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'deleteResourceSet', 'FMS', Promise.reject(result), true, mock)
   },
   disassociateAdminAccount: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fms', 'disassociateAdminAccount', 'FMS', Promise.resolve(result), true, mock)
@@ -80,6 +106,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   disassociateAdminAccountThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fms', 'disassociateAdminAccount', 'FMS', Promise.reject(result), true, mock)
   },
+  disassociateThirdPartyFirewall: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'disassociateThirdPartyFirewall', 'FMS', Promise.resolve(result), true, mock)
+  },
+  disassociateThirdPartyFirewallAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'disassociateThirdPartyFirewall', 'FMS', Promise.resolve(result), false, mock)
+  },
+  disassociateThirdPartyFirewallThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'disassociateThirdPartyFirewall', 'FMS', Promise.reject(result), true, mock)
+  },
   getAdminAccount: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fms', 'getAdminAccount', 'FMS', Promise.resolve(result), true, mock)
   },
@@ -88,6 +123,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getAdminAccountThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fms', 'getAdminAccount', 'FMS', Promise.reject(result), true, mock)
+  },
+  getAdminScope: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'getAdminScope', 'FMS', Promise.resolve(result), true, mock)
+  },
+  getAdminScopeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'getAdminScope', 'FMS', Promise.resolve(result), false, mock)
+  },
+  getAdminScopeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'getAdminScope', 'FMS', Promise.reject(result), true, mock)
   },
   getAppsList: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fms', 'getAppsList', 'FMS', Promise.resolve(result), true, mock)
@@ -143,6 +187,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getProtocolsListThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fms', 'getProtocolsList', 'FMS', Promise.reject(result), true, mock)
   },
+  getResourceSet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'getResourceSet', 'FMS', Promise.resolve(result), true, mock)
+  },
+  getResourceSetAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'getResourceSet', 'FMS', Promise.resolve(result), false, mock)
+  },
+  getResourceSetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'getResourceSet', 'FMS', Promise.reject(result), true, mock)
+  },
+  getThirdPartyFirewallAssociationStatus: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'getThirdPartyFirewallAssociationStatus', 'FMS', Promise.resolve(result), true, mock)
+  },
+  getThirdPartyFirewallAssociationStatusAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'getThirdPartyFirewallAssociationStatus', 'FMS', Promise.resolve(result), false, mock)
+  },
+  getThirdPartyFirewallAssociationStatusThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'getThirdPartyFirewallAssociationStatus', 'FMS', Promise.reject(result), true, mock)
+  },
   getViolationDetails: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fms', 'getViolationDetails', 'FMS', Promise.resolve(result), true, mock)
   },
@@ -151,6 +213,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getViolationDetailsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fms', 'getViolationDetails', 'FMS', Promise.reject(result), true, mock)
+  },
+  listAdminAccountsForOrganization: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'listAdminAccountsForOrganization', 'FMS', Promise.resolve(result), true, mock)
+  },
+  listAdminAccountsForOrganizationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'listAdminAccountsForOrganization', 'FMS', Promise.resolve(result), false, mock)
+  },
+  listAdminAccountsForOrganizationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'listAdminAccountsForOrganization', 'FMS', Promise.reject(result), true, mock)
+  },
+  listAdminsManagingAccount: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'listAdminsManagingAccount', 'FMS', Promise.resolve(result), true, mock)
+  },
+  listAdminsManagingAccountAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'listAdminsManagingAccount', 'FMS', Promise.resolve(result), false, mock)
+  },
+  listAdminsManagingAccountThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'listAdminsManagingAccount', 'FMS', Promise.reject(result), true, mock)
   },
   listAppsLists: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fms', 'listAppsLists', 'FMS', Promise.resolve(result), true, mock)
@@ -169,6 +249,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listComplianceStatusThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fms', 'listComplianceStatus', 'FMS', Promise.reject(result), true, mock)
+  },
+  listDiscoveredResources: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'listDiscoveredResources', 'FMS', Promise.resolve(result), true, mock)
+  },
+  listDiscoveredResourcesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'listDiscoveredResources', 'FMS', Promise.resolve(result), false, mock)
+  },
+  listDiscoveredResourcesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'listDiscoveredResources', 'FMS', Promise.reject(result), true, mock)
   },
   listMemberAccounts: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fms', 'listMemberAccounts', 'FMS', Promise.resolve(result), true, mock)
@@ -197,6 +286,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listProtocolsListsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fms', 'listProtocolsLists', 'FMS', Promise.reject(result), true, mock)
   },
+  listResourceSetResources: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'listResourceSetResources', 'FMS', Promise.resolve(result), true, mock)
+  },
+  listResourceSetResourcesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'listResourceSetResources', 'FMS', Promise.resolve(result), false, mock)
+  },
+  listResourceSetResourcesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'listResourceSetResources', 'FMS', Promise.reject(result), true, mock)
+  },
+  listResourceSets: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'listResourceSets', 'FMS', Promise.resolve(result), true, mock)
+  },
+  listResourceSetsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'listResourceSets', 'FMS', Promise.resolve(result), false, mock)
+  },
+  listResourceSetsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'listResourceSets', 'FMS', Promise.reject(result), true, mock)
+  },
   listTagsForResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fms', 'listTagsForResource', 'FMS', Promise.resolve(result), true, mock)
   },
@@ -205,6 +312,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listTagsForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fms', 'listTagsForResource', 'FMS', Promise.reject(result), true, mock)
+  },
+  listThirdPartyFirewallFirewallPolicies: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'listThirdPartyFirewallFirewallPolicies', 'FMS', Promise.resolve(result), true, mock)
+  },
+  listThirdPartyFirewallFirewallPoliciesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'listThirdPartyFirewallFirewallPolicies', 'FMS', Promise.resolve(result), false, mock)
+  },
+  listThirdPartyFirewallFirewallPoliciesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'listThirdPartyFirewallFirewallPolicies', 'FMS', Promise.reject(result), true, mock)
+  },
+  putAdminAccount: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'putAdminAccount', 'FMS', Promise.resolve(result), true, mock)
+  },
+  putAdminAccountAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'putAdminAccount', 'FMS', Promise.resolve(result), false, mock)
+  },
+  putAdminAccountThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'putAdminAccount', 'FMS', Promise.reject(result), true, mock)
   },
   putAppsList: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fms', 'putAppsList', 'FMS', Promise.resolve(result), true, mock)
@@ -241,6 +366,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   putProtocolsListThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fms', 'putProtocolsList', 'FMS', Promise.reject(result), true, mock)
+  },
+  putResourceSet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'putResourceSet', 'FMS', Promise.resolve(result), true, mock)
+  },
+  putResourceSetAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'putResourceSet', 'FMS', Promise.resolve(result), false, mock)
+  },
+  putResourceSetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fms', 'putResourceSet', 'FMS', Promise.reject(result), true, mock)
   },
   tagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fms', 'tagResource', 'FMS', Promise.resolve(result), true, mock)

@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockIoT = {
+export const mockIoT = {
   acceptCertificateTransfer: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot', 'acceptCertificateTransfer', 'IoT', Promise.resolve(result), true, mock)
   },
@@ -197,6 +196,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createCertificateFromCsrThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot', 'createCertificateFromCsr', 'IoT', Promise.reject(result), true, mock)
   },
+  createCertificateProvider: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'createCertificateProvider', 'IoT', Promise.resolve(result), true, mock)
+  },
+  createCertificateProviderAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'createCertificateProvider', 'IoT', Promise.resolve(result), false, mock)
+  },
+  createCertificateProviderThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'createCertificateProvider', 'IoT', Promise.reject(result), true, mock)
+  },
   createCustomMetric: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot', 'createCustomMetric', 'IoT', Promise.resolve(result), true, mock)
   },
@@ -286,6 +294,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createOTAUpdateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot', 'createOTAUpdate', 'IoT', Promise.reject(result), true, mock)
+  },
+  createPackage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'createPackage', 'IoT', Promise.resolve(result), true, mock)
+  },
+  createPackageAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'createPackage', 'IoT', Promise.resolve(result), false, mock)
+  },
+  createPackageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'createPackage', 'IoT', Promise.reject(result), true, mock)
+  },
+  createPackageVersion: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'createPackageVersion', 'IoT', Promise.resolve(result), true, mock)
+  },
+  createPackageVersionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'createPackageVersion', 'IoT', Promise.resolve(result), false, mock)
+  },
+  createPackageVersionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'createPackageVersion', 'IoT', Promise.reject(result), true, mock)
   },
   createPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot', 'createPolicy', 'IoT', Promise.resolve(result), true, mock)
@@ -467,6 +493,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteCertificateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot', 'deleteCertificate', 'IoT', Promise.reject(result), true, mock)
   },
+  deleteCertificateProvider: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'deleteCertificateProvider', 'IoT', Promise.resolve(result), true, mock)
+  },
+  deleteCertificateProviderAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'deleteCertificateProvider', 'IoT', Promise.resolve(result), false, mock)
+  },
+  deleteCertificateProviderThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'deleteCertificateProvider', 'IoT', Promise.reject(result), true, mock)
+  },
   deleteCustomMetric: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot', 'deleteCustomMetric', 'IoT', Promise.resolve(result), true, mock)
   },
@@ -556,6 +591,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteOTAUpdateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot', 'deleteOTAUpdate', 'IoT', Promise.reject(result), true, mock)
+  },
+  deletePackage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'deletePackage', 'IoT', Promise.resolve(result), true, mock)
+  },
+  deletePackageAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'deletePackage', 'IoT', Promise.resolve(result), false, mock)
+  },
+  deletePackageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'deletePackage', 'IoT', Promise.reject(result), true, mock)
+  },
+  deletePackageVersion: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'deletePackageVersion', 'IoT', Promise.resolve(result), true, mock)
+  },
+  deletePackageVersionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'deletePackageVersion', 'IoT', Promise.resolve(result), false, mock)
+  },
+  deletePackageVersionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'deletePackageVersion', 'IoT', Promise.reject(result), true, mock)
   },
   deletePolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot', 'deletePolicy', 'IoT', Promise.resolve(result), true, mock)
@@ -782,6 +835,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeCertificateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot', 'describeCertificate', 'IoT', Promise.reject(result), true, mock)
   },
+  describeCertificateProvider: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'describeCertificateProvider', 'IoT', Promise.resolve(result), true, mock)
+  },
+  describeCertificateProviderAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'describeCertificateProvider', 'IoT', Promise.resolve(result), false, mock)
+  },
+  describeCertificateProviderThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'describeCertificateProvider', 'IoT', Promise.reject(result), true, mock)
+  },
   describeCustomMetric: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot', 'describeCustomMetric', 'IoT', Promise.resolve(result), true, mock)
   },
@@ -890,6 +952,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeJobTemplateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot', 'describeJobTemplate', 'IoT', Promise.reject(result), true, mock)
   },
+  describeManagedJobTemplate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'describeManagedJobTemplate', 'IoT', Promise.resolve(result), true, mock)
+  },
+  describeManagedJobTemplateAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'describeManagedJobTemplate', 'IoT', Promise.resolve(result), false, mock)
+  },
+  describeManagedJobTemplateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'describeManagedJobTemplate', 'IoT', Promise.reject(result), true, mock)
+  },
   describeMitigationAction: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot', 'describeMitigationAction', 'IoT', Promise.resolve(result), true, mock)
   },
@@ -988,15 +1059,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeThingTypeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot', 'describeThingType', 'IoT', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iot', 'destroy', 'IoT', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iot', 'destroy', 'IoT', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iot', 'destroy', 'IoT', Promise.reject(result), true, mock)
   },
   detachPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot', 'detachPolicy', 'IoT', Promise.resolve(result), true, mock)
@@ -1123,6 +1185,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getOTAUpdateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot', 'getOTAUpdate', 'IoT', Promise.reject(result), true, mock)
+  },
+  getPackage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'getPackage', 'IoT', Promise.resolve(result), true, mock)
+  },
+  getPackageAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'getPackage', 'IoT', Promise.resolve(result), false, mock)
+  },
+  getPackageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'getPackage', 'IoT', Promise.reject(result), true, mock)
+  },
+  getPackageConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'getPackageConfiguration', 'IoT', Promise.resolve(result), true, mock)
+  },
+  getPackageConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'getPackageConfiguration', 'IoT', Promise.resolve(result), false, mock)
+  },
+  getPackageConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'getPackageConfiguration', 'IoT', Promise.reject(result), true, mock)
+  },
+  getPackageVersion: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'getPackageVersion', 'IoT', Promise.resolve(result), true, mock)
+  },
+  getPackageVersionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'getPackageVersion', 'IoT', Promise.resolve(result), false, mock)
+  },
+  getPackageVersionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'getPackageVersion', 'IoT', Promise.reject(result), true, mock)
   },
   getPercentiles: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot', 'getPercentiles', 'IoT', Promise.resolve(result), true, mock)
@@ -1286,14 +1375,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listCACertificatesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot', 'listCACertificates', 'IoT', Promise.reject(result), true, mock)
   },
-  listCertificates: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iot', 'listCertificates', 'IoT', Promise.resolve(result), true, mock)
+  listCertificateProviders: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'listCertificateProviders', 'IoT', Promise.resolve(result), true, mock)
   },
-  listCertificatesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iot', 'listCertificates', 'IoT', Promise.resolve(result), false, mock)
+  listCertificateProvidersAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'listCertificateProviders', 'IoT', Promise.resolve(result), false, mock)
   },
-  listCertificatesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iot', 'listCertificates', 'IoT', Promise.reject(result), true, mock)
+  listCertificateProvidersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'listCertificateProviders', 'IoT', Promise.reject(result), true, mock)
   },
   listCertificatesByCA: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot', 'listCertificatesByCA', 'IoT', Promise.resolve(result), true, mock)
@@ -1303,6 +1392,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listCertificatesByCAThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot', 'listCertificatesByCA', 'IoT', Promise.reject(result), true, mock)
+  },
+  listCertificates: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'listCertificates', 'IoT', Promise.resolve(result), true, mock)
+  },
+  listCertificatesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'listCertificates', 'IoT', Promise.resolve(result), false, mock)
+  },
+  listCertificatesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'listCertificates', 'IoT', Promise.reject(result), true, mock)
   },
   listCustomMetrics: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot', 'listCustomMetrics', 'IoT', Promise.resolve(result), true, mock)
@@ -1403,6 +1501,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listJobsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot', 'listJobs', 'IoT', Promise.reject(result), true, mock)
   },
+  listManagedJobTemplates: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'listManagedJobTemplates', 'IoT', Promise.resolve(result), true, mock)
+  },
+  listManagedJobTemplatesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'listManagedJobTemplates', 'IoT', Promise.resolve(result), false, mock)
+  },
+  listManagedJobTemplatesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'listManagedJobTemplates', 'IoT', Promise.reject(result), true, mock)
+  },
+  listMetricValues: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'listMetricValues', 'IoT', Promise.resolve(result), true, mock)
+  },
+  listMetricValuesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'listMetricValues', 'IoT', Promise.resolve(result), false, mock)
+  },
+  listMetricValuesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'listMetricValues', 'IoT', Promise.reject(result), true, mock)
+  },
   listMitigationActions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot', 'listMitigationActions', 'IoT', Promise.resolve(result), true, mock)
   },
@@ -1429,6 +1545,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listOutgoingCertificatesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot', 'listOutgoingCertificates', 'IoT', Promise.reject(result), true, mock)
+  },
+  listPackageVersions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'listPackageVersions', 'IoT', Promise.resolve(result), true, mock)
+  },
+  listPackageVersionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'listPackageVersions', 'IoT', Promise.resolve(result), false, mock)
+  },
+  listPackageVersionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'listPackageVersions', 'IoT', Promise.reject(result), true, mock)
+  },
+  listPackages: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'listPackages', 'IoT', Promise.resolve(result), true, mock)
+  },
+  listPackagesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'listPackages', 'IoT', Promise.resolve(result), false, mock)
+  },
+  listPackagesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'listPackages', 'IoT', Promise.reject(result), true, mock)
   },
   listPolicies: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot', 'listPolicies', 'IoT', Promise.resolve(result), true, mock)
@@ -1492,6 +1626,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listProvisioningTemplatesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot', 'listProvisioningTemplates', 'IoT', Promise.reject(result), true, mock)
+  },
+  listRelatedResourcesForAuditFinding: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'listRelatedResourcesForAuditFinding', 'IoT', Promise.resolve(result), true, mock)
+  },
+  listRelatedResourcesForAuditFindingAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'listRelatedResourcesForAuditFinding', 'IoT', Promise.resolve(result), false, mock)
+  },
+  listRelatedResourcesForAuditFindingThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'listRelatedResourcesForAuditFinding', 'IoT', Promise.reject(result), true, mock)
   },
   listRoleAliases: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot', 'listRoleAliases', 'IoT', Promise.resolve(result), true, mock)
@@ -1961,6 +2104,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   updateCertificateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot', 'updateCertificate', 'IoT', Promise.reject(result), true, mock)
   },
+  updateCertificateProvider: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'updateCertificateProvider', 'IoT', Promise.resolve(result), true, mock)
+  },
+  updateCertificateProviderAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'updateCertificateProvider', 'IoT', Promise.resolve(result), false, mock)
+  },
+  updateCertificateProviderThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'updateCertificateProvider', 'IoT', Promise.reject(result), true, mock)
+  },
   updateCustomMetric: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot', 'updateCustomMetric', 'IoT', Promise.resolve(result), true, mock)
   },
@@ -2041,6 +2193,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateMitigationActionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot', 'updateMitigationAction', 'IoT', Promise.reject(result), true, mock)
+  },
+  updatePackage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'updatePackage', 'IoT', Promise.resolve(result), true, mock)
+  },
+  updatePackageAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'updatePackage', 'IoT', Promise.resolve(result), false, mock)
+  },
+  updatePackageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'updatePackage', 'IoT', Promise.reject(result), true, mock)
+  },
+  updatePackageConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'updatePackageConfiguration', 'IoT', Promise.resolve(result), true, mock)
+  },
+  updatePackageConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'updatePackageConfiguration', 'IoT', Promise.resolve(result), false, mock)
+  },
+  updatePackageConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'updatePackageConfiguration', 'IoT', Promise.reject(result), true, mock)
+  },
+  updatePackageVersion: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'updatePackageVersion', 'IoT', Promise.resolve(result), true, mock)
+  },
+  updatePackageVersionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'updatePackageVersion', 'IoT', Promise.resolve(result), false, mock)
+  },
+  updatePackageVersionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot', 'updatePackageVersion', 'IoT', Promise.reject(result), true, mock)
   },
   updateProvisioningTemplate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot', 'updateProvisioningTemplate', 'IoT', Promise.resolve(result), true, mock)

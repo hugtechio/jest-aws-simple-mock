@@ -15,17 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockACMPCA = {
-  createCertificateAuthority: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-acm-pca', 'createCertificateAuthority', 'ACMPCA', Promise.resolve(result), true, mock)
-  },
-  createCertificateAuthorityAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-acm-pca', 'createCertificateAuthority', 'ACMPCA', Promise.resolve(result), false, mock)
-  },
-  createCertificateAuthorityThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-acm-pca', 'createCertificateAuthority', 'ACMPCA', Promise.reject(result), true, mock)
-  },
+export const mockACMPCA = {
   createCertificateAuthorityAuditReport: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-acm-pca', 'createCertificateAuthorityAuditReport', 'ACMPCA', Promise.resolve(result), true, mock)
   },
@@ -34,6 +24,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createCertificateAuthorityAuditReportThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-acm-pca', 'createCertificateAuthorityAuditReport', 'ACMPCA', Promise.reject(result), true, mock)
+  },
+  createCertificateAuthority: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-acm-pca', 'createCertificateAuthority', 'ACMPCA', Promise.resolve(result), true, mock)
+  },
+  createCertificateAuthorityAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-acm-pca', 'createCertificateAuthority', 'ACMPCA', Promise.resolve(result), false, mock)
+  },
+  createCertificateAuthorityThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-acm-pca', 'createCertificateAuthority', 'ACMPCA', Promise.reject(result), true, mock)
   },
   createPermission: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-acm-pca', 'createPermission', 'ACMPCA', Promise.resolve(result), true, mock)
@@ -71,15 +70,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deletePolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-acm-pca', 'deletePolicy', 'ACMPCA', Promise.reject(result), true, mock)
   },
-  describeCertificateAuthority: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-acm-pca', 'describeCertificateAuthority', 'ACMPCA', Promise.resolve(result), true, mock)
-  },
-  describeCertificateAuthorityAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-acm-pca', 'describeCertificateAuthority', 'ACMPCA', Promise.resolve(result), false, mock)
-  },
-  describeCertificateAuthorityThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-acm-pca', 'describeCertificateAuthority', 'ACMPCA', Promise.reject(result), true, mock)
-  },
   describeCertificateAuthorityAuditReport: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-acm-pca', 'describeCertificateAuthorityAuditReport', 'ACMPCA', Promise.resolve(result), true, mock)
   },
@@ -89,23 +79,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeCertificateAuthorityAuditReportThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-acm-pca', 'describeCertificateAuthorityAuditReport', 'ACMPCA', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-acm-pca', 'destroy', 'ACMPCA', Promise.resolve(result), true, mock)
+  describeCertificateAuthority: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-acm-pca', 'describeCertificateAuthority', 'ACMPCA', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-acm-pca', 'destroy', 'ACMPCA', Promise.resolve(result), false, mock)
+  describeCertificateAuthorityAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-acm-pca', 'describeCertificateAuthority', 'ACMPCA', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-acm-pca', 'destroy', 'ACMPCA', Promise.reject(result), true, mock)
-  },
-  getCertificate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-acm-pca', 'getCertificate', 'ACMPCA', Promise.resolve(result), true, mock)
-  },
-  getCertificateAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-acm-pca', 'getCertificate', 'ACMPCA', Promise.resolve(result), false, mock)
-  },
-  getCertificateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-acm-pca', 'getCertificate', 'ACMPCA', Promise.reject(result), true, mock)
+  describeCertificateAuthorityThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-acm-pca', 'describeCertificateAuthority', 'ACMPCA', Promise.reject(result), true, mock)
   },
   getCertificateAuthorityCertificate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-acm-pca', 'getCertificateAuthorityCertificate', 'ACMPCA', Promise.resolve(result), true, mock)
@@ -124,6 +105,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getCertificateAuthorityCsrThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-acm-pca', 'getCertificateAuthorityCsr', 'ACMPCA', Promise.reject(result), true, mock)
+  },
+  getCertificate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-acm-pca', 'getCertificate', 'ACMPCA', Promise.resolve(result), true, mock)
+  },
+  getCertificateAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-acm-pca', 'getCertificate', 'ACMPCA', Promise.resolve(result), false, mock)
+  },
+  getCertificateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-acm-pca', 'getCertificate', 'ACMPCA', Promise.reject(result), true, mock)
   },
   getPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-acm-pca', 'getPolicy', 'ACMPCA', Promise.resolve(result), true, mock)

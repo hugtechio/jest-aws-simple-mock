@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockElasticTranscoder = {
+export const mockElasticTranscoder = {
   cancelJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elastic-transcoder', 'cancelJob', 'ElasticTranscoder', Promise.resolve(result), true, mock)
   },
@@ -70,15 +69,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deletePresetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elastic-transcoder', 'deletePreset', 'ElasticTranscoder', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-elastic-transcoder', 'destroy', 'ElasticTranscoder', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-elastic-transcoder', 'destroy', 'ElasticTranscoder', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-elastic-transcoder', 'destroy', 'ElasticTranscoder', Promise.reject(result), true, mock)
   },
   listJobsByPipeline: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elastic-transcoder', 'listJobsByPipeline', 'ElasticTranscoder', Promise.resolve(result), true, mock)

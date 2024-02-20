@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockSSM = {
+export const mockSSM = {
   addTagsToResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm', 'addTagsToResource', 'SSM', Promise.resolve(result), true, mock)
   },
@@ -35,14 +34,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   associateOpsItemRelatedItemThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm', 'associateOpsItemRelatedItem', 'SSM', Promise.reject(result), true, mock)
   },
-  cancelCommand: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ssm', 'cancelCommand', 'SSM', Promise.resolve(result), true, mock)
+  cancel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm', 'cancel', 'SSM', Promise.resolve(result), true, mock)
   },
-  cancelCommandAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ssm', 'cancelCommand', 'SSM', Promise.resolve(result), false, mock)
+  cancelAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm', 'cancel', 'SSM', Promise.resolve(result), false, mock)
   },
-  cancelCommandThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ssm', 'cancelCommand', 'SSM', Promise.reject(result), true, mock)
+  cancelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm', 'cancel', 'SSM', Promise.reject(result), true, mock)
   },
   cancelMaintenanceWindowExecution: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm', 'cancelMaintenanceWindowExecution', 'SSM', Promise.resolve(result), true, mock)
@@ -62,15 +61,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createActivationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm', 'createActivation', 'SSM', Promise.reject(result), true, mock)
   },
-  createAssociation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ssm', 'createAssociation', 'SSM', Promise.resolve(result), true, mock)
-  },
-  createAssociationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ssm', 'createAssociation', 'SSM', Promise.resolve(result), false, mock)
-  },
-  createAssociationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ssm', 'createAssociation', 'SSM', Promise.reject(result), true, mock)
-  },
   createAssociationBatch: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm', 'createAssociationBatch', 'SSM', Promise.resolve(result), true, mock)
   },
@@ -79,6 +69,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createAssociationBatchThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm', 'createAssociationBatch', 'SSM', Promise.reject(result), true, mock)
+  },
+  createAssociation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm', 'createAssociation', 'SSM', Promise.resolve(result), true, mock)
+  },
+  createAssociationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm', 'createAssociation', 'SSM', Promise.resolve(result), false, mock)
+  },
+  createAssociationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm', 'createAssociation', 'SSM', Promise.reject(result), true, mock)
   },
   createDocument: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm', 'createDocument', 'SSM', Promise.resolve(result), true, mock)
@@ -179,6 +178,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteMaintenanceWindowThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm', 'deleteMaintenanceWindow', 'SSM', Promise.reject(result), true, mock)
   },
+  deleteOpsItem: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm', 'deleteOpsItem', 'SSM', Promise.resolve(result), true, mock)
+  },
+  deleteOpsItemAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm', 'deleteOpsItem', 'SSM', Promise.resolve(result), false, mock)
+  },
+  deleteOpsItemThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm', 'deleteOpsItem', 'SSM', Promise.reject(result), true, mock)
+  },
   deleteOpsMetadata: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm', 'deleteOpsMetadata', 'SSM', Promise.resolve(result), true, mock)
   },
@@ -223,6 +231,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteResourceDataSyncThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm', 'deleteResourceDataSync', 'SSM', Promise.reject(result), true, mock)
+  },
+  deleteResourcePolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm', 'deleteResourcePolicy', 'SSM', Promise.resolve(result), true, mock)
+  },
+  deleteResourcePolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm', 'deleteResourcePolicy', 'SSM', Promise.resolve(result), false, mock)
+  },
+  deleteResourcePolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm', 'deleteResourcePolicy', 'SSM', Promise.reject(result), true, mock)
   },
   deregisterManagedInstance: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm', 'deregisterManagedInstance', 'SSM', Promise.resolve(result), true, mock)
@@ -548,15 +565,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeSessionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm', 'describeSessions', 'SSM', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ssm', 'destroy', 'SSM', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ssm', 'destroy', 'SSM', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ssm', 'destroy', 'SSM', Promise.reject(result), true, mock)
-  },
   disassociateOpsItemRelatedItem: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm', 'disassociateOpsItemRelatedItem', 'SSM', Promise.resolve(result), true, mock)
   },
@@ -584,14 +592,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getCalendarStateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm', 'getCalendarState', 'SSM', Promise.reject(result), true, mock)
   },
-  getCommandInvocation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ssm', 'getCommandInvocation', 'SSM', Promise.resolve(result), true, mock)
+  get: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm', 'get', 'SSM', Promise.resolve(result), true, mock)
   },
-  getCommandInvocationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ssm', 'getCommandInvocation', 'SSM', Promise.resolve(result), false, mock)
+  getAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm', 'get', 'SSM', Promise.resolve(result), false, mock)
   },
-  getCommandInvocationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ssm', 'getCommandInvocation', 'SSM', Promise.reject(result), true, mock)
+  getThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm', 'get', 'SSM', Promise.reject(result), true, mock)
   },
   getConnectionStatus: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm', 'getConnectionStatus', 'SSM', Promise.resolve(result), true, mock)
@@ -737,15 +745,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getParameterHistoryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm', 'getParameterHistory', 'SSM', Promise.reject(result), true, mock)
   },
-  getParameters: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ssm', 'getParameters', 'SSM', Promise.resolve(result), true, mock)
-  },
-  getParametersAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ssm', 'getParameters', 'SSM', Promise.resolve(result), false, mock)
-  },
-  getParametersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ssm', 'getParameters', 'SSM', Promise.reject(result), true, mock)
-  },
   getParametersByPath: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm', 'getParametersByPath', 'SSM', Promise.resolve(result), true, mock)
   },
@@ -754,6 +753,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getParametersByPathThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm', 'getParametersByPath', 'SSM', Promise.reject(result), true, mock)
+  },
+  getParameters: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm', 'getParameters', 'SSM', Promise.resolve(result), true, mock)
+  },
+  getParametersAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm', 'getParameters', 'SSM', Promise.resolve(result), false, mock)
+  },
+  getParametersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm', 'getParameters', 'SSM', Promise.reject(result), true, mock)
   },
   getPatchBaseline: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm', 'getPatchBaseline', 'SSM', Promise.resolve(result), true, mock)
@@ -772,6 +780,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getPatchBaselineForPatchGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm', 'getPatchBaselineForPatchGroup', 'SSM', Promise.reject(result), true, mock)
+  },
+  getResourcePolicies: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm', 'getResourcePolicies', 'SSM', Promise.resolve(result), true, mock)
+  },
+  getResourcePoliciesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm', 'getResourcePolicies', 'SSM', Promise.resolve(result), false, mock)
+  },
+  getResourcePoliciesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm', 'getResourcePolicies', 'SSM', Promise.reject(result), true, mock)
   },
   getServiceSetting: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm', 'getServiceSetting', 'SSM', Promise.resolve(result), true, mock)
@@ -809,23 +826,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listAssociationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm', 'listAssociations', 'SSM', Promise.reject(result), true, mock)
   },
-  listCommandInvocations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ssm', 'listCommandInvocations', 'SSM', Promise.resolve(result), true, mock)
+  list: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm', 'list', 'SSM', Promise.resolve(result), true, mock)
   },
-  listCommandInvocationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ssm', 'listCommandInvocations', 'SSM', Promise.resolve(result), false, mock)
+  listAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm', 'list', 'SSM', Promise.resolve(result), false, mock)
   },
-  listCommandInvocationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ssm', 'listCommandInvocations', 'SSM', Promise.reject(result), true, mock)
-  },
-  listCommands: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ssm', 'listCommands', 'SSM', Promise.resolve(result), true, mock)
-  },
-  listCommandsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ssm', 'listCommands', 'SSM', Promise.resolve(result), false, mock)
-  },
-  listCommandsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ssm', 'listCommands', 'SSM', Promise.reject(result), true, mock)
+  listThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm', 'list', 'SSM', Promise.reject(result), true, mock)
   },
   listComplianceItems: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm', 'listComplianceItems', 'SSM', Promise.resolve(result), true, mock)
@@ -971,6 +979,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   putParameterThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm', 'putParameter', 'SSM', Promise.reject(result), true, mock)
   },
+  putResourcePolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm', 'putResourcePolicy', 'SSM', Promise.resolve(result), true, mock)
+  },
+  putResourcePolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm', 'putResourcePolicy', 'SSM', Promise.resolve(result), false, mock)
+  },
+  putResourcePolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm', 'putResourcePolicy', 'SSM', Promise.reject(result), true, mock)
+  },
   registerDefaultPatchBaseline: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm', 'registerDefaultPatchBaseline', 'SSM', Promise.resolve(result), true, mock)
   },
@@ -1043,14 +1060,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   sendAutomationSignalThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm', 'sendAutomationSignal', 'SSM', Promise.reject(result), true, mock)
   },
-  sendCommand: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ssm', 'sendCommand', 'SSM', Promise.resolve(result), true, mock)
+  sendPromise: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm', 'send', 'SSM', Promise.resolve(result), true, mock)
   },
-  sendCommandAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ssm', 'sendCommand', 'SSM', Promise.resolve(result), false, mock)
+  sendPromiseAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm', 'send', 'SSM', Promise.resolve(result), false, mock)
   },
-  sendCommandThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ssm', 'sendCommand', 'SSM', Promise.reject(result), true, mock)
+  sendPromiseThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm', 'send', 'SSM', Promise.reject(result), true, mock)
   },
   startAssociationsOnce: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm', 'startAssociationsOnce', 'SSM', Promise.resolve(result), true, mock)

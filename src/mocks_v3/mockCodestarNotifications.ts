@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockCodestarNotifications = {
+export const mockCodestarNotifications = {
   createNotificationRule: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codestar-notifications', 'createNotificationRule', 'CodestarNotifications', Promise.resolve(result), true, mock)
   },
@@ -52,15 +51,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeNotificationRuleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codestar-notifications', 'describeNotificationRule', 'CodestarNotifications', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-codestar-notifications', 'destroy', 'CodestarNotifications', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-codestar-notifications', 'destroy', 'CodestarNotifications', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-codestar-notifications', 'destroy', 'CodestarNotifications', Promise.reject(result), true, mock)
   },
   listEventTypes: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codestar-notifications', 'listEventTypes', 'CodestarNotifications', Promise.resolve(result), true, mock)

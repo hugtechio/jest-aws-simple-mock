@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockWorkDocs = {
+export const mockWorkDocs = {
   abortDocumentVersionUpload: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workdocs', 'abortDocumentVersionUpload', 'WorkDocs', Promise.resolve(result), true, mock)
   },
@@ -133,6 +132,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteDocumentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workdocs', 'deleteDocument', 'WorkDocs', Promise.reject(result), true, mock)
+  },
+  deleteDocumentVersion: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workdocs', 'deleteDocumentVersion', 'WorkDocs', Promise.resolve(result), true, mock)
+  },
+  deleteDocumentVersionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workdocs', 'deleteDocumentVersion', 'WorkDocs', Promise.resolve(result), false, mock)
+  },
+  deleteDocumentVersionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workdocs', 'deleteDocumentVersion', 'WorkDocs', Promise.reject(result), true, mock)
   },
   deleteFolder: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workdocs', 'deleteFolder', 'WorkDocs', Promise.resolve(result), true, mock)
@@ -260,15 +268,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeUsersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workdocs', 'describeUsers', 'WorkDocs', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-workdocs', 'destroy', 'WorkDocs', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-workdocs', 'destroy', 'WorkDocs', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-workdocs', 'destroy', 'WorkDocs', Promise.reject(result), true, mock)
-  },
   getCurrentUser: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workdocs', 'getCurrentUser', 'WorkDocs', Promise.resolve(result), true, mock)
   },
@@ -358,6 +357,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   removeResourcePermissionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workdocs', 'removeResourcePermission', 'WorkDocs', Promise.reject(result), true, mock)
+  },
+  restoreDocumentVersions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workdocs', 'restoreDocumentVersions', 'WorkDocs', Promise.resolve(result), true, mock)
+  },
+  restoreDocumentVersionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workdocs', 'restoreDocumentVersions', 'WorkDocs', Promise.resolve(result), false, mock)
+  },
+  restoreDocumentVersionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workdocs', 'restoreDocumentVersions', 'WorkDocs', Promise.reject(result), true, mock)
+  },
+  searchResources: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workdocs', 'searchResources', 'WorkDocs', Promise.resolve(result), true, mock)
+  },
+  searchResourcesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workdocs', 'searchResources', 'WorkDocs', Promise.resolve(result), false, mock)
+  },
+  searchResourcesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workdocs', 'searchResources', 'WorkDocs', Promise.reject(result), true, mock)
   },
   updateDocument: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workdocs', 'updateDocument', 'WorkDocs', Promise.resolve(result), true, mock)

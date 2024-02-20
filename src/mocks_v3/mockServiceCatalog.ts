@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockServiceCatalog = {
+export const mockServiceCatalog = {
   acceptPortfolioShare: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-service-catalog', 'acceptPortfolioShare', 'ServiceCatalog', Promise.resolve(result), true, mock)
   },
@@ -287,15 +286,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describePortfolioSharesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-service-catalog', 'describePortfolioShares', 'ServiceCatalog', Promise.reject(result), true, mock)
   },
-  describeProduct: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-service-catalog', 'describeProduct', 'ServiceCatalog', Promise.resolve(result), true, mock)
-  },
-  describeProductAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-service-catalog', 'describeProduct', 'ServiceCatalog', Promise.resolve(result), false, mock)
-  },
-  describeProductThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-service-catalog', 'describeProduct', 'ServiceCatalog', Promise.reject(result), true, mock)
-  },
   describeProductAsAdmin: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-service-catalog', 'describeProductAsAdmin', 'ServiceCatalog', Promise.resolve(result), true, mock)
   },
@@ -304,6 +294,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeProductAsAdminThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-service-catalog', 'describeProductAsAdmin', 'ServiceCatalog', Promise.reject(result), true, mock)
+  },
+  describeProduct: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-service-catalog', 'describeProduct', 'ServiceCatalog', Promise.resolve(result), true, mock)
+  },
+  describeProductAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-service-catalog', 'describeProduct', 'ServiceCatalog', Promise.resolve(result), false, mock)
+  },
+  describeProductThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-service-catalog', 'describeProduct', 'ServiceCatalog', Promise.reject(result), true, mock)
   },
   describeProductView: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-service-catalog', 'describeProductView', 'ServiceCatalog', Promise.resolve(result), true, mock)
@@ -385,15 +384,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeTagOptionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-service-catalog', 'describeTagOption', 'ServiceCatalog', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-service-catalog', 'destroy', 'ServiceCatalog', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-service-catalog', 'destroy', 'ServiceCatalog', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-service-catalog', 'destroy', 'ServiceCatalog', Promise.reject(result), true, mock)
   },
   disableAWSOrganizationsAccess: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-service-catalog', 'disableAWSOrganizationsAccess', 'ServiceCatalog', Promise.resolve(result), true, mock)
@@ -665,6 +655,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listTagOptionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-service-catalog', 'listTagOptions', 'ServiceCatalog', Promise.reject(result), true, mock)
   },
+  notifyProvisionProductEngineWorkflowResult: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-service-catalog', 'notifyProvisionProductEngineWorkflowResult', 'ServiceCatalog', Promise.resolve(result), true, mock)
+  },
+  notifyProvisionProductEngineWorkflowResultAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-service-catalog', 'notifyProvisionProductEngineWorkflowResult', 'ServiceCatalog', Promise.resolve(result), false, mock)
+  },
+  notifyProvisionProductEngineWorkflowResultThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-service-catalog', 'notifyProvisionProductEngineWorkflowResult', 'ServiceCatalog', Promise.reject(result), true, mock)
+  },
+  notifyTerminateProvisionedProductEngineWorkflowResult: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-service-catalog', 'notifyTerminateProvisionedProductEngineWorkflowResult', 'ServiceCatalog', Promise.resolve(result), true, mock)
+  },
+  notifyTerminateProvisionedProductEngineWorkflowResultAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-service-catalog', 'notifyTerminateProvisionedProductEngineWorkflowResult', 'ServiceCatalog', Promise.resolve(result), false, mock)
+  },
+  notifyTerminateProvisionedProductEngineWorkflowResultThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-service-catalog', 'notifyTerminateProvisionedProductEngineWorkflowResult', 'ServiceCatalog', Promise.reject(result), true, mock)
+  },
+  notifyUpdateProvisionedProductEngineWorkflowResult: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-service-catalog', 'notifyUpdateProvisionedProductEngineWorkflowResult', 'ServiceCatalog', Promise.resolve(result), true, mock)
+  },
+  notifyUpdateProvisionedProductEngineWorkflowResultAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-service-catalog', 'notifyUpdateProvisionedProductEngineWorkflowResult', 'ServiceCatalog', Promise.resolve(result), false, mock)
+  },
+  notifyUpdateProvisionedProductEngineWorkflowResultThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-service-catalog', 'notifyUpdateProvisionedProductEngineWorkflowResult', 'ServiceCatalog', Promise.reject(result), true, mock)
+  },
   provisionProduct: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-service-catalog', 'provisionProduct', 'ServiceCatalog', Promise.resolve(result), true, mock)
   },
@@ -692,15 +709,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   scanProvisionedProductsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-service-catalog', 'scanProvisionedProducts', 'ServiceCatalog', Promise.reject(result), true, mock)
   },
-  searchProducts: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-service-catalog', 'searchProducts', 'ServiceCatalog', Promise.resolve(result), true, mock)
-  },
-  searchProductsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-service-catalog', 'searchProducts', 'ServiceCatalog', Promise.resolve(result), false, mock)
-  },
-  searchProductsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-service-catalog', 'searchProducts', 'ServiceCatalog', Promise.reject(result), true, mock)
-  },
   searchProductsAsAdmin: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-service-catalog', 'searchProductsAsAdmin', 'ServiceCatalog', Promise.resolve(result), true, mock)
   },
@@ -709,6 +717,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   searchProductsAsAdminThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-service-catalog', 'searchProductsAsAdmin', 'ServiceCatalog', Promise.reject(result), true, mock)
+  },
+  searchProducts: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-service-catalog', 'searchProducts', 'ServiceCatalog', Promise.resolve(result), true, mock)
+  },
+  searchProductsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-service-catalog', 'searchProducts', 'ServiceCatalog', Promise.resolve(result), false, mock)
+  },
+  searchProductsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-service-catalog', 'searchProducts', 'ServiceCatalog', Promise.reject(result), true, mock)
   },
   searchProvisionedProducts: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-service-catalog', 'searchProvisionedProducts', 'ServiceCatalog', Promise.resolve(result), true, mock)

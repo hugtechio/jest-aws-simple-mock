@@ -15,16 +15,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockTranscribeStreaming = {
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-transcribe-streaming', 'destroy', 'TranscribeStreaming', Promise.resolve(result), true, mock)
+export const mockTranscribeStreaming = {
+  startCallAnalyticsStreamTranscription: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transcribe-streaming', 'startCallAnalyticsStreamTranscription', 'TranscribeStreaming', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-transcribe-streaming', 'destroy', 'TranscribeStreaming', Promise.resolve(result), false, mock)
+  startCallAnalyticsStreamTranscriptionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transcribe-streaming', 'startCallAnalyticsStreamTranscription', 'TranscribeStreaming', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-transcribe-streaming', 'destroy', 'TranscribeStreaming', Promise.reject(result), true, mock)
+  startCallAnalyticsStreamTranscriptionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transcribe-streaming', 'startCallAnalyticsStreamTranscription', 'TranscribeStreaming', Promise.reject(result), true, mock)
   },
   startMedicalStreamTranscription: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-transcribe-streaming', 'startMedicalStreamTranscription', 'TranscribeStreaming', Promise.resolve(result), true, mock)

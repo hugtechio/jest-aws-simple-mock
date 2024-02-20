@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockChimeSDKMeetings = {
+export const mockChimeSDKMeetings = {
   batchCreateAttendee: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-meetings', 'batchCreateAttendee', 'ChimeSDKMeetings', Promise.resolve(result), true, mock)
   },
@@ -25,6 +24,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   batchCreateAttendeeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-meetings', 'batchCreateAttendee', 'ChimeSDKMeetings', Promise.reject(result), true, mock)
+  },
+  batchUpdateAttendeeCapabilitiesExcept: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-meetings', 'batchUpdateAttendeeCapabilitiesExcept', 'ChimeSDKMeetings', Promise.resolve(result), true, mock)
+  },
+  batchUpdateAttendeeCapabilitiesExceptAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-meetings', 'batchUpdateAttendeeCapabilitiesExcept', 'ChimeSDKMeetings', Promise.resolve(result), false, mock)
+  },
+  batchUpdateAttendeeCapabilitiesExceptThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-meetings', 'batchUpdateAttendeeCapabilitiesExcept', 'ChimeSDKMeetings', Promise.reject(result), true, mock)
   },
   createAttendee: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-meetings', 'createAttendee', 'ChimeSDKMeetings', Promise.resolve(result), true, mock)
@@ -71,15 +79,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteMeetingThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-meetings', 'deleteMeeting', 'ChimeSDKMeetings', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime-sdk-meetings', 'destroy', 'ChimeSDKMeetings', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime-sdk-meetings', 'destroy', 'ChimeSDKMeetings', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime-sdk-meetings', 'destroy', 'ChimeSDKMeetings', Promise.reject(result), true, mock)
-  },
   getAttendee: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-meetings', 'getAttendee', 'ChimeSDKMeetings', Promise.resolve(result), true, mock)
   },
@@ -107,6 +106,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listAttendeesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-meetings', 'listAttendees', 'ChimeSDKMeetings', Promise.reject(result), true, mock)
   },
+  listTagsForResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-meetings', 'listTagsForResource', 'ChimeSDKMeetings', Promise.resolve(result), true, mock)
+  },
+  listTagsForResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-meetings', 'listTagsForResource', 'ChimeSDKMeetings', Promise.resolve(result), false, mock)
+  },
+  listTagsForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-meetings', 'listTagsForResource', 'ChimeSDKMeetings', Promise.reject(result), true, mock)
+  },
   startMeetingTranscription: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-meetings', 'startMeetingTranscription', 'ChimeSDKMeetings', Promise.resolve(result), true, mock)
   },
@@ -124,6 +132,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   stopMeetingTranscriptionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-meetings', 'stopMeetingTranscription', 'ChimeSDKMeetings', Promise.reject(result), true, mock)
+  },
+  tagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-meetings', 'tagResource', 'ChimeSDKMeetings', Promise.resolve(result), true, mock)
+  },
+  tagResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-meetings', 'tagResource', 'ChimeSDKMeetings', Promise.resolve(result), false, mock)
+  },
+  tagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-meetings', 'tagResource', 'ChimeSDKMeetings', Promise.reject(result), true, mock)
+  },
+  untagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-meetings', 'untagResource', 'ChimeSDKMeetings', Promise.resolve(result), true, mock)
+  },
+  untagResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-meetings', 'untagResource', 'ChimeSDKMeetings', Promise.resolve(result), false, mock)
+  },
+  untagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-meetings', 'untagResource', 'ChimeSDKMeetings', Promise.reject(result), true, mock)
+  },
+  updateAttendeeCapabilities: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-meetings', 'updateAttendeeCapabilities', 'ChimeSDKMeetings', Promise.resolve(result), true, mock)
+  },
+  updateAttendeeCapabilitiesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-meetings', 'updateAttendeeCapabilities', 'ChimeSDKMeetings', Promise.resolve(result), false, mock)
+  },
+  updateAttendeeCapabilitiesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-meetings', 'updateAttendeeCapabilities', 'ChimeSDKMeetings', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-meetings', 'send', 'ChimeSDKMeetingsClient', Promise.resolve(result), true, mock)

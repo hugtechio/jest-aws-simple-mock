@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockCloudWatch = {
+export const mockCloudWatch = {
   deleteAlarms: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudwatch', 'deleteAlarms', 'CloudWatch', Promise.resolve(result), true, mock)
   },
@@ -106,15 +105,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeInsightRulesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudwatch', 'describeInsightRules', 'CloudWatch', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cloudwatch', 'destroy', 'CloudWatch', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cloudwatch', 'destroy', 'CloudWatch', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cloudwatch', 'destroy', 'CloudWatch', Promise.reject(result), true, mock)
   },
   disableAlarmActions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudwatch', 'disableAlarmActions', 'CloudWatch', Promise.resolve(result), true, mock)
@@ -215,6 +205,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listDashboardsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudwatch', 'listDashboards', 'CloudWatch', Promise.reject(result), true, mock)
   },
+  listManagedInsightRules: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch', 'listManagedInsightRules', 'CloudWatch', Promise.resolve(result), true, mock)
+  },
+  listManagedInsightRulesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch', 'listManagedInsightRules', 'CloudWatch', Promise.resolve(result), false, mock)
+  },
+  listManagedInsightRulesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch', 'listManagedInsightRules', 'CloudWatch', Promise.reject(result), true, mock)
+  },
   listMetricStreams: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudwatch', 'listMetricStreams', 'CloudWatch', Promise.resolve(result), true, mock)
   },
@@ -277,6 +276,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   putInsightRuleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudwatch', 'putInsightRule', 'CloudWatch', Promise.reject(result), true, mock)
+  },
+  putManagedInsightRules: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch', 'putManagedInsightRules', 'CloudWatch', Promise.resolve(result), true, mock)
+  },
+  putManagedInsightRulesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch', 'putManagedInsightRules', 'CloudWatch', Promise.resolve(result), false, mock)
+  },
+  putManagedInsightRulesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch', 'putManagedInsightRules', 'CloudWatch', Promise.reject(result), true, mock)
   },
   putMetricAlarm: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudwatch', 'putMetricAlarm', 'CloudWatch', Promise.resolve(result), true, mock)

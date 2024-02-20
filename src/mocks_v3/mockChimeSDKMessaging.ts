@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockChimeSDKMessaging = {
+export const mockChimeSDKMessaging = {
   associateChannelFlow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-messaging', 'associateChannelFlow', 'ChimeSDKMessaging', Promise.resolve(result), true, mock)
   },
@@ -44,15 +43,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   channelFlowCallbackThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-messaging', 'channelFlowCallback', 'ChimeSDKMessaging', Promise.reject(result), true, mock)
   },
-  createChannel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'createChannel', 'ChimeSDKMessaging', Promise.resolve(result), true, mock)
-  },
-  createChannelAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'createChannel', 'ChimeSDKMessaging', Promise.resolve(result), false, mock)
-  },
-  createChannelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'createChannel', 'ChimeSDKMessaging', Promise.reject(result), true, mock)
-  },
   createChannelBan: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-messaging', 'createChannelBan', 'ChimeSDKMessaging', Promise.resolve(result), true, mock)
   },
@@ -61,6 +51,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createChannelBanThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-messaging', 'createChannelBan', 'ChimeSDKMessaging', Promise.reject(result), true, mock)
+  },
+  createChannel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'createChannel', 'ChimeSDKMessaging', Promise.resolve(result), true, mock)
+  },
+  createChannelAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'createChannel', 'ChimeSDKMessaging', Promise.resolve(result), false, mock)
+  },
+  createChannelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'createChannel', 'ChimeSDKMessaging', Promise.reject(result), true, mock)
   },
   createChannelFlow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-messaging', 'createChannelFlow', 'ChimeSDKMessaging', Promise.resolve(result), true, mock)
@@ -89,15 +88,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createChannelModeratorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-messaging', 'createChannelModerator', 'ChimeSDKMessaging', Promise.reject(result), true, mock)
   },
-  deleteChannel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'deleteChannel', 'ChimeSDKMessaging', Promise.resolve(result), true, mock)
-  },
-  deleteChannelAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'deleteChannel', 'ChimeSDKMessaging', Promise.resolve(result), false, mock)
-  },
-  deleteChannelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'deleteChannel', 'ChimeSDKMessaging', Promise.reject(result), true, mock)
-  },
   deleteChannelBan: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-messaging', 'deleteChannelBan', 'ChimeSDKMessaging', Promise.resolve(result), true, mock)
   },
@@ -106,6 +96,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteChannelBanThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-messaging', 'deleteChannelBan', 'ChimeSDKMessaging', Promise.reject(result), true, mock)
+  },
+  deleteChannel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'deleteChannel', 'ChimeSDKMessaging', Promise.resolve(result), true, mock)
+  },
+  deleteChannelAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'deleteChannel', 'ChimeSDKMessaging', Promise.resolve(result), false, mock)
+  },
+  deleteChannelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'deleteChannel', 'ChimeSDKMessaging', Promise.reject(result), true, mock)
   },
   deleteChannelFlow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-messaging', 'deleteChannelFlow', 'ChimeSDKMessaging', Promise.resolve(result), true, mock)
@@ -143,14 +142,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteChannelModeratorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-messaging', 'deleteChannelModerator', 'ChimeSDKMessaging', Promise.reject(result), true, mock)
   },
-  describeChannel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'describeChannel', 'ChimeSDKMessaging', Promise.resolve(result), true, mock)
+  deleteMessagingStreamingConfigurations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'deleteMessagingStreamingConfigurations', 'ChimeSDKMessaging', Promise.resolve(result), true, mock)
   },
-  describeChannelAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'describeChannel', 'ChimeSDKMessaging', Promise.resolve(result), false, mock)
+  deleteMessagingStreamingConfigurationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'deleteMessagingStreamingConfigurations', 'ChimeSDKMessaging', Promise.resolve(result), false, mock)
   },
-  describeChannelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'describeChannel', 'ChimeSDKMessaging', Promise.reject(result), true, mock)
+  deleteMessagingStreamingConfigurationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'deleteMessagingStreamingConfigurations', 'ChimeSDKMessaging', Promise.reject(result), true, mock)
   },
   describeChannelBan: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-messaging', 'describeChannelBan', 'ChimeSDKMessaging', Promise.resolve(result), true, mock)
@@ -160,6 +159,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeChannelBanThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-messaging', 'describeChannelBan', 'ChimeSDKMessaging', Promise.reject(result), true, mock)
+  },
+  describeChannel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'describeChannel', 'ChimeSDKMessaging', Promise.resolve(result), true, mock)
+  },
+  describeChannelAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'describeChannel', 'ChimeSDKMessaging', Promise.resolve(result), false, mock)
+  },
+  describeChannelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'describeChannel', 'ChimeSDKMessaging', Promise.reject(result), true, mock)
   },
   describeChannelFlow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-messaging', 'describeChannelFlow', 'ChimeSDKMessaging', Promise.resolve(result), true, mock)
@@ -206,15 +214,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeChannelModeratorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-messaging', 'describeChannelModerator', 'ChimeSDKMessaging', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'destroy', 'ChimeSDKMessaging', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'destroy', 'ChimeSDKMessaging', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'destroy', 'ChimeSDKMessaging', Promise.reject(result), true, mock)
-  },
   disassociateChannelFlow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-messaging', 'disassociateChannelFlow', 'ChimeSDKMessaging', Promise.resolve(result), true, mock)
   },
@@ -259,6 +258,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getMessagingSessionEndpointThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-messaging', 'getMessagingSessionEndpoint', 'ChimeSDKMessaging', Promise.reject(result), true, mock)
+  },
+  getMessagingStreamingConfigurations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'getMessagingStreamingConfigurations', 'ChimeSDKMessaging', Promise.resolve(result), true, mock)
+  },
+  getMessagingStreamingConfigurationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'getMessagingStreamingConfigurations', 'ChimeSDKMessaging', Promise.resolve(result), false, mock)
+  },
+  getMessagingStreamingConfigurationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'getMessagingStreamingConfigurations', 'ChimeSDKMessaging', Promise.reject(result), true, mock)
   },
   listChannelBans: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-messaging', 'listChannelBans', 'ChimeSDKMessaging', Promise.resolve(result), true, mock)
@@ -314,15 +322,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listChannelModeratorsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-messaging', 'listChannelModerators', 'ChimeSDKMessaging', Promise.reject(result), true, mock)
   },
-  listChannels: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'listChannels', 'ChimeSDKMessaging', Promise.resolve(result), true, mock)
-  },
-  listChannelsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'listChannels', 'ChimeSDKMessaging', Promise.resolve(result), false, mock)
-  },
-  listChannelsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'listChannels', 'ChimeSDKMessaging', Promise.reject(result), true, mock)
-  },
   listChannelsAssociatedWithChannelFlow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-messaging', 'listChannelsAssociatedWithChannelFlow', 'ChimeSDKMessaging', Promise.resolve(result), true, mock)
   },
@@ -331,6 +330,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listChannelsAssociatedWithChannelFlowThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-messaging', 'listChannelsAssociatedWithChannelFlow', 'ChimeSDKMessaging', Promise.reject(result), true, mock)
+  },
+  listChannels: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'listChannels', 'ChimeSDKMessaging', Promise.resolve(result), true, mock)
+  },
+  listChannelsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'listChannels', 'ChimeSDKMessaging', Promise.resolve(result), false, mock)
+  },
+  listChannelsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'listChannels', 'ChimeSDKMessaging', Promise.reject(result), true, mock)
   },
   listChannelsModeratedByAppInstanceUser: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-messaging', 'listChannelsModeratedByAppInstanceUser', 'ChimeSDKMessaging', Promise.resolve(result), true, mock)
@@ -341,6 +349,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listChannelsModeratedByAppInstanceUserThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-messaging', 'listChannelsModeratedByAppInstanceUser', 'ChimeSDKMessaging', Promise.reject(result), true, mock)
   },
+  listSubChannels: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'listSubChannels', 'ChimeSDKMessaging', Promise.resolve(result), true, mock)
+  },
+  listSubChannelsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'listSubChannels', 'ChimeSDKMessaging', Promise.resolve(result), false, mock)
+  },
+  listSubChannelsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'listSubChannels', 'ChimeSDKMessaging', Promise.reject(result), true, mock)
+  },
   listTagsForResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-messaging', 'listTagsForResource', 'ChimeSDKMessaging', Promise.resolve(result), true, mock)
   },
@@ -349,6 +366,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listTagsForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-messaging', 'listTagsForResource', 'ChimeSDKMessaging', Promise.reject(result), true, mock)
+  },
+  putChannelExpirationSettings: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'putChannelExpirationSettings', 'ChimeSDKMessaging', Promise.resolve(result), true, mock)
+  },
+  putChannelExpirationSettingsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'putChannelExpirationSettings', 'ChimeSDKMessaging', Promise.resolve(result), false, mock)
+  },
+  putChannelExpirationSettingsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'putChannelExpirationSettings', 'ChimeSDKMessaging', Promise.reject(result), true, mock)
   },
   putChannelMembershipPreferences: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-messaging', 'putChannelMembershipPreferences', 'ChimeSDKMessaging', Promise.resolve(result), true, mock)
@@ -359,6 +385,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   putChannelMembershipPreferencesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-messaging', 'putChannelMembershipPreferences', 'ChimeSDKMessaging', Promise.reject(result), true, mock)
   },
+  putMessagingStreamingConfigurations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'putMessagingStreamingConfigurations', 'ChimeSDKMessaging', Promise.resolve(result), true, mock)
+  },
+  putMessagingStreamingConfigurationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'putMessagingStreamingConfigurations', 'ChimeSDKMessaging', Promise.resolve(result), false, mock)
+  },
+  putMessagingStreamingConfigurationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'putMessagingStreamingConfigurations', 'ChimeSDKMessaging', Promise.reject(result), true, mock)
+  },
   redactChannelMessage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-messaging', 'redactChannelMessage', 'ChimeSDKMessaging', Promise.resolve(result), true, mock)
   },
@@ -367,6 +402,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   redactChannelMessageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-messaging', 'redactChannelMessage', 'ChimeSDKMessaging', Promise.reject(result), true, mock)
+  },
+  searchChannels: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'searchChannels', 'ChimeSDKMessaging', Promise.resolve(result), true, mock)
+  },
+  searchChannelsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'searchChannels', 'ChimeSDKMessaging', Promise.resolve(result), false, mock)
+  },
+  searchChannelsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-messaging', 'searchChannels', 'ChimeSDKMessaging', Promise.reject(result), true, mock)
   },
   sendChannelMessage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-messaging', 'sendChannelMessage', 'ChimeSDKMessaging', Promise.resolve(result), true, mock)

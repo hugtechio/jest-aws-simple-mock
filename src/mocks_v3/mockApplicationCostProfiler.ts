@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockApplicationCostProfiler = {
+export const mockApplicationCostProfiler = {
   deleteReportDefinition: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-applicationcostprofiler', 'deleteReportDefinition', 'ApplicationCostProfiler', Promise.resolve(result), true, mock)
   },
@@ -25,15 +24,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteReportDefinitionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-applicationcostprofiler', 'deleteReportDefinition', 'ApplicationCostProfiler', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-applicationcostprofiler', 'destroy', 'ApplicationCostProfiler', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-applicationcostprofiler', 'destroy', 'ApplicationCostProfiler', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-applicationcostprofiler', 'destroy', 'ApplicationCostProfiler', Promise.reject(result), true, mock)
   },
   getReportDefinition: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-applicationcostprofiler', 'getReportDefinition', 'ApplicationCostProfiler', Promise.resolve(result), true, mock)

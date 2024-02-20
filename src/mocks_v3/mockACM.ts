@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockACM = {
+export const mockACM = {
   addTagsToCertificate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-acm', 'addTagsToCertificate', 'ACM', Promise.resolve(result), true, mock)
   },
@@ -43,15 +42,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeCertificateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-acm', 'describeCertificate', 'ACM', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-acm', 'destroy', 'ACM', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-acm', 'destroy', 'ACM', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-acm', 'destroy', 'ACM', Promise.reject(result), true, mock)
   },
   exportCertificate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-acm', 'exportCertificate', 'ACM', Promise.resolve(result), true, mock)

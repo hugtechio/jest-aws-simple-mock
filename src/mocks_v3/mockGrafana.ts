@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockGrafana = {
+export const mockGrafana = {
   associateLicense: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-grafana', 'associateLicense', 'Grafana', Promise.resolve(result), true, mock)
   },
@@ -25,6 +24,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   associateLicenseThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-grafana', 'associateLicense', 'Grafana', Promise.reject(result), true, mock)
+  },
+  createWorkspaceApiKey: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-grafana', 'createWorkspaceApiKey', 'Grafana', Promise.resolve(result), true, mock)
+  },
+  createWorkspaceApiKeyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-grafana', 'createWorkspaceApiKey', 'Grafana', Promise.resolve(result), false, mock)
+  },
+  createWorkspaceApiKeyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-grafana', 'createWorkspaceApiKey', 'Grafana', Promise.reject(result), true, mock)
   },
   createWorkspace: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-grafana', 'createWorkspace', 'Grafana', Promise.resolve(result), true, mock)
@@ -35,6 +43,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createWorkspaceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-grafana', 'createWorkspace', 'Grafana', Promise.reject(result), true, mock)
   },
+  deleteWorkspaceApiKey: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-grafana', 'deleteWorkspaceApiKey', 'Grafana', Promise.resolve(result), true, mock)
+  },
+  deleteWorkspaceApiKeyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-grafana', 'deleteWorkspaceApiKey', 'Grafana', Promise.resolve(result), false, mock)
+  },
+  deleteWorkspaceApiKeyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-grafana', 'deleteWorkspaceApiKey', 'Grafana', Promise.reject(result), true, mock)
+  },
   deleteWorkspace: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-grafana', 'deleteWorkspace', 'Grafana', Promise.resolve(result), true, mock)
   },
@@ -43,15 +60,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteWorkspaceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-grafana', 'deleteWorkspace', 'Grafana', Promise.reject(result), true, mock)
-  },
-  describeWorkspace: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-grafana', 'describeWorkspace', 'Grafana', Promise.resolve(result), true, mock)
-  },
-  describeWorkspaceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-grafana', 'describeWorkspace', 'Grafana', Promise.resolve(result), false, mock)
-  },
-  describeWorkspaceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-grafana', 'describeWorkspace', 'Grafana', Promise.reject(result), true, mock)
   },
   describeWorkspaceAuthentication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-grafana', 'describeWorkspaceAuthentication', 'Grafana', Promise.resolve(result), true, mock)
@@ -62,14 +70,23 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeWorkspaceAuthenticationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-grafana', 'describeWorkspaceAuthentication', 'Grafana', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-grafana', 'destroy', 'Grafana', Promise.resolve(result), true, mock)
+  describeWorkspace: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-grafana', 'describeWorkspace', 'Grafana', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-grafana', 'destroy', 'Grafana', Promise.resolve(result), false, mock)
+  describeWorkspaceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-grafana', 'describeWorkspace', 'Grafana', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-grafana', 'destroy', 'Grafana', Promise.reject(result), true, mock)
+  describeWorkspaceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-grafana', 'describeWorkspace', 'Grafana', Promise.reject(result), true, mock)
+  },
+  describeWorkspaceConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-grafana', 'describeWorkspaceConfiguration', 'Grafana', Promise.resolve(result), true, mock)
+  },
+  describeWorkspaceConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-grafana', 'describeWorkspaceConfiguration', 'Grafana', Promise.resolve(result), false, mock)
+  },
+  describeWorkspaceConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-grafana', 'describeWorkspaceConfiguration', 'Grafana', Promise.reject(result), true, mock)
   },
   disassociateLicense: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-grafana', 'disassociateLicense', 'Grafana', Promise.resolve(result), true, mock)
@@ -89,6 +106,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listPermissionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-grafana', 'listPermissions', 'Grafana', Promise.reject(result), true, mock)
   },
+  listTagsForResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-grafana', 'listTagsForResource', 'Grafana', Promise.resolve(result), true, mock)
+  },
+  listTagsForResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-grafana', 'listTagsForResource', 'Grafana', Promise.resolve(result), false, mock)
+  },
+  listTagsForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-grafana', 'listTagsForResource', 'Grafana', Promise.reject(result), true, mock)
+  },
+  listVersions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-grafana', 'listVersions', 'Grafana', Promise.resolve(result), true, mock)
+  },
+  listVersionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-grafana', 'listVersions', 'Grafana', Promise.resolve(result), false, mock)
+  },
+  listVersionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-grafana', 'listVersions', 'Grafana', Promise.reject(result), true, mock)
+  },
   listWorkspaces: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-grafana', 'listWorkspaces', 'Grafana', Promise.resolve(result), true, mock)
   },
@@ -97,6 +132,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listWorkspacesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-grafana', 'listWorkspaces', 'Grafana', Promise.reject(result), true, mock)
+  },
+  tagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-grafana', 'tagResource', 'Grafana', Promise.resolve(result), true, mock)
+  },
+  tagResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-grafana', 'tagResource', 'Grafana', Promise.resolve(result), false, mock)
+  },
+  tagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-grafana', 'tagResource', 'Grafana', Promise.reject(result), true, mock)
+  },
+  untagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-grafana', 'untagResource', 'Grafana', Promise.resolve(result), true, mock)
+  },
+  untagResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-grafana', 'untagResource', 'Grafana', Promise.resolve(result), false, mock)
+  },
+  untagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-grafana', 'untagResource', 'Grafana', Promise.reject(result), true, mock)
   },
   updatePermissions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-grafana', 'updatePermissions', 'Grafana', Promise.resolve(result), true, mock)
@@ -107,6 +160,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   updatePermissionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-grafana', 'updatePermissions', 'Grafana', Promise.reject(result), true, mock)
   },
+  updateWorkspaceAuthentication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-grafana', 'updateWorkspaceAuthentication', 'Grafana', Promise.resolve(result), true, mock)
+  },
+  updateWorkspaceAuthenticationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-grafana', 'updateWorkspaceAuthentication', 'Grafana', Promise.resolve(result), false, mock)
+  },
+  updateWorkspaceAuthenticationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-grafana', 'updateWorkspaceAuthentication', 'Grafana', Promise.reject(result), true, mock)
+  },
   updateWorkspace: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-grafana', 'updateWorkspace', 'Grafana', Promise.resolve(result), true, mock)
   },
@@ -116,14 +178,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   updateWorkspaceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-grafana', 'updateWorkspace', 'Grafana', Promise.reject(result), true, mock)
   },
-  updateWorkspaceAuthentication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-grafana', 'updateWorkspaceAuthentication', 'Grafana', Promise.resolve(result), true, mock)
+  updateWorkspaceConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-grafana', 'updateWorkspaceConfiguration', 'Grafana', Promise.resolve(result), true, mock)
   },
-  updateWorkspaceAuthenticationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-grafana', 'updateWorkspaceAuthentication', 'Grafana', Promise.resolve(result), false, mock)
+  updateWorkspaceConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-grafana', 'updateWorkspaceConfiguration', 'Grafana', Promise.resolve(result), false, mock)
   },
-  updateWorkspaceAuthenticationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-grafana', 'updateWorkspaceAuthentication', 'Grafana', Promise.reject(result), true, mock)
+  updateWorkspaceConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-grafana', 'updateWorkspaceConfiguration', 'Grafana', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-grafana', 'send', 'GrafanaClient', Promise.resolve(result), true, mock)

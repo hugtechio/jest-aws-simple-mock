@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockElasticBeanstalk = {
+export const mockElasticBeanstalk = {
   abortEnvironmentUpdate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elastic-beanstalk', 'abortEnvironmentUpdate', 'ElasticBeanstalk', Promise.resolve(result), true, mock)
   },
@@ -277,15 +276,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describePlatformVersionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elastic-beanstalk', 'describePlatformVersion', 'ElasticBeanstalk', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-elastic-beanstalk', 'destroy', 'ElasticBeanstalk', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-elastic-beanstalk', 'destroy', 'ElasticBeanstalk', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-elastic-beanstalk', 'destroy', 'ElasticBeanstalk', Promise.reject(result), true, mock)
   },
   disassociateEnvironmentOperationsRole: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elastic-beanstalk', 'disassociateEnvironmentOperationsRole', 'ElasticBeanstalk', Promise.resolve(result), true, mock)

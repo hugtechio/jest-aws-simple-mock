@@ -15,8 +15,16 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockDataSync = {
+export const mockDataSync = {
+  addStorageSystem: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'addStorageSystem', 'DataSync', Promise.resolve(result), true, mock)
+  },
+  addStorageSystemAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'addStorageSystem', 'DataSync', Promise.resolve(result), false, mock)
+  },
+  addStorageSystemThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'addStorageSystem', 'DataSync', Promise.reject(result), true, mock)
+  },
   cancelTaskExecution: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-datasync', 'cancelTaskExecution', 'DataSync', Promise.resolve(result), true, mock)
   },
@@ -35,6 +43,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createAgentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-datasync', 'createAgent', 'DataSync', Promise.reject(result), true, mock)
   },
+  createLocationAzureBlob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'createLocationAzureBlob', 'DataSync', Promise.resolve(result), true, mock)
+  },
+  createLocationAzureBlobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'createLocationAzureBlob', 'DataSync', Promise.resolve(result), false, mock)
+  },
+  createLocationAzureBlobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'createLocationAzureBlob', 'DataSync', Promise.reject(result), true, mock)
+  },
   createLocationEfs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-datasync', 'createLocationEfs', 'DataSync', Promise.resolve(result), true, mock)
   },
@@ -43,6 +60,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createLocationEfsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-datasync', 'createLocationEfs', 'DataSync', Promise.reject(result), true, mock)
+  },
+  createLocationFsxLustre: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'createLocationFsxLustre', 'DataSync', Promise.resolve(result), true, mock)
+  },
+  createLocationFsxLustreAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'createLocationFsxLustre', 'DataSync', Promise.resolve(result), false, mock)
+  },
+  createLocationFsxLustreThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'createLocationFsxLustre', 'DataSync', Promise.reject(result), true, mock)
+  },
+  createLocationFsxOntap: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'createLocationFsxOntap', 'DataSync', Promise.resolve(result), true, mock)
+  },
+  createLocationFsxOntapAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'createLocationFsxOntap', 'DataSync', Promise.resolve(result), false, mock)
+  },
+  createLocationFsxOntapThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'createLocationFsxOntap', 'DataSync', Promise.reject(result), true, mock)
+  },
+  createLocationFsxOpenZfs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'createLocationFsxOpenZfs', 'DataSync', Promise.resolve(result), true, mock)
+  },
+  createLocationFsxOpenZfsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'createLocationFsxOpenZfs', 'DataSync', Promise.resolve(result), false, mock)
+  },
+  createLocationFsxOpenZfsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'createLocationFsxOpenZfs', 'DataSync', Promise.reject(result), true, mock)
   },
   createLocationFsxWindows: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-datasync', 'createLocationFsxWindows', 'DataSync', Promise.resolve(result), true, mock)
@@ -143,6 +187,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeAgentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-datasync', 'describeAgent', 'DataSync', Promise.reject(result), true, mock)
   },
+  describeDiscoveryJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'describeDiscoveryJob', 'DataSync', Promise.resolve(result), true, mock)
+  },
+  describeDiscoveryJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'describeDiscoveryJob', 'DataSync', Promise.resolve(result), false, mock)
+  },
+  describeDiscoveryJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'describeDiscoveryJob', 'DataSync', Promise.reject(result), true, mock)
+  },
+  describeLocationAzureBlob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'describeLocationAzureBlob', 'DataSync', Promise.resolve(result), true, mock)
+  },
+  describeLocationAzureBlobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'describeLocationAzureBlob', 'DataSync', Promise.resolve(result), false, mock)
+  },
+  describeLocationAzureBlobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'describeLocationAzureBlob', 'DataSync', Promise.reject(result), true, mock)
+  },
   describeLocationEfs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-datasync', 'describeLocationEfs', 'DataSync', Promise.resolve(result), true, mock)
   },
@@ -151,6 +213,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeLocationEfsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-datasync', 'describeLocationEfs', 'DataSync', Promise.reject(result), true, mock)
+  },
+  describeLocationFsxLustre: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'describeLocationFsxLustre', 'DataSync', Promise.resolve(result), true, mock)
+  },
+  describeLocationFsxLustreAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'describeLocationFsxLustre', 'DataSync', Promise.resolve(result), false, mock)
+  },
+  describeLocationFsxLustreThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'describeLocationFsxLustre', 'DataSync', Promise.reject(result), true, mock)
+  },
+  describeLocationFsxOntap: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'describeLocationFsxOntap', 'DataSync', Promise.resolve(result), true, mock)
+  },
+  describeLocationFsxOntapAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'describeLocationFsxOntap', 'DataSync', Promise.resolve(result), false, mock)
+  },
+  describeLocationFsxOntapThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'describeLocationFsxOntap', 'DataSync', Promise.reject(result), true, mock)
+  },
+  describeLocationFsxOpenZfs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'describeLocationFsxOpenZfs', 'DataSync', Promise.resolve(result), true, mock)
+  },
+  describeLocationFsxOpenZfsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'describeLocationFsxOpenZfs', 'DataSync', Promise.resolve(result), false, mock)
+  },
+  describeLocationFsxOpenZfsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'describeLocationFsxOpenZfs', 'DataSync', Promise.reject(result), true, mock)
   },
   describeLocationFsxWindows: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-datasync', 'describeLocationFsxWindows', 'DataSync', Promise.resolve(result), true, mock)
@@ -206,6 +295,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeLocationSmbThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-datasync', 'describeLocationSmb', 'DataSync', Promise.reject(result), true, mock)
   },
+  describeStorageSystem: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'describeStorageSystem', 'DataSync', Promise.resolve(result), true, mock)
+  },
+  describeStorageSystemAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'describeStorageSystem', 'DataSync', Promise.resolve(result), false, mock)
+  },
+  describeStorageSystemThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'describeStorageSystem', 'DataSync', Promise.reject(result), true, mock)
+  },
+  describeStorageSystemResourceMetrics: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'describeStorageSystemResourceMetrics', 'DataSync', Promise.resolve(result), true, mock)
+  },
+  describeStorageSystemResourceMetricsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'describeStorageSystemResourceMetrics', 'DataSync', Promise.resolve(result), false, mock)
+  },
+  describeStorageSystemResourceMetricsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'describeStorageSystemResourceMetrics', 'DataSync', Promise.reject(result), true, mock)
+  },
+  describeStorageSystemResources: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'describeStorageSystemResources', 'DataSync', Promise.resolve(result), true, mock)
+  },
+  describeStorageSystemResourcesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'describeStorageSystemResources', 'DataSync', Promise.resolve(result), false, mock)
+  },
+  describeStorageSystemResourcesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'describeStorageSystemResources', 'DataSync', Promise.reject(result), true, mock)
+  },
   describeTask: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-datasync', 'describeTask', 'DataSync', Promise.resolve(result), true, mock)
   },
@@ -224,14 +340,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeTaskExecutionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-datasync', 'describeTaskExecution', 'DataSync', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-datasync', 'destroy', 'DataSync', Promise.resolve(result), true, mock)
+  generateRecommendations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'generateRecommendations', 'DataSync', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-datasync', 'destroy', 'DataSync', Promise.resolve(result), false, mock)
+  generateRecommendationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'generateRecommendations', 'DataSync', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-datasync', 'destroy', 'DataSync', Promise.reject(result), true, mock)
+  generateRecommendationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'generateRecommendations', 'DataSync', Promise.reject(result), true, mock)
   },
   listAgents: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-datasync', 'listAgents', 'DataSync', Promise.resolve(result), true, mock)
@@ -242,6 +358,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listAgentsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-datasync', 'listAgents', 'DataSync', Promise.reject(result), true, mock)
   },
+  listDiscoveryJobs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'listDiscoveryJobs', 'DataSync', Promise.resolve(result), true, mock)
+  },
+  listDiscoveryJobsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'listDiscoveryJobs', 'DataSync', Promise.resolve(result), false, mock)
+  },
+  listDiscoveryJobsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'listDiscoveryJobs', 'DataSync', Promise.reject(result), true, mock)
+  },
   listLocations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-datasync', 'listLocations', 'DataSync', Promise.resolve(result), true, mock)
   },
@@ -250,6 +375,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listLocationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-datasync', 'listLocations', 'DataSync', Promise.reject(result), true, mock)
+  },
+  listStorageSystems: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'listStorageSystems', 'DataSync', Promise.resolve(result), true, mock)
+  },
+  listStorageSystemsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'listStorageSystems', 'DataSync', Promise.resolve(result), false, mock)
+  },
+  listStorageSystemsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'listStorageSystems', 'DataSync', Promise.reject(result), true, mock)
   },
   listTagsForResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-datasync', 'listTagsForResource', 'DataSync', Promise.resolve(result), true, mock)
@@ -278,6 +412,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listTasksThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-datasync', 'listTasks', 'DataSync', Promise.reject(result), true, mock)
   },
+  removeStorageSystem: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'removeStorageSystem', 'DataSync', Promise.resolve(result), true, mock)
+  },
+  removeStorageSystemAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'removeStorageSystem', 'DataSync', Promise.resolve(result), false, mock)
+  },
+  removeStorageSystemThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'removeStorageSystem', 'DataSync', Promise.reject(result), true, mock)
+  },
+  startDiscoveryJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'startDiscoveryJob', 'DataSync', Promise.resolve(result), true, mock)
+  },
+  startDiscoveryJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'startDiscoveryJob', 'DataSync', Promise.resolve(result), false, mock)
+  },
+  startDiscoveryJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'startDiscoveryJob', 'DataSync', Promise.reject(result), true, mock)
+  },
   startTaskExecution: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-datasync', 'startTaskExecution', 'DataSync', Promise.resolve(result), true, mock)
   },
@@ -286,6 +438,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   startTaskExecutionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-datasync', 'startTaskExecution', 'DataSync', Promise.reject(result), true, mock)
+  },
+  stopDiscoveryJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'stopDiscoveryJob', 'DataSync', Promise.resolve(result), true, mock)
+  },
+  stopDiscoveryJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'stopDiscoveryJob', 'DataSync', Promise.resolve(result), false, mock)
+  },
+  stopDiscoveryJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'stopDiscoveryJob', 'DataSync', Promise.reject(result), true, mock)
   },
   tagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-datasync', 'tagResource', 'DataSync', Promise.resolve(result), true, mock)
@@ -313,6 +474,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateAgentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-datasync', 'updateAgent', 'DataSync', Promise.reject(result), true, mock)
+  },
+  updateDiscoveryJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'updateDiscoveryJob', 'DataSync', Promise.resolve(result), true, mock)
+  },
+  updateDiscoveryJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'updateDiscoveryJob', 'DataSync', Promise.resolve(result), false, mock)
+  },
+  updateDiscoveryJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'updateDiscoveryJob', 'DataSync', Promise.reject(result), true, mock)
+  },
+  updateLocationAzureBlob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'updateLocationAzureBlob', 'DataSync', Promise.resolve(result), true, mock)
+  },
+  updateLocationAzureBlobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'updateLocationAzureBlob', 'DataSync', Promise.resolve(result), false, mock)
+  },
+  updateLocationAzureBlobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'updateLocationAzureBlob', 'DataSync', Promise.reject(result), true, mock)
   },
   updateLocationHdfs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-datasync', 'updateLocationHdfs', 'DataSync', Promise.resolve(result), true, mock)
@@ -349,6 +528,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateLocationSmbThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-datasync', 'updateLocationSmb', 'DataSync', Promise.reject(result), true, mock)
+  },
+  updateStorageSystem: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'updateStorageSystem', 'DataSync', Promise.resolve(result), true, mock)
+  },
+  updateStorageSystemAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'updateStorageSystem', 'DataSync', Promise.resolve(result), false, mock)
+  },
+  updateStorageSystemThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-datasync', 'updateStorageSystem', 'DataSync', Promise.reject(result), true, mock)
   },
   updateTask: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-datasync', 'updateTask', 'DataSync', Promise.resolve(result), true, mock)

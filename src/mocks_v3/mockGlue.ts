@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockGlue = {
+export const mockGlue = {
   batchCreatePartition: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'batchCreatePartition', 'Glue', Promise.resolve(result), true, mock)
   },
@@ -80,6 +79,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   batchGetCrawlersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'batchGetCrawlers', 'Glue', Promise.reject(result), true, mock)
   },
+  batchGetCustomEntityTypes: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'batchGetCustomEntityTypes', 'Glue', Promise.resolve(result), true, mock)
+  },
+  batchGetCustomEntityTypesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'batchGetCustomEntityTypes', 'Glue', Promise.resolve(result), false, mock)
+  },
+  batchGetCustomEntityTypesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'batchGetCustomEntityTypes', 'Glue', Promise.reject(result), true, mock)
+  },
+  batchGetDataQualityResult: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'batchGetDataQualityResult', 'Glue', Promise.resolve(result), true, mock)
+  },
+  batchGetDataQualityResultAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'batchGetDataQualityResult', 'Glue', Promise.resolve(result), false, mock)
+  },
+  batchGetDataQualityResultThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'batchGetDataQualityResult', 'Glue', Promise.reject(result), true, mock)
+  },
   batchGetDevEndpoints: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'batchGetDevEndpoints', 'Glue', Promise.resolve(result), true, mock)
   },
@@ -106,6 +123,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   batchGetPartitionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'batchGetPartition', 'Glue', Promise.reject(result), true, mock)
+  },
+  batchGetTableOptimizer: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'batchGetTableOptimizer', 'Glue', Promise.resolve(result), true, mock)
+  },
+  batchGetTableOptimizerAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'batchGetTableOptimizer', 'Glue', Promise.resolve(result), false, mock)
+  },
+  batchGetTableOptimizerThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'batchGetTableOptimizer', 'Glue', Promise.reject(result), true, mock)
   },
   batchGetTriggers: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'batchGetTriggers', 'Glue', Promise.resolve(result), true, mock)
@@ -143,6 +169,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   batchUpdatePartitionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'batchUpdatePartition', 'Glue', Promise.reject(result), true, mock)
   },
+  cancelDataQualityRuleRecommendationRun: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'cancelDataQualityRuleRecommendationRun', 'Glue', Promise.resolve(result), true, mock)
+  },
+  cancelDataQualityRuleRecommendationRunAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'cancelDataQualityRuleRecommendationRun', 'Glue', Promise.resolve(result), false, mock)
+  },
+  cancelDataQualityRuleRecommendationRunThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'cancelDataQualityRuleRecommendationRun', 'Glue', Promise.reject(result), true, mock)
+  },
+  cancelDataQualityRulesetEvaluationRun: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'cancelDataQualityRulesetEvaluationRun', 'Glue', Promise.resolve(result), true, mock)
+  },
+  cancelDataQualityRulesetEvaluationRunAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'cancelDataQualityRulesetEvaluationRun', 'Glue', Promise.resolve(result), false, mock)
+  },
+  cancelDataQualityRulesetEvaluationRunThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'cancelDataQualityRulesetEvaluationRun', 'Glue', Promise.reject(result), true, mock)
+  },
   cancelMLTaskRun: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'cancelMLTaskRun', 'Glue', Promise.resolve(result), true, mock)
   },
@@ -151,6 +195,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   cancelMLTaskRunThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'cancelMLTaskRun', 'Glue', Promise.reject(result), true, mock)
+  },
+  cancelStatement: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'cancelStatement', 'Glue', Promise.resolve(result), true, mock)
+  },
+  cancelStatementAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'cancelStatement', 'Glue', Promise.resolve(result), false, mock)
+  },
+  cancelStatementThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'cancelStatement', 'Glue', Promise.reject(result), true, mock)
   },
   checkSchemaVersionValidity: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'checkSchemaVersionValidity', 'Glue', Promise.resolve(result), true, mock)
@@ -196,6 +249,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createCrawlerThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'createCrawler', 'Glue', Promise.reject(result), true, mock)
+  },
+  createCustomEntityType: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'createCustomEntityType', 'Glue', Promise.resolve(result), true, mock)
+  },
+  createCustomEntityTypeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'createCustomEntityType', 'Glue', Promise.resolve(result), false, mock)
+  },
+  createCustomEntityTypeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'createCustomEntityType', 'Glue', Promise.reject(result), true, mock)
+  },
+  createDataQualityRuleset: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'createDataQualityRuleset', 'Glue', Promise.resolve(result), true, mock)
+  },
+  createDataQualityRulesetAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'createDataQualityRuleset', 'Glue', Promise.resolve(result), false, mock)
+  },
+  createDataQualityRulesetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'createDataQualityRuleset', 'Glue', Promise.reject(result), true, mock)
   },
   createDatabase: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'createDatabase', 'Glue', Promise.resolve(result), true, mock)
@@ -287,6 +358,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createSecurityConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'createSecurityConfiguration', 'Glue', Promise.reject(result), true, mock)
   },
+  createSession: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'createSession', 'Glue', Promise.resolve(result), true, mock)
+  },
+  createSessionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'createSession', 'Glue', Promise.resolve(result), false, mock)
+  },
+  createSessionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'createSession', 'Glue', Promise.reject(result), true, mock)
+  },
   createTable: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'createTable', 'Glue', Promise.resolve(result), true, mock)
   },
@@ -295,6 +375,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createTableThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'createTable', 'Glue', Promise.reject(result), true, mock)
+  },
+  createTableOptimizer: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'createTableOptimizer', 'Glue', Promise.resolve(result), true, mock)
+  },
+  createTableOptimizerAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'createTableOptimizer', 'Glue', Promise.resolve(result), false, mock)
+  },
+  createTableOptimizerThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'createTableOptimizer', 'Glue', Promise.reject(result), true, mock)
   },
   createTrigger: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'createTrigger', 'Glue', Promise.resolve(result), true, mock)
@@ -376,6 +465,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteCrawlerThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'deleteCrawler', 'Glue', Promise.reject(result), true, mock)
+  },
+  deleteCustomEntityType: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'deleteCustomEntityType', 'Glue', Promise.resolve(result), true, mock)
+  },
+  deleteCustomEntityTypeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'deleteCustomEntityType', 'Glue', Promise.resolve(result), false, mock)
+  },
+  deleteCustomEntityTypeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'deleteCustomEntityType', 'Glue', Promise.reject(result), true, mock)
+  },
+  deleteDataQualityRuleset: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'deleteDataQualityRuleset', 'Glue', Promise.resolve(result), true, mock)
+  },
+  deleteDataQualityRulesetAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'deleteDataQualityRuleset', 'Glue', Promise.resolve(result), false, mock)
+  },
+  deleteDataQualityRulesetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'deleteDataQualityRuleset', 'Glue', Promise.reject(result), true, mock)
   },
   deleteDatabase: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'deleteDatabase', 'Glue', Promise.resolve(result), true, mock)
@@ -476,6 +583,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteSecurityConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'deleteSecurityConfiguration', 'Glue', Promise.reject(result), true, mock)
   },
+  deleteSession: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'deleteSession', 'Glue', Promise.resolve(result), true, mock)
+  },
+  deleteSessionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'deleteSession', 'Glue', Promise.resolve(result), false, mock)
+  },
+  deleteSessionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'deleteSession', 'Glue', Promise.reject(result), true, mock)
+  },
   deleteTable: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'deleteTable', 'Glue', Promise.resolve(result), true, mock)
   },
@@ -484,6 +600,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteTableThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'deleteTable', 'Glue', Promise.reject(result), true, mock)
+  },
+  deleteTableOptimizer: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'deleteTableOptimizer', 'Glue', Promise.resolve(result), true, mock)
+  },
+  deleteTableOptimizerAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'deleteTableOptimizer', 'Glue', Promise.resolve(result), false, mock)
+  },
+  deleteTableOptimizerThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'deleteTableOptimizer', 'Glue', Promise.reject(result), true, mock)
   },
   deleteTableVersion: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'deleteTableVersion', 'Glue', Promise.resolve(result), true, mock)
@@ -520,15 +645,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteWorkflowThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'deleteWorkflow', 'Glue', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-glue', 'destroy', 'Glue', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-glue', 'destroy', 'Glue', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-glue', 'destroy', 'Glue', Promise.reject(result), true, mock)
   },
   getBlueprint: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'getBlueprint', 'Glue', Promise.resolve(result), true, mock)
@@ -602,6 +718,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getColumnStatisticsForTableThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'getColumnStatisticsForTable', 'Glue', Promise.reject(result), true, mock)
   },
+  getColumnStatisticsTaskRun: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getColumnStatisticsTaskRun', 'Glue', Promise.resolve(result), true, mock)
+  },
+  getColumnStatisticsTaskRunAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getColumnStatisticsTaskRun', 'Glue', Promise.resolve(result), false, mock)
+  },
+  getColumnStatisticsTaskRunThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getColumnStatisticsTaskRun', 'Glue', Promise.reject(result), true, mock)
+  },
+  getColumnStatisticsTaskRuns: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getColumnStatisticsTaskRuns', 'Glue', Promise.resolve(result), true, mock)
+  },
+  getColumnStatisticsTaskRunsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getColumnStatisticsTaskRuns', 'Glue', Promise.resolve(result), false, mock)
+  },
+  getColumnStatisticsTaskRunsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getColumnStatisticsTaskRuns', 'Glue', Promise.reject(result), true, mock)
+  },
   getConnection: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'getConnection', 'Glue', Promise.resolve(result), true, mock)
   },
@@ -647,6 +781,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getCrawlersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'getCrawlers', 'Glue', Promise.reject(result), true, mock)
   },
+  getCustomEntityType: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getCustomEntityType', 'Glue', Promise.resolve(result), true, mock)
+  },
+  getCustomEntityTypeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getCustomEntityType', 'Glue', Promise.resolve(result), false, mock)
+  },
+  getCustomEntityTypeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getCustomEntityType', 'Glue', Promise.reject(result), true, mock)
+  },
   getDataCatalogEncryptionSettings: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'getDataCatalogEncryptionSettings', 'Glue', Promise.resolve(result), true, mock)
   },
@@ -655,6 +798,42 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getDataCatalogEncryptionSettingsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'getDataCatalogEncryptionSettings', 'Glue', Promise.reject(result), true, mock)
+  },
+  getDataQualityResult: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getDataQualityResult', 'Glue', Promise.resolve(result), true, mock)
+  },
+  getDataQualityResultAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getDataQualityResult', 'Glue', Promise.resolve(result), false, mock)
+  },
+  getDataQualityResultThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getDataQualityResult', 'Glue', Promise.reject(result), true, mock)
+  },
+  getDataQualityRuleRecommendationRun: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getDataQualityRuleRecommendationRun', 'Glue', Promise.resolve(result), true, mock)
+  },
+  getDataQualityRuleRecommendationRunAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getDataQualityRuleRecommendationRun', 'Glue', Promise.resolve(result), false, mock)
+  },
+  getDataQualityRuleRecommendationRunThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getDataQualityRuleRecommendationRun', 'Glue', Promise.reject(result), true, mock)
+  },
+  getDataQualityRuleset: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getDataQualityRuleset', 'Glue', Promise.resolve(result), true, mock)
+  },
+  getDataQualityRulesetAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getDataQualityRuleset', 'Glue', Promise.resolve(result), false, mock)
+  },
+  getDataQualityRulesetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getDataQualityRuleset', 'Glue', Promise.reject(result), true, mock)
+  },
+  getDataQualityRulesetEvaluationRun: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getDataQualityRulesetEvaluationRun', 'Glue', Promise.resolve(result), true, mock)
+  },
+  getDataQualityRulesetEvaluationRunAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getDataQualityRulesetEvaluationRun', 'Glue', Promise.resolve(result), false, mock)
+  },
+  getDataQualityRulesetEvaluationRunThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getDataQualityRulesetEvaluationRun', 'Glue', Promise.reject(result), true, mock)
   },
   getDatabase: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'getDatabase', 'Glue', Promise.resolve(result), true, mock)
@@ -701,15 +880,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getDevEndpointsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'getDevEndpoints', 'Glue', Promise.reject(result), true, mock)
   },
-  getJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-glue', 'getJob', 'Glue', Promise.resolve(result), true, mock)
-  },
-  getJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-glue', 'getJob', 'Glue', Promise.resolve(result), false, mock)
-  },
-  getJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-glue', 'getJob', 'Glue', Promise.reject(result), true, mock)
-  },
   getJobBookmark: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'getJobBookmark', 'Glue', Promise.resolve(result), true, mock)
   },
@@ -718,6 +888,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getJobBookmarkThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'getJobBookmark', 'Glue', Promise.reject(result), true, mock)
+  },
+  getJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getJob', 'Glue', Promise.resolve(result), true, mock)
+  },
+  getJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getJob', 'Glue', Promise.resolve(result), false, mock)
+  },
+  getJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getJob', 'Glue', Promise.reject(result), true, mock)
   },
   getJobRun: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'getJobRun', 'Glue', Promise.resolve(result), true, mock)
@@ -854,15 +1033,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getResourcePolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'getResourcePolicy', 'Glue', Promise.reject(result), true, mock)
   },
-  getSchema: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-glue', 'getSchema', 'Glue', Promise.resolve(result), true, mock)
-  },
-  getSchemaAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-glue', 'getSchema', 'Glue', Promise.resolve(result), false, mock)
-  },
-  getSchemaThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-glue', 'getSchema', 'Glue', Promise.reject(result), true, mock)
-  },
   getSchemaByDefinition: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'getSchemaByDefinition', 'Glue', Promise.resolve(result), true, mock)
   },
@@ -871,6 +1041,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getSchemaByDefinitionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'getSchemaByDefinition', 'Glue', Promise.reject(result), true, mock)
+  },
+  getSchema: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getSchema', 'Glue', Promise.resolve(result), true, mock)
+  },
+  getSchemaAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getSchema', 'Glue', Promise.resolve(result), false, mock)
+  },
+  getSchemaThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getSchema', 'Glue', Promise.reject(result), true, mock)
   },
   getSchemaVersion: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'getSchemaVersion', 'Glue', Promise.resolve(result), true, mock)
@@ -908,6 +1087,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getSecurityConfigurationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'getSecurityConfigurations', 'Glue', Promise.reject(result), true, mock)
   },
+  getSession: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getSession', 'Glue', Promise.resolve(result), true, mock)
+  },
+  getSessionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getSession', 'Glue', Promise.resolve(result), false, mock)
+  },
+  getSessionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getSession', 'Glue', Promise.reject(result), true, mock)
+  },
+  getStatement: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getStatement', 'Glue', Promise.resolve(result), true, mock)
+  },
+  getStatementAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getStatement', 'Glue', Promise.resolve(result), false, mock)
+  },
+  getStatementThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getStatement', 'Glue', Promise.reject(result), true, mock)
+  },
   getTable: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'getTable', 'Glue', Promise.resolve(result), true, mock)
   },
@@ -916,6 +1113,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getTableThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'getTable', 'Glue', Promise.reject(result), true, mock)
+  },
+  getTableOptimizer: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getTableOptimizer', 'Glue', Promise.resolve(result), true, mock)
+  },
+  getTableOptimizerAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getTableOptimizer', 'Glue', Promise.resolve(result), false, mock)
+  },
+  getTableOptimizerThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getTableOptimizer', 'Glue', Promise.reject(result), true, mock)
   },
   getTableVersion: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'getTableVersion', 'Glue', Promise.resolve(result), true, mock)
@@ -970,6 +1176,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getTriggersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'getTriggers', 'Glue', Promise.reject(result), true, mock)
+  },
+  getUnfilteredPartitionMetadata: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getUnfilteredPartitionMetadata', 'Glue', Promise.resolve(result), true, mock)
+  },
+  getUnfilteredPartitionMetadataAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getUnfilteredPartitionMetadata', 'Glue', Promise.resolve(result), false, mock)
+  },
+  getUnfilteredPartitionMetadataThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getUnfilteredPartitionMetadata', 'Glue', Promise.reject(result), true, mock)
+  },
+  getUnfilteredPartitionsMetadata: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getUnfilteredPartitionsMetadata', 'Glue', Promise.resolve(result), true, mock)
+  },
+  getUnfilteredPartitionsMetadataAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getUnfilteredPartitionsMetadata', 'Glue', Promise.resolve(result), false, mock)
+  },
+  getUnfilteredPartitionsMetadataThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getUnfilteredPartitionsMetadata', 'Glue', Promise.reject(result), true, mock)
+  },
+  getUnfilteredTableMetadata: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getUnfilteredTableMetadata', 'Glue', Promise.resolve(result), true, mock)
+  },
+  getUnfilteredTableMetadataAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getUnfilteredTableMetadata', 'Glue', Promise.resolve(result), false, mock)
+  },
+  getUnfilteredTableMetadataThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'getUnfilteredTableMetadata', 'Glue', Promise.reject(result), true, mock)
   },
   getUserDefinedFunction: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'getUserDefinedFunction', 'Glue', Promise.resolve(result), true, mock)
@@ -1043,6 +1276,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listBlueprintsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'listBlueprints', 'Glue', Promise.reject(result), true, mock)
   },
+  listColumnStatisticsTaskRuns: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'listColumnStatisticsTaskRuns', 'Glue', Promise.resolve(result), true, mock)
+  },
+  listColumnStatisticsTaskRunsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'listColumnStatisticsTaskRuns', 'Glue', Promise.resolve(result), false, mock)
+  },
+  listColumnStatisticsTaskRunsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'listColumnStatisticsTaskRuns', 'Glue', Promise.reject(result), true, mock)
+  },
   listCrawlers: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'listCrawlers', 'Glue', Promise.resolve(result), true, mock)
   },
@@ -1051,6 +1293,60 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listCrawlersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'listCrawlers', 'Glue', Promise.reject(result), true, mock)
+  },
+  listCrawls: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'listCrawls', 'Glue', Promise.resolve(result), true, mock)
+  },
+  listCrawlsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'listCrawls', 'Glue', Promise.resolve(result), false, mock)
+  },
+  listCrawlsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'listCrawls', 'Glue', Promise.reject(result), true, mock)
+  },
+  listCustomEntityTypes: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'listCustomEntityTypes', 'Glue', Promise.resolve(result), true, mock)
+  },
+  listCustomEntityTypesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'listCustomEntityTypes', 'Glue', Promise.resolve(result), false, mock)
+  },
+  listCustomEntityTypesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'listCustomEntityTypes', 'Glue', Promise.reject(result), true, mock)
+  },
+  listDataQualityResults: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'listDataQualityResults', 'Glue', Promise.resolve(result), true, mock)
+  },
+  listDataQualityResultsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'listDataQualityResults', 'Glue', Promise.resolve(result), false, mock)
+  },
+  listDataQualityResultsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'listDataQualityResults', 'Glue', Promise.reject(result), true, mock)
+  },
+  listDataQualityRuleRecommendationRuns: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'listDataQualityRuleRecommendationRuns', 'Glue', Promise.resolve(result), true, mock)
+  },
+  listDataQualityRuleRecommendationRunsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'listDataQualityRuleRecommendationRuns', 'Glue', Promise.resolve(result), false, mock)
+  },
+  listDataQualityRuleRecommendationRunsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'listDataQualityRuleRecommendationRuns', 'Glue', Promise.reject(result), true, mock)
+  },
+  listDataQualityRulesetEvaluationRuns: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'listDataQualityRulesetEvaluationRuns', 'Glue', Promise.resolve(result), true, mock)
+  },
+  listDataQualityRulesetEvaluationRunsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'listDataQualityRulesetEvaluationRuns', 'Glue', Promise.resolve(result), false, mock)
+  },
+  listDataQualityRulesetEvaluationRunsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'listDataQualityRulesetEvaluationRuns', 'Glue', Promise.reject(result), true, mock)
+  },
+  listDataQualityRulesets: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'listDataQualityRulesets', 'Glue', Promise.resolve(result), true, mock)
+  },
+  listDataQualityRulesetsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'listDataQualityRulesets', 'Glue', Promise.resolve(result), false, mock)
+  },
+  listDataQualityRulesetsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'listDataQualityRulesets', 'Glue', Promise.reject(result), true, mock)
   },
   listDevEndpoints: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'listDevEndpoints', 'Glue', Promise.resolve(result), true, mock)
@@ -1105,6 +1401,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listSchemasThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'listSchemas', 'Glue', Promise.reject(result), true, mock)
+  },
+  listSessions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'listSessions', 'Glue', Promise.resolve(result), true, mock)
+  },
+  listSessionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'listSessions', 'Glue', Promise.resolve(result), false, mock)
+  },
+  listSessionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'listSessions', 'Glue', Promise.reject(result), true, mock)
+  },
+  listStatements: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'listStatements', 'Glue', Promise.resolve(result), true, mock)
+  },
+  listStatementsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'listStatements', 'Glue', Promise.resolve(result), false, mock)
+  },
+  listStatementsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'listStatements', 'Glue', Promise.reject(result), true, mock)
+  },
+  listTableOptimizerRuns: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'listTableOptimizerRuns', 'Glue', Promise.resolve(result), true, mock)
+  },
+  listTableOptimizerRunsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'listTableOptimizerRuns', 'Glue', Promise.resolve(result), false, mock)
+  },
+  listTableOptimizerRunsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'listTableOptimizerRuns', 'Glue', Promise.reject(result), true, mock)
   },
   listTriggers: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'listTriggers', 'Glue', Promise.resolve(result), true, mock)
@@ -1205,6 +1528,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   resumeWorkflowRunThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'resumeWorkflowRun', 'Glue', Promise.reject(result), true, mock)
   },
+  runStatement: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'runStatement', 'Glue', Promise.resolve(result), true, mock)
+  },
+  runStatementAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'runStatement', 'Glue', Promise.resolve(result), false, mock)
+  },
+  runStatementThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'runStatement', 'Glue', Promise.reject(result), true, mock)
+  },
   searchTables: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'searchTables', 'Glue', Promise.resolve(result), true, mock)
   },
@@ -1223,6 +1555,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   startBlueprintRunThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'startBlueprintRun', 'Glue', Promise.reject(result), true, mock)
   },
+  startColumnStatisticsTaskRun: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'startColumnStatisticsTaskRun', 'Glue', Promise.resolve(result), true, mock)
+  },
+  startColumnStatisticsTaskRunAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'startColumnStatisticsTaskRun', 'Glue', Promise.resolve(result), false, mock)
+  },
+  startColumnStatisticsTaskRunThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'startColumnStatisticsTaskRun', 'Glue', Promise.reject(result), true, mock)
+  },
   startCrawler: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'startCrawler', 'Glue', Promise.resolve(result), true, mock)
   },
@@ -1240,6 +1581,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   startCrawlerScheduleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'startCrawlerSchedule', 'Glue', Promise.reject(result), true, mock)
+  },
+  startDataQualityRuleRecommendationRun: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'startDataQualityRuleRecommendationRun', 'Glue', Promise.resolve(result), true, mock)
+  },
+  startDataQualityRuleRecommendationRunAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'startDataQualityRuleRecommendationRun', 'Glue', Promise.resolve(result), false, mock)
+  },
+  startDataQualityRuleRecommendationRunThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'startDataQualityRuleRecommendationRun', 'Glue', Promise.reject(result), true, mock)
+  },
+  startDataQualityRulesetEvaluationRun: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'startDataQualityRulesetEvaluationRun', 'Glue', Promise.resolve(result), true, mock)
+  },
+  startDataQualityRulesetEvaluationRunAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'startDataQualityRulesetEvaluationRun', 'Glue', Promise.resolve(result), false, mock)
+  },
+  startDataQualityRulesetEvaluationRunThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'startDataQualityRulesetEvaluationRun', 'Glue', Promise.reject(result), true, mock)
   },
   startExportLabelsTaskRun: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'startExportLabelsTaskRun', 'Glue', Promise.resolve(result), true, mock)
@@ -1304,6 +1663,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   startWorkflowRunThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'startWorkflowRun', 'Glue', Promise.reject(result), true, mock)
   },
+  stopColumnStatisticsTaskRun: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'stopColumnStatisticsTaskRun', 'Glue', Promise.resolve(result), true, mock)
+  },
+  stopColumnStatisticsTaskRunAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'stopColumnStatisticsTaskRun', 'Glue', Promise.resolve(result), false, mock)
+  },
+  stopColumnStatisticsTaskRunThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'stopColumnStatisticsTaskRun', 'Glue', Promise.reject(result), true, mock)
+  },
   stopCrawler: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'stopCrawler', 'Glue', Promise.resolve(result), true, mock)
   },
@@ -1321,6 +1689,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   stopCrawlerScheduleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'stopCrawlerSchedule', 'Glue', Promise.reject(result), true, mock)
+  },
+  stopSession: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'stopSession', 'Glue', Promise.resolve(result), true, mock)
+  },
+  stopSessionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'stopSession', 'Glue', Promise.resolve(result), false, mock)
+  },
+  stopSessionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'stopSession', 'Glue', Promise.reject(result), true, mock)
   },
   stopTrigger: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'stopTrigger', 'Glue', Promise.resolve(result), true, mock)
@@ -1421,6 +1798,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   updateCrawlerScheduleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'updateCrawlerSchedule', 'Glue', Promise.reject(result), true, mock)
   },
+  updateDataQualityRuleset: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'updateDataQualityRuleset', 'Glue', Promise.resolve(result), true, mock)
+  },
+  updateDataQualityRulesetAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'updateDataQualityRuleset', 'Glue', Promise.resolve(result), false, mock)
+  },
+  updateDataQualityRulesetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'updateDataQualityRuleset', 'Glue', Promise.reject(result), true, mock)
+  },
   updateDatabase: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'updateDatabase', 'Glue', Promise.resolve(result), true, mock)
   },
@@ -1447,6 +1833,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'updateJob', 'Glue', Promise.reject(result), true, mock)
+  },
+  updateJobFromSourceControl: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'updateJobFromSourceControl', 'Glue', Promise.resolve(result), true, mock)
+  },
+  updateJobFromSourceControlAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'updateJobFromSourceControl', 'Glue', Promise.resolve(result), false, mock)
+  },
+  updateJobFromSourceControlThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'updateJobFromSourceControl', 'Glue', Promise.reject(result), true, mock)
   },
   updateMLTransform: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'updateMLTransform', 'Glue', Promise.resolve(result), true, mock)
@@ -1484,6 +1879,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   updateSchemaThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'updateSchema', 'Glue', Promise.reject(result), true, mock)
   },
+  updateSourceControlFromJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'updateSourceControlFromJob', 'Glue', Promise.resolve(result), true, mock)
+  },
+  updateSourceControlFromJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'updateSourceControlFromJob', 'Glue', Promise.resolve(result), false, mock)
+  },
+  updateSourceControlFromJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'updateSourceControlFromJob', 'Glue', Promise.reject(result), true, mock)
+  },
   updateTable: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'updateTable', 'Glue', Promise.resolve(result), true, mock)
   },
@@ -1492,6 +1896,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateTableThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'updateTable', 'Glue', Promise.reject(result), true, mock)
+  },
+  updateTableOptimizer: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'updateTableOptimizer', 'Glue', Promise.resolve(result), true, mock)
+  },
+  updateTableOptimizerAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'updateTableOptimizer', 'Glue', Promise.resolve(result), false, mock)
+  },
+  updateTableOptimizerThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glue', 'updateTableOptimizer', 'Glue', Promise.reject(result), true, mock)
   },
   updateTrigger: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glue', 'updateTrigger', 'Glue', Promise.resolve(result), true, mock)

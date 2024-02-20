@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockOpenSearch = {
+export const mockOpenSearch = {
   acceptInboundConnection: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-opensearch', 'acceptInboundConnection', 'OpenSearch', Promise.resolve(result), true, mock)
   },
@@ -25,6 +24,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   acceptInboundConnectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-opensearch', 'acceptInboundConnection', 'OpenSearch', Promise.reject(result), true, mock)
+  },
+  addDataSource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'addDataSource', 'OpenSearch', Promise.resolve(result), true, mock)
+  },
+  addDataSourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'addDataSource', 'OpenSearch', Promise.resolve(result), false, mock)
+  },
+  addDataSourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'addDataSource', 'OpenSearch', Promise.reject(result), true, mock)
   },
   addTags: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-opensearch', 'addTags', 'OpenSearch', Promise.resolve(result), true, mock)
@@ -43,6 +51,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   associatePackageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-opensearch', 'associatePackage', 'OpenSearch', Promise.reject(result), true, mock)
+  },
+  authorizeVpcEndpointAccess: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'authorizeVpcEndpointAccess', 'OpenSearch', Promise.resolve(result), true, mock)
+  },
+  authorizeVpcEndpointAccessAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'authorizeVpcEndpointAccess', 'OpenSearch', Promise.resolve(result), false, mock)
+  },
+  authorizeVpcEndpointAccessThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'authorizeVpcEndpointAccess', 'OpenSearch', Promise.reject(result), true, mock)
+  },
+  cancelDomainConfigChange: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'cancelDomainConfigChange', 'OpenSearch', Promise.resolve(result), true, mock)
+  },
+  cancelDomainConfigChangeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'cancelDomainConfigChange', 'OpenSearch', Promise.resolve(result), false, mock)
+  },
+  cancelDomainConfigChangeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'cancelDomainConfigChange', 'OpenSearch', Promise.reject(result), true, mock)
   },
   cancelServiceSoftwareUpdate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-opensearch', 'cancelServiceSoftwareUpdate', 'OpenSearch', Promise.resolve(result), true, mock)
@@ -80,6 +106,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createPackageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-opensearch', 'createPackage', 'OpenSearch', Promise.reject(result), true, mock)
   },
+  createVpcEndpoint: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'createVpcEndpoint', 'OpenSearch', Promise.resolve(result), true, mock)
+  },
+  createVpcEndpointAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'createVpcEndpoint', 'OpenSearch', Promise.resolve(result), false, mock)
+  },
+  createVpcEndpointThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'createVpcEndpoint', 'OpenSearch', Promise.reject(result), true, mock)
+  },
+  deleteDataSource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'deleteDataSource', 'OpenSearch', Promise.resolve(result), true, mock)
+  },
+  deleteDataSourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'deleteDataSource', 'OpenSearch', Promise.resolve(result), false, mock)
+  },
+  deleteDataSourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'deleteDataSource', 'OpenSearch', Promise.reject(result), true, mock)
+  },
   deleteDomain: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-opensearch', 'deleteDomain', 'OpenSearch', Promise.resolve(result), true, mock)
   },
@@ -116,14 +160,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deletePackageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-opensearch', 'deletePackage', 'OpenSearch', Promise.reject(result), true, mock)
   },
-  describeDomain: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-opensearch', 'describeDomain', 'OpenSearch', Promise.resolve(result), true, mock)
+  deleteVpcEndpoint: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'deleteVpcEndpoint', 'OpenSearch', Promise.resolve(result), true, mock)
   },
-  describeDomainAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-opensearch', 'describeDomain', 'OpenSearch', Promise.resolve(result), false, mock)
+  deleteVpcEndpointAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'deleteVpcEndpoint', 'OpenSearch', Promise.resolve(result), false, mock)
   },
-  describeDomainThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-opensearch', 'describeDomain', 'OpenSearch', Promise.reject(result), true, mock)
+  deleteVpcEndpointThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'deleteVpcEndpoint', 'OpenSearch', Promise.reject(result), true, mock)
   },
   describeDomainAutoTunes: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-opensearch', 'describeDomainAutoTunes', 'OpenSearch', Promise.resolve(result), true, mock)
@@ -134,6 +178,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeDomainAutoTunesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-opensearch', 'describeDomainAutoTunes', 'OpenSearch', Promise.reject(result), true, mock)
   },
+  describeDomainChangeProgress: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'describeDomainChangeProgress', 'OpenSearch', Promise.resolve(result), true, mock)
+  },
+  describeDomainChangeProgressAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'describeDomainChangeProgress', 'OpenSearch', Promise.resolve(result), false, mock)
+  },
+  describeDomainChangeProgressThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'describeDomainChangeProgress', 'OpenSearch', Promise.reject(result), true, mock)
+  },
+  describeDomain: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'describeDomain', 'OpenSearch', Promise.resolve(result), true, mock)
+  },
+  describeDomainAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'describeDomain', 'OpenSearch', Promise.resolve(result), false, mock)
+  },
+  describeDomainThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'describeDomain', 'OpenSearch', Promise.reject(result), true, mock)
+  },
   describeDomainConfig: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-opensearch', 'describeDomainConfig', 'OpenSearch', Promise.resolve(result), true, mock)
   },
@@ -143,6 +205,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeDomainConfigThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-opensearch', 'describeDomainConfig', 'OpenSearch', Promise.reject(result), true, mock)
   },
+  describeDomainHealth: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'describeDomainHealth', 'OpenSearch', Promise.resolve(result), true, mock)
+  },
+  describeDomainHealthAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'describeDomainHealth', 'OpenSearch', Promise.resolve(result), false, mock)
+  },
+  describeDomainHealthThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'describeDomainHealth', 'OpenSearch', Promise.reject(result), true, mock)
+  },
+  describeDomainNodes: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'describeDomainNodes', 'OpenSearch', Promise.resolve(result), true, mock)
+  },
+  describeDomainNodesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'describeDomainNodes', 'OpenSearch', Promise.resolve(result), false, mock)
+  },
+  describeDomainNodesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'describeDomainNodes', 'OpenSearch', Promise.reject(result), true, mock)
+  },
   describeDomains: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-opensearch', 'describeDomains', 'OpenSearch', Promise.resolve(result), true, mock)
   },
@@ -151,6 +231,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeDomainsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-opensearch', 'describeDomains', 'OpenSearch', Promise.reject(result), true, mock)
+  },
+  describeDryRunProgress: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'describeDryRunProgress', 'OpenSearch', Promise.resolve(result), true, mock)
+  },
+  describeDryRunProgressAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'describeDryRunProgress', 'OpenSearch', Promise.resolve(result), false, mock)
+  },
+  describeDryRunProgressThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'describeDryRunProgress', 'OpenSearch', Promise.reject(result), true, mock)
   },
   describeInboundConnections: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-opensearch', 'describeInboundConnections', 'OpenSearch', Promise.resolve(result), true, mock)
@@ -206,14 +295,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeReservedInstancesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-opensearch', 'describeReservedInstances', 'OpenSearch', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-opensearch', 'destroy', 'OpenSearch', Promise.resolve(result), true, mock)
+  describeVpcEndpoints: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'describeVpcEndpoints', 'OpenSearch', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-opensearch', 'destroy', 'OpenSearch', Promise.resolve(result), false, mock)
+  describeVpcEndpointsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'describeVpcEndpoints', 'OpenSearch', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-opensearch', 'destroy', 'OpenSearch', Promise.reject(result), true, mock)
+  describeVpcEndpointsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'describeVpcEndpoints', 'OpenSearch', Promise.reject(result), true, mock)
   },
   dissociatePackage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-opensearch', 'dissociatePackage', 'OpenSearch', Promise.resolve(result), true, mock)
@@ -232,6 +321,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getCompatibleVersionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-opensearch', 'getCompatibleVersions', 'OpenSearch', Promise.reject(result), true, mock)
+  },
+  getDataSource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'getDataSource', 'OpenSearch', Promise.resolve(result), true, mock)
+  },
+  getDataSourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'getDataSource', 'OpenSearch', Promise.resolve(result), false, mock)
+  },
+  getDataSourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'getDataSource', 'OpenSearch', Promise.reject(result), true, mock)
+  },
+  getDomainMaintenanceStatus: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'getDomainMaintenanceStatus', 'OpenSearch', Promise.resolve(result), true, mock)
+  },
+  getDomainMaintenanceStatusAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'getDomainMaintenanceStatus', 'OpenSearch', Promise.resolve(result), false, mock)
+  },
+  getDomainMaintenanceStatusThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'getDomainMaintenanceStatus', 'OpenSearch', Promise.reject(result), true, mock)
   },
   getPackageVersionHistory: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-opensearch', 'getPackageVersionHistory', 'OpenSearch', Promise.resolve(result), true, mock)
@@ -259,6 +366,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getUpgradeStatusThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-opensearch', 'getUpgradeStatus', 'OpenSearch', Promise.reject(result), true, mock)
+  },
+  listDataSources: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'listDataSources', 'OpenSearch', Promise.resolve(result), true, mock)
+  },
+  listDataSourcesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'listDataSources', 'OpenSearch', Promise.resolve(result), false, mock)
+  },
+  listDataSourcesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'listDataSources', 'OpenSearch', Promise.reject(result), true, mock)
+  },
+  listDomainMaintenances: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'listDomainMaintenances', 'OpenSearch', Promise.resolve(result), true, mock)
+  },
+  listDomainMaintenancesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'listDomainMaintenances', 'OpenSearch', Promise.resolve(result), false, mock)
+  },
+  listDomainMaintenancesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'listDomainMaintenances', 'OpenSearch', Promise.reject(result), true, mock)
   },
   listDomainNames: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-opensearch', 'listDomainNames', 'OpenSearch', Promise.resolve(result), true, mock)
@@ -296,6 +421,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listPackagesForDomainThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-opensearch', 'listPackagesForDomain', 'OpenSearch', Promise.reject(result), true, mock)
   },
+  listScheduledActions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'listScheduledActions', 'OpenSearch', Promise.resolve(result), true, mock)
+  },
+  listScheduledActionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'listScheduledActions', 'OpenSearch', Promise.resolve(result), false, mock)
+  },
+  listScheduledActionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'listScheduledActions', 'OpenSearch', Promise.reject(result), true, mock)
+  },
   listTags: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-opensearch', 'listTags', 'OpenSearch', Promise.resolve(result), true, mock)
   },
@@ -313,6 +447,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listVersionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-opensearch', 'listVersions', 'OpenSearch', Promise.reject(result), true, mock)
+  },
+  listVpcEndpointAccess: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'listVpcEndpointAccess', 'OpenSearch', Promise.resolve(result), true, mock)
+  },
+  listVpcEndpointAccessAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'listVpcEndpointAccess', 'OpenSearch', Promise.resolve(result), false, mock)
+  },
+  listVpcEndpointAccessThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'listVpcEndpointAccess', 'OpenSearch', Promise.reject(result), true, mock)
+  },
+  listVpcEndpoints: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'listVpcEndpoints', 'OpenSearch', Promise.resolve(result), true, mock)
+  },
+  listVpcEndpointsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'listVpcEndpoints', 'OpenSearch', Promise.resolve(result), false, mock)
+  },
+  listVpcEndpointsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'listVpcEndpoints', 'OpenSearch', Promise.reject(result), true, mock)
+  },
+  listVpcEndpointsForDomain: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'listVpcEndpointsForDomain', 'OpenSearch', Promise.resolve(result), true, mock)
+  },
+  listVpcEndpointsForDomainAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'listVpcEndpointsForDomain', 'OpenSearch', Promise.resolve(result), false, mock)
+  },
+  listVpcEndpointsForDomainThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'listVpcEndpointsForDomain', 'OpenSearch', Promise.reject(result), true, mock)
   },
   purchaseReservedInstanceOffering: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-opensearch', 'purchaseReservedInstanceOffering', 'OpenSearch', Promise.resolve(result), true, mock)
@@ -341,6 +502,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   removeTagsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-opensearch', 'removeTags', 'OpenSearch', Promise.reject(result), true, mock)
   },
+  revokeVpcEndpointAccess: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'revokeVpcEndpointAccess', 'OpenSearch', Promise.resolve(result), true, mock)
+  },
+  revokeVpcEndpointAccessAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'revokeVpcEndpointAccess', 'OpenSearch', Promise.resolve(result), false, mock)
+  },
+  revokeVpcEndpointAccessThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'revokeVpcEndpointAccess', 'OpenSearch', Promise.reject(result), true, mock)
+  },
+  startDomainMaintenance: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'startDomainMaintenance', 'OpenSearch', Promise.resolve(result), true, mock)
+  },
+  startDomainMaintenanceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'startDomainMaintenance', 'OpenSearch', Promise.resolve(result), false, mock)
+  },
+  startDomainMaintenanceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'startDomainMaintenance', 'OpenSearch', Promise.reject(result), true, mock)
+  },
   startServiceSoftwareUpdate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-opensearch', 'startServiceSoftwareUpdate', 'OpenSearch', Promise.resolve(result), true, mock)
   },
@@ -349,6 +528,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   startServiceSoftwareUpdateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-opensearch', 'startServiceSoftwareUpdate', 'OpenSearch', Promise.reject(result), true, mock)
+  },
+  updateDataSource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'updateDataSource', 'OpenSearch', Promise.resolve(result), true, mock)
+  },
+  updateDataSourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'updateDataSource', 'OpenSearch', Promise.resolve(result), false, mock)
+  },
+  updateDataSourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'updateDataSource', 'OpenSearch', Promise.reject(result), true, mock)
   },
   updateDomainConfig: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-opensearch', 'updateDomainConfig', 'OpenSearch', Promise.resolve(result), true, mock)
@@ -367,6 +555,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updatePackageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-opensearch', 'updatePackage', 'OpenSearch', Promise.reject(result), true, mock)
+  },
+  updateScheduledAction: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'updateScheduledAction', 'OpenSearch', Promise.resolve(result), true, mock)
+  },
+  updateScheduledActionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'updateScheduledAction', 'OpenSearch', Promise.resolve(result), false, mock)
+  },
+  updateScheduledActionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'updateScheduledAction', 'OpenSearch', Promise.reject(result), true, mock)
+  },
+  updateVpcEndpoint: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'updateVpcEndpoint', 'OpenSearch', Promise.resolve(result), true, mock)
+  },
+  updateVpcEndpointAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'updateVpcEndpoint', 'OpenSearch', Promise.resolve(result), false, mock)
+  },
+  updateVpcEndpointThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-opensearch', 'updateVpcEndpoint', 'OpenSearch', Promise.reject(result), true, mock)
   },
   upgradeDomain: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-opensearch', 'upgradeDomain', 'OpenSearch', Promise.resolve(result), true, mock)

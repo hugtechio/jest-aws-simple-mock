@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockCodeBuild = {
+export const mockCodeBuild = {
   batchDeleteBuilds: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codebuild', 'batchDeleteBuilds', 'CodeBuild', Promise.resolve(result), true, mock)
   },
@@ -44,6 +43,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   batchGetBuildsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codebuild', 'batchGetBuilds', 'CodeBuild', Promise.reject(result), true, mock)
   },
+  batchGetFleets: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codebuild', 'batchGetFleets', 'CodeBuild', Promise.resolve(result), true, mock)
+  },
+  batchGetFleetsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codebuild', 'batchGetFleets', 'CodeBuild', Promise.resolve(result), false, mock)
+  },
+  batchGetFleetsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codebuild', 'batchGetFleets', 'CodeBuild', Promise.reject(result), true, mock)
+  },
   batchGetProjects: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codebuild', 'batchGetProjects', 'CodeBuild', Promise.resolve(result), true, mock)
   },
@@ -70,6 +78,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   batchGetReportsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codebuild', 'batchGetReports', 'CodeBuild', Promise.reject(result), true, mock)
+  },
+  createFleet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codebuild', 'createFleet', 'CodeBuild', Promise.resolve(result), true, mock)
+  },
+  createFleetAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codebuild', 'createFleet', 'CodeBuild', Promise.resolve(result), false, mock)
+  },
+  createFleetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codebuild', 'createFleet', 'CodeBuild', Promise.reject(result), true, mock)
   },
   createProject: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codebuild', 'createProject', 'CodeBuild', Promise.resolve(result), true, mock)
@@ -106,6 +123,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteBuildBatchThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codebuild', 'deleteBuildBatch', 'CodeBuild', Promise.reject(result), true, mock)
+  },
+  deleteFleet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codebuild', 'deleteFleet', 'CodeBuild', Promise.resolve(result), true, mock)
+  },
+  deleteFleetAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codebuild', 'deleteFleet', 'CodeBuild', Promise.resolve(result), false, mock)
+  },
+  deleteFleetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codebuild', 'deleteFleet', 'CodeBuild', Promise.reject(result), true, mock)
   },
   deleteProject: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codebuild', 'deleteProject', 'CodeBuild', Promise.resolve(result), true, mock)
@@ -178,15 +204,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeTestCasesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codebuild', 'describeTestCases', 'CodeBuild', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-codebuild', 'destroy', 'CodeBuild', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-codebuild', 'destroy', 'CodeBuild', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-codebuild', 'destroy', 'CodeBuild', Promise.reject(result), true, mock)
   },
   getReportGroupTrend: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codebuild', 'getReportGroupTrend', 'CodeBuild', Promise.resolve(result), true, mock)
@@ -269,6 +286,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listCuratedEnvironmentImagesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codebuild', 'listCuratedEnvironmentImages', 'CodeBuild', Promise.reject(result), true, mock)
   },
+  listFleets: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codebuild', 'listFleets', 'CodeBuild', Promise.resolve(result), true, mock)
+  },
+  listFleetsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codebuild', 'listFleets', 'CodeBuild', Promise.resolve(result), false, mock)
+  },
+  listFleetsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codebuild', 'listFleets', 'CodeBuild', Promise.reject(result), true, mock)
+  },
   listProjects: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codebuild', 'listProjects', 'CodeBuild', Promise.resolve(result), true, mock)
   },
@@ -341,15 +367,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   putResourcePolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codebuild', 'putResourcePolicy', 'CodeBuild', Promise.reject(result), true, mock)
   },
-  retryBuild: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-codebuild', 'retryBuild', 'CodeBuild', Promise.resolve(result), true, mock)
-  },
-  retryBuildAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-codebuild', 'retryBuild', 'CodeBuild', Promise.resolve(result), false, mock)
-  },
-  retryBuildThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-codebuild', 'retryBuild', 'CodeBuild', Promise.reject(result), true, mock)
-  },
   retryBuildBatch: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codebuild', 'retryBuildBatch', 'CodeBuild', Promise.resolve(result), true, mock)
   },
@@ -359,14 +376,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   retryBuildBatchThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codebuild', 'retryBuildBatch', 'CodeBuild', Promise.reject(result), true, mock)
   },
-  startBuild: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-codebuild', 'startBuild', 'CodeBuild', Promise.resolve(result), true, mock)
+  retryBuild: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codebuild', 'retryBuild', 'CodeBuild', Promise.resolve(result), true, mock)
   },
-  startBuildAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-codebuild', 'startBuild', 'CodeBuild', Promise.resolve(result), false, mock)
+  retryBuildAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codebuild', 'retryBuild', 'CodeBuild', Promise.resolve(result), false, mock)
   },
-  startBuildThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-codebuild', 'startBuild', 'CodeBuild', Promise.reject(result), true, mock)
+  retryBuildThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codebuild', 'retryBuild', 'CodeBuild', Promise.reject(result), true, mock)
   },
   startBuildBatch: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codebuild', 'startBuildBatch', 'CodeBuild', Promise.resolve(result), true, mock)
@@ -377,14 +394,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   startBuildBatchThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codebuild', 'startBuildBatch', 'CodeBuild', Promise.reject(result), true, mock)
   },
-  stopBuild: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-codebuild', 'stopBuild', 'CodeBuild', Promise.resolve(result), true, mock)
+  startBuild: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codebuild', 'startBuild', 'CodeBuild', Promise.resolve(result), true, mock)
   },
-  stopBuildAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-codebuild', 'stopBuild', 'CodeBuild', Promise.resolve(result), false, mock)
+  startBuildAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codebuild', 'startBuild', 'CodeBuild', Promise.resolve(result), false, mock)
   },
-  stopBuildThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-codebuild', 'stopBuild', 'CodeBuild', Promise.reject(result), true, mock)
+  startBuildThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codebuild', 'startBuild', 'CodeBuild', Promise.reject(result), true, mock)
   },
   stopBuildBatch: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codebuild', 'stopBuildBatch', 'CodeBuild', Promise.resolve(result), true, mock)
@@ -394,6 +411,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   stopBuildBatchThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codebuild', 'stopBuildBatch', 'CodeBuild', Promise.reject(result), true, mock)
+  },
+  stopBuild: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codebuild', 'stopBuild', 'CodeBuild', Promise.resolve(result), true, mock)
+  },
+  stopBuildAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codebuild', 'stopBuild', 'CodeBuild', Promise.resolve(result), false, mock)
+  },
+  stopBuildThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codebuild', 'stopBuild', 'CodeBuild', Promise.reject(result), true, mock)
+  },
+  updateFleet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codebuild', 'updateFleet', 'CodeBuild', Promise.resolve(result), true, mock)
+  },
+  updateFleetAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codebuild', 'updateFleet', 'CodeBuild', Promise.resolve(result), false, mock)
+  },
+  updateFleetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codebuild', 'updateFleet', 'CodeBuild', Promise.reject(result), true, mock)
   },
   updateProject: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codebuild', 'updateProject', 'CodeBuild', Promise.resolve(result), true, mock)

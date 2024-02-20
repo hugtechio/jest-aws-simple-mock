@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockSupport = {
+export const mockSupport = {
   addAttachmentsToSet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-support', 'addAttachmentsToSet', 'Support', Promise.resolve(result), true, mock)
   },
@@ -71,6 +70,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeCommunicationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-support', 'describeCommunications', 'Support', Promise.reject(result), true, mock)
   },
+  describeCreateCaseOptions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-support', 'describeCreateCaseOptions', 'Support', Promise.resolve(result), true, mock)
+  },
+  describeCreateCaseOptionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-support', 'describeCreateCaseOptions', 'Support', Promise.resolve(result), false, mock)
+  },
+  describeCreateCaseOptionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-support', 'describeCreateCaseOptions', 'Support', Promise.reject(result), true, mock)
+  },
   describeServices: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-support', 'describeServices', 'Support', Promise.resolve(result), true, mock)
   },
@@ -88,6 +96,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeSeverityLevelsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-support', 'describeSeverityLevels', 'Support', Promise.reject(result), true, mock)
+  },
+  describeSupportedLanguages: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-support', 'describeSupportedLanguages', 'Support', Promise.resolve(result), true, mock)
+  },
+  describeSupportedLanguagesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-support', 'describeSupportedLanguages', 'Support', Promise.resolve(result), false, mock)
+  },
+  describeSupportedLanguagesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-support', 'describeSupportedLanguages', 'Support', Promise.reject(result), true, mock)
   },
   describeTrustedAdvisorCheckRefreshStatuses: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-support', 'describeTrustedAdvisorCheckRefreshStatuses', 'Support', Promise.resolve(result), true, mock)
@@ -124,15 +141,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeTrustedAdvisorChecksThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-support', 'describeTrustedAdvisorChecks', 'Support', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-support', 'destroy', 'Support', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-support', 'destroy', 'Support', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-support', 'destroy', 'Support', Promise.reject(result), true, mock)
   },
   refreshTrustedAdvisorCheck: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-support', 'refreshTrustedAdvisorCheck', 'Support', Promise.resolve(result), true, mock)

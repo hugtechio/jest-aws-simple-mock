@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockMigrationHubConfig = {
+export const mockMigrationHubConfig = {
   createHomeRegionControl: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-migrationhub-config', 'createHomeRegionControl', 'MigrationHubConfig', Promise.resolve(result), true, mock)
   },
@@ -26,6 +25,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createHomeRegionControlThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-migrationhub-config', 'createHomeRegionControl', 'MigrationHubConfig', Promise.reject(result), true, mock)
   },
+  deleteHomeRegionControl: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-migrationhub-config', 'deleteHomeRegionControl', 'MigrationHubConfig', Promise.resolve(result), true, mock)
+  },
+  deleteHomeRegionControlAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-migrationhub-config', 'deleteHomeRegionControl', 'MigrationHubConfig', Promise.resolve(result), false, mock)
+  },
+  deleteHomeRegionControlThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-migrationhub-config', 'deleteHomeRegionControl', 'MigrationHubConfig', Promise.reject(result), true, mock)
+  },
   describeHomeRegionControls: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-migrationhub-config', 'describeHomeRegionControls', 'MigrationHubConfig', Promise.resolve(result), true, mock)
   },
@@ -34,15 +42,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeHomeRegionControlsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-migrationhub-config', 'describeHomeRegionControls', 'MigrationHubConfig', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-migrationhub-config', 'destroy', 'MigrationHubConfig', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-migrationhub-config', 'destroy', 'MigrationHubConfig', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-migrationhub-config', 'destroy', 'MigrationHubConfig', Promise.reject(result), true, mock)
   },
   getHomeRegion: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-migrationhub-config', 'getHomeRegion', 'MigrationHubConfig', Promise.resolve(result), true, mock)

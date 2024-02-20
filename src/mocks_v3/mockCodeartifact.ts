@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockCodeartifact = {
+export const mockCodeartifact = {
   associateExternalConnection: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codeartifact', 'associateExternalConnection', 'Codeartifact', Promise.resolve(result), true, mock)
   },
@@ -71,6 +70,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteDomainPermissionsPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codeartifact', 'deleteDomainPermissionsPolicy', 'Codeartifact', Promise.reject(result), true, mock)
   },
+  deletePackage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codeartifact', 'deletePackage', 'Codeartifact', Promise.resolve(result), true, mock)
+  },
+  deletePackageAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codeartifact', 'deletePackage', 'Codeartifact', Promise.resolve(result), false, mock)
+  },
+  deletePackageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codeartifact', 'deletePackage', 'Codeartifact', Promise.reject(result), true, mock)
+  },
   deletePackageVersions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codeartifact', 'deletePackageVersions', 'Codeartifact', Promise.resolve(result), true, mock)
   },
@@ -107,6 +115,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeDomainThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codeartifact', 'describeDomain', 'Codeartifact', Promise.reject(result), true, mock)
   },
+  describePackage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codeartifact', 'describePackage', 'Codeartifact', Promise.resolve(result), true, mock)
+  },
+  describePackageAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codeartifact', 'describePackage', 'Codeartifact', Promise.resolve(result), false, mock)
+  },
+  describePackageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codeartifact', 'describePackage', 'Codeartifact', Promise.reject(result), true, mock)
+  },
   describePackageVersion: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codeartifact', 'describePackageVersion', 'Codeartifact', Promise.resolve(result), true, mock)
   },
@@ -124,15 +141,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeRepositoryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codeartifact', 'describeRepository', 'Codeartifact', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-codeartifact', 'destroy', 'Codeartifact', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-codeartifact', 'destroy', 'Codeartifact', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-codeartifact', 'destroy', 'Codeartifact', Promise.reject(result), true, mock)
   },
   disassociateExternalConnection: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codeartifact', 'disassociateExternalConnection', 'Codeartifact', Promise.resolve(result), true, mock)
@@ -278,6 +286,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listTagsForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codeartifact', 'listTagsForResource', 'Codeartifact', Promise.reject(result), true, mock)
   },
+  publishPackageVersion: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codeartifact', 'publishPackageVersion', 'Codeartifact', Promise.resolve(result), true, mock)
+  },
+  publishPackageVersionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codeartifact', 'publishPackageVersion', 'Codeartifact', Promise.resolve(result), false, mock)
+  },
+  publishPackageVersionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codeartifact', 'publishPackageVersion', 'Codeartifact', Promise.reject(result), true, mock)
+  },
   putDomainPermissionsPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codeartifact', 'putDomainPermissionsPolicy', 'Codeartifact', Promise.resolve(result), true, mock)
   },
@@ -286,6 +303,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   putDomainPermissionsPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codeartifact', 'putDomainPermissionsPolicy', 'Codeartifact', Promise.reject(result), true, mock)
+  },
+  putPackageOriginConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codeartifact', 'putPackageOriginConfiguration', 'Codeartifact', Promise.resolve(result), true, mock)
+  },
+  putPackageOriginConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codeartifact', 'putPackageOriginConfiguration', 'Codeartifact', Promise.resolve(result), false, mock)
+  },
+  putPackageOriginConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codeartifact', 'putPackageOriginConfiguration', 'Codeartifact', Promise.reject(result), true, mock)
   },
   putRepositoryPermissionsPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codeartifact', 'putRepositoryPermissionsPolicy', 'Codeartifact', Promise.resolve(result), true, mock)

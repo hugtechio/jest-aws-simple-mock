@@ -15,8 +15,16 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockAppflow = {
+export const mockAppflow = {
+  cancelFlowExecutions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appflow', 'cancelFlowExecutions', 'Appflow', Promise.resolve(result), true, mock)
+  },
+  cancelFlowExecutionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appflow', 'cancelFlowExecutions', 'Appflow', Promise.resolve(result), false, mock)
+  },
+  cancelFlowExecutionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appflow', 'cancelFlowExecutions', 'Appflow', Promise.reject(result), true, mock)
+  },
   createConnectorProfile: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appflow', 'createConnectorProfile', 'Appflow', Promise.resolve(result), true, mock)
   },
@@ -52,6 +60,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteFlowThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appflow', 'deleteFlow', 'Appflow', Promise.reject(result), true, mock)
+  },
+  describeConnector: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appflow', 'describeConnector', 'Appflow', Promise.resolve(result), true, mock)
+  },
+  describeConnectorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appflow', 'describeConnector', 'Appflow', Promise.resolve(result), false, mock)
+  },
+  describeConnectorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appflow', 'describeConnector', 'Appflow', Promise.reject(result), true, mock)
   },
   describeConnectorEntity: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appflow', 'describeConnectorEntity', 'Appflow', Promise.resolve(result), true, mock)
@@ -98,15 +115,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeFlowExecutionRecordsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appflow', 'describeFlowExecutionRecords', 'Appflow', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-appflow', 'destroy', 'Appflow', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-appflow', 'destroy', 'Appflow', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-appflow', 'destroy', 'Appflow', Promise.reject(result), true, mock)
-  },
   listConnectorEntities: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appflow', 'listConnectorEntities', 'Appflow', Promise.resolve(result), true, mock)
   },
@@ -115,6 +123,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listConnectorEntitiesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appflow', 'listConnectorEntities', 'Appflow', Promise.reject(result), true, mock)
+  },
+  listConnectors: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appflow', 'listConnectors', 'Appflow', Promise.resolve(result), true, mock)
+  },
+  listConnectorsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appflow', 'listConnectors', 'Appflow', Promise.resolve(result), false, mock)
+  },
+  listConnectorsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appflow', 'listConnectors', 'Appflow', Promise.reject(result), true, mock)
   },
   listFlows: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appflow', 'listFlows', 'Appflow', Promise.resolve(result), true, mock)
@@ -133,6 +150,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listTagsForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appflow', 'listTagsForResource', 'Appflow', Promise.reject(result), true, mock)
+  },
+  registerConnector: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appflow', 'registerConnector', 'Appflow', Promise.resolve(result), true, mock)
+  },
+  registerConnectorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appflow', 'registerConnector', 'Appflow', Promise.resolve(result), false, mock)
+  },
+  registerConnectorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appflow', 'registerConnector', 'Appflow', Promise.reject(result), true, mock)
+  },
+  resetConnectorMetadataCache: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appflow', 'resetConnectorMetadataCache', 'Appflow', Promise.resolve(result), true, mock)
+  },
+  resetConnectorMetadataCacheAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appflow', 'resetConnectorMetadataCache', 'Appflow', Promise.resolve(result), false, mock)
+  },
+  resetConnectorMetadataCacheThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appflow', 'resetConnectorMetadataCache', 'Appflow', Promise.reject(result), true, mock)
   },
   startFlow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appflow', 'startFlow', 'Appflow', Promise.resolve(result), true, mock)
@@ -161,6 +196,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   tagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appflow', 'tagResource', 'Appflow', Promise.reject(result), true, mock)
   },
+  unregisterConnector: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appflow', 'unregisterConnector', 'Appflow', Promise.resolve(result), true, mock)
+  },
+  unregisterConnectorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appflow', 'unregisterConnector', 'Appflow', Promise.resolve(result), false, mock)
+  },
+  unregisterConnectorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appflow', 'unregisterConnector', 'Appflow', Promise.reject(result), true, mock)
+  },
   untagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appflow', 'untagResource', 'Appflow', Promise.resolve(result), true, mock)
   },
@@ -178,6 +222,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateConnectorProfileThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appflow', 'updateConnectorProfile', 'Appflow', Promise.reject(result), true, mock)
+  },
+  updateConnectorRegistration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appflow', 'updateConnectorRegistration', 'Appflow', Promise.resolve(result), true, mock)
+  },
+  updateConnectorRegistrationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appflow', 'updateConnectorRegistration', 'Appflow', Promise.resolve(result), false, mock)
+  },
+  updateConnectorRegistrationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appflow', 'updateConnectorRegistration', 'Appflow', Promise.reject(result), true, mock)
   },
   updateFlow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appflow', 'updateFlow', 'Appflow', Promise.resolve(result), true, mock)

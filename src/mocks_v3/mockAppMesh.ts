@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockAppMesh = {
+export const mockAppMesh = {
   createGatewayRoute: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-app-mesh', 'createGatewayRoute', 'AppMesh', Promise.resolve(result), true, mock)
   },
@@ -205,15 +204,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeVirtualServiceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-app-mesh', 'describeVirtualService', 'AppMesh', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-app-mesh', 'destroy', 'AppMesh', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-app-mesh', 'destroy', 'AppMesh', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-app-mesh', 'destroy', 'AppMesh', Promise.reject(result), true, mock)
   },
   listGatewayRoutes: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-app-mesh', 'listGatewayRoutes', 'AppMesh', Promise.resolve(result), true, mock)

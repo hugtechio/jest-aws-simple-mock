@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockDeviceFarm = {
+export const mockDeviceFarm = {
   createDevicePool: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-device-farm', 'createDevicePool', 'DeviceFarm', Promise.resolve(result), true, mock)
   },
@@ -178,15 +177,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteVPCEConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-device-farm', 'deleteVPCEConfiguration', 'DeviceFarm', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-device-farm', 'destroy', 'DeviceFarm', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-device-farm', 'destroy', 'DeviceFarm', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-device-farm', 'destroy', 'DeviceFarm', Promise.reject(result), true, mock)
   },
   getAccountSettings: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-device-farm', 'getAccountSettings', 'DeviceFarm', Promise.resolve(result), true, mock)

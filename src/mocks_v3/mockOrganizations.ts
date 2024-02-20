@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockOrganizations = {
+export const mockOrganizations = {
   acceptHandshake: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-organizations', 'acceptHandshake', 'Organizations', Promise.resolve(result), true, mock)
   },
@@ -43,6 +42,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   cancelHandshakeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-organizations', 'cancelHandshake', 'Organizations', Promise.reject(result), true, mock)
+  },
+  closeAccount: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-organizations', 'closeAccount', 'Organizations', Promise.resolve(result), true, mock)
+  },
+  closeAccountAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-organizations', 'closeAccount', 'Organizations', Promise.resolve(result), false, mock)
+  },
+  closeAccountThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-organizations', 'closeAccount', 'Organizations', Promise.reject(result), true, mock)
   },
   createAccount: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-organizations', 'createAccount', 'Organizations', Promise.resolve(result), true, mock)
@@ -125,6 +133,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deletePolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-organizations', 'deletePolicy', 'Organizations', Promise.reject(result), true, mock)
   },
+  deleteResourcePolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-organizations', 'deleteResourcePolicy', 'Organizations', Promise.resolve(result), true, mock)
+  },
+  deleteResourcePolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-organizations', 'deleteResourcePolicy', 'Organizations', Promise.resolve(result), false, mock)
+  },
+  deleteResourcePolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-organizations', 'deleteResourcePolicy', 'Organizations', Promise.reject(result), true, mock)
+  },
   deregisterDelegatedAdministrator: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-organizations', 'deregisterDelegatedAdministrator', 'Organizations', Promise.resolve(result), true, mock)
   },
@@ -197,14 +214,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describePolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-organizations', 'describePolicy', 'Organizations', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-organizations', 'destroy', 'Organizations', Promise.resolve(result), true, mock)
+  describeResourcePolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-organizations', 'describeResourcePolicy', 'Organizations', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-organizations', 'destroy', 'Organizations', Promise.resolve(result), false, mock)
+  describeResourcePolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-organizations', 'describeResourcePolicy', 'Organizations', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-organizations', 'destroy', 'Organizations', Promise.reject(result), true, mock)
+  describeResourcePolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-organizations', 'describeResourcePolicy', 'Organizations', Promise.reject(result), true, mock)
   },
   detachPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-organizations', 'detachPolicy', 'Organizations', Promise.resolve(result), true, mock)
@@ -430,6 +447,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   moveAccountThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-organizations', 'moveAccount', 'Organizations', Promise.reject(result), true, mock)
+  },
+  putResourcePolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-organizations', 'putResourcePolicy', 'Organizations', Promise.resolve(result), true, mock)
+  },
+  putResourcePolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-organizations', 'putResourcePolicy', 'Organizations', Promise.resolve(result), false, mock)
+  },
+  putResourcePolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-organizations', 'putResourcePolicy', 'Organizations', Promise.reject(result), true, mock)
   },
   registerDelegatedAdministrator: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-organizations', 'registerDelegatedAdministrator', 'Organizations', Promise.resolve(result), true, mock)

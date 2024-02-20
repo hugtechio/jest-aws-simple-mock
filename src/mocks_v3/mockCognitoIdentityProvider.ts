@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockCognitoIdentityProvider = {
+export const mockCognitoIdentityProvider = {
   addCustomAttributes: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cognito-identity-provider', 'addCustomAttributes', 'CognitoIdentityProvider', Promise.resolve(result), true, mock)
   },
@@ -53,15 +52,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   adminCreateUserThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cognito-identity-provider', 'adminCreateUser', 'CognitoIdentityProvider', Promise.reject(result), true, mock)
   },
-  adminDeleteUser: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cognito-identity-provider', 'adminDeleteUser', 'CognitoIdentityProvider', Promise.resolve(result), true, mock)
-  },
-  adminDeleteUserAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cognito-identity-provider', 'adminDeleteUser', 'CognitoIdentityProvider', Promise.resolve(result), false, mock)
-  },
-  adminDeleteUserThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cognito-identity-provider', 'adminDeleteUser', 'CognitoIdentityProvider', Promise.reject(result), true, mock)
-  },
   adminDeleteUserAttributes: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cognito-identity-provider', 'adminDeleteUserAttributes', 'CognitoIdentityProvider', Promise.resolve(result), true, mock)
   },
@@ -70,6 +60,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   adminDeleteUserAttributesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cognito-identity-provider', 'adminDeleteUserAttributes', 'CognitoIdentityProvider', Promise.reject(result), true, mock)
+  },
+  adminDeleteUser: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cognito-identity-provider', 'adminDeleteUser', 'CognitoIdentityProvider', Promise.resolve(result), true, mock)
+  },
+  adminDeleteUserAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cognito-identity-provider', 'adminDeleteUser', 'CognitoIdentityProvider', Promise.resolve(result), false, mock)
+  },
+  adminDeleteUserThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cognito-identity-provider', 'adminDeleteUser', 'CognitoIdentityProvider', Promise.reject(result), true, mock)
   },
   adminDisableProviderForUser: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cognito-identity-provider', 'adminDisableProviderForUser', 'CognitoIdentityProvider', Promise.resolve(result), true, mock)
@@ -341,15 +340,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createUserImportJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cognito-identity-provider', 'createUserImportJob', 'CognitoIdentityProvider', Promise.reject(result), true, mock)
   },
-  createUserPool: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cognito-identity-provider', 'createUserPool', 'CognitoIdentityProvider', Promise.resolve(result), true, mock)
-  },
-  createUserPoolAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cognito-identity-provider', 'createUserPool', 'CognitoIdentityProvider', Promise.resolve(result), false, mock)
-  },
-  createUserPoolThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cognito-identity-provider', 'createUserPool', 'CognitoIdentityProvider', Promise.reject(result), true, mock)
-  },
   createUserPoolClient: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cognito-identity-provider', 'createUserPoolClient', 'CognitoIdentityProvider', Promise.resolve(result), true, mock)
   },
@@ -358,6 +348,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createUserPoolClientThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cognito-identity-provider', 'createUserPoolClient', 'CognitoIdentityProvider', Promise.reject(result), true, mock)
+  },
+  createUserPool: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cognito-identity-provider', 'createUserPool', 'CognitoIdentityProvider', Promise.resolve(result), true, mock)
+  },
+  createUserPoolAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cognito-identity-provider', 'createUserPool', 'CognitoIdentityProvider', Promise.resolve(result), false, mock)
+  },
+  createUserPoolThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cognito-identity-provider', 'createUserPool', 'CognitoIdentityProvider', Promise.reject(result), true, mock)
   },
   createUserPoolDomain: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cognito-identity-provider', 'createUserPoolDomain', 'CognitoIdentityProvider', Promise.resolve(result), true, mock)
@@ -395,15 +394,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteResourceServerThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cognito-identity-provider', 'deleteResourceServer', 'CognitoIdentityProvider', Promise.reject(result), true, mock)
   },
-  deleteUser: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cognito-identity-provider', 'deleteUser', 'CognitoIdentityProvider', Promise.resolve(result), true, mock)
-  },
-  deleteUserAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cognito-identity-provider', 'deleteUser', 'CognitoIdentityProvider', Promise.resolve(result), false, mock)
-  },
-  deleteUserThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cognito-identity-provider', 'deleteUser', 'CognitoIdentityProvider', Promise.reject(result), true, mock)
-  },
   deleteUserAttributes: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cognito-identity-provider', 'deleteUserAttributes', 'CognitoIdentityProvider', Promise.resolve(result), true, mock)
   },
@@ -413,14 +403,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteUserAttributesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cognito-identity-provider', 'deleteUserAttributes', 'CognitoIdentityProvider', Promise.reject(result), true, mock)
   },
-  deleteUserPool: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cognito-identity-provider', 'deleteUserPool', 'CognitoIdentityProvider', Promise.resolve(result), true, mock)
+  deleteUser: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cognito-identity-provider', 'deleteUser', 'CognitoIdentityProvider', Promise.resolve(result), true, mock)
   },
-  deleteUserPoolAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cognito-identity-provider', 'deleteUserPool', 'CognitoIdentityProvider', Promise.resolve(result), false, mock)
+  deleteUserAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cognito-identity-provider', 'deleteUser', 'CognitoIdentityProvider', Promise.resolve(result), false, mock)
   },
-  deleteUserPoolThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cognito-identity-provider', 'deleteUserPool', 'CognitoIdentityProvider', Promise.reject(result), true, mock)
+  deleteUserThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cognito-identity-provider', 'deleteUser', 'CognitoIdentityProvider', Promise.reject(result), true, mock)
   },
   deleteUserPoolClient: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cognito-identity-provider', 'deleteUserPoolClient', 'CognitoIdentityProvider', Promise.resolve(result), true, mock)
@@ -430,6 +420,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteUserPoolClientThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cognito-identity-provider', 'deleteUserPoolClient', 'CognitoIdentityProvider', Promise.reject(result), true, mock)
+  },
+  deleteUserPool: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cognito-identity-provider', 'deleteUserPool', 'CognitoIdentityProvider', Promise.resolve(result), true, mock)
+  },
+  deleteUserPoolAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cognito-identity-provider', 'deleteUserPool', 'CognitoIdentityProvider', Promise.resolve(result), false, mock)
+  },
+  deleteUserPoolThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cognito-identity-provider', 'deleteUserPool', 'CognitoIdentityProvider', Promise.reject(result), true, mock)
   },
   deleteUserPoolDomain: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cognito-identity-provider', 'deleteUserPoolDomain', 'CognitoIdentityProvider', Promise.resolve(result), true, mock)
@@ -476,15 +475,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeUserImportJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cognito-identity-provider', 'describeUserImportJob', 'CognitoIdentityProvider', Promise.reject(result), true, mock)
   },
-  describeUserPool: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cognito-identity-provider', 'describeUserPool', 'CognitoIdentityProvider', Promise.resolve(result), true, mock)
-  },
-  describeUserPoolAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cognito-identity-provider', 'describeUserPool', 'CognitoIdentityProvider', Promise.resolve(result), false, mock)
-  },
-  describeUserPoolThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cognito-identity-provider', 'describeUserPool', 'CognitoIdentityProvider', Promise.reject(result), true, mock)
-  },
   describeUserPoolClient: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cognito-identity-provider', 'describeUserPoolClient', 'CognitoIdentityProvider', Promise.resolve(result), true, mock)
   },
@@ -494,6 +484,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeUserPoolClientThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cognito-identity-provider', 'describeUserPoolClient', 'CognitoIdentityProvider', Promise.reject(result), true, mock)
   },
+  describeUserPool: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cognito-identity-provider', 'describeUserPool', 'CognitoIdentityProvider', Promise.resolve(result), true, mock)
+  },
+  describeUserPoolAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cognito-identity-provider', 'describeUserPool', 'CognitoIdentityProvider', Promise.resolve(result), false, mock)
+  },
+  describeUserPoolThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cognito-identity-provider', 'describeUserPool', 'CognitoIdentityProvider', Promise.reject(result), true, mock)
+  },
   describeUserPoolDomain: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cognito-identity-provider', 'describeUserPoolDomain', 'CognitoIdentityProvider', Promise.resolve(result), true, mock)
   },
@@ -502,15 +501,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeUserPoolDomainThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cognito-identity-provider', 'describeUserPoolDomain', 'CognitoIdentityProvider', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cognito-identity-provider', 'destroy', 'CognitoIdentityProvider', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cognito-identity-provider', 'destroy', 'CognitoIdentityProvider', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cognito-identity-provider', 'destroy', 'CognitoIdentityProvider', Promise.reject(result), true, mock)
   },
   forgetDevice: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cognito-identity-provider', 'forgetDevice', 'CognitoIdentityProvider', Promise.resolve(result), true, mock)
@@ -566,6 +556,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getIdentityProviderByIdentifierThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cognito-identity-provider', 'getIdentityProviderByIdentifier', 'CognitoIdentityProvider', Promise.reject(result), true, mock)
   },
+  getLogDeliveryConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cognito-identity-provider', 'getLogDeliveryConfiguration', 'CognitoIdentityProvider', Promise.resolve(result), true, mock)
+  },
+  getLogDeliveryConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cognito-identity-provider', 'getLogDeliveryConfiguration', 'CognitoIdentityProvider', Promise.resolve(result), false, mock)
+  },
+  getLogDeliveryConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cognito-identity-provider', 'getLogDeliveryConfiguration', 'CognitoIdentityProvider', Promise.reject(result), true, mock)
+  },
   getSigningCertificate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cognito-identity-provider', 'getSigningCertificate', 'CognitoIdentityProvider', Promise.resolve(result), true, mock)
   },
@@ -584,15 +583,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getUICustomizationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cognito-identity-provider', 'getUICustomization', 'CognitoIdentityProvider', Promise.reject(result), true, mock)
   },
-  getUser: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cognito-identity-provider', 'getUser', 'CognitoIdentityProvider', Promise.resolve(result), true, mock)
-  },
-  getUserAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cognito-identity-provider', 'getUser', 'CognitoIdentityProvider', Promise.resolve(result), false, mock)
-  },
-  getUserThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cognito-identity-provider', 'getUser', 'CognitoIdentityProvider', Promise.reject(result), true, mock)
-  },
   getUserAttributeVerificationCode: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cognito-identity-provider', 'getUserAttributeVerificationCode', 'CognitoIdentityProvider', Promise.resolve(result), true, mock)
   },
@@ -601,6 +591,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getUserAttributeVerificationCodeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cognito-identity-provider', 'getUserAttributeVerificationCode', 'CognitoIdentityProvider', Promise.reject(result), true, mock)
+  },
+  getUser: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cognito-identity-provider', 'getUser', 'CognitoIdentityProvider', Promise.resolve(result), true, mock)
+  },
+  getUserAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cognito-identity-provider', 'getUser', 'CognitoIdentityProvider', Promise.resolve(result), false, mock)
+  },
+  getUserThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cognito-identity-provider', 'getUser', 'CognitoIdentityProvider', Promise.reject(result), true, mock)
   },
   getUserPoolMfaConfig: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cognito-identity-provider', 'getUserPoolMfaConfig', 'CognitoIdentityProvider', Promise.resolve(result), true, mock)
@@ -746,6 +745,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   revokeTokenThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cognito-identity-provider', 'revokeToken', 'CognitoIdentityProvider', Promise.reject(result), true, mock)
   },
+  setLogDeliveryConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cognito-identity-provider', 'setLogDeliveryConfiguration', 'CognitoIdentityProvider', Promise.resolve(result), true, mock)
+  },
+  setLogDeliveryConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cognito-identity-provider', 'setLogDeliveryConfiguration', 'CognitoIdentityProvider', Promise.resolve(result), false, mock)
+  },
+  setLogDeliveryConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cognito-identity-provider', 'setLogDeliveryConfiguration', 'CognitoIdentityProvider', Promise.reject(result), true, mock)
+  },
   setRiskConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cognito-identity-provider', 'setRiskConfiguration', 'CognitoIdentityProvider', Promise.resolve(result), true, mock)
   },
@@ -890,15 +898,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   updateUserAttributesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cognito-identity-provider', 'updateUserAttributes', 'CognitoIdentityProvider', Promise.reject(result), true, mock)
   },
-  updateUserPool: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cognito-identity-provider', 'updateUserPool', 'CognitoIdentityProvider', Promise.resolve(result), true, mock)
-  },
-  updateUserPoolAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cognito-identity-provider', 'updateUserPool', 'CognitoIdentityProvider', Promise.resolve(result), false, mock)
-  },
-  updateUserPoolThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cognito-identity-provider', 'updateUserPool', 'CognitoIdentityProvider', Promise.reject(result), true, mock)
-  },
   updateUserPoolClient: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cognito-identity-provider', 'updateUserPoolClient', 'CognitoIdentityProvider', Promise.resolve(result), true, mock)
   },
@@ -907,6 +906,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateUserPoolClientThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cognito-identity-provider', 'updateUserPoolClient', 'CognitoIdentityProvider', Promise.reject(result), true, mock)
+  },
+  updateUserPool: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cognito-identity-provider', 'updateUserPool', 'CognitoIdentityProvider', Promise.resolve(result), true, mock)
+  },
+  updateUserPoolAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cognito-identity-provider', 'updateUserPool', 'CognitoIdentityProvider', Promise.resolve(result), false, mock)
+  },
+  updateUserPoolThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cognito-identity-provider', 'updateUserPool', 'CognitoIdentityProvider', Promise.reject(result), true, mock)
   },
   updateUserPoolDomain: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cognito-identity-provider', 'updateUserPoolDomain', 'CognitoIdentityProvider', Promise.resolve(result), true, mock)

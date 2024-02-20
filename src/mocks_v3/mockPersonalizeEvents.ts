@@ -15,16 +15,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockPersonalizeEvents = {
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-personalize-events', 'destroy', 'PersonalizeEvents', Promise.resolve(result), true, mock)
+export const mockPersonalizeEvents = {
+  putActionInteractions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize-events', 'putActionInteractions', 'PersonalizeEvents', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-personalize-events', 'destroy', 'PersonalizeEvents', Promise.resolve(result), false, mock)
+  putActionInteractionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize-events', 'putActionInteractions', 'PersonalizeEvents', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-personalize-events', 'destroy', 'PersonalizeEvents', Promise.reject(result), true, mock)
+  putActionInteractionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize-events', 'putActionInteractions', 'PersonalizeEvents', Promise.reject(result), true, mock)
+  },
+  putActions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize-events', 'putActions', 'PersonalizeEvents', Promise.resolve(result), true, mock)
+  },
+  putActionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize-events', 'putActions', 'PersonalizeEvents', Promise.resolve(result), false, mock)
+  },
+  putActionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize-events', 'putActions', 'PersonalizeEvents', Promise.reject(result), true, mock)
   },
   putEvents: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-personalize-events', 'putEvents', 'PersonalizeEvents', Promise.resolve(result), true, mock)

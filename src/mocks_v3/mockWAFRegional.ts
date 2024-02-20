@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockWAFRegional = {
+export const mockWAFRegional = {
   associateWebACL: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-waf-regional', 'associateWebACL', 'WAFRegional', Promise.resolve(result), true, mock)
   },
@@ -268,15 +267,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteXssMatchSetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-waf-regional', 'deleteXssMatchSet', 'WAFRegional', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-waf-regional', 'destroy', 'WAFRegional', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-waf-regional', 'destroy', 'WAFRegional', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-waf-regional', 'destroy', 'WAFRegional', Promise.reject(result), true, mock)
   },
   disassociateWebACL: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-waf-regional', 'disassociateWebACL', 'WAFRegional', Promise.resolve(result), true, mock)

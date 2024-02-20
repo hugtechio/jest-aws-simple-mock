@@ -15,8 +15,16 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockSecretsManager = {
+export const mockSecretsManager = {
+  batchGetSecretValue: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-secrets-manager', 'batchGetSecretValue', 'SecretsManager', Promise.resolve(result), true, mock)
+  },
+  batchGetSecretValueAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-secrets-manager', 'batchGetSecretValue', 'SecretsManager', Promise.resolve(result), false, mock)
+  },
+  batchGetSecretValueThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-secrets-manager', 'batchGetSecretValue', 'SecretsManager', Promise.reject(result), true, mock)
+  },
   cancelRotateSecret: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-secrets-manager', 'cancelRotateSecret', 'SecretsManager', Promise.resolve(result), true, mock)
   },
@@ -61,15 +69,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeSecretThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-secrets-manager', 'describeSecret', 'SecretsManager', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-secrets-manager', 'destroy', 'SecretsManager', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-secrets-manager', 'destroy', 'SecretsManager', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-secrets-manager', 'destroy', 'SecretsManager', Promise.reject(result), true, mock)
   },
   getRandomPassword: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-secrets-manager', 'getRandomPassword', 'SecretsManager', Promise.resolve(result), true, mock)

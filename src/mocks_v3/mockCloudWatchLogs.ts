@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockCloudWatchLogs = {
+export const mockCloudWatchLogs = {
   associateKmsKey: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudwatch-logs', 'associateKmsKey', 'CloudWatchLogs', Promise.resolve(result), true, mock)
   },
@@ -35,6 +34,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   cancelExportTaskThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudwatch-logs', 'cancelExportTask', 'CloudWatchLogs', Promise.reject(result), true, mock)
   },
+  createDelivery: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'createDelivery', 'CloudWatchLogs', Promise.resolve(result), true, mock)
+  },
+  createDeliveryAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'createDelivery', 'CloudWatchLogs', Promise.resolve(result), false, mock)
+  },
+  createDeliveryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'createDelivery', 'CloudWatchLogs', Promise.reject(result), true, mock)
+  },
   createExportTask: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudwatch-logs', 'createExportTask', 'CloudWatchLogs', Promise.resolve(result), true, mock)
   },
@@ -43,6 +51,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createExportTaskThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudwatch-logs', 'createExportTask', 'CloudWatchLogs', Promise.reject(result), true, mock)
+  },
+  createLogAnomalyDetector: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'createLogAnomalyDetector', 'CloudWatchLogs', Promise.resolve(result), true, mock)
+  },
+  createLogAnomalyDetectorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'createLogAnomalyDetector', 'CloudWatchLogs', Promise.resolve(result), false, mock)
+  },
+  createLogAnomalyDetectorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'createLogAnomalyDetector', 'CloudWatchLogs', Promise.reject(result), true, mock)
   },
   createLogGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudwatch-logs', 'createLogGroup', 'CloudWatchLogs', Promise.resolve(result), true, mock)
@@ -62,6 +79,60 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createLogStreamThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudwatch-logs', 'createLogStream', 'CloudWatchLogs', Promise.reject(result), true, mock)
   },
+  deleteAccountPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'deleteAccountPolicy', 'CloudWatchLogs', Promise.resolve(result), true, mock)
+  },
+  deleteAccountPolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'deleteAccountPolicy', 'CloudWatchLogs', Promise.resolve(result), false, mock)
+  },
+  deleteAccountPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'deleteAccountPolicy', 'CloudWatchLogs', Promise.reject(result), true, mock)
+  },
+  deleteDataProtectionPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'deleteDataProtectionPolicy', 'CloudWatchLogs', Promise.resolve(result), true, mock)
+  },
+  deleteDataProtectionPolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'deleteDataProtectionPolicy', 'CloudWatchLogs', Promise.resolve(result), false, mock)
+  },
+  deleteDataProtectionPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'deleteDataProtectionPolicy', 'CloudWatchLogs', Promise.reject(result), true, mock)
+  },
+  deleteDelivery: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'deleteDelivery', 'CloudWatchLogs', Promise.resolve(result), true, mock)
+  },
+  deleteDeliveryAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'deleteDelivery', 'CloudWatchLogs', Promise.resolve(result), false, mock)
+  },
+  deleteDeliveryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'deleteDelivery', 'CloudWatchLogs', Promise.reject(result), true, mock)
+  },
+  deleteDeliveryDestination: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'deleteDeliveryDestination', 'CloudWatchLogs', Promise.resolve(result), true, mock)
+  },
+  deleteDeliveryDestinationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'deleteDeliveryDestination', 'CloudWatchLogs', Promise.resolve(result), false, mock)
+  },
+  deleteDeliveryDestinationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'deleteDeliveryDestination', 'CloudWatchLogs', Promise.reject(result), true, mock)
+  },
+  deleteDeliveryDestinationPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'deleteDeliveryDestinationPolicy', 'CloudWatchLogs', Promise.resolve(result), true, mock)
+  },
+  deleteDeliveryDestinationPolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'deleteDeliveryDestinationPolicy', 'CloudWatchLogs', Promise.resolve(result), false, mock)
+  },
+  deleteDeliveryDestinationPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'deleteDeliveryDestinationPolicy', 'CloudWatchLogs', Promise.reject(result), true, mock)
+  },
+  deleteDeliverySource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'deleteDeliverySource', 'CloudWatchLogs', Promise.resolve(result), true, mock)
+  },
+  deleteDeliverySourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'deleteDeliverySource', 'CloudWatchLogs', Promise.resolve(result), false, mock)
+  },
+  deleteDeliverySourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'deleteDeliverySource', 'CloudWatchLogs', Promise.reject(result), true, mock)
+  },
   deleteDestination: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudwatch-logs', 'deleteDestination', 'CloudWatchLogs', Promise.resolve(result), true, mock)
   },
@@ -70,6 +141,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteDestinationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudwatch-logs', 'deleteDestination', 'CloudWatchLogs', Promise.reject(result), true, mock)
+  },
+  deleteLogAnomalyDetector: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'deleteLogAnomalyDetector', 'CloudWatchLogs', Promise.resolve(result), true, mock)
+  },
+  deleteLogAnomalyDetectorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'deleteLogAnomalyDetector', 'CloudWatchLogs', Promise.resolve(result), false, mock)
+  },
+  deleteLogAnomalyDetectorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'deleteLogAnomalyDetector', 'CloudWatchLogs', Promise.reject(result), true, mock)
   },
   deleteLogGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudwatch-logs', 'deleteLogGroup', 'CloudWatchLogs', Promise.resolve(result), true, mock)
@@ -133,6 +213,42 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteSubscriptionFilterThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudwatch-logs', 'deleteSubscriptionFilter', 'CloudWatchLogs', Promise.reject(result), true, mock)
+  },
+  describeAccountPolicies: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'describeAccountPolicies', 'CloudWatchLogs', Promise.resolve(result), true, mock)
+  },
+  describeAccountPoliciesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'describeAccountPolicies', 'CloudWatchLogs', Promise.resolve(result), false, mock)
+  },
+  describeAccountPoliciesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'describeAccountPolicies', 'CloudWatchLogs', Promise.reject(result), true, mock)
+  },
+  describeDeliveries: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'describeDeliveries', 'CloudWatchLogs', Promise.resolve(result), true, mock)
+  },
+  describeDeliveriesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'describeDeliveries', 'CloudWatchLogs', Promise.resolve(result), false, mock)
+  },
+  describeDeliveriesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'describeDeliveries', 'CloudWatchLogs', Promise.reject(result), true, mock)
+  },
+  describeDeliveryDestinations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'describeDeliveryDestinations', 'CloudWatchLogs', Promise.resolve(result), true, mock)
+  },
+  describeDeliveryDestinationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'describeDeliveryDestinations', 'CloudWatchLogs', Promise.resolve(result), false, mock)
+  },
+  describeDeliveryDestinationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'describeDeliveryDestinations', 'CloudWatchLogs', Promise.reject(result), true, mock)
+  },
+  describeDeliverySources: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'describeDeliverySources', 'CloudWatchLogs', Promise.resolve(result), true, mock)
+  },
+  describeDeliverySourcesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'describeDeliverySources', 'CloudWatchLogs', Promise.resolve(result), false, mock)
+  },
+  describeDeliverySourcesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'describeDeliverySources', 'CloudWatchLogs', Promise.reject(result), true, mock)
   },
   describeDestinations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudwatch-logs', 'describeDestinations', 'CloudWatchLogs', Promise.resolve(result), true, mock)
@@ -215,15 +331,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeSubscriptionFiltersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudwatch-logs', 'describeSubscriptionFilters', 'CloudWatchLogs', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cloudwatch-logs', 'destroy', 'CloudWatchLogs', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cloudwatch-logs', 'destroy', 'CloudWatchLogs', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cloudwatch-logs', 'destroy', 'CloudWatchLogs', Promise.reject(result), true, mock)
-  },
   disassociateKmsKey: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudwatch-logs', 'disassociateKmsKey', 'CloudWatchLogs', Promise.resolve(result), true, mock)
   },
@@ -241,6 +348,60 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   filterLogEventsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudwatch-logs', 'filterLogEvents', 'CloudWatchLogs', Promise.reject(result), true, mock)
+  },
+  getDataProtectionPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'getDataProtectionPolicy', 'CloudWatchLogs', Promise.resolve(result), true, mock)
+  },
+  getDataProtectionPolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'getDataProtectionPolicy', 'CloudWatchLogs', Promise.resolve(result), false, mock)
+  },
+  getDataProtectionPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'getDataProtectionPolicy', 'CloudWatchLogs', Promise.reject(result), true, mock)
+  },
+  getDelivery: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'getDelivery', 'CloudWatchLogs', Promise.resolve(result), true, mock)
+  },
+  getDeliveryAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'getDelivery', 'CloudWatchLogs', Promise.resolve(result), false, mock)
+  },
+  getDeliveryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'getDelivery', 'CloudWatchLogs', Promise.reject(result), true, mock)
+  },
+  getDeliveryDestination: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'getDeliveryDestination', 'CloudWatchLogs', Promise.resolve(result), true, mock)
+  },
+  getDeliveryDestinationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'getDeliveryDestination', 'CloudWatchLogs', Promise.resolve(result), false, mock)
+  },
+  getDeliveryDestinationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'getDeliveryDestination', 'CloudWatchLogs', Promise.reject(result), true, mock)
+  },
+  getDeliveryDestinationPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'getDeliveryDestinationPolicy', 'CloudWatchLogs', Promise.resolve(result), true, mock)
+  },
+  getDeliveryDestinationPolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'getDeliveryDestinationPolicy', 'CloudWatchLogs', Promise.resolve(result), false, mock)
+  },
+  getDeliveryDestinationPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'getDeliveryDestinationPolicy', 'CloudWatchLogs', Promise.reject(result), true, mock)
+  },
+  getDeliverySource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'getDeliverySource', 'CloudWatchLogs', Promise.resolve(result), true, mock)
+  },
+  getDeliverySourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'getDeliverySource', 'CloudWatchLogs', Promise.resolve(result), false, mock)
+  },
+  getDeliverySourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'getDeliverySource', 'CloudWatchLogs', Promise.reject(result), true, mock)
+  },
+  getLogAnomalyDetector: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'getLogAnomalyDetector', 'CloudWatchLogs', Promise.resolve(result), true, mock)
+  },
+  getLogAnomalyDetectorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'getLogAnomalyDetector', 'CloudWatchLogs', Promise.resolve(result), false, mock)
+  },
+  getLogAnomalyDetectorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'getLogAnomalyDetector', 'CloudWatchLogs', Promise.reject(result), true, mock)
   },
   getLogEvents: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudwatch-logs', 'getLogEvents', 'CloudWatchLogs', Promise.resolve(result), true, mock)
@@ -278,6 +439,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getQueryResultsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudwatch-logs', 'getQueryResults', 'CloudWatchLogs', Promise.reject(result), true, mock)
   },
+  listAnomalies: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'listAnomalies', 'CloudWatchLogs', Promise.resolve(result), true, mock)
+  },
+  listAnomaliesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'listAnomalies', 'CloudWatchLogs', Promise.resolve(result), false, mock)
+  },
+  listAnomaliesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'listAnomalies', 'CloudWatchLogs', Promise.reject(result), true, mock)
+  },
+  listLogAnomalyDetectors: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'listLogAnomalyDetectors', 'CloudWatchLogs', Promise.resolve(result), true, mock)
+  },
+  listLogAnomalyDetectorsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'listLogAnomalyDetectors', 'CloudWatchLogs', Promise.resolve(result), false, mock)
+  },
+  listLogAnomalyDetectorsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'listLogAnomalyDetectors', 'CloudWatchLogs', Promise.reject(result), true, mock)
+  },
+  listTagsForResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'listTagsForResource', 'CloudWatchLogs', Promise.resolve(result), true, mock)
+  },
+  listTagsForResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'listTagsForResource', 'CloudWatchLogs', Promise.resolve(result), false, mock)
+  },
+  listTagsForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'listTagsForResource', 'CloudWatchLogs', Promise.reject(result), true, mock)
+  },
   listTagsLogGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudwatch-logs', 'listTagsLogGroup', 'CloudWatchLogs', Promise.resolve(result), true, mock)
   },
@@ -286,6 +474,51 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listTagsLogGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudwatch-logs', 'listTagsLogGroup', 'CloudWatchLogs', Promise.reject(result), true, mock)
+  },
+  putAccountPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'putAccountPolicy', 'CloudWatchLogs', Promise.resolve(result), true, mock)
+  },
+  putAccountPolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'putAccountPolicy', 'CloudWatchLogs', Promise.resolve(result), false, mock)
+  },
+  putAccountPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'putAccountPolicy', 'CloudWatchLogs', Promise.reject(result), true, mock)
+  },
+  putDataProtectionPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'putDataProtectionPolicy', 'CloudWatchLogs', Promise.resolve(result), true, mock)
+  },
+  putDataProtectionPolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'putDataProtectionPolicy', 'CloudWatchLogs', Promise.resolve(result), false, mock)
+  },
+  putDataProtectionPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'putDataProtectionPolicy', 'CloudWatchLogs', Promise.reject(result), true, mock)
+  },
+  putDeliveryDestination: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'putDeliveryDestination', 'CloudWatchLogs', Promise.resolve(result), true, mock)
+  },
+  putDeliveryDestinationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'putDeliveryDestination', 'CloudWatchLogs', Promise.resolve(result), false, mock)
+  },
+  putDeliveryDestinationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'putDeliveryDestination', 'CloudWatchLogs', Promise.reject(result), true, mock)
+  },
+  putDeliveryDestinationPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'putDeliveryDestinationPolicy', 'CloudWatchLogs', Promise.resolve(result), true, mock)
+  },
+  putDeliveryDestinationPolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'putDeliveryDestinationPolicy', 'CloudWatchLogs', Promise.resolve(result), false, mock)
+  },
+  putDeliveryDestinationPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'putDeliveryDestinationPolicy', 'CloudWatchLogs', Promise.reject(result), true, mock)
+  },
+  putDeliverySource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'putDeliverySource', 'CloudWatchLogs', Promise.resolve(result), true, mock)
+  },
+  putDeliverySourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'putDeliverySource', 'CloudWatchLogs', Promise.resolve(result), false, mock)
+  },
+  putDeliverySourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'putDeliverySource', 'CloudWatchLogs', Promise.reject(result), true, mock)
   },
   putDestination: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudwatch-logs', 'putDestination', 'CloudWatchLogs', Promise.resolve(result), true, mock)
@@ -359,6 +592,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   putSubscriptionFilterThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudwatch-logs', 'putSubscriptionFilter', 'CloudWatchLogs', Promise.reject(result), true, mock)
   },
+  startLiveTail: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'startLiveTail', 'CloudWatchLogs', Promise.resolve(result), true, mock)
+  },
+  startLiveTailAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'startLiveTail', 'CloudWatchLogs', Promise.resolve(result), false, mock)
+  },
+  startLiveTailThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'startLiveTail', 'CloudWatchLogs', Promise.reject(result), true, mock)
+  },
   startQuery: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudwatch-logs', 'startQuery', 'CloudWatchLogs', Promise.resolve(result), true, mock)
   },
@@ -386,6 +628,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   tagLogGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudwatch-logs', 'tagLogGroup', 'CloudWatchLogs', Promise.reject(result), true, mock)
   },
+  tagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'tagResource', 'CloudWatchLogs', Promise.resolve(result), true, mock)
+  },
+  tagResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'tagResource', 'CloudWatchLogs', Promise.resolve(result), false, mock)
+  },
+  tagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'tagResource', 'CloudWatchLogs', Promise.reject(result), true, mock)
+  },
   testMetricFilter: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudwatch-logs', 'testMetricFilter', 'CloudWatchLogs', Promise.resolve(result), true, mock)
   },
@@ -403,6 +654,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   untagLogGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudwatch-logs', 'untagLogGroup', 'CloudWatchLogs', Promise.reject(result), true, mock)
+  },
+  untagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'untagResource', 'CloudWatchLogs', Promise.resolve(result), true, mock)
+  },
+  untagResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'untagResource', 'CloudWatchLogs', Promise.resolve(result), false, mock)
+  },
+  untagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'untagResource', 'CloudWatchLogs', Promise.reject(result), true, mock)
+  },
+  updateAnomaly: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'updateAnomaly', 'CloudWatchLogs', Promise.resolve(result), true, mock)
+  },
+  updateAnomalyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'updateAnomaly', 'CloudWatchLogs', Promise.resolve(result), false, mock)
+  },
+  updateAnomalyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'updateAnomaly', 'CloudWatchLogs', Promise.reject(result), true, mock)
+  },
+  updateLogAnomalyDetector: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'updateLogAnomalyDetector', 'CloudWatchLogs', Promise.resolve(result), true, mock)
+  },
+  updateLogAnomalyDetectorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'updateLogAnomalyDetector', 'CloudWatchLogs', Promise.resolve(result), false, mock)
+  },
+  updateLogAnomalyDetectorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudwatch-logs', 'updateLogAnomalyDetector', 'CloudWatchLogs', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudwatch-logs', 'send', 'CloudWatchLogsClient', Promise.resolve(result), true, mock)

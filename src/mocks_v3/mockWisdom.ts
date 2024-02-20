@@ -15,17 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockWisdom = {
-  createAssistant: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-wisdom', 'createAssistant', 'Wisdom', Promise.resolve(result), true, mock)
-  },
-  createAssistantAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-wisdom', 'createAssistant', 'Wisdom', Promise.resolve(result), false, mock)
-  },
-  createAssistantThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-wisdom', 'createAssistant', 'Wisdom', Promise.reject(result), true, mock)
-  },
+export const mockWisdom = {
   createAssistantAssociation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wisdom', 'createAssistantAssociation', 'Wisdom', Promise.resolve(result), true, mock)
   },
@@ -34,6 +24,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createAssistantAssociationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wisdom', 'createAssistantAssociation', 'Wisdom', Promise.reject(result), true, mock)
+  },
+  createAssistant: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wisdom', 'createAssistant', 'Wisdom', Promise.resolve(result), true, mock)
+  },
+  createAssistantAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wisdom', 'createAssistant', 'Wisdom', Promise.resolve(result), false, mock)
+  },
+  createAssistantThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wisdom', 'createAssistant', 'Wisdom', Promise.reject(result), true, mock)
   },
   createContent: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wisdom', 'createContent', 'Wisdom', Promise.resolve(result), true, mock)
@@ -53,6 +52,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createKnowledgeBaseThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wisdom', 'createKnowledgeBase', 'Wisdom', Promise.reject(result), true, mock)
   },
+  createQuickResponse: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wisdom', 'createQuickResponse', 'Wisdom', Promise.resolve(result), true, mock)
+  },
+  createQuickResponseAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wisdom', 'createQuickResponse', 'Wisdom', Promise.resolve(result), false, mock)
+  },
+  createQuickResponseThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wisdom', 'createQuickResponse', 'Wisdom', Promise.reject(result), true, mock)
+  },
   createSession: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wisdom', 'createSession', 'Wisdom', Promise.resolve(result), true, mock)
   },
@@ -61,15 +69,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createSessionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wisdom', 'createSession', 'Wisdom', Promise.reject(result), true, mock)
-  },
-  deleteAssistant: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-wisdom', 'deleteAssistant', 'Wisdom', Promise.resolve(result), true, mock)
-  },
-  deleteAssistantAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-wisdom', 'deleteAssistant', 'Wisdom', Promise.resolve(result), false, mock)
-  },
-  deleteAssistantThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-wisdom', 'deleteAssistant', 'Wisdom', Promise.reject(result), true, mock)
   },
   deleteAssistantAssociation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wisdom', 'deleteAssistantAssociation', 'Wisdom', Promise.resolve(result), true, mock)
@@ -80,6 +79,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteAssistantAssociationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wisdom', 'deleteAssistantAssociation', 'Wisdom', Promise.reject(result), true, mock)
   },
+  deleteAssistant: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wisdom', 'deleteAssistant', 'Wisdom', Promise.resolve(result), true, mock)
+  },
+  deleteAssistantAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wisdom', 'deleteAssistant', 'Wisdom', Promise.resolve(result), false, mock)
+  },
+  deleteAssistantThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wisdom', 'deleteAssistant', 'Wisdom', Promise.reject(result), true, mock)
+  },
   deleteContent: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wisdom', 'deleteContent', 'Wisdom', Promise.resolve(result), true, mock)
   },
@@ -88,6 +96,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteContentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wisdom', 'deleteContent', 'Wisdom', Promise.reject(result), true, mock)
+  },
+  deleteImportJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wisdom', 'deleteImportJob', 'Wisdom', Promise.resolve(result), true, mock)
+  },
+  deleteImportJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wisdom', 'deleteImportJob', 'Wisdom', Promise.resolve(result), false, mock)
+  },
+  deleteImportJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wisdom', 'deleteImportJob', 'Wisdom', Promise.reject(result), true, mock)
   },
   deleteKnowledgeBase: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wisdom', 'deleteKnowledgeBase', 'Wisdom', Promise.resolve(result), true, mock)
@@ -98,23 +115,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteKnowledgeBaseThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wisdom', 'deleteKnowledgeBase', 'Wisdom', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-wisdom', 'destroy', 'Wisdom', Promise.resolve(result), true, mock)
+  deleteQuickResponse: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wisdom', 'deleteQuickResponse', 'Wisdom', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-wisdom', 'destroy', 'Wisdom', Promise.resolve(result), false, mock)
+  deleteQuickResponseAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wisdom', 'deleteQuickResponse', 'Wisdom', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-wisdom', 'destroy', 'Wisdom', Promise.reject(result), true, mock)
-  },
-  getAssistant: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-wisdom', 'getAssistant', 'Wisdom', Promise.resolve(result), true, mock)
-  },
-  getAssistantAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-wisdom', 'getAssistant', 'Wisdom', Promise.resolve(result), false, mock)
-  },
-  getAssistantThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-wisdom', 'getAssistant', 'Wisdom', Promise.reject(result), true, mock)
+  deleteQuickResponseThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wisdom', 'deleteQuickResponse', 'Wisdom', Promise.reject(result), true, mock)
   },
   getAssistantAssociation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wisdom', 'getAssistantAssociation', 'Wisdom', Promise.resolve(result), true, mock)
@@ -124,6 +132,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getAssistantAssociationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wisdom', 'getAssistantAssociation', 'Wisdom', Promise.reject(result), true, mock)
+  },
+  getAssistant: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wisdom', 'getAssistant', 'Wisdom', Promise.resolve(result), true, mock)
+  },
+  getAssistantAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wisdom', 'getAssistant', 'Wisdom', Promise.resolve(result), false, mock)
+  },
+  getAssistantThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wisdom', 'getAssistant', 'Wisdom', Promise.reject(result), true, mock)
   },
   getContent: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wisdom', 'getContent', 'Wisdom', Promise.resolve(result), true, mock)
@@ -143,6 +160,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getContentSummaryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wisdom', 'getContentSummary', 'Wisdom', Promise.reject(result), true, mock)
   },
+  getImportJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wisdom', 'getImportJob', 'Wisdom', Promise.resolve(result), true, mock)
+  },
+  getImportJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wisdom', 'getImportJob', 'Wisdom', Promise.resolve(result), false, mock)
+  },
+  getImportJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wisdom', 'getImportJob', 'Wisdom', Promise.reject(result), true, mock)
+  },
   getKnowledgeBase: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wisdom', 'getKnowledgeBase', 'Wisdom', Promise.resolve(result), true, mock)
   },
@@ -151,6 +177,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getKnowledgeBaseThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wisdom', 'getKnowledgeBase', 'Wisdom', Promise.reject(result), true, mock)
+  },
+  getQuickResponse: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wisdom', 'getQuickResponse', 'Wisdom', Promise.resolve(result), true, mock)
+  },
+  getQuickResponseAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wisdom', 'getQuickResponse', 'Wisdom', Promise.resolve(result), false, mock)
+  },
+  getQuickResponseThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wisdom', 'getQuickResponse', 'Wisdom', Promise.reject(result), true, mock)
   },
   getRecommendations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wisdom', 'getRecommendations', 'Wisdom', Promise.resolve(result), true, mock)
@@ -197,6 +232,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listContentsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wisdom', 'listContents', 'Wisdom', Promise.reject(result), true, mock)
   },
+  listImportJobs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wisdom', 'listImportJobs', 'Wisdom', Promise.resolve(result), true, mock)
+  },
+  listImportJobsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wisdom', 'listImportJobs', 'Wisdom', Promise.resolve(result), false, mock)
+  },
+  listImportJobsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wisdom', 'listImportJobs', 'Wisdom', Promise.reject(result), true, mock)
+  },
   listKnowledgeBases: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wisdom', 'listKnowledgeBases', 'Wisdom', Promise.resolve(result), true, mock)
   },
@@ -205,6 +249,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listKnowledgeBasesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wisdom', 'listKnowledgeBases', 'Wisdom', Promise.reject(result), true, mock)
+  },
+  listQuickResponses: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wisdom', 'listQuickResponses', 'Wisdom', Promise.resolve(result), true, mock)
+  },
+  listQuickResponsesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wisdom', 'listQuickResponses', 'Wisdom', Promise.resolve(result), false, mock)
+  },
+  listQuickResponsesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wisdom', 'listQuickResponses', 'Wisdom', Promise.reject(result), true, mock)
   },
   listTagsForResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wisdom', 'listTagsForResource', 'Wisdom', Promise.resolve(result), true, mock)
@@ -251,6 +304,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   searchContentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wisdom', 'searchContent', 'Wisdom', Promise.reject(result), true, mock)
   },
+  searchQuickResponses: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wisdom', 'searchQuickResponses', 'Wisdom', Promise.resolve(result), true, mock)
+  },
+  searchQuickResponsesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wisdom', 'searchQuickResponses', 'Wisdom', Promise.resolve(result), false, mock)
+  },
+  searchQuickResponsesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wisdom', 'searchQuickResponses', 'Wisdom', Promise.reject(result), true, mock)
+  },
   searchSessions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wisdom', 'searchSessions', 'Wisdom', Promise.resolve(result), true, mock)
   },
@@ -268,6 +330,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   startContentUploadThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wisdom', 'startContentUpload', 'Wisdom', Promise.reject(result), true, mock)
+  },
+  startImportJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wisdom', 'startImportJob', 'Wisdom', Promise.resolve(result), true, mock)
+  },
+  startImportJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wisdom', 'startImportJob', 'Wisdom', Promise.resolve(result), false, mock)
+  },
+  startImportJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wisdom', 'startImportJob', 'Wisdom', Promise.reject(result), true, mock)
   },
   tagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wisdom', 'tagResource', 'Wisdom', Promise.resolve(result), true, mock)
@@ -304,6 +375,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateKnowledgeBaseTemplateUriThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wisdom', 'updateKnowledgeBaseTemplateUri', 'Wisdom', Promise.reject(result), true, mock)
+  },
+  updateQuickResponse: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wisdom', 'updateQuickResponse', 'Wisdom', Promise.resolve(result), true, mock)
+  },
+  updateQuickResponseAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wisdom', 'updateQuickResponse', 'Wisdom', Promise.resolve(result), false, mock)
+  },
+  updateQuickResponseThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-wisdom', 'updateQuickResponse', 'Wisdom', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-wisdom', 'send', 'WisdomClient', Promise.resolve(result), true, mock)

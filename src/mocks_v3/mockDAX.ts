@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockDAX = {
+export const mockDAX = {
   createCluster: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-dax', 'createCluster', 'DAX', Promise.resolve(result), true, mock)
   },
@@ -133,15 +132,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeSubnetGroupsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-dax', 'describeSubnetGroups', 'DAX', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-dax', 'destroy', 'DAX', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-dax', 'destroy', 'DAX', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-dax', 'destroy', 'DAX', Promise.reject(result), true, mock)
   },
   increaseReplicationFactor: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-dax', 'increaseReplicationFactor', 'DAX', Promise.resolve(result), true, mock)

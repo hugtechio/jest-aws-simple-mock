@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockLookoutMetrics = {
+export const mockLookoutMetrics = {
   activateAnomalyDetector: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lookoutmetrics', 'activateAnomalyDetector', 'LookoutMetrics', Promise.resolve(result), true, mock)
   },
@@ -61,6 +60,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createMetricSetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lookoutmetrics', 'createMetricSet', 'LookoutMetrics', Promise.reject(result), true, mock)
+  },
+  deactivateAnomalyDetector: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lookoutmetrics', 'deactivateAnomalyDetector', 'LookoutMetrics', Promise.resolve(result), true, mock)
+  },
+  deactivateAnomalyDetectorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lookoutmetrics', 'deactivateAnomalyDetector', 'LookoutMetrics', Promise.resolve(result), false, mock)
+  },
+  deactivateAnomalyDetectorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lookoutmetrics', 'deactivateAnomalyDetector', 'LookoutMetrics', Promise.reject(result), true, mock)
   },
   deleteAlert: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lookoutmetrics', 'deleteAlert', 'LookoutMetrics', Promise.resolve(result), true, mock)
@@ -116,14 +124,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeMetricSetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lookoutmetrics', 'describeMetricSet', 'LookoutMetrics', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lookoutmetrics', 'destroy', 'LookoutMetrics', Promise.resolve(result), true, mock)
+  detectMetricSetConfig: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lookoutmetrics', 'detectMetricSetConfig', 'LookoutMetrics', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lookoutmetrics', 'destroy', 'LookoutMetrics', Promise.resolve(result), false, mock)
+  detectMetricSetConfigAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lookoutmetrics', 'detectMetricSetConfig', 'LookoutMetrics', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lookoutmetrics', 'destroy', 'LookoutMetrics', Promise.reject(result), true, mock)
+  detectMetricSetConfigThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lookoutmetrics', 'detectMetricSetConfig', 'LookoutMetrics', Promise.reject(result), true, mock)
   },
   getAnomalyGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lookoutmetrics', 'getAnomalyGroup', 'LookoutMetrics', Promise.resolve(result), true, mock)
@@ -133,6 +141,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getAnomalyGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lookoutmetrics', 'getAnomalyGroup', 'LookoutMetrics', Promise.reject(result), true, mock)
+  },
+  getDataQualityMetrics: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lookoutmetrics', 'getDataQualityMetrics', 'LookoutMetrics', Promise.resolve(result), true, mock)
+  },
+  getDataQualityMetricsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lookoutmetrics', 'getDataQualityMetrics', 'LookoutMetrics', Promise.resolve(result), false, mock)
+  },
+  getDataQualityMetricsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lookoutmetrics', 'getDataQualityMetrics', 'LookoutMetrics', Promise.reject(result), true, mock)
   },
   getFeedback: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lookoutmetrics', 'getFeedback', 'LookoutMetrics', Promise.resolve(result), true, mock)
@@ -169,6 +186,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listAnomalyDetectorsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lookoutmetrics', 'listAnomalyDetectors', 'LookoutMetrics', Promise.reject(result), true, mock)
+  },
+  listAnomalyGroupRelatedMetrics: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lookoutmetrics', 'listAnomalyGroupRelatedMetrics', 'LookoutMetrics', Promise.resolve(result), true, mock)
+  },
+  listAnomalyGroupRelatedMetricsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lookoutmetrics', 'listAnomalyGroupRelatedMetrics', 'LookoutMetrics', Promise.resolve(result), false, mock)
+  },
+  listAnomalyGroupRelatedMetricsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lookoutmetrics', 'listAnomalyGroupRelatedMetrics', 'LookoutMetrics', Promise.reject(result), true, mock)
   },
   listAnomalyGroupSummaries: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lookoutmetrics', 'listAnomalyGroupSummaries', 'LookoutMetrics', Promise.resolve(result), true, mock)
@@ -232,6 +258,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   untagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lookoutmetrics', 'untagResource', 'LookoutMetrics', Promise.reject(result), true, mock)
+  },
+  updateAlert: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lookoutmetrics', 'updateAlert', 'LookoutMetrics', Promise.resolve(result), true, mock)
+  },
+  updateAlertAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lookoutmetrics', 'updateAlert', 'LookoutMetrics', Promise.resolve(result), false, mock)
+  },
+  updateAlertThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lookoutmetrics', 'updateAlert', 'LookoutMetrics', Promise.reject(result), true, mock)
   },
   updateAnomalyDetector: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lookoutmetrics', 'updateAnomalyDetector', 'LookoutMetrics', Promise.resolve(result), true, mock)

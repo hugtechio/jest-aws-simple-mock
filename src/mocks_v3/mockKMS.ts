@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockKMS = {
+export const mockKMS = {
   cancelKeyDeletion: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kms', 'cancelKeyDeletion', 'KMS', Promise.resolve(result), true, mock)
   },
@@ -125,15 +124,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeKeyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kms', 'describeKey', 'KMS', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-kms', 'destroy', 'KMS', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-kms', 'destroy', 'KMS', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-kms', 'destroy', 'KMS', Promise.reject(result), true, mock)
-  },
   disableKey: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kms', 'disableKey', 'KMS', Promise.resolve(result), true, mock)
   },
@@ -223,6 +213,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   generateDataKeyWithoutPlaintextThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kms', 'generateDataKeyWithoutPlaintext', 'KMS', Promise.reject(result), true, mock)
+  },
+  generateMac: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kms', 'generateMac', 'KMS', Promise.resolve(result), true, mock)
+  },
+  generateMacAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kms', 'generateMac', 'KMS', Promise.resolve(result), false, mock)
+  },
+  generateMacThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kms', 'generateMac', 'KMS', Promise.reject(result), true, mock)
   },
   generateRandom: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kms', 'generateRandom', 'KMS', Promise.resolve(result), true, mock)
@@ -457,6 +456,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   verifyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kms', 'verify', 'KMS', Promise.reject(result), true, mock)
+  },
+  verifyMac: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kms', 'verifyMac', 'KMS', Promise.resolve(result), true, mock)
+  },
+  verifyMacAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kms', 'verifyMac', 'KMS', Promise.resolve(result), false, mock)
+  },
+  verifyMacThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kms', 'verifyMac', 'KMS', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kms', 'send', 'KMSClient', Promise.resolve(result), true, mock)

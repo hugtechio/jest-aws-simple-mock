@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockRoute53Resolver = {
+export const mockRoute53Resolver = {
   associateFirewallRuleGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route53resolver', 'associateFirewallRuleGroup', 'Route53Resolver', Promise.resolve(result), true, mock)
   },
@@ -80,6 +79,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createFirewallRuleGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route53resolver', 'createFirewallRuleGroup', 'Route53Resolver', Promise.reject(result), true, mock)
   },
+  createOutpostResolver: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route53resolver', 'createOutpostResolver', 'Route53Resolver', Promise.resolve(result), true, mock)
+  },
+  createOutpostResolverAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route53resolver', 'createOutpostResolver', 'Route53Resolver', Promise.resolve(result), false, mock)
+  },
+  createOutpostResolverThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route53resolver', 'createOutpostResolver', 'Route53Resolver', Promise.reject(result), true, mock)
+  },
   createResolverEndpoint: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route53resolver', 'createResolverEndpoint', 'Route53Resolver', Promise.resolve(result), true, mock)
   },
@@ -134,6 +142,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteFirewallRuleGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route53resolver', 'deleteFirewallRuleGroup', 'Route53Resolver', Promise.reject(result), true, mock)
   },
+  deleteOutpostResolver: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route53resolver', 'deleteOutpostResolver', 'Route53Resolver', Promise.resolve(result), true, mock)
+  },
+  deleteOutpostResolverAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route53resolver', 'deleteOutpostResolver', 'Route53Resolver', Promise.resolve(result), false, mock)
+  },
+  deleteOutpostResolverThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route53resolver', 'deleteOutpostResolver', 'Route53Resolver', Promise.reject(result), true, mock)
+  },
   deleteResolverEndpoint: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route53resolver', 'deleteResolverEndpoint', 'Route53Resolver', Promise.resolve(result), true, mock)
   },
@@ -160,15 +177,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteResolverRuleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route53resolver', 'deleteResolverRule', 'Route53Resolver', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-route53resolver', 'destroy', 'Route53Resolver', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-route53resolver', 'destroy', 'Route53Resolver', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-route53resolver', 'destroy', 'Route53Resolver', Promise.reject(result), true, mock)
   },
   disassociateFirewallRuleGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route53resolver', 'disassociateFirewallRuleGroup', 'Route53Resolver', Promise.resolve(result), true, mock)
@@ -224,15 +232,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getFirewallDomainListThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route53resolver', 'getFirewallDomainList', 'Route53Resolver', Promise.reject(result), true, mock)
   },
-  getFirewallRuleGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-route53resolver', 'getFirewallRuleGroup', 'Route53Resolver', Promise.resolve(result), true, mock)
-  },
-  getFirewallRuleGroupAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-route53resolver', 'getFirewallRuleGroup', 'Route53Resolver', Promise.resolve(result), false, mock)
-  },
-  getFirewallRuleGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-route53resolver', 'getFirewallRuleGroup', 'Route53Resolver', Promise.reject(result), true, mock)
-  },
   getFirewallRuleGroupAssociation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route53resolver', 'getFirewallRuleGroupAssociation', 'Route53Resolver', Promise.resolve(result), true, mock)
   },
@@ -242,6 +241,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getFirewallRuleGroupAssociationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route53resolver', 'getFirewallRuleGroupAssociation', 'Route53Resolver', Promise.reject(result), true, mock)
   },
+  getFirewallRuleGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route53resolver', 'getFirewallRuleGroup', 'Route53Resolver', Promise.resolve(result), true, mock)
+  },
+  getFirewallRuleGroupAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route53resolver', 'getFirewallRuleGroup', 'Route53Resolver', Promise.resolve(result), false, mock)
+  },
+  getFirewallRuleGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route53resolver', 'getFirewallRuleGroup', 'Route53Resolver', Promise.reject(result), true, mock)
+  },
   getFirewallRuleGroupPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route53resolver', 'getFirewallRuleGroupPolicy', 'Route53Resolver', Promise.resolve(result), true, mock)
   },
@@ -250,6 +258,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getFirewallRuleGroupPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route53resolver', 'getFirewallRuleGroupPolicy', 'Route53Resolver', Promise.reject(result), true, mock)
+  },
+  getOutpostResolver: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route53resolver', 'getOutpostResolver', 'Route53Resolver', Promise.resolve(result), true, mock)
+  },
+  getOutpostResolverAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route53resolver', 'getOutpostResolver', 'Route53Resolver', Promise.resolve(result), false, mock)
+  },
+  getOutpostResolverThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route53resolver', 'getOutpostResolver', 'Route53Resolver', Promise.reject(result), true, mock)
   },
   getResolverConfig: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route53resolver', 'getResolverConfig', 'Route53Resolver', Promise.resolve(result), true, mock)
@@ -278,15 +295,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getResolverEndpointThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route53resolver', 'getResolverEndpoint', 'Route53Resolver', Promise.reject(result), true, mock)
   },
-  getResolverQueryLogConfig: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-route53resolver', 'getResolverQueryLogConfig', 'Route53Resolver', Promise.resolve(result), true, mock)
-  },
-  getResolverQueryLogConfigAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-route53resolver', 'getResolverQueryLogConfig', 'Route53Resolver', Promise.resolve(result), false, mock)
-  },
-  getResolverQueryLogConfigThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-route53resolver', 'getResolverQueryLogConfig', 'Route53Resolver', Promise.reject(result), true, mock)
-  },
   getResolverQueryLogConfigAssociation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route53resolver', 'getResolverQueryLogConfigAssociation', 'Route53Resolver', Promise.resolve(result), true, mock)
   },
@@ -295,6 +303,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getResolverQueryLogConfigAssociationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route53resolver', 'getResolverQueryLogConfigAssociation', 'Route53Resolver', Promise.reject(result), true, mock)
+  },
+  getResolverQueryLogConfig: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route53resolver', 'getResolverQueryLogConfig', 'Route53Resolver', Promise.resolve(result), true, mock)
+  },
+  getResolverQueryLogConfigAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route53resolver', 'getResolverQueryLogConfig', 'Route53Resolver', Promise.resolve(result), false, mock)
+  },
+  getResolverQueryLogConfigThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route53resolver', 'getResolverQueryLogConfig', 'Route53Resolver', Promise.reject(result), true, mock)
   },
   getResolverQueryLogConfigPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route53resolver', 'getResolverQueryLogConfigPolicy', 'Route53Resolver', Promise.resolve(result), true, mock)
@@ -305,15 +322,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getResolverQueryLogConfigPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route53resolver', 'getResolverQueryLogConfigPolicy', 'Route53Resolver', Promise.reject(result), true, mock)
   },
-  getResolverRule: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-route53resolver', 'getResolverRule', 'Route53Resolver', Promise.resolve(result), true, mock)
-  },
-  getResolverRuleAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-route53resolver', 'getResolverRule', 'Route53Resolver', Promise.resolve(result), false, mock)
-  },
-  getResolverRuleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-route53resolver', 'getResolverRule', 'Route53Resolver', Promise.reject(result), true, mock)
-  },
   getResolverRuleAssociation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route53resolver', 'getResolverRuleAssociation', 'Route53Resolver', Promise.resolve(result), true, mock)
   },
@@ -322,6 +330,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getResolverRuleAssociationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route53resolver', 'getResolverRuleAssociation', 'Route53Resolver', Promise.reject(result), true, mock)
+  },
+  getResolverRule: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route53resolver', 'getResolverRule', 'Route53Resolver', Promise.resolve(result), true, mock)
+  },
+  getResolverRuleAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route53resolver', 'getResolverRule', 'Route53Resolver', Promise.resolve(result), false, mock)
+  },
+  getResolverRuleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route53resolver', 'getResolverRule', 'Route53Resolver', Promise.reject(result), true, mock)
   },
   getResolverRulePolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route53resolver', 'getResolverRulePolicy', 'Route53Resolver', Promise.resolve(result), true, mock)
@@ -394,6 +411,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listFirewallRulesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route53resolver', 'listFirewallRules', 'Route53Resolver', Promise.reject(result), true, mock)
+  },
+  listOutpostResolvers: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route53resolver', 'listOutpostResolvers', 'Route53Resolver', Promise.resolve(result), true, mock)
+  },
+  listOutpostResolversAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route53resolver', 'listOutpostResolvers', 'Route53Resolver', Promise.resolve(result), false, mock)
+  },
+  listOutpostResolversThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route53resolver', 'listOutpostResolvers', 'Route53Resolver', Promise.reject(result), true, mock)
   },
   listResolverConfigs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route53resolver', 'listResolverConfigs', 'Route53Resolver', Promise.resolve(result), true, mock)
@@ -556,6 +582,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateFirewallRuleGroupAssociationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route53resolver', 'updateFirewallRuleGroupAssociation', 'Route53Resolver', Promise.reject(result), true, mock)
+  },
+  updateOutpostResolver: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route53resolver', 'updateOutpostResolver', 'Route53Resolver', Promise.resolve(result), true, mock)
+  },
+  updateOutpostResolverAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route53resolver', 'updateOutpostResolver', 'Route53Resolver', Promise.resolve(result), false, mock)
+  },
+  updateOutpostResolverThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route53resolver', 'updateOutpostResolver', 'Route53Resolver', Promise.reject(result), true, mock)
   },
   updateResolverConfig: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route53resolver', 'updateResolverConfig', 'Route53Resolver', Promise.resolve(result), true, mock)

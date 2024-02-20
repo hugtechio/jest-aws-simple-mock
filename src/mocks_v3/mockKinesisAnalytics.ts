@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockKinesisAnalytics = {
+export const mockKinesisAnalytics = {
   addApplicationCloudWatchLoggingOption: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kinesis-analytics', 'addApplicationCloudWatchLoggingOption', 'KinesisAnalytics', Promise.resolve(result), true, mock)
   },
@@ -71,15 +70,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createApplicationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kinesis-analytics', 'createApplication', 'KinesisAnalytics', Promise.reject(result), true, mock)
   },
-  deleteApplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-kinesis-analytics', 'deleteApplication', 'KinesisAnalytics', Promise.resolve(result), true, mock)
-  },
-  deleteApplicationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-kinesis-analytics', 'deleteApplication', 'KinesisAnalytics', Promise.resolve(result), false, mock)
-  },
-  deleteApplicationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-kinesis-analytics', 'deleteApplication', 'KinesisAnalytics', Promise.reject(result), true, mock)
-  },
   deleteApplicationCloudWatchLoggingOption: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kinesis-analytics', 'deleteApplicationCloudWatchLoggingOption', 'KinesisAnalytics', Promise.resolve(result), true, mock)
   },
@@ -88,6 +78,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteApplicationCloudWatchLoggingOptionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kinesis-analytics', 'deleteApplicationCloudWatchLoggingOption', 'KinesisAnalytics', Promise.reject(result), true, mock)
+  },
+  deleteApplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kinesis-analytics', 'deleteApplication', 'KinesisAnalytics', Promise.resolve(result), true, mock)
+  },
+  deleteApplicationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kinesis-analytics', 'deleteApplication', 'KinesisAnalytics', Promise.resolve(result), false, mock)
+  },
+  deleteApplicationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kinesis-analytics', 'deleteApplication', 'KinesisAnalytics', Promise.reject(result), true, mock)
   },
   deleteApplicationInputProcessingConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kinesis-analytics', 'deleteApplicationInputProcessingConfiguration', 'KinesisAnalytics', Promise.resolve(result), true, mock)
@@ -124,15 +123,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeApplicationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kinesis-analytics', 'describeApplication', 'KinesisAnalytics', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-kinesis-analytics', 'destroy', 'KinesisAnalytics', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-kinesis-analytics', 'destroy', 'KinesisAnalytics', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-kinesis-analytics', 'destroy', 'KinesisAnalytics', Promise.reject(result), true, mock)
   },
   discoverInputSchema: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kinesis-analytics', 'discoverInputSchema', 'KinesisAnalytics', Promise.resolve(result), true, mock)

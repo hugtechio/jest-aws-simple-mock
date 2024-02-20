@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockStorageGateway = {
+export const mockStorageGateway = {
   activateGateway: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-storage-gateway', 'activateGateway', 'StorageGateway', Promise.resolve(result), true, mock)
   },
@@ -242,15 +241,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteSnapshotScheduleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-storage-gateway', 'deleteSnapshotSchedule', 'StorageGateway', Promise.reject(result), true, mock)
   },
-  deleteTape: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-storage-gateway', 'deleteTape', 'StorageGateway', Promise.resolve(result), true, mock)
-  },
-  deleteTapeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-storage-gateway', 'deleteTape', 'StorageGateway', Promise.resolve(result), false, mock)
-  },
-  deleteTapeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-storage-gateway', 'deleteTape', 'StorageGateway', Promise.reject(result), true, mock)
-  },
   deleteTapeArchive: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-storage-gateway', 'deleteTapeArchive', 'StorageGateway', Promise.resolve(result), true, mock)
   },
@@ -259,6 +249,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteTapeArchiveThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-storage-gateway', 'deleteTapeArchive', 'StorageGateway', Promise.reject(result), true, mock)
+  },
+  deleteTape: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-storage-gateway', 'deleteTape', 'StorageGateway', Promise.resolve(result), true, mock)
+  },
+  deleteTapeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-storage-gateway', 'deleteTape', 'StorageGateway', Promise.resolve(result), false, mock)
+  },
+  deleteTapeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-storage-gateway', 'deleteTape', 'StorageGateway', Promise.reject(result), true, mock)
   },
   deleteTapePool: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-storage-gateway', 'deleteTapePool', 'StorageGateway', Promise.resolve(result), true, mock)
@@ -457,15 +456,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeWorkingStorageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-storage-gateway', 'describeWorkingStorage', 'StorageGateway', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-storage-gateway', 'destroy', 'StorageGateway', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-storage-gateway', 'destroy', 'StorageGateway', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-storage-gateway', 'destroy', 'StorageGateway', Promise.reject(result), true, mock)
   },
   detachVolume: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-storage-gateway', 'detachVolume', 'StorageGateway', Promise.resolve(result), true, mock)

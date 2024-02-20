@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockFirehose = {
+export const mockFirehose = {
   createDeliveryStream: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-firehose', 'createDeliveryStream', 'Firehose', Promise.resolve(result), true, mock)
   },
@@ -44,15 +43,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeDeliveryStreamThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-firehose', 'describeDeliveryStream', 'Firehose', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-firehose', 'destroy', 'Firehose', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-firehose', 'destroy', 'Firehose', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-firehose', 'destroy', 'Firehose', Promise.reject(result), true, mock)
-  },
   listDeliveryStreams: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-firehose', 'listDeliveryStreams', 'Firehose', Promise.resolve(result), true, mock)
   },
@@ -71,15 +61,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listTagsForDeliveryStreamThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-firehose', 'listTagsForDeliveryStream', 'Firehose', Promise.reject(result), true, mock)
   },
-  putRecord: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-firehose', 'putRecord', 'Firehose', Promise.resolve(result), true, mock)
-  },
-  putRecordAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-firehose', 'putRecord', 'Firehose', Promise.resolve(result), false, mock)
-  },
-  putRecordThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-firehose', 'putRecord', 'Firehose', Promise.reject(result), true, mock)
-  },
   putRecordBatch: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-firehose', 'putRecordBatch', 'Firehose', Promise.resolve(result), true, mock)
   },
@@ -88,6 +69,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   putRecordBatchThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-firehose', 'putRecordBatch', 'Firehose', Promise.reject(result), true, mock)
+  },
+  putRecord: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-firehose', 'putRecord', 'Firehose', Promise.resolve(result), true, mock)
+  },
+  putRecordAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-firehose', 'putRecord', 'Firehose', Promise.resolve(result), false, mock)
+  },
+  putRecordThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-firehose', 'putRecord', 'Firehose', Promise.reject(result), true, mock)
   },
   startDeliveryStreamEncryption: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-firehose', 'startDeliveryStreamEncryption', 'Firehose', Promise.resolve(result), true, mock)

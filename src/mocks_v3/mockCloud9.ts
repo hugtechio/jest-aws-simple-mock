@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockCloud9 = {
+export const mockCloud9 = {
   createEnvironmentEC2: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloud9', 'createEnvironmentEC2', 'Cloud9', Promise.resolve(result), true, mock)
   },
@@ -79,15 +78,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeEnvironmentsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloud9', 'describeEnvironments', 'Cloud9', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cloud9', 'destroy', 'Cloud9', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cloud9', 'destroy', 'Cloud9', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cloud9', 'destroy', 'Cloud9', Promise.reject(result), true, mock)
   },
   listEnvironments: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloud9', 'listEnvironments', 'Cloud9', Promise.resolve(result), true, mock)

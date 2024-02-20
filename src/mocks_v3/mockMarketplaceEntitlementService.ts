@@ -15,17 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockMarketplaceEntitlementService = {
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-marketplace-entitlement-service', 'destroy', 'MarketplaceEntitlementService', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-marketplace-entitlement-service', 'destroy', 'MarketplaceEntitlementService', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-marketplace-entitlement-service', 'destroy', 'MarketplaceEntitlementService', Promise.reject(result), true, mock)
-  },
+export const mockMarketplaceEntitlementService = {
   getEntitlements: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-marketplace-entitlement-service', 'getEntitlements', 'MarketplaceEntitlementService', Promise.resolve(result), true, mock)
   },

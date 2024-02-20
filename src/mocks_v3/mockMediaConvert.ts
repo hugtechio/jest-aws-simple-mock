@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockMediaConvert = {
+export const mockMediaConvert = {
   associateCertificate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mediaconvert', 'associateCertificate', 'MediaConvert', Promise.resolve(result), true, mock)
   },
@@ -115,15 +114,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeEndpointsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mediaconvert', 'describeEndpoints', 'MediaConvert', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-mediaconvert', 'destroy', 'MediaConvert', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-mediaconvert', 'destroy', 'MediaConvert', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-mediaconvert', 'destroy', 'MediaConvert', Promise.reject(result), true, mock)
   },
   disassociateCertificate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mediaconvert', 'disassociateCertificate', 'MediaConvert', Promise.resolve(result), true, mock)

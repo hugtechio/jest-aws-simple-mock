@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockSigner = {
+export const mockSigner = {
   addProfilePermission: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-signer', 'addProfilePermission', 'Signer', Promise.resolve(result), true, mock)
   },
@@ -44,14 +43,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeSigningJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-signer', 'describeSigningJob', 'Signer', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-signer', 'destroy', 'Signer', Promise.resolve(result), true, mock)
+  getRevocationStatus: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-signer', 'getRevocationStatus', 'Signer', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-signer', 'destroy', 'Signer', Promise.resolve(result), false, mock)
+  getRevocationStatusAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-signer', 'getRevocationStatus', 'Signer', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-signer', 'destroy', 'Signer', Promise.reject(result), true, mock)
+  getRevocationStatusThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-signer', 'getRevocationStatus', 'Signer', Promise.reject(result), true, mock)
   },
   getSigningPlatform: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-signer', 'getSigningPlatform', 'Signer', Promise.resolve(result), true, mock)
@@ -151,6 +150,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   revokeSigningProfileThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-signer', 'revokeSigningProfile', 'Signer', Promise.reject(result), true, mock)
+  },
+  signPayload: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-signer', 'signPayload', 'Signer', Promise.resolve(result), true, mock)
+  },
+  signPayloadAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-signer', 'signPayload', 'Signer', Promise.resolve(result), false, mock)
+  },
+  signPayloadThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-signer', 'signPayload', 'Signer', Promise.reject(result), true, mock)
   },
   startSigningJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-signer', 'startSigningJob', 'Signer', Promise.resolve(result), true, mock)

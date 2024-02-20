@@ -15,16 +15,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockPersonalizeRuntime = {
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-personalize-runtime', 'destroy', 'PersonalizeRuntime', Promise.resolve(result), true, mock)
+export const mockPersonalizeRuntime = {
+  getActionRecommendations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize-runtime', 'getActionRecommendations', 'PersonalizeRuntime', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-personalize-runtime', 'destroy', 'PersonalizeRuntime', Promise.resolve(result), false, mock)
+  getActionRecommendationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize-runtime', 'getActionRecommendations', 'PersonalizeRuntime', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-personalize-runtime', 'destroy', 'PersonalizeRuntime', Promise.reject(result), true, mock)
+  getActionRecommendationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize-runtime', 'getActionRecommendations', 'PersonalizeRuntime', Promise.reject(result), true, mock)
   },
   getPersonalizedRanking: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-personalize-runtime', 'getPersonalizedRanking', 'PersonalizeRuntime', Promise.resolve(result), true, mock)

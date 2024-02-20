@@ -15,8 +15,34 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockLexModelsV2 = {
+export const mockLexModelsV2 = {
+  batchCreateCustomVocabularyItem: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'batchCreateCustomVocabularyItem', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  batchCreateCustomVocabularyItemAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'batchCreateCustomVocabularyItem', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  batchCreateCustomVocabularyItemThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'batchCreateCustomVocabularyItem', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
+  batchDeleteCustomVocabularyItem: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'batchDeleteCustomVocabularyItem', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  batchDeleteCustomVocabularyItemAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'batchDeleteCustomVocabularyItem', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  batchDeleteCustomVocabularyItemThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'batchDeleteCustomVocabularyItem', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
+  batchUpdateCustomVocabularyItem: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'batchUpdateCustomVocabularyItem', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  batchUpdateCustomVocabularyItemAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'batchUpdateCustomVocabularyItem', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  batchUpdateCustomVocabularyItemThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'batchUpdateCustomVocabularyItem', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
   buildBotLocale: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'buildBotLocale', 'LexModelsV2', Promise.resolve(result), true, mock)
   },
@@ -25,15 +51,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   buildBotLocaleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'buildBotLocale', 'LexModelsV2', Promise.reject(result), true, mock)
-  },
-  createBot: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lex-models-v2', 'createBot', 'LexModelsV2', Promise.resolve(result), true, mock)
-  },
-  createBotAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lex-models-v2', 'createBot', 'LexModelsV2', Promise.resolve(result), false, mock)
-  },
-  createBotThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lex-models-v2', 'createBot', 'LexModelsV2', Promise.reject(result), true, mock)
   },
   createBotAlias: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'createBotAlias', 'LexModelsV2', Promise.resolve(result), true, mock)
@@ -44,6 +61,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createBotAliasThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'createBotAlias', 'LexModelsV2', Promise.reject(result), true, mock)
   },
+  createBot: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'createBot', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  createBotAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'createBot', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  createBotThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'createBot', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
   createBotLocale: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'createBotLocale', 'LexModelsV2', Promise.resolve(result), true, mock)
   },
@@ -52,6 +78,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createBotLocaleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'createBotLocale', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
+  createBotReplica: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'createBotReplica', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  createBotReplicaAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'createBotReplica', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  createBotReplicaThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'createBotReplica', 'LexModelsV2', Promise.reject(result), true, mock)
   },
   createBotVersion: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'createBotVersion', 'LexModelsV2', Promise.resolve(result), true, mock)
@@ -116,6 +151,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createSlotTypeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'createSlotType', 'LexModelsV2', Promise.reject(result), true, mock)
   },
+  createTestSetDiscrepancyReport: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'createTestSetDiscrepancyReport', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  createTestSetDiscrepancyReportAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'createTestSetDiscrepancyReport', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  createTestSetDiscrepancyReportThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'createTestSetDiscrepancyReport', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
   createUploadUrl: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'createUploadUrl', 'LexModelsV2', Promise.resolve(result), true, mock)
   },
@@ -124,15 +168,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createUploadUrlThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'createUploadUrl', 'LexModelsV2', Promise.reject(result), true, mock)
-  },
-  deleteBot: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lex-models-v2', 'deleteBot', 'LexModelsV2', Promise.resolve(result), true, mock)
-  },
-  deleteBotAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lex-models-v2', 'deleteBot', 'LexModelsV2', Promise.resolve(result), false, mock)
-  },
-  deleteBotThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lex-models-v2', 'deleteBot', 'LexModelsV2', Promise.reject(result), true, mock)
   },
   deleteBotAlias: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'deleteBotAlias', 'LexModelsV2', Promise.resolve(result), true, mock)
@@ -143,6 +178,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteBotAliasThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'deleteBotAlias', 'LexModelsV2', Promise.reject(result), true, mock)
   },
+  deleteBot: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'deleteBot', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  deleteBotAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'deleteBot', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  deleteBotThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'deleteBot', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
   deleteBotLocale: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'deleteBotLocale', 'LexModelsV2', Promise.resolve(result), true, mock)
   },
@@ -152,6 +196,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteBotLocaleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'deleteBotLocale', 'LexModelsV2', Promise.reject(result), true, mock)
   },
+  deleteBotReplica: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'deleteBotReplica', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  deleteBotReplicaAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'deleteBotReplica', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  deleteBotReplicaThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'deleteBotReplica', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
   deleteBotVersion: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'deleteBotVersion', 'LexModelsV2', Promise.resolve(result), true, mock)
   },
@@ -160,6 +213,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteBotVersionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'deleteBotVersion', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
+  deleteCustomVocabulary: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'deleteCustomVocabulary', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  deleteCustomVocabularyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'deleteCustomVocabulary', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  deleteCustomVocabularyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'deleteCustomVocabulary', 'LexModelsV2', Promise.reject(result), true, mock)
   },
   deleteExport: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'deleteExport', 'LexModelsV2', Promise.resolve(result), true, mock)
@@ -224,6 +286,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteSlotTypeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'deleteSlotType', 'LexModelsV2', Promise.reject(result), true, mock)
   },
+  deleteTestSet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'deleteTestSet', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  deleteTestSetAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'deleteTestSet', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  deleteTestSetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'deleteTestSet', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
   deleteUtterances: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'deleteUtterances', 'LexModelsV2', Promise.resolve(result), true, mock)
   },
@@ -232,15 +303,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteUtterancesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'deleteUtterances', 'LexModelsV2', Promise.reject(result), true, mock)
-  },
-  describeBot: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lex-models-v2', 'describeBot', 'LexModelsV2', Promise.resolve(result), true, mock)
-  },
-  describeBotAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lex-models-v2', 'describeBot', 'LexModelsV2', Promise.resolve(result), false, mock)
-  },
-  describeBotThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lex-models-v2', 'describeBot', 'LexModelsV2', Promise.reject(result), true, mock)
   },
   describeBotAlias: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'describeBotAlias', 'LexModelsV2', Promise.resolve(result), true, mock)
@@ -251,6 +313,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeBotAliasThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'describeBotAlias', 'LexModelsV2', Promise.reject(result), true, mock)
   },
+  describeBot: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'describeBot', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  describeBotAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'describeBot', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  describeBotThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'describeBot', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
   describeBotLocale: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'describeBotLocale', 'LexModelsV2', Promise.resolve(result), true, mock)
   },
@@ -260,6 +331,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeBotLocaleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'describeBotLocale', 'LexModelsV2', Promise.reject(result), true, mock)
   },
+  describeBotRecommendation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'describeBotRecommendation', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  describeBotRecommendationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'describeBotRecommendation', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  describeBotRecommendationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'describeBotRecommendation', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
+  describeBotReplica: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'describeBotReplica', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  describeBotReplicaAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'describeBotReplica', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  describeBotReplicaThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'describeBotReplica', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
+  describeBotResourceGeneration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'describeBotResourceGeneration', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  describeBotResourceGenerationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'describeBotResourceGeneration', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  describeBotResourceGenerationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'describeBotResourceGeneration', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
   describeBotVersion: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'describeBotVersion', 'LexModelsV2', Promise.resolve(result), true, mock)
   },
@@ -268,6 +366,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeBotVersionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'describeBotVersion', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
+  describeCustomVocabularyMetadata: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'describeCustomVocabularyMetadata', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  describeCustomVocabularyMetadataAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'describeCustomVocabularyMetadata', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  describeCustomVocabularyMetadataThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'describeCustomVocabularyMetadata', 'LexModelsV2', Promise.reject(result), true, mock)
   },
   describeExport: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'describeExport', 'LexModelsV2', Promise.resolve(result), true, mock)
@@ -323,14 +430,59 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeSlotTypeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'describeSlotType', 'LexModelsV2', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lex-models-v2', 'destroy', 'LexModelsV2', Promise.resolve(result), true, mock)
+  describeTestExecution: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'describeTestExecution', 'LexModelsV2', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lex-models-v2', 'destroy', 'LexModelsV2', Promise.resolve(result), false, mock)
+  describeTestExecutionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'describeTestExecution', 'LexModelsV2', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lex-models-v2', 'destroy', 'LexModelsV2', Promise.reject(result), true, mock)
+  describeTestExecutionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'describeTestExecution', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
+  describeTestSet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'describeTestSet', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  describeTestSetAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'describeTestSet', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  describeTestSetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'describeTestSet', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
+  describeTestSetDiscrepancyReport: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'describeTestSetDiscrepancyReport', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  describeTestSetDiscrepancyReportAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'describeTestSetDiscrepancyReport', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  describeTestSetDiscrepancyReportThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'describeTestSetDiscrepancyReport', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
+  describeTestSetGeneration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'describeTestSetGeneration', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  describeTestSetGenerationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'describeTestSetGeneration', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  describeTestSetGenerationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'describeTestSetGeneration', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
+  generateBotElement: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'generateBotElement', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  generateBotElementAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'generateBotElement', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  generateBotElementThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'generateBotElement', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
+  getTestExecutionArtifactsUrl: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'getTestExecutionArtifactsUrl', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  getTestExecutionArtifactsUrlAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'getTestExecutionArtifactsUrl', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  getTestExecutionArtifactsUrlThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'getTestExecutionArtifactsUrl', 'LexModelsV2', Promise.reject(result), true, mock)
   },
   listAggregatedUtterances: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'listAggregatedUtterances', 'LexModelsV2', Promise.resolve(result), true, mock)
@@ -340,6 +492,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listAggregatedUtterancesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'listAggregatedUtterances', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
+  listBotAliasReplicas: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listBotAliasReplicas', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  listBotAliasReplicasAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listBotAliasReplicas', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  listBotAliasReplicasThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listBotAliasReplicas', 'LexModelsV2', Promise.reject(result), true, mock)
   },
   listBotAliases: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'listBotAliases', 'LexModelsV2', Promise.resolve(result), true, mock)
@@ -358,6 +519,42 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listBotLocalesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'listBotLocales', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
+  listBotRecommendations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listBotRecommendations', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  listBotRecommendationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listBotRecommendations', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  listBotRecommendationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listBotRecommendations', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
+  listBotReplicas: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listBotReplicas', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  listBotReplicasAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listBotReplicas', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  listBotReplicasThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listBotReplicas', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
+  listBotResourceGenerations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listBotResourceGenerations', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  listBotResourceGenerationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listBotResourceGenerations', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  listBotResourceGenerationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listBotResourceGenerations', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
+  listBotVersionReplicas: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listBotVersionReplicas', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  listBotVersionReplicasAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listBotVersionReplicas', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  listBotVersionReplicasThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listBotVersionReplicas', 'LexModelsV2', Promise.reject(result), true, mock)
   },
   listBotVersions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'listBotVersions', 'LexModelsV2', Promise.resolve(result), true, mock)
@@ -395,6 +592,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listBuiltInSlotTypesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'listBuiltInSlotTypes', 'LexModelsV2', Promise.reject(result), true, mock)
   },
+  listCustomVocabularyItems: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listCustomVocabularyItems', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  listCustomVocabularyItemsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listCustomVocabularyItems', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  listCustomVocabularyItemsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listCustomVocabularyItems', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
   listExports: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'listExports', 'LexModelsV2', Promise.resolve(result), true, mock)
   },
@@ -413,6 +619,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listImportsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'listImports', 'LexModelsV2', Promise.reject(result), true, mock)
   },
+  listIntentMetrics: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listIntentMetrics', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  listIntentMetricsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listIntentMetrics', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  listIntentMetricsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listIntentMetrics', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
+  listIntentPaths: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listIntentPaths', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  listIntentPathsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listIntentPaths', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  listIntentPathsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listIntentPaths', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
+  listIntentStageMetrics: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listIntentStageMetrics', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  listIntentStageMetricsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listIntentStageMetrics', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  listIntentStageMetricsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listIntentStageMetrics', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
   listIntents: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'listIntents', 'LexModelsV2', Promise.resolve(result), true, mock)
   },
@@ -421,6 +654,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listIntentsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'listIntents', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
+  listRecommendedIntents: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listRecommendedIntents', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  listRecommendedIntentsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listRecommendedIntents', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  listRecommendedIntentsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listRecommendedIntents', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
+  listSessionAnalyticsData: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listSessionAnalyticsData', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  listSessionAnalyticsDataAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listSessionAnalyticsData', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  listSessionAnalyticsDataThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listSessionAnalyticsData', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
+  listSessionMetrics: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listSessionMetrics', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  listSessionMetricsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listSessionMetrics', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  listSessionMetricsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listSessionMetrics', 'LexModelsV2', Promise.reject(result), true, mock)
   },
   listSlotTypes: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'listSlotTypes', 'LexModelsV2', Promise.resolve(result), true, mock)
@@ -449,6 +709,87 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listTagsForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'listTagsForResource', 'LexModelsV2', Promise.reject(result), true, mock)
   },
+  listTestExecutionResultItems: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listTestExecutionResultItems', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  listTestExecutionResultItemsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listTestExecutionResultItems', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  listTestExecutionResultItemsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listTestExecutionResultItems', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
+  listTestExecutions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listTestExecutions', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  listTestExecutionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listTestExecutions', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  listTestExecutionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listTestExecutions', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
+  listTestSetRecords: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listTestSetRecords', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  listTestSetRecordsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listTestSetRecords', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  listTestSetRecordsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listTestSetRecords', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
+  listTestSets: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listTestSets', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  listTestSetsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listTestSets', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  listTestSetsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listTestSets', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
+  listUtteranceAnalyticsData: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listUtteranceAnalyticsData', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  listUtteranceAnalyticsDataAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listUtteranceAnalyticsData', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  listUtteranceAnalyticsDataThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listUtteranceAnalyticsData', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
+  listUtteranceMetrics: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listUtteranceMetrics', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  listUtteranceMetricsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listUtteranceMetrics', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  listUtteranceMetricsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'listUtteranceMetrics', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
+  searchAssociatedTranscripts: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'searchAssociatedTranscripts', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  searchAssociatedTranscriptsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'searchAssociatedTranscripts', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  searchAssociatedTranscriptsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'searchAssociatedTranscripts', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
+  startBotRecommendation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'startBotRecommendation', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  startBotRecommendationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'startBotRecommendation', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  startBotRecommendationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'startBotRecommendation', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
+  startBotResourceGeneration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'startBotResourceGeneration', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  startBotResourceGenerationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'startBotResourceGeneration', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  startBotResourceGenerationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'startBotResourceGeneration', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
   startImport: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'startImport', 'LexModelsV2', Promise.resolve(result), true, mock)
   },
@@ -457,6 +798,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   startImportThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'startImport', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
+  startTestExecution: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'startTestExecution', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  startTestExecutionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'startTestExecution', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  startTestExecutionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'startTestExecution', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
+  startTestSetGeneration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'startTestSetGeneration', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  startTestSetGenerationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'startTestSetGeneration', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  startTestSetGenerationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'startTestSetGeneration', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
+  stopBotRecommendation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'stopBotRecommendation', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  stopBotRecommendationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'stopBotRecommendation', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  stopBotRecommendationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'stopBotRecommendation', 'LexModelsV2', Promise.reject(result), true, mock)
   },
   tagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'tagResource', 'LexModelsV2', Promise.resolve(result), true, mock)
@@ -476,15 +844,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   untagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'untagResource', 'LexModelsV2', Promise.reject(result), true, mock)
   },
-  updateBot: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lex-models-v2', 'updateBot', 'LexModelsV2', Promise.resolve(result), true, mock)
-  },
-  updateBotAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lex-models-v2', 'updateBot', 'LexModelsV2', Promise.resolve(result), false, mock)
-  },
-  updateBotThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lex-models-v2', 'updateBot', 'LexModelsV2', Promise.reject(result), true, mock)
-  },
   updateBotAlias: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'updateBotAlias', 'LexModelsV2', Promise.resolve(result), true, mock)
   },
@@ -494,6 +853,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   updateBotAliasThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'updateBotAlias', 'LexModelsV2', Promise.reject(result), true, mock)
   },
+  updateBot: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'updateBot', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  updateBotAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'updateBot', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  updateBotThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'updateBot', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
   updateBotLocale: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'updateBotLocale', 'LexModelsV2', Promise.resolve(result), true, mock)
   },
@@ -502,6 +870,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateBotLocaleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'updateBotLocale', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
+  updateBotRecommendation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'updateBotRecommendation', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  updateBotRecommendationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'updateBotRecommendation', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  updateBotRecommendationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'updateBotRecommendation', 'LexModelsV2', Promise.reject(result), true, mock)
   },
   updateExport: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'updateExport', 'LexModelsV2', Promise.resolve(result), true, mock)
@@ -547,6 +924,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateSlotTypeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'updateSlotType', 'LexModelsV2', Promise.reject(result), true, mock)
+  },
+  updateTestSet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'updateTestSet', 'LexModelsV2', Promise.resolve(result), true, mock)
+  },
+  updateTestSetAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'updateTestSet', 'LexModelsV2', Promise.resolve(result), false, mock)
+  },
+  updateTestSetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-models-v2', 'updateTestSet', 'LexModelsV2', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-models-v2', 'send', 'LexModelsV2Client', Promise.resolve(result), true, mock)

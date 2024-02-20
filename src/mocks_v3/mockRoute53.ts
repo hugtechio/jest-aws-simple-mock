@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockRoute53 = {
+export const mockRoute53 = {
   activateKeySigningKey: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route-53', 'activateKeySigningKey', 'Route53', Promise.resolve(result), true, mock)
   },
@@ -35,6 +34,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   associateVPCWithHostedZoneThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route-53', 'associateVPCWithHostedZone', 'Route53', Promise.reject(result), true, mock)
   },
+  changeCidrCollection: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route-53', 'changeCidrCollection', 'Route53', Promise.resolve(result), true, mock)
+  },
+  changeCidrCollectionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route-53', 'changeCidrCollection', 'Route53', Promise.resolve(result), false, mock)
+  },
+  changeCidrCollectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route-53', 'changeCidrCollection', 'Route53', Promise.reject(result), true, mock)
+  },
   changeResourceRecordSets: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route-53', 'changeResourceRecordSets', 'Route53', Promise.resolve(result), true, mock)
   },
@@ -52,6 +60,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   changeTagsForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route-53', 'changeTagsForResource', 'Route53', Promise.reject(result), true, mock)
+  },
+  createCidrCollection: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route-53', 'createCidrCollection', 'Route53', Promise.resolve(result), true, mock)
+  },
+  createCidrCollectionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route-53', 'createCidrCollection', 'Route53', Promise.resolve(result), false, mock)
+  },
+  createCidrCollectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route-53', 'createCidrCollection', 'Route53', Promise.reject(result), true, mock)
   },
   createHealthCheck: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route-53', 'createHealthCheck', 'Route53', Promise.resolve(result), true, mock)
@@ -143,6 +160,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deactivateKeySigningKeyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route-53', 'deactivateKeySigningKey', 'Route53', Promise.reject(result), true, mock)
   },
+  deleteCidrCollection: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route-53', 'deleteCidrCollection', 'Route53', Promise.resolve(result), true, mock)
+  },
+  deleteCidrCollectionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route-53', 'deleteCidrCollection', 'Route53', Promise.resolve(result), false, mock)
+  },
+  deleteCidrCollectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route-53', 'deleteCidrCollection', 'Route53', Promise.reject(result), true, mock)
+  },
   deleteHealthCheck: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route-53', 'deleteHealthCheck', 'Route53', Promise.resolve(result), true, mock)
   },
@@ -214,15 +240,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteVPCAssociationAuthorizationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route-53', 'deleteVPCAssociationAuthorization', 'Route53', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-route-53', 'destroy', 'Route53', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-route-53', 'destroy', 'Route53', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-route-53', 'destroy', 'Route53', Promise.reject(result), true, mock)
   },
   disableHostedZoneDNSSEC: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route-53', 'disableHostedZoneDNSSEC', 'Route53', Promise.resolve(result), true, mock)
@@ -413,6 +430,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getTrafficPolicyInstanceCountThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route-53', 'getTrafficPolicyInstanceCount', 'Route53', Promise.reject(result), true, mock)
   },
+  listCidrBlocks: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route-53', 'listCidrBlocks', 'Route53', Promise.resolve(result), true, mock)
+  },
+  listCidrBlocksAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route-53', 'listCidrBlocks', 'Route53', Promise.resolve(result), false, mock)
+  },
+  listCidrBlocksThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route-53', 'listCidrBlocks', 'Route53', Promise.reject(result), true, mock)
+  },
+  listCidrCollections: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route-53', 'listCidrCollections', 'Route53', Promise.resolve(result), true, mock)
+  },
+  listCidrCollectionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route-53', 'listCidrCollections', 'Route53', Promise.resolve(result), false, mock)
+  },
+  listCidrCollectionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route-53', 'listCidrCollections', 'Route53', Promise.reject(result), true, mock)
+  },
+  listCidrLocations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route-53', 'listCidrLocations', 'Route53', Promise.resolve(result), true, mock)
+  },
+  listCidrLocationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route-53', 'listCidrLocations', 'Route53', Promise.resolve(result), false, mock)
+  },
+  listCidrLocationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route-53', 'listCidrLocations', 'Route53', Promise.reject(result), true, mock)
+  },
   listGeoLocations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route-53', 'listGeoLocations', 'Route53', Promise.resolve(result), true, mock)
   },
@@ -431,15 +475,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listHealthChecksThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route-53', 'listHealthChecks', 'Route53', Promise.reject(result), true, mock)
   },
-  listHostedZones: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-route-53', 'listHostedZones', 'Route53', Promise.resolve(result), true, mock)
-  },
-  listHostedZonesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-route-53', 'listHostedZones', 'Route53', Promise.resolve(result), false, mock)
-  },
-  listHostedZonesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-route-53', 'listHostedZones', 'Route53', Promise.reject(result), true, mock)
-  },
   listHostedZonesByName: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route-53', 'listHostedZonesByName', 'Route53', Promise.resolve(result), true, mock)
   },
@@ -457,6 +492,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listHostedZonesByVPCThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route-53', 'listHostedZonesByVPC', 'Route53', Promise.reject(result), true, mock)
+  },
+  listHostedZones: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route-53', 'listHostedZones', 'Route53', Promise.resolve(result), true, mock)
+  },
+  listHostedZonesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route-53', 'listHostedZones', 'Route53', Promise.resolve(result), false, mock)
+  },
+  listHostedZonesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route-53', 'listHostedZones', 'Route53', Promise.reject(result), true, mock)
   },
   listQueryLoggingConfigs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route-53', 'listQueryLoggingConfigs', 'Route53', Promise.resolve(result), true, mock)
@@ -512,15 +556,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listTrafficPoliciesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route-53', 'listTrafficPolicies', 'Route53', Promise.reject(result), true, mock)
   },
-  listTrafficPolicyInstances: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-route-53', 'listTrafficPolicyInstances', 'Route53', Promise.resolve(result), true, mock)
-  },
-  listTrafficPolicyInstancesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-route-53', 'listTrafficPolicyInstances', 'Route53', Promise.resolve(result), false, mock)
-  },
-  listTrafficPolicyInstancesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-route-53', 'listTrafficPolicyInstances', 'Route53', Promise.reject(result), true, mock)
-  },
   listTrafficPolicyInstancesByHostedZone: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route-53', 'listTrafficPolicyInstancesByHostedZone', 'Route53', Promise.resolve(result), true, mock)
   },
@@ -538,6 +573,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listTrafficPolicyInstancesByPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route-53', 'listTrafficPolicyInstancesByPolicy', 'Route53', Promise.reject(result), true, mock)
+  },
+  listTrafficPolicyInstances: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route-53', 'listTrafficPolicyInstances', 'Route53', Promise.resolve(result), true, mock)
+  },
+  listTrafficPolicyInstancesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route-53', 'listTrafficPolicyInstances', 'Route53', Promise.resolve(result), false, mock)
+  },
+  listTrafficPolicyInstancesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route-53', 'listTrafficPolicyInstances', 'Route53', Promise.reject(result), true, mock)
   },
   listTrafficPolicyVersions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route-53', 'listTrafficPolicyVersions', 'Route53', Promise.resolve(result), true, mock)

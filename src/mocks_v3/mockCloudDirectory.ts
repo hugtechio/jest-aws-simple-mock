@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockCloudDirectory = {
+export const mockCloudDirectory = {
   addFacetToObject: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-clouddirectory', 'addFacetToObject', 'CloudDirectory', Promise.resolve(result), true, mock)
   },
@@ -187,15 +186,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteTypedLinkFacetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-clouddirectory', 'deleteTypedLinkFacet', 'CloudDirectory', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-clouddirectory', 'destroy', 'CloudDirectory', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-clouddirectory', 'destroy', 'CloudDirectory', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-clouddirectory', 'destroy', 'CloudDirectory', Promise.reject(result), true, mock)
   },
   detachFromIndex: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-clouddirectory', 'detachFromIndex', 'CloudDirectory', Promise.resolve(result), true, mock)

@@ -15,17 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockChimeSDKIdentity = {
-  createAppInstance: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime-sdk-identity', 'createAppInstance', 'ChimeSDKIdentity', Promise.resolve(result), true, mock)
-  },
-  createAppInstanceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime-sdk-identity', 'createAppInstance', 'ChimeSDKIdentity', Promise.resolve(result), false, mock)
-  },
-  createAppInstanceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime-sdk-identity', 'createAppInstance', 'ChimeSDKIdentity', Promise.reject(result), true, mock)
-  },
+export const mockChimeSDKIdentity = {
   createAppInstanceAdmin: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-identity', 'createAppInstanceAdmin', 'ChimeSDKIdentity', Promise.resolve(result), true, mock)
   },
@@ -34,6 +24,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createAppInstanceAdminThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-identity', 'createAppInstanceAdmin', 'ChimeSDKIdentity', Promise.reject(result), true, mock)
+  },
+  createAppInstanceBot: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-identity', 'createAppInstanceBot', 'ChimeSDKIdentity', Promise.resolve(result), true, mock)
+  },
+  createAppInstanceBotAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-identity', 'createAppInstanceBot', 'ChimeSDKIdentity', Promise.resolve(result), false, mock)
+  },
+  createAppInstanceBotThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-identity', 'createAppInstanceBot', 'ChimeSDKIdentity', Promise.reject(result), true, mock)
+  },
+  createAppInstance: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-identity', 'createAppInstance', 'ChimeSDKIdentity', Promise.resolve(result), true, mock)
+  },
+  createAppInstanceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-identity', 'createAppInstance', 'ChimeSDKIdentity', Promise.resolve(result), false, mock)
+  },
+  createAppInstanceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-identity', 'createAppInstance', 'ChimeSDKIdentity', Promise.reject(result), true, mock)
   },
   createAppInstanceUser: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-identity', 'createAppInstanceUser', 'ChimeSDKIdentity', Promise.resolve(result), true, mock)
@@ -44,15 +52,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createAppInstanceUserThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-identity', 'createAppInstanceUser', 'ChimeSDKIdentity', Promise.reject(result), true, mock)
   },
-  deleteAppInstance: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime-sdk-identity', 'deleteAppInstance', 'ChimeSDKIdentity', Promise.resolve(result), true, mock)
-  },
-  deleteAppInstanceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime-sdk-identity', 'deleteAppInstance', 'ChimeSDKIdentity', Promise.resolve(result), false, mock)
-  },
-  deleteAppInstanceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime-sdk-identity', 'deleteAppInstance', 'ChimeSDKIdentity', Promise.reject(result), true, mock)
-  },
   deleteAppInstanceAdmin: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-identity', 'deleteAppInstanceAdmin', 'ChimeSDKIdentity', Promise.resolve(result), true, mock)
   },
@@ -61,6 +60,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteAppInstanceAdminThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-identity', 'deleteAppInstanceAdmin', 'ChimeSDKIdentity', Promise.reject(result), true, mock)
+  },
+  deleteAppInstanceBot: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-identity', 'deleteAppInstanceBot', 'ChimeSDKIdentity', Promise.resolve(result), true, mock)
+  },
+  deleteAppInstanceBotAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-identity', 'deleteAppInstanceBot', 'ChimeSDKIdentity', Promise.resolve(result), false, mock)
+  },
+  deleteAppInstanceBotThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-identity', 'deleteAppInstanceBot', 'ChimeSDKIdentity', Promise.reject(result), true, mock)
+  },
+  deleteAppInstance: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-identity', 'deleteAppInstance', 'ChimeSDKIdentity', Promise.resolve(result), true, mock)
+  },
+  deleteAppInstanceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-identity', 'deleteAppInstance', 'ChimeSDKIdentity', Promise.resolve(result), false, mock)
+  },
+  deleteAppInstanceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-identity', 'deleteAppInstance', 'ChimeSDKIdentity', Promise.reject(result), true, mock)
   },
   deleteAppInstanceUser: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-identity', 'deleteAppInstanceUser', 'ChimeSDKIdentity', Promise.resolve(result), true, mock)
@@ -80,15 +97,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deregisterAppInstanceUserEndpointThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-identity', 'deregisterAppInstanceUserEndpoint', 'ChimeSDKIdentity', Promise.reject(result), true, mock)
   },
-  describeAppInstance: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime-sdk-identity', 'describeAppInstance', 'ChimeSDKIdentity', Promise.resolve(result), true, mock)
-  },
-  describeAppInstanceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime-sdk-identity', 'describeAppInstance', 'ChimeSDKIdentity', Promise.resolve(result), false, mock)
-  },
-  describeAppInstanceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime-sdk-identity', 'describeAppInstance', 'ChimeSDKIdentity', Promise.reject(result), true, mock)
-  },
   describeAppInstanceAdmin: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-identity', 'describeAppInstanceAdmin', 'ChimeSDKIdentity', Promise.resolve(result), true, mock)
   },
@@ -97,6 +105,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeAppInstanceAdminThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-identity', 'describeAppInstanceAdmin', 'ChimeSDKIdentity', Promise.reject(result), true, mock)
+  },
+  describeAppInstanceBot: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-identity', 'describeAppInstanceBot', 'ChimeSDKIdentity', Promise.resolve(result), true, mock)
+  },
+  describeAppInstanceBotAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-identity', 'describeAppInstanceBot', 'ChimeSDKIdentity', Promise.resolve(result), false, mock)
+  },
+  describeAppInstanceBotThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-identity', 'describeAppInstanceBot', 'ChimeSDKIdentity', Promise.reject(result), true, mock)
+  },
+  describeAppInstance: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-identity', 'describeAppInstance', 'ChimeSDKIdentity', Promise.resolve(result), true, mock)
+  },
+  describeAppInstanceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-identity', 'describeAppInstance', 'ChimeSDKIdentity', Promise.resolve(result), false, mock)
+  },
+  describeAppInstanceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-identity', 'describeAppInstance', 'ChimeSDKIdentity', Promise.reject(result), true, mock)
   },
   describeAppInstanceUser: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-identity', 'describeAppInstanceUser', 'ChimeSDKIdentity', Promise.resolve(result), true, mock)
@@ -116,15 +142,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeAppInstanceUserEndpointThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-identity', 'describeAppInstanceUserEndpoint', 'ChimeSDKIdentity', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime-sdk-identity', 'destroy', 'ChimeSDKIdentity', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime-sdk-identity', 'destroy', 'ChimeSDKIdentity', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime-sdk-identity', 'destroy', 'ChimeSDKIdentity', Promise.reject(result), true, mock)
-  },
   getAppInstanceRetentionSettings: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-identity', 'getAppInstanceRetentionSettings', 'ChimeSDKIdentity', Promise.resolve(result), true, mock)
   },
@@ -142,6 +159,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listAppInstanceAdminsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-identity', 'listAppInstanceAdmins', 'ChimeSDKIdentity', Promise.reject(result), true, mock)
+  },
+  listAppInstanceBots: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-identity', 'listAppInstanceBots', 'ChimeSDKIdentity', Promise.resolve(result), true, mock)
+  },
+  listAppInstanceBotsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-identity', 'listAppInstanceBots', 'ChimeSDKIdentity', Promise.resolve(result), false, mock)
+  },
+  listAppInstanceBotsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-identity', 'listAppInstanceBots', 'ChimeSDKIdentity', Promise.reject(result), true, mock)
   },
   listAppInstanceUserEndpoints: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-identity', 'listAppInstanceUserEndpoints', 'ChimeSDKIdentity', Promise.resolve(result), true, mock)
@@ -188,6 +214,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   putAppInstanceRetentionSettingsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-identity', 'putAppInstanceRetentionSettings', 'ChimeSDKIdentity', Promise.reject(result), true, mock)
   },
+  putAppInstanceUserExpirationSettings: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-identity', 'putAppInstanceUserExpirationSettings', 'ChimeSDKIdentity', Promise.resolve(result), true, mock)
+  },
+  putAppInstanceUserExpirationSettingsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-identity', 'putAppInstanceUserExpirationSettings', 'ChimeSDKIdentity', Promise.resolve(result), false, mock)
+  },
+  putAppInstanceUserExpirationSettingsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-identity', 'putAppInstanceUserExpirationSettings', 'ChimeSDKIdentity', Promise.reject(result), true, mock)
+  },
   registerAppInstanceUserEndpoint: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-identity', 'registerAppInstanceUserEndpoint', 'ChimeSDKIdentity', Promise.resolve(result), true, mock)
   },
@@ -214,6 +249,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   untagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-identity', 'untagResource', 'ChimeSDKIdentity', Promise.reject(result), true, mock)
+  },
+  updateAppInstanceBot: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-identity', 'updateAppInstanceBot', 'ChimeSDKIdentity', Promise.resolve(result), true, mock)
+  },
+  updateAppInstanceBotAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-identity', 'updateAppInstanceBot', 'ChimeSDKIdentity', Promise.resolve(result), false, mock)
+  },
+  updateAppInstanceBotThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime-sdk-identity', 'updateAppInstanceBot', 'ChimeSDKIdentity', Promise.reject(result), true, mock)
   },
   updateAppInstance: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime-sdk-identity', 'updateAppInstance', 'ChimeSDKIdentity', Promise.resolve(result), true, mock)

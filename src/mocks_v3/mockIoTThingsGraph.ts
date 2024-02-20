@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockIoTThingsGraph = {
+export const mockIoTThingsGraph = {
   associateEntityToThing: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotthingsgraph', 'associateEntityToThing', 'IoTThingsGraph', Promise.resolve(result), true, mock)
   },
@@ -124,15 +123,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeNamespaceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotthingsgraph', 'describeNamespace', 'IoTThingsGraph', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iotthingsgraph', 'destroy', 'IoTThingsGraph', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iotthingsgraph', 'destroy', 'IoTThingsGraph', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iotthingsgraph', 'destroy', 'IoTThingsGraph', Promise.reject(result), true, mock)
   },
   dissociateEntityFromThing: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotthingsgraph', 'dissociateEntityFromThing', 'IoTThingsGraph', Promise.resolve(result), true, mock)

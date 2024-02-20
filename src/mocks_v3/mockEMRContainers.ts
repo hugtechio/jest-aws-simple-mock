@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockEMRContainers = {
+export const mockEMRContainers = {
   cancelJobRun: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-emr-containers', 'cancelJobRun', 'EMRContainers', Promise.resolve(result), true, mock)
   },
@@ -25,6 +24,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   cancelJobRunThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-emr-containers', 'cancelJobRun', 'EMRContainers', Promise.reject(result), true, mock)
+  },
+  createJobTemplate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-emr-containers', 'createJobTemplate', 'EMRContainers', Promise.resolve(result), true, mock)
+  },
+  createJobTemplateAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-emr-containers', 'createJobTemplate', 'EMRContainers', Promise.resolve(result), false, mock)
+  },
+  createJobTemplateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-emr-containers', 'createJobTemplate', 'EMRContainers', Promise.reject(result), true, mock)
   },
   createManagedEndpoint: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-emr-containers', 'createManagedEndpoint', 'EMRContainers', Promise.resolve(result), true, mock)
@@ -43,6 +51,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createVirtualClusterThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-emr-containers', 'createVirtualCluster', 'EMRContainers', Promise.reject(result), true, mock)
+  },
+  deleteJobTemplate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-emr-containers', 'deleteJobTemplate', 'EMRContainers', Promise.resolve(result), true, mock)
+  },
+  deleteJobTemplateAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-emr-containers', 'deleteJobTemplate', 'EMRContainers', Promise.resolve(result), false, mock)
+  },
+  deleteJobTemplateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-emr-containers', 'deleteJobTemplate', 'EMRContainers', Promise.reject(result), true, mock)
   },
   deleteManagedEndpoint: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-emr-containers', 'deleteManagedEndpoint', 'EMRContainers', Promise.resolve(result), true, mock)
@@ -71,6 +88,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeJobRunThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-emr-containers', 'describeJobRun', 'EMRContainers', Promise.reject(result), true, mock)
   },
+  describeJobTemplate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-emr-containers', 'describeJobTemplate', 'EMRContainers', Promise.resolve(result), true, mock)
+  },
+  describeJobTemplateAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-emr-containers', 'describeJobTemplate', 'EMRContainers', Promise.resolve(result), false, mock)
+  },
+  describeJobTemplateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-emr-containers', 'describeJobTemplate', 'EMRContainers', Promise.reject(result), true, mock)
+  },
   describeManagedEndpoint: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-emr-containers', 'describeManagedEndpoint', 'EMRContainers', Promise.resolve(result), true, mock)
   },
@@ -89,14 +115,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeVirtualClusterThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-emr-containers', 'describeVirtualCluster', 'EMRContainers', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-emr-containers', 'destroy', 'EMRContainers', Promise.resolve(result), true, mock)
+  getManagedEndpointSessionCredentials: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-emr-containers', 'getManagedEndpointSessionCredentials', 'EMRContainers', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-emr-containers', 'destroy', 'EMRContainers', Promise.resolve(result), false, mock)
+  getManagedEndpointSessionCredentialsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-emr-containers', 'getManagedEndpointSessionCredentials', 'EMRContainers', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-emr-containers', 'destroy', 'EMRContainers', Promise.reject(result), true, mock)
+  getManagedEndpointSessionCredentialsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-emr-containers', 'getManagedEndpointSessionCredentials', 'EMRContainers', Promise.reject(result), true, mock)
   },
   listJobRuns: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-emr-containers', 'listJobRuns', 'EMRContainers', Promise.resolve(result), true, mock)
@@ -106,6 +132,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listJobRunsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-emr-containers', 'listJobRuns', 'EMRContainers', Promise.reject(result), true, mock)
+  },
+  listJobTemplates: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-emr-containers', 'listJobTemplates', 'EMRContainers', Promise.resolve(result), true, mock)
+  },
+  listJobTemplatesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-emr-containers', 'listJobTemplates', 'EMRContainers', Promise.resolve(result), false, mock)
+  },
+  listJobTemplatesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-emr-containers', 'listJobTemplates', 'EMRContainers', Promise.reject(result), true, mock)
   },
   listManagedEndpoints: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-emr-containers', 'listManagedEndpoints', 'EMRContainers', Promise.resolve(result), true, mock)

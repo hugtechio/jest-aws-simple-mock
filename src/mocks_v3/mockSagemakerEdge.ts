@@ -15,16 +15,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockSagemakerEdge = {
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sagemaker-edge', 'destroy', 'SagemakerEdge', Promise.resolve(result), true, mock)
+export const mockSagemakerEdge = {
+  getDeployments: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker-edge', 'getDeployments', 'SagemakerEdge', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sagemaker-edge', 'destroy', 'SagemakerEdge', Promise.resolve(result), false, mock)
+  getDeploymentsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker-edge', 'getDeployments', 'SagemakerEdge', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sagemaker-edge', 'destroy', 'SagemakerEdge', Promise.reject(result), true, mock)
+  getDeploymentsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker-edge', 'getDeployments', 'SagemakerEdge', Promise.reject(result), true, mock)
   },
   getDeviceRegistration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker-edge', 'getDeviceRegistration', 'SagemakerEdge', Promise.resolve(result), true, mock)

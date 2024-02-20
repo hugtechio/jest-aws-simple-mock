@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockWAF = {
+export const mockWAF = {
   createByteMatchSet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-waf', 'createByteMatchSet', 'WAF', Promise.resolve(result), true, mock)
   },
@@ -259,15 +258,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteXssMatchSetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-waf', 'deleteXssMatchSet', 'WAF', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-waf', 'destroy', 'WAF', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-waf', 'destroy', 'WAF', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-waf', 'destroy', 'WAF', Promise.reject(result), true, mock)
   },
   getByteMatchSet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-waf', 'getByteMatchSet', 'WAF', Promise.resolve(result), true, mock)

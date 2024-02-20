@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockECR = {
+export const mockECR = {
   batchCheckLayerAvailability: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ecr', 'batchCheckLayerAvailability', 'ECR', Promise.resolve(result), true, mock)
   },
@@ -44,6 +43,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   batchGetImageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ecr', 'batchGetImage', 'ECR', Promise.reject(result), true, mock)
   },
+  batchGetRepositoryScanningConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ecr', 'batchGetRepositoryScanningConfiguration', 'ECR', Promise.resolve(result), true, mock)
+  },
+  batchGetRepositoryScanningConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ecr', 'batchGetRepositoryScanningConfiguration', 'ECR', Promise.resolve(result), false, mock)
+  },
+  batchGetRepositoryScanningConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ecr', 'batchGetRepositoryScanningConfiguration', 'ECR', Promise.reject(result), true, mock)
+  },
   completeLayerUpload: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ecr', 'completeLayerUpload', 'ECR', Promise.resolve(result), true, mock)
   },
@@ -52,6 +60,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   completeLayerUploadThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ecr', 'completeLayerUpload', 'ECR', Promise.reject(result), true, mock)
+  },
+  createPullThroughCacheRule: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ecr', 'createPullThroughCacheRule', 'ECR', Promise.resolve(result), true, mock)
+  },
+  createPullThroughCacheRuleAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ecr', 'createPullThroughCacheRule', 'ECR', Promise.resolve(result), false, mock)
+  },
+  createPullThroughCacheRuleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ecr', 'createPullThroughCacheRule', 'ECR', Promise.reject(result), true, mock)
   },
   createRepository: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ecr', 'createRepository', 'ECR', Promise.resolve(result), true, mock)
@@ -70,6 +87,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteLifecyclePolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ecr', 'deleteLifecyclePolicy', 'ECR', Promise.reject(result), true, mock)
+  },
+  deletePullThroughCacheRule: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ecr', 'deletePullThroughCacheRule', 'ECR', Promise.resolve(result), true, mock)
+  },
+  deletePullThroughCacheRuleAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ecr', 'deletePullThroughCacheRule', 'ECR', Promise.resolve(result), false, mock)
+  },
+  deletePullThroughCacheRuleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ecr', 'deletePullThroughCacheRule', 'ECR', Promise.reject(result), true, mock)
   },
   deleteRegistryPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ecr', 'deleteRegistryPolicy', 'ECR', Promise.resolve(result), true, mock)
@@ -125,6 +151,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeImagesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ecr', 'describeImages', 'ECR', Promise.reject(result), true, mock)
   },
+  describePullThroughCacheRules: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ecr', 'describePullThroughCacheRules', 'ECR', Promise.resolve(result), true, mock)
+  },
+  describePullThroughCacheRulesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ecr', 'describePullThroughCacheRules', 'ECR', Promise.resolve(result), false, mock)
+  },
+  describePullThroughCacheRulesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ecr', 'describePullThroughCacheRules', 'ECR', Promise.reject(result), true, mock)
+  },
   describeRegistry: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ecr', 'describeRegistry', 'ECR', Promise.resolve(result), true, mock)
   },
@@ -142,15 +177,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeRepositoriesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ecr', 'describeRepositories', 'ECR', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ecr', 'destroy', 'ECR', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ecr', 'destroy', 'ECR', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ecr', 'destroy', 'ECR', Promise.reject(result), true, mock)
   },
   getAuthorizationToken: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ecr', 'getAuthorizationToken', 'ECR', Promise.resolve(result), true, mock)
@@ -196,6 +222,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getRegistryPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ecr', 'getRegistryPolicy', 'ECR', Promise.reject(result), true, mock)
+  },
+  getRegistryScanningConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ecr', 'getRegistryScanningConfiguration', 'ECR', Promise.resolve(result), true, mock)
+  },
+  getRegistryScanningConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ecr', 'getRegistryScanningConfiguration', 'ECR', Promise.resolve(result), false, mock)
+  },
+  getRegistryScanningConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ecr', 'getRegistryScanningConfiguration', 'ECR', Promise.reject(result), true, mock)
   },
   getRepositoryPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ecr', 'getRepositoryPolicy', 'ECR', Promise.resolve(result), true, mock)
@@ -278,6 +313,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   putRegistryPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ecr', 'putRegistryPolicy', 'ECR', Promise.reject(result), true, mock)
   },
+  putRegistryScanningConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ecr', 'putRegistryScanningConfiguration', 'ECR', Promise.resolve(result), true, mock)
+  },
+  putRegistryScanningConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ecr', 'putRegistryScanningConfiguration', 'ECR', Promise.resolve(result), false, mock)
+  },
+  putRegistryScanningConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ecr', 'putRegistryScanningConfiguration', 'ECR', Promise.reject(result), true, mock)
+  },
   putReplicationConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ecr', 'putReplicationConfiguration', 'ECR', Promise.resolve(result), true, mock)
   },
@@ -332,6 +376,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   untagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ecr', 'untagResource', 'ECR', Promise.reject(result), true, mock)
   },
+  updatePullThroughCacheRule: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ecr', 'updatePullThroughCacheRule', 'ECR', Promise.resolve(result), true, mock)
+  },
+  updatePullThroughCacheRuleAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ecr', 'updatePullThroughCacheRule', 'ECR', Promise.resolve(result), false, mock)
+  },
+  updatePullThroughCacheRuleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ecr', 'updatePullThroughCacheRule', 'ECR', Promise.reject(result), true, mock)
+  },
   uploadLayerPart: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ecr', 'uploadLayerPart', 'ECR', Promise.resolve(result), true, mock)
   },
@@ -340,6 +393,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   uploadLayerPartThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ecr', 'uploadLayerPart', 'ECR', Promise.reject(result), true, mock)
+  },
+  validatePullThroughCacheRule: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ecr', 'validatePullThroughCacheRule', 'ECR', Promise.resolve(result), true, mock)
+  },
+  validatePullThroughCacheRuleAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ecr', 'validatePullThroughCacheRule', 'ECR', Promise.resolve(result), false, mock)
+  },
+  validatePullThroughCacheRuleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ecr', 'validatePullThroughCacheRule', 'ECR', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ecr', 'send', 'ECRClient', Promise.resolve(result), true, mock)

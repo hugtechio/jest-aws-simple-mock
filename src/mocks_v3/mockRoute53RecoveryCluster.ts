@@ -15,17 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockRoute53RecoveryCluster = {
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-route53-recovery-cluster', 'destroy', 'Route53RecoveryCluster', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-route53-recovery-cluster', 'destroy', 'Route53RecoveryCluster', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-route53-recovery-cluster', 'destroy', 'Route53RecoveryCluster', Promise.reject(result), true, mock)
-  },
+export const mockRoute53RecoveryCluster = {
   getRoutingControlState: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route53-recovery-cluster', 'getRoutingControlState', 'Route53RecoveryCluster', Promise.resolve(result), true, mock)
   },
@@ -34,6 +24,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getRoutingControlStateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route53-recovery-cluster', 'getRoutingControlState', 'Route53RecoveryCluster', Promise.reject(result), true, mock)
+  },
+  listRoutingControls: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route53-recovery-cluster', 'listRoutingControls', 'Route53RecoveryCluster', Promise.resolve(result), true, mock)
+  },
+  listRoutingControlsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route53-recovery-cluster', 'listRoutingControls', 'Route53RecoveryCluster', Promise.resolve(result), false, mock)
+  },
+  listRoutingControlsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route53-recovery-cluster', 'listRoutingControls', 'Route53RecoveryCluster', Promise.reject(result), true, mock)
   },
   updateRoutingControlState: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route53-recovery-cluster', 'updateRoutingControlState', 'Route53RecoveryCluster', Promise.resolve(result), true, mock)

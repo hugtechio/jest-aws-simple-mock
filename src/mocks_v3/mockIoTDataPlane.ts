@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockIoTDataPlane = {
+export const mockIoTDataPlane = {
   deleteThingShadow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-data-plane', 'deleteThingShadow', 'IoTDataPlane', Promise.resolve(result), true, mock)
   },
@@ -25,15 +24,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteThingShadowThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-data-plane', 'deleteThingShadow', 'IoTDataPlane', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iot-data-plane', 'destroy', 'IoTDataPlane', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iot-data-plane', 'destroy', 'IoTDataPlane', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iot-data-plane', 'destroy', 'IoTDataPlane', Promise.reject(result), true, mock)
   },
   getRetainedMessage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-data-plane', 'getRetainedMessage', 'IoTDataPlane', Promise.resolve(result), true, mock)

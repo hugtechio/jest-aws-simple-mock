@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockRoute53RecoveryControlConfig = {
+export const mockRoute53RecoveryControlConfig = {
   createCluster: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route53-recovery-control-config', 'createCluster', 'Route53RecoveryControlConfig', Promise.resolve(result), true, mock)
   },
@@ -125,14 +124,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeSafetyRuleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route53-recovery-control-config', 'describeSafetyRule', 'Route53RecoveryControlConfig', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-route53-recovery-control-config', 'destroy', 'Route53RecoveryControlConfig', Promise.resolve(result), true, mock)
+  getResourcePolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route53-recovery-control-config', 'getResourcePolicy', 'Route53RecoveryControlConfig', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-route53-recovery-control-config', 'destroy', 'Route53RecoveryControlConfig', Promise.resolve(result), false, mock)
+  getResourcePolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route53-recovery-control-config', 'getResourcePolicy', 'Route53RecoveryControlConfig', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-route53-recovery-control-config', 'destroy', 'Route53RecoveryControlConfig', Promise.reject(result), true, mock)
+  getResourcePolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route53-recovery-control-config', 'getResourcePolicy', 'Route53RecoveryControlConfig', Promise.reject(result), true, mock)
   },
   listAssociatedRoute53HealthChecks: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route53-recovery-control-config', 'listAssociatedRoute53HealthChecks', 'Route53RecoveryControlConfig', Promise.resolve(result), true, mock)
@@ -178,6 +177,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listSafetyRulesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route53-recovery-control-config', 'listSafetyRules', 'Route53RecoveryControlConfig', Promise.reject(result), true, mock)
+  },
+  listTagsForResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route53-recovery-control-config', 'listTagsForResource', 'Route53RecoveryControlConfig', Promise.resolve(result), true, mock)
+  },
+  listTagsForResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route53-recovery-control-config', 'listTagsForResource', 'Route53RecoveryControlConfig', Promise.resolve(result), false, mock)
+  },
+  listTagsForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route53-recovery-control-config', 'listTagsForResource', 'Route53RecoveryControlConfig', Promise.reject(result), true, mock)
+  },
+  tagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route53-recovery-control-config', 'tagResource', 'Route53RecoveryControlConfig', Promise.resolve(result), true, mock)
+  },
+  tagResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route53-recovery-control-config', 'tagResource', 'Route53RecoveryControlConfig', Promise.resolve(result), false, mock)
+  },
+  tagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route53-recovery-control-config', 'tagResource', 'Route53RecoveryControlConfig', Promise.reject(result), true, mock)
+  },
+  untagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route53-recovery-control-config', 'untagResource', 'Route53RecoveryControlConfig', Promise.resolve(result), true, mock)
+  },
+  untagResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route53-recovery-control-config', 'untagResource', 'Route53RecoveryControlConfig', Promise.resolve(result), false, mock)
+  },
+  untagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route53-recovery-control-config', 'untagResource', 'Route53RecoveryControlConfig', Promise.reject(result), true, mock)
   },
   updateControlPanel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route53-recovery-control-config', 'updateControlPanel', 'Route53RecoveryControlConfig', Promise.resolve(result), true, mock)

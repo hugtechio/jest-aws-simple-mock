@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockIoT1ClickProjects = {
+export const mockIoT1ClickProjects = {
   associateDeviceWithPlacement: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-1click-projects', 'associateDeviceWithPlacement', 'IoT1ClickProjects', Promise.resolve(result), true, mock)
   },
@@ -79,15 +78,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeProjectThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-1click-projects', 'describeProject', 'IoT1ClickProjects', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iot-1click-projects', 'destroy', 'IoT1ClickProjects', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iot-1click-projects', 'destroy', 'IoT1ClickProjects', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iot-1click-projects', 'destroy', 'IoT1ClickProjects', Promise.reject(result), true, mock)
   },
   disassociateDeviceFromPlacement: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-1click-projects', 'disassociateDeviceFromPlacement', 'IoT1ClickProjects', Promise.resolve(result), true, mock)

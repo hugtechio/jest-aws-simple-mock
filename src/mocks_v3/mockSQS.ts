@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockSQS = {
+export const mockSQS = {
   addPermission: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sqs', 'addPermission', 'SQS', Promise.resolve(result), true, mock)
   },
@@ -26,14 +25,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   addPermissionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sqs', 'addPermission', 'SQS', Promise.reject(result), true, mock)
   },
-  changeMessageVisibility: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sqs', 'changeMessageVisibility', 'SQS', Promise.resolve(result), true, mock)
+  cancelMessageMoveTask: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sqs', 'cancelMessageMoveTask', 'SQS', Promise.resolve(result), true, mock)
   },
-  changeMessageVisibilityAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sqs', 'changeMessageVisibility', 'SQS', Promise.resolve(result), false, mock)
+  cancelMessageMoveTaskAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sqs', 'cancelMessageMoveTask', 'SQS', Promise.resolve(result), false, mock)
   },
-  changeMessageVisibilityThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sqs', 'changeMessageVisibility', 'SQS', Promise.reject(result), true, mock)
+  cancelMessageMoveTaskThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sqs', 'cancelMessageMoveTask', 'SQS', Promise.reject(result), true, mock)
   },
   changeMessageVisibilityBatch: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sqs', 'changeMessageVisibilityBatch', 'SQS', Promise.resolve(result), true, mock)
@@ -44,6 +43,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   changeMessageVisibilityBatchThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sqs', 'changeMessageVisibilityBatch', 'SQS', Promise.reject(result), true, mock)
   },
+  changeMessageVisibility: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sqs', 'changeMessageVisibility', 'SQS', Promise.resolve(result), true, mock)
+  },
+  changeMessageVisibilityAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sqs', 'changeMessageVisibility', 'SQS', Promise.resolve(result), false, mock)
+  },
+  changeMessageVisibilityThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sqs', 'changeMessageVisibility', 'SQS', Promise.reject(result), true, mock)
+  },
   createQueue: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sqs', 'createQueue', 'SQS', Promise.resolve(result), true, mock)
   },
@@ -52,15 +60,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createQueueThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sqs', 'createQueue', 'SQS', Promise.reject(result), true, mock)
-  },
-  deleteMessage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sqs', 'deleteMessage', 'SQS', Promise.resolve(result), true, mock)
-  },
-  deleteMessageAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sqs', 'deleteMessage', 'SQS', Promise.resolve(result), false, mock)
-  },
-  deleteMessageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sqs', 'deleteMessage', 'SQS', Promise.reject(result), true, mock)
   },
   deleteMessageBatch: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sqs', 'deleteMessageBatch', 'SQS', Promise.resolve(result), true, mock)
@@ -71,6 +70,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteMessageBatchThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sqs', 'deleteMessageBatch', 'SQS', Promise.reject(result), true, mock)
   },
+  deleteMessage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sqs', 'deleteMessage', 'SQS', Promise.resolve(result), true, mock)
+  },
+  deleteMessageAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sqs', 'deleteMessage', 'SQS', Promise.resolve(result), false, mock)
+  },
+  deleteMessageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sqs', 'deleteMessage', 'SQS', Promise.reject(result), true, mock)
+  },
   deleteQueue: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sqs', 'deleteQueue', 'SQS', Promise.resolve(result), true, mock)
   },
@@ -79,15 +87,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteQueueThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sqs', 'deleteQueue', 'SQS', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sqs', 'destroy', 'SQS', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sqs', 'destroy', 'SQS', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sqs', 'destroy', 'SQS', Promise.reject(result), true, mock)
   },
   getQueueAttributes: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sqs', 'getQueueAttributes', 'SQS', Promise.resolve(result), true, mock)
@@ -115,6 +114,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listDeadLetterSourceQueuesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sqs', 'listDeadLetterSourceQueues', 'SQS', Promise.reject(result), true, mock)
+  },
+  listMessageMoveTasks: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sqs', 'listMessageMoveTasks', 'SQS', Promise.resolve(result), true, mock)
+  },
+  listMessageMoveTasksAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sqs', 'listMessageMoveTasks', 'SQS', Promise.resolve(result), false, mock)
+  },
+  listMessageMoveTasksThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sqs', 'listMessageMoveTasks', 'SQS', Promise.reject(result), true, mock)
   },
   listQueueTags: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sqs', 'listQueueTags', 'SQS', Promise.resolve(result), true, mock)
@@ -161,15 +169,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   removePermissionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sqs', 'removePermission', 'SQS', Promise.reject(result), true, mock)
   },
-  sendMessage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sqs', 'sendMessage', 'SQS', Promise.resolve(result), true, mock)
-  },
-  sendMessageAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sqs', 'sendMessage', 'SQS', Promise.resolve(result), false, mock)
-  },
-  sendMessageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sqs', 'sendMessage', 'SQS', Promise.reject(result), true, mock)
-  },
   sendMessageBatch: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sqs', 'sendMessageBatch', 'SQS', Promise.resolve(result), true, mock)
   },
@@ -179,6 +178,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   sendMessageBatchThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sqs', 'sendMessageBatch', 'SQS', Promise.reject(result), true, mock)
   },
+  sendMessage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sqs', 'sendMessage', 'SQS', Promise.resolve(result), true, mock)
+  },
+  sendMessageAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sqs', 'sendMessage', 'SQS', Promise.resolve(result), false, mock)
+  },
+  sendMessageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sqs', 'sendMessage', 'SQS', Promise.reject(result), true, mock)
+  },
   setQueueAttributes: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sqs', 'setQueueAttributes', 'SQS', Promise.resolve(result), true, mock)
   },
@@ -187,6 +195,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   setQueueAttributesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sqs', 'setQueueAttributes', 'SQS', Promise.reject(result), true, mock)
+  },
+  startMessageMoveTask: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sqs', 'startMessageMoveTask', 'SQS', Promise.resolve(result), true, mock)
+  },
+  startMessageMoveTaskAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sqs', 'startMessageMoveTask', 'SQS', Promise.resolve(result), false, mock)
+  },
+  startMessageMoveTaskThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sqs', 'startMessageMoveTask', 'SQS', Promise.reject(result), true, mock)
   },
   tagQueue: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sqs', 'tagQueue', 'SQS', Promise.resolve(result), true, mock)

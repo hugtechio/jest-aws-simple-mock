@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockElasticsearchService = {
+export const mockElasticsearchService = {
   acceptInboundCrossClusterSearchConnection: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elasticsearch-service', 'acceptInboundCrossClusterSearchConnection', 'ElasticsearchService', Promise.resolve(result), true, mock)
   },
@@ -43,6 +42,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   associatePackageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elasticsearch-service', 'associatePackage', 'ElasticsearchService', Promise.reject(result), true, mock)
+  },
+  authorizeVpcEndpointAccess: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticsearch-service', 'authorizeVpcEndpointAccess', 'ElasticsearchService', Promise.resolve(result), true, mock)
+  },
+  authorizeVpcEndpointAccessAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticsearch-service', 'authorizeVpcEndpointAccess', 'ElasticsearchService', Promise.resolve(result), false, mock)
+  },
+  authorizeVpcEndpointAccessThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticsearch-service', 'authorizeVpcEndpointAccess', 'ElasticsearchService', Promise.reject(result), true, mock)
+  },
+  cancelDomainConfigChange: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticsearch-service', 'cancelDomainConfigChange', 'ElasticsearchService', Promise.resolve(result), true, mock)
+  },
+  cancelDomainConfigChangeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticsearch-service', 'cancelDomainConfigChange', 'ElasticsearchService', Promise.resolve(result), false, mock)
+  },
+  cancelDomainConfigChangeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticsearch-service', 'cancelDomainConfigChange', 'ElasticsearchService', Promise.reject(result), true, mock)
   },
   cancelElasticsearchServiceSoftwareUpdate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elasticsearch-service', 'cancelElasticsearchServiceSoftwareUpdate', 'ElasticsearchService', Promise.resolve(result), true, mock)
@@ -79,6 +96,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createPackageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elasticsearch-service', 'createPackage', 'ElasticsearchService', Promise.reject(result), true, mock)
+  },
+  createVpcEndpoint: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticsearch-service', 'createVpcEndpoint', 'ElasticsearchService', Promise.resolve(result), true, mock)
+  },
+  createVpcEndpointAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticsearch-service', 'createVpcEndpoint', 'ElasticsearchService', Promise.resolve(result), false, mock)
+  },
+  createVpcEndpointThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticsearch-service', 'createVpcEndpoint', 'ElasticsearchService', Promise.reject(result), true, mock)
   },
   deleteElasticsearchDomain: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elasticsearch-service', 'deleteElasticsearchDomain', 'ElasticsearchService', Promise.resolve(result), true, mock)
@@ -125,6 +151,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deletePackageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elasticsearch-service', 'deletePackage', 'ElasticsearchService', Promise.reject(result), true, mock)
   },
+  deleteVpcEndpoint: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticsearch-service', 'deleteVpcEndpoint', 'ElasticsearchService', Promise.resolve(result), true, mock)
+  },
+  deleteVpcEndpointAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticsearch-service', 'deleteVpcEndpoint', 'ElasticsearchService', Promise.resolve(result), false, mock)
+  },
+  deleteVpcEndpointThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticsearch-service', 'deleteVpcEndpoint', 'ElasticsearchService', Promise.reject(result), true, mock)
+  },
   describeDomainAutoTunes: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elasticsearch-service', 'describeDomainAutoTunes', 'ElasticsearchService', Promise.resolve(result), true, mock)
   },
@@ -133,6 +168,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeDomainAutoTunesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elasticsearch-service', 'describeDomainAutoTunes', 'ElasticsearchService', Promise.reject(result), true, mock)
+  },
+  describeDomainChangeProgress: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticsearch-service', 'describeDomainChangeProgress', 'ElasticsearchService', Promise.resolve(result), true, mock)
+  },
+  describeDomainChangeProgressAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticsearch-service', 'describeDomainChangeProgress', 'ElasticsearchService', Promise.resolve(result), false, mock)
+  },
+  describeDomainChangeProgressThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticsearch-service', 'describeDomainChangeProgress', 'ElasticsearchService', Promise.reject(result), true, mock)
   },
   describeElasticsearchDomain: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elasticsearch-service', 'describeElasticsearchDomain', 'ElasticsearchService', Promise.resolve(result), true, mock)
@@ -215,14 +259,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeReservedElasticsearchInstancesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elasticsearch-service', 'describeReservedElasticsearchInstances', 'ElasticsearchService', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-elasticsearch-service', 'destroy', 'ElasticsearchService', Promise.resolve(result), true, mock)
+  describeVpcEndpoints: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticsearch-service', 'describeVpcEndpoints', 'ElasticsearchService', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-elasticsearch-service', 'destroy', 'ElasticsearchService', Promise.resolve(result), false, mock)
+  describeVpcEndpointsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticsearch-service', 'describeVpcEndpoints', 'ElasticsearchService', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-elasticsearch-service', 'destroy', 'ElasticsearchService', Promise.reject(result), true, mock)
+  describeVpcEndpointsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticsearch-service', 'describeVpcEndpoints', 'ElasticsearchService', Promise.reject(result), true, mock)
   },
   dissociatePackage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elasticsearch-service', 'dissociatePackage', 'ElasticsearchService', Promise.resolve(result), true, mock)
@@ -323,6 +367,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listTagsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elasticsearch-service', 'listTags', 'ElasticsearchService', Promise.reject(result), true, mock)
   },
+  listVpcEndpointAccess: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticsearch-service', 'listVpcEndpointAccess', 'ElasticsearchService', Promise.resolve(result), true, mock)
+  },
+  listVpcEndpointAccessAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticsearch-service', 'listVpcEndpointAccess', 'ElasticsearchService', Promise.resolve(result), false, mock)
+  },
+  listVpcEndpointAccessThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticsearch-service', 'listVpcEndpointAccess', 'ElasticsearchService', Promise.reject(result), true, mock)
+  },
+  listVpcEndpoints: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticsearch-service', 'listVpcEndpoints', 'ElasticsearchService', Promise.resolve(result), true, mock)
+  },
+  listVpcEndpointsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticsearch-service', 'listVpcEndpoints', 'ElasticsearchService', Promise.resolve(result), false, mock)
+  },
+  listVpcEndpointsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticsearch-service', 'listVpcEndpoints', 'ElasticsearchService', Promise.reject(result), true, mock)
+  },
+  listVpcEndpointsForDomain: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticsearch-service', 'listVpcEndpointsForDomain', 'ElasticsearchService', Promise.resolve(result), true, mock)
+  },
+  listVpcEndpointsForDomainAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticsearch-service', 'listVpcEndpointsForDomain', 'ElasticsearchService', Promise.resolve(result), false, mock)
+  },
+  listVpcEndpointsForDomainThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticsearch-service', 'listVpcEndpointsForDomain', 'ElasticsearchService', Promise.reject(result), true, mock)
+  },
   purchaseReservedElasticsearchInstanceOffering: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elasticsearch-service', 'purchaseReservedElasticsearchInstanceOffering', 'ElasticsearchService', Promise.resolve(result), true, mock)
   },
@@ -350,6 +421,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   removeTagsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elasticsearch-service', 'removeTags', 'ElasticsearchService', Promise.reject(result), true, mock)
   },
+  revokeVpcEndpointAccess: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticsearch-service', 'revokeVpcEndpointAccess', 'ElasticsearchService', Promise.resolve(result), true, mock)
+  },
+  revokeVpcEndpointAccessAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticsearch-service', 'revokeVpcEndpointAccess', 'ElasticsearchService', Promise.resolve(result), false, mock)
+  },
+  revokeVpcEndpointAccessThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticsearch-service', 'revokeVpcEndpointAccess', 'ElasticsearchService', Promise.reject(result), true, mock)
+  },
   startElasticsearchServiceSoftwareUpdate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elasticsearch-service', 'startElasticsearchServiceSoftwareUpdate', 'ElasticsearchService', Promise.resolve(result), true, mock)
   },
@@ -376,6 +456,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updatePackageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elasticsearch-service', 'updatePackage', 'ElasticsearchService', Promise.reject(result), true, mock)
+  },
+  updateVpcEndpoint: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticsearch-service', 'updateVpcEndpoint', 'ElasticsearchService', Promise.resolve(result), true, mock)
+  },
+  updateVpcEndpointAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticsearch-service', 'updateVpcEndpoint', 'ElasticsearchService', Promise.resolve(result), false, mock)
+  },
+  updateVpcEndpointThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticsearch-service', 'updateVpcEndpoint', 'ElasticsearchService', Promise.reject(result), true, mock)
   },
   upgradeElasticsearchDomain: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elasticsearch-service', 'upgradeElasticsearchDomain', 'ElasticsearchService', Promise.resolve(result), true, mock)

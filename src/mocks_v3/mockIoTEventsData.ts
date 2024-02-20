@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockIoTEventsData = {
+export const mockIoTEventsData = {
   batchAcknowledgeAlarm: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-events-data', 'batchAcknowledgeAlarm', 'IoTEventsData', Promise.resolve(result), true, mock)
   },
@@ -25,6 +24,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   batchAcknowledgeAlarmThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-events-data', 'batchAcknowledgeAlarm', 'IoTEventsData', Promise.reject(result), true, mock)
+  },
+  batchDeleteDetector: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-events-data', 'batchDeleteDetector', 'IoTEventsData', Promise.resolve(result), true, mock)
+  },
+  batchDeleteDetectorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-events-data', 'batchDeleteDetector', 'IoTEventsData', Promise.resolve(result), false, mock)
+  },
+  batchDeleteDetectorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-events-data', 'batchDeleteDetector', 'IoTEventsData', Promise.reject(result), true, mock)
   },
   batchDisableAlarm: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-events-data', 'batchDisableAlarm', 'IoTEventsData', Promise.resolve(result), true, mock)
@@ -97,15 +105,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeDetectorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-events-data', 'describeDetector', 'IoTEventsData', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iot-events-data', 'destroy', 'IoTEventsData', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iot-events-data', 'destroy', 'IoTEventsData', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iot-events-data', 'destroy', 'IoTEventsData', Promise.reject(result), true, mock)
   },
   listAlarms: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-events-data', 'listAlarms', 'IoTEventsData', Promise.resolve(result), true, mock)

@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockMediaStoreData = {
+export const mockMediaStoreData = {
   deleteObject: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mediastore-data', 'deleteObject', 'MediaStoreData', Promise.resolve(result), true, mock)
   },
@@ -34,15 +33,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeObjectThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mediastore-data', 'describeObject', 'MediaStoreData', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-mediastore-data', 'destroy', 'MediaStoreData', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-mediastore-data', 'destroy', 'MediaStoreData', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-mediastore-data', 'destroy', 'MediaStoreData', Promise.reject(result), true, mock)
   },
   getObject: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mediastore-data', 'getObject', 'MediaStoreData', Promise.resolve(result), true, mock)

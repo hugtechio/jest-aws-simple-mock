@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockS3Outposts = {
+export const mockS3Outposts = {
   createEndpoint: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3outposts', 'createEndpoint', 'S3Outposts', Promise.resolve(result), true, mock)
   },
@@ -35,15 +34,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteEndpointThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3outposts', 'deleteEndpoint', 'S3Outposts', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-s3outposts', 'destroy', 'S3Outposts', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-s3outposts', 'destroy', 'S3Outposts', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-s3outposts', 'destroy', 'S3Outposts', Promise.reject(result), true, mock)
-  },
   listEndpoints: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3outposts', 'listEndpoints', 'S3Outposts', Promise.resolve(result), true, mock)
   },
@@ -52,6 +42,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listEndpointsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3outposts', 'listEndpoints', 'S3Outposts', Promise.reject(result), true, mock)
+  },
+  listOutpostsWithS3: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3outposts', 'listOutpostsWithS3', 'S3Outposts', Promise.resolve(result), true, mock)
+  },
+  listOutpostsWithS3All: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3outposts', 'listOutpostsWithS3', 'S3Outposts', Promise.resolve(result), false, mock)
+  },
+  listOutpostsWithS3Throw: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3outposts', 'listOutpostsWithS3', 'S3Outposts', Promise.reject(result), true, mock)
+  },
+  listSharedEndpoints: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3outposts', 'listSharedEndpoints', 'S3Outposts', Promise.resolve(result), true, mock)
+  },
+  listSharedEndpointsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3outposts', 'listSharedEndpoints', 'S3Outposts', Promise.resolve(result), false, mock)
+  },
+  listSharedEndpointsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3outposts', 'listSharedEndpoints', 'S3Outposts', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3outposts', 'send', 'S3OutpostsClient', Promise.resolve(result), true, mock)

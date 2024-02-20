@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockElasticInference = {
+export const mockElasticInference = {
   describeAcceleratorOfferings: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elastic-inference', 'describeAcceleratorOfferings', 'ElasticInference', Promise.resolve(result), true, mock)
   },
@@ -43,15 +42,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeAcceleratorsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elastic-inference', 'describeAccelerators', 'ElasticInference', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-elastic-inference', 'destroy', 'ElasticInference', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-elastic-inference', 'destroy', 'ElasticInference', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-elastic-inference', 'destroy', 'ElasticInference', Promise.reject(result), true, mock)
   },
   listTagsForResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elastic-inference', 'listTagsForResource', 'ElasticInference', Promise.resolve(result), true, mock)

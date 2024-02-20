@@ -15,17 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockMigrationHubStrategy = {
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-migrationhubstrategy', 'destroy', 'MigrationHubStrategy', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-migrationhubstrategy', 'destroy', 'MigrationHubStrategy', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-migrationhubstrategy', 'destroy', 'MigrationHubStrategy', Promise.reject(result), true, mock)
-  },
+export const mockMigrationHubStrategy = {
   getApplicationComponentDetails: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-migrationhubstrategy', 'getApplicationComponentDetails', 'MigrationHubStrategy', Promise.resolve(result), true, mock)
   },
@@ -61,6 +51,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getImportFileTaskThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-migrationhubstrategy', 'getImportFileTask', 'MigrationHubStrategy', Promise.reject(result), true, mock)
+  },
+  getLatestAssessmentId: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-migrationhubstrategy', 'getLatestAssessmentId', 'MigrationHubStrategy', Promise.resolve(result), true, mock)
+  },
+  getLatestAssessmentIdAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-migrationhubstrategy', 'getLatestAssessmentId', 'MigrationHubStrategy', Promise.resolve(result), false, mock)
+  },
+  getLatestAssessmentIdThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-migrationhubstrategy', 'getLatestAssessmentId', 'MigrationHubStrategy', Promise.reject(result), true, mock)
   },
   getPortfolioPreferences: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-migrationhubstrategy', 'getPortfolioPreferences', 'MigrationHubStrategy', Promise.resolve(result), true, mock)
@@ -106,6 +105,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getServerStrategiesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-migrationhubstrategy', 'getServerStrategies', 'MigrationHubStrategy', Promise.reject(result), true, mock)
+  },
+  listAnalyzableServers: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-migrationhubstrategy', 'listAnalyzableServers', 'MigrationHubStrategy', Promise.resolve(result), true, mock)
+  },
+  listAnalyzableServersAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-migrationhubstrategy', 'listAnalyzableServers', 'MigrationHubStrategy', Promise.resolve(result), false, mock)
+  },
+  listAnalyzableServersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-migrationhubstrategy', 'listAnalyzableServers', 'MigrationHubStrategy', Promise.reject(result), true, mock)
   },
   listApplicationComponents: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-migrationhubstrategy', 'listApplicationComponents', 'MigrationHubStrategy', Promise.resolve(result), true, mock)

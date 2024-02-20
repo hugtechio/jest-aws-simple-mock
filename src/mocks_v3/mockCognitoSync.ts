@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockCognitoSync = {
+export const mockCognitoSync = {
   bulkPublish: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cognito-sync', 'bulkPublish', 'CognitoSync', Promise.resolve(result), true, mock)
   },
@@ -61,15 +60,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeIdentityUsageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cognito-sync', 'describeIdentityUsage', 'CognitoSync', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cognito-sync', 'destroy', 'CognitoSync', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cognito-sync', 'destroy', 'CognitoSync', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cognito-sync', 'destroy', 'CognitoSync', Promise.reject(result), true, mock)
   },
   getBulkPublishDetails: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cognito-sync', 'getBulkPublishDetails', 'CognitoSync', Promise.resolve(result), true, mock)

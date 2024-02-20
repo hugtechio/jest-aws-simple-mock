@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockPersonalize = {
+export const mockPersonalize = {
   createBatchInferenceJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-personalize', 'createBatchInferenceJob', 'Personalize', Promise.resolve(result), true, mock)
   },
@@ -25,6 +24,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createBatchInferenceJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-personalize', 'createBatchInferenceJob', 'Personalize', Promise.reject(result), true, mock)
+  },
+  createBatchSegmentJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'createBatchSegmentJob', 'Personalize', Promise.resolve(result), true, mock)
+  },
+  createBatchSegmentJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'createBatchSegmentJob', 'Personalize', Promise.resolve(result), false, mock)
+  },
+  createBatchSegmentJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'createBatchSegmentJob', 'Personalize', Promise.reject(result), true, mock)
   },
   createCampaign: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-personalize', 'createCampaign', 'Personalize', Promise.resolve(result), true, mock)
@@ -88,6 +96,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createFilterThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-personalize', 'createFilter', 'Personalize', Promise.reject(result), true, mock)
+  },
+  createMetricAttribution: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'createMetricAttribution', 'Personalize', Promise.resolve(result), true, mock)
+  },
+  createMetricAttributionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'createMetricAttribution', 'Personalize', Promise.resolve(result), false, mock)
+  },
+  createMetricAttributionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'createMetricAttribution', 'Personalize', Promise.reject(result), true, mock)
+  },
+  createRecommender: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'createRecommender', 'Personalize', Promise.resolve(result), true, mock)
+  },
+  createRecommenderAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'createRecommender', 'Personalize', Promise.resolve(result), false, mock)
+  },
+  createRecommenderThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'createRecommender', 'Personalize', Promise.reject(result), true, mock)
   },
   createSchema: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-personalize', 'createSchema', 'Personalize', Promise.resolve(result), true, mock)
@@ -161,6 +187,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteFilterThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-personalize', 'deleteFilter', 'Personalize', Promise.reject(result), true, mock)
   },
+  deleteMetricAttribution: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'deleteMetricAttribution', 'Personalize', Promise.resolve(result), true, mock)
+  },
+  deleteMetricAttributionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'deleteMetricAttribution', 'Personalize', Promise.resolve(result), false, mock)
+  },
+  deleteMetricAttributionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'deleteMetricAttribution', 'Personalize', Promise.reject(result), true, mock)
+  },
+  deleteRecommender: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'deleteRecommender', 'Personalize', Promise.resolve(result), true, mock)
+  },
+  deleteRecommenderAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'deleteRecommender', 'Personalize', Promise.resolve(result), false, mock)
+  },
+  deleteRecommenderThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'deleteRecommender', 'Personalize', Promise.reject(result), true, mock)
+  },
   deleteSchema: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-personalize', 'deleteSchema', 'Personalize', Promise.resolve(result), true, mock)
   },
@@ -196,6 +240,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeBatchInferenceJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-personalize', 'describeBatchInferenceJob', 'Personalize', Promise.reject(result), true, mock)
+  },
+  describeBatchSegmentJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'describeBatchSegmentJob', 'Personalize', Promise.resolve(result), true, mock)
+  },
+  describeBatchSegmentJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'describeBatchSegmentJob', 'Personalize', Promise.resolve(result), false, mock)
+  },
+  describeBatchSegmentJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'describeBatchSegmentJob', 'Personalize', Promise.reject(result), true, mock)
   },
   describeCampaign: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-personalize', 'describeCampaign', 'Personalize', Promise.resolve(result), true, mock)
@@ -269,6 +322,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeFilterThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-personalize', 'describeFilter', 'Personalize', Promise.reject(result), true, mock)
   },
+  describeMetricAttribution: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'describeMetricAttribution', 'Personalize', Promise.resolve(result), true, mock)
+  },
+  describeMetricAttributionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'describeMetricAttribution', 'Personalize', Promise.resolve(result), false, mock)
+  },
+  describeMetricAttributionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'describeMetricAttribution', 'Personalize', Promise.reject(result), true, mock)
+  },
   describeRecipe: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-personalize', 'describeRecipe', 'Personalize', Promise.resolve(result), true, mock)
   },
@@ -277,6 +339,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeRecipeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-personalize', 'describeRecipe', 'Personalize', Promise.reject(result), true, mock)
+  },
+  describeRecommender: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'describeRecommender', 'Personalize', Promise.resolve(result), true, mock)
+  },
+  describeRecommenderAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'describeRecommender', 'Personalize', Promise.resolve(result), false, mock)
+  },
+  describeRecommenderThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'describeRecommender', 'Personalize', Promise.reject(result), true, mock)
   },
   describeSchema: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-personalize', 'describeSchema', 'Personalize', Promise.resolve(result), true, mock)
@@ -305,15 +376,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeSolutionVersionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-personalize', 'describeSolutionVersion', 'Personalize', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-personalize', 'destroy', 'Personalize', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-personalize', 'destroy', 'Personalize', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-personalize', 'destroy', 'Personalize', Promise.reject(result), true, mock)
-  },
   getSolutionMetrics: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-personalize', 'getSolutionMetrics', 'Personalize', Promise.resolve(result), true, mock)
   },
@@ -331,6 +393,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listBatchInferenceJobsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-personalize', 'listBatchInferenceJobs', 'Personalize', Promise.reject(result), true, mock)
+  },
+  listBatchSegmentJobs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'listBatchSegmentJobs', 'Personalize', Promise.resolve(result), true, mock)
+  },
+  listBatchSegmentJobsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'listBatchSegmentJobs', 'Personalize', Promise.resolve(result), false, mock)
+  },
+  listBatchSegmentJobsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'listBatchSegmentJobs', 'Personalize', Promise.reject(result), true, mock)
   },
   listCampaigns: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-personalize', 'listCampaigns', 'Personalize', Promise.resolve(result), true, mock)
@@ -395,6 +466,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listFiltersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-personalize', 'listFilters', 'Personalize', Promise.reject(result), true, mock)
   },
+  listMetricAttributionMetrics: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'listMetricAttributionMetrics', 'Personalize', Promise.resolve(result), true, mock)
+  },
+  listMetricAttributionMetricsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'listMetricAttributionMetrics', 'Personalize', Promise.resolve(result), false, mock)
+  },
+  listMetricAttributionMetricsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'listMetricAttributionMetrics', 'Personalize', Promise.reject(result), true, mock)
+  },
+  listMetricAttributions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'listMetricAttributions', 'Personalize', Promise.resolve(result), true, mock)
+  },
+  listMetricAttributionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'listMetricAttributions', 'Personalize', Promise.resolve(result), false, mock)
+  },
+  listMetricAttributionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'listMetricAttributions', 'Personalize', Promise.reject(result), true, mock)
+  },
   listRecipes: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-personalize', 'listRecipes', 'Personalize', Promise.resolve(result), true, mock)
   },
@@ -403,6 +492,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listRecipesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-personalize', 'listRecipes', 'Personalize', Promise.reject(result), true, mock)
+  },
+  listRecommenders: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'listRecommenders', 'Personalize', Promise.resolve(result), true, mock)
+  },
+  listRecommendersAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'listRecommenders', 'Personalize', Promise.resolve(result), false, mock)
+  },
+  listRecommendersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'listRecommenders', 'Personalize', Promise.reject(result), true, mock)
   },
   listSchemas: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-personalize', 'listSchemas', 'Personalize', Promise.resolve(result), true, mock)
@@ -431,6 +529,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listSolutionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-personalize', 'listSolutions', 'Personalize', Promise.reject(result), true, mock)
   },
+  listTagsForResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'listTagsForResource', 'Personalize', Promise.resolve(result), true, mock)
+  },
+  listTagsForResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'listTagsForResource', 'Personalize', Promise.resolve(result), false, mock)
+  },
+  listTagsForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'listTagsForResource', 'Personalize', Promise.reject(result), true, mock)
+  },
+  startRecommender: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'startRecommender', 'Personalize', Promise.resolve(result), true, mock)
+  },
+  startRecommenderAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'startRecommender', 'Personalize', Promise.resolve(result), false, mock)
+  },
+  startRecommenderThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'startRecommender', 'Personalize', Promise.reject(result), true, mock)
+  },
+  stopRecommender: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'stopRecommender', 'Personalize', Promise.resolve(result), true, mock)
+  },
+  stopRecommenderAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'stopRecommender', 'Personalize', Promise.resolve(result), false, mock)
+  },
+  stopRecommenderThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'stopRecommender', 'Personalize', Promise.reject(result), true, mock)
+  },
   stopSolutionVersionCreation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-personalize', 'stopSolutionVersionCreation', 'Personalize', Promise.resolve(result), true, mock)
   },
@@ -440,6 +565,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   stopSolutionVersionCreationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-personalize', 'stopSolutionVersionCreation', 'Personalize', Promise.reject(result), true, mock)
   },
+  tagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'tagResource', 'Personalize', Promise.resolve(result), true, mock)
+  },
+  tagResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'tagResource', 'Personalize', Promise.resolve(result), false, mock)
+  },
+  tagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'tagResource', 'Personalize', Promise.reject(result), true, mock)
+  },
+  untagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'untagResource', 'Personalize', Promise.resolve(result), true, mock)
+  },
+  untagResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'untagResource', 'Personalize', Promise.resolve(result), false, mock)
+  },
+  untagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'untagResource', 'Personalize', Promise.reject(result), true, mock)
+  },
   updateCampaign: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-personalize', 'updateCampaign', 'Personalize', Promise.resolve(result), true, mock)
   },
@@ -448,6 +591,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateCampaignThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-personalize', 'updateCampaign', 'Personalize', Promise.reject(result), true, mock)
+  },
+  updateDataset: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'updateDataset', 'Personalize', Promise.resolve(result), true, mock)
+  },
+  updateDatasetAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'updateDataset', 'Personalize', Promise.resolve(result), false, mock)
+  },
+  updateDatasetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'updateDataset', 'Personalize', Promise.reject(result), true, mock)
+  },
+  updateMetricAttribution: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'updateMetricAttribution', 'Personalize', Promise.resolve(result), true, mock)
+  },
+  updateMetricAttributionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'updateMetricAttribution', 'Personalize', Promise.resolve(result), false, mock)
+  },
+  updateMetricAttributionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'updateMetricAttribution', 'Personalize', Promise.reject(result), true, mock)
+  },
+  updateRecommender: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'updateRecommender', 'Personalize', Promise.resolve(result), true, mock)
+  },
+  updateRecommenderAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'updateRecommender', 'Personalize', Promise.resolve(result), false, mock)
+  },
+  updateRecommenderThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-personalize', 'updateRecommender', 'Personalize', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-personalize', 'send', 'PersonalizeClient', Promise.resolve(result), true, mock)

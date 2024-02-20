@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockRedshiftData = {
+export const mockRedshiftData = {
   batchExecuteStatement: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-redshift-data', 'batchExecuteStatement', 'RedshiftData', Promise.resolve(result), true, mock)
   },
@@ -52,15 +51,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeTableThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-redshift-data', 'describeTable', 'RedshiftData', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-redshift-data', 'destroy', 'RedshiftData', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-redshift-data', 'destroy', 'RedshiftData', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-redshift-data', 'destroy', 'RedshiftData', Promise.reject(result), true, mock)
   },
   executeStatement: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-redshift-data', 'executeStatement', 'RedshiftData', Promise.resolve(result), true, mock)

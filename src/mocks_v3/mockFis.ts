@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockFis = {
+export const mockFis = {
   createExperimentTemplate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fis', 'createExperimentTemplate', 'Fis', Promise.resolve(result), true, mock)
   },
@@ -25,6 +24,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createExperimentTemplateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fis', 'createExperimentTemplate', 'Fis', Promise.reject(result), true, mock)
+  },
+  createTargetAccountConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fis', 'createTargetAccountConfiguration', 'Fis', Promise.resolve(result), true, mock)
+  },
+  createTargetAccountConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fis', 'createTargetAccountConfiguration', 'Fis', Promise.resolve(result), false, mock)
+  },
+  createTargetAccountConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fis', 'createTargetAccountConfiguration', 'Fis', Promise.reject(result), true, mock)
   },
   deleteExperimentTemplate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fis', 'deleteExperimentTemplate', 'Fis', Promise.resolve(result), true, mock)
@@ -35,14 +43,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteExperimentTemplateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fis', 'deleteExperimentTemplate', 'Fis', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-fis', 'destroy', 'Fis', Promise.resolve(result), true, mock)
+  deleteTargetAccountConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fis', 'deleteTargetAccountConfiguration', 'Fis', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-fis', 'destroy', 'Fis', Promise.resolve(result), false, mock)
+  deleteTargetAccountConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fis', 'deleteTargetAccountConfiguration', 'Fis', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-fis', 'destroy', 'Fis', Promise.reject(result), true, mock)
+  deleteTargetAccountConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fis', 'deleteTargetAccountConfiguration', 'Fis', Promise.reject(result), true, mock)
   },
   getAction: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fis', 'getAction', 'Fis', Promise.resolve(result), true, mock)
@@ -62,6 +70,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getExperimentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fis', 'getExperiment', 'Fis', Promise.reject(result), true, mock)
   },
+  getExperimentTargetAccountConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fis', 'getExperimentTargetAccountConfiguration', 'Fis', Promise.resolve(result), true, mock)
+  },
+  getExperimentTargetAccountConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fis', 'getExperimentTargetAccountConfiguration', 'Fis', Promise.resolve(result), false, mock)
+  },
+  getExperimentTargetAccountConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fis', 'getExperimentTargetAccountConfiguration', 'Fis', Promise.reject(result), true, mock)
+  },
   getExperimentTemplate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fis', 'getExperimentTemplate', 'Fis', Promise.resolve(result), true, mock)
   },
@@ -71,6 +88,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getExperimentTemplateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fis', 'getExperimentTemplate', 'Fis', Promise.reject(result), true, mock)
   },
+  getTargetAccountConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fis', 'getTargetAccountConfiguration', 'Fis', Promise.resolve(result), true, mock)
+  },
+  getTargetAccountConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fis', 'getTargetAccountConfiguration', 'Fis', Promise.resolve(result), false, mock)
+  },
+  getTargetAccountConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fis', 'getTargetAccountConfiguration', 'Fis', Promise.reject(result), true, mock)
+  },
+  getTargetResourceType: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fis', 'getTargetResourceType', 'Fis', Promise.resolve(result), true, mock)
+  },
+  getTargetResourceTypeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fis', 'getTargetResourceType', 'Fis', Promise.resolve(result), false, mock)
+  },
+  getTargetResourceTypeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fis', 'getTargetResourceType', 'Fis', Promise.reject(result), true, mock)
+  },
   listActions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fis', 'listActions', 'Fis', Promise.resolve(result), true, mock)
   },
@@ -79,6 +114,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listActionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fis', 'listActions', 'Fis', Promise.reject(result), true, mock)
+  },
+  listExperimentResolvedTargets: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fis', 'listExperimentResolvedTargets', 'Fis', Promise.resolve(result), true, mock)
+  },
+  listExperimentResolvedTargetsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fis', 'listExperimentResolvedTargets', 'Fis', Promise.resolve(result), false, mock)
+  },
+  listExperimentResolvedTargetsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fis', 'listExperimentResolvedTargets', 'Fis', Promise.reject(result), true, mock)
+  },
+  listExperimentTargetAccountConfigurations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fis', 'listExperimentTargetAccountConfigurations', 'Fis', Promise.resolve(result), true, mock)
+  },
+  listExperimentTargetAccountConfigurationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fis', 'listExperimentTargetAccountConfigurations', 'Fis', Promise.resolve(result), false, mock)
+  },
+  listExperimentTargetAccountConfigurationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fis', 'listExperimentTargetAccountConfigurations', 'Fis', Promise.reject(result), true, mock)
   },
   listExperimentTemplates: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fis', 'listExperimentTemplates', 'Fis', Promise.resolve(result), true, mock)
@@ -106,6 +159,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listTagsForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fis', 'listTagsForResource', 'Fis', Promise.reject(result), true, mock)
+  },
+  listTargetAccountConfigurations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fis', 'listTargetAccountConfigurations', 'Fis', Promise.resolve(result), true, mock)
+  },
+  listTargetAccountConfigurationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fis', 'listTargetAccountConfigurations', 'Fis', Promise.resolve(result), false, mock)
+  },
+  listTargetAccountConfigurationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fis', 'listTargetAccountConfigurations', 'Fis', Promise.reject(result), true, mock)
+  },
+  listTargetResourceTypes: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fis', 'listTargetResourceTypes', 'Fis', Promise.resolve(result), true, mock)
+  },
+  listTargetResourceTypesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fis', 'listTargetResourceTypes', 'Fis', Promise.resolve(result), false, mock)
+  },
+  listTargetResourceTypesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fis', 'listTargetResourceTypes', 'Fis', Promise.reject(result), true, mock)
   },
   startExperiment: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fis', 'startExperiment', 'Fis', Promise.resolve(result), true, mock)
@@ -151,6 +222,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateExperimentTemplateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fis', 'updateExperimentTemplate', 'Fis', Promise.reject(result), true, mock)
+  },
+  updateTargetAccountConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fis', 'updateTargetAccountConfiguration', 'Fis', Promise.resolve(result), true, mock)
+  },
+  updateTargetAccountConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fis', 'updateTargetAccountConfiguration', 'Fis', Promise.resolve(result), false, mock)
+  },
+  updateTargetAccountConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fis', 'updateTargetAccountConfiguration', 'Fis', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fis', 'send', 'FisClient', Promise.resolve(result), true, mock)

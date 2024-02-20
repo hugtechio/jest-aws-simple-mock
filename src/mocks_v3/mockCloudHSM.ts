@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockCloudHSM = {
+export const mockCloudHSM = {
   addTagsToResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudhsm', 'addTagsToResource', 'CloudHSM', Promise.resolve(result), true, mock)
   },
@@ -106,15 +105,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeLunaClientThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudhsm', 'describeLunaClient', 'CloudHSM', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cloudhsm', 'destroy', 'CloudHSM', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cloudhsm', 'destroy', 'CloudHSM', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cloudhsm', 'destroy', 'CloudHSM', Promise.reject(result), true, mock)
   },
   getConfig: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudhsm', 'getConfig', 'CloudHSM', Promise.resolve(result), true, mock)

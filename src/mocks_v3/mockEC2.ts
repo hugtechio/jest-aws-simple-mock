@@ -15,8 +15,16 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockEC2 = {
+export const mockEC2 = {
+  acceptAddressTransfer: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'acceptAddressTransfer', 'EC2', Promise.resolve(result), true, mock)
+  },
+  acceptAddressTransferAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'acceptAddressTransfer', 'EC2', Promise.resolve(result), false, mock)
+  },
+  acceptAddressTransferThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'acceptAddressTransfer', 'EC2', Promise.reject(result), true, mock)
+  },
   acceptReservedInstancesExchangeQuote: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'acceptReservedInstancesExchangeQuote', 'EC2', Promise.resolve(result), true, mock)
   },
@@ -98,6 +106,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   allocateHostsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'allocateHosts', 'EC2', Promise.reject(result), true, mock)
   },
+  allocateIpamPoolCidr: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'allocateIpamPoolCidr', 'EC2', Promise.resolve(result), true, mock)
+  },
+  allocateIpamPoolCidrAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'allocateIpamPoolCidr', 'EC2', Promise.resolve(result), false, mock)
+  },
+  allocateIpamPoolCidrThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'allocateIpamPoolCidr', 'EC2', Promise.reject(result), true, mock)
+  },
   applySecurityGroupsToClientVpnTargetNetwork: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'applySecurityGroupsToClientVpnTargetNetwork', 'EC2', Promise.resolve(result), true, mock)
   },
@@ -124,6 +141,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   assignPrivateIpAddressesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'assignPrivateIpAddresses', 'EC2', Promise.reject(result), true, mock)
+  },
+  assignPrivateNatGatewayAddress: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'assignPrivateNatGatewayAddress', 'EC2', Promise.resolve(result), true, mock)
+  },
+  assignPrivateNatGatewayAddressAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'assignPrivateNatGatewayAddress', 'EC2', Promise.resolve(result), false, mock)
+  },
+  assignPrivateNatGatewayAddressThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'assignPrivateNatGatewayAddress', 'EC2', Promise.reject(result), true, mock)
   },
   associateAddress: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'associateAddress', 'EC2', Promise.resolve(result), true, mock)
@@ -179,6 +205,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   associateInstanceEventWindowThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'associateInstanceEventWindow', 'EC2', Promise.reject(result), true, mock)
   },
+  associateIpamByoasn: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'associateIpamByoasn', 'EC2', Promise.resolve(result), true, mock)
+  },
+  associateIpamByoasnAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'associateIpamByoasn', 'EC2', Promise.resolve(result), false, mock)
+  },
+  associateIpamByoasnThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'associateIpamByoasn', 'EC2', Promise.reject(result), true, mock)
+  },
+  associateIpamResourceDiscovery: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'associateIpamResourceDiscovery', 'EC2', Promise.resolve(result), true, mock)
+  },
+  associateIpamResourceDiscoveryAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'associateIpamResourceDiscovery', 'EC2', Promise.resolve(result), false, mock)
+  },
+  associateIpamResourceDiscoveryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'associateIpamResourceDiscovery', 'EC2', Promise.reject(result), true, mock)
+  },
+  associateNatGatewayAddress: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'associateNatGatewayAddress', 'EC2', Promise.resolve(result), true, mock)
+  },
+  associateNatGatewayAddressAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'associateNatGatewayAddress', 'EC2', Promise.resolve(result), false, mock)
+  },
+  associateNatGatewayAddressThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'associateNatGatewayAddress', 'EC2', Promise.reject(result), true, mock)
+  },
   associateRouteTable: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'associateRouteTable', 'EC2', Promise.resolve(result), true, mock)
   },
@@ -205,6 +258,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   associateTransitGatewayMulticastDomainThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'associateTransitGatewayMulticastDomain', 'EC2', Promise.reject(result), true, mock)
+  },
+  associateTransitGatewayPolicyTable: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'associateTransitGatewayPolicyTable', 'EC2', Promise.resolve(result), true, mock)
+  },
+  associateTransitGatewayPolicyTableAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'associateTransitGatewayPolicyTable', 'EC2', Promise.resolve(result), false, mock)
+  },
+  associateTransitGatewayPolicyTableThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'associateTransitGatewayPolicyTable', 'EC2', Promise.reject(result), true, mock)
   },
   associateTransitGatewayRouteTable: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'associateTransitGatewayRouteTable', 'EC2', Promise.resolve(result), true, mock)
@@ -259,6 +321,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   attachNetworkInterfaceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'attachNetworkInterface', 'EC2', Promise.reject(result), true, mock)
+  },
+  attachVerifiedAccessTrustProvider: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'attachVerifiedAccessTrustProvider', 'EC2', Promise.resolve(result), true, mock)
+  },
+  attachVerifiedAccessTrustProviderAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'attachVerifiedAccessTrustProvider', 'EC2', Promise.resolve(result), false, mock)
+  },
+  attachVerifiedAccessTrustProviderThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'attachVerifiedAccessTrustProvider', 'EC2', Promise.reject(result), true, mock)
   },
   attachVolume: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'attachVolume', 'EC2', Promise.resolve(result), true, mock)
@@ -358,6 +429,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   cancelExportTaskThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'cancelExportTask', 'EC2', Promise.reject(result), true, mock)
+  },
+  cancelImageLaunchPermission: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'cancelImageLaunchPermission', 'EC2', Promise.resolve(result), true, mock)
+  },
+  cancelImageLaunchPermissionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'cancelImageLaunchPermission', 'EC2', Promise.resolve(result), false, mock)
+  },
+  cancelImageLaunchPermissionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'cancelImageLaunchPermission', 'EC2', Promise.reject(result), true, mock)
   },
   cancelImportTask: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'cancelImportTask', 'EC2', Promise.resolve(result), true, mock)
@@ -476,6 +556,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createClientVpnRouteThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'createClientVpnRoute', 'EC2', Promise.reject(result), true, mock)
   },
+  createCoipCidr: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createCoipCidr', 'EC2', Promise.resolve(result), true, mock)
+  },
+  createCoipCidrAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createCoipCidr', 'EC2', Promise.resolve(result), false, mock)
+  },
+  createCoipCidrThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createCoipCidr', 'EC2', Promise.reject(result), true, mock)
+  },
+  createCoipPool: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createCoipPool', 'EC2', Promise.resolve(result), true, mock)
+  },
+  createCoipPoolAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createCoipPool', 'EC2', Promise.resolve(result), false, mock)
+  },
+  createCoipPoolThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createCoipPool', 'EC2', Promise.reject(result), true, mock)
+  },
   createCustomerGateway: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'createCustomerGateway', 'EC2', Promise.resolve(result), true, mock)
   },
@@ -557,6 +655,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createImageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'createImage', 'EC2', Promise.reject(result), true, mock)
   },
+  createInstanceConnectEndpoint: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createInstanceConnectEndpoint', 'EC2', Promise.resolve(result), true, mock)
+  },
+  createInstanceConnectEndpointAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createInstanceConnectEndpoint', 'EC2', Promise.resolve(result), false, mock)
+  },
+  createInstanceConnectEndpointThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createInstanceConnectEndpoint', 'EC2', Promise.reject(result), true, mock)
+  },
   createInstanceEventWindow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'createInstanceEventWindow', 'EC2', Promise.resolve(result), true, mock)
   },
@@ -583,6 +690,42 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createInternetGatewayThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'createInternetGateway', 'EC2', Promise.reject(result), true, mock)
+  },
+  createIpam: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createIpam', 'EC2', Promise.resolve(result), true, mock)
+  },
+  createIpamAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createIpam', 'EC2', Promise.resolve(result), false, mock)
+  },
+  createIpamThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createIpam', 'EC2', Promise.reject(result), true, mock)
+  },
+  createIpamPool: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createIpamPool', 'EC2', Promise.resolve(result), true, mock)
+  },
+  createIpamPoolAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createIpamPool', 'EC2', Promise.resolve(result), false, mock)
+  },
+  createIpamPoolThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createIpamPool', 'EC2', Promise.reject(result), true, mock)
+  },
+  createIpamResourceDiscovery: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createIpamResourceDiscovery', 'EC2', Promise.resolve(result), true, mock)
+  },
+  createIpamResourceDiscoveryAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createIpamResourceDiscovery', 'EC2', Promise.resolve(result), false, mock)
+  },
+  createIpamResourceDiscoveryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createIpamResourceDiscovery', 'EC2', Promise.reject(result), true, mock)
+  },
+  createIpamScope: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createIpamScope', 'EC2', Promise.resolve(result), true, mock)
+  },
+  createIpamScopeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createIpamScope', 'EC2', Promise.resolve(result), false, mock)
+  },
+  createIpamScopeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createIpamScope', 'EC2', Promise.reject(result), true, mock)
   },
   createKeyPair: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'createKeyPair', 'EC2', Promise.resolve(result), true, mock)
@@ -619,6 +762,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createLocalGatewayRouteThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'createLocalGatewayRoute', 'EC2', Promise.reject(result), true, mock)
+  },
+  createLocalGatewayRouteTable: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createLocalGatewayRouteTable', 'EC2', Promise.resolve(result), true, mock)
+  },
+  createLocalGatewayRouteTableAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createLocalGatewayRouteTable', 'EC2', Promise.resolve(result), false, mock)
+  },
+  createLocalGatewayRouteTableThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createLocalGatewayRouteTable', 'EC2', Promise.reject(result), true, mock)
+  },
+  createLocalGatewayRouteTableVirtualInterfaceGroupAssociation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createLocalGatewayRouteTableVirtualInterfaceGroupAssociation', 'EC2', Promise.resolve(result), true, mock)
+  },
+  createLocalGatewayRouteTableVirtualInterfaceGroupAssociationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createLocalGatewayRouteTableVirtualInterfaceGroupAssociation', 'EC2', Promise.resolve(result), false, mock)
+  },
+  createLocalGatewayRouteTableVirtualInterfaceGroupAssociationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createLocalGatewayRouteTableVirtualInterfaceGroupAssociation', 'EC2', Promise.reject(result), true, mock)
   },
   createLocalGatewayRouteTableVpcAssociation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'createLocalGatewayRouteTableVpcAssociation', 'EC2', Promise.resolve(result), true, mock)
@@ -665,6 +826,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createNetworkAclEntryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'createNetworkAclEntry', 'EC2', Promise.reject(result), true, mock)
   },
+  createNetworkInsightsAccessScope: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createNetworkInsightsAccessScope', 'EC2', Promise.resolve(result), true, mock)
+  },
+  createNetworkInsightsAccessScopeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createNetworkInsightsAccessScope', 'EC2', Promise.resolve(result), false, mock)
+  },
+  createNetworkInsightsAccessScopeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createNetworkInsightsAccessScope', 'EC2', Promise.reject(result), true, mock)
+  },
   createNetworkInsightsPath: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'createNetworkInsightsPath', 'EC2', Promise.resolve(result), true, mock)
   },
@@ -700,6 +870,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createPlacementGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'createPlacementGroup', 'EC2', Promise.reject(result), true, mock)
+  },
+  createPublicIpv4Pool: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createPublicIpv4Pool', 'EC2', Promise.resolve(result), true, mock)
+  },
+  createPublicIpv4PoolAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createPublicIpv4Pool', 'EC2', Promise.resolve(result), false, mock)
+  },
+  createPublicIpv4PoolThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createPublicIpv4Pool', 'EC2', Promise.reject(result), true, mock)
   },
   createReplaceRootVolumeTask: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'createReplaceRootVolumeTask', 'EC2', Promise.resolve(result), true, mock)
@@ -791,15 +970,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createStoreImageTaskThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'createStoreImageTask', 'EC2', Promise.reject(result), true, mock)
   },
-  createSubnet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ec2', 'createSubnet', 'EC2', Promise.resolve(result), true, mock)
-  },
-  createSubnetAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ec2', 'createSubnet', 'EC2', Promise.resolve(result), false, mock)
-  },
-  createSubnetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ec2', 'createSubnet', 'EC2', Promise.reject(result), true, mock)
-  },
   createSubnetCidrReservation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'createSubnetCidrReservation', 'EC2', Promise.resolve(result), true, mock)
   },
@@ -808,6 +978,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createSubnetCidrReservationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'createSubnetCidrReservation', 'EC2', Promise.reject(result), true, mock)
+  },
+  createSubnet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createSubnet', 'EC2', Promise.resolve(result), true, mock)
+  },
+  createSubnetAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createSubnet', 'EC2', Promise.resolve(result), false, mock)
+  },
+  createSubnetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createSubnet', 'EC2', Promise.reject(result), true, mock)
   },
   createTags: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'createTags', 'EC2', Promise.resolve(result), true, mock)
@@ -899,6 +1078,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createTransitGatewayPeeringAttachmentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'createTransitGatewayPeeringAttachment', 'EC2', Promise.reject(result), true, mock)
   },
+  createTransitGatewayPolicyTable: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createTransitGatewayPolicyTable', 'EC2', Promise.resolve(result), true, mock)
+  },
+  createTransitGatewayPolicyTableAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createTransitGatewayPolicyTable', 'EC2', Promise.resolve(result), false, mock)
+  },
+  createTransitGatewayPolicyTableThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createTransitGatewayPolicyTable', 'EC2', Promise.reject(result), true, mock)
+  },
   createTransitGatewayPrefixListReference: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'createTransitGatewayPrefixListReference', 'EC2', Promise.resolve(result), true, mock)
   },
@@ -917,6 +1105,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createTransitGatewayRouteThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'createTransitGatewayRoute', 'EC2', Promise.reject(result), true, mock)
   },
+  createTransitGatewayRouteTableAnnouncement: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createTransitGatewayRouteTableAnnouncement', 'EC2', Promise.resolve(result), true, mock)
+  },
+  createTransitGatewayRouteTableAnnouncementAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createTransitGatewayRouteTableAnnouncement', 'EC2', Promise.resolve(result), false, mock)
+  },
+  createTransitGatewayRouteTableAnnouncementThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createTransitGatewayRouteTableAnnouncement', 'EC2', Promise.reject(result), true, mock)
+  },
   createTransitGatewayRouteTable: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'createTransitGatewayRouteTable', 'EC2', Promise.resolve(result), true, mock)
   },
@@ -934,6 +1131,42 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createTransitGatewayVpcAttachmentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'createTransitGatewayVpcAttachment', 'EC2', Promise.reject(result), true, mock)
+  },
+  createVerifiedAccessEndpoint: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createVerifiedAccessEndpoint', 'EC2', Promise.resolve(result), true, mock)
+  },
+  createVerifiedAccessEndpointAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createVerifiedAccessEndpoint', 'EC2', Promise.resolve(result), false, mock)
+  },
+  createVerifiedAccessEndpointThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createVerifiedAccessEndpoint', 'EC2', Promise.reject(result), true, mock)
+  },
+  createVerifiedAccessGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createVerifiedAccessGroup', 'EC2', Promise.resolve(result), true, mock)
+  },
+  createVerifiedAccessGroupAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createVerifiedAccessGroup', 'EC2', Promise.resolve(result), false, mock)
+  },
+  createVerifiedAccessGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createVerifiedAccessGroup', 'EC2', Promise.reject(result), true, mock)
+  },
+  createVerifiedAccessInstance: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createVerifiedAccessInstance', 'EC2', Promise.resolve(result), true, mock)
+  },
+  createVerifiedAccessInstanceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createVerifiedAccessInstance', 'EC2', Promise.resolve(result), false, mock)
+  },
+  createVerifiedAccessInstanceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createVerifiedAccessInstance', 'EC2', Promise.reject(result), true, mock)
+  },
+  createVerifiedAccessTrustProvider: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createVerifiedAccessTrustProvider', 'EC2', Promise.resolve(result), true, mock)
+  },
+  createVerifiedAccessTrustProviderAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createVerifiedAccessTrustProvider', 'EC2', Promise.resolve(result), false, mock)
+  },
+  createVerifiedAccessTrustProviderThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'createVerifiedAccessTrustProvider', 'EC2', Promise.reject(result), true, mock)
   },
   createVolume: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'createVolume', 'EC2', Promise.resolve(result), true, mock)
@@ -1043,6 +1276,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteClientVpnRouteThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'deleteClientVpnRoute', 'EC2', Promise.reject(result), true, mock)
   },
+  deleteCoipCidr: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteCoipCidr', 'EC2', Promise.resolve(result), true, mock)
+  },
+  deleteCoipCidrAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteCoipCidr', 'EC2', Promise.resolve(result), false, mock)
+  },
+  deleteCoipCidrThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteCoipCidr', 'EC2', Promise.reject(result), true, mock)
+  },
+  deleteCoipPool: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteCoipPool', 'EC2', Promise.resolve(result), true, mock)
+  },
+  deleteCoipPoolAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteCoipPool', 'EC2', Promise.resolve(result), false, mock)
+  },
+  deleteCoipPoolThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteCoipPool', 'EC2', Promise.reject(result), true, mock)
+  },
   deleteCustomerGateway: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'deleteCustomerGateway', 'EC2', Promise.resolve(result), true, mock)
   },
@@ -1097,6 +1348,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteFpgaImageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'deleteFpgaImage', 'EC2', Promise.reject(result), true, mock)
   },
+  deleteInstanceConnectEndpoint: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteInstanceConnectEndpoint', 'EC2', Promise.resolve(result), true, mock)
+  },
+  deleteInstanceConnectEndpointAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteInstanceConnectEndpoint', 'EC2', Promise.resolve(result), false, mock)
+  },
+  deleteInstanceConnectEndpointThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteInstanceConnectEndpoint', 'EC2', Promise.reject(result), true, mock)
+  },
   deleteInstanceEventWindow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'deleteInstanceEventWindow', 'EC2', Promise.resolve(result), true, mock)
   },
@@ -1114,6 +1374,42 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteInternetGatewayThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'deleteInternetGateway', 'EC2', Promise.reject(result), true, mock)
+  },
+  deleteIpam: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteIpam', 'EC2', Promise.resolve(result), true, mock)
+  },
+  deleteIpamAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteIpam', 'EC2', Promise.resolve(result), false, mock)
+  },
+  deleteIpamThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteIpam', 'EC2', Promise.reject(result), true, mock)
+  },
+  deleteIpamPool: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteIpamPool', 'EC2', Promise.resolve(result), true, mock)
+  },
+  deleteIpamPoolAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteIpamPool', 'EC2', Promise.resolve(result), false, mock)
+  },
+  deleteIpamPoolThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteIpamPool', 'EC2', Promise.reject(result), true, mock)
+  },
+  deleteIpamResourceDiscovery: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteIpamResourceDiscovery', 'EC2', Promise.resolve(result), true, mock)
+  },
+  deleteIpamResourceDiscoveryAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteIpamResourceDiscovery', 'EC2', Promise.resolve(result), false, mock)
+  },
+  deleteIpamResourceDiscoveryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteIpamResourceDiscovery', 'EC2', Promise.reject(result), true, mock)
+  },
+  deleteIpamScope: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteIpamScope', 'EC2', Promise.resolve(result), true, mock)
+  },
+  deleteIpamScopeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteIpamScope', 'EC2', Promise.resolve(result), false, mock)
+  },
+  deleteIpamScopeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteIpamScope', 'EC2', Promise.reject(result), true, mock)
   },
   deleteKeyPair: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'deleteKeyPair', 'EC2', Promise.resolve(result), true, mock)
@@ -1150,6 +1446,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteLocalGatewayRouteThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'deleteLocalGatewayRoute', 'EC2', Promise.reject(result), true, mock)
+  },
+  deleteLocalGatewayRouteTable: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteLocalGatewayRouteTable', 'EC2', Promise.resolve(result), true, mock)
+  },
+  deleteLocalGatewayRouteTableAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteLocalGatewayRouteTable', 'EC2', Promise.resolve(result), false, mock)
+  },
+  deleteLocalGatewayRouteTableThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteLocalGatewayRouteTable', 'EC2', Promise.reject(result), true, mock)
+  },
+  deleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation', 'EC2', Promise.resolve(result), true, mock)
+  },
+  deleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation', 'EC2', Promise.resolve(result), false, mock)
+  },
+  deleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation', 'EC2', Promise.reject(result), true, mock)
   },
   deleteLocalGatewayRouteTableVpcAssociation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'deleteLocalGatewayRouteTableVpcAssociation', 'EC2', Promise.resolve(result), true, mock)
@@ -1196,6 +1510,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteNetworkAclEntryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'deleteNetworkAclEntry', 'EC2', Promise.reject(result), true, mock)
   },
+  deleteNetworkInsightsAccessScopeAnalysis: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteNetworkInsightsAccessScopeAnalysis', 'EC2', Promise.resolve(result), true, mock)
+  },
+  deleteNetworkInsightsAccessScopeAnalysisAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteNetworkInsightsAccessScopeAnalysis', 'EC2', Promise.resolve(result), false, mock)
+  },
+  deleteNetworkInsightsAccessScopeAnalysisThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteNetworkInsightsAccessScopeAnalysis', 'EC2', Promise.reject(result), true, mock)
+  },
+  deleteNetworkInsightsAccessScope: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteNetworkInsightsAccessScope', 'EC2', Promise.resolve(result), true, mock)
+  },
+  deleteNetworkInsightsAccessScopeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteNetworkInsightsAccessScope', 'EC2', Promise.resolve(result), false, mock)
+  },
+  deleteNetworkInsightsAccessScopeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteNetworkInsightsAccessScope', 'EC2', Promise.reject(result), true, mock)
+  },
   deleteNetworkInsightsAnalysis: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'deleteNetworkInsightsAnalysis', 'EC2', Promise.resolve(result), true, mock)
   },
@@ -1240,6 +1572,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deletePlacementGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'deletePlacementGroup', 'EC2', Promise.reject(result), true, mock)
+  },
+  deletePublicIpv4Pool: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deletePublicIpv4Pool', 'EC2', Promise.resolve(result), true, mock)
+  },
+  deletePublicIpv4PoolAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deletePublicIpv4Pool', 'EC2', Promise.resolve(result), false, mock)
+  },
+  deletePublicIpv4PoolThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deletePublicIpv4Pool', 'EC2', Promise.reject(result), true, mock)
   },
   deleteQueuedReservedInstances: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'deleteQueuedReservedInstances', 'EC2', Promise.resolve(result), true, mock)
@@ -1295,15 +1636,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteSpotDatafeedSubscriptionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'deleteSpotDatafeedSubscription', 'EC2', Promise.reject(result), true, mock)
   },
-  deleteSubnet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ec2', 'deleteSubnet', 'EC2', Promise.resolve(result), true, mock)
-  },
-  deleteSubnetAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ec2', 'deleteSubnet', 'EC2', Promise.resolve(result), false, mock)
-  },
-  deleteSubnetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ec2', 'deleteSubnet', 'EC2', Promise.reject(result), true, mock)
-  },
   deleteSubnetCidrReservation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'deleteSubnetCidrReservation', 'EC2', Promise.resolve(result), true, mock)
   },
@@ -1312,6 +1644,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteSubnetCidrReservationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'deleteSubnetCidrReservation', 'EC2', Promise.reject(result), true, mock)
+  },
+  deleteSubnet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteSubnet', 'EC2', Promise.resolve(result), true, mock)
+  },
+  deleteSubnetAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteSubnet', 'EC2', Promise.resolve(result), false, mock)
+  },
+  deleteSubnetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteSubnet', 'EC2', Promise.reject(result), true, mock)
   },
   deleteTags: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'deleteTags', 'EC2', Promise.resolve(result), true, mock)
@@ -1403,6 +1744,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteTransitGatewayPeeringAttachmentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'deleteTransitGatewayPeeringAttachment', 'EC2', Promise.reject(result), true, mock)
   },
+  deleteTransitGatewayPolicyTable: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteTransitGatewayPolicyTable', 'EC2', Promise.resolve(result), true, mock)
+  },
+  deleteTransitGatewayPolicyTableAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteTransitGatewayPolicyTable', 'EC2', Promise.resolve(result), false, mock)
+  },
+  deleteTransitGatewayPolicyTableThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteTransitGatewayPolicyTable', 'EC2', Promise.reject(result), true, mock)
+  },
   deleteTransitGatewayPrefixListReference: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'deleteTransitGatewayPrefixListReference', 'EC2', Promise.resolve(result), true, mock)
   },
@@ -1421,6 +1771,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteTransitGatewayRouteThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'deleteTransitGatewayRoute', 'EC2', Promise.reject(result), true, mock)
   },
+  deleteTransitGatewayRouteTableAnnouncement: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteTransitGatewayRouteTableAnnouncement', 'EC2', Promise.resolve(result), true, mock)
+  },
+  deleteTransitGatewayRouteTableAnnouncementAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteTransitGatewayRouteTableAnnouncement', 'EC2', Promise.resolve(result), false, mock)
+  },
+  deleteTransitGatewayRouteTableAnnouncementThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteTransitGatewayRouteTableAnnouncement', 'EC2', Promise.reject(result), true, mock)
+  },
   deleteTransitGatewayRouteTable: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'deleteTransitGatewayRouteTable', 'EC2', Promise.resolve(result), true, mock)
   },
@@ -1438,6 +1797,42 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteTransitGatewayVpcAttachmentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'deleteTransitGatewayVpcAttachment', 'EC2', Promise.reject(result), true, mock)
+  },
+  deleteVerifiedAccessEndpoint: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteVerifiedAccessEndpoint', 'EC2', Promise.resolve(result), true, mock)
+  },
+  deleteVerifiedAccessEndpointAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteVerifiedAccessEndpoint', 'EC2', Promise.resolve(result), false, mock)
+  },
+  deleteVerifiedAccessEndpointThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteVerifiedAccessEndpoint', 'EC2', Promise.reject(result), true, mock)
+  },
+  deleteVerifiedAccessGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteVerifiedAccessGroup', 'EC2', Promise.resolve(result), true, mock)
+  },
+  deleteVerifiedAccessGroupAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteVerifiedAccessGroup', 'EC2', Promise.resolve(result), false, mock)
+  },
+  deleteVerifiedAccessGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteVerifiedAccessGroup', 'EC2', Promise.reject(result), true, mock)
+  },
+  deleteVerifiedAccessInstance: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteVerifiedAccessInstance', 'EC2', Promise.resolve(result), true, mock)
+  },
+  deleteVerifiedAccessInstanceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteVerifiedAccessInstance', 'EC2', Promise.resolve(result), false, mock)
+  },
+  deleteVerifiedAccessInstanceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteVerifiedAccessInstance', 'EC2', Promise.reject(result), true, mock)
+  },
+  deleteVerifiedAccessTrustProvider: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteVerifiedAccessTrustProvider', 'EC2', Promise.resolve(result), true, mock)
+  },
+  deleteVerifiedAccessTrustProviderAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteVerifiedAccessTrustProvider', 'EC2', Promise.resolve(result), false, mock)
+  },
+  deleteVerifiedAccessTrustProviderThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deleteVerifiedAccessTrustProvider', 'EC2', Promise.reject(result), true, mock)
   },
   deleteVolume: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'deleteVolume', 'EC2', Promise.resolve(result), true, mock)
@@ -1529,6 +1924,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deprovisionByoipCidrThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'deprovisionByoipCidr', 'EC2', Promise.reject(result), true, mock)
   },
+  deprovisionIpamByoasn: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deprovisionIpamByoasn', 'EC2', Promise.resolve(result), true, mock)
+  },
+  deprovisionIpamByoasnAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deprovisionIpamByoasn', 'EC2', Promise.resolve(result), false, mock)
+  },
+  deprovisionIpamByoasnThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deprovisionIpamByoasn', 'EC2', Promise.reject(result), true, mock)
+  },
+  deprovisionIpamPoolCidr: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deprovisionIpamPoolCidr', 'EC2', Promise.resolve(result), true, mock)
+  },
+  deprovisionIpamPoolCidrAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deprovisionIpamPoolCidr', 'EC2', Promise.resolve(result), false, mock)
+  },
+  deprovisionIpamPoolCidrThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deprovisionIpamPoolCidr', 'EC2', Promise.reject(result), true, mock)
+  },
+  deprovisionPublicIpv4PoolCidr: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deprovisionPublicIpv4PoolCidr', 'EC2', Promise.resolve(result), true, mock)
+  },
+  deprovisionPublicIpv4PoolCidrAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deprovisionPublicIpv4PoolCidr', 'EC2', Promise.resolve(result), false, mock)
+  },
+  deprovisionPublicIpv4PoolCidrThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'deprovisionPublicIpv4PoolCidr', 'EC2', Promise.reject(result), true, mock)
+  },
   deregisterImage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'deregisterImage', 'EC2', Promise.resolve(result), true, mock)
   },
@@ -1574,14 +1996,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeAccountAttributesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'describeAccountAttributes', 'EC2', Promise.reject(result), true, mock)
   },
-  describeAddresses: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ec2', 'describeAddresses', 'EC2', Promise.resolve(result), true, mock)
+  describeAddressTransfers: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeAddressTransfers', 'EC2', Promise.resolve(result), true, mock)
   },
-  describeAddressesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ec2', 'describeAddresses', 'EC2', Promise.resolve(result), false, mock)
+  describeAddressTransfersAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeAddressTransfers', 'EC2', Promise.resolve(result), false, mock)
   },
-  describeAddressesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ec2', 'describeAddresses', 'EC2', Promise.reject(result), true, mock)
+  describeAddressTransfersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeAddressTransfers', 'EC2', Promise.reject(result), true, mock)
   },
   describeAddressesAttribute: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'describeAddressesAttribute', 'EC2', Promise.resolve(result), true, mock)
@@ -1591,6 +2013,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeAddressesAttributeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'describeAddressesAttribute', 'EC2', Promise.reject(result), true, mock)
+  },
+  describeAddresses: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeAddresses', 'EC2', Promise.resolve(result), true, mock)
+  },
+  describeAddressesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeAddresses', 'EC2', Promise.resolve(result), false, mock)
+  },
+  describeAddressesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeAddresses', 'EC2', Promise.reject(result), true, mock)
   },
   describeAggregateIdFormat: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'describeAggregateIdFormat', 'EC2', Promise.resolve(result), true, mock)
@@ -1610,6 +2041,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeAvailabilityZonesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'describeAvailabilityZones', 'EC2', Promise.reject(result), true, mock)
   },
+  describeAwsNetworkPerformanceMetricSubscriptions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeAwsNetworkPerformanceMetricSubscriptions', 'EC2', Promise.resolve(result), true, mock)
+  },
+  describeAwsNetworkPerformanceMetricSubscriptionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeAwsNetworkPerformanceMetricSubscriptions', 'EC2', Promise.resolve(result), false, mock)
+  },
+  describeAwsNetworkPerformanceMetricSubscriptionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeAwsNetworkPerformanceMetricSubscriptions', 'EC2', Promise.reject(result), true, mock)
+  },
   describeBundleTasks: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'describeBundleTasks', 'EC2', Promise.resolve(result), true, mock)
   },
@@ -1627,6 +2067,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeByoipCidrsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'describeByoipCidrs', 'EC2', Promise.reject(result), true, mock)
+  },
+  describeCapacityBlockOfferings: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeCapacityBlockOfferings', 'EC2', Promise.resolve(result), true, mock)
+  },
+  describeCapacityBlockOfferingsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeCapacityBlockOfferings', 'EC2', Promise.resolve(result), false, mock)
+  },
+  describeCapacityBlockOfferingsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeCapacityBlockOfferings', 'EC2', Promise.reject(result), true, mock)
   },
   describeCapacityReservationFleets: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'describeCapacityReservationFleets', 'EC2', Promise.resolve(result), true, mock)
@@ -1780,6 +2229,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeExportTasksThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'describeExportTasks', 'EC2', Promise.reject(result), true, mock)
+  },
+  describeFastLaunchImages: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeFastLaunchImages', 'EC2', Promise.resolve(result), true, mock)
+  },
+  describeFastLaunchImagesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeFastLaunchImages', 'EC2', Promise.resolve(result), false, mock)
+  },
+  describeFastLaunchImagesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeFastLaunchImages', 'EC2', Promise.reject(result), true, mock)
   },
   describeFastSnapshotRestores: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'describeFastSnapshotRestores', 'EC2', Promise.resolve(result), true, mock)
@@ -1943,6 +2401,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeInstanceAttributeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'describeInstanceAttribute', 'EC2', Promise.reject(result), true, mock)
   },
+  describeInstanceConnectEndpoints: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeInstanceConnectEndpoints', 'EC2', Promise.resolve(result), true, mock)
+  },
+  describeInstanceConnectEndpointsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeInstanceConnectEndpoints', 'EC2', Promise.resolve(result), false, mock)
+  },
+  describeInstanceConnectEndpointsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeInstanceConnectEndpoints', 'EC2', Promise.reject(result), true, mock)
+  },
   describeInstanceCreditSpecifications: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'describeInstanceCreditSpecifications', 'EC2', Promise.resolve(result), true, mock)
   },
@@ -1979,6 +2446,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeInstanceStatusThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'describeInstanceStatus', 'EC2', Promise.reject(result), true, mock)
   },
+  describeInstanceTopology: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeInstanceTopology', 'EC2', Promise.resolve(result), true, mock)
+  },
+  describeInstanceTopologyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeInstanceTopology', 'EC2', Promise.resolve(result), false, mock)
+  },
+  describeInstanceTopologyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeInstanceTopology', 'EC2', Promise.reject(result), true, mock)
+  },
   describeInstanceTypeOfferings: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'describeInstanceTypeOfferings', 'EC2', Promise.resolve(result), true, mock)
   },
@@ -2014,6 +2490,60 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeInternetGatewaysThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'describeInternetGateways', 'EC2', Promise.reject(result), true, mock)
+  },
+  describeIpamByoasn: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeIpamByoasn', 'EC2', Promise.resolve(result), true, mock)
+  },
+  describeIpamByoasnAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeIpamByoasn', 'EC2', Promise.resolve(result), false, mock)
+  },
+  describeIpamByoasnThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeIpamByoasn', 'EC2', Promise.reject(result), true, mock)
+  },
+  describeIpamPools: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeIpamPools', 'EC2', Promise.resolve(result), true, mock)
+  },
+  describeIpamPoolsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeIpamPools', 'EC2', Promise.resolve(result), false, mock)
+  },
+  describeIpamPoolsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeIpamPools', 'EC2', Promise.reject(result), true, mock)
+  },
+  describeIpamResourceDiscoveries: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeIpamResourceDiscoveries', 'EC2', Promise.resolve(result), true, mock)
+  },
+  describeIpamResourceDiscoveriesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeIpamResourceDiscoveries', 'EC2', Promise.resolve(result), false, mock)
+  },
+  describeIpamResourceDiscoveriesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeIpamResourceDiscoveries', 'EC2', Promise.reject(result), true, mock)
+  },
+  describeIpamResourceDiscoveryAssociations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeIpamResourceDiscoveryAssociations', 'EC2', Promise.resolve(result), true, mock)
+  },
+  describeIpamResourceDiscoveryAssociationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeIpamResourceDiscoveryAssociations', 'EC2', Promise.resolve(result), false, mock)
+  },
+  describeIpamResourceDiscoveryAssociationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeIpamResourceDiscoveryAssociations', 'EC2', Promise.reject(result), true, mock)
+  },
+  describeIpamScopes: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeIpamScopes', 'EC2', Promise.resolve(result), true, mock)
+  },
+  describeIpamScopesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeIpamScopes', 'EC2', Promise.resolve(result), false, mock)
+  },
+  describeIpamScopesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeIpamScopes', 'EC2', Promise.reject(result), true, mock)
+  },
+  describeIpams: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeIpams', 'EC2', Promise.resolve(result), true, mock)
+  },
+  describeIpamsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeIpams', 'EC2', Promise.resolve(result), false, mock)
+  },
+  describeIpamsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeIpams', 'EC2', Promise.reject(result), true, mock)
   },
   describeIpv6Pools: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'describeIpv6Pools', 'EC2', Promise.resolve(result), true, mock)
@@ -2105,6 +2635,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeLocalGatewaysThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'describeLocalGateways', 'EC2', Promise.reject(result), true, mock)
   },
+  describeLockedSnapshots: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeLockedSnapshots', 'EC2', Promise.resolve(result), true, mock)
+  },
+  describeLockedSnapshotsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeLockedSnapshots', 'EC2', Promise.resolve(result), false, mock)
+  },
+  describeLockedSnapshotsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeLockedSnapshots', 'EC2', Promise.reject(result), true, mock)
+  },
   describeManagedPrefixLists: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'describeManagedPrefixLists', 'EC2', Promise.resolve(result), true, mock)
   },
@@ -2140,6 +2679,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeNetworkAclsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'describeNetworkAcls', 'EC2', Promise.reject(result), true, mock)
+  },
+  describeNetworkInsightsAccessScopeAnalyses: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeNetworkInsightsAccessScopeAnalyses', 'EC2', Promise.resolve(result), true, mock)
+  },
+  describeNetworkInsightsAccessScopeAnalysesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeNetworkInsightsAccessScopeAnalyses', 'EC2', Promise.resolve(result), false, mock)
+  },
+  describeNetworkInsightsAccessScopeAnalysesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeNetworkInsightsAccessScopeAnalyses', 'EC2', Promise.reject(result), true, mock)
+  },
+  describeNetworkInsightsAccessScopes: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeNetworkInsightsAccessScopes', 'EC2', Promise.resolve(result), true, mock)
+  },
+  describeNetworkInsightsAccessScopesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeNetworkInsightsAccessScopes', 'EC2', Promise.resolve(result), false, mock)
+  },
+  describeNetworkInsightsAccessScopesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeNetworkInsightsAccessScopes', 'EC2', Promise.reject(result), true, mock)
   },
   describeNetworkInsightsAnalyses: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'describeNetworkInsightsAnalyses', 'EC2', Promise.resolve(result), true, mock)
@@ -2339,6 +2896,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeSnapshotAttributeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'describeSnapshotAttribute', 'EC2', Promise.reject(result), true, mock)
   },
+  describeSnapshotTierStatus: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeSnapshotTierStatus', 'EC2', Promise.resolve(result), true, mock)
+  },
+  describeSnapshotTierStatusAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeSnapshotTierStatus', 'EC2', Promise.resolve(result), false, mock)
+  },
+  describeSnapshotTierStatusThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeSnapshotTierStatus', 'EC2', Promise.reject(result), true, mock)
+  },
   describeSnapshots: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'describeSnapshots', 'EC2', Promise.resolve(result), true, mock)
   },
@@ -2510,6 +3076,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeTransitGatewayPeeringAttachmentsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'describeTransitGatewayPeeringAttachments', 'EC2', Promise.reject(result), true, mock)
   },
+  describeTransitGatewayPolicyTables: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeTransitGatewayPolicyTables', 'EC2', Promise.resolve(result), true, mock)
+  },
+  describeTransitGatewayPolicyTablesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeTransitGatewayPolicyTables', 'EC2', Promise.resolve(result), false, mock)
+  },
+  describeTransitGatewayPolicyTablesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeTransitGatewayPolicyTables', 'EC2', Promise.reject(result), true, mock)
+  },
+  describeTransitGatewayRouteTableAnnouncements: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeTransitGatewayRouteTableAnnouncements', 'EC2', Promise.resolve(result), true, mock)
+  },
+  describeTransitGatewayRouteTableAnnouncementsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeTransitGatewayRouteTableAnnouncements', 'EC2', Promise.resolve(result), false, mock)
+  },
+  describeTransitGatewayRouteTableAnnouncementsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeTransitGatewayRouteTableAnnouncements', 'EC2', Promise.reject(result), true, mock)
+  },
   describeTransitGatewayRouteTables: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'describeTransitGatewayRouteTables', 'EC2', Promise.resolve(result), true, mock)
   },
@@ -2545,6 +3129,51 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeTrunkInterfaceAssociationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'describeTrunkInterfaceAssociations', 'EC2', Promise.reject(result), true, mock)
+  },
+  describeVerifiedAccessEndpoints: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeVerifiedAccessEndpoints', 'EC2', Promise.resolve(result), true, mock)
+  },
+  describeVerifiedAccessEndpointsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeVerifiedAccessEndpoints', 'EC2', Promise.resolve(result), false, mock)
+  },
+  describeVerifiedAccessEndpointsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeVerifiedAccessEndpoints', 'EC2', Promise.reject(result), true, mock)
+  },
+  describeVerifiedAccessGroups: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeVerifiedAccessGroups', 'EC2', Promise.resolve(result), true, mock)
+  },
+  describeVerifiedAccessGroupsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeVerifiedAccessGroups', 'EC2', Promise.resolve(result), false, mock)
+  },
+  describeVerifiedAccessGroupsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeVerifiedAccessGroups', 'EC2', Promise.reject(result), true, mock)
+  },
+  describeVerifiedAccessInstanceLoggingConfigurations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeVerifiedAccessInstanceLoggingConfigurations', 'EC2', Promise.resolve(result), true, mock)
+  },
+  describeVerifiedAccessInstanceLoggingConfigurationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeVerifiedAccessInstanceLoggingConfigurations', 'EC2', Promise.resolve(result), false, mock)
+  },
+  describeVerifiedAccessInstanceLoggingConfigurationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeVerifiedAccessInstanceLoggingConfigurations', 'EC2', Promise.reject(result), true, mock)
+  },
+  describeVerifiedAccessInstances: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeVerifiedAccessInstances', 'EC2', Promise.resolve(result), true, mock)
+  },
+  describeVerifiedAccessInstancesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeVerifiedAccessInstances', 'EC2', Promise.resolve(result), false, mock)
+  },
+  describeVerifiedAccessInstancesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeVerifiedAccessInstances', 'EC2', Promise.reject(result), true, mock)
+  },
+  describeVerifiedAccessTrustProviders: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeVerifiedAccessTrustProviders', 'EC2', Promise.resolve(result), true, mock)
+  },
+  describeVerifiedAccessTrustProvidersAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeVerifiedAccessTrustProviders', 'EC2', Promise.resolve(result), false, mock)
+  },
+  describeVerifiedAccessTrustProvidersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'describeVerifiedAccessTrustProviders', 'EC2', Promise.reject(result), true, mock)
   },
   describeVolumeAttribute: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'describeVolumeAttribute', 'EC2', Promise.resolve(result), true, mock)
@@ -2699,15 +3328,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeVpnGatewaysThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'describeVpnGateways', 'EC2', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ec2', 'destroy', 'EC2', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ec2', 'destroy', 'EC2', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ec2', 'destroy', 'EC2', Promise.reject(result), true, mock)
-  },
   detachClassicLinkVpc: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'detachClassicLinkVpc', 'EC2', Promise.resolve(result), true, mock)
   },
@@ -2735,6 +3355,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   detachNetworkInterfaceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'detachNetworkInterface', 'EC2', Promise.reject(result), true, mock)
   },
+  detachVerifiedAccessTrustProvider: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'detachVerifiedAccessTrustProvider', 'EC2', Promise.resolve(result), true, mock)
+  },
+  detachVerifiedAccessTrustProviderAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'detachVerifiedAccessTrustProvider', 'EC2', Promise.resolve(result), false, mock)
+  },
+  detachVerifiedAccessTrustProviderThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'detachVerifiedAccessTrustProvider', 'EC2', Promise.reject(result), true, mock)
+  },
   detachVolume: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'detachVolume', 'EC2', Promise.resolve(result), true, mock)
   },
@@ -2753,6 +3382,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   detachVpnGatewayThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'detachVpnGateway', 'EC2', Promise.reject(result), true, mock)
   },
+  disableAddressTransfer: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'disableAddressTransfer', 'EC2', Promise.resolve(result), true, mock)
+  },
+  disableAddressTransferAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'disableAddressTransfer', 'EC2', Promise.resolve(result), false, mock)
+  },
+  disableAddressTransferThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'disableAddressTransfer', 'EC2', Promise.reject(result), true, mock)
+  },
+  disableAwsNetworkPerformanceMetricSubscription: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'disableAwsNetworkPerformanceMetricSubscription', 'EC2', Promise.resolve(result), true, mock)
+  },
+  disableAwsNetworkPerformanceMetricSubscriptionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'disableAwsNetworkPerformanceMetricSubscription', 'EC2', Promise.resolve(result), false, mock)
+  },
+  disableAwsNetworkPerformanceMetricSubscriptionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'disableAwsNetworkPerformanceMetricSubscription', 'EC2', Promise.reject(result), true, mock)
+  },
   disableEbsEncryptionByDefault: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'disableEbsEncryptionByDefault', 'EC2', Promise.resolve(result), true, mock)
   },
@@ -2761,6 +3408,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   disableEbsEncryptionByDefaultThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'disableEbsEncryptionByDefault', 'EC2', Promise.reject(result), true, mock)
+  },
+  disableFastLaunch: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'disableFastLaunch', 'EC2', Promise.resolve(result), true, mock)
+  },
+  disableFastLaunchAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'disableFastLaunch', 'EC2', Promise.resolve(result), false, mock)
+  },
+  disableFastLaunchThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'disableFastLaunch', 'EC2', Promise.reject(result), true, mock)
   },
   disableFastSnapshotRestores: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'disableFastSnapshotRestores', 'EC2', Promise.resolve(result), true, mock)
@@ -2771,6 +3427,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   disableFastSnapshotRestoresThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'disableFastSnapshotRestores', 'EC2', Promise.reject(result), true, mock)
   },
+  disableImageBlockPublicAccess: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'disableImageBlockPublicAccess', 'EC2', Promise.resolve(result), true, mock)
+  },
+  disableImageBlockPublicAccessAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'disableImageBlockPublicAccess', 'EC2', Promise.resolve(result), false, mock)
+  },
+  disableImageBlockPublicAccessThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'disableImageBlockPublicAccess', 'EC2', Promise.reject(result), true, mock)
+  },
+  disableImage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'disableImage', 'EC2', Promise.resolve(result), true, mock)
+  },
+  disableImageAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'disableImage', 'EC2', Promise.resolve(result), false, mock)
+  },
+  disableImageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'disableImage', 'EC2', Promise.reject(result), true, mock)
+  },
   disableImageDeprecation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'disableImageDeprecation', 'EC2', Promise.resolve(result), true, mock)
   },
@@ -2780,6 +3454,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   disableImageDeprecationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'disableImageDeprecation', 'EC2', Promise.reject(result), true, mock)
   },
+  disableIpamOrganizationAdminAccount: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'disableIpamOrganizationAdminAccount', 'EC2', Promise.resolve(result), true, mock)
+  },
+  disableIpamOrganizationAdminAccountAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'disableIpamOrganizationAdminAccount', 'EC2', Promise.resolve(result), false, mock)
+  },
+  disableIpamOrganizationAdminAccountThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'disableIpamOrganizationAdminAccount', 'EC2', Promise.reject(result), true, mock)
+  },
   disableSerialConsoleAccess: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'disableSerialConsoleAccess', 'EC2', Promise.resolve(result), true, mock)
   },
@@ -2788,6 +3471,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   disableSerialConsoleAccessThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'disableSerialConsoleAccess', 'EC2', Promise.reject(result), true, mock)
+  },
+  disableSnapshotBlockPublicAccess: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'disableSnapshotBlockPublicAccess', 'EC2', Promise.resolve(result), true, mock)
+  },
+  disableSnapshotBlockPublicAccessAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'disableSnapshotBlockPublicAccess', 'EC2', Promise.resolve(result), false, mock)
+  },
+  disableSnapshotBlockPublicAccessThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'disableSnapshotBlockPublicAccess', 'EC2', Promise.reject(result), true, mock)
   },
   disableTransitGatewayRouteTablePropagation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'disableTransitGatewayRouteTablePropagation', 'EC2', Promise.resolve(result), true, mock)
@@ -2870,6 +3562,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   disassociateInstanceEventWindowThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'disassociateInstanceEventWindow', 'EC2', Promise.reject(result), true, mock)
   },
+  disassociateIpamByoasn: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'disassociateIpamByoasn', 'EC2', Promise.resolve(result), true, mock)
+  },
+  disassociateIpamByoasnAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'disassociateIpamByoasn', 'EC2', Promise.resolve(result), false, mock)
+  },
+  disassociateIpamByoasnThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'disassociateIpamByoasn', 'EC2', Promise.reject(result), true, mock)
+  },
+  disassociateIpamResourceDiscovery: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'disassociateIpamResourceDiscovery', 'EC2', Promise.resolve(result), true, mock)
+  },
+  disassociateIpamResourceDiscoveryAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'disassociateIpamResourceDiscovery', 'EC2', Promise.resolve(result), false, mock)
+  },
+  disassociateIpamResourceDiscoveryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'disassociateIpamResourceDiscovery', 'EC2', Promise.reject(result), true, mock)
+  },
+  disassociateNatGatewayAddress: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'disassociateNatGatewayAddress', 'EC2', Promise.resolve(result), true, mock)
+  },
+  disassociateNatGatewayAddressAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'disassociateNatGatewayAddress', 'EC2', Promise.resolve(result), false, mock)
+  },
+  disassociateNatGatewayAddressThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'disassociateNatGatewayAddress', 'EC2', Promise.reject(result), true, mock)
+  },
   disassociateRouteTable: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'disassociateRouteTable', 'EC2', Promise.resolve(result), true, mock)
   },
@@ -2896,6 +3615,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   disassociateTransitGatewayMulticastDomainThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'disassociateTransitGatewayMulticastDomain', 'EC2', Promise.reject(result), true, mock)
+  },
+  disassociateTransitGatewayPolicyTable: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'disassociateTransitGatewayPolicyTable', 'EC2', Promise.resolve(result), true, mock)
+  },
+  disassociateTransitGatewayPolicyTableAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'disassociateTransitGatewayPolicyTable', 'EC2', Promise.resolve(result), false, mock)
+  },
+  disassociateTransitGatewayPolicyTableThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'disassociateTransitGatewayPolicyTable', 'EC2', Promise.reject(result), true, mock)
   },
   disassociateTransitGatewayRouteTable: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'disassociateTransitGatewayRouteTable', 'EC2', Promise.resolve(result), true, mock)
@@ -2924,6 +3652,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   disassociateVpcCidrBlockThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'disassociateVpcCidrBlock', 'EC2', Promise.reject(result), true, mock)
   },
+  enableAddressTransfer: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'enableAddressTransfer', 'EC2', Promise.resolve(result), true, mock)
+  },
+  enableAddressTransferAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'enableAddressTransfer', 'EC2', Promise.resolve(result), false, mock)
+  },
+  enableAddressTransferThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'enableAddressTransfer', 'EC2', Promise.reject(result), true, mock)
+  },
+  enableAwsNetworkPerformanceMetricSubscription: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'enableAwsNetworkPerformanceMetricSubscription', 'EC2', Promise.resolve(result), true, mock)
+  },
+  enableAwsNetworkPerformanceMetricSubscriptionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'enableAwsNetworkPerformanceMetricSubscription', 'EC2', Promise.resolve(result), false, mock)
+  },
+  enableAwsNetworkPerformanceMetricSubscriptionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'enableAwsNetworkPerformanceMetricSubscription', 'EC2', Promise.reject(result), true, mock)
+  },
   enableEbsEncryptionByDefault: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'enableEbsEncryptionByDefault', 'EC2', Promise.resolve(result), true, mock)
   },
@@ -2932,6 +3678,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   enableEbsEncryptionByDefaultThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'enableEbsEncryptionByDefault', 'EC2', Promise.reject(result), true, mock)
+  },
+  enableFastLaunch: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'enableFastLaunch', 'EC2', Promise.resolve(result), true, mock)
+  },
+  enableFastLaunchAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'enableFastLaunch', 'EC2', Promise.resolve(result), false, mock)
+  },
+  enableFastLaunchThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'enableFastLaunch', 'EC2', Promise.reject(result), true, mock)
   },
   enableFastSnapshotRestores: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'enableFastSnapshotRestores', 'EC2', Promise.resolve(result), true, mock)
@@ -2942,6 +3697,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   enableFastSnapshotRestoresThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'enableFastSnapshotRestores', 'EC2', Promise.reject(result), true, mock)
   },
+  enableImageBlockPublicAccess: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'enableImageBlockPublicAccess', 'EC2', Promise.resolve(result), true, mock)
+  },
+  enableImageBlockPublicAccessAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'enableImageBlockPublicAccess', 'EC2', Promise.resolve(result), false, mock)
+  },
+  enableImageBlockPublicAccessThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'enableImageBlockPublicAccess', 'EC2', Promise.reject(result), true, mock)
+  },
+  enableImage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'enableImage', 'EC2', Promise.resolve(result), true, mock)
+  },
+  enableImageAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'enableImage', 'EC2', Promise.resolve(result), false, mock)
+  },
+  enableImageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'enableImage', 'EC2', Promise.reject(result), true, mock)
+  },
   enableImageDeprecation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'enableImageDeprecation', 'EC2', Promise.resolve(result), true, mock)
   },
@@ -2951,6 +3724,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   enableImageDeprecationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'enableImageDeprecation', 'EC2', Promise.reject(result), true, mock)
   },
+  enableIpamOrganizationAdminAccount: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'enableIpamOrganizationAdminAccount', 'EC2', Promise.resolve(result), true, mock)
+  },
+  enableIpamOrganizationAdminAccountAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'enableIpamOrganizationAdminAccount', 'EC2', Promise.resolve(result), false, mock)
+  },
+  enableIpamOrganizationAdminAccountThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'enableIpamOrganizationAdminAccount', 'EC2', Promise.reject(result), true, mock)
+  },
+  enableReachabilityAnalyzerOrganizationSharing: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'enableReachabilityAnalyzerOrganizationSharing', 'EC2', Promise.resolve(result), true, mock)
+  },
+  enableReachabilityAnalyzerOrganizationSharingAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'enableReachabilityAnalyzerOrganizationSharing', 'EC2', Promise.resolve(result), false, mock)
+  },
+  enableReachabilityAnalyzerOrganizationSharingThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'enableReachabilityAnalyzerOrganizationSharing', 'EC2', Promise.reject(result), true, mock)
+  },
   enableSerialConsoleAccess: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'enableSerialConsoleAccess', 'EC2', Promise.resolve(result), true, mock)
   },
@@ -2959,6 +3750,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   enableSerialConsoleAccessThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'enableSerialConsoleAccess', 'EC2', Promise.reject(result), true, mock)
+  },
+  enableSnapshotBlockPublicAccess: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'enableSnapshotBlockPublicAccess', 'EC2', Promise.resolve(result), true, mock)
+  },
+  enableSnapshotBlockPublicAccessAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'enableSnapshotBlockPublicAccess', 'EC2', Promise.resolve(result), false, mock)
+  },
+  enableSnapshotBlockPublicAccessThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'enableSnapshotBlockPublicAccess', 'EC2', Promise.reject(result), true, mock)
   },
   enableTransitGatewayRouteTablePropagation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'enableTransitGatewayRouteTablePropagation', 'EC2', Promise.resolve(result), true, mock)
@@ -3059,6 +3859,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getAssociatedIpv6PoolCidrsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'getAssociatedIpv6PoolCidrs', 'EC2', Promise.reject(result), true, mock)
   },
+  getAwsNetworkPerformanceData: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getAwsNetworkPerformanceData', 'EC2', Promise.resolve(result), true, mock)
+  },
+  getAwsNetworkPerformanceDataAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getAwsNetworkPerformanceData', 'EC2', Promise.resolve(result), false, mock)
+  },
+  getAwsNetworkPerformanceDataThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getAwsNetworkPerformanceData', 'EC2', Promise.reject(result), true, mock)
+  },
   getCapacityReservationUsage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'getCapacityReservationUsage', 'EC2', Promise.resolve(result), true, mock)
   },
@@ -3149,6 +3958,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getHostReservationPurchasePreviewThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'getHostReservationPurchasePreview', 'EC2', Promise.reject(result), true, mock)
   },
+  getImageBlockPublicAccessState: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getImageBlockPublicAccessState', 'EC2', Promise.resolve(result), true, mock)
+  },
+  getImageBlockPublicAccessStateAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getImageBlockPublicAccessState', 'EC2', Promise.resolve(result), false, mock)
+  },
+  getImageBlockPublicAccessStateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getImageBlockPublicAccessState', 'EC2', Promise.reject(result), true, mock)
+  },
   getInstanceTypesFromInstanceRequirements: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'getInstanceTypesFromInstanceRequirements', 'EC2', Promise.resolve(result), true, mock)
   },
@@ -3157,6 +3975,78 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getInstanceTypesFromInstanceRequirementsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'getInstanceTypesFromInstanceRequirements', 'EC2', Promise.reject(result), true, mock)
+  },
+  getInstanceUefiData: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getInstanceUefiData', 'EC2', Promise.resolve(result), true, mock)
+  },
+  getInstanceUefiDataAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getInstanceUefiData', 'EC2', Promise.resolve(result), false, mock)
+  },
+  getInstanceUefiDataThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getInstanceUefiData', 'EC2', Promise.reject(result), true, mock)
+  },
+  getIpamAddressHistory: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getIpamAddressHistory', 'EC2', Promise.resolve(result), true, mock)
+  },
+  getIpamAddressHistoryAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getIpamAddressHistory', 'EC2', Promise.resolve(result), false, mock)
+  },
+  getIpamAddressHistoryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getIpamAddressHistory', 'EC2', Promise.reject(result), true, mock)
+  },
+  getIpamDiscoveredAccounts: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getIpamDiscoveredAccounts', 'EC2', Promise.resolve(result), true, mock)
+  },
+  getIpamDiscoveredAccountsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getIpamDiscoveredAccounts', 'EC2', Promise.resolve(result), false, mock)
+  },
+  getIpamDiscoveredAccountsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getIpamDiscoveredAccounts', 'EC2', Promise.reject(result), true, mock)
+  },
+  getIpamDiscoveredPublicAddresses: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getIpamDiscoveredPublicAddresses', 'EC2', Promise.resolve(result), true, mock)
+  },
+  getIpamDiscoveredPublicAddressesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getIpamDiscoveredPublicAddresses', 'EC2', Promise.resolve(result), false, mock)
+  },
+  getIpamDiscoveredPublicAddressesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getIpamDiscoveredPublicAddresses', 'EC2', Promise.reject(result), true, mock)
+  },
+  getIpamDiscoveredResourceCidrs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getIpamDiscoveredResourceCidrs', 'EC2', Promise.resolve(result), true, mock)
+  },
+  getIpamDiscoveredResourceCidrsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getIpamDiscoveredResourceCidrs', 'EC2', Promise.resolve(result), false, mock)
+  },
+  getIpamDiscoveredResourceCidrsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getIpamDiscoveredResourceCidrs', 'EC2', Promise.reject(result), true, mock)
+  },
+  getIpamPoolAllocations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getIpamPoolAllocations', 'EC2', Promise.resolve(result), true, mock)
+  },
+  getIpamPoolAllocationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getIpamPoolAllocations', 'EC2', Promise.resolve(result), false, mock)
+  },
+  getIpamPoolAllocationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getIpamPoolAllocations', 'EC2', Promise.reject(result), true, mock)
+  },
+  getIpamPoolCidrs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getIpamPoolCidrs', 'EC2', Promise.resolve(result), true, mock)
+  },
+  getIpamPoolCidrsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getIpamPoolCidrs', 'EC2', Promise.resolve(result), false, mock)
+  },
+  getIpamPoolCidrsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getIpamPoolCidrs', 'EC2', Promise.reject(result), true, mock)
+  },
+  getIpamResourceCidrs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getIpamResourceCidrs', 'EC2', Promise.resolve(result), true, mock)
+  },
+  getIpamResourceCidrsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getIpamResourceCidrs', 'EC2', Promise.resolve(result), false, mock)
+  },
+  getIpamResourceCidrsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getIpamResourceCidrs', 'EC2', Promise.reject(result), true, mock)
   },
   getLaunchTemplateData: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'getLaunchTemplateData', 'EC2', Promise.resolve(result), true, mock)
@@ -3185,6 +4075,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getManagedPrefixListEntriesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'getManagedPrefixListEntries', 'EC2', Promise.reject(result), true, mock)
   },
+  getNetworkInsightsAccessScopeAnalysisFindings: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getNetworkInsightsAccessScopeAnalysisFindings', 'EC2', Promise.resolve(result), true, mock)
+  },
+  getNetworkInsightsAccessScopeAnalysisFindingsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getNetworkInsightsAccessScopeAnalysisFindings', 'EC2', Promise.resolve(result), false, mock)
+  },
+  getNetworkInsightsAccessScopeAnalysisFindingsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getNetworkInsightsAccessScopeAnalysisFindings', 'EC2', Promise.reject(result), true, mock)
+  },
+  getNetworkInsightsAccessScopeContent: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getNetworkInsightsAccessScopeContent', 'EC2', Promise.resolve(result), true, mock)
+  },
+  getNetworkInsightsAccessScopeContentAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getNetworkInsightsAccessScopeContent', 'EC2', Promise.resolve(result), false, mock)
+  },
+  getNetworkInsightsAccessScopeContentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getNetworkInsightsAccessScopeContent', 'EC2', Promise.reject(result), true, mock)
+  },
   getPasswordData: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'getPasswordData', 'EC2', Promise.resolve(result), true, mock)
   },
@@ -3203,6 +4111,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getReservedInstancesExchangeQuoteThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'getReservedInstancesExchangeQuote', 'EC2', Promise.reject(result), true, mock)
   },
+  getSecurityGroupsForVpc: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getSecurityGroupsForVpc', 'EC2', Promise.resolve(result), true, mock)
+  },
+  getSecurityGroupsForVpcAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getSecurityGroupsForVpc', 'EC2', Promise.resolve(result), false, mock)
+  },
+  getSecurityGroupsForVpcThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getSecurityGroupsForVpc', 'EC2', Promise.reject(result), true, mock)
+  },
   getSerialConsoleAccessStatus: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'getSerialConsoleAccessStatus', 'EC2', Promise.resolve(result), true, mock)
   },
@@ -3211,6 +4128,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getSerialConsoleAccessStatusThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'getSerialConsoleAccessStatus', 'EC2', Promise.reject(result), true, mock)
+  },
+  getSnapshotBlockPublicAccessState: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getSnapshotBlockPublicAccessState', 'EC2', Promise.resolve(result), true, mock)
+  },
+  getSnapshotBlockPublicAccessStateAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getSnapshotBlockPublicAccessState', 'EC2', Promise.resolve(result), false, mock)
+  },
+  getSnapshotBlockPublicAccessStateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getSnapshotBlockPublicAccessState', 'EC2', Promise.reject(result), true, mock)
   },
   getSpotPlacementScores: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'getSpotPlacementScores', 'EC2', Promise.resolve(result), true, mock)
@@ -3248,6 +4174,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getTransitGatewayMulticastDomainAssociationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'getTransitGatewayMulticastDomainAssociations', 'EC2', Promise.reject(result), true, mock)
   },
+  getTransitGatewayPolicyTableAssociations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getTransitGatewayPolicyTableAssociations', 'EC2', Promise.resolve(result), true, mock)
+  },
+  getTransitGatewayPolicyTableAssociationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getTransitGatewayPolicyTableAssociations', 'EC2', Promise.resolve(result), false, mock)
+  },
+  getTransitGatewayPolicyTableAssociationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getTransitGatewayPolicyTableAssociations', 'EC2', Promise.reject(result), true, mock)
+  },
+  getTransitGatewayPolicyTableEntries: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getTransitGatewayPolicyTableEntries', 'EC2', Promise.resolve(result), true, mock)
+  },
+  getTransitGatewayPolicyTableEntriesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getTransitGatewayPolicyTableEntries', 'EC2', Promise.resolve(result), false, mock)
+  },
+  getTransitGatewayPolicyTableEntriesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getTransitGatewayPolicyTableEntries', 'EC2', Promise.reject(result), true, mock)
+  },
   getTransitGatewayPrefixListReferences: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'getTransitGatewayPrefixListReferences', 'EC2', Promise.resolve(result), true, mock)
   },
@@ -3275,6 +4219,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getTransitGatewayRouteTablePropagationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'getTransitGatewayRouteTablePropagations', 'EC2', Promise.reject(result), true, mock)
   },
+  getVerifiedAccessEndpointPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getVerifiedAccessEndpointPolicy', 'EC2', Promise.resolve(result), true, mock)
+  },
+  getVerifiedAccessEndpointPolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getVerifiedAccessEndpointPolicy', 'EC2', Promise.resolve(result), false, mock)
+  },
+  getVerifiedAccessEndpointPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getVerifiedAccessEndpointPolicy', 'EC2', Promise.reject(result), true, mock)
+  },
+  getVerifiedAccessGroupPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getVerifiedAccessGroupPolicy', 'EC2', Promise.resolve(result), true, mock)
+  },
+  getVerifiedAccessGroupPolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getVerifiedAccessGroupPolicy', 'EC2', Promise.resolve(result), false, mock)
+  },
+  getVerifiedAccessGroupPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getVerifiedAccessGroupPolicy', 'EC2', Promise.reject(result), true, mock)
+  },
   getVpnConnectionDeviceSampleConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'getVpnConnectionDeviceSampleConfiguration', 'EC2', Promise.resolve(result), true, mock)
   },
@@ -3292,6 +4254,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getVpnConnectionDeviceTypesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'getVpnConnectionDeviceTypes', 'EC2', Promise.reject(result), true, mock)
+  },
+  getVpnTunnelReplacementStatus: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getVpnTunnelReplacementStatus', 'EC2', Promise.resolve(result), true, mock)
+  },
+  getVpnTunnelReplacementStatusAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getVpnTunnelReplacementStatus', 'EC2', Promise.resolve(result), false, mock)
+  },
+  getVpnTunnelReplacementStatusThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'getVpnTunnelReplacementStatus', 'EC2', Promise.reject(result), true, mock)
   },
   importClientVpnClientCertificateRevocationList: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'importClientVpnClientCertificateRevocationList', 'EC2', Promise.resolve(result), true, mock)
@@ -3346,6 +4317,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   importVolumeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'importVolume', 'EC2', Promise.reject(result), true, mock)
+  },
+  listImagesInRecycleBin: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'listImagesInRecycleBin', 'EC2', Promise.resolve(result), true, mock)
+  },
+  listImagesInRecycleBinAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'listImagesInRecycleBin', 'EC2', Promise.resolve(result), false, mock)
+  },
+  listImagesInRecycleBinThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'listImagesInRecycleBin', 'EC2', Promise.reject(result), true, mock)
+  },
+  listSnapshotsInRecycleBin: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'listSnapshotsInRecycleBin', 'EC2', Promise.resolve(result), true, mock)
+  },
+  listSnapshotsInRecycleBinAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'listSnapshotsInRecycleBin', 'EC2', Promise.resolve(result), false, mock)
+  },
+  listSnapshotsInRecycleBinThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'listSnapshotsInRecycleBin', 'EC2', Promise.reject(result), true, mock)
+  },
+  lockSnapshot: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'lockSnapshot', 'EC2', Promise.resolve(result), true, mock)
+  },
+  lockSnapshotAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'lockSnapshot', 'EC2', Promise.resolve(result), false, mock)
+  },
+  lockSnapshotThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'lockSnapshot', 'EC2', Promise.reject(result), true, mock)
   },
   modifyAddressAttribute: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'modifyAddressAttribute', 'EC2', Promise.resolve(result), true, mock)
@@ -3509,6 +4507,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   modifyInstanceEventWindowThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'modifyInstanceEventWindow', 'EC2', Promise.reject(result), true, mock)
   },
+  modifyInstanceMaintenanceOptions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyInstanceMaintenanceOptions', 'EC2', Promise.resolve(result), true, mock)
+  },
+  modifyInstanceMaintenanceOptionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyInstanceMaintenanceOptions', 'EC2', Promise.resolve(result), false, mock)
+  },
+  modifyInstanceMaintenanceOptionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyInstanceMaintenanceOptions', 'EC2', Promise.reject(result), true, mock)
+  },
   modifyInstanceMetadataOptions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'modifyInstanceMetadataOptions', 'EC2', Promise.resolve(result), true, mock)
   },
@@ -3527,6 +4534,51 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   modifyInstancePlacementThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'modifyInstancePlacement', 'EC2', Promise.reject(result), true, mock)
   },
+  modifyIpam: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyIpam', 'EC2', Promise.resolve(result), true, mock)
+  },
+  modifyIpamAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyIpam', 'EC2', Promise.resolve(result), false, mock)
+  },
+  modifyIpamThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyIpam', 'EC2', Promise.reject(result), true, mock)
+  },
+  modifyIpamPool: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyIpamPool', 'EC2', Promise.resolve(result), true, mock)
+  },
+  modifyIpamPoolAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyIpamPool', 'EC2', Promise.resolve(result), false, mock)
+  },
+  modifyIpamPoolThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyIpamPool', 'EC2', Promise.reject(result), true, mock)
+  },
+  modifyIpamResourceCidr: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyIpamResourceCidr', 'EC2', Promise.resolve(result), true, mock)
+  },
+  modifyIpamResourceCidrAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyIpamResourceCidr', 'EC2', Promise.resolve(result), false, mock)
+  },
+  modifyIpamResourceCidrThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyIpamResourceCidr', 'EC2', Promise.reject(result), true, mock)
+  },
+  modifyIpamResourceDiscovery: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyIpamResourceDiscovery', 'EC2', Promise.resolve(result), true, mock)
+  },
+  modifyIpamResourceDiscoveryAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyIpamResourceDiscovery', 'EC2', Promise.resolve(result), false, mock)
+  },
+  modifyIpamResourceDiscoveryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyIpamResourceDiscovery', 'EC2', Promise.reject(result), true, mock)
+  },
+  modifyIpamScope: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyIpamScope', 'EC2', Promise.resolve(result), true, mock)
+  },
+  modifyIpamScopeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyIpamScope', 'EC2', Promise.resolve(result), false, mock)
+  },
+  modifyIpamScopeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyIpamScope', 'EC2', Promise.reject(result), true, mock)
+  },
   modifyLaunchTemplate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'modifyLaunchTemplate', 'EC2', Promise.resolve(result), true, mock)
   },
@@ -3535,6 +4587,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   modifyLaunchTemplateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'modifyLaunchTemplate', 'EC2', Promise.reject(result), true, mock)
+  },
+  modifyLocalGatewayRoute: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyLocalGatewayRoute', 'EC2', Promise.resolve(result), true, mock)
+  },
+  modifyLocalGatewayRouteAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyLocalGatewayRoute', 'EC2', Promise.resolve(result), false, mock)
+  },
+  modifyLocalGatewayRouteThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyLocalGatewayRoute', 'EC2', Promise.reject(result), true, mock)
   },
   modifyManagedPrefixList: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'modifyManagedPrefixList', 'EC2', Promise.resolve(result), true, mock)
@@ -3553,6 +4614,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   modifyNetworkInterfaceAttributeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'modifyNetworkInterfaceAttribute', 'EC2', Promise.reject(result), true, mock)
+  },
+  modifyPrivateDnsNameOptions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyPrivateDnsNameOptions', 'EC2', Promise.resolve(result), true, mock)
+  },
+  modifyPrivateDnsNameOptionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyPrivateDnsNameOptions', 'EC2', Promise.resolve(result), false, mock)
+  },
+  modifyPrivateDnsNameOptionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyPrivateDnsNameOptions', 'EC2', Promise.reject(result), true, mock)
   },
   modifyReservedInstances: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'modifyReservedInstances', 'EC2', Promise.resolve(result), true, mock)
@@ -3580,6 +4650,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   modifySnapshotAttributeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'modifySnapshotAttribute', 'EC2', Promise.reject(result), true, mock)
+  },
+  modifySnapshotTier: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifySnapshotTier', 'EC2', Promise.resolve(result), true, mock)
+  },
+  modifySnapshotTierAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifySnapshotTier', 'EC2', Promise.resolve(result), false, mock)
+  },
+  modifySnapshotTierThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifySnapshotTier', 'EC2', Promise.reject(result), true, mock)
   },
   modifySpotFleetRequest: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'modifySpotFleetRequest', 'EC2', Promise.resolve(result), true, mock)
@@ -3653,14 +4732,68 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   modifyTransitGatewayVpcAttachmentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'modifyTransitGatewayVpcAttachment', 'EC2', Promise.reject(result), true, mock)
   },
-  modifyVolume: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ec2', 'modifyVolume', 'EC2', Promise.resolve(result), true, mock)
+  modifyVerifiedAccessEndpoint: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyVerifiedAccessEndpoint', 'EC2', Promise.resolve(result), true, mock)
   },
-  modifyVolumeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ec2', 'modifyVolume', 'EC2', Promise.resolve(result), false, mock)
+  modifyVerifiedAccessEndpointAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyVerifiedAccessEndpoint', 'EC2', Promise.resolve(result), false, mock)
   },
-  modifyVolumeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ec2', 'modifyVolume', 'EC2', Promise.reject(result), true, mock)
+  modifyVerifiedAccessEndpointThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyVerifiedAccessEndpoint', 'EC2', Promise.reject(result), true, mock)
+  },
+  modifyVerifiedAccessEndpointPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyVerifiedAccessEndpointPolicy', 'EC2', Promise.resolve(result), true, mock)
+  },
+  modifyVerifiedAccessEndpointPolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyVerifiedAccessEndpointPolicy', 'EC2', Promise.resolve(result), false, mock)
+  },
+  modifyVerifiedAccessEndpointPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyVerifiedAccessEndpointPolicy', 'EC2', Promise.reject(result), true, mock)
+  },
+  modifyVerifiedAccessGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyVerifiedAccessGroup', 'EC2', Promise.resolve(result), true, mock)
+  },
+  modifyVerifiedAccessGroupAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyVerifiedAccessGroup', 'EC2', Promise.resolve(result), false, mock)
+  },
+  modifyVerifiedAccessGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyVerifiedAccessGroup', 'EC2', Promise.reject(result), true, mock)
+  },
+  modifyVerifiedAccessGroupPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyVerifiedAccessGroupPolicy', 'EC2', Promise.resolve(result), true, mock)
+  },
+  modifyVerifiedAccessGroupPolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyVerifiedAccessGroupPolicy', 'EC2', Promise.resolve(result), false, mock)
+  },
+  modifyVerifiedAccessGroupPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyVerifiedAccessGroupPolicy', 'EC2', Promise.reject(result), true, mock)
+  },
+  modifyVerifiedAccessInstance: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyVerifiedAccessInstance', 'EC2', Promise.resolve(result), true, mock)
+  },
+  modifyVerifiedAccessInstanceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyVerifiedAccessInstance', 'EC2', Promise.resolve(result), false, mock)
+  },
+  modifyVerifiedAccessInstanceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyVerifiedAccessInstance', 'EC2', Promise.reject(result), true, mock)
+  },
+  modifyVerifiedAccessInstanceLoggingConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyVerifiedAccessInstanceLoggingConfiguration', 'EC2', Promise.resolve(result), true, mock)
+  },
+  modifyVerifiedAccessInstanceLoggingConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyVerifiedAccessInstanceLoggingConfiguration', 'EC2', Promise.resolve(result), false, mock)
+  },
+  modifyVerifiedAccessInstanceLoggingConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyVerifiedAccessInstanceLoggingConfiguration', 'EC2', Promise.reject(result), true, mock)
+  },
+  modifyVerifiedAccessTrustProvider: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyVerifiedAccessTrustProvider', 'EC2', Promise.resolve(result), true, mock)
+  },
+  modifyVerifiedAccessTrustProviderAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyVerifiedAccessTrustProvider', 'EC2', Promise.resolve(result), false, mock)
+  },
+  modifyVerifiedAccessTrustProviderThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyVerifiedAccessTrustProvider', 'EC2', Promise.reject(result), true, mock)
   },
   modifyVolumeAttribute: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'modifyVolumeAttribute', 'EC2', Promise.resolve(result), true, mock)
@@ -3670,6 +4803,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   modifyVolumeAttributeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'modifyVolumeAttribute', 'EC2', Promise.reject(result), true, mock)
+  },
+  modifyVolume: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyVolume', 'EC2', Promise.resolve(result), true, mock)
+  },
+  modifyVolumeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyVolume', 'EC2', Promise.resolve(result), false, mock)
+  },
+  modifyVolumeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyVolume', 'EC2', Promise.reject(result), true, mock)
   },
   modifyVpcAttribute: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'modifyVpcAttribute', 'EC2', Promise.resolve(result), true, mock)
@@ -3706,6 +4848,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   modifyVpcEndpointServiceConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'modifyVpcEndpointServiceConfiguration', 'EC2', Promise.reject(result), true, mock)
+  },
+  modifyVpcEndpointServicePayerResponsibility: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyVpcEndpointServicePayerResponsibility', 'EC2', Promise.resolve(result), true, mock)
+  },
+  modifyVpcEndpointServicePayerResponsibilityAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyVpcEndpointServicePayerResponsibility', 'EC2', Promise.resolve(result), false, mock)
+  },
+  modifyVpcEndpointServicePayerResponsibilityThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'modifyVpcEndpointServicePayerResponsibility', 'EC2', Promise.reject(result), true, mock)
   },
   modifyVpcEndpointServicePermissions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'modifyVpcEndpointServicePermissions', 'EC2', Promise.resolve(result), true, mock)
@@ -3788,6 +4939,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   moveAddressToVpcThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'moveAddressToVpc', 'EC2', Promise.reject(result), true, mock)
   },
+  moveByoipCidrToIpam: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'moveByoipCidrToIpam', 'EC2', Promise.resolve(result), true, mock)
+  },
+  moveByoipCidrToIpamAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'moveByoipCidrToIpam', 'EC2', Promise.resolve(result), false, mock)
+  },
+  moveByoipCidrToIpamThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'moveByoipCidrToIpam', 'EC2', Promise.reject(result), true, mock)
+  },
   provisionByoipCidr: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'provisionByoipCidr', 'EC2', Promise.resolve(result), true, mock)
   },
@@ -3796,6 +4956,42 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   provisionByoipCidrThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'provisionByoipCidr', 'EC2', Promise.reject(result), true, mock)
+  },
+  provisionIpamByoasn: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'provisionIpamByoasn', 'EC2', Promise.resolve(result), true, mock)
+  },
+  provisionIpamByoasnAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'provisionIpamByoasn', 'EC2', Promise.resolve(result), false, mock)
+  },
+  provisionIpamByoasnThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'provisionIpamByoasn', 'EC2', Promise.reject(result), true, mock)
+  },
+  provisionIpamPoolCidr: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'provisionIpamPoolCidr', 'EC2', Promise.resolve(result), true, mock)
+  },
+  provisionIpamPoolCidrAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'provisionIpamPoolCidr', 'EC2', Promise.resolve(result), false, mock)
+  },
+  provisionIpamPoolCidrThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'provisionIpamPoolCidr', 'EC2', Promise.reject(result), true, mock)
+  },
+  provisionPublicIpv4PoolCidr: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'provisionPublicIpv4PoolCidr', 'EC2', Promise.resolve(result), true, mock)
+  },
+  provisionPublicIpv4PoolCidrAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'provisionPublicIpv4PoolCidr', 'EC2', Promise.resolve(result), false, mock)
+  },
+  provisionPublicIpv4PoolCidrThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'provisionPublicIpv4PoolCidr', 'EC2', Promise.reject(result), true, mock)
+  },
+  purchaseCapacityBlock: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'purchaseCapacityBlock', 'EC2', Promise.resolve(result), true, mock)
+  },
+  purchaseCapacityBlockAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'purchaseCapacityBlock', 'EC2', Promise.resolve(result), false, mock)
+  },
+  purchaseCapacityBlockThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'purchaseCapacityBlock', 'EC2', Promise.reject(result), true, mock)
   },
   purchaseHostReservation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'purchaseHostReservation', 'EC2', Promise.resolve(result), true, mock)
@@ -3932,6 +5128,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   releaseHostsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'releaseHosts', 'EC2', Promise.reject(result), true, mock)
   },
+  releaseIpamPoolAllocation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'releaseIpamPoolAllocation', 'EC2', Promise.resolve(result), true, mock)
+  },
+  releaseIpamPoolAllocationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'releaseIpamPoolAllocation', 'EC2', Promise.resolve(result), false, mock)
+  },
+  releaseIpamPoolAllocationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'releaseIpamPoolAllocation', 'EC2', Promise.reject(result), true, mock)
+  },
   replaceIamInstanceProfileAssociation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'replaceIamInstanceProfileAssociation', 'EC2', Promise.resolve(result), true, mock)
   },
@@ -3985,6 +5190,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   replaceTransitGatewayRouteThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'replaceTransitGatewayRoute', 'EC2', Promise.reject(result), true, mock)
+  },
+  replaceVpnTunnel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'replaceVpnTunnel', 'EC2', Promise.resolve(result), true, mock)
+  },
+  replaceVpnTunnelAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'replaceVpnTunnel', 'EC2', Promise.resolve(result), false, mock)
+  },
+  replaceVpnTunnelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'replaceVpnTunnel', 'EC2', Promise.reject(result), true, mock)
   },
   reportInstanceStatus: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'reportInstanceStatus', 'EC2', Promise.resolve(result), true, mock)
@@ -4085,6 +5299,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   restoreAddressToClassicThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'restoreAddressToClassic', 'EC2', Promise.reject(result), true, mock)
   },
+  restoreImageFromRecycleBin: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'restoreImageFromRecycleBin', 'EC2', Promise.resolve(result), true, mock)
+  },
+  restoreImageFromRecycleBinAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'restoreImageFromRecycleBin', 'EC2', Promise.resolve(result), false, mock)
+  },
+  restoreImageFromRecycleBinThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'restoreImageFromRecycleBin', 'EC2', Promise.reject(result), true, mock)
+  },
   restoreManagedPrefixListVersion: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'restoreManagedPrefixListVersion', 'EC2', Promise.resolve(result), true, mock)
   },
@@ -4093,6 +5316,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   restoreManagedPrefixListVersionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'restoreManagedPrefixListVersion', 'EC2', Promise.reject(result), true, mock)
+  },
+  restoreSnapshotFromRecycleBin: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'restoreSnapshotFromRecycleBin', 'EC2', Promise.resolve(result), true, mock)
+  },
+  restoreSnapshotFromRecycleBinAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'restoreSnapshotFromRecycleBin', 'EC2', Promise.resolve(result), false, mock)
+  },
+  restoreSnapshotFromRecycleBinThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'restoreSnapshotFromRecycleBin', 'EC2', Promise.reject(result), true, mock)
+  },
+  restoreSnapshotTier: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'restoreSnapshotTier', 'EC2', Promise.resolve(result), true, mock)
+  },
+  restoreSnapshotTierAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'restoreSnapshotTier', 'EC2', Promise.resolve(result), false, mock)
+  },
+  restoreSnapshotTierThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'restoreSnapshotTier', 'EC2', Promise.reject(result), true, mock)
   },
   revokeClientVpnIngress: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'revokeClientVpnIngress', 'EC2', Promise.resolve(result), true, mock)
@@ -4184,6 +5425,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   startInstancesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'startInstances', 'EC2', Promise.reject(result), true, mock)
   },
+  startNetworkInsightsAccessScopeAnalysis: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'startNetworkInsightsAccessScopeAnalysis', 'EC2', Promise.resolve(result), true, mock)
+  },
+  startNetworkInsightsAccessScopeAnalysisAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'startNetworkInsightsAccessScopeAnalysis', 'EC2', Promise.resolve(result), false, mock)
+  },
+  startNetworkInsightsAccessScopeAnalysisThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'startNetworkInsightsAccessScopeAnalysis', 'EC2', Promise.reject(result), true, mock)
+  },
   startNetworkInsightsAnalysis: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'startNetworkInsightsAnalysis', 'EC2', Promise.resolve(result), true, mock)
   },
@@ -4246,6 +5496,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   unassignPrivateIpAddressesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'unassignPrivateIpAddresses', 'EC2', Promise.reject(result), true, mock)
+  },
+  unassignPrivateNatGatewayAddress: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'unassignPrivateNatGatewayAddress', 'EC2', Promise.resolve(result), true, mock)
+  },
+  unassignPrivateNatGatewayAddressAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'unassignPrivateNatGatewayAddress', 'EC2', Promise.resolve(result), false, mock)
+  },
+  unassignPrivateNatGatewayAddressThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'unassignPrivateNatGatewayAddress', 'EC2', Promise.reject(result), true, mock)
+  },
+  unlockSnapshot: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'unlockSnapshot', 'EC2', Promise.resolve(result), true, mock)
+  },
+  unlockSnapshotAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'unlockSnapshot', 'EC2', Promise.resolve(result), false, mock)
+  },
+  unlockSnapshotThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ec2', 'unlockSnapshot', 'EC2', Promise.reject(result), true, mock)
   },
   unmonitorInstances: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2', 'unmonitorInstances', 'EC2', Promise.resolve(result), true, mock)

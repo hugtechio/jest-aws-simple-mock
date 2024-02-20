@@ -15,8 +15,16 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockSynthetics = {
+export const mockSynthetics = {
+  associateResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-synthetics', 'associateResource', 'Synthetics', Promise.resolve(result), true, mock)
+  },
+  associateResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-synthetics', 'associateResource', 'Synthetics', Promise.resolve(result), false, mock)
+  },
+  associateResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-synthetics', 'associateResource', 'Synthetics', Promise.reject(result), true, mock)
+  },
   createCanary: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-synthetics', 'createCanary', 'Synthetics', Promise.resolve(result), true, mock)
   },
@@ -26,6 +34,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createCanaryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-synthetics', 'createCanary', 'Synthetics', Promise.reject(result), true, mock)
   },
+  createGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-synthetics', 'createGroup', 'Synthetics', Promise.resolve(result), true, mock)
+  },
+  createGroupAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-synthetics', 'createGroup', 'Synthetics', Promise.resolve(result), false, mock)
+  },
+  createGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-synthetics', 'createGroup', 'Synthetics', Promise.reject(result), true, mock)
+  },
   deleteCanary: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-synthetics', 'deleteCanary', 'Synthetics', Promise.resolve(result), true, mock)
   },
@@ -34,6 +51,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteCanaryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-synthetics', 'deleteCanary', 'Synthetics', Promise.reject(result), true, mock)
+  },
+  deleteGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-synthetics', 'deleteGroup', 'Synthetics', Promise.resolve(result), true, mock)
+  },
+  deleteGroupAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-synthetics', 'deleteGroup', 'Synthetics', Promise.resolve(result), false, mock)
+  },
+  deleteGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-synthetics', 'deleteGroup', 'Synthetics', Promise.reject(result), true, mock)
   },
   describeCanaries: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-synthetics', 'describeCanaries', 'Synthetics', Promise.resolve(result), true, mock)
@@ -62,14 +88,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeRuntimeVersionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-synthetics', 'describeRuntimeVersions', 'Synthetics', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-synthetics', 'destroy', 'Synthetics', Promise.resolve(result), true, mock)
+  disassociateResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-synthetics', 'disassociateResource', 'Synthetics', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-synthetics', 'destroy', 'Synthetics', Promise.resolve(result), false, mock)
+  disassociateResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-synthetics', 'disassociateResource', 'Synthetics', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-synthetics', 'destroy', 'Synthetics', Promise.reject(result), true, mock)
+  disassociateResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-synthetics', 'disassociateResource', 'Synthetics', Promise.reject(result), true, mock)
   },
   getCanary: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-synthetics', 'getCanary', 'Synthetics', Promise.resolve(result), true, mock)
@@ -88,6 +114,42 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getCanaryRunsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-synthetics', 'getCanaryRuns', 'Synthetics', Promise.reject(result), true, mock)
+  },
+  getGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-synthetics', 'getGroup', 'Synthetics', Promise.resolve(result), true, mock)
+  },
+  getGroupAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-synthetics', 'getGroup', 'Synthetics', Promise.resolve(result), false, mock)
+  },
+  getGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-synthetics', 'getGroup', 'Synthetics', Promise.reject(result), true, mock)
+  },
+  listAssociatedGroups: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-synthetics', 'listAssociatedGroups', 'Synthetics', Promise.resolve(result), true, mock)
+  },
+  listAssociatedGroupsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-synthetics', 'listAssociatedGroups', 'Synthetics', Promise.resolve(result), false, mock)
+  },
+  listAssociatedGroupsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-synthetics', 'listAssociatedGroups', 'Synthetics', Promise.reject(result), true, mock)
+  },
+  listGroupResources: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-synthetics', 'listGroupResources', 'Synthetics', Promise.resolve(result), true, mock)
+  },
+  listGroupResourcesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-synthetics', 'listGroupResources', 'Synthetics', Promise.resolve(result), false, mock)
+  },
+  listGroupResourcesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-synthetics', 'listGroupResources', 'Synthetics', Promise.reject(result), true, mock)
+  },
+  listGroups: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-synthetics', 'listGroups', 'Synthetics', Promise.resolve(result), true, mock)
+  },
+  listGroupsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-synthetics', 'listGroups', 'Synthetics', Promise.resolve(result), false, mock)
+  },
+  listGroupsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-synthetics', 'listGroups', 'Synthetics', Promise.reject(result), true, mock)
   },
   listTagsForResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-synthetics', 'listTagsForResource', 'Synthetics', Promise.resolve(result), true, mock)

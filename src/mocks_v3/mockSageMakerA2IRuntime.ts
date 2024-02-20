@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockSageMakerA2IRuntime = {
+export const mockSageMakerA2IRuntime = {
   deleteHumanLoop: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker-a2i-runtime', 'deleteHumanLoop', 'SageMakerA2IRuntime', Promise.resolve(result), true, mock)
   },
@@ -34,15 +33,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeHumanLoopThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker-a2i-runtime', 'describeHumanLoop', 'SageMakerA2IRuntime', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sagemaker-a2i-runtime', 'destroy', 'SageMakerA2IRuntime', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sagemaker-a2i-runtime', 'destroy', 'SageMakerA2IRuntime', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sagemaker-a2i-runtime', 'destroy', 'SageMakerA2IRuntime', Promise.reject(result), true, mock)
   },
   listHumanLoops: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker-a2i-runtime', 'listHumanLoops', 'SageMakerA2IRuntime', Promise.resolve(result), true, mock)

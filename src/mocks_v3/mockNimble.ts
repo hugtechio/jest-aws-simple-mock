@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockNimble = {
+export const mockNimble = {
   acceptEulas: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-nimble', 'acceptEulas', 'Nimble', Promise.resolve(result), true, mock)
   },
@@ -143,15 +142,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteStudioMemberThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-nimble', 'deleteStudioMember', 'Nimble', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-nimble', 'destroy', 'Nimble', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-nimble', 'destroy', 'Nimble', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-nimble', 'destroy', 'Nimble', Promise.reject(result), true, mock)
-  },
   getEula: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-nimble', 'getEula', 'Nimble', Promise.resolve(result), true, mock)
   },
@@ -205,6 +195,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getStreamingImageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-nimble', 'getStreamingImage', 'Nimble', Promise.reject(result), true, mock)
+  },
+  getStreamingSessionBackup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-nimble', 'getStreamingSessionBackup', 'Nimble', Promise.resolve(result), true, mock)
+  },
+  getStreamingSessionBackupAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-nimble', 'getStreamingSessionBackup', 'Nimble', Promise.resolve(result), false, mock)
+  },
+  getStreamingSessionBackupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-nimble', 'getStreamingSessionBackup', 'Nimble', Promise.reject(result), true, mock)
   },
   getStreamingSession: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-nimble', 'getStreamingSession', 'Nimble', Promise.resolve(result), true, mock)
@@ -295,6 +294,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listStreamingImagesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-nimble', 'listStreamingImages', 'Nimble', Promise.reject(result), true, mock)
+  },
+  listStreamingSessionBackups: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-nimble', 'listStreamingSessionBackups', 'Nimble', Promise.resolve(result), true, mock)
+  },
+  listStreamingSessionBackupsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-nimble', 'listStreamingSessionBackups', 'Nimble', Promise.resolve(result), false, mock)
+  },
+  listStreamingSessionBackupsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-nimble', 'listStreamingSessionBackups', 'Nimble', Promise.reject(result), true, mock)
   },
   listStreamingSessions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-nimble', 'listStreamingSessions', 'Nimble', Promise.resolve(result), true, mock)

@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockRDS = {
+export const mockRDS = {
   addRoleToDBCluster: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'addRoleToDBCluster', 'RDS', Promise.resolve(result), true, mock)
   },
@@ -134,14 +133,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   copyOptionGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'copyOptionGroup', 'RDS', Promise.reject(result), true, mock)
   },
-  createCustomAvailabilityZone: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-rds', 'createCustomAvailabilityZone', 'RDS', Promise.resolve(result), true, mock)
+  createBlueGreenDeployment: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'createBlueGreenDeployment', 'RDS', Promise.resolve(result), true, mock)
   },
-  createCustomAvailabilityZoneAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-rds', 'createCustomAvailabilityZone', 'RDS', Promise.resolve(result), false, mock)
+  createBlueGreenDeploymentAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'createBlueGreenDeployment', 'RDS', Promise.resolve(result), false, mock)
   },
-  createCustomAvailabilityZoneThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-rds', 'createCustomAvailabilityZone', 'RDS', Promise.reject(result), true, mock)
+  createBlueGreenDeploymentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'createBlueGreenDeployment', 'RDS', Promise.reject(result), true, mock)
   },
   createCustomDBEngineVersion: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'createCustomDBEngineVersion', 'RDS', Promise.resolve(result), true, mock)
@@ -242,6 +241,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createDBSecurityGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'createDBSecurityGroup', 'RDS', Promise.reject(result), true, mock)
   },
+  createDBShardGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'createDBShardGroup', 'RDS', Promise.resolve(result), true, mock)
+  },
+  createDBShardGroupAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'createDBShardGroup', 'RDS', Promise.resolve(result), false, mock)
+  },
+  createDBShardGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'createDBShardGroup', 'RDS', Promise.reject(result), true, mock)
+  },
   createDBSnapshot: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'createDBSnapshot', 'RDS', Promise.resolve(result), true, mock)
   },
@@ -278,6 +286,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createGlobalClusterThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'createGlobalCluster', 'RDS', Promise.reject(result), true, mock)
   },
+  createIntegration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'createIntegration', 'RDS', Promise.resolve(result), true, mock)
+  },
+  createIntegrationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'createIntegration', 'RDS', Promise.resolve(result), false, mock)
+  },
+  createIntegrationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'createIntegration', 'RDS', Promise.reject(result), true, mock)
+  },
   createOptionGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'createOptionGroup', 'RDS', Promise.resolve(result), true, mock)
   },
@@ -287,14 +304,23 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createOptionGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'createOptionGroup', 'RDS', Promise.reject(result), true, mock)
   },
-  deleteCustomAvailabilityZone: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-rds', 'deleteCustomAvailabilityZone', 'RDS', Promise.resolve(result), true, mock)
+  createTenantDatabase: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'createTenantDatabase', 'RDS', Promise.resolve(result), true, mock)
   },
-  deleteCustomAvailabilityZoneAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-rds', 'deleteCustomAvailabilityZone', 'RDS', Promise.resolve(result), false, mock)
+  createTenantDatabaseAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'createTenantDatabase', 'RDS', Promise.resolve(result), false, mock)
   },
-  deleteCustomAvailabilityZoneThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-rds', 'deleteCustomAvailabilityZone', 'RDS', Promise.reject(result), true, mock)
+  createTenantDatabaseThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'createTenantDatabase', 'RDS', Promise.reject(result), true, mock)
+  },
+  deleteBlueGreenDeployment: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'deleteBlueGreenDeployment', 'RDS', Promise.resolve(result), true, mock)
+  },
+  deleteBlueGreenDeploymentAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'deleteBlueGreenDeployment', 'RDS', Promise.resolve(result), false, mock)
+  },
+  deleteBlueGreenDeploymentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'deleteBlueGreenDeployment', 'RDS', Promise.reject(result), true, mock)
   },
   deleteCustomDBEngineVersion: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'deleteCustomDBEngineVersion', 'RDS', Promise.resolve(result), true, mock)
@@ -304,6 +330,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteCustomDBEngineVersionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'deleteCustomDBEngineVersion', 'RDS', Promise.reject(result), true, mock)
+  },
+  deleteDBClusterAutomatedBackup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'deleteDBClusterAutomatedBackup', 'RDS', Promise.resolve(result), true, mock)
+  },
+  deleteDBClusterAutomatedBackupAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'deleteDBClusterAutomatedBackup', 'RDS', Promise.resolve(result), false, mock)
+  },
+  deleteDBClusterAutomatedBackupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'deleteDBClusterAutomatedBackup', 'RDS', Promise.reject(result), true, mock)
   },
   deleteDBCluster: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'deleteDBCluster', 'RDS', Promise.resolve(result), true, mock)
@@ -341,15 +376,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteDBClusterSnapshotThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'deleteDBClusterSnapshot', 'RDS', Promise.reject(result), true, mock)
   },
-  deleteDBInstance: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-rds', 'deleteDBInstance', 'RDS', Promise.resolve(result), true, mock)
-  },
-  deleteDBInstanceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-rds', 'deleteDBInstance', 'RDS', Promise.resolve(result), false, mock)
-  },
-  deleteDBInstanceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-rds', 'deleteDBInstance', 'RDS', Promise.reject(result), true, mock)
-  },
   deleteDBInstanceAutomatedBackup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'deleteDBInstanceAutomatedBackup', 'RDS', Promise.resolve(result), true, mock)
   },
@@ -358,6 +384,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteDBInstanceAutomatedBackupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'deleteDBInstanceAutomatedBackup', 'RDS', Promise.reject(result), true, mock)
+  },
+  deleteDBInstance: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'deleteDBInstance', 'RDS', Promise.resolve(result), true, mock)
+  },
+  deleteDBInstanceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'deleteDBInstance', 'RDS', Promise.resolve(result), false, mock)
+  },
+  deleteDBInstanceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'deleteDBInstance', 'RDS', Promise.reject(result), true, mock)
   },
   deleteDBParameterGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'deleteDBParameterGroup', 'RDS', Promise.resolve(result), true, mock)
@@ -395,6 +430,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteDBSecurityGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'deleteDBSecurityGroup', 'RDS', Promise.reject(result), true, mock)
   },
+  deleteDBShardGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'deleteDBShardGroup', 'RDS', Promise.resolve(result), true, mock)
+  },
+  deleteDBShardGroupAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'deleteDBShardGroup', 'RDS', Promise.resolve(result), false, mock)
+  },
+  deleteDBShardGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'deleteDBShardGroup', 'RDS', Promise.reject(result), true, mock)
+  },
   deleteDBSnapshot: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'deleteDBSnapshot', 'RDS', Promise.resolve(result), true, mock)
   },
@@ -431,14 +475,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteGlobalClusterThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'deleteGlobalCluster', 'RDS', Promise.reject(result), true, mock)
   },
-  deleteInstallationMedia: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-rds', 'deleteInstallationMedia', 'RDS', Promise.resolve(result), true, mock)
+  deleteIntegration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'deleteIntegration', 'RDS', Promise.resolve(result), true, mock)
   },
-  deleteInstallationMediaAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-rds', 'deleteInstallationMedia', 'RDS', Promise.resolve(result), false, mock)
+  deleteIntegrationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'deleteIntegration', 'RDS', Promise.resolve(result), false, mock)
   },
-  deleteInstallationMediaThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-rds', 'deleteInstallationMedia', 'RDS', Promise.reject(result), true, mock)
+  deleteIntegrationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'deleteIntegration', 'RDS', Promise.reject(result), true, mock)
   },
   deleteOptionGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'deleteOptionGroup', 'RDS', Promise.resolve(result), true, mock)
@@ -448,6 +492,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteOptionGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'deleteOptionGroup', 'RDS', Promise.reject(result), true, mock)
+  },
+  deleteTenantDatabase: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'deleteTenantDatabase', 'RDS', Promise.resolve(result), true, mock)
+  },
+  deleteTenantDatabaseAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'deleteTenantDatabase', 'RDS', Promise.resolve(result), false, mock)
+  },
+  deleteTenantDatabaseThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'deleteTenantDatabase', 'RDS', Promise.reject(result), true, mock)
   },
   deregisterDBProxyTargets: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'deregisterDBProxyTargets', 'RDS', Promise.resolve(result), true, mock)
@@ -467,6 +520,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeAccountAttributesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'describeAccountAttributes', 'RDS', Promise.reject(result), true, mock)
   },
+  describeBlueGreenDeployments: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'describeBlueGreenDeployments', 'RDS', Promise.resolve(result), true, mock)
+  },
+  describeBlueGreenDeploymentsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'describeBlueGreenDeployments', 'RDS', Promise.resolve(result), false, mock)
+  },
+  describeBlueGreenDeploymentsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'describeBlueGreenDeployments', 'RDS', Promise.reject(result), true, mock)
+  },
   describeCertificates: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'describeCertificates', 'RDS', Promise.resolve(result), true, mock)
   },
@@ -476,14 +538,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeCertificatesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'describeCertificates', 'RDS', Promise.reject(result), true, mock)
   },
-  describeCustomAvailabilityZones: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-rds', 'describeCustomAvailabilityZones', 'RDS', Promise.resolve(result), true, mock)
+  describeDBClusterAutomatedBackups: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'describeDBClusterAutomatedBackups', 'RDS', Promise.resolve(result), true, mock)
   },
-  describeCustomAvailabilityZonesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-rds', 'describeCustomAvailabilityZones', 'RDS', Promise.resolve(result), false, mock)
+  describeDBClusterAutomatedBackupsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'describeDBClusterAutomatedBackups', 'RDS', Promise.resolve(result), false, mock)
   },
-  describeCustomAvailabilityZonesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-rds', 'describeCustomAvailabilityZones', 'RDS', Promise.reject(result), true, mock)
+  describeDBClusterAutomatedBackupsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'describeDBClusterAutomatedBackups', 'RDS', Promise.reject(result), true, mock)
   },
   describeDBClusterBacktracks: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'describeDBClusterBacktracks', 'RDS', Promise.resolve(result), true, mock)
@@ -638,6 +700,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeDBProxyTargetsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'describeDBProxyTargets', 'RDS', Promise.reject(result), true, mock)
   },
+  describeDBRecommendations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'describeDBRecommendations', 'RDS', Promise.resolve(result), true, mock)
+  },
+  describeDBRecommendationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'describeDBRecommendations', 'RDS', Promise.resolve(result), false, mock)
+  },
+  describeDBRecommendationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'describeDBRecommendations', 'RDS', Promise.reject(result), true, mock)
+  },
   describeDBSecurityGroups: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'describeDBSecurityGroups', 'RDS', Promise.resolve(result), true, mock)
   },
@@ -647,6 +718,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeDBSecurityGroupsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'describeDBSecurityGroups', 'RDS', Promise.reject(result), true, mock)
   },
+  describeDBShardGroups: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'describeDBShardGroups', 'RDS', Promise.resolve(result), true, mock)
+  },
+  describeDBShardGroupsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'describeDBShardGroups', 'RDS', Promise.resolve(result), false, mock)
+  },
+  describeDBShardGroupsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'describeDBShardGroups', 'RDS', Promise.reject(result), true, mock)
+  },
   describeDBSnapshotAttributes: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'describeDBSnapshotAttributes', 'RDS', Promise.resolve(result), true, mock)
   },
@@ -655,6 +735,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeDBSnapshotAttributesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'describeDBSnapshotAttributes', 'RDS', Promise.reject(result), true, mock)
+  },
+  describeDBSnapshotTenantDatabases: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'describeDBSnapshotTenantDatabases', 'RDS', Promise.resolve(result), true, mock)
+  },
+  describeDBSnapshotTenantDatabasesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'describeDBSnapshotTenantDatabases', 'RDS', Promise.resolve(result), false, mock)
+  },
+  describeDBSnapshotTenantDatabasesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'describeDBSnapshotTenantDatabases', 'RDS', Promise.reject(result), true, mock)
   },
   describeDBSnapshots: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'describeDBSnapshots', 'RDS', Promise.resolve(result), true, mock)
@@ -737,14 +826,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeGlobalClustersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'describeGlobalClusters', 'RDS', Promise.reject(result), true, mock)
   },
-  describeInstallationMedia: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-rds', 'describeInstallationMedia', 'RDS', Promise.resolve(result), true, mock)
+  describeIntegrations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'describeIntegrations', 'RDS', Promise.resolve(result), true, mock)
   },
-  describeInstallationMediaAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-rds', 'describeInstallationMedia', 'RDS', Promise.resolve(result), false, mock)
+  describeIntegrationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'describeIntegrations', 'RDS', Promise.resolve(result), false, mock)
   },
-  describeInstallationMediaThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-rds', 'describeInstallationMedia', 'RDS', Promise.reject(result), true, mock)
+  describeIntegrationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'describeIntegrations', 'RDS', Promise.reject(result), true, mock)
   },
   describeOptionGroupOptions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'describeOptionGroupOptions', 'RDS', Promise.resolve(result), true, mock)
@@ -809,6 +898,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeSourceRegionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'describeSourceRegions', 'RDS', Promise.reject(result), true, mock)
   },
+  describeTenantDatabases: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'describeTenantDatabases', 'RDS', Promise.resolve(result), true, mock)
+  },
+  describeTenantDatabasesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'describeTenantDatabases', 'RDS', Promise.resolve(result), false, mock)
+  },
+  describeTenantDatabasesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'describeTenantDatabases', 'RDS', Promise.reject(result), true, mock)
+  },
   describeValidDBInstanceModifications: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'describeValidDBInstanceModifications', 'RDS', Promise.resolve(result), true, mock)
   },
@@ -818,14 +916,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeValidDBInstanceModificationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'describeValidDBInstanceModifications', 'RDS', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-rds', 'destroy', 'RDS', Promise.resolve(result), true, mock)
+  disableHttpEndpoint: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'disableHttpEndpoint', 'RDS', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-rds', 'destroy', 'RDS', Promise.resolve(result), false, mock)
+  disableHttpEndpointAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'disableHttpEndpoint', 'RDS', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-rds', 'destroy', 'RDS', Promise.reject(result), true, mock)
+  disableHttpEndpointThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'disableHttpEndpoint', 'RDS', Promise.reject(result), true, mock)
   },
   downloadDBLogFilePortion: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'downloadDBLogFilePortion', 'RDS', Promise.resolve(result), true, mock)
@@ -835,6 +933,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   downloadDBLogFilePortionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'downloadDBLogFilePortion', 'RDS', Promise.reject(result), true, mock)
+  },
+  enableHttpEndpoint: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'enableHttpEndpoint', 'RDS', Promise.resolve(result), true, mock)
+  },
+  enableHttpEndpointAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'enableHttpEndpoint', 'RDS', Promise.resolve(result), false, mock)
+  },
+  enableHttpEndpointThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'enableHttpEndpoint', 'RDS', Promise.reject(result), true, mock)
   },
   failoverDBCluster: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'failoverDBCluster', 'RDS', Promise.resolve(result), true, mock)
@@ -854,15 +961,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   failoverGlobalClusterThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'failoverGlobalCluster', 'RDS', Promise.reject(result), true, mock)
   },
-  importInstallationMedia: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-rds', 'importInstallationMedia', 'RDS', Promise.resolve(result), true, mock)
-  },
-  importInstallationMediaAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-rds', 'importInstallationMedia', 'RDS', Promise.resolve(result), false, mock)
-  },
-  importInstallationMediaThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-rds', 'importInstallationMedia', 'RDS', Promise.reject(result), true, mock)
-  },
   listTagsForResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'listTagsForResource', 'RDS', Promise.resolve(result), true, mock)
   },
@@ -871,6 +969,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listTagsForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'listTagsForResource', 'RDS', Promise.reject(result), true, mock)
+  },
+  modifyActivityStream: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'modifyActivityStream', 'RDS', Promise.resolve(result), true, mock)
+  },
+  modifyActivityStreamAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'modifyActivityStream', 'RDS', Promise.resolve(result), false, mock)
+  },
+  modifyActivityStreamThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'modifyActivityStream', 'RDS', Promise.reject(result), true, mock)
   },
   modifyCertificates: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'modifyCertificates', 'RDS', Promise.resolve(result), true, mock)
@@ -980,14 +1087,23 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   modifyDBProxyTargetGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'modifyDBProxyTargetGroup', 'RDS', Promise.reject(result), true, mock)
   },
-  modifyDBSnapshot: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-rds', 'modifyDBSnapshot', 'RDS', Promise.resolve(result), true, mock)
+  modifyDBRecommendation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'modifyDBRecommendation', 'RDS', Promise.resolve(result), true, mock)
   },
-  modifyDBSnapshotAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-rds', 'modifyDBSnapshot', 'RDS', Promise.resolve(result), false, mock)
+  modifyDBRecommendationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'modifyDBRecommendation', 'RDS', Promise.resolve(result), false, mock)
   },
-  modifyDBSnapshotThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-rds', 'modifyDBSnapshot', 'RDS', Promise.reject(result), true, mock)
+  modifyDBRecommendationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'modifyDBRecommendation', 'RDS', Promise.reject(result), true, mock)
+  },
+  modifyDBShardGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'modifyDBShardGroup', 'RDS', Promise.resolve(result), true, mock)
+  },
+  modifyDBShardGroupAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'modifyDBShardGroup', 'RDS', Promise.resolve(result), false, mock)
+  },
+  modifyDBShardGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'modifyDBShardGroup', 'RDS', Promise.reject(result), true, mock)
   },
   modifyDBSnapshotAttribute: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'modifyDBSnapshotAttribute', 'RDS', Promise.resolve(result), true, mock)
@@ -997,6 +1113,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   modifyDBSnapshotAttributeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'modifyDBSnapshotAttribute', 'RDS', Promise.reject(result), true, mock)
+  },
+  modifyDBSnapshot: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'modifyDBSnapshot', 'RDS', Promise.resolve(result), true, mock)
+  },
+  modifyDBSnapshotAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'modifyDBSnapshot', 'RDS', Promise.resolve(result), false, mock)
+  },
+  modifyDBSnapshotThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'modifyDBSnapshot', 'RDS', Promise.reject(result), true, mock)
   },
   modifyDBSubnetGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'modifyDBSubnetGroup', 'RDS', Promise.resolve(result), true, mock)
@@ -1034,6 +1159,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   modifyOptionGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'modifyOptionGroup', 'RDS', Promise.reject(result), true, mock)
   },
+  modifyTenantDatabase: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'modifyTenantDatabase', 'RDS', Promise.resolve(result), true, mock)
+  },
+  modifyTenantDatabaseAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'modifyTenantDatabase', 'RDS', Promise.resolve(result), false, mock)
+  },
+  modifyTenantDatabaseThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'modifyTenantDatabase', 'RDS', Promise.reject(result), true, mock)
+  },
   promoteReadReplica: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'promoteReadReplica', 'RDS', Promise.resolve(result), true, mock)
   },
@@ -1061,6 +1195,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   purchaseReservedDBInstancesOfferingThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'purchaseReservedDBInstancesOffering', 'RDS', Promise.reject(result), true, mock)
   },
+  rebootDBCluster: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'rebootDBCluster', 'RDS', Promise.resolve(result), true, mock)
+  },
+  rebootDBClusterAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'rebootDBCluster', 'RDS', Promise.resolve(result), false, mock)
+  },
+  rebootDBClusterThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'rebootDBCluster', 'RDS', Promise.reject(result), true, mock)
+  },
   rebootDBInstance: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'rebootDBInstance', 'RDS', Promise.resolve(result), true, mock)
   },
@@ -1069,6 +1212,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   rebootDBInstanceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'rebootDBInstance', 'RDS', Promise.reject(result), true, mock)
+  },
+  rebootDBShardGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'rebootDBShardGroup', 'RDS', Promise.resolve(result), true, mock)
+  },
+  rebootDBShardGroupAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'rebootDBShardGroup', 'RDS', Promise.resolve(result), false, mock)
+  },
+  rebootDBShardGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'rebootDBShardGroup', 'RDS', Promise.reject(result), true, mock)
   },
   registerDBProxyTargets: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'registerDBProxyTargets', 'RDS', Promise.resolve(result), true, mock)
@@ -1223,15 +1375,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   startDBClusterThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'startDBCluster', 'RDS', Promise.reject(result), true, mock)
   },
-  startDBInstance: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-rds', 'startDBInstance', 'RDS', Promise.resolve(result), true, mock)
-  },
-  startDBInstanceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-rds', 'startDBInstance', 'RDS', Promise.resolve(result), false, mock)
-  },
-  startDBInstanceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-rds', 'startDBInstance', 'RDS', Promise.reject(result), true, mock)
-  },
   startDBInstanceAutomatedBackupsReplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'startDBInstanceAutomatedBackupsReplication', 'RDS', Promise.resolve(result), true, mock)
   },
@@ -1240,6 +1383,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   startDBInstanceAutomatedBackupsReplicationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'startDBInstanceAutomatedBackupsReplication', 'RDS', Promise.reject(result), true, mock)
+  },
+  startDBInstance: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'startDBInstance', 'RDS', Promise.resolve(result), true, mock)
+  },
+  startDBInstanceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'startDBInstance', 'RDS', Promise.resolve(result), false, mock)
+  },
+  startDBInstanceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'startDBInstance', 'RDS', Promise.reject(result), true, mock)
   },
   startExportTask: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'startExportTask', 'RDS', Promise.resolve(result), true, mock)
@@ -1268,6 +1420,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   stopDBClusterThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'stopDBCluster', 'RDS', Promise.reject(result), true, mock)
   },
+  stopDBInstanceAutomatedBackupsReplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'stopDBInstanceAutomatedBackupsReplication', 'RDS', Promise.resolve(result), true, mock)
+  },
+  stopDBInstanceAutomatedBackupsReplicationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'stopDBInstanceAutomatedBackupsReplication', 'RDS', Promise.resolve(result), false, mock)
+  },
+  stopDBInstanceAutomatedBackupsReplicationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'stopDBInstanceAutomatedBackupsReplication', 'RDS', Promise.reject(result), true, mock)
+  },
   stopDBInstance: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'stopDBInstance', 'RDS', Promise.resolve(result), true, mock)
   },
@@ -1277,14 +1438,32 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   stopDBInstanceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'stopDBInstance', 'RDS', Promise.reject(result), true, mock)
   },
-  stopDBInstanceAutomatedBackupsReplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-rds', 'stopDBInstanceAutomatedBackupsReplication', 'RDS', Promise.resolve(result), true, mock)
+  switchoverBlueGreenDeployment: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'switchoverBlueGreenDeployment', 'RDS', Promise.resolve(result), true, mock)
   },
-  stopDBInstanceAutomatedBackupsReplicationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-rds', 'stopDBInstanceAutomatedBackupsReplication', 'RDS', Promise.resolve(result), false, mock)
+  switchoverBlueGreenDeploymentAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'switchoverBlueGreenDeployment', 'RDS', Promise.resolve(result), false, mock)
   },
-  stopDBInstanceAutomatedBackupsReplicationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-rds', 'stopDBInstanceAutomatedBackupsReplication', 'RDS', Promise.reject(result), true, mock)
+  switchoverBlueGreenDeploymentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'switchoverBlueGreenDeployment', 'RDS', Promise.reject(result), true, mock)
+  },
+  switchoverGlobalCluster: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'switchoverGlobalCluster', 'RDS', Promise.resolve(result), true, mock)
+  },
+  switchoverGlobalClusterAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'switchoverGlobalCluster', 'RDS', Promise.resolve(result), false, mock)
+  },
+  switchoverGlobalClusterThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'switchoverGlobalCluster', 'RDS', Promise.reject(result), true, mock)
+  },
+  switchoverReadReplica: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'switchoverReadReplica', 'RDS', Promise.resolve(result), true, mock)
+  },
+  switchoverReadReplicaAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'switchoverReadReplica', 'RDS', Promise.resolve(result), false, mock)
+  },
+  switchoverReadReplicaThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rds', 'switchoverReadReplica', 'RDS', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds', 'send', 'RDSClient', Promise.resolve(result), true, mock)

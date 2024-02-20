@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockHoneycode = {
+export const mockHoneycode = {
   batchCreateTableRows: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-honeycode', 'batchCreateTableRows', 'Honeycode', Promise.resolve(result), true, mock)
   },
@@ -61,15 +60,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeTableDataImportJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-honeycode', 'describeTableDataImportJob', 'Honeycode', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-honeycode', 'destroy', 'Honeycode', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-honeycode', 'destroy', 'Honeycode', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-honeycode', 'destroy', 'Honeycode', Promise.reject(result), true, mock)
   },
   getScreenData: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-honeycode', 'getScreenData', 'Honeycode', Promise.resolve(result), true, mock)
@@ -116,6 +106,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listTablesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-honeycode', 'listTables', 'Honeycode', Promise.reject(result), true, mock)
   },
+  listTagsForResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-honeycode', 'listTagsForResource', 'Honeycode', Promise.resolve(result), true, mock)
+  },
+  listTagsForResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-honeycode', 'listTagsForResource', 'Honeycode', Promise.resolve(result), false, mock)
+  },
+  listTagsForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-honeycode', 'listTagsForResource', 'Honeycode', Promise.reject(result), true, mock)
+  },
   queryTableRows: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-honeycode', 'queryTableRows', 'Honeycode', Promise.resolve(result), true, mock)
   },
@@ -133,6 +132,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   startTableDataImportJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-honeycode', 'startTableDataImportJob', 'Honeycode', Promise.reject(result), true, mock)
+  },
+  tagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-honeycode', 'tagResource', 'Honeycode', Promise.resolve(result), true, mock)
+  },
+  tagResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-honeycode', 'tagResource', 'Honeycode', Promise.resolve(result), false, mock)
+  },
+  tagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-honeycode', 'tagResource', 'Honeycode', Promise.reject(result), true, mock)
+  },
+  untagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-honeycode', 'untagResource', 'Honeycode', Promise.resolve(result), true, mock)
+  },
+  untagResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-honeycode', 'untagResource', 'Honeycode', Promise.resolve(result), false, mock)
+  },
+  untagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-honeycode', 'untagResource', 'Honeycode', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-honeycode', 'send', 'HoneycodeClient', Promise.resolve(result), true, mock)

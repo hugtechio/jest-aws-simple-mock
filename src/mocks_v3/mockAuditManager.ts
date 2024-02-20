@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockAuditManager = {
+export const mockAuditManager = {
   associateAssessmentReportEvidenceFolder: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-auditmanager', 'associateAssessmentReportEvidenceFolder', 'AuditManager', Promise.resolve(result), true, mock)
   },
@@ -170,15 +169,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deregisterOrganizationAdminAccountThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-auditmanager', 'deregisterOrganizationAdminAccount', 'AuditManager', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-auditmanager', 'destroy', 'AuditManager', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-auditmanager', 'destroy', 'AuditManager', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-auditmanager', 'destroy', 'AuditManager', Promise.reject(result), true, mock)
-  },
   disassociateAssessmentReportEvidenceFolder: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-auditmanager', 'disassociateAssessmentReportEvidenceFolder', 'AuditManager', Promise.resolve(result), true, mock)
   },
@@ -251,6 +241,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getDelegationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-auditmanager', 'getDelegations', 'AuditManager', Promise.reject(result), true, mock)
   },
+  getEvidenceByEvidenceFolder: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-auditmanager', 'getEvidenceByEvidenceFolder', 'AuditManager', Promise.resolve(result), true, mock)
+  },
+  getEvidenceByEvidenceFolderAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-auditmanager', 'getEvidenceByEvidenceFolder', 'AuditManager', Promise.resolve(result), false, mock)
+  },
+  getEvidenceByEvidenceFolderThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-auditmanager', 'getEvidenceByEvidenceFolder', 'AuditManager', Promise.reject(result), true, mock)
+  },
   getEvidence: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-auditmanager', 'getEvidence', 'AuditManager', Promise.resolve(result), true, mock)
   },
@@ -260,14 +259,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getEvidenceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-auditmanager', 'getEvidence', 'AuditManager', Promise.reject(result), true, mock)
   },
-  getEvidenceByEvidenceFolder: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-auditmanager', 'getEvidenceByEvidenceFolder', 'AuditManager', Promise.resolve(result), true, mock)
+  getEvidenceFileUploadUrl: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-auditmanager', 'getEvidenceFileUploadUrl', 'AuditManager', Promise.resolve(result), true, mock)
   },
-  getEvidenceByEvidenceFolderAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-auditmanager', 'getEvidenceByEvidenceFolder', 'AuditManager', Promise.resolve(result), false, mock)
+  getEvidenceFileUploadUrlAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-auditmanager', 'getEvidenceFileUploadUrl', 'AuditManager', Promise.resolve(result), false, mock)
   },
-  getEvidenceByEvidenceFolderThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-auditmanager', 'getEvidenceByEvidenceFolder', 'AuditManager', Promise.reject(result), true, mock)
+  getEvidenceFileUploadUrlThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-auditmanager', 'getEvidenceFileUploadUrl', 'AuditManager', Promise.reject(result), true, mock)
   },
   getEvidenceFolder: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-auditmanager', 'getEvidenceFolder', 'AuditManager', Promise.resolve(result), true, mock)
@@ -296,6 +295,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getEvidenceFoldersByAssessmentControlThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-auditmanager', 'getEvidenceFoldersByAssessmentControl', 'AuditManager', Promise.reject(result), true, mock)
   },
+  getInsightsByAssessment: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-auditmanager', 'getInsightsByAssessment', 'AuditManager', Promise.resolve(result), true, mock)
+  },
+  getInsightsByAssessmentAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-auditmanager', 'getInsightsByAssessment', 'AuditManager', Promise.resolve(result), false, mock)
+  },
+  getInsightsByAssessmentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-auditmanager', 'getInsightsByAssessment', 'AuditManager', Promise.reject(result), true, mock)
+  },
+  getInsights: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-auditmanager', 'getInsights', 'AuditManager', Promise.resolve(result), true, mock)
+  },
+  getInsightsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-auditmanager', 'getInsights', 'AuditManager', Promise.resolve(result), false, mock)
+  },
+  getInsightsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-auditmanager', 'getInsights', 'AuditManager', Promise.reject(result), true, mock)
+  },
   getOrganizationAdminAccount: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-auditmanager', 'getOrganizationAdminAccount', 'AuditManager', Promise.resolve(result), true, mock)
   },
@@ -322,6 +339,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getSettingsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-auditmanager', 'getSettings', 'AuditManager', Promise.reject(result), true, mock)
+  },
+  listAssessmentControlInsightsByControlDomain: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-auditmanager', 'listAssessmentControlInsightsByControlDomain', 'AuditManager', Promise.resolve(result), true, mock)
+  },
+  listAssessmentControlInsightsByControlDomainAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-auditmanager', 'listAssessmentControlInsightsByControlDomain', 'AuditManager', Promise.resolve(result), false, mock)
+  },
+  listAssessmentControlInsightsByControlDomainThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-auditmanager', 'listAssessmentControlInsightsByControlDomain', 'AuditManager', Promise.reject(result), true, mock)
   },
   listAssessmentFrameworkShareRequests: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-auditmanager', 'listAssessmentFrameworkShareRequests', 'AuditManager', Promise.resolve(result), true, mock)
@@ -358,6 +384,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listAssessmentsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-auditmanager', 'listAssessments', 'AuditManager', Promise.reject(result), true, mock)
+  },
+  listControlDomainInsightsByAssessment: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-auditmanager', 'listControlDomainInsightsByAssessment', 'AuditManager', Promise.resolve(result), true, mock)
+  },
+  listControlDomainInsightsByAssessmentAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-auditmanager', 'listControlDomainInsightsByAssessment', 'AuditManager', Promise.resolve(result), false, mock)
+  },
+  listControlDomainInsightsByAssessmentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-auditmanager', 'listControlDomainInsightsByAssessment', 'AuditManager', Promise.reject(result), true, mock)
+  },
+  listControlDomainInsights: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-auditmanager', 'listControlDomainInsights', 'AuditManager', Promise.resolve(result), true, mock)
+  },
+  listControlDomainInsightsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-auditmanager', 'listControlDomainInsights', 'AuditManager', Promise.resolve(result), false, mock)
+  },
+  listControlDomainInsightsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-auditmanager', 'listControlDomainInsights', 'AuditManager', Promise.reject(result), true, mock)
+  },
+  listControlInsightsByControlDomain: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-auditmanager', 'listControlInsightsByControlDomain', 'AuditManager', Promise.resolve(result), true, mock)
+  },
+  listControlInsightsByControlDomainAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-auditmanager', 'listControlInsightsByControlDomain', 'AuditManager', Promise.resolve(result), false, mock)
+  },
+  listControlInsightsByControlDomainThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-auditmanager', 'listControlInsightsByControlDomain', 'AuditManager', Promise.reject(result), true, mock)
   },
   listControls: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-auditmanager', 'listControls', 'AuditManager', Promise.resolve(result), true, mock)

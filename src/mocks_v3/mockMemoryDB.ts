@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockMemoryDB = {
+export const mockMemoryDB = {
   batchUpdateCluster: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-memorydb', 'batchUpdateCluster', 'MemoryDB', Promise.resolve(result), true, mock)
   },
@@ -197,6 +196,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeParametersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-memorydb', 'describeParameters', 'MemoryDB', Promise.reject(result), true, mock)
   },
+  describeReservedNodes: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-memorydb', 'describeReservedNodes', 'MemoryDB', Promise.resolve(result), true, mock)
+  },
+  describeReservedNodesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-memorydb', 'describeReservedNodes', 'MemoryDB', Promise.resolve(result), false, mock)
+  },
+  describeReservedNodesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-memorydb', 'describeReservedNodes', 'MemoryDB', Promise.reject(result), true, mock)
+  },
+  describeReservedNodesOfferings: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-memorydb', 'describeReservedNodesOfferings', 'MemoryDB', Promise.resolve(result), true, mock)
+  },
+  describeReservedNodesOfferingsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-memorydb', 'describeReservedNodesOfferings', 'MemoryDB', Promise.resolve(result), false, mock)
+  },
+  describeReservedNodesOfferingsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-memorydb', 'describeReservedNodesOfferings', 'MemoryDB', Promise.reject(result), true, mock)
+  },
   describeServiceUpdates: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-memorydb', 'describeServiceUpdates', 'MemoryDB', Promise.resolve(result), true, mock)
   },
@@ -233,15 +250,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeUsersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-memorydb', 'describeUsers', 'MemoryDB', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-memorydb', 'destroy', 'MemoryDB', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-memorydb', 'destroy', 'MemoryDB', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-memorydb', 'destroy', 'MemoryDB', Promise.reject(result), true, mock)
-  },
   failoverShard: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-memorydb', 'failoverShard', 'MemoryDB', Promise.resolve(result), true, mock)
   },
@@ -268,6 +276,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listTagsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-memorydb', 'listTags', 'MemoryDB', Promise.reject(result), true, mock)
+  },
+  purchaseReservedNodesOffering: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-memorydb', 'purchaseReservedNodesOffering', 'MemoryDB', Promise.resolve(result), true, mock)
+  },
+  purchaseReservedNodesOfferingAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-memorydb', 'purchaseReservedNodesOffering', 'MemoryDB', Promise.resolve(result), false, mock)
+  },
+  purchaseReservedNodesOfferingThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-memorydb', 'purchaseReservedNodesOffering', 'MemoryDB', Promise.reject(result), true, mock)
   },
   resetParameterGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-memorydb', 'resetParameterGroup', 'MemoryDB', Promise.resolve(result), true, mock)

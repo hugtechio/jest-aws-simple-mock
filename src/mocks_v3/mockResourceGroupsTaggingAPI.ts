@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockResourceGroupsTaggingAPI = {
+export const mockResourceGroupsTaggingAPI = {
   describeReportCreation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-resource-groups-tagging-api', 'describeReportCreation', 'ResourceGroupsTaggingAPI', Promise.resolve(result), true, mock)
   },
@@ -25,15 +24,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeReportCreationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-resource-groups-tagging-api', 'describeReportCreation', 'ResourceGroupsTaggingAPI', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-resource-groups-tagging-api', 'destroy', 'ResourceGroupsTaggingAPI', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-resource-groups-tagging-api', 'destroy', 'ResourceGroupsTaggingAPI', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-resource-groups-tagging-api', 'destroy', 'ResourceGroupsTaggingAPI', Promise.reject(result), true, mock)
   },
   getComplianceSummary: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-resource-groups-tagging-api', 'getComplianceSummary', 'ResourceGroupsTaggingAPI', Promise.resolve(result), true, mock)

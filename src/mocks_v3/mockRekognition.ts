@@ -15,8 +15,16 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockRekognition = {
+export const mockRekognition = {
+  associateFaces: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'associateFaces', 'Rekognition', Promise.resolve(result), true, mock)
+  },
+  associateFacesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'associateFaces', 'Rekognition', Promise.resolve(result), false, mock)
+  },
+  associateFacesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'associateFaces', 'Rekognition', Promise.reject(result), true, mock)
+  },
   compareFaces: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rekognition', 'compareFaces', 'Rekognition', Promise.resolve(result), true, mock)
   },
@@ -25,6 +33,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   compareFacesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rekognition', 'compareFaces', 'Rekognition', Promise.reject(result), true, mock)
+  },
+  copyProjectVersion: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'copyProjectVersion', 'Rekognition', Promise.resolve(result), true, mock)
+  },
+  copyProjectVersionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'copyProjectVersion', 'Rekognition', Promise.resolve(result), false, mock)
+  },
+  copyProjectVersionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'copyProjectVersion', 'Rekognition', Promise.reject(result), true, mock)
   },
   createCollection: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rekognition', 'createCollection', 'Rekognition', Promise.resolve(result), true, mock)
@@ -43,6 +60,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createDatasetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rekognition', 'createDataset', 'Rekognition', Promise.reject(result), true, mock)
+  },
+  createFaceLivenessSession: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'createFaceLivenessSession', 'Rekognition', Promise.resolve(result), true, mock)
+  },
+  createFaceLivenessSessionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'createFaceLivenessSession', 'Rekognition', Promise.resolve(result), false, mock)
+  },
+  createFaceLivenessSessionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'createFaceLivenessSession', 'Rekognition', Promise.reject(result), true, mock)
   },
   createProject: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rekognition', 'createProject', 'Rekognition', Promise.resolve(result), true, mock)
@@ -70,6 +96,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createStreamProcessorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rekognition', 'createStreamProcessor', 'Rekognition', Promise.reject(result), true, mock)
+  },
+  createUser: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'createUser', 'Rekognition', Promise.resolve(result), true, mock)
+  },
+  createUserAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'createUser', 'Rekognition', Promise.resolve(result), false, mock)
+  },
+  createUserThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'createUser', 'Rekognition', Promise.reject(result), true, mock)
   },
   deleteCollection: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rekognition', 'deleteCollection', 'Rekognition', Promise.resolve(result), true, mock)
@@ -107,6 +142,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteProjectThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rekognition', 'deleteProject', 'Rekognition', Promise.reject(result), true, mock)
   },
+  deleteProjectPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'deleteProjectPolicy', 'Rekognition', Promise.resolve(result), true, mock)
+  },
+  deleteProjectPolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'deleteProjectPolicy', 'Rekognition', Promise.resolve(result), false, mock)
+  },
+  deleteProjectPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'deleteProjectPolicy', 'Rekognition', Promise.reject(result), true, mock)
+  },
   deleteProjectVersion: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rekognition', 'deleteProjectVersion', 'Rekognition', Promise.resolve(result), true, mock)
   },
@@ -124,6 +168,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteStreamProcessorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rekognition', 'deleteStreamProcessor', 'Rekognition', Promise.reject(result), true, mock)
+  },
+  deleteUser: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'deleteUser', 'Rekognition', Promise.resolve(result), true, mock)
+  },
+  deleteUserAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'deleteUser', 'Rekognition', Promise.resolve(result), false, mock)
+  },
+  deleteUserThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'deleteUser', 'Rekognition', Promise.reject(result), true, mock)
   },
   describeCollection: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rekognition', 'describeCollection', 'Rekognition', Promise.resolve(result), true, mock)
@@ -169,15 +222,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeStreamProcessorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rekognition', 'describeStreamProcessor', 'Rekognition', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-rekognition', 'destroy', 'Rekognition', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-rekognition', 'destroy', 'Rekognition', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-rekognition', 'destroy', 'Rekognition', Promise.reject(result), true, mock)
   },
   detectCustomLabels: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rekognition', 'detectCustomLabels', 'Rekognition', Promise.resolve(result), true, mock)
@@ -233,6 +277,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   detectTextThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rekognition', 'detectText', 'Rekognition', Promise.reject(result), true, mock)
   },
+  disassociateFaces: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'disassociateFaces', 'Rekognition', Promise.resolve(result), true, mock)
+  },
+  disassociateFacesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'disassociateFaces', 'Rekognition', Promise.resolve(result), false, mock)
+  },
+  disassociateFacesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'disassociateFaces', 'Rekognition', Promise.reject(result), true, mock)
+  },
   distributeDatasetEntries: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rekognition', 'distributeDatasetEntries', 'Rekognition', Promise.resolve(result), true, mock)
   },
@@ -278,6 +331,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getFaceDetectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rekognition', 'getFaceDetection', 'Rekognition', Promise.reject(result), true, mock)
   },
+  getFaceLivenessSessionResults: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'getFaceLivenessSessionResults', 'Rekognition', Promise.resolve(result), true, mock)
+  },
+  getFaceLivenessSessionResultsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'getFaceLivenessSessionResults', 'Rekognition', Promise.resolve(result), false, mock)
+  },
+  getFaceLivenessSessionResultsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'getFaceLivenessSessionResults', 'Rekognition', Promise.reject(result), true, mock)
+  },
   getFaceSearch: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rekognition', 'getFaceSearch', 'Rekognition', Promise.resolve(result), true, mock)
   },
@@ -295,6 +357,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getLabelDetectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rekognition', 'getLabelDetection', 'Rekognition', Promise.reject(result), true, mock)
+  },
+  getMediaAnalysisJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'getMediaAnalysisJob', 'Rekognition', Promise.resolve(result), true, mock)
+  },
+  getMediaAnalysisJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'getMediaAnalysisJob', 'Rekognition', Promise.resolve(result), false, mock)
+  },
+  getMediaAnalysisJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'getMediaAnalysisJob', 'Rekognition', Promise.reject(result), true, mock)
   },
   getPersonTracking: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rekognition', 'getPersonTracking', 'Rekognition', Promise.resolve(result), true, mock)
@@ -368,6 +439,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listFacesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rekognition', 'listFaces', 'Rekognition', Promise.reject(result), true, mock)
   },
+  listMediaAnalysisJobs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'listMediaAnalysisJobs', 'Rekognition', Promise.resolve(result), true, mock)
+  },
+  listMediaAnalysisJobsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'listMediaAnalysisJobs', 'Rekognition', Promise.resolve(result), false, mock)
+  },
+  listMediaAnalysisJobsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'listMediaAnalysisJobs', 'Rekognition', Promise.reject(result), true, mock)
+  },
+  listProjectPolicies: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'listProjectPolicies', 'Rekognition', Promise.resolve(result), true, mock)
+  },
+  listProjectPoliciesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'listProjectPolicies', 'Rekognition', Promise.resolve(result), false, mock)
+  },
+  listProjectPoliciesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'listProjectPolicies', 'Rekognition', Promise.reject(result), true, mock)
+  },
   listStreamProcessors: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rekognition', 'listStreamProcessors', 'Rekognition', Promise.resolve(result), true, mock)
   },
@@ -386,6 +475,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listTagsForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rekognition', 'listTagsForResource', 'Rekognition', Promise.reject(result), true, mock)
   },
+  listUsers: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'listUsers', 'Rekognition', Promise.resolve(result), true, mock)
+  },
+  listUsersAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'listUsers', 'Rekognition', Promise.resolve(result), false, mock)
+  },
+  listUsersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'listUsers', 'Rekognition', Promise.reject(result), true, mock)
+  },
+  putProjectPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'putProjectPolicy', 'Rekognition', Promise.resolve(result), true, mock)
+  },
+  putProjectPolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'putProjectPolicy', 'Rekognition', Promise.resolve(result), false, mock)
+  },
+  putProjectPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'putProjectPolicy', 'Rekognition', Promise.reject(result), true, mock)
+  },
   recognizeCelebrities: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rekognition', 'recognizeCelebrities', 'Rekognition', Promise.resolve(result), true, mock)
   },
@@ -394,6 +501,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   recognizeCelebritiesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rekognition', 'recognizeCelebrities', 'Rekognition', Promise.reject(result), true, mock)
+  },
+  searchFacesByImage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'searchFacesByImage', 'Rekognition', Promise.resolve(result), true, mock)
+  },
+  searchFacesByImageAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'searchFacesByImage', 'Rekognition', Promise.resolve(result), false, mock)
+  },
+  searchFacesByImageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'searchFacesByImage', 'Rekognition', Promise.reject(result), true, mock)
   },
   searchFaces: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rekognition', 'searchFaces', 'Rekognition', Promise.resolve(result), true, mock)
@@ -404,14 +520,23 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   searchFacesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rekognition', 'searchFaces', 'Rekognition', Promise.reject(result), true, mock)
   },
-  searchFacesByImage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-rekognition', 'searchFacesByImage', 'Rekognition', Promise.resolve(result), true, mock)
+  searchUsersByImage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'searchUsersByImage', 'Rekognition', Promise.resolve(result), true, mock)
   },
-  searchFacesByImageAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-rekognition', 'searchFacesByImage', 'Rekognition', Promise.resolve(result), false, mock)
+  searchUsersByImageAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'searchUsersByImage', 'Rekognition', Promise.resolve(result), false, mock)
   },
-  searchFacesByImageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-rekognition', 'searchFacesByImage', 'Rekognition', Promise.reject(result), true, mock)
+  searchUsersByImageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'searchUsersByImage', 'Rekognition', Promise.reject(result), true, mock)
+  },
+  searchUsers: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'searchUsers', 'Rekognition', Promise.resolve(result), true, mock)
+  },
+  searchUsersAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'searchUsers', 'Rekognition', Promise.resolve(result), false, mock)
+  },
+  searchUsersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'searchUsers', 'Rekognition', Promise.reject(result), true, mock)
   },
   startCelebrityRecognition: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rekognition', 'startCelebrityRecognition', 'Rekognition', Promise.resolve(result), true, mock)
@@ -457,6 +582,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   startLabelDetectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rekognition', 'startLabelDetection', 'Rekognition', Promise.reject(result), true, mock)
+  },
+  startMediaAnalysisJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'startMediaAnalysisJob', 'Rekognition', Promise.resolve(result), true, mock)
+  },
+  startMediaAnalysisJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'startMediaAnalysisJob', 'Rekognition', Promise.resolve(result), false, mock)
+  },
+  startMediaAnalysisJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'startMediaAnalysisJob', 'Rekognition', Promise.reject(result), true, mock)
   },
   startPersonTracking: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rekognition', 'startPersonTracking', 'Rekognition', Promise.resolve(result), true, mock)
@@ -547,6 +681,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateDatasetEntriesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rekognition', 'updateDatasetEntries', 'Rekognition', Promise.reject(result), true, mock)
+  },
+  updateStreamProcessor: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'updateStreamProcessor', 'Rekognition', Promise.resolve(result), true, mock)
+  },
+  updateStreamProcessorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'updateStreamProcessor', 'Rekognition', Promise.resolve(result), false, mock)
+  },
+  updateStreamProcessorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-rekognition', 'updateStreamProcessor', 'Rekognition', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rekognition', 'send', 'RekognitionClient', Promise.resolve(result), true, mock)

@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockMarketplaceMetering = {
+export const mockMarketplaceMetering = {
   batchMeterUsage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-marketplace-metering', 'batchMeterUsage', 'MarketplaceMetering', Promise.resolve(result), true, mock)
   },
@@ -25,15 +24,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   batchMeterUsageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-marketplace-metering', 'batchMeterUsage', 'MarketplaceMetering', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-marketplace-metering', 'destroy', 'MarketplaceMetering', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-marketplace-metering', 'destroy', 'MarketplaceMetering', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-marketplace-metering', 'destroy', 'MarketplaceMetering', Promise.reject(result), true, mock)
   },
   meterUsage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-marketplace-metering', 'meterUsage', 'MarketplaceMetering', Promise.resolve(result), true, mock)

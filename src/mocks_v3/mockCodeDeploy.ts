@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockCodeDeploy = {
+export const mockCodeDeploy = {
   addTagsToOnPremisesInstances: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codedeploy', 'addTagsToOnPremisesInstances', 'CodeDeploy', Promise.resolve(result), true, mock)
   },
@@ -187,15 +186,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deregisterOnPremisesInstanceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codedeploy', 'deregisterOnPremisesInstance', 'CodeDeploy', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-codedeploy', 'destroy', 'CodeDeploy', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-codedeploy', 'destroy', 'CodeDeploy', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-codedeploy', 'destroy', 'CodeDeploy', Promise.reject(result), true, mock)
   },
   getApplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codedeploy', 'getApplication', 'CodeDeploy', Promise.resolve(result), true, mock)

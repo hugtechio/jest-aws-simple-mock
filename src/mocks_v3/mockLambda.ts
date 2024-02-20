@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockLambda = {
+export const mockLambda = {
   addLayerVersionPermission: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lambda', 'addLayerVersionPermission', 'Lambda', Promise.resolve(result), true, mock)
   },
@@ -71,6 +70,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createFunctionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lambda', 'createFunction', 'Lambda', Promise.reject(result), true, mock)
   },
+  createFunctionUrlConfig: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lambda', 'createFunctionUrlConfig', 'Lambda', Promise.resolve(result), true, mock)
+  },
+  createFunctionUrlConfigAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lambda', 'createFunctionUrlConfig', 'Lambda', Promise.resolve(result), false, mock)
+  },
+  createFunctionUrlConfigThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lambda', 'createFunctionUrlConfig', 'Lambda', Promise.reject(result), true, mock)
+  },
   deleteAlias: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lambda', 'deleteAlias', 'Lambda', Promise.resolve(result), true, mock)
   },
@@ -98,15 +106,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteEventSourceMappingThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lambda', 'deleteEventSourceMapping', 'Lambda', Promise.reject(result), true, mock)
   },
-  deleteFunction: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lambda', 'deleteFunction', 'Lambda', Promise.resolve(result), true, mock)
-  },
-  deleteFunctionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lambda', 'deleteFunction', 'Lambda', Promise.resolve(result), false, mock)
-  },
-  deleteFunctionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lambda', 'deleteFunction', 'Lambda', Promise.reject(result), true, mock)
-  },
   deleteFunctionCodeSigningConfig: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lambda', 'deleteFunctionCodeSigningConfig', 'Lambda', Promise.resolve(result), true, mock)
   },
@@ -115,6 +114,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteFunctionCodeSigningConfigThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lambda', 'deleteFunctionCodeSigningConfig', 'Lambda', Promise.reject(result), true, mock)
+  },
+  deleteFunction: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lambda', 'deleteFunction', 'Lambda', Promise.resolve(result), true, mock)
+  },
+  deleteFunctionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lambda', 'deleteFunction', 'Lambda', Promise.resolve(result), false, mock)
+  },
+  deleteFunctionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lambda', 'deleteFunction', 'Lambda', Promise.reject(result), true, mock)
   },
   deleteFunctionConcurrency: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lambda', 'deleteFunctionConcurrency', 'Lambda', Promise.resolve(result), true, mock)
@@ -134,6 +142,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteFunctionEventInvokeConfigThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lambda', 'deleteFunctionEventInvokeConfig', 'Lambda', Promise.reject(result), true, mock)
   },
+  deleteFunctionUrlConfig: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lambda', 'deleteFunctionUrlConfig', 'Lambda', Promise.resolve(result), true, mock)
+  },
+  deleteFunctionUrlConfigAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lambda', 'deleteFunctionUrlConfig', 'Lambda', Promise.resolve(result), false, mock)
+  },
+  deleteFunctionUrlConfigThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lambda', 'deleteFunctionUrlConfig', 'Lambda', Promise.reject(result), true, mock)
+  },
   deleteLayerVersion: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lambda', 'deleteLayerVersion', 'Lambda', Promise.resolve(result), true, mock)
   },
@@ -151,15 +168,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteProvisionedConcurrencyConfigThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lambda', 'deleteProvisionedConcurrencyConfig', 'Lambda', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lambda', 'destroy', 'Lambda', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lambda', 'destroy', 'Lambda', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lambda', 'destroy', 'Lambda', Promise.reject(result), true, mock)
   },
   getAccountSettings: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lambda', 'getAccountSettings', 'Lambda', Promise.resolve(result), true, mock)
@@ -197,15 +205,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getEventSourceMappingThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lambda', 'getEventSourceMapping', 'Lambda', Promise.reject(result), true, mock)
   },
-  getFunction: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lambda', 'getFunction', 'Lambda', Promise.resolve(result), true, mock)
-  },
-  getFunctionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lambda', 'getFunction', 'Lambda', Promise.resolve(result), false, mock)
-  },
-  getFunctionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lambda', 'getFunction', 'Lambda', Promise.reject(result), true, mock)
-  },
   getFunctionCodeSigningConfig: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lambda', 'getFunctionCodeSigningConfig', 'Lambda', Promise.resolve(result), true, mock)
   },
@@ -214,6 +213,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getFunctionCodeSigningConfigThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lambda', 'getFunctionCodeSigningConfig', 'Lambda', Promise.reject(result), true, mock)
+  },
+  getFunction: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lambda', 'getFunction', 'Lambda', Promise.resolve(result), true, mock)
+  },
+  getFunctionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lambda', 'getFunction', 'Lambda', Promise.resolve(result), false, mock)
+  },
+  getFunctionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lambda', 'getFunction', 'Lambda', Promise.reject(result), true, mock)
   },
   getFunctionConcurrency: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lambda', 'getFunctionConcurrency', 'Lambda', Promise.resolve(result), true, mock)
@@ -242,14 +250,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getFunctionEventInvokeConfigThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lambda', 'getFunctionEventInvokeConfig', 'Lambda', Promise.reject(result), true, mock)
   },
-  getLayerVersion: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lambda', 'getLayerVersion', 'Lambda', Promise.resolve(result), true, mock)
+  getFunctionUrlConfig: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lambda', 'getFunctionUrlConfig', 'Lambda', Promise.resolve(result), true, mock)
   },
-  getLayerVersionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lambda', 'getLayerVersion', 'Lambda', Promise.resolve(result), false, mock)
+  getFunctionUrlConfigAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lambda', 'getFunctionUrlConfig', 'Lambda', Promise.resolve(result), false, mock)
   },
-  getLayerVersionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lambda', 'getLayerVersion', 'Lambda', Promise.reject(result), true, mock)
+  getFunctionUrlConfigThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lambda', 'getFunctionUrlConfig', 'Lambda', Promise.reject(result), true, mock)
   },
   getLayerVersionByArn: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lambda', 'getLayerVersionByArn', 'Lambda', Promise.resolve(result), true, mock)
@@ -259,6 +267,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getLayerVersionByArnThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lambda', 'getLayerVersionByArn', 'Lambda', Promise.reject(result), true, mock)
+  },
+  getLayerVersion: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lambda', 'getLayerVersion', 'Lambda', Promise.resolve(result), true, mock)
+  },
+  getLayerVersionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lambda', 'getLayerVersion', 'Lambda', Promise.resolve(result), false, mock)
+  },
+  getLayerVersionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lambda', 'getLayerVersion', 'Lambda', Promise.reject(result), true, mock)
   },
   getLayerVersionPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lambda', 'getLayerVersionPolicy', 'Lambda', Promise.resolve(result), true, mock)
@@ -287,14 +304,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getProvisionedConcurrencyConfigThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lambda', 'getProvisionedConcurrencyConfig', 'Lambda', Promise.reject(result), true, mock)
   },
-  invoke: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lambda', 'invoke', 'Lambda', Promise.resolve(result), true, mock)
+  getRuntimeManagementConfig: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lambda', 'getRuntimeManagementConfig', 'Lambda', Promise.resolve(result), true, mock)
   },
-  invokeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lambda', 'invoke', 'Lambda', Promise.resolve(result), false, mock)
+  getRuntimeManagementConfigAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lambda', 'getRuntimeManagementConfig', 'Lambda', Promise.resolve(result), false, mock)
   },
-  invokeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lambda', 'invoke', 'Lambda', Promise.reject(result), true, mock)
+  getRuntimeManagementConfigThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lambda', 'getRuntimeManagementConfig', 'Lambda', Promise.reject(result), true, mock)
   },
   invokeAsync: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lambda', 'invokeAsync', 'Lambda', Promise.resolve(result), true, mock)
@@ -304,6 +321,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   invokeAsyncThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lambda', 'invokeAsync', 'Lambda', Promise.reject(result), true, mock)
+  },
+  invoke: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lambda', 'invoke', 'Lambda', Promise.resolve(result), true, mock)
+  },
+  invokeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lambda', 'invoke', 'Lambda', Promise.resolve(result), false, mock)
+  },
+  invokeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lambda', 'invoke', 'Lambda', Promise.reject(result), true, mock)
+  },
+  invokeWithResponseStream: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lambda', 'invokeWithResponseStream', 'Lambda', Promise.resolve(result), true, mock)
+  },
+  invokeWithResponseStreamAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lambda', 'invokeWithResponseStream', 'Lambda', Promise.resolve(result), false, mock)
+  },
+  invokeWithResponseStreamThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lambda', 'invokeWithResponseStream', 'Lambda', Promise.reject(result), true, mock)
   },
   listAliases: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lambda', 'listAliases', 'Lambda', Promise.resolve(result), true, mock)
@@ -341,14 +376,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listFunctionEventInvokeConfigsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lambda', 'listFunctionEventInvokeConfigs', 'Lambda', Promise.reject(result), true, mock)
   },
-  listFunctions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lambda', 'listFunctions', 'Lambda', Promise.resolve(result), true, mock)
+  listFunctionUrlConfigs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lambda', 'listFunctionUrlConfigs', 'Lambda', Promise.resolve(result), true, mock)
   },
-  listFunctionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lambda', 'listFunctions', 'Lambda', Promise.resolve(result), false, mock)
+  listFunctionUrlConfigsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lambda', 'listFunctionUrlConfigs', 'Lambda', Promise.resolve(result), false, mock)
   },
-  listFunctionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lambda', 'listFunctions', 'Lambda', Promise.reject(result), true, mock)
+  listFunctionUrlConfigsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lambda', 'listFunctionUrlConfigs', 'Lambda', Promise.reject(result), true, mock)
   },
   listFunctionsByCodeSigningConfig: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lambda', 'listFunctionsByCodeSigningConfig', 'Lambda', Promise.resolve(result), true, mock)
@@ -358,6 +393,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listFunctionsByCodeSigningConfigThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lambda', 'listFunctionsByCodeSigningConfig', 'Lambda', Promise.reject(result), true, mock)
+  },
+  listFunctions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lambda', 'listFunctions', 'Lambda', Promise.resolve(result), true, mock)
+  },
+  listFunctionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lambda', 'listFunctions', 'Lambda', Promise.resolve(result), false, mock)
+  },
+  listFunctionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lambda', 'listFunctions', 'Lambda', Promise.reject(result), true, mock)
   },
   listLayerVersions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lambda', 'listLayerVersions', 'Lambda', Promise.resolve(result), true, mock)
@@ -458,6 +502,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   putProvisionedConcurrencyConfigThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lambda', 'putProvisionedConcurrencyConfig', 'Lambda', Promise.reject(result), true, mock)
   },
+  putRuntimeManagementConfig: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lambda', 'putRuntimeManagementConfig', 'Lambda', Promise.resolve(result), true, mock)
+  },
+  putRuntimeManagementConfigAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lambda', 'putRuntimeManagementConfig', 'Lambda', Promise.resolve(result), false, mock)
+  },
+  putRuntimeManagementConfigThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lambda', 'putRuntimeManagementConfig', 'Lambda', Promise.reject(result), true, mock)
+  },
   removeLayerVersionPermission: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lambda', 'removeLayerVersionPermission', 'Lambda', Promise.resolve(result), true, mock)
   },
@@ -547,6 +600,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateFunctionEventInvokeConfigThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lambda', 'updateFunctionEventInvokeConfig', 'Lambda', Promise.reject(result), true, mock)
+  },
+  updateFunctionUrlConfig: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lambda', 'updateFunctionUrlConfig', 'Lambda', Promise.resolve(result), true, mock)
+  },
+  updateFunctionUrlConfigAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lambda', 'updateFunctionUrlConfig', 'Lambda', Promise.resolve(result), false, mock)
+  },
+  updateFunctionUrlConfigThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lambda', 'updateFunctionUrlConfig', 'Lambda', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lambda', 'send', 'LambdaClient', Promise.resolve(result), true, mock)

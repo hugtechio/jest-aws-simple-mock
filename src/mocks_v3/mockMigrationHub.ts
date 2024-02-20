@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockMigrationHub = {
+export const mockMigrationHub = {
   associateCreatedArtifact: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-migration-hub', 'associateCreatedArtifact', 'MigrationHub', Promise.resolve(result), true, mock)
   },
@@ -70,15 +69,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeMigrationTaskThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-migration-hub', 'describeMigrationTask', 'MigrationHub', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-migration-hub', 'destroy', 'MigrationHub', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-migration-hub', 'destroy', 'MigrationHub', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-migration-hub', 'destroy', 'MigrationHub', Promise.reject(result), true, mock)
   },
   disassociateCreatedArtifact: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-migration-hub', 'disassociateCreatedArtifact', 'MigrationHub', Promise.resolve(result), true, mock)

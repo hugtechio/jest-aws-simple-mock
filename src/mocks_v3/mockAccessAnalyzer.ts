@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockAccessAnalyzer = {
+export const mockAccessAnalyzer = {
   applyArchiveRule: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-accessanalyzer', 'applyArchiveRule', 'AccessAnalyzer', Promise.resolve(result), true, mock)
   },
@@ -34,6 +33,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   cancelPolicyGenerationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-accessanalyzer', 'cancelPolicyGeneration', 'AccessAnalyzer', Promise.reject(result), true, mock)
+  },
+  checkAccessNotGranted: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-accessanalyzer', 'checkAccessNotGranted', 'AccessAnalyzer', Promise.resolve(result), true, mock)
+  },
+  checkAccessNotGrantedAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-accessanalyzer', 'checkAccessNotGranted', 'AccessAnalyzer', Promise.resolve(result), false, mock)
+  },
+  checkAccessNotGrantedThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-accessanalyzer', 'checkAccessNotGranted', 'AccessAnalyzer', Promise.reject(result), true, mock)
+  },
+  checkNoNewAccess: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-accessanalyzer', 'checkNoNewAccess', 'AccessAnalyzer', Promise.resolve(result), true, mock)
+  },
+  checkNoNewAccessAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-accessanalyzer', 'checkNoNewAccess', 'AccessAnalyzer', Promise.resolve(result), false, mock)
+  },
+  checkNoNewAccessThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-accessanalyzer', 'checkNoNewAccess', 'AccessAnalyzer', Promise.reject(result), true, mock)
   },
   createAccessPreview: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-accessanalyzer', 'createAccessPreview', 'AccessAnalyzer', Promise.resolve(result), true, mock)
@@ -80,15 +97,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteArchiveRuleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-accessanalyzer', 'deleteArchiveRule', 'AccessAnalyzer', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-accessanalyzer', 'destroy', 'AccessAnalyzer', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-accessanalyzer', 'destroy', 'AccessAnalyzer', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-accessanalyzer', 'destroy', 'AccessAnalyzer', Promise.reject(result), true, mock)
-  },
   getAccessPreview: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-accessanalyzer', 'getAccessPreview', 'AccessAnalyzer', Promise.resolve(result), true, mock)
   },
@@ -133,6 +141,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getFindingThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-accessanalyzer', 'getFinding', 'AccessAnalyzer', Promise.reject(result), true, mock)
+  },
+  getFindingV2: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-accessanalyzer', 'getFindingV2', 'AccessAnalyzer', Promise.resolve(result), true, mock)
+  },
+  getFindingV2All: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-accessanalyzer', 'getFindingV2', 'AccessAnalyzer', Promise.resolve(result), false, mock)
+  },
+  getFindingV2Throw: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-accessanalyzer', 'getFindingV2', 'AccessAnalyzer', Promise.reject(result), true, mock)
   },
   getGeneratedPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-accessanalyzer', 'getGeneratedPolicy', 'AccessAnalyzer', Promise.resolve(result), true, mock)
@@ -196,6 +213,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listFindingsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-accessanalyzer', 'listFindings', 'AccessAnalyzer', Promise.reject(result), true, mock)
+  },
+  listFindingsV2: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-accessanalyzer', 'listFindingsV2', 'AccessAnalyzer', Promise.resolve(result), true, mock)
+  },
+  listFindingsV2All: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-accessanalyzer', 'listFindingsV2', 'AccessAnalyzer', Promise.resolve(result), false, mock)
+  },
+  listFindingsV2Throw: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-accessanalyzer', 'listFindingsV2', 'AccessAnalyzer', Promise.reject(result), true, mock)
   },
   listPolicyGenerations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-accessanalyzer', 'listPolicyGenerations', 'AccessAnalyzer', Promise.resolve(result), true, mock)

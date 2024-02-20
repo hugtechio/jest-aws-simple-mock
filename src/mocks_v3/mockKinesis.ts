@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockKinesis = {
+export const mockKinesis = {
   addTagsToStream: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kinesis', 'addTagsToStream', 'Kinesis', Promise.resolve(result), true, mock)
   },
@@ -43,6 +42,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   decreaseStreamRetentionPeriodThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kinesis', 'decreaseStreamRetentionPeriod', 'Kinesis', Promise.reject(result), true, mock)
+  },
+  deleteResourcePolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kinesis', 'deleteResourcePolicy', 'Kinesis', Promise.resolve(result), true, mock)
+  },
+  deleteResourcePolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kinesis', 'deleteResourcePolicy', 'Kinesis', Promise.resolve(result), false, mock)
+  },
+  deleteResourcePolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kinesis', 'deleteResourcePolicy', 'Kinesis', Promise.reject(result), true, mock)
   },
   deleteStream: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kinesis', 'deleteStream', 'Kinesis', Promise.resolve(result), true, mock)
@@ -98,15 +106,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeStreamSummaryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kinesis', 'describeStreamSummary', 'Kinesis', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-kinesis', 'destroy', 'Kinesis', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-kinesis', 'destroy', 'Kinesis', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-kinesis', 'destroy', 'Kinesis', Promise.reject(result), true, mock)
-  },
   disableEnhancedMonitoring: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kinesis', 'disableEnhancedMonitoring', 'Kinesis', Promise.resolve(result), true, mock)
   },
@@ -133,6 +132,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getRecordsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kinesis', 'getRecords', 'Kinesis', Promise.reject(result), true, mock)
+  },
+  getResourcePolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kinesis', 'getResourcePolicy', 'Kinesis', Promise.resolve(result), true, mock)
+  },
+  getResourcePolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kinesis', 'getResourcePolicy', 'Kinesis', Promise.resolve(result), false, mock)
+  },
+  getResourcePolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kinesis', 'getResourcePolicy', 'Kinesis', Promise.reject(result), true, mock)
   },
   getShardIterator: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kinesis', 'getShardIterator', 'Kinesis', Promise.resolve(result), true, mock)
@@ -215,6 +223,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   putRecordsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kinesis', 'putRecords', 'Kinesis', Promise.reject(result), true, mock)
   },
+  putResourcePolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kinesis', 'putResourcePolicy', 'Kinesis', Promise.resolve(result), true, mock)
+  },
+  putResourcePolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kinesis', 'putResourcePolicy', 'Kinesis', Promise.resolve(result), false, mock)
+  },
+  putResourcePolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kinesis', 'putResourcePolicy', 'Kinesis', Promise.reject(result), true, mock)
+  },
   registerStreamConsumer: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kinesis', 'registerStreamConsumer', 'Kinesis', Promise.resolve(result), true, mock)
   },
@@ -277,6 +294,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateShardCountThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kinesis', 'updateShardCount', 'Kinesis', Promise.reject(result), true, mock)
+  },
+  updateStreamMode: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kinesis', 'updateStreamMode', 'Kinesis', Promise.resolve(result), true, mock)
+  },
+  updateStreamModeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kinesis', 'updateStreamMode', 'Kinesis', Promise.resolve(result), false, mock)
+  },
+  updateStreamModeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kinesis', 'updateStreamMode', 'Kinesis', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kinesis', 'send', 'KinesisClient', Promise.resolve(result), true, mock)

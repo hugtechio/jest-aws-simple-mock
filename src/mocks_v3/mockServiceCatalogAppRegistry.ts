@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockServiceCatalogAppRegistry = {
+export const mockServiceCatalogAppRegistry = {
   associateAttributeGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-service-catalog-appregistry', 'associateAttributeGroup', 'ServiceCatalogAppRegistry', Promise.resolve(result), true, mock)
   },
@@ -71,15 +70,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteAttributeGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-service-catalog-appregistry', 'deleteAttributeGroup', 'ServiceCatalogAppRegistry', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-service-catalog-appregistry', 'destroy', 'ServiceCatalogAppRegistry', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-service-catalog-appregistry', 'destroy', 'ServiceCatalogAppRegistry', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-service-catalog-appregistry', 'destroy', 'ServiceCatalogAppRegistry', Promise.reject(result), true, mock)
-  },
   disassociateAttributeGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-service-catalog-appregistry', 'disassociateAttributeGroup', 'ServiceCatalogAppRegistry', Promise.resolve(result), true, mock)
   },
@@ -125,6 +115,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getAttributeGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-service-catalog-appregistry', 'getAttributeGroup', 'ServiceCatalogAppRegistry', Promise.reject(result), true, mock)
   },
+  getConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-service-catalog-appregistry', 'getConfiguration', 'ServiceCatalogAppRegistry', Promise.resolve(result), true, mock)
+  },
+  getConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-service-catalog-appregistry', 'getConfiguration', 'ServiceCatalogAppRegistry', Promise.resolve(result), false, mock)
+  },
+  getConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-service-catalog-appregistry', 'getConfiguration', 'ServiceCatalogAppRegistry', Promise.reject(result), true, mock)
+  },
   listApplications: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-service-catalog-appregistry', 'listApplications', 'ServiceCatalogAppRegistry', Promise.resolve(result), true, mock)
   },
@@ -161,6 +160,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listAttributeGroupsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-service-catalog-appregistry', 'listAttributeGroups', 'ServiceCatalogAppRegistry', Promise.reject(result), true, mock)
   },
+  listAttributeGroupsForApplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-service-catalog-appregistry', 'listAttributeGroupsForApplication', 'ServiceCatalogAppRegistry', Promise.resolve(result), true, mock)
+  },
+  listAttributeGroupsForApplicationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-service-catalog-appregistry', 'listAttributeGroupsForApplication', 'ServiceCatalogAppRegistry', Promise.resolve(result), false, mock)
+  },
+  listAttributeGroupsForApplicationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-service-catalog-appregistry', 'listAttributeGroupsForApplication', 'ServiceCatalogAppRegistry', Promise.reject(result), true, mock)
+  },
   listTagsForResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-service-catalog-appregistry', 'listTagsForResource', 'ServiceCatalogAppRegistry', Promise.resolve(result), true, mock)
   },
@@ -169,6 +177,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listTagsForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-service-catalog-appregistry', 'listTagsForResource', 'ServiceCatalogAppRegistry', Promise.reject(result), true, mock)
+  },
+  putConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-service-catalog-appregistry', 'putConfiguration', 'ServiceCatalogAppRegistry', Promise.resolve(result), true, mock)
+  },
+  putConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-service-catalog-appregistry', 'putConfiguration', 'ServiceCatalogAppRegistry', Promise.resolve(result), false, mock)
+  },
+  putConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-service-catalog-appregistry', 'putConfiguration', 'ServiceCatalogAppRegistry', Promise.reject(result), true, mock)
   },
   syncResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-service-catalog-appregistry', 'syncResource', 'ServiceCatalogAppRegistry', Promise.resolve(result), true, mock)

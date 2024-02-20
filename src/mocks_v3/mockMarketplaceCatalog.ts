@@ -15,8 +15,16 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockMarketplaceCatalog = {
+export const mockMarketplaceCatalog = {
+  batchDescribeEntities: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-marketplace-catalog', 'batchDescribeEntities', 'MarketplaceCatalog', Promise.resolve(result), true, mock)
+  },
+  batchDescribeEntitiesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-marketplace-catalog', 'batchDescribeEntities', 'MarketplaceCatalog', Promise.resolve(result), false, mock)
+  },
+  batchDescribeEntitiesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-marketplace-catalog', 'batchDescribeEntities', 'MarketplaceCatalog', Promise.reject(result), true, mock)
+  },
   cancelChangeSet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-marketplace-catalog', 'cancelChangeSet', 'MarketplaceCatalog', Promise.resolve(result), true, mock)
   },
@@ -25,6 +33,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   cancelChangeSetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-marketplace-catalog', 'cancelChangeSet', 'MarketplaceCatalog', Promise.reject(result), true, mock)
+  },
+  deleteResourcePolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-marketplace-catalog', 'deleteResourcePolicy', 'MarketplaceCatalog', Promise.resolve(result), true, mock)
+  },
+  deleteResourcePolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-marketplace-catalog', 'deleteResourcePolicy', 'MarketplaceCatalog', Promise.resolve(result), false, mock)
+  },
+  deleteResourcePolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-marketplace-catalog', 'deleteResourcePolicy', 'MarketplaceCatalog', Promise.reject(result), true, mock)
   },
   describeChangeSet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-marketplace-catalog', 'describeChangeSet', 'MarketplaceCatalog', Promise.resolve(result), true, mock)
@@ -44,14 +61,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeEntityThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-marketplace-catalog', 'describeEntity', 'MarketplaceCatalog', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-marketplace-catalog', 'destroy', 'MarketplaceCatalog', Promise.resolve(result), true, mock)
+  getResourcePolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-marketplace-catalog', 'getResourcePolicy', 'MarketplaceCatalog', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-marketplace-catalog', 'destroy', 'MarketplaceCatalog', Promise.resolve(result), false, mock)
+  getResourcePolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-marketplace-catalog', 'getResourcePolicy', 'MarketplaceCatalog', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-marketplace-catalog', 'destroy', 'MarketplaceCatalog', Promise.reject(result), true, mock)
+  getResourcePolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-marketplace-catalog', 'getResourcePolicy', 'MarketplaceCatalog', Promise.reject(result), true, mock)
   },
   listChangeSets: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-marketplace-catalog', 'listChangeSets', 'MarketplaceCatalog', Promise.resolve(result), true, mock)
@@ -71,6 +88,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listEntitiesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-marketplace-catalog', 'listEntities', 'MarketplaceCatalog', Promise.reject(result), true, mock)
   },
+  listTagsForResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-marketplace-catalog', 'listTagsForResource', 'MarketplaceCatalog', Promise.resolve(result), true, mock)
+  },
+  listTagsForResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-marketplace-catalog', 'listTagsForResource', 'MarketplaceCatalog', Promise.resolve(result), false, mock)
+  },
+  listTagsForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-marketplace-catalog', 'listTagsForResource', 'MarketplaceCatalog', Promise.reject(result), true, mock)
+  },
+  putResourcePolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-marketplace-catalog', 'putResourcePolicy', 'MarketplaceCatalog', Promise.resolve(result), true, mock)
+  },
+  putResourcePolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-marketplace-catalog', 'putResourcePolicy', 'MarketplaceCatalog', Promise.resolve(result), false, mock)
+  },
+  putResourcePolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-marketplace-catalog', 'putResourcePolicy', 'MarketplaceCatalog', Promise.reject(result), true, mock)
+  },
   startChangeSet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-marketplace-catalog', 'startChangeSet', 'MarketplaceCatalog', Promise.resolve(result), true, mock)
   },
@@ -79,6 +114,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   startChangeSetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-marketplace-catalog', 'startChangeSet', 'MarketplaceCatalog', Promise.reject(result), true, mock)
+  },
+  tagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-marketplace-catalog', 'tagResource', 'MarketplaceCatalog', Promise.resolve(result), true, mock)
+  },
+  tagResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-marketplace-catalog', 'tagResource', 'MarketplaceCatalog', Promise.resolve(result), false, mock)
+  },
+  tagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-marketplace-catalog', 'tagResource', 'MarketplaceCatalog', Promise.reject(result), true, mock)
+  },
+  untagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-marketplace-catalog', 'untagResource', 'MarketplaceCatalog', Promise.resolve(result), true, mock)
+  },
+  untagResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-marketplace-catalog', 'untagResource', 'MarketplaceCatalog', Promise.resolve(result), false, mock)
+  },
+  untagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-marketplace-catalog', 'untagResource', 'MarketplaceCatalog', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-marketplace-catalog', 'send', 'MarketplaceCatalogClient', Promise.resolve(result), true, mock)

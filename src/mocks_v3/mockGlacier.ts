@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockGlacier = {
+export const mockGlacier = {
   abortMultipartUpload: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glacier', 'abortMultipartUpload', 'Glacier', Promise.resolve(result), true, mock)
   },
@@ -80,15 +79,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteArchiveThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glacier', 'deleteArchive', 'Glacier', Promise.reject(result), true, mock)
   },
-  deleteVault: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-glacier', 'deleteVault', 'Glacier', Promise.resolve(result), true, mock)
-  },
-  deleteVaultAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-glacier', 'deleteVault', 'Glacier', Promise.resolve(result), false, mock)
-  },
-  deleteVaultThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-glacier', 'deleteVault', 'Glacier', Promise.reject(result), true, mock)
-  },
   deleteVaultAccessPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glacier', 'deleteVaultAccessPolicy', 'Glacier', Promise.resolve(result), true, mock)
   },
@@ -97,6 +87,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteVaultAccessPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glacier', 'deleteVaultAccessPolicy', 'Glacier', Promise.reject(result), true, mock)
+  },
+  deleteVault: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glacier', 'deleteVault', 'Glacier', Promise.resolve(result), true, mock)
+  },
+  deleteVaultAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glacier', 'deleteVault', 'Glacier', Promise.resolve(result), false, mock)
+  },
+  deleteVaultThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-glacier', 'deleteVault', 'Glacier', Promise.reject(result), true, mock)
   },
   deleteVaultNotifications: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glacier', 'deleteVaultNotifications', 'Glacier', Promise.resolve(result), true, mock)
@@ -124,15 +123,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeVaultThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glacier', 'describeVault', 'Glacier', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-glacier', 'destroy', 'Glacier', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-glacier', 'destroy', 'Glacier', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-glacier', 'destroy', 'Glacier', Promise.reject(result), true, mock)
   },
   getDataRetrievalPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-glacier', 'getDataRetrievalPolicy', 'Glacier', Promise.resolve(result), true, mock)

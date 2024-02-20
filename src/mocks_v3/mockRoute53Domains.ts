@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockRoute53Domains = {
+export const mockRoute53Domains = {
   acceptDomainTransferFromAnotherAwsAccount: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route-53-domains', 'acceptDomainTransferFromAnotherAwsAccount', 'Route53Domains', Promise.resolve(result), true, mock)
   },
@@ -25,6 +24,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   acceptDomainTransferFromAnotherAwsAccountThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route-53-domains', 'acceptDomainTransferFromAnotherAwsAccount', 'Route53Domains', Promise.reject(result), true, mock)
+  },
+  associateDelegationSignerToDomain: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route-53-domains', 'associateDelegationSignerToDomain', 'Route53Domains', Promise.resolve(result), true, mock)
+  },
+  associateDelegationSignerToDomainAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route-53-domains', 'associateDelegationSignerToDomain', 'Route53Domains', Promise.resolve(result), false, mock)
+  },
+  associateDelegationSignerToDomainThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route-53-domains', 'associateDelegationSignerToDomain', 'Route53Domains', Promise.reject(result), true, mock)
   },
   cancelDomainTransferToAnotherAwsAccount: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route-53-domains', 'cancelDomainTransferToAnotherAwsAccount', 'Route53Domains', Promise.resolve(result), true, mock)
@@ -53,6 +61,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   checkDomainTransferabilityThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route-53-domains', 'checkDomainTransferability', 'Route53Domains', Promise.reject(result), true, mock)
   },
+  deleteDomain: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route-53-domains', 'deleteDomain', 'Route53Domains', Promise.resolve(result), true, mock)
+  },
+  deleteDomainAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route-53-domains', 'deleteDomain', 'Route53Domains', Promise.resolve(result), false, mock)
+  },
+  deleteDomainThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route-53-domains', 'deleteDomain', 'Route53Domains', Promise.reject(result), true, mock)
+  },
   deleteTagsForDomain: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route-53-domains', 'deleteTagsForDomain', 'Route53Domains', Promise.resolve(result), true, mock)
   },
@@ -61,15 +78,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteTagsForDomainThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route-53-domains', 'deleteTagsForDomain', 'Route53Domains', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-route-53-domains', 'destroy', 'Route53Domains', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-route-53-domains', 'destroy', 'Route53Domains', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-route-53-domains', 'destroy', 'Route53Domains', Promise.reject(result), true, mock)
   },
   disableDomainAutoRenew: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route-53-domains', 'disableDomainAutoRenew', 'Route53Domains', Promise.resolve(result), true, mock)
@@ -88,6 +96,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   disableDomainTransferLockThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route-53-domains', 'disableDomainTransferLock', 'Route53Domains', Promise.reject(result), true, mock)
+  },
+  disassociateDelegationSignerFromDomain: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route-53-domains', 'disassociateDelegationSignerFromDomain', 'Route53Domains', Promise.resolve(result), true, mock)
+  },
+  disassociateDelegationSignerFromDomainAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route-53-domains', 'disassociateDelegationSignerFromDomain', 'Route53Domains', Promise.resolve(result), false, mock)
+  },
+  disassociateDelegationSignerFromDomainThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route-53-domains', 'disassociateDelegationSignerFromDomain', 'Route53Domains', Promise.reject(result), true, mock)
   },
   enableDomainAutoRenew: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route-53-domains', 'enableDomainAutoRenew', 'Route53Domains', Promise.resolve(result), true, mock)
@@ -161,6 +178,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listOperationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route-53-domains', 'listOperations', 'Route53Domains', Promise.reject(result), true, mock)
   },
+  listPrices: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route-53-domains', 'listPrices', 'Route53Domains', Promise.resolve(result), true, mock)
+  },
+  listPricesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route-53-domains', 'listPrices', 'Route53Domains', Promise.resolve(result), false, mock)
+  },
+  listPricesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route-53-domains', 'listPrices', 'Route53Domains', Promise.reject(result), true, mock)
+  },
   listTagsForDomain: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route-53-domains', 'listTagsForDomain', 'Route53Domains', Promise.resolve(result), true, mock)
   },
@@ -169,6 +195,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listTagsForDomainThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route-53-domains', 'listTagsForDomain', 'Route53Domains', Promise.reject(result), true, mock)
+  },
+  pushDomain: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route-53-domains', 'pushDomain', 'Route53Domains', Promise.resolve(result), true, mock)
+  },
+  pushDomainAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route-53-domains', 'pushDomain', 'Route53Domains', Promise.resolve(result), false, mock)
+  },
+  pushDomainThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route-53-domains', 'pushDomain', 'Route53Domains', Promise.reject(result), true, mock)
   },
   registerDomain: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route-53-domains', 'registerDomain', 'Route53Domains', Promise.resolve(result), true, mock)
@@ -205,6 +240,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   resendContactReachabilityEmailThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route-53-domains', 'resendContactReachabilityEmail', 'Route53Domains', Promise.reject(result), true, mock)
+  },
+  resendOperationAuthorization: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route-53-domains', 'resendOperationAuthorization', 'Route53Domains', Promise.resolve(result), true, mock)
+  },
+  resendOperationAuthorizationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route-53-domains', 'resendOperationAuthorization', 'Route53Domains', Promise.resolve(result), false, mock)
+  },
+  resendOperationAuthorizationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-route-53-domains', 'resendOperationAuthorization', 'Route53Domains', Promise.reject(result), true, mock)
   },
   retrieveDomainAuthCode: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route-53-domains', 'retrieveDomainAuthCode', 'Route53Domains', Promise.resolve(result), true, mock)

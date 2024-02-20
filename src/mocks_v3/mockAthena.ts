@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockAthena = {
+export const mockAthena = {
   batchGetNamedQuery: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-athena', 'batchGetNamedQuery', 'Athena', Promise.resolve(result), true, mock)
   },
@@ -26,6 +25,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   batchGetNamedQueryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-athena', 'batchGetNamedQuery', 'Athena', Promise.reject(result), true, mock)
   },
+  batchGetPreparedStatement: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'batchGetPreparedStatement', 'Athena', Promise.resolve(result), true, mock)
+  },
+  batchGetPreparedStatementAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'batchGetPreparedStatement', 'Athena', Promise.resolve(result), false, mock)
+  },
+  batchGetPreparedStatementThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'batchGetPreparedStatement', 'Athena', Promise.reject(result), true, mock)
+  },
   batchGetQueryExecution: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-athena', 'batchGetQueryExecution', 'Athena', Promise.resolve(result), true, mock)
   },
@@ -34,6 +42,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   batchGetQueryExecutionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-athena', 'batchGetQueryExecution', 'Athena', Promise.reject(result), true, mock)
+  },
+  cancelCapacityReservation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'cancelCapacityReservation', 'Athena', Promise.resolve(result), true, mock)
+  },
+  cancelCapacityReservationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'cancelCapacityReservation', 'Athena', Promise.resolve(result), false, mock)
+  },
+  cancelCapacityReservationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'cancelCapacityReservation', 'Athena', Promise.reject(result), true, mock)
+  },
+  createCapacityReservation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'createCapacityReservation', 'Athena', Promise.resolve(result), true, mock)
+  },
+  createCapacityReservationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'createCapacityReservation', 'Athena', Promise.resolve(result), false, mock)
+  },
+  createCapacityReservationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'createCapacityReservation', 'Athena', Promise.reject(result), true, mock)
   },
   createDataCatalog: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-athena', 'createDataCatalog', 'Athena', Promise.resolve(result), true, mock)
@@ -53,6 +79,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createNamedQueryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-athena', 'createNamedQuery', 'Athena', Promise.reject(result), true, mock)
   },
+  createNotebook: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'createNotebook', 'Athena', Promise.resolve(result), true, mock)
+  },
+  createNotebookAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'createNotebook', 'Athena', Promise.resolve(result), false, mock)
+  },
+  createNotebookThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'createNotebook', 'Athena', Promise.reject(result), true, mock)
+  },
   createPreparedStatement: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-athena', 'createPreparedStatement', 'Athena', Promise.resolve(result), true, mock)
   },
@@ -62,6 +97,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createPreparedStatementThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-athena', 'createPreparedStatement', 'Athena', Promise.reject(result), true, mock)
   },
+  createPresignedNotebookUrl: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'createPresignedNotebookUrl', 'Athena', Promise.resolve(result), true, mock)
+  },
+  createPresignedNotebookUrlAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'createPresignedNotebookUrl', 'Athena', Promise.resolve(result), false, mock)
+  },
+  createPresignedNotebookUrlThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'createPresignedNotebookUrl', 'Athena', Promise.reject(result), true, mock)
+  },
   createWorkGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-athena', 'createWorkGroup', 'Athena', Promise.resolve(result), true, mock)
   },
@@ -70,6 +114,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createWorkGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-athena', 'createWorkGroup', 'Athena', Promise.reject(result), true, mock)
+  },
+  deleteCapacityReservation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'deleteCapacityReservation', 'Athena', Promise.resolve(result), true, mock)
+  },
+  deleteCapacityReservationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'deleteCapacityReservation', 'Athena', Promise.resolve(result), false, mock)
+  },
+  deleteCapacityReservationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'deleteCapacityReservation', 'Athena', Promise.reject(result), true, mock)
   },
   deleteDataCatalog: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-athena', 'deleteDataCatalog', 'Athena', Promise.resolve(result), true, mock)
@@ -89,6 +142,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteNamedQueryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-athena', 'deleteNamedQuery', 'Athena', Promise.reject(result), true, mock)
   },
+  deleteNotebook: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'deleteNotebook', 'Athena', Promise.resolve(result), true, mock)
+  },
+  deleteNotebookAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'deleteNotebook', 'Athena', Promise.resolve(result), false, mock)
+  },
+  deleteNotebookThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'deleteNotebook', 'Athena', Promise.reject(result), true, mock)
+  },
   deletePreparedStatement: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-athena', 'deletePreparedStatement', 'Athena', Promise.resolve(result), true, mock)
   },
@@ -107,14 +169,59 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteWorkGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-athena', 'deleteWorkGroup', 'Athena', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-athena', 'destroy', 'Athena', Promise.resolve(result), true, mock)
+  exportNotebook: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'exportNotebook', 'Athena', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-athena', 'destroy', 'Athena', Promise.resolve(result), false, mock)
+  exportNotebookAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'exportNotebook', 'Athena', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-athena', 'destroy', 'Athena', Promise.reject(result), true, mock)
+  exportNotebookThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'exportNotebook', 'Athena', Promise.reject(result), true, mock)
+  },
+  getCalculationExecutionCode: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'getCalculationExecutionCode', 'Athena', Promise.resolve(result), true, mock)
+  },
+  getCalculationExecutionCodeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'getCalculationExecutionCode', 'Athena', Promise.resolve(result), false, mock)
+  },
+  getCalculationExecutionCodeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'getCalculationExecutionCode', 'Athena', Promise.reject(result), true, mock)
+  },
+  getCalculationExecution: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'getCalculationExecution', 'Athena', Promise.resolve(result), true, mock)
+  },
+  getCalculationExecutionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'getCalculationExecution', 'Athena', Promise.resolve(result), false, mock)
+  },
+  getCalculationExecutionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'getCalculationExecution', 'Athena', Promise.reject(result), true, mock)
+  },
+  getCalculationExecutionStatus: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'getCalculationExecutionStatus', 'Athena', Promise.resolve(result), true, mock)
+  },
+  getCalculationExecutionStatusAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'getCalculationExecutionStatus', 'Athena', Promise.resolve(result), false, mock)
+  },
+  getCalculationExecutionStatusThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'getCalculationExecutionStatus', 'Athena', Promise.reject(result), true, mock)
+  },
+  getCapacityAssignmentConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'getCapacityAssignmentConfiguration', 'Athena', Promise.resolve(result), true, mock)
+  },
+  getCapacityAssignmentConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'getCapacityAssignmentConfiguration', 'Athena', Promise.resolve(result), false, mock)
+  },
+  getCapacityAssignmentConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'getCapacityAssignmentConfiguration', 'Athena', Promise.reject(result), true, mock)
+  },
+  getCapacityReservation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'getCapacityReservation', 'Athena', Promise.resolve(result), true, mock)
+  },
+  getCapacityReservationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'getCapacityReservation', 'Athena', Promise.resolve(result), false, mock)
+  },
+  getCapacityReservationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'getCapacityReservation', 'Athena', Promise.reject(result), true, mock)
   },
   getDataCatalog: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-athena', 'getDataCatalog', 'Athena', Promise.resolve(result), true, mock)
@@ -143,6 +250,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getNamedQueryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-athena', 'getNamedQuery', 'Athena', Promise.reject(result), true, mock)
   },
+  getNotebookMetadata: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'getNotebookMetadata', 'Athena', Promise.resolve(result), true, mock)
+  },
+  getNotebookMetadataAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'getNotebookMetadata', 'Athena', Promise.resolve(result), false, mock)
+  },
+  getNotebookMetadataThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'getNotebookMetadata', 'Athena', Promise.reject(result), true, mock)
+  },
   getPreparedStatement: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-athena', 'getPreparedStatement', 'Athena', Promise.resolve(result), true, mock)
   },
@@ -170,6 +286,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getQueryResultsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-athena', 'getQueryResults', 'Athena', Promise.reject(result), true, mock)
   },
+  getQueryRuntimeStatistics: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'getQueryRuntimeStatistics', 'Athena', Promise.resolve(result), true, mock)
+  },
+  getQueryRuntimeStatisticsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'getQueryRuntimeStatistics', 'Athena', Promise.resolve(result), false, mock)
+  },
+  getQueryRuntimeStatisticsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'getQueryRuntimeStatistics', 'Athena', Promise.reject(result), true, mock)
+  },
+  getSession: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'getSession', 'Athena', Promise.resolve(result), true, mock)
+  },
+  getSessionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'getSession', 'Athena', Promise.resolve(result), false, mock)
+  },
+  getSessionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'getSession', 'Athena', Promise.reject(result), true, mock)
+  },
+  getSessionStatus: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'getSessionStatus', 'Athena', Promise.resolve(result), true, mock)
+  },
+  getSessionStatusAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'getSessionStatus', 'Athena', Promise.resolve(result), false, mock)
+  },
+  getSessionStatusThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'getSessionStatus', 'Athena', Promise.reject(result), true, mock)
+  },
   getTableMetadata: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-athena', 'getTableMetadata', 'Athena', Promise.resolve(result), true, mock)
   },
@@ -187,6 +330,42 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getWorkGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-athena', 'getWorkGroup', 'Athena', Promise.reject(result), true, mock)
+  },
+  importNotebook: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'importNotebook', 'Athena', Promise.resolve(result), true, mock)
+  },
+  importNotebookAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'importNotebook', 'Athena', Promise.resolve(result), false, mock)
+  },
+  importNotebookThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'importNotebook', 'Athena', Promise.reject(result), true, mock)
+  },
+  listApplicationDPUSizes: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'listApplicationDPUSizes', 'Athena', Promise.resolve(result), true, mock)
+  },
+  listApplicationDPUSizesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'listApplicationDPUSizes', 'Athena', Promise.resolve(result), false, mock)
+  },
+  listApplicationDPUSizesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'listApplicationDPUSizes', 'Athena', Promise.reject(result), true, mock)
+  },
+  listCalculationExecutions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'listCalculationExecutions', 'Athena', Promise.resolve(result), true, mock)
+  },
+  listCalculationExecutionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'listCalculationExecutions', 'Athena', Promise.resolve(result), false, mock)
+  },
+  listCalculationExecutionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'listCalculationExecutions', 'Athena', Promise.reject(result), true, mock)
+  },
+  listCapacityReservations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'listCapacityReservations', 'Athena', Promise.resolve(result), true, mock)
+  },
+  listCapacityReservationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'listCapacityReservations', 'Athena', Promise.resolve(result), false, mock)
+  },
+  listCapacityReservationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'listCapacityReservations', 'Athena', Promise.reject(result), true, mock)
   },
   listDataCatalogs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-athena', 'listDataCatalogs', 'Athena', Promise.resolve(result), true, mock)
@@ -215,6 +394,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listEngineVersionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-athena', 'listEngineVersions', 'Athena', Promise.reject(result), true, mock)
   },
+  listExecutors: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'listExecutors', 'Athena', Promise.resolve(result), true, mock)
+  },
+  listExecutorsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'listExecutors', 'Athena', Promise.resolve(result), false, mock)
+  },
+  listExecutorsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'listExecutors', 'Athena', Promise.reject(result), true, mock)
+  },
   listNamedQueries: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-athena', 'listNamedQueries', 'Athena', Promise.resolve(result), true, mock)
   },
@@ -223,6 +411,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listNamedQueriesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-athena', 'listNamedQueries', 'Athena', Promise.reject(result), true, mock)
+  },
+  listNotebookMetadata: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'listNotebookMetadata', 'Athena', Promise.resolve(result), true, mock)
+  },
+  listNotebookMetadataAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'listNotebookMetadata', 'Athena', Promise.resolve(result), false, mock)
+  },
+  listNotebookMetadataThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'listNotebookMetadata', 'Athena', Promise.reject(result), true, mock)
+  },
+  listNotebookSessions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'listNotebookSessions', 'Athena', Promise.resolve(result), true, mock)
+  },
+  listNotebookSessionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'listNotebookSessions', 'Athena', Promise.resolve(result), false, mock)
+  },
+  listNotebookSessionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'listNotebookSessions', 'Athena', Promise.reject(result), true, mock)
   },
   listPreparedStatements: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-athena', 'listPreparedStatements', 'Athena', Promise.resolve(result), true, mock)
@@ -241,6 +447,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listQueryExecutionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-athena', 'listQueryExecutions', 'Athena', Promise.reject(result), true, mock)
+  },
+  listSessions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'listSessions', 'Athena', Promise.resolve(result), true, mock)
+  },
+  listSessionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'listSessions', 'Athena', Promise.resolve(result), false, mock)
+  },
+  listSessionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'listSessions', 'Athena', Promise.reject(result), true, mock)
   },
   listTableMetadata: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-athena', 'listTableMetadata', 'Athena', Promise.resolve(result), true, mock)
@@ -269,6 +484,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listWorkGroupsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-athena', 'listWorkGroups', 'Athena', Promise.reject(result), true, mock)
   },
+  putCapacityAssignmentConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'putCapacityAssignmentConfiguration', 'Athena', Promise.resolve(result), true, mock)
+  },
+  putCapacityAssignmentConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'putCapacityAssignmentConfiguration', 'Athena', Promise.resolve(result), false, mock)
+  },
+  putCapacityAssignmentConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'putCapacityAssignmentConfiguration', 'Athena', Promise.reject(result), true, mock)
+  },
+  startCalculationExecution: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'startCalculationExecution', 'Athena', Promise.resolve(result), true, mock)
+  },
+  startCalculationExecutionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'startCalculationExecution', 'Athena', Promise.resolve(result), false, mock)
+  },
+  startCalculationExecutionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'startCalculationExecution', 'Athena', Promise.reject(result), true, mock)
+  },
   startQueryExecution: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-athena', 'startQueryExecution', 'Athena', Promise.resolve(result), true, mock)
   },
@@ -277,6 +510,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   startQueryExecutionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-athena', 'startQueryExecution', 'Athena', Promise.reject(result), true, mock)
+  },
+  startSession: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'startSession', 'Athena', Promise.resolve(result), true, mock)
+  },
+  startSessionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'startSession', 'Athena', Promise.resolve(result), false, mock)
+  },
+  startSessionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'startSession', 'Athena', Promise.reject(result), true, mock)
+  },
+  stopCalculationExecution: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'stopCalculationExecution', 'Athena', Promise.resolve(result), true, mock)
+  },
+  stopCalculationExecutionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'stopCalculationExecution', 'Athena', Promise.resolve(result), false, mock)
+  },
+  stopCalculationExecutionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'stopCalculationExecution', 'Athena', Promise.reject(result), true, mock)
   },
   stopQueryExecution: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-athena', 'stopQueryExecution', 'Athena', Promise.resolve(result), true, mock)
@@ -296,6 +547,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   tagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-athena', 'tagResource', 'Athena', Promise.reject(result), true, mock)
   },
+  terminateSession: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'terminateSession', 'Athena', Promise.resolve(result), true, mock)
+  },
+  terminateSessionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'terminateSession', 'Athena', Promise.resolve(result), false, mock)
+  },
+  terminateSessionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'terminateSession', 'Athena', Promise.reject(result), true, mock)
+  },
   untagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-athena', 'untagResource', 'Athena', Promise.resolve(result), true, mock)
   },
@@ -305,6 +565,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   untagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-athena', 'untagResource', 'Athena', Promise.reject(result), true, mock)
   },
+  updateCapacityReservation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'updateCapacityReservation', 'Athena', Promise.resolve(result), true, mock)
+  },
+  updateCapacityReservationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'updateCapacityReservation', 'Athena', Promise.resolve(result), false, mock)
+  },
+  updateCapacityReservationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'updateCapacityReservation', 'Athena', Promise.reject(result), true, mock)
+  },
   updateDataCatalog: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-athena', 'updateDataCatalog', 'Athena', Promise.resolve(result), true, mock)
   },
@@ -313,6 +582,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateDataCatalogThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-athena', 'updateDataCatalog', 'Athena', Promise.reject(result), true, mock)
+  },
+  updateNamedQuery: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'updateNamedQuery', 'Athena', Promise.resolve(result), true, mock)
+  },
+  updateNamedQueryAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'updateNamedQuery', 'Athena', Promise.resolve(result), false, mock)
+  },
+  updateNamedQueryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'updateNamedQuery', 'Athena', Promise.reject(result), true, mock)
+  },
+  updateNotebook: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'updateNotebook', 'Athena', Promise.resolve(result), true, mock)
+  },
+  updateNotebookAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'updateNotebook', 'Athena', Promise.resolve(result), false, mock)
+  },
+  updateNotebookThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'updateNotebook', 'Athena', Promise.reject(result), true, mock)
+  },
+  updateNotebookMetadata: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'updateNotebookMetadata', 'Athena', Promise.resolve(result), true, mock)
+  },
+  updateNotebookMetadataAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'updateNotebookMetadata', 'Athena', Promise.resolve(result), false, mock)
+  },
+  updateNotebookMetadataThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-athena', 'updateNotebookMetadata', 'Athena', Promise.reject(result), true, mock)
   },
   updatePreparedStatement: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-athena', 'updatePreparedStatement', 'Athena', Promise.resolve(result), true, mock)

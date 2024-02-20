@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockNetworkFirewall = {
+export const mockNetworkFirewall = {
   associateFirewallPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-network-firewall', 'associateFirewallPolicy', 'NetworkFirewall', Promise.resolve(result), true, mock)
   },
@@ -62,6 +61,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createRuleGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-network-firewall', 'createRuleGroup', 'NetworkFirewall', Promise.reject(result), true, mock)
   },
+  createTLSInspectionConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-network-firewall', 'createTLSInspectionConfiguration', 'NetworkFirewall', Promise.resolve(result), true, mock)
+  },
+  createTLSInspectionConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-network-firewall', 'createTLSInspectionConfiguration', 'NetworkFirewall', Promise.resolve(result), false, mock)
+  },
+  createTLSInspectionConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-network-firewall', 'createTLSInspectionConfiguration', 'NetworkFirewall', Promise.reject(result), true, mock)
+  },
   deleteFirewall: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-network-firewall', 'deleteFirewall', 'NetworkFirewall', Promise.resolve(result), true, mock)
   },
@@ -97,6 +105,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteRuleGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-network-firewall', 'deleteRuleGroup', 'NetworkFirewall', Promise.reject(result), true, mock)
+  },
+  deleteTLSInspectionConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-network-firewall', 'deleteTLSInspectionConfiguration', 'NetworkFirewall', Promise.resolve(result), true, mock)
+  },
+  deleteTLSInspectionConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-network-firewall', 'deleteTLSInspectionConfiguration', 'NetworkFirewall', Promise.resolve(result), false, mock)
+  },
+  deleteTLSInspectionConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-network-firewall', 'deleteTLSInspectionConfiguration', 'NetworkFirewall', Promise.reject(result), true, mock)
   },
   describeFirewall: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-network-firewall', 'describeFirewall', 'NetworkFirewall', Promise.resolve(result), true, mock)
@@ -143,14 +160,23 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeRuleGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-network-firewall', 'describeRuleGroup', 'NetworkFirewall', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-network-firewall', 'destroy', 'NetworkFirewall', Promise.resolve(result), true, mock)
+  describeRuleGroupMetadata: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-network-firewall', 'describeRuleGroupMetadata', 'NetworkFirewall', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-network-firewall', 'destroy', 'NetworkFirewall', Promise.resolve(result), false, mock)
+  describeRuleGroupMetadataAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-network-firewall', 'describeRuleGroupMetadata', 'NetworkFirewall', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-network-firewall', 'destroy', 'NetworkFirewall', Promise.reject(result), true, mock)
+  describeRuleGroupMetadataThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-network-firewall', 'describeRuleGroupMetadata', 'NetworkFirewall', Promise.reject(result), true, mock)
+  },
+  describeTLSInspectionConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-network-firewall', 'describeTLSInspectionConfiguration', 'NetworkFirewall', Promise.resolve(result), true, mock)
+  },
+  describeTLSInspectionConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-network-firewall', 'describeTLSInspectionConfiguration', 'NetworkFirewall', Promise.resolve(result), false, mock)
+  },
+  describeTLSInspectionConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-network-firewall', 'describeTLSInspectionConfiguration', 'NetworkFirewall', Promise.reject(result), true, mock)
   },
   disassociateSubnets: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-network-firewall', 'disassociateSubnets', 'NetworkFirewall', Promise.resolve(result), true, mock)
@@ -187,6 +213,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listRuleGroupsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-network-firewall', 'listRuleGroups', 'NetworkFirewall', Promise.reject(result), true, mock)
+  },
+  listTLSInspectionConfigurations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-network-firewall', 'listTLSInspectionConfigurations', 'NetworkFirewall', Promise.resolve(result), true, mock)
+  },
+  listTLSInspectionConfigurationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-network-firewall', 'listTLSInspectionConfigurations', 'NetworkFirewall', Promise.resolve(result), false, mock)
+  },
+  listTLSInspectionConfigurationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-network-firewall', 'listTLSInspectionConfigurations', 'NetworkFirewall', Promise.reject(result), true, mock)
   },
   listTagsForResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-network-firewall', 'listTagsForResource', 'NetworkFirewall', Promise.resolve(result), true, mock)
@@ -242,14 +277,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   updateFirewallDescriptionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-network-firewall', 'updateFirewallDescription', 'NetworkFirewall', Promise.reject(result), true, mock)
   },
-  updateFirewallPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-network-firewall', 'updateFirewallPolicy', 'NetworkFirewall', Promise.resolve(result), true, mock)
+  updateFirewallEncryptionConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-network-firewall', 'updateFirewallEncryptionConfiguration', 'NetworkFirewall', Promise.resolve(result), true, mock)
   },
-  updateFirewallPolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-network-firewall', 'updateFirewallPolicy', 'NetworkFirewall', Promise.resolve(result), false, mock)
+  updateFirewallEncryptionConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-network-firewall', 'updateFirewallEncryptionConfiguration', 'NetworkFirewall', Promise.resolve(result), false, mock)
   },
-  updateFirewallPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-network-firewall', 'updateFirewallPolicy', 'NetworkFirewall', Promise.reject(result), true, mock)
+  updateFirewallEncryptionConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-network-firewall', 'updateFirewallEncryptionConfiguration', 'NetworkFirewall', Promise.reject(result), true, mock)
   },
   updateFirewallPolicyChangeProtection: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-network-firewall', 'updateFirewallPolicyChangeProtection', 'NetworkFirewall', Promise.resolve(result), true, mock)
@@ -259,6 +294,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateFirewallPolicyChangeProtectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-network-firewall', 'updateFirewallPolicyChangeProtection', 'NetworkFirewall', Promise.reject(result), true, mock)
+  },
+  updateFirewallPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-network-firewall', 'updateFirewallPolicy', 'NetworkFirewall', Promise.resolve(result), true, mock)
+  },
+  updateFirewallPolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-network-firewall', 'updateFirewallPolicy', 'NetworkFirewall', Promise.resolve(result), false, mock)
+  },
+  updateFirewallPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-network-firewall', 'updateFirewallPolicy', 'NetworkFirewall', Promise.reject(result), true, mock)
   },
   updateLoggingConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-network-firewall', 'updateLoggingConfiguration', 'NetworkFirewall', Promise.resolve(result), true, mock)
@@ -286,6 +330,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateSubnetChangeProtectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-network-firewall', 'updateSubnetChangeProtection', 'NetworkFirewall', Promise.reject(result), true, mock)
+  },
+  updateTLSInspectionConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-network-firewall', 'updateTLSInspectionConfiguration', 'NetworkFirewall', Promise.resolve(result), true, mock)
+  },
+  updateTLSInspectionConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-network-firewall', 'updateTLSInspectionConfiguration', 'NetworkFirewall', Promise.resolve(result), false, mock)
+  },
+  updateTLSInspectionConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-network-firewall', 'updateTLSInspectionConfiguration', 'NetworkFirewall', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-network-firewall', 'send', 'NetworkFirewallClient', Promise.resolve(result), true, mock)

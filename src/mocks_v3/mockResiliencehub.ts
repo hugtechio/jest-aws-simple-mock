@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockResiliencehub = {
+export const mockResiliencehub = {
   addDraftAppVersionResourceMappings: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-resiliencehub', 'addDraftAppVersionResourceMappings', 'Resiliencehub', Promise.resolve(result), true, mock)
   },
@@ -26,6 +25,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   addDraftAppVersionResourceMappingsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-resiliencehub', 'addDraftAppVersionResourceMappings', 'Resiliencehub', Promise.reject(result), true, mock)
   },
+  batchUpdateRecommendationStatus: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'batchUpdateRecommendationStatus', 'Resiliencehub', Promise.resolve(result), true, mock)
+  },
+  batchUpdateRecommendationStatusAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'batchUpdateRecommendationStatus', 'Resiliencehub', Promise.resolve(result), false, mock)
+  },
+  batchUpdateRecommendationStatusThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'batchUpdateRecommendationStatus', 'Resiliencehub', Promise.reject(result), true, mock)
+  },
   createApp: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-resiliencehub', 'createApp', 'Resiliencehub', Promise.resolve(result), true, mock)
   },
@@ -34,6 +42,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createAppThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-resiliencehub', 'createApp', 'Resiliencehub', Promise.reject(result), true, mock)
+  },
+  createAppVersionAppComponent: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'createAppVersionAppComponent', 'Resiliencehub', Promise.resolve(result), true, mock)
+  },
+  createAppVersionAppComponentAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'createAppVersionAppComponent', 'Resiliencehub', Promise.resolve(result), false, mock)
+  },
+  createAppVersionAppComponentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'createAppVersionAppComponent', 'Resiliencehub', Promise.reject(result), true, mock)
+  },
+  createAppVersionResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'createAppVersionResource', 'Resiliencehub', Promise.resolve(result), true, mock)
+  },
+  createAppVersionResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'createAppVersionResource', 'Resiliencehub', Promise.resolve(result), false, mock)
+  },
+  createAppVersionResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'createAppVersionResource', 'Resiliencehub', Promise.reject(result), true, mock)
   },
   createRecommendationTemplate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-resiliencehub', 'createRecommendationTemplate', 'Resiliencehub', Promise.resolve(result), true, mock)
@@ -53,6 +79,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createResiliencyPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-resiliencehub', 'createResiliencyPolicy', 'Resiliencehub', Promise.reject(result), true, mock)
   },
+  deleteAppAssessment: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'deleteAppAssessment', 'Resiliencehub', Promise.resolve(result), true, mock)
+  },
+  deleteAppAssessmentAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'deleteAppAssessment', 'Resiliencehub', Promise.resolve(result), false, mock)
+  },
+  deleteAppAssessmentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'deleteAppAssessment', 'Resiliencehub', Promise.reject(result), true, mock)
+  },
   deleteApp: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-resiliencehub', 'deleteApp', 'Resiliencehub', Promise.resolve(result), true, mock)
   },
@@ -62,14 +97,32 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteAppThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-resiliencehub', 'deleteApp', 'Resiliencehub', Promise.reject(result), true, mock)
   },
-  deleteAppAssessment: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-resiliencehub', 'deleteAppAssessment', 'Resiliencehub', Promise.resolve(result), true, mock)
+  deleteAppInputSource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'deleteAppInputSource', 'Resiliencehub', Promise.resolve(result), true, mock)
   },
-  deleteAppAssessmentAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-resiliencehub', 'deleteAppAssessment', 'Resiliencehub', Promise.resolve(result), false, mock)
+  deleteAppInputSourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'deleteAppInputSource', 'Resiliencehub', Promise.resolve(result), false, mock)
   },
-  deleteAppAssessmentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-resiliencehub', 'deleteAppAssessment', 'Resiliencehub', Promise.reject(result), true, mock)
+  deleteAppInputSourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'deleteAppInputSource', 'Resiliencehub', Promise.reject(result), true, mock)
+  },
+  deleteAppVersionAppComponent: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'deleteAppVersionAppComponent', 'Resiliencehub', Promise.resolve(result), true, mock)
+  },
+  deleteAppVersionAppComponentAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'deleteAppVersionAppComponent', 'Resiliencehub', Promise.resolve(result), false, mock)
+  },
+  deleteAppVersionAppComponentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'deleteAppVersionAppComponent', 'Resiliencehub', Promise.reject(result), true, mock)
+  },
+  deleteAppVersionResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'deleteAppVersionResource', 'Resiliencehub', Promise.resolve(result), true, mock)
+  },
+  deleteAppVersionResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'deleteAppVersionResource', 'Resiliencehub', Promise.resolve(result), false, mock)
+  },
+  deleteAppVersionResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'deleteAppVersionResource', 'Resiliencehub', Promise.reject(result), true, mock)
   },
   deleteRecommendationTemplate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-resiliencehub', 'deleteRecommendationTemplate', 'Resiliencehub', Promise.resolve(result), true, mock)
@@ -89,6 +142,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteResiliencyPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-resiliencehub', 'deleteResiliencyPolicy', 'Resiliencehub', Promise.reject(result), true, mock)
   },
+  describeAppAssessment: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'describeAppAssessment', 'Resiliencehub', Promise.resolve(result), true, mock)
+  },
+  describeAppAssessmentAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'describeAppAssessment', 'Resiliencehub', Promise.resolve(result), false, mock)
+  },
+  describeAppAssessmentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'describeAppAssessment', 'Resiliencehub', Promise.reject(result), true, mock)
+  },
   describeApp: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-resiliencehub', 'describeApp', 'Resiliencehub', Promise.resolve(result), true, mock)
   },
@@ -98,14 +160,32 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeAppThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-resiliencehub', 'describeApp', 'Resiliencehub', Promise.reject(result), true, mock)
   },
-  describeAppAssessment: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-resiliencehub', 'describeAppAssessment', 'Resiliencehub', Promise.resolve(result), true, mock)
+  describeAppVersionAppComponent: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'describeAppVersionAppComponent', 'Resiliencehub', Promise.resolve(result), true, mock)
   },
-  describeAppAssessmentAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-resiliencehub', 'describeAppAssessment', 'Resiliencehub', Promise.resolve(result), false, mock)
+  describeAppVersionAppComponentAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'describeAppVersionAppComponent', 'Resiliencehub', Promise.resolve(result), false, mock)
   },
-  describeAppAssessmentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-resiliencehub', 'describeAppAssessment', 'Resiliencehub', Promise.reject(result), true, mock)
+  describeAppVersionAppComponentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'describeAppVersionAppComponent', 'Resiliencehub', Promise.reject(result), true, mock)
+  },
+  describeAppVersion: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'describeAppVersion', 'Resiliencehub', Promise.resolve(result), true, mock)
+  },
+  describeAppVersionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'describeAppVersion', 'Resiliencehub', Promise.resolve(result), false, mock)
+  },
+  describeAppVersionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'describeAppVersion', 'Resiliencehub', Promise.reject(result), true, mock)
+  },
+  describeAppVersionResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'describeAppVersionResource', 'Resiliencehub', Promise.resolve(result), true, mock)
+  },
+  describeAppVersionResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'describeAppVersionResource', 'Resiliencehub', Promise.resolve(result), false, mock)
+  },
+  describeAppVersionResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'describeAppVersionResource', 'Resiliencehub', Promise.reject(result), true, mock)
   },
   describeAppVersionResourcesResolutionStatus: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-resiliencehub', 'describeAppVersionResourcesResolutionStatus', 'Resiliencehub', Promise.resolve(result), true, mock)
@@ -143,15 +223,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeResiliencyPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-resiliencehub', 'describeResiliencyPolicy', 'Resiliencehub', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-resiliencehub', 'destroy', 'Resiliencehub', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-resiliencehub', 'destroy', 'Resiliencehub', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-resiliencehub', 'destroy', 'Resiliencehub', Promise.reject(result), true, mock)
-  },
   importResourcesToDraftAppVersion: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-resiliencehub', 'importResourcesToDraftAppVersion', 'Resiliencehub', Promise.resolve(result), true, mock)
   },
@@ -169,6 +240,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listAlarmRecommendationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-resiliencehub', 'listAlarmRecommendations', 'Resiliencehub', Promise.reject(result), true, mock)
+  },
+  listAppAssessmentComplianceDrifts: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'listAppAssessmentComplianceDrifts', 'Resiliencehub', Promise.resolve(result), true, mock)
+  },
+  listAppAssessmentComplianceDriftsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'listAppAssessmentComplianceDrifts', 'Resiliencehub', Promise.resolve(result), false, mock)
+  },
+  listAppAssessmentComplianceDriftsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'listAppAssessmentComplianceDrifts', 'Resiliencehub', Promise.reject(result), true, mock)
   },
   listAppAssessments: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-resiliencehub', 'listAppAssessments', 'Resiliencehub', Promise.resolve(result), true, mock)
@@ -196,6 +276,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listAppComponentRecommendationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-resiliencehub', 'listAppComponentRecommendations', 'Resiliencehub', Promise.reject(result), true, mock)
+  },
+  listAppInputSources: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'listAppInputSources', 'Resiliencehub', Promise.resolve(result), true, mock)
+  },
+  listAppInputSourcesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'listAppInputSources', 'Resiliencehub', Promise.resolve(result), false, mock)
+  },
+  listAppInputSourcesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'listAppInputSources', 'Resiliencehub', Promise.reject(result), true, mock)
+  },
+  listAppVersionAppComponents: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'listAppVersionAppComponents', 'Resiliencehub', Promise.resolve(result), true, mock)
+  },
+  listAppVersionAppComponentsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'listAppVersionAppComponents', 'Resiliencehub', Promise.resolve(result), false, mock)
+  },
+  listAppVersionAppComponentsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'listAppVersionAppComponents', 'Resiliencehub', Promise.reject(result), true, mock)
   },
   listAppVersionResourceMappings: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-resiliencehub', 'listAppVersionResourceMappings', 'Resiliencehub', Promise.resolve(result), true, mock)
@@ -367,6 +465,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateAppThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-resiliencehub', 'updateApp', 'Resiliencehub', Promise.reject(result), true, mock)
+  },
+  updateAppVersionAppComponent: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'updateAppVersionAppComponent', 'Resiliencehub', Promise.resolve(result), true, mock)
+  },
+  updateAppVersionAppComponentAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'updateAppVersionAppComponent', 'Resiliencehub', Promise.resolve(result), false, mock)
+  },
+  updateAppVersionAppComponentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'updateAppVersionAppComponent', 'Resiliencehub', Promise.reject(result), true, mock)
+  },
+  updateAppVersion: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'updateAppVersion', 'Resiliencehub', Promise.resolve(result), true, mock)
+  },
+  updateAppVersionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'updateAppVersion', 'Resiliencehub', Promise.resolve(result), false, mock)
+  },
+  updateAppVersionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'updateAppVersion', 'Resiliencehub', Promise.reject(result), true, mock)
+  },
+  updateAppVersionResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'updateAppVersionResource', 'Resiliencehub', Promise.resolve(result), true, mock)
+  },
+  updateAppVersionResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'updateAppVersionResource', 'Resiliencehub', Promise.resolve(result), false, mock)
+  },
+  updateAppVersionResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resiliencehub', 'updateAppVersionResource', 'Resiliencehub', Promise.reject(result), true, mock)
   },
   updateResiliencyPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-resiliencehub', 'updateResiliencyPolicy', 'Resiliencehub', Promise.resolve(result), true, mock)

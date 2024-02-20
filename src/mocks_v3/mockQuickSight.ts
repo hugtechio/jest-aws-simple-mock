@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockQuickSight = {
+export const mockQuickSight = {
   cancelIngestion: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'cancelIngestion', 'QuickSight', Promise.resolve(result), true, mock)
   },
@@ -34,6 +33,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createAccountCustomizationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'createAccountCustomization', 'QuickSight', Promise.reject(result), true, mock)
+  },
+  createAccountSubscription: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'createAccountSubscription', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  createAccountSubscriptionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'createAccountSubscription', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  createAccountSubscriptionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'createAccountSubscription', 'QuickSight', Promise.reject(result), true, mock)
   },
   createAnalysis: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'createAnalysis', 'QuickSight', Promise.resolve(result), true, mock)
@@ -134,14 +142,23 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createNamespaceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'createNamespace', 'QuickSight', Promise.reject(result), true, mock)
   },
-  createTemplate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-quicksight', 'createTemplate', 'QuickSight', Promise.resolve(result), true, mock)
+  createRefreshSchedule: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'createRefreshSchedule', 'QuickSight', Promise.resolve(result), true, mock)
   },
-  createTemplateAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-quicksight', 'createTemplate', 'QuickSight', Promise.resolve(result), false, mock)
+  createRefreshScheduleAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'createRefreshSchedule', 'QuickSight', Promise.resolve(result), false, mock)
   },
-  createTemplateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-quicksight', 'createTemplate', 'QuickSight', Promise.reject(result), true, mock)
+  createRefreshScheduleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'createRefreshSchedule', 'QuickSight', Promise.reject(result), true, mock)
+  },
+  createRoleMembership: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'createRoleMembership', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  createRoleMembershipAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'createRoleMembership', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  createRoleMembershipThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'createRoleMembership', 'QuickSight', Promise.reject(result), true, mock)
   },
   createTemplateAlias: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'createTemplateAlias', 'QuickSight', Promise.resolve(result), true, mock)
@@ -152,14 +169,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createTemplateAliasThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'createTemplateAlias', 'QuickSight', Promise.reject(result), true, mock)
   },
-  createTheme: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-quicksight', 'createTheme', 'QuickSight', Promise.resolve(result), true, mock)
+  createTemplate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'createTemplate', 'QuickSight', Promise.resolve(result), true, mock)
   },
-  createThemeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-quicksight', 'createTheme', 'QuickSight', Promise.resolve(result), false, mock)
+  createTemplateAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'createTemplate', 'QuickSight', Promise.resolve(result), false, mock)
   },
-  createThemeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-quicksight', 'createTheme', 'QuickSight', Promise.reject(result), true, mock)
+  createTemplateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'createTemplate', 'QuickSight', Promise.reject(result), true, mock)
   },
   createThemeAlias: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'createThemeAlias', 'QuickSight', Promise.resolve(result), true, mock)
@@ -170,6 +187,42 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createThemeAliasThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'createThemeAlias', 'QuickSight', Promise.reject(result), true, mock)
   },
+  createTheme: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'createTheme', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  createThemeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'createTheme', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  createThemeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'createTheme', 'QuickSight', Promise.reject(result), true, mock)
+  },
+  createTopic: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'createTopic', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  createTopicAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'createTopic', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  createTopicThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'createTopic', 'QuickSight', Promise.reject(result), true, mock)
+  },
+  createTopicRefreshSchedule: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'createTopicRefreshSchedule', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  createTopicRefreshScheduleAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'createTopicRefreshSchedule', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  createTopicRefreshScheduleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'createTopicRefreshSchedule', 'QuickSight', Promise.reject(result), true, mock)
+  },
+  createVPCConnection: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'createVPCConnection', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  createVPCConnectionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'createVPCConnection', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  createVPCConnectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'createVPCConnection', 'QuickSight', Promise.reject(result), true, mock)
+  },
   deleteAccountCustomization: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'deleteAccountCustomization', 'QuickSight', Promise.resolve(result), true, mock)
   },
@@ -178,6 +231,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteAccountCustomizationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'deleteAccountCustomization', 'QuickSight', Promise.reject(result), true, mock)
+  },
+  deleteAccountSubscription: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'deleteAccountSubscription', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  deleteAccountSubscriptionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'deleteAccountSubscription', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  deleteAccountSubscriptionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'deleteAccountSubscription', 'QuickSight', Promise.reject(result), true, mock)
   },
   deleteAnalysis: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'deleteAnalysis', 'QuickSight', Promise.resolve(result), true, mock)
@@ -205,6 +267,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteDataSetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'deleteDataSet', 'QuickSight', Promise.reject(result), true, mock)
+  },
+  deleteDataSetRefreshProperties: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'deleteDataSetRefreshProperties', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  deleteDataSetRefreshPropertiesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'deleteDataSetRefreshProperties', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  deleteDataSetRefreshPropertiesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'deleteDataSetRefreshProperties', 'QuickSight', Promise.reject(result), true, mock)
   },
   deleteDataSource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'deleteDataSource', 'QuickSight', Promise.resolve(result), true, mock)
@@ -260,6 +331,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteIAMPolicyAssignmentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'deleteIAMPolicyAssignment', 'QuickSight', Promise.reject(result), true, mock)
   },
+  deleteIdentityPropagationConfig: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'deleteIdentityPropagationConfig', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  deleteIdentityPropagationConfigAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'deleteIdentityPropagationConfig', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  deleteIdentityPropagationConfigThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'deleteIdentityPropagationConfig', 'QuickSight', Promise.reject(result), true, mock)
+  },
   deleteNamespace: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'deleteNamespace', 'QuickSight', Promise.resolve(result), true, mock)
   },
@@ -269,14 +349,32 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteNamespaceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'deleteNamespace', 'QuickSight', Promise.reject(result), true, mock)
   },
-  deleteTemplate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-quicksight', 'deleteTemplate', 'QuickSight', Promise.resolve(result), true, mock)
+  deleteRefreshSchedule: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'deleteRefreshSchedule', 'QuickSight', Promise.resolve(result), true, mock)
   },
-  deleteTemplateAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-quicksight', 'deleteTemplate', 'QuickSight', Promise.resolve(result), false, mock)
+  deleteRefreshScheduleAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'deleteRefreshSchedule', 'QuickSight', Promise.resolve(result), false, mock)
   },
-  deleteTemplateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-quicksight', 'deleteTemplate', 'QuickSight', Promise.reject(result), true, mock)
+  deleteRefreshScheduleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'deleteRefreshSchedule', 'QuickSight', Promise.reject(result), true, mock)
+  },
+  deleteRoleCustomPermission: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'deleteRoleCustomPermission', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  deleteRoleCustomPermissionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'deleteRoleCustomPermission', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  deleteRoleCustomPermissionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'deleteRoleCustomPermission', 'QuickSight', Promise.reject(result), true, mock)
+  },
+  deleteRoleMembership: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'deleteRoleMembership', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  deleteRoleMembershipAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'deleteRoleMembership', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  deleteRoleMembershipThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'deleteRoleMembership', 'QuickSight', Promise.reject(result), true, mock)
   },
   deleteTemplateAlias: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'deleteTemplateAlias', 'QuickSight', Promise.resolve(result), true, mock)
@@ -287,14 +385,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteTemplateAliasThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'deleteTemplateAlias', 'QuickSight', Promise.reject(result), true, mock)
   },
-  deleteTheme: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-quicksight', 'deleteTheme', 'QuickSight', Promise.resolve(result), true, mock)
+  deleteTemplate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'deleteTemplate', 'QuickSight', Promise.resolve(result), true, mock)
   },
-  deleteThemeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-quicksight', 'deleteTheme', 'QuickSight', Promise.resolve(result), false, mock)
+  deleteTemplateAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'deleteTemplate', 'QuickSight', Promise.resolve(result), false, mock)
   },
-  deleteThemeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-quicksight', 'deleteTheme', 'QuickSight', Promise.reject(result), true, mock)
+  deleteTemplateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'deleteTemplate', 'QuickSight', Promise.reject(result), true, mock)
   },
   deleteThemeAlias: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'deleteThemeAlias', 'QuickSight', Promise.resolve(result), true, mock)
@@ -305,14 +403,32 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteThemeAliasThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'deleteThemeAlias', 'QuickSight', Promise.reject(result), true, mock)
   },
-  deleteUser: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-quicksight', 'deleteUser', 'QuickSight', Promise.resolve(result), true, mock)
+  deleteTheme: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'deleteTheme', 'QuickSight', Promise.resolve(result), true, mock)
   },
-  deleteUserAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-quicksight', 'deleteUser', 'QuickSight', Promise.resolve(result), false, mock)
+  deleteThemeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'deleteTheme', 'QuickSight', Promise.resolve(result), false, mock)
   },
-  deleteUserThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-quicksight', 'deleteUser', 'QuickSight', Promise.reject(result), true, mock)
+  deleteThemeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'deleteTheme', 'QuickSight', Promise.reject(result), true, mock)
+  },
+  deleteTopic: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'deleteTopic', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  deleteTopicAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'deleteTopic', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  deleteTopicThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'deleteTopic', 'QuickSight', Promise.reject(result), true, mock)
+  },
+  deleteTopicRefreshSchedule: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'deleteTopicRefreshSchedule', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  deleteTopicRefreshScheduleAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'deleteTopicRefreshSchedule', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  deleteTopicRefreshScheduleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'deleteTopicRefreshSchedule', 'QuickSight', Promise.reject(result), true, mock)
   },
   deleteUserByPrincipalId: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'deleteUserByPrincipalId', 'QuickSight', Promise.resolve(result), true, mock)
@@ -322,6 +438,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteUserByPrincipalIdThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'deleteUserByPrincipalId', 'QuickSight', Promise.reject(result), true, mock)
+  },
+  deleteUser: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'deleteUser', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  deleteUserAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'deleteUser', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  deleteUserThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'deleteUser', 'QuickSight', Promise.reject(result), true, mock)
+  },
+  deleteVPCConnection: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'deleteVPCConnection', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  deleteVPCConnectionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'deleteVPCConnection', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  deleteVPCConnectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'deleteVPCConnection', 'QuickSight', Promise.reject(result), true, mock)
   },
   describeAccountCustomization: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'describeAccountCustomization', 'QuickSight', Promise.resolve(result), true, mock)
@@ -341,6 +475,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeAccountSettingsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'describeAccountSettings', 'QuickSight', Promise.reject(result), true, mock)
   },
+  describeAccountSubscription: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeAccountSubscription', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  describeAccountSubscriptionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeAccountSubscription', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  describeAccountSubscriptionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeAccountSubscription', 'QuickSight', Promise.reject(result), true, mock)
+  },
   describeAnalysis: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'describeAnalysis', 'QuickSight', Promise.resolve(result), true, mock)
   },
@@ -349,6 +492,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeAnalysisThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'describeAnalysis', 'QuickSight', Promise.reject(result), true, mock)
+  },
+  describeAnalysisDefinition: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeAnalysisDefinition', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  describeAnalysisDefinitionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeAnalysisDefinition', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  describeAnalysisDefinitionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeAnalysisDefinition', 'QuickSight', Promise.reject(result), true, mock)
   },
   describeAnalysisPermissions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'describeAnalysisPermissions', 'QuickSight', Promise.resolve(result), true, mock)
@@ -359,6 +511,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeAnalysisPermissionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'describeAnalysisPermissions', 'QuickSight', Promise.reject(result), true, mock)
   },
+  describeAssetBundleExportJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeAssetBundleExportJob', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  describeAssetBundleExportJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeAssetBundleExportJob', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  describeAssetBundleExportJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeAssetBundleExportJob', 'QuickSight', Promise.reject(result), true, mock)
+  },
+  describeAssetBundleImportJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeAssetBundleImportJob', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  describeAssetBundleImportJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeAssetBundleImportJob', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  describeAssetBundleImportJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeAssetBundleImportJob', 'QuickSight', Promise.reject(result), true, mock)
+  },
   describeDashboard: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'describeDashboard', 'QuickSight', Promise.resolve(result), true, mock)
   },
@@ -368,6 +538,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeDashboardThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'describeDashboard', 'QuickSight', Promise.reject(result), true, mock)
   },
+  describeDashboardDefinition: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeDashboardDefinition', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  describeDashboardDefinitionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeDashboardDefinition', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  describeDashboardDefinitionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeDashboardDefinition', 'QuickSight', Promise.reject(result), true, mock)
+  },
   describeDashboardPermissions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'describeDashboardPermissions', 'QuickSight', Promise.resolve(result), true, mock)
   },
@@ -376,6 +555,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeDashboardPermissionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'describeDashboardPermissions', 'QuickSight', Promise.reject(result), true, mock)
+  },
+  describeDashboardSnapshotJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeDashboardSnapshotJob', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  describeDashboardSnapshotJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeDashboardSnapshotJob', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  describeDashboardSnapshotJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeDashboardSnapshotJob', 'QuickSight', Promise.reject(result), true, mock)
+  },
+  describeDashboardSnapshotJobResult: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeDashboardSnapshotJobResult', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  describeDashboardSnapshotJobResultAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeDashboardSnapshotJobResult', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  describeDashboardSnapshotJobResultThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeDashboardSnapshotJobResult', 'QuickSight', Promise.reject(result), true, mock)
   },
   describeDataSet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'describeDataSet', 'QuickSight', Promise.resolve(result), true, mock)
@@ -394,6 +591,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeDataSetPermissionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'describeDataSetPermissions', 'QuickSight', Promise.reject(result), true, mock)
+  },
+  describeDataSetRefreshProperties: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeDataSetRefreshProperties', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  describeDataSetRefreshPropertiesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeDataSetRefreshProperties', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  describeDataSetRefreshPropertiesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeDataSetRefreshProperties', 'QuickSight', Promise.reject(result), true, mock)
   },
   describeDataSource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'describeDataSource', 'QuickSight', Promise.resolve(result), true, mock)
@@ -449,6 +655,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'describeGroup', 'QuickSight', Promise.reject(result), true, mock)
   },
+  describeGroupMembership: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeGroupMembership', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  describeGroupMembershipAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeGroupMembership', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  describeGroupMembershipThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeGroupMembership', 'QuickSight', Promise.reject(result), true, mock)
+  },
   describeIAMPolicyAssignment: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'describeIAMPolicyAssignment', 'QuickSight', Promise.resolve(result), true, mock)
   },
@@ -485,14 +700,23 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeNamespaceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'describeNamespace', 'QuickSight', Promise.reject(result), true, mock)
   },
-  describeTemplate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-quicksight', 'describeTemplate', 'QuickSight', Promise.resolve(result), true, mock)
+  describeRefreshSchedule: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeRefreshSchedule', 'QuickSight', Promise.resolve(result), true, mock)
   },
-  describeTemplateAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-quicksight', 'describeTemplate', 'QuickSight', Promise.resolve(result), false, mock)
+  describeRefreshScheduleAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeRefreshSchedule', 'QuickSight', Promise.resolve(result), false, mock)
   },
-  describeTemplateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-quicksight', 'describeTemplate', 'QuickSight', Promise.reject(result), true, mock)
+  describeRefreshScheduleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeRefreshSchedule', 'QuickSight', Promise.reject(result), true, mock)
+  },
+  describeRoleCustomPermission: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeRoleCustomPermission', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  describeRoleCustomPermissionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeRoleCustomPermission', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  describeRoleCustomPermissionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeRoleCustomPermission', 'QuickSight', Promise.reject(result), true, mock)
   },
   describeTemplateAlias: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'describeTemplateAlias', 'QuickSight', Promise.resolve(result), true, mock)
@@ -503,6 +727,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeTemplateAliasThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'describeTemplateAlias', 'QuickSight', Promise.reject(result), true, mock)
   },
+  describeTemplate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeTemplate', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  describeTemplateAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeTemplate', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  describeTemplateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeTemplate', 'QuickSight', Promise.reject(result), true, mock)
+  },
+  describeTemplateDefinition: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeTemplateDefinition', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  describeTemplateDefinitionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeTemplateDefinition', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  describeTemplateDefinitionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeTemplateDefinition', 'QuickSight', Promise.reject(result), true, mock)
+  },
   describeTemplatePermissions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'describeTemplatePermissions', 'QuickSight', Promise.resolve(result), true, mock)
   },
@@ -511,15 +753,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeTemplatePermissionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'describeTemplatePermissions', 'QuickSight', Promise.reject(result), true, mock)
-  },
-  describeTheme: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-quicksight', 'describeTheme', 'QuickSight', Promise.resolve(result), true, mock)
-  },
-  describeThemeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-quicksight', 'describeTheme', 'QuickSight', Promise.resolve(result), false, mock)
-  },
-  describeThemeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-quicksight', 'describeTheme', 'QuickSight', Promise.reject(result), true, mock)
   },
   describeThemeAlias: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'describeThemeAlias', 'QuickSight', Promise.resolve(result), true, mock)
@@ -530,6 +763,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeThemeAliasThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'describeThemeAlias', 'QuickSight', Promise.reject(result), true, mock)
   },
+  describeTheme: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeTheme', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  describeThemeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeTheme', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  describeThemeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeTheme', 'QuickSight', Promise.reject(result), true, mock)
+  },
   describeThemePermissions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'describeThemePermissions', 'QuickSight', Promise.resolve(result), true, mock)
   },
@@ -538,6 +780,42 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeThemePermissionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'describeThemePermissions', 'QuickSight', Promise.reject(result), true, mock)
+  },
+  describeTopic: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeTopic', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  describeTopicAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeTopic', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  describeTopicThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeTopic', 'QuickSight', Promise.reject(result), true, mock)
+  },
+  describeTopicPermissions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeTopicPermissions', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  describeTopicPermissionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeTopicPermissions', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  describeTopicPermissionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeTopicPermissions', 'QuickSight', Promise.reject(result), true, mock)
+  },
+  describeTopicRefresh: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeTopicRefresh', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  describeTopicRefreshAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeTopicRefresh', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  describeTopicRefreshThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeTopicRefresh', 'QuickSight', Promise.reject(result), true, mock)
+  },
+  describeTopicRefreshSchedule: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeTopicRefreshSchedule', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  describeTopicRefreshScheduleAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeTopicRefreshSchedule', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  describeTopicRefreshScheduleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeTopicRefreshSchedule', 'QuickSight', Promise.reject(result), true, mock)
   },
   describeUser: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'describeUser', 'QuickSight', Promise.resolve(result), true, mock)
@@ -548,14 +826,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeUserThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'describeUser', 'QuickSight', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-quicksight', 'destroy', 'QuickSight', Promise.resolve(result), true, mock)
+  describeVPCConnection: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeVPCConnection', 'QuickSight', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-quicksight', 'destroy', 'QuickSight', Promise.resolve(result), false, mock)
+  describeVPCConnectionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeVPCConnection', 'QuickSight', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-quicksight', 'destroy', 'QuickSight', Promise.reject(result), true, mock)
+  describeVPCConnectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'describeVPCConnection', 'QuickSight', Promise.reject(result), true, mock)
   },
   generateEmbedUrlForAnonymousUser: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'generateEmbedUrlForAnonymousUser', 'QuickSight', Promise.resolve(result), true, mock)
@@ -601,6 +879,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listAnalysesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'listAnalyses', 'QuickSight', Promise.reject(result), true, mock)
+  },
+  listAssetBundleExportJobs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'listAssetBundleExportJobs', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  listAssetBundleExportJobsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'listAssetBundleExportJobs', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  listAssetBundleExportJobsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'listAssetBundleExportJobs', 'QuickSight', Promise.reject(result), true, mock)
+  },
+  listAssetBundleImportJobs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'listAssetBundleImportJobs', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  listAssetBundleImportJobsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'listAssetBundleImportJobs', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  listAssetBundleImportJobsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'listAssetBundleImportJobs', 'QuickSight', Promise.reject(result), true, mock)
   },
   listDashboardVersions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'listDashboardVersions', 'QuickSight', Promise.resolve(result), true, mock)
@@ -692,6 +988,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listIAMPolicyAssignmentsForUserThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'listIAMPolicyAssignmentsForUser', 'QuickSight', Promise.reject(result), true, mock)
   },
+  listIdentityPropagationConfigs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'listIdentityPropagationConfigs', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  listIdentityPropagationConfigsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'listIdentityPropagationConfigs', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  listIdentityPropagationConfigsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'listIdentityPropagationConfigs', 'QuickSight', Promise.reject(result), true, mock)
+  },
   listIngestions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'listIngestions', 'QuickSight', Promise.resolve(result), true, mock)
   },
@@ -709,6 +1014,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listNamespacesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'listNamespaces', 'QuickSight', Promise.reject(result), true, mock)
+  },
+  listRefreshSchedules: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'listRefreshSchedules', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  listRefreshSchedulesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'listRefreshSchedules', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  listRefreshSchedulesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'listRefreshSchedules', 'QuickSight', Promise.reject(result), true, mock)
+  },
+  listRoleMemberships: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'listRoleMemberships', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  listRoleMembershipsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'listRoleMemberships', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  listRoleMembershipsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'listRoleMemberships', 'QuickSight', Promise.reject(result), true, mock)
   },
   listTagsForResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'listTagsForResource', 'QuickSight', Promise.resolve(result), true, mock)
@@ -773,6 +1096,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listThemesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'listThemes', 'QuickSight', Promise.reject(result), true, mock)
   },
+  listTopicRefreshSchedules: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'listTopicRefreshSchedules', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  listTopicRefreshSchedulesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'listTopicRefreshSchedules', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  listTopicRefreshSchedulesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'listTopicRefreshSchedules', 'QuickSight', Promise.reject(result), true, mock)
+  },
+  listTopics: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'listTopics', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  listTopicsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'listTopics', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  listTopicsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'listTopics', 'QuickSight', Promise.reject(result), true, mock)
+  },
   listUserGroups: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'listUserGroups', 'QuickSight', Promise.resolve(result), true, mock)
   },
@@ -790,6 +1131,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listUsersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'listUsers', 'QuickSight', Promise.reject(result), true, mock)
+  },
+  listVPCConnections: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'listVPCConnections', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  listVPCConnectionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'listVPCConnections', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  listVPCConnectionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'listVPCConnections', 'QuickSight', Promise.reject(result), true, mock)
+  },
+  putDataSetRefreshProperties: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'putDataSetRefreshProperties', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  putDataSetRefreshPropertiesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'putDataSetRefreshProperties', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  putDataSetRefreshPropertiesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'putDataSetRefreshProperties', 'QuickSight', Promise.reject(result), true, mock)
   },
   registerUser: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'registerUser', 'QuickSight', Promise.resolve(result), true, mock)
@@ -827,6 +1186,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   searchDashboardsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'searchDashboards', 'QuickSight', Promise.reject(result), true, mock)
   },
+  searchDataSets: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'searchDataSets', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  searchDataSetsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'searchDataSets', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  searchDataSetsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'searchDataSets', 'QuickSight', Promise.reject(result), true, mock)
+  },
+  searchDataSources: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'searchDataSources', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  searchDataSourcesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'searchDataSources', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  searchDataSourcesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'searchDataSources', 'QuickSight', Promise.reject(result), true, mock)
+  },
   searchFolders: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'searchFolders', 'QuickSight', Promise.resolve(result), true, mock)
   },
@@ -835,6 +1212,42 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   searchFoldersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'searchFolders', 'QuickSight', Promise.reject(result), true, mock)
+  },
+  searchGroups: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'searchGroups', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  searchGroupsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'searchGroups', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  searchGroupsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'searchGroups', 'QuickSight', Promise.reject(result), true, mock)
+  },
+  startAssetBundleExportJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'startAssetBundleExportJob', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  startAssetBundleExportJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'startAssetBundleExportJob', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  startAssetBundleExportJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'startAssetBundleExportJob', 'QuickSight', Promise.reject(result), true, mock)
+  },
+  startAssetBundleImportJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'startAssetBundleImportJob', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  startAssetBundleImportJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'startAssetBundleImportJob', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  startAssetBundleImportJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'startAssetBundleImportJob', 'QuickSight', Promise.reject(result), true, mock)
+  },
+  startDashboardSnapshotJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'startDashboardSnapshotJob', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  startDashboardSnapshotJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'startDashboardSnapshotJob', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  startDashboardSnapshotJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'startDashboardSnapshotJob', 'QuickSight', Promise.reject(result), true, mock)
   },
   tagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'tagResource', 'QuickSight', Promise.resolve(result), true, mock)
@@ -898,6 +1311,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateDashboardThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'updateDashboard', 'QuickSight', Promise.reject(result), true, mock)
+  },
+  updateDashboardLinks: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'updateDashboardLinks', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  updateDashboardLinksAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'updateDashboardLinks', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  updateDashboardLinksThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'updateDashboardLinks', 'QuickSight', Promise.reject(result), true, mock)
   },
   updateDashboardPermissions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'updateDashboardPermissions', 'QuickSight', Promise.resolve(result), true, mock)
@@ -989,6 +1411,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   updateIAMPolicyAssignmentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'updateIAMPolicyAssignment', 'QuickSight', Promise.reject(result), true, mock)
   },
+  updateIdentityPropagationConfig: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'updateIdentityPropagationConfig', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  updateIdentityPropagationConfigAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'updateIdentityPropagationConfig', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  updateIdentityPropagationConfigThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'updateIdentityPropagationConfig', 'QuickSight', Promise.reject(result), true, mock)
+  },
   updateIpRestriction: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'updateIpRestriction', 'QuickSight', Promise.resolve(result), true, mock)
   },
@@ -998,14 +1429,32 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   updateIpRestrictionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'updateIpRestriction', 'QuickSight', Promise.reject(result), true, mock)
   },
-  updateTemplate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-quicksight', 'updateTemplate', 'QuickSight', Promise.resolve(result), true, mock)
+  updatePublicSharingSettings: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'updatePublicSharingSettings', 'QuickSight', Promise.resolve(result), true, mock)
   },
-  updateTemplateAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-quicksight', 'updateTemplate', 'QuickSight', Promise.resolve(result), false, mock)
+  updatePublicSharingSettingsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'updatePublicSharingSettings', 'QuickSight', Promise.resolve(result), false, mock)
   },
-  updateTemplateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-quicksight', 'updateTemplate', 'QuickSight', Promise.reject(result), true, mock)
+  updatePublicSharingSettingsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'updatePublicSharingSettings', 'QuickSight', Promise.reject(result), true, mock)
+  },
+  updateRefreshSchedule: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'updateRefreshSchedule', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  updateRefreshScheduleAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'updateRefreshSchedule', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  updateRefreshScheduleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'updateRefreshSchedule', 'QuickSight', Promise.reject(result), true, mock)
+  },
+  updateRoleCustomPermission: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'updateRoleCustomPermission', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  updateRoleCustomPermissionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'updateRoleCustomPermission', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  updateRoleCustomPermissionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'updateRoleCustomPermission', 'QuickSight', Promise.reject(result), true, mock)
   },
   updateTemplateAlias: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'updateTemplateAlias', 'QuickSight', Promise.resolve(result), true, mock)
@@ -1016,6 +1465,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   updateTemplateAliasThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'updateTemplateAlias', 'QuickSight', Promise.reject(result), true, mock)
   },
+  updateTemplate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'updateTemplate', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  updateTemplateAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'updateTemplate', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  updateTemplateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'updateTemplate', 'QuickSight', Promise.reject(result), true, mock)
+  },
   updateTemplatePermissions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'updateTemplatePermissions', 'QuickSight', Promise.resolve(result), true, mock)
   },
@@ -1024,15 +1482,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateTemplatePermissionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'updateTemplatePermissions', 'QuickSight', Promise.reject(result), true, mock)
-  },
-  updateTheme: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-quicksight', 'updateTheme', 'QuickSight', Promise.resolve(result), true, mock)
-  },
-  updateThemeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-quicksight', 'updateTheme', 'QuickSight', Promise.resolve(result), false, mock)
-  },
-  updateThemeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-quicksight', 'updateTheme', 'QuickSight', Promise.reject(result), true, mock)
   },
   updateThemeAlias: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'updateThemeAlias', 'QuickSight', Promise.resolve(result), true, mock)
@@ -1043,6 +1492,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   updateThemeAliasThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'updateThemeAlias', 'QuickSight', Promise.reject(result), true, mock)
   },
+  updateTheme: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'updateTheme', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  updateThemeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'updateTheme', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  updateThemeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'updateTheme', 'QuickSight', Promise.reject(result), true, mock)
+  },
   updateThemePermissions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'updateThemePermissions', 'QuickSight', Promise.resolve(result), true, mock)
   },
@@ -1052,6 +1510,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   updateThemePermissionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'updateThemePermissions', 'QuickSight', Promise.reject(result), true, mock)
   },
+  updateTopic: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'updateTopic', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  updateTopicAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'updateTopic', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  updateTopicThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'updateTopic', 'QuickSight', Promise.reject(result), true, mock)
+  },
+  updateTopicPermissions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'updateTopicPermissions', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  updateTopicPermissionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'updateTopicPermissions', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  updateTopicPermissionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'updateTopicPermissions', 'QuickSight', Promise.reject(result), true, mock)
+  },
+  updateTopicRefreshSchedule: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'updateTopicRefreshSchedule', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  updateTopicRefreshScheduleAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'updateTopicRefreshSchedule', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  updateTopicRefreshScheduleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'updateTopicRefreshSchedule', 'QuickSight', Promise.reject(result), true, mock)
+  },
   updateUser: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'updateUser', 'QuickSight', Promise.resolve(result), true, mock)
   },
@@ -1060,6 +1545,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateUserThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'updateUser', 'QuickSight', Promise.reject(result), true, mock)
+  },
+  updateVPCConnection: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'updateVPCConnection', 'QuickSight', Promise.resolve(result), true, mock)
+  },
+  updateVPCConnectionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'updateVPCConnection', 'QuickSight', Promise.resolve(result), false, mock)
+  },
+  updateVPCConnectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-quicksight', 'updateVPCConnection', 'QuickSight', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-quicksight', 'send', 'QuickSightClient', Promise.resolve(result), true, mock)

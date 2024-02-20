@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockWorkSpaces = {
+export const mockWorkSpaces = {
   associateConnectionAlias: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workspaces', 'associateConnectionAlias', 'WorkSpaces', Promise.resolve(result), true, mock)
   },
@@ -34,6 +33,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   associateIpGroupsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workspaces', 'associateIpGroups', 'WorkSpaces', Promise.reject(result), true, mock)
+  },
+  associateWorkspaceApplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'associateWorkspaceApplication', 'WorkSpaces', Promise.resolve(result), true, mock)
+  },
+  associateWorkspaceApplicationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'associateWorkspaceApplication', 'WorkSpaces', Promise.resolve(result), false, mock)
+  },
+  associateWorkspaceApplicationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'associateWorkspaceApplication', 'WorkSpaces', Promise.reject(result), true, mock)
   },
   authorizeIpRules: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workspaces', 'authorizeIpRules', 'WorkSpaces', Promise.resolve(result), true, mock)
@@ -53,6 +61,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   copyWorkspaceImageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workspaces', 'copyWorkspaceImage', 'WorkSpaces', Promise.reject(result), true, mock)
   },
+  createConnectClientAddIn: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'createConnectClientAddIn', 'WorkSpaces', Promise.resolve(result), true, mock)
+  },
+  createConnectClientAddInAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'createConnectClientAddIn', 'WorkSpaces', Promise.resolve(result), false, mock)
+  },
+  createConnectClientAddInThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'createConnectClientAddIn', 'WorkSpaces', Promise.reject(result), true, mock)
+  },
   createConnectionAlias: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workspaces', 'createConnectionAlias', 'WorkSpaces', Promise.resolve(result), true, mock)
   },
@@ -70,6 +87,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createIpGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workspaces', 'createIpGroup', 'WorkSpaces', Promise.reject(result), true, mock)
+  },
+  createStandbyWorkspaces: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'createStandbyWorkspaces', 'WorkSpaces', Promise.resolve(result), true, mock)
+  },
+  createStandbyWorkspacesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'createStandbyWorkspaces', 'WorkSpaces', Promise.resolve(result), false, mock)
+  },
+  createStandbyWorkspacesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'createStandbyWorkspaces', 'WorkSpaces', Promise.reject(result), true, mock)
   },
   createTags: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workspaces', 'createTags', 'WorkSpaces', Promise.resolve(result), true, mock)
@@ -98,6 +124,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createWorkspaceBundleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workspaces', 'createWorkspaceBundle', 'WorkSpaces', Promise.reject(result), true, mock)
   },
+  createWorkspaceImage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'createWorkspaceImage', 'WorkSpaces', Promise.resolve(result), true, mock)
+  },
+  createWorkspaceImageAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'createWorkspaceImage', 'WorkSpaces', Promise.resolve(result), false, mock)
+  },
+  createWorkspaceImageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'createWorkspaceImage', 'WorkSpaces', Promise.reject(result), true, mock)
+  },
   createWorkspaces: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workspaces', 'createWorkspaces', 'WorkSpaces', Promise.resolve(result), true, mock)
   },
@@ -106,6 +141,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createWorkspacesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workspaces', 'createWorkspaces', 'WorkSpaces', Promise.reject(result), true, mock)
+  },
+  deleteClientBranding: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'deleteClientBranding', 'WorkSpaces', Promise.resolve(result), true, mock)
+  },
+  deleteClientBrandingAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'deleteClientBranding', 'WorkSpaces', Promise.resolve(result), false, mock)
+  },
+  deleteClientBrandingThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'deleteClientBranding', 'WorkSpaces', Promise.reject(result), true, mock)
+  },
+  deleteConnectClientAddIn: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'deleteConnectClientAddIn', 'WorkSpaces', Promise.resolve(result), true, mock)
+  },
+  deleteConnectClientAddInAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'deleteConnectClientAddIn', 'WorkSpaces', Promise.resolve(result), false, mock)
+  },
+  deleteConnectClientAddInThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'deleteConnectClientAddIn', 'WorkSpaces', Promise.reject(result), true, mock)
   },
   deleteConnectionAlias: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workspaces', 'deleteConnectionAlias', 'WorkSpaces', Promise.resolve(result), true, mock)
@@ -152,6 +205,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteWorkspaceImageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workspaces', 'deleteWorkspaceImage', 'WorkSpaces', Promise.reject(result), true, mock)
   },
+  deployWorkspaceApplications: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'deployWorkspaceApplications', 'WorkSpaces', Promise.resolve(result), true, mock)
+  },
+  deployWorkspaceApplicationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'deployWorkspaceApplications', 'WorkSpaces', Promise.resolve(result), false, mock)
+  },
+  deployWorkspaceApplicationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'deployWorkspaceApplications', 'WorkSpaces', Promise.reject(result), true, mock)
+  },
   deregisterWorkspaceDirectory: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workspaces', 'deregisterWorkspaceDirectory', 'WorkSpaces', Promise.resolve(result), true, mock)
   },
@@ -179,6 +241,42 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeAccountModificationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workspaces', 'describeAccountModifications', 'WorkSpaces', Promise.reject(result), true, mock)
   },
+  describeApplicationAssociations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'describeApplicationAssociations', 'WorkSpaces', Promise.resolve(result), true, mock)
+  },
+  describeApplicationAssociationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'describeApplicationAssociations', 'WorkSpaces', Promise.resolve(result), false, mock)
+  },
+  describeApplicationAssociationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'describeApplicationAssociations', 'WorkSpaces', Promise.reject(result), true, mock)
+  },
+  describeApplications: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'describeApplications', 'WorkSpaces', Promise.resolve(result), true, mock)
+  },
+  describeApplicationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'describeApplications', 'WorkSpaces', Promise.resolve(result), false, mock)
+  },
+  describeApplicationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'describeApplications', 'WorkSpaces', Promise.reject(result), true, mock)
+  },
+  describeBundleAssociations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'describeBundleAssociations', 'WorkSpaces', Promise.resolve(result), true, mock)
+  },
+  describeBundleAssociationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'describeBundleAssociations', 'WorkSpaces', Promise.resolve(result), false, mock)
+  },
+  describeBundleAssociationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'describeBundleAssociations', 'WorkSpaces', Promise.reject(result), true, mock)
+  },
+  describeClientBranding: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'describeClientBranding', 'WorkSpaces', Promise.resolve(result), true, mock)
+  },
+  describeClientBrandingAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'describeClientBranding', 'WorkSpaces', Promise.resolve(result), false, mock)
+  },
+  describeClientBrandingThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'describeClientBranding', 'WorkSpaces', Promise.reject(result), true, mock)
+  },
   describeClientProperties: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workspaces', 'describeClientProperties', 'WorkSpaces', Promise.resolve(result), true, mock)
   },
@@ -187,6 +285,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeClientPropertiesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workspaces', 'describeClientProperties', 'WorkSpaces', Promise.reject(result), true, mock)
+  },
+  describeConnectClientAddIns: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'describeConnectClientAddIns', 'WorkSpaces', Promise.resolve(result), true, mock)
+  },
+  describeConnectClientAddInsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'describeConnectClientAddIns', 'WorkSpaces', Promise.resolve(result), false, mock)
+  },
+  describeConnectClientAddInsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'describeConnectClientAddIns', 'WorkSpaces', Promise.reject(result), true, mock)
   },
   describeConnectionAliasPermissions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workspaces', 'describeConnectionAliasPermissions', 'WorkSpaces', Promise.resolve(result), true, mock)
@@ -206,6 +313,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeConnectionAliasesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workspaces', 'describeConnectionAliases', 'WorkSpaces', Promise.reject(result), true, mock)
   },
+  describeImageAssociations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'describeImageAssociations', 'WorkSpaces', Promise.resolve(result), true, mock)
+  },
+  describeImageAssociationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'describeImageAssociations', 'WorkSpaces', Promise.resolve(result), false, mock)
+  },
+  describeImageAssociationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'describeImageAssociations', 'WorkSpaces', Promise.reject(result), true, mock)
+  },
   describeIpGroups: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workspaces', 'describeIpGroups', 'WorkSpaces', Promise.resolve(result), true, mock)
   },
@@ -223,6 +339,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeTagsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workspaces', 'describeTags', 'WorkSpaces', Promise.reject(result), true, mock)
+  },
+  describeWorkspaceAssociations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'describeWorkspaceAssociations', 'WorkSpaces', Promise.resolve(result), true, mock)
+  },
+  describeWorkspaceAssociationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'describeWorkspaceAssociations', 'WorkSpaces', Promise.resolve(result), false, mock)
+  },
+  describeWorkspaceAssociationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'describeWorkspaceAssociations', 'WorkSpaces', Promise.reject(result), true, mock)
   },
   describeWorkspaceBundles: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workspaces', 'describeWorkspaceBundles', 'WorkSpaces', Promise.resolve(result), true, mock)
@@ -287,15 +412,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeWorkspacesConnectionStatusThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workspaces', 'describeWorkspacesConnectionStatus', 'WorkSpaces', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-workspaces', 'destroy', 'WorkSpaces', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-workspaces', 'destroy', 'WorkSpaces', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-workspaces', 'destroy', 'WorkSpaces', Promise.reject(result), true, mock)
-  },
   disassociateConnectionAlias: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workspaces', 'disassociateConnectionAlias', 'WorkSpaces', Promise.resolve(result), true, mock)
   },
@@ -313,6 +429,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   disassociateIpGroupsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workspaces', 'disassociateIpGroups', 'WorkSpaces', Promise.reject(result), true, mock)
+  },
+  disassociateWorkspaceApplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'disassociateWorkspaceApplication', 'WorkSpaces', Promise.resolve(result), true, mock)
+  },
+  disassociateWorkspaceApplicationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'disassociateWorkspaceApplication', 'WorkSpaces', Promise.resolve(result), false, mock)
+  },
+  disassociateWorkspaceApplicationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'disassociateWorkspaceApplication', 'WorkSpaces', Promise.reject(result), true, mock)
+  },
+  importClientBranding: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'importClientBranding', 'WorkSpaces', Promise.resolve(result), true, mock)
+  },
+  importClientBrandingAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'importClientBranding', 'WorkSpaces', Promise.resolve(result), false, mock)
+  },
+  importClientBrandingThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'importClientBranding', 'WorkSpaces', Promise.reject(result), true, mock)
   },
   importWorkspaceImage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workspaces', 'importWorkspaceImage', 'WorkSpaces', Promise.resolve(result), true, mock)
@@ -350,6 +484,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   modifyAccountThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workspaces', 'modifyAccount', 'WorkSpaces', Promise.reject(result), true, mock)
   },
+  modifyCertificateBasedAuthProperties: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'modifyCertificateBasedAuthProperties', 'WorkSpaces', Promise.resolve(result), true, mock)
+  },
+  modifyCertificateBasedAuthPropertiesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'modifyCertificateBasedAuthProperties', 'WorkSpaces', Promise.resolve(result), false, mock)
+  },
+  modifyCertificateBasedAuthPropertiesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'modifyCertificateBasedAuthProperties', 'WorkSpaces', Promise.reject(result), true, mock)
+  },
   modifyClientProperties: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workspaces', 'modifyClientProperties', 'WorkSpaces', Promise.resolve(result), true, mock)
   },
@@ -358,6 +501,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   modifyClientPropertiesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workspaces', 'modifyClientProperties', 'WorkSpaces', Promise.reject(result), true, mock)
+  },
+  modifySamlProperties: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'modifySamlProperties', 'WorkSpaces', Promise.resolve(result), true, mock)
+  },
+  modifySamlPropertiesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'modifySamlProperties', 'WorkSpaces', Promise.resolve(result), false, mock)
+  },
+  modifySamlPropertiesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'modifySamlProperties', 'WorkSpaces', Promise.reject(result), true, mock)
   },
   modifySelfservicePermissions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workspaces', 'modifySelfservicePermissions', 'WorkSpaces', Promise.resolve(result), true, mock)
@@ -475,6 +627,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   terminateWorkspacesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workspaces', 'terminateWorkspaces', 'WorkSpaces', Promise.reject(result), true, mock)
+  },
+  updateConnectClientAddIn: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'updateConnectClientAddIn', 'WorkSpaces', Promise.resolve(result), true, mock)
+  },
+  updateConnectClientAddInAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'updateConnectClientAddIn', 'WorkSpaces', Promise.resolve(result), false, mock)
+  },
+  updateConnectClientAddInThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workspaces', 'updateConnectClientAddIn', 'WorkSpaces', Promise.reject(result), true, mock)
   },
   updateConnectionAliasPermission: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workspaces', 'updateConnectionAliasPermission', 'WorkSpaces', Promise.resolve(result), true, mock)

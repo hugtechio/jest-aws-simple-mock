@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockMq = {
+export const mockMq = {
   createBroker: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mq', 'createBroker', 'Mq', Promise.resolve(result), true, mock)
   },
@@ -134,15 +133,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeUserThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mq', 'describeUser', 'Mq', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-mq', 'destroy', 'Mq', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-mq', 'destroy', 'Mq', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-mq', 'destroy', 'Mq', Promise.reject(result), true, mock)
-  },
   listBrokers: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mq', 'listBrokers', 'Mq', Promise.resolve(result), true, mock)
   },
@@ -187,6 +177,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listUsersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mq', 'listUsers', 'Mq', Promise.reject(result), true, mock)
+  },
+  promote: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mq', 'promote', 'Mq', Promise.resolve(result), true, mock)
+  },
+  promoteAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mq', 'promote', 'Mq', Promise.resolve(result), false, mock)
+  },
+  promoteThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mq', 'promote', 'Mq', Promise.reject(result), true, mock)
   },
   rebootBroker: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mq', 'rebootBroker', 'Mq', Promise.resolve(result), true, mock)

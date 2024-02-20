@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockElastiCache = {
+export const mockElastiCache = {
   addTagsToResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elasticache', 'addTagsToResource', 'ElastiCache', Promise.resolve(result), true, mock)
   },
@@ -61,6 +60,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   completeMigrationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elasticache', 'completeMigration', 'ElastiCache', Promise.reject(result), true, mock)
+  },
+  copyServerlessCacheSnapshot: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticache', 'copyServerlessCacheSnapshot', 'ElastiCache', Promise.resolve(result), true, mock)
+  },
+  copyServerlessCacheSnapshotAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticache', 'copyServerlessCacheSnapshot', 'ElastiCache', Promise.resolve(result), false, mock)
+  },
+  copyServerlessCacheSnapshotThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticache', 'copyServerlessCacheSnapshot', 'ElastiCache', Promise.reject(result), true, mock)
   },
   copySnapshot: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elasticache', 'copySnapshot', 'ElastiCache', Promise.resolve(result), true, mock)
@@ -124,6 +132,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createReplicationGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elasticache', 'createReplicationGroup', 'ElastiCache', Promise.reject(result), true, mock)
+  },
+  createServerlessCache: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticache', 'createServerlessCache', 'ElastiCache', Promise.resolve(result), true, mock)
+  },
+  createServerlessCacheAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticache', 'createServerlessCache', 'ElastiCache', Promise.resolve(result), false, mock)
+  },
+  createServerlessCacheThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticache', 'createServerlessCache', 'ElastiCache', Promise.reject(result), true, mock)
+  },
+  createServerlessCacheSnapshot: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticache', 'createServerlessCacheSnapshot', 'ElastiCache', Promise.resolve(result), true, mock)
+  },
+  createServerlessCacheSnapshotAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticache', 'createServerlessCacheSnapshot', 'ElastiCache', Promise.resolve(result), false, mock)
+  },
+  createServerlessCacheSnapshotThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticache', 'createServerlessCacheSnapshot', 'ElastiCache', Promise.reject(result), true, mock)
   },
   createSnapshot: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elasticache', 'createSnapshot', 'ElastiCache', Promise.resolve(result), true, mock)
@@ -223,6 +249,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteReplicationGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elasticache', 'deleteReplicationGroup', 'ElastiCache', Promise.reject(result), true, mock)
+  },
+  deleteServerlessCache: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticache', 'deleteServerlessCache', 'ElastiCache', Promise.resolve(result), true, mock)
+  },
+  deleteServerlessCacheAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticache', 'deleteServerlessCache', 'ElastiCache', Promise.resolve(result), false, mock)
+  },
+  deleteServerlessCacheThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticache', 'deleteServerlessCache', 'ElastiCache', Promise.reject(result), true, mock)
+  },
+  deleteServerlessCacheSnapshot: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticache', 'deleteServerlessCacheSnapshot', 'ElastiCache', Promise.resolve(result), true, mock)
+  },
+  deleteServerlessCacheSnapshotAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticache', 'deleteServerlessCacheSnapshot', 'ElastiCache', Promise.resolve(result), false, mock)
+  },
+  deleteServerlessCacheSnapshotThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticache', 'deleteServerlessCacheSnapshot', 'ElastiCache', Promise.reject(result), true, mock)
   },
   deleteSnapshot: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elasticache', 'deleteSnapshot', 'ElastiCache', Promise.resolve(result), true, mock)
@@ -359,6 +403,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeReservedCacheNodesOfferingsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elasticache', 'describeReservedCacheNodesOfferings', 'ElastiCache', Promise.reject(result), true, mock)
   },
+  describeServerlessCacheSnapshots: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticache', 'describeServerlessCacheSnapshots', 'ElastiCache', Promise.resolve(result), true, mock)
+  },
+  describeServerlessCacheSnapshotsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticache', 'describeServerlessCacheSnapshots', 'ElastiCache', Promise.resolve(result), false, mock)
+  },
+  describeServerlessCacheSnapshotsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticache', 'describeServerlessCacheSnapshots', 'ElastiCache', Promise.reject(result), true, mock)
+  },
+  describeServerlessCaches: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticache', 'describeServerlessCaches', 'ElastiCache', Promise.resolve(result), true, mock)
+  },
+  describeServerlessCachesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticache', 'describeServerlessCaches', 'ElastiCache', Promise.resolve(result), false, mock)
+  },
+  describeServerlessCachesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticache', 'describeServerlessCaches', 'ElastiCache', Promise.reject(result), true, mock)
+  },
   describeServiceUpdates: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elasticache', 'describeServiceUpdates', 'ElastiCache', Promise.resolve(result), true, mock)
   },
@@ -404,15 +466,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeUsersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elasticache', 'describeUsers', 'ElastiCache', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-elasticache', 'destroy', 'ElastiCache', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-elasticache', 'destroy', 'ElastiCache', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-elasticache', 'destroy', 'ElastiCache', Promise.reject(result), true, mock)
-  },
   disassociateGlobalReplicationGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elasticache', 'disassociateGlobalReplicationGroup', 'ElastiCache', Promise.resolve(result), true, mock)
   },
@@ -421,6 +474,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   disassociateGlobalReplicationGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elasticache', 'disassociateGlobalReplicationGroup', 'ElastiCache', Promise.reject(result), true, mock)
+  },
+  exportServerlessCacheSnapshot: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticache', 'exportServerlessCacheSnapshot', 'ElastiCache', Promise.resolve(result), true, mock)
+  },
+  exportServerlessCacheSnapshotAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticache', 'exportServerlessCacheSnapshot', 'ElastiCache', Promise.resolve(result), false, mock)
+  },
+  exportServerlessCacheSnapshotThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticache', 'exportServerlessCacheSnapshot', 'ElastiCache', Promise.reject(result), true, mock)
   },
   failoverGlobalReplicationGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elasticache', 'failoverGlobalReplicationGroup', 'ElastiCache', Promise.resolve(result), true, mock)
@@ -521,6 +583,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   modifyReplicationGroupShardConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elasticache', 'modifyReplicationGroupShardConfiguration', 'ElastiCache', Promise.reject(result), true, mock)
   },
+  modifyServerlessCache: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticache', 'modifyServerlessCache', 'ElastiCache', Promise.resolve(result), true, mock)
+  },
+  modifyServerlessCacheAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticache', 'modifyServerlessCache', 'ElastiCache', Promise.resolve(result), false, mock)
+  },
+  modifyServerlessCacheThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticache', 'modifyServerlessCache', 'ElastiCache', Promise.reject(result), true, mock)
+  },
   modifyUser: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elasticache', 'modifyUser', 'ElastiCache', Promise.resolve(result), true, mock)
   },
@@ -610,6 +681,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   testFailoverThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elasticache', 'testFailover', 'ElastiCache', Promise.reject(result), true, mock)
+  },
+  testMigration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticache', 'testMigration', 'ElastiCache', Promise.resolve(result), true, mock)
+  },
+  testMigrationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticache', 'testMigration', 'ElastiCache', Promise.resolve(result), false, mock)
+  },
+  testMigrationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elasticache', 'testMigration', 'ElastiCache', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elasticache', 'send', 'ElastiCacheClient', Promise.resolve(result), true, mock)

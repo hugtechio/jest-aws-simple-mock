@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockDocDB = {
+export const mockDocDB = {
   addSourceIdentifierToSubscription: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-docdb', 'addSourceIdentifierToSubscription', 'DocDB', Promise.resolve(result), true, mock)
   },
@@ -331,15 +330,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describePendingMaintenanceActionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-docdb', 'describePendingMaintenanceActions', 'DocDB', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-docdb', 'destroy', 'DocDB', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-docdb', 'destroy', 'DocDB', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-docdb', 'destroy', 'DocDB', Promise.reject(result), true, mock)
   },
   failoverDBCluster: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-docdb', 'failoverDBCluster', 'DocDB', Promise.resolve(result), true, mock)

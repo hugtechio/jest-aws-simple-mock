@@ -15,17 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockWorkMailMessageFlow = {
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-workmailmessageflow', 'destroy', 'WorkMailMessageFlow', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-workmailmessageflow', 'destroy', 'WorkMailMessageFlow', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-workmailmessageflow', 'destroy', 'WorkMailMessageFlow', Promise.reject(result), true, mock)
-  },
+export const mockWorkMailMessageFlow = {
   getRawMessageContent: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workmailmessageflow', 'getRawMessageContent', 'WorkMailMessageFlow', Promise.resolve(result), true, mock)
   },

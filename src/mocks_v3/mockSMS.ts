@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockSMS = {
+export const mockSMS = {
   createApp: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sms', 'createApp', 'SMS', Promise.resolve(result), true, mock)
   },
@@ -88,15 +87,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteServerCatalogThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sms', 'deleteServerCatalog', 'SMS', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sms', 'destroy', 'SMS', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sms', 'destroy', 'SMS', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sms', 'destroy', 'SMS', Promise.reject(result), true, mock)
   },
   disassociateConnector: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sms', 'disassociateConnector', 'SMS', Promise.resolve(result), true, mock)

@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockSavingsplans = {
+export const mockSavingsplans = {
   createSavingsPlan: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-savingsplans', 'createSavingsPlan', 'Savingsplans', Promise.resolve(result), true, mock)
   },
@@ -70,15 +69,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeSavingsPlansOfferingsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-savingsplans', 'describeSavingsPlansOfferings', 'Savingsplans', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-savingsplans', 'destroy', 'Savingsplans', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-savingsplans', 'destroy', 'Savingsplans', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-savingsplans', 'destroy', 'Savingsplans', Promise.reject(result), true, mock)
   },
   listTagsForResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-savingsplans', 'listTagsForResource', 'Savingsplans', Promise.resolve(result), true, mock)

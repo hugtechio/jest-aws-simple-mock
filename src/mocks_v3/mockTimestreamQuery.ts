@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockTimestreamQuery = {
+export const mockTimestreamQuery = {
   cancelQuery: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-timestream-query', 'cancelQuery', 'TimestreamQuery', Promise.resolve(result), true, mock)
   },
@@ -25,6 +24,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   cancelQueryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-timestream-query', 'cancelQuery', 'TimestreamQuery', Promise.reject(result), true, mock)
+  },
+  createScheduledQuery: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-timestream-query', 'createScheduledQuery', 'TimestreamQuery', Promise.resolve(result), true, mock)
+  },
+  createScheduledQueryAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-timestream-query', 'createScheduledQuery', 'TimestreamQuery', Promise.resolve(result), false, mock)
+  },
+  createScheduledQueryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-timestream-query', 'createScheduledQuery', 'TimestreamQuery', Promise.reject(result), true, mock)
+  },
+  deleteScheduledQuery: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-timestream-query', 'deleteScheduledQuery', 'TimestreamQuery', Promise.resolve(result), true, mock)
+  },
+  deleteScheduledQueryAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-timestream-query', 'deleteScheduledQuery', 'TimestreamQuery', Promise.resolve(result), false, mock)
+  },
+  deleteScheduledQueryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-timestream-query', 'deleteScheduledQuery', 'TimestreamQuery', Promise.reject(result), true, mock)
   },
   describeEndpoints: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-timestream-query', 'describeEndpoints', 'TimestreamQuery', Promise.resolve(result), true, mock)
@@ -35,14 +52,50 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeEndpointsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-timestream-query', 'describeEndpoints', 'TimestreamQuery', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-timestream-query', 'destroy', 'TimestreamQuery', Promise.resolve(result), true, mock)
+  describeScheduledQuery: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-timestream-query', 'describeScheduledQuery', 'TimestreamQuery', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-timestream-query', 'destroy', 'TimestreamQuery', Promise.resolve(result), false, mock)
+  describeScheduledQueryAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-timestream-query', 'describeScheduledQuery', 'TimestreamQuery', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-timestream-query', 'destroy', 'TimestreamQuery', Promise.reject(result), true, mock)
+  describeScheduledQueryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-timestream-query', 'describeScheduledQuery', 'TimestreamQuery', Promise.reject(result), true, mock)
+  },
+  executeScheduledQuery: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-timestream-query', 'executeScheduledQuery', 'TimestreamQuery', Promise.resolve(result), true, mock)
+  },
+  executeScheduledQueryAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-timestream-query', 'executeScheduledQuery', 'TimestreamQuery', Promise.resolve(result), false, mock)
+  },
+  executeScheduledQueryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-timestream-query', 'executeScheduledQuery', 'TimestreamQuery', Promise.reject(result), true, mock)
+  },
+  listScheduledQueries: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-timestream-query', 'listScheduledQueries', 'TimestreamQuery', Promise.resolve(result), true, mock)
+  },
+  listScheduledQueriesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-timestream-query', 'listScheduledQueries', 'TimestreamQuery', Promise.resolve(result), false, mock)
+  },
+  listScheduledQueriesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-timestream-query', 'listScheduledQueries', 'TimestreamQuery', Promise.reject(result), true, mock)
+  },
+  listTagsForResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-timestream-query', 'listTagsForResource', 'TimestreamQuery', Promise.resolve(result), true, mock)
+  },
+  listTagsForResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-timestream-query', 'listTagsForResource', 'TimestreamQuery', Promise.resolve(result), false, mock)
+  },
+  listTagsForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-timestream-query', 'listTagsForResource', 'TimestreamQuery', Promise.reject(result), true, mock)
+  },
+  prepareQuery: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-timestream-query', 'prepareQuery', 'TimestreamQuery', Promise.resolve(result), true, mock)
+  },
+  prepareQueryAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-timestream-query', 'prepareQuery', 'TimestreamQuery', Promise.resolve(result), false, mock)
+  },
+  prepareQueryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-timestream-query', 'prepareQuery', 'TimestreamQuery', Promise.reject(result), true, mock)
   },
   query: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-timestream-query', 'query', 'TimestreamQuery', Promise.resolve(result), true, mock)
@@ -52,6 +105,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   queryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-timestream-query', 'query', 'TimestreamQuery', Promise.reject(result), true, mock)
+  },
+  tagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-timestream-query', 'tagResource', 'TimestreamQuery', Promise.resolve(result), true, mock)
+  },
+  tagResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-timestream-query', 'tagResource', 'TimestreamQuery', Promise.resolve(result), false, mock)
+  },
+  tagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-timestream-query', 'tagResource', 'TimestreamQuery', Promise.reject(result), true, mock)
+  },
+  untagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-timestream-query', 'untagResource', 'TimestreamQuery', Promise.resolve(result), true, mock)
+  },
+  untagResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-timestream-query', 'untagResource', 'TimestreamQuery', Promise.resolve(result), false, mock)
+  },
+  untagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-timestream-query', 'untagResource', 'TimestreamQuery', Promise.reject(result), true, mock)
+  },
+  updateScheduledQuery: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-timestream-query', 'updateScheduledQuery', 'TimestreamQuery', Promise.resolve(result), true, mock)
+  },
+  updateScheduledQueryAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-timestream-query', 'updateScheduledQuery', 'TimestreamQuery', Promise.resolve(result), false, mock)
+  },
+  updateScheduledQueryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-timestream-query', 'updateScheduledQuery', 'TimestreamQuery', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-timestream-query', 'send', 'TimestreamQueryClient', Promise.resolve(result), true, mock)

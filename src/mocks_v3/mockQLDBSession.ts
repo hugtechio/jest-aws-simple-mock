@@ -15,25 +15,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockQLDBSession = {
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-qldb-session', 'destroy', 'QLDBSession', Promise.resolve(result), true, mock)
+export const mockQLDBSession = {
+  sendPromise: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-qldb-session', 'send', 'QLDBSession', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-qldb-session', 'destroy', 'QLDBSession', Promise.resolve(result), false, mock)
+  sendPromiseAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-qldb-session', 'send', 'QLDBSession', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-qldb-session', 'destroy', 'QLDBSession', Promise.reject(result), true, mock)
-  },
-  sendCommand: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-qldb-session', 'sendCommand', 'QLDBSession', Promise.resolve(result), true, mock)
-  },
-  sendCommandAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-qldb-session', 'sendCommand', 'QLDBSession', Promise.resolve(result), false, mock)
-  },
-  sendCommandThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-qldb-session', 'sendCommand', 'QLDBSession', Promise.reject(result), true, mock)
+  sendPromiseThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-qldb-session', 'send', 'QLDBSession', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-qldb-session', 'send', 'QLDBSessionClient', Promise.resolve(result), true, mock)

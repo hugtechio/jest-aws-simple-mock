@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockCostExplorer = {
+export const mockCostExplorer = {
   createAnomalyMonitor: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cost-explorer', 'createAnomalyMonitor', 'CostExplorer', Promise.resolve(result), true, mock)
   },
@@ -79,15 +78,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeCostCategoryDefinitionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cost-explorer', 'describeCostCategoryDefinition', 'CostExplorer', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cost-explorer', 'destroy', 'CostExplorer', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cost-explorer', 'destroy', 'CostExplorer', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cost-explorer', 'destroy', 'CostExplorer', Promise.reject(result), true, mock)
   },
   getAnomalies: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cost-explorer', 'getAnomalies', 'CostExplorer', Promise.resolve(result), true, mock)
@@ -197,6 +187,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getRightsizingRecommendationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cost-explorer', 'getRightsizingRecommendation', 'CostExplorer', Promise.reject(result), true, mock)
   },
+  getSavingsPlanPurchaseRecommendationDetails: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cost-explorer', 'getSavingsPlanPurchaseRecommendationDetails', 'CostExplorer', Promise.resolve(result), true, mock)
+  },
+  getSavingsPlanPurchaseRecommendationDetailsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cost-explorer', 'getSavingsPlanPurchaseRecommendationDetails', 'CostExplorer', Promise.resolve(result), false, mock)
+  },
+  getSavingsPlanPurchaseRecommendationDetailsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cost-explorer', 'getSavingsPlanPurchaseRecommendationDetails', 'CostExplorer', Promise.reject(result), true, mock)
+  },
   getSavingsPlansCoverage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cost-explorer', 'getSavingsPlansCoverage', 'CostExplorer', Promise.resolve(result), true, mock)
   },
@@ -251,6 +250,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getUsageForecastThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cost-explorer', 'getUsageForecast', 'CostExplorer', Promise.reject(result), true, mock)
   },
+  listCostAllocationTags: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cost-explorer', 'listCostAllocationTags', 'CostExplorer', Promise.resolve(result), true, mock)
+  },
+  listCostAllocationTagsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cost-explorer', 'listCostAllocationTags', 'CostExplorer', Promise.resolve(result), false, mock)
+  },
+  listCostAllocationTagsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cost-explorer', 'listCostAllocationTags', 'CostExplorer', Promise.reject(result), true, mock)
+  },
   listCostCategoryDefinitions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cost-explorer', 'listCostCategoryDefinitions', 'CostExplorer', Promise.resolve(result), true, mock)
   },
@@ -260,6 +268,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listCostCategoryDefinitionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cost-explorer', 'listCostCategoryDefinitions', 'CostExplorer', Promise.reject(result), true, mock)
   },
+  listSavingsPlansPurchaseRecommendationGeneration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cost-explorer', 'listSavingsPlansPurchaseRecommendationGeneration', 'CostExplorer', Promise.resolve(result), true, mock)
+  },
+  listSavingsPlansPurchaseRecommendationGenerationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cost-explorer', 'listSavingsPlansPurchaseRecommendationGeneration', 'CostExplorer', Promise.resolve(result), false, mock)
+  },
+  listSavingsPlansPurchaseRecommendationGenerationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cost-explorer', 'listSavingsPlansPurchaseRecommendationGeneration', 'CostExplorer', Promise.reject(result), true, mock)
+  },
+  listTagsForResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cost-explorer', 'listTagsForResource', 'CostExplorer', Promise.resolve(result), true, mock)
+  },
+  listTagsForResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cost-explorer', 'listTagsForResource', 'CostExplorer', Promise.resolve(result), false, mock)
+  },
+  listTagsForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cost-explorer', 'listTagsForResource', 'CostExplorer', Promise.reject(result), true, mock)
+  },
   provideAnomalyFeedback: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cost-explorer', 'provideAnomalyFeedback', 'CostExplorer', Promise.resolve(result), true, mock)
   },
@@ -268,6 +294,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   provideAnomalyFeedbackThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cost-explorer', 'provideAnomalyFeedback', 'CostExplorer', Promise.reject(result), true, mock)
+  },
+  startSavingsPlansPurchaseRecommendationGeneration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cost-explorer', 'startSavingsPlansPurchaseRecommendationGeneration', 'CostExplorer', Promise.resolve(result), true, mock)
+  },
+  startSavingsPlansPurchaseRecommendationGenerationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cost-explorer', 'startSavingsPlansPurchaseRecommendationGeneration', 'CostExplorer', Promise.resolve(result), false, mock)
+  },
+  startSavingsPlansPurchaseRecommendationGenerationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cost-explorer', 'startSavingsPlansPurchaseRecommendationGeneration', 'CostExplorer', Promise.reject(result), true, mock)
+  },
+  tagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cost-explorer', 'tagResource', 'CostExplorer', Promise.resolve(result), true, mock)
+  },
+  tagResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cost-explorer', 'tagResource', 'CostExplorer', Promise.resolve(result), false, mock)
+  },
+  tagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cost-explorer', 'tagResource', 'CostExplorer', Promise.reject(result), true, mock)
+  },
+  untagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cost-explorer', 'untagResource', 'CostExplorer', Promise.resolve(result), true, mock)
+  },
+  untagResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cost-explorer', 'untagResource', 'CostExplorer', Promise.resolve(result), false, mock)
+  },
+  untagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cost-explorer', 'untagResource', 'CostExplorer', Promise.reject(result), true, mock)
   },
   updateAnomalyMonitor: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cost-explorer', 'updateAnomalyMonitor', 'CostExplorer', Promise.resolve(result), true, mock)
@@ -286,6 +339,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateAnomalySubscriptionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cost-explorer', 'updateAnomalySubscription', 'CostExplorer', Promise.reject(result), true, mock)
+  },
+  updateCostAllocationTagsStatus: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cost-explorer', 'updateCostAllocationTagsStatus', 'CostExplorer', Promise.resolve(result), true, mock)
+  },
+  updateCostAllocationTagsStatusAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cost-explorer', 'updateCostAllocationTagsStatus', 'CostExplorer', Promise.resolve(result), false, mock)
+  },
+  updateCostAllocationTagsStatusThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cost-explorer', 'updateCostAllocationTagsStatus', 'CostExplorer', Promise.reject(result), true, mock)
   },
   updateCostCategoryDefinition: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cost-explorer', 'updateCostCategoryDefinition', 'CostExplorer', Promise.resolve(result), true, mock)

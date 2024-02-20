@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockRoute53RecoveryReadiness = {
+export const mockRoute53RecoveryReadiness = {
   createCell: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route53-recovery-readiness', 'createCell', 'Route53RecoveryReadiness', Promise.resolve(result), true, mock)
   },
@@ -106,15 +105,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteResourceSetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route53-recovery-readiness', 'deleteResourceSet', 'Route53RecoveryReadiness', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-route53-recovery-readiness', 'destroy', 'Route53RecoveryReadiness', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-route53-recovery-readiness', 'destroy', 'Route53RecoveryReadiness', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-route53-recovery-readiness', 'destroy', 'Route53RecoveryReadiness', Promise.reject(result), true, mock)
   },
   getArchitectureRecommendations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-route53-recovery-readiness', 'getArchitectureRecommendations', 'Route53RecoveryReadiness', Promise.resolve(result), true, mock)

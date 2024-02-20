@@ -15,8 +15,34 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockAppSync = {
+export const mockAppSync = {
+  associateApi: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'associateApi', 'AppSync', Promise.resolve(result), true, mock)
+  },
+  associateApiAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'associateApi', 'AppSync', Promise.resolve(result), false, mock)
+  },
+  associateApiThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'associateApi', 'AppSync', Promise.reject(result), true, mock)
+  },
+  associateMergedGraphqlApi: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'associateMergedGraphqlApi', 'AppSync', Promise.resolve(result), true, mock)
+  },
+  associateMergedGraphqlApiAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'associateMergedGraphqlApi', 'AppSync', Promise.resolve(result), false, mock)
+  },
+  associateMergedGraphqlApiThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'associateMergedGraphqlApi', 'AppSync', Promise.reject(result), true, mock)
+  },
+  associateSourceGraphqlApi: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'associateSourceGraphqlApi', 'AppSync', Promise.resolve(result), true, mock)
+  },
+  associateSourceGraphqlApiAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'associateSourceGraphqlApi', 'AppSync', Promise.resolve(result), false, mock)
+  },
+  associateSourceGraphqlApiThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'associateSourceGraphqlApi', 'AppSync', Promise.reject(result), true, mock)
+  },
   createApiCache: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appsync', 'createApiCache', 'AppSync', Promise.resolve(result), true, mock)
   },
@@ -43,6 +69,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createDataSourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appsync', 'createDataSource', 'AppSync', Promise.reject(result), true, mock)
+  },
+  createDomainName: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'createDomainName', 'AppSync', Promise.resolve(result), true, mock)
+  },
+  createDomainNameAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'createDomainName', 'AppSync', Promise.resolve(result), false, mock)
+  },
+  createDomainNameThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'createDomainName', 'AppSync', Promise.reject(result), true, mock)
   },
   createFunction: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appsync', 'createFunction', 'AppSync', Promise.resolve(result), true, mock)
@@ -107,6 +142,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteDataSourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appsync', 'deleteDataSource', 'AppSync', Promise.reject(result), true, mock)
   },
+  deleteDomainName: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'deleteDomainName', 'AppSync', Promise.resolve(result), true, mock)
+  },
+  deleteDomainNameAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'deleteDomainName', 'AppSync', Promise.resolve(result), false, mock)
+  },
+  deleteDomainNameThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'deleteDomainName', 'AppSync', Promise.reject(result), true, mock)
+  },
   deleteFunction: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appsync', 'deleteFunction', 'AppSync', Promise.resolve(result), true, mock)
   },
@@ -143,14 +187,50 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteTypeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appsync', 'deleteType', 'AppSync', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-appsync', 'destroy', 'AppSync', Promise.resolve(result), true, mock)
+  disassociateApi: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'disassociateApi', 'AppSync', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-appsync', 'destroy', 'AppSync', Promise.resolve(result), false, mock)
+  disassociateApiAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'disassociateApi', 'AppSync', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-appsync', 'destroy', 'AppSync', Promise.reject(result), true, mock)
+  disassociateApiThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'disassociateApi', 'AppSync', Promise.reject(result), true, mock)
+  },
+  disassociateMergedGraphqlApi: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'disassociateMergedGraphqlApi', 'AppSync', Promise.resolve(result), true, mock)
+  },
+  disassociateMergedGraphqlApiAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'disassociateMergedGraphqlApi', 'AppSync', Promise.resolve(result), false, mock)
+  },
+  disassociateMergedGraphqlApiThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'disassociateMergedGraphqlApi', 'AppSync', Promise.reject(result), true, mock)
+  },
+  disassociateSourceGraphqlApi: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'disassociateSourceGraphqlApi', 'AppSync', Promise.resolve(result), true, mock)
+  },
+  disassociateSourceGraphqlApiAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'disassociateSourceGraphqlApi', 'AppSync', Promise.resolve(result), false, mock)
+  },
+  disassociateSourceGraphqlApiThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'disassociateSourceGraphqlApi', 'AppSync', Promise.reject(result), true, mock)
+  },
+  evaluateCode: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'evaluateCode', 'AppSync', Promise.resolve(result), true, mock)
+  },
+  evaluateCodeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'evaluateCode', 'AppSync', Promise.resolve(result), false, mock)
+  },
+  evaluateCodeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'evaluateCode', 'AppSync', Promise.reject(result), true, mock)
+  },
+  evaluateMappingTemplate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'evaluateMappingTemplate', 'AppSync', Promise.resolve(result), true, mock)
+  },
+  evaluateMappingTemplateAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'evaluateMappingTemplate', 'AppSync', Promise.resolve(result), false, mock)
+  },
+  evaluateMappingTemplateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'evaluateMappingTemplate', 'AppSync', Promise.reject(result), true, mock)
   },
   flushApiCache: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appsync', 'flushApiCache', 'AppSync', Promise.resolve(result), true, mock)
@@ -160,6 +240,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   flushApiCacheThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appsync', 'flushApiCache', 'AppSync', Promise.reject(result), true, mock)
+  },
+  getApiAssociation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'getApiAssociation', 'AppSync', Promise.resolve(result), true, mock)
+  },
+  getApiAssociationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'getApiAssociation', 'AppSync', Promise.resolve(result), false, mock)
+  },
+  getApiAssociationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'getApiAssociation', 'AppSync', Promise.reject(result), true, mock)
   },
   getApiCache: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appsync', 'getApiCache', 'AppSync', Promise.resolve(result), true, mock)
@@ -179,6 +268,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getDataSourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appsync', 'getDataSource', 'AppSync', Promise.reject(result), true, mock)
   },
+  getDataSourceIntrospection: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'getDataSourceIntrospection', 'AppSync', Promise.resolve(result), true, mock)
+  },
+  getDataSourceIntrospectionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'getDataSourceIntrospection', 'AppSync', Promise.resolve(result), false, mock)
+  },
+  getDataSourceIntrospectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'getDataSourceIntrospection', 'AppSync', Promise.reject(result), true, mock)
+  },
+  getDomainName: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'getDomainName', 'AppSync', Promise.resolve(result), true, mock)
+  },
+  getDomainNameAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'getDomainName', 'AppSync', Promise.resolve(result), false, mock)
+  },
+  getDomainNameThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'getDomainName', 'AppSync', Promise.reject(result), true, mock)
+  },
   getFunction: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appsync', 'getFunction', 'AppSync', Promise.resolve(result), true, mock)
   },
@@ -196,6 +303,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getGraphqlApiThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appsync', 'getGraphqlApi', 'AppSync', Promise.reject(result), true, mock)
+  },
+  getGraphqlApiEnvironmentVariables: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'getGraphqlApiEnvironmentVariables', 'AppSync', Promise.resolve(result), true, mock)
+  },
+  getGraphqlApiEnvironmentVariablesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'getGraphqlApiEnvironmentVariables', 'AppSync', Promise.resolve(result), false, mock)
+  },
+  getGraphqlApiEnvironmentVariablesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'getGraphqlApiEnvironmentVariables', 'AppSync', Promise.reject(result), true, mock)
   },
   getIntrospectionSchema: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appsync', 'getIntrospectionSchema', 'AppSync', Promise.resolve(result), true, mock)
@@ -224,6 +340,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getSchemaCreationStatusThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appsync', 'getSchemaCreationStatus', 'AppSync', Promise.reject(result), true, mock)
   },
+  getSourceApiAssociation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'getSourceApiAssociation', 'AppSync', Promise.resolve(result), true, mock)
+  },
+  getSourceApiAssociationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'getSourceApiAssociation', 'AppSync', Promise.resolve(result), false, mock)
+  },
+  getSourceApiAssociationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'getSourceApiAssociation', 'AppSync', Promise.reject(result), true, mock)
+  },
   getType: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appsync', 'getType', 'AppSync', Promise.resolve(result), true, mock)
   },
@@ -251,6 +376,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listDataSourcesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appsync', 'listDataSources', 'AppSync', Promise.reject(result), true, mock)
   },
+  listDomainNames: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'listDomainNames', 'AppSync', Promise.resolve(result), true, mock)
+  },
+  listDomainNamesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'listDomainNames', 'AppSync', Promise.resolve(result), false, mock)
+  },
+  listDomainNamesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'listDomainNames', 'AppSync', Promise.reject(result), true, mock)
+  },
   listFunctions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appsync', 'listFunctions', 'AppSync', Promise.resolve(result), true, mock)
   },
@@ -269,6 +403,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listGraphqlApisThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appsync', 'listGraphqlApis', 'AppSync', Promise.reject(result), true, mock)
   },
+  listResolversByFunction: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'listResolversByFunction', 'AppSync', Promise.resolve(result), true, mock)
+  },
+  listResolversByFunctionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'listResolversByFunction', 'AppSync', Promise.resolve(result), false, mock)
+  },
+  listResolversByFunctionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'listResolversByFunction', 'AppSync', Promise.reject(result), true, mock)
+  },
   listResolvers: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appsync', 'listResolvers', 'AppSync', Promise.resolve(result), true, mock)
   },
@@ -278,14 +421,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listResolversThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appsync', 'listResolvers', 'AppSync', Promise.reject(result), true, mock)
   },
-  listResolversByFunction: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-appsync', 'listResolversByFunction', 'AppSync', Promise.resolve(result), true, mock)
+  listSourceApiAssociations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'listSourceApiAssociations', 'AppSync', Promise.resolve(result), true, mock)
   },
-  listResolversByFunctionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-appsync', 'listResolversByFunction', 'AppSync', Promise.resolve(result), false, mock)
+  listSourceApiAssociationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'listSourceApiAssociations', 'AppSync', Promise.resolve(result), false, mock)
   },
-  listResolversByFunctionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-appsync', 'listResolversByFunction', 'AppSync', Promise.reject(result), true, mock)
+  listSourceApiAssociationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'listSourceApiAssociations', 'AppSync', Promise.reject(result), true, mock)
   },
   listTagsForResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appsync', 'listTagsForResource', 'AppSync', Promise.resolve(result), true, mock)
@@ -296,6 +439,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listTagsForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appsync', 'listTagsForResource', 'AppSync', Promise.reject(result), true, mock)
   },
+  listTypesByAssociation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'listTypesByAssociation', 'AppSync', Promise.resolve(result), true, mock)
+  },
+  listTypesByAssociationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'listTypesByAssociation', 'AppSync', Promise.resolve(result), false, mock)
+  },
+  listTypesByAssociationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'listTypesByAssociation', 'AppSync', Promise.reject(result), true, mock)
+  },
   listTypes: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appsync', 'listTypes', 'AppSync', Promise.resolve(result), true, mock)
   },
@@ -305,6 +457,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listTypesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appsync', 'listTypes', 'AppSync', Promise.reject(result), true, mock)
   },
+  putGraphqlApiEnvironmentVariables: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'putGraphqlApiEnvironmentVariables', 'AppSync', Promise.resolve(result), true, mock)
+  },
+  putGraphqlApiEnvironmentVariablesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'putGraphqlApiEnvironmentVariables', 'AppSync', Promise.resolve(result), false, mock)
+  },
+  putGraphqlApiEnvironmentVariablesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'putGraphqlApiEnvironmentVariables', 'AppSync', Promise.reject(result), true, mock)
+  },
+  startDataSourceIntrospection: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'startDataSourceIntrospection', 'AppSync', Promise.resolve(result), true, mock)
+  },
+  startDataSourceIntrospectionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'startDataSourceIntrospection', 'AppSync', Promise.resolve(result), false, mock)
+  },
+  startDataSourceIntrospectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'startDataSourceIntrospection', 'AppSync', Promise.reject(result), true, mock)
+  },
   startSchemaCreation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appsync', 'startSchemaCreation', 'AppSync', Promise.resolve(result), true, mock)
   },
@@ -313,6 +483,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   startSchemaCreationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appsync', 'startSchemaCreation', 'AppSync', Promise.reject(result), true, mock)
+  },
+  startSchemaMerge: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'startSchemaMerge', 'AppSync', Promise.resolve(result), true, mock)
+  },
+  startSchemaMergeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'startSchemaMerge', 'AppSync', Promise.resolve(result), false, mock)
+  },
+  startSchemaMergeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'startSchemaMerge', 'AppSync', Promise.reject(result), true, mock)
   },
   tagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appsync', 'tagResource', 'AppSync', Promise.resolve(result), true, mock)
@@ -359,6 +538,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   updateDataSourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appsync', 'updateDataSource', 'AppSync', Promise.reject(result), true, mock)
   },
+  updateDomainName: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'updateDomainName', 'AppSync', Promise.resolve(result), true, mock)
+  },
+  updateDomainNameAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'updateDomainName', 'AppSync', Promise.resolve(result), false, mock)
+  },
+  updateDomainNameThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'updateDomainName', 'AppSync', Promise.reject(result), true, mock)
+  },
   updateFunction: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appsync', 'updateFunction', 'AppSync', Promise.resolve(result), true, mock)
   },
@@ -385,6 +573,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateResolverThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appsync', 'updateResolver', 'AppSync', Promise.reject(result), true, mock)
+  },
+  updateSourceApiAssociation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'updateSourceApiAssociation', 'AppSync', Promise.resolve(result), true, mock)
+  },
+  updateSourceApiAssociationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'updateSourceApiAssociation', 'AppSync', Promise.resolve(result), false, mock)
+  },
+  updateSourceApiAssociationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appsync', 'updateSourceApiAssociation', 'AppSync', Promise.reject(result), true, mock)
   },
   updateType: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appsync', 'updateType', 'AppSync', Promise.resolve(result), true, mock)

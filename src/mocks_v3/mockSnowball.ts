@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockSnowball = {
+export const mockSnowball = {
   cancelCluster: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-snowball', 'cancelCluster', 'Snowball', Promise.resolve(result), true, mock)
   },
@@ -125,15 +124,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeReturnShippingLabelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-snowball', 'describeReturnShippingLabel', 'Snowball', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-snowball', 'destroy', 'Snowball', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-snowball', 'destroy', 'Snowball', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-snowball', 'destroy', 'Snowball', Promise.reject(result), true, mock)
-  },
   getJobManifest: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-snowball', 'getJobManifest', 'Snowball', Promise.resolve(result), true, mock)
   },
@@ -214,6 +204,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listLongTermPricingThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-snowball', 'listLongTermPricing', 'Snowball', Promise.reject(result), true, mock)
+  },
+  listPickupLocations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-snowball', 'listPickupLocations', 'Snowball', Promise.resolve(result), true, mock)
+  },
+  listPickupLocationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-snowball', 'listPickupLocations', 'Snowball', Promise.resolve(result), false, mock)
+  },
+  listPickupLocationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-snowball', 'listPickupLocations', 'Snowball', Promise.reject(result), true, mock)
+  },
+  listServiceVersions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-snowball', 'listServiceVersions', 'Snowball', Promise.resolve(result), true, mock)
+  },
+  listServiceVersionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-snowball', 'listServiceVersions', 'Snowball', Promise.resolve(result), false, mock)
+  },
+  listServiceVersionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-snowball', 'listServiceVersions', 'Snowball', Promise.reject(result), true, mock)
   },
   updateCluster: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-snowball', 'updateCluster', 'Snowball', Promise.resolve(result), true, mock)

@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockNeptune = {
+export const mockNeptune = {
   addRoleToDBCluster: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-neptune', 'addRoleToDBCluster', 'Neptune', Promise.resolve(result), true, mock)
   },
@@ -152,6 +151,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createEventSubscriptionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-neptune', 'createEventSubscription', 'Neptune', Promise.reject(result), true, mock)
   },
+  createGlobalCluster: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-neptune', 'createGlobalCluster', 'Neptune', Promise.resolve(result), true, mock)
+  },
+  createGlobalClusterAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-neptune', 'createGlobalCluster', 'Neptune', Promise.resolve(result), false, mock)
+  },
+  createGlobalClusterThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-neptune', 'createGlobalCluster', 'Neptune', Promise.reject(result), true, mock)
+  },
   deleteDBCluster: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-neptune', 'deleteDBCluster', 'Neptune', Promise.resolve(result), true, mock)
   },
@@ -223,6 +231,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteEventSubscriptionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-neptune', 'deleteEventSubscription', 'Neptune', Promise.reject(result), true, mock)
+  },
+  deleteGlobalCluster: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-neptune', 'deleteGlobalCluster', 'Neptune', Promise.resolve(result), true, mock)
+  },
+  deleteGlobalClusterAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-neptune', 'deleteGlobalCluster', 'Neptune', Promise.resolve(result), false, mock)
+  },
+  deleteGlobalClusterThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-neptune', 'deleteGlobalCluster', 'Neptune', Promise.reject(result), true, mock)
   },
   describeDBClusterEndpoints: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-neptune', 'describeDBClusterEndpoints', 'Neptune', Promise.resolve(result), true, mock)
@@ -368,6 +385,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeEventsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-neptune', 'describeEvents', 'Neptune', Promise.reject(result), true, mock)
   },
+  describeGlobalClusters: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-neptune', 'describeGlobalClusters', 'Neptune', Promise.resolve(result), true, mock)
+  },
+  describeGlobalClustersAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-neptune', 'describeGlobalClusters', 'Neptune', Promise.resolve(result), false, mock)
+  },
+  describeGlobalClustersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-neptune', 'describeGlobalClusters', 'Neptune', Promise.reject(result), true, mock)
+  },
   describeOrderableDBInstanceOptions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-neptune', 'describeOrderableDBInstanceOptions', 'Neptune', Promise.resolve(result), true, mock)
   },
@@ -395,15 +421,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeValidDBInstanceModificationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-neptune', 'describeValidDBInstanceModifications', 'Neptune', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-neptune', 'destroy', 'Neptune', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-neptune', 'destroy', 'Neptune', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-neptune', 'destroy', 'Neptune', Promise.reject(result), true, mock)
-  },
   failoverDBCluster: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-neptune', 'failoverDBCluster', 'Neptune', Promise.resolve(result), true, mock)
   },
@@ -412,6 +429,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   failoverDBClusterThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-neptune', 'failoverDBCluster', 'Neptune', Promise.reject(result), true, mock)
+  },
+  failoverGlobalCluster: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-neptune', 'failoverGlobalCluster', 'Neptune', Promise.resolve(result), true, mock)
+  },
+  failoverGlobalClusterAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-neptune', 'failoverGlobalCluster', 'Neptune', Promise.resolve(result), false, mock)
+  },
+  failoverGlobalClusterThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-neptune', 'failoverGlobalCluster', 'Neptune', Promise.reject(result), true, mock)
   },
   listTagsForResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-neptune', 'listTagsForResource', 'Neptune', Promise.resolve(result), true, mock)
@@ -494,6 +520,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   modifyEventSubscriptionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-neptune', 'modifyEventSubscription', 'Neptune', Promise.reject(result), true, mock)
   },
+  modifyGlobalCluster: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-neptune', 'modifyGlobalCluster', 'Neptune', Promise.resolve(result), true, mock)
+  },
+  modifyGlobalClusterAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-neptune', 'modifyGlobalCluster', 'Neptune', Promise.resolve(result), false, mock)
+  },
+  modifyGlobalClusterThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-neptune', 'modifyGlobalCluster', 'Neptune', Promise.reject(result), true, mock)
+  },
   promoteReadReplicaDBCluster: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-neptune', 'promoteReadReplicaDBCluster', 'Neptune', Promise.resolve(result), true, mock)
   },
@@ -511,6 +546,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   rebootDBInstanceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-neptune', 'rebootDBInstance', 'Neptune', Promise.reject(result), true, mock)
+  },
+  removeFromGlobalCluster: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-neptune', 'removeFromGlobalCluster', 'Neptune', Promise.resolve(result), true, mock)
+  },
+  removeFromGlobalClusterAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-neptune', 'removeFromGlobalCluster', 'Neptune', Promise.resolve(result), false, mock)
+  },
+  removeFromGlobalClusterThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-neptune', 'removeFromGlobalCluster', 'Neptune', Promise.reject(result), true, mock)
   },
   removeRoleFromDBCluster: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-neptune', 'removeRoleFromDBCluster', 'Neptune', Promise.resolve(result), true, mock)

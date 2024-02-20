@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockDirectoryService = {
+export const mockDirectoryService = {
   acceptSharedDirectory: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-directory-service', 'acceptSharedDirectory', 'DirectoryService', Promise.resolve(result), true, mock)
   },
@@ -278,6 +277,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeRegionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-directory-service', 'describeRegions', 'DirectoryService', Promise.reject(result), true, mock)
   },
+  describeSettings: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-directory-service', 'describeSettings', 'DirectoryService', Promise.resolve(result), true, mock)
+  },
+  describeSettingsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-directory-service', 'describeSettings', 'DirectoryService', Promise.resolve(result), false, mock)
+  },
+  describeSettingsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-directory-service', 'describeSettings', 'DirectoryService', Promise.reject(result), true, mock)
+  },
   describeSharedDirectories: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-directory-service', 'describeSharedDirectories', 'DirectoryService', Promise.resolve(result), true, mock)
   },
@@ -305,14 +313,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeTrustsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-directory-service', 'describeTrusts', 'DirectoryService', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-directory-service', 'destroy', 'DirectoryService', Promise.resolve(result), true, mock)
+  describeUpdateDirectory: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-directory-service', 'describeUpdateDirectory', 'DirectoryService', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-directory-service', 'destroy', 'DirectoryService', Promise.resolve(result), false, mock)
+  describeUpdateDirectoryAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-directory-service', 'describeUpdateDirectory', 'DirectoryService', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-directory-service', 'destroy', 'DirectoryService', Promise.reject(result), true, mock)
+  describeUpdateDirectoryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-directory-service', 'describeUpdateDirectory', 'DirectoryService', Promise.reject(result), true, mock)
   },
   disableClientAuthentication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-directory-service', 'disableClientAuthentication', 'DirectoryService', Promise.resolve(result), true, mock)
@@ -557,6 +565,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   updateConditionalForwarderThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-directory-service', 'updateConditionalForwarder', 'DirectoryService', Promise.reject(result), true, mock)
   },
+  updateDirectorySetup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-directory-service', 'updateDirectorySetup', 'DirectoryService', Promise.resolve(result), true, mock)
+  },
+  updateDirectorySetupAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-directory-service', 'updateDirectorySetup', 'DirectoryService', Promise.resolve(result), false, mock)
+  },
+  updateDirectorySetupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-directory-service', 'updateDirectorySetup', 'DirectoryService', Promise.reject(result), true, mock)
+  },
   updateNumberOfDomainControllers: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-directory-service', 'updateNumberOfDomainControllers', 'DirectoryService', Promise.resolve(result), true, mock)
   },
@@ -574,6 +591,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateRadiusThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-directory-service', 'updateRadius', 'DirectoryService', Promise.reject(result), true, mock)
+  },
+  updateSettings: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-directory-service', 'updateSettings', 'DirectoryService', Promise.resolve(result), true, mock)
+  },
+  updateSettingsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-directory-service', 'updateSettings', 'DirectoryService', Promise.resolve(result), false, mock)
+  },
+  updateSettingsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-directory-service', 'updateSettings', 'DirectoryService', Promise.reject(result), true, mock)
   },
   updateTrust: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-directory-service', 'updateTrust', 'DirectoryService', Promise.resolve(result), true, mock)

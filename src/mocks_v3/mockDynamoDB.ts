@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockDynamoDB = {
+export const mockDynamoDB = {
   batchExecuteStatement: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-dynamodb', 'batchExecuteStatement', 'DynamoDB', Promise.resolve(result), true, mock)
   },
@@ -161,6 +160,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeGlobalTableSettingsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-dynamodb', 'describeGlobalTableSettings', 'DynamoDB', Promise.reject(result), true, mock)
   },
+  describeImport: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-dynamodb', 'describeImport', 'DynamoDB', Promise.resolve(result), true, mock)
+  },
+  describeImportAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-dynamodb', 'describeImport', 'DynamoDB', Promise.resolve(result), false, mock)
+  },
+  describeImportThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-dynamodb', 'describeImport', 'DynamoDB', Promise.reject(result), true, mock)
+  },
   describeKinesisStreamingDestination: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-dynamodb', 'describeKinesisStreamingDestination', 'DynamoDB', Promise.resolve(result), true, mock)
   },
@@ -205,15 +213,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeTimeToLiveThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-dynamodb', 'describeTimeToLive', 'DynamoDB', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-dynamodb', 'destroy', 'DynamoDB', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-dynamodb', 'destroy', 'DynamoDB', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-dynamodb', 'destroy', 'DynamoDB', Promise.reject(result), true, mock)
   },
   disableKinesisStreamingDestination: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-dynamodb', 'disableKinesisStreamingDestination', 'DynamoDB', Promise.resolve(result), true, mock)
@@ -269,6 +268,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getItemThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-dynamodb', 'getItem', 'DynamoDB', Promise.reject(result), true, mock)
   },
+  importTable: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-dynamodb', 'importTable', 'DynamoDB', Promise.resolve(result), true, mock)
+  },
+  importTableAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-dynamodb', 'importTable', 'DynamoDB', Promise.resolve(result), false, mock)
+  },
+  importTableThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-dynamodb', 'importTable', 'DynamoDB', Promise.reject(result), true, mock)
+  },
   listBackups: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-dynamodb', 'listBackups', 'DynamoDB', Promise.resolve(result), true, mock)
   },
@@ -304,6 +312,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listGlobalTablesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-dynamodb', 'listGlobalTables', 'DynamoDB', Promise.reject(result), true, mock)
+  },
+  listImports: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-dynamodb', 'listImports', 'DynamoDB', Promise.resolve(result), true, mock)
+  },
+  listImportsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-dynamodb', 'listImports', 'DynamoDB', Promise.resolve(result), false, mock)
+  },
+  listImportsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-dynamodb', 'listImports', 'DynamoDB', Promise.reject(result), true, mock)
   },
   listTables: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-dynamodb', 'listTables', 'DynamoDB', Promise.resolve(result), true, mock)
@@ -448,6 +465,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateItemThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-dynamodb', 'updateItem', 'DynamoDB', Promise.reject(result), true, mock)
+  },
+  updateKinesisStreamingDestination: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-dynamodb', 'updateKinesisStreamingDestination', 'DynamoDB', Promise.resolve(result), true, mock)
+  },
+  updateKinesisStreamingDestinationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-dynamodb', 'updateKinesisStreamingDestination', 'DynamoDB', Promise.resolve(result), false, mock)
+  },
+  updateKinesisStreamingDestinationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-dynamodb', 'updateKinesisStreamingDestination', 'DynamoDB', Promise.reject(result), true, mock)
   },
   updateTable: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-dynamodb', 'updateTable', 'DynamoDB', Promise.resolve(result), true, mock)

@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockRedshift = {
+export const mockRedshift = {
   acceptReservedNodeExchange: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-redshift', 'acceptReservedNodeExchange', 'Redshift', Promise.resolve(result), true, mock)
   },
@@ -170,6 +169,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createClusterSubnetGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-redshift', 'createClusterSubnetGroup', 'Redshift', Promise.reject(result), true, mock)
   },
+  createCustomDomainAssociation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'createCustomDomainAssociation', 'Redshift', Promise.resolve(result), true, mock)
+  },
+  createCustomDomainAssociationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'createCustomDomainAssociation', 'Redshift', Promise.resolve(result), false, mock)
+  },
+  createCustomDomainAssociationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'createCustomDomainAssociation', 'Redshift', Promise.reject(result), true, mock)
+  },
   createEndpointAccess: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-redshift', 'createEndpointAccess', 'Redshift', Promise.resolve(result), true, mock)
   },
@@ -205,6 +213,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createHsmConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-redshift', 'createHsmConfiguration', 'Redshift', Promise.reject(result), true, mock)
+  },
+  createRedshiftIdcApplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'createRedshiftIdcApplication', 'Redshift', Promise.resolve(result), true, mock)
+  },
+  createRedshiftIdcApplicationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'createRedshiftIdcApplication', 'Redshift', Promise.resolve(result), false, mock)
+  },
+  createRedshiftIdcApplicationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'createRedshiftIdcApplication', 'Redshift', Promise.reject(result), true, mock)
   },
   createScheduledAction: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-redshift', 'createScheduledAction', 'Redshift', Promise.resolve(result), true, mock)
@@ -314,6 +331,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteClusterSubnetGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-redshift', 'deleteClusterSubnetGroup', 'Redshift', Promise.reject(result), true, mock)
   },
+  deleteCustomDomainAssociation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'deleteCustomDomainAssociation', 'Redshift', Promise.resolve(result), true, mock)
+  },
+  deleteCustomDomainAssociationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'deleteCustomDomainAssociation', 'Redshift', Promise.resolve(result), false, mock)
+  },
+  deleteCustomDomainAssociationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'deleteCustomDomainAssociation', 'Redshift', Promise.reject(result), true, mock)
+  },
   deleteEndpointAccess: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-redshift', 'deleteEndpointAccess', 'Redshift', Promise.resolve(result), true, mock)
   },
@@ -358,6 +384,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deletePartnerThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-redshift', 'deletePartner', 'Redshift', Promise.reject(result), true, mock)
+  },
+  deleteRedshiftIdcApplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'deleteRedshiftIdcApplication', 'Redshift', Promise.resolve(result), true, mock)
+  },
+  deleteRedshiftIdcApplicationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'deleteRedshiftIdcApplication', 'Redshift', Promise.resolve(result), false, mock)
+  },
+  deleteRedshiftIdcApplicationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'deleteRedshiftIdcApplication', 'Redshift', Promise.reject(result), true, mock)
+  },
+  deleteResourcePolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'deleteResourcePolicy', 'Redshift', Promise.resolve(result), true, mock)
+  },
+  deleteResourcePolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'deleteResourcePolicy', 'Redshift', Promise.resolve(result), false, mock)
+  },
+  deleteResourcePolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'deleteResourcePolicy', 'Redshift', Promise.reject(result), true, mock)
   },
   deleteScheduledAction: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-redshift', 'deleteScheduledAction', 'Redshift', Promise.resolve(result), true, mock)
@@ -503,6 +547,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeClustersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-redshift', 'describeClusters', 'Redshift', Promise.reject(result), true, mock)
   },
+  describeCustomDomainAssociations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'describeCustomDomainAssociations', 'Redshift', Promise.resolve(result), true, mock)
+  },
+  describeCustomDomainAssociationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'describeCustomDomainAssociations', 'Redshift', Promise.resolve(result), false, mock)
+  },
+  describeCustomDomainAssociationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'describeCustomDomainAssociations', 'Redshift', Promise.reject(result), true, mock)
+  },
   describeDataShares: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-redshift', 'describeDataShares', 'Redshift', Promise.resolve(result), true, mock)
   },
@@ -602,6 +655,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeHsmConfigurationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-redshift', 'describeHsmConfigurations', 'Redshift', Promise.reject(result), true, mock)
   },
+  describeInboundIntegrations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'describeInboundIntegrations', 'Redshift', Promise.resolve(result), true, mock)
+  },
+  describeInboundIntegrationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'describeInboundIntegrations', 'Redshift', Promise.resolve(result), false, mock)
+  },
+  describeInboundIntegrationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'describeInboundIntegrations', 'Redshift', Promise.reject(result), true, mock)
+  },
   describeLoggingStatus: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-redshift', 'describeLoggingStatus', 'Redshift', Promise.resolve(result), true, mock)
   },
@@ -637,6 +699,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describePartnersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-redshift', 'describePartners', 'Redshift', Promise.reject(result), true, mock)
+  },
+  describeRedshiftIdcApplications: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'describeRedshiftIdcApplications', 'Redshift', Promise.resolve(result), true, mock)
+  },
+  describeRedshiftIdcApplicationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'describeRedshiftIdcApplications', 'Redshift', Promise.resolve(result), false, mock)
+  },
+  describeRedshiftIdcApplicationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'describeRedshiftIdcApplications', 'Redshift', Promise.reject(result), true, mock)
+  },
+  describeReservedNodeExchangeStatus: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'describeReservedNodeExchangeStatus', 'Redshift', Promise.resolve(result), true, mock)
+  },
+  describeReservedNodeExchangeStatusAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'describeReservedNodeExchangeStatus', 'Redshift', Promise.resolve(result), false, mock)
+  },
+  describeReservedNodeExchangeStatusThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'describeReservedNodeExchangeStatus', 'Redshift', Promise.reject(result), true, mock)
   },
   describeReservedNodeOfferings: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-redshift', 'describeReservedNodeOfferings', 'Redshift', Promise.resolve(result), true, mock)
@@ -728,15 +808,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeUsageLimitsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-redshift', 'describeUsageLimits', 'Redshift', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-redshift', 'destroy', 'Redshift', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-redshift', 'destroy', 'Redshift', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-redshift', 'destroy', 'Redshift', Promise.reject(result), true, mock)
-  },
   disableLogging: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-redshift', 'disableLogging', 'Redshift', Promise.resolve(result), true, mock)
   },
@@ -782,6 +853,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   enableSnapshotCopyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-redshift', 'enableSnapshotCopy', 'Redshift', Promise.reject(result), true, mock)
   },
+  failoverPrimaryCompute: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'failoverPrimaryCompute', 'Redshift', Promise.resolve(result), true, mock)
+  },
+  failoverPrimaryComputeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'failoverPrimaryCompute', 'Redshift', Promise.resolve(result), false, mock)
+  },
+  failoverPrimaryComputeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'failoverPrimaryCompute', 'Redshift', Promise.reject(result), true, mock)
+  },
   getClusterCredentials: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-redshift', 'getClusterCredentials', 'Redshift', Promise.resolve(result), true, mock)
   },
@@ -791,6 +871,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getClusterCredentialsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-redshift', 'getClusterCredentials', 'Redshift', Promise.reject(result), true, mock)
   },
+  getClusterCredentialsWithIAM: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'getClusterCredentialsWithIAM', 'Redshift', Promise.resolve(result), true, mock)
+  },
+  getClusterCredentialsWithIAMAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'getClusterCredentialsWithIAM', 'Redshift', Promise.resolve(result), false, mock)
+  },
+  getClusterCredentialsWithIAMThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'getClusterCredentialsWithIAM', 'Redshift', Promise.reject(result), true, mock)
+  },
+  getReservedNodeExchangeConfigurationOptions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'getReservedNodeExchangeConfigurationOptions', 'Redshift', Promise.resolve(result), true, mock)
+  },
+  getReservedNodeExchangeConfigurationOptionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'getReservedNodeExchangeConfigurationOptions', 'Redshift', Promise.resolve(result), false, mock)
+  },
+  getReservedNodeExchangeConfigurationOptionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'getReservedNodeExchangeConfigurationOptions', 'Redshift', Promise.reject(result), true, mock)
+  },
   getReservedNodeExchangeOfferings: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-redshift', 'getReservedNodeExchangeOfferings', 'Redshift', Promise.resolve(result), true, mock)
   },
@@ -799,6 +897,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getReservedNodeExchangeOfferingsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-redshift', 'getReservedNodeExchangeOfferings', 'Redshift', Promise.reject(result), true, mock)
+  },
+  getResourcePolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'getResourcePolicy', 'Redshift', Promise.resolve(result), true, mock)
+  },
+  getResourcePolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'getResourcePolicy', 'Redshift', Promise.resolve(result), false, mock)
+  },
+  getResourcePolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'getResourcePolicy', 'Redshift', Promise.reject(result), true, mock)
+  },
+  listRecommendations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'listRecommendations', 'Redshift', Promise.resolve(result), true, mock)
+  },
+  listRecommendationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'listRecommendations', 'Redshift', Promise.resolve(result), false, mock)
+  },
+  listRecommendationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'listRecommendations', 'Redshift', Promise.reject(result), true, mock)
   },
   modifyAquaConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-redshift', 'modifyAquaConfiguration', 'Redshift', Promise.resolve(result), true, mock)
@@ -890,6 +1006,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   modifyClusterSubnetGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-redshift', 'modifyClusterSubnetGroup', 'Redshift', Promise.reject(result), true, mock)
   },
+  modifyCustomDomainAssociation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'modifyCustomDomainAssociation', 'Redshift', Promise.resolve(result), true, mock)
+  },
+  modifyCustomDomainAssociationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'modifyCustomDomainAssociation', 'Redshift', Promise.resolve(result), false, mock)
+  },
+  modifyCustomDomainAssociationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'modifyCustomDomainAssociation', 'Redshift', Promise.reject(result), true, mock)
+  },
   modifyEndpointAccess: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-redshift', 'modifyEndpointAccess', 'Redshift', Promise.resolve(result), true, mock)
   },
@@ -907,6 +1032,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   modifyEventSubscriptionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-redshift', 'modifyEventSubscription', 'Redshift', Promise.reject(result), true, mock)
+  },
+  modifyRedshiftIdcApplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'modifyRedshiftIdcApplication', 'Redshift', Promise.resolve(result), true, mock)
+  },
+  modifyRedshiftIdcApplicationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'modifyRedshiftIdcApplication', 'Redshift', Promise.resolve(result), false, mock)
+  },
+  modifyRedshiftIdcApplicationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'modifyRedshiftIdcApplication', 'Redshift', Promise.reject(result), true, mock)
   },
   modifyScheduledAction: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-redshift', 'modifyScheduledAction', 'Redshift', Promise.resolve(result), true, mock)
@@ -961,6 +1095,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   purchaseReservedNodeOfferingThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-redshift', 'purchaseReservedNodeOffering', 'Redshift', Promise.reject(result), true, mock)
+  },
+  putResourcePolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'putResourcePolicy', 'Redshift', Promise.resolve(result), true, mock)
+  },
+  putResourcePolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'putResourcePolicy', 'Redshift', Promise.resolve(result), false, mock)
+  },
+  putResourcePolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-redshift', 'putResourcePolicy', 'Redshift', Promise.reject(result), true, mock)
   },
   rebootCluster: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-redshift', 'rebootCluster', 'Redshift', Promise.resolve(result), true, mock)

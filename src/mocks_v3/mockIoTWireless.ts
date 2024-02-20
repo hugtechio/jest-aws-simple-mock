@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockIoTWireless = {
+export const mockIoTWireless = {
   associateAwsAccountWithPartnerAccount: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'associateAwsAccountWithPartnerAccount', 'IoTWireless', Promise.resolve(result), true, mock)
   },
@@ -125,6 +124,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createMulticastGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'createMulticastGroup', 'IoTWireless', Promise.reject(result), true, mock)
   },
+  createNetworkAnalyzerConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'createNetworkAnalyzerConfiguration', 'IoTWireless', Promise.resolve(result), true, mock)
+  },
+  createNetworkAnalyzerConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'createNetworkAnalyzerConfiguration', 'IoTWireless', Promise.resolve(result), false, mock)
+  },
+  createNetworkAnalyzerConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'createNetworkAnalyzerConfiguration', 'IoTWireless', Promise.reject(result), true, mock)
+  },
   createServiceProfile: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'createServiceProfile', 'IoTWireless', Promise.resolve(result), true, mock)
   },
@@ -206,6 +214,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteMulticastGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'deleteMulticastGroup', 'IoTWireless', Promise.reject(result), true, mock)
   },
+  deleteNetworkAnalyzerConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'deleteNetworkAnalyzerConfiguration', 'IoTWireless', Promise.resolve(result), true, mock)
+  },
+  deleteNetworkAnalyzerConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'deleteNetworkAnalyzerConfiguration', 'IoTWireless', Promise.resolve(result), false, mock)
+  },
+  deleteNetworkAnalyzerConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'deleteNetworkAnalyzerConfiguration', 'IoTWireless', Promise.reject(result), true, mock)
+  },
+  deleteQueuedMessages: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'deleteQueuedMessages', 'IoTWireless', Promise.resolve(result), true, mock)
+  },
+  deleteQueuedMessagesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'deleteQueuedMessages', 'IoTWireless', Promise.resolve(result), false, mock)
+  },
+  deleteQueuedMessagesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'deleteQueuedMessages', 'IoTWireless', Promise.reject(result), true, mock)
+  },
   deleteServiceProfile: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'deleteServiceProfile', 'IoTWireless', Promise.resolve(result), true, mock)
   },
@@ -223,6 +249,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteWirelessDeviceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'deleteWirelessDevice', 'IoTWireless', Promise.reject(result), true, mock)
+  },
+  deleteWirelessDeviceImportTask: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'deleteWirelessDeviceImportTask', 'IoTWireless', Promise.resolve(result), true, mock)
+  },
+  deleteWirelessDeviceImportTaskAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'deleteWirelessDeviceImportTask', 'IoTWireless', Promise.resolve(result), false, mock)
+  },
+  deleteWirelessDeviceImportTaskThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'deleteWirelessDeviceImportTask', 'IoTWireless', Promise.reject(result), true, mock)
   },
   deleteWirelessGateway: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'deleteWirelessGateway', 'IoTWireless', Promise.resolve(result), true, mock)
@@ -251,14 +286,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteWirelessGatewayTaskDefinitionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'deleteWirelessGatewayTaskDefinition', 'IoTWireless', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iot-wireless', 'destroy', 'IoTWireless', Promise.resolve(result), true, mock)
+  deregisterWirelessDevice: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'deregisterWirelessDevice', 'IoTWireless', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iot-wireless', 'destroy', 'IoTWireless', Promise.resolve(result), false, mock)
+  deregisterWirelessDeviceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'deregisterWirelessDevice', 'IoTWireless', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iot-wireless', 'destroy', 'IoTWireless', Promise.reject(result), true, mock)
+  deregisterWirelessDeviceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'deregisterWirelessDevice', 'IoTWireless', Promise.reject(result), true, mock)
   },
   disassociateAwsAccountFromPartnerAccount: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'disassociateAwsAccountFromPartnerAccount', 'IoTWireless', Promise.resolve(result), true, mock)
@@ -341,6 +376,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getDeviceProfileThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'getDeviceProfile', 'IoTWireless', Promise.reject(result), true, mock)
   },
+  getEventConfigurationByResourceTypes: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'getEventConfigurationByResourceTypes', 'IoTWireless', Promise.resolve(result), true, mock)
+  },
+  getEventConfigurationByResourceTypesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'getEventConfigurationByResourceTypes', 'IoTWireless', Promise.resolve(result), false, mock)
+  },
+  getEventConfigurationByResourceTypesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'getEventConfigurationByResourceTypes', 'IoTWireless', Promise.reject(result), true, mock)
+  },
   getFuotaTask: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'getFuotaTask', 'IoTWireless', Promise.resolve(result), true, mock)
   },
@@ -377,6 +421,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getMulticastGroupSessionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'getMulticastGroupSession', 'IoTWireless', Promise.reject(result), true, mock)
   },
+  getNetworkAnalyzerConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'getNetworkAnalyzerConfiguration', 'IoTWireless', Promise.resolve(result), true, mock)
+  },
+  getNetworkAnalyzerConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'getNetworkAnalyzerConfiguration', 'IoTWireless', Promise.resolve(result), false, mock)
+  },
+  getNetworkAnalyzerConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'getNetworkAnalyzerConfiguration', 'IoTWireless', Promise.reject(result), true, mock)
+  },
   getPartnerAccount: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'getPartnerAccount', 'IoTWireless', Promise.resolve(result), true, mock)
   },
@@ -385,6 +438,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getPartnerAccountThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'getPartnerAccount', 'IoTWireless', Promise.reject(result), true, mock)
+  },
+  getPosition: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'getPosition', 'IoTWireless', Promise.resolve(result), true, mock)
+  },
+  getPositionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'getPosition', 'IoTWireless', Promise.resolve(result), false, mock)
+  },
+  getPositionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'getPosition', 'IoTWireless', Promise.reject(result), true, mock)
+  },
+  getPositionConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'getPositionConfiguration', 'IoTWireless', Promise.resolve(result), true, mock)
+  },
+  getPositionConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'getPositionConfiguration', 'IoTWireless', Promise.resolve(result), false, mock)
+  },
+  getPositionConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'getPositionConfiguration', 'IoTWireless', Promise.reject(result), true, mock)
+  },
+  getPositionEstimate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'getPositionEstimate', 'IoTWireless', Promise.resolve(result), true, mock)
+  },
+  getPositionEstimateAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'getPositionEstimate', 'IoTWireless', Promise.resolve(result), false, mock)
+  },
+  getPositionEstimateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'getPositionEstimate', 'IoTWireless', Promise.reject(result), true, mock)
   },
   getResourceEventConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'getResourceEventConfiguration', 'IoTWireless', Promise.resolve(result), true, mock)
@@ -403,6 +483,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getResourceLogLevelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'getResourceLogLevel', 'IoTWireless', Promise.reject(result), true, mock)
+  },
+  getResourcePosition: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'getResourcePosition', 'IoTWireless', Promise.resolve(result), true, mock)
+  },
+  getResourcePositionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'getResourcePosition', 'IoTWireless', Promise.resolve(result), false, mock)
+  },
+  getResourcePositionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'getResourcePosition', 'IoTWireless', Promise.reject(result), true, mock)
   },
   getServiceEndpoint: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'getServiceEndpoint', 'IoTWireless', Promise.resolve(result), true, mock)
@@ -431,6 +520,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getWirelessDeviceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'getWirelessDevice', 'IoTWireless', Promise.reject(result), true, mock)
   },
+  getWirelessDeviceImportTask: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'getWirelessDeviceImportTask', 'IoTWireless', Promise.resolve(result), true, mock)
+  },
+  getWirelessDeviceImportTaskAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'getWirelessDeviceImportTask', 'IoTWireless', Promise.resolve(result), false, mock)
+  },
+  getWirelessDeviceImportTaskThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'getWirelessDeviceImportTask', 'IoTWireless', Promise.reject(result), true, mock)
+  },
   getWirelessDeviceStatistics: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'getWirelessDeviceStatistics', 'IoTWireless', Promise.resolve(result), true, mock)
   },
@@ -440,15 +538,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getWirelessDeviceStatisticsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'getWirelessDeviceStatistics', 'IoTWireless', Promise.reject(result), true, mock)
   },
-  getWirelessGateway: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iot-wireless', 'getWirelessGateway', 'IoTWireless', Promise.resolve(result), true, mock)
-  },
-  getWirelessGatewayAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iot-wireless', 'getWirelessGateway', 'IoTWireless', Promise.resolve(result), false, mock)
-  },
-  getWirelessGatewayThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iot-wireless', 'getWirelessGateway', 'IoTWireless', Promise.reject(result), true, mock)
-  },
   getWirelessGatewayCertificate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'getWirelessGatewayCertificate', 'IoTWireless', Promise.resolve(result), true, mock)
   },
@@ -457,6 +546,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getWirelessGatewayCertificateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'getWirelessGatewayCertificate', 'IoTWireless', Promise.reject(result), true, mock)
+  },
+  getWirelessGateway: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'getWirelessGateway', 'IoTWireless', Promise.resolve(result), true, mock)
+  },
+  getWirelessGatewayAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'getWirelessGateway', 'IoTWireless', Promise.resolve(result), false, mock)
+  },
+  getWirelessGatewayThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'getWirelessGateway', 'IoTWireless', Promise.reject(result), true, mock)
   },
   getWirelessGatewayFirmwareInformation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'getWirelessGatewayFirmwareInformation', 'IoTWireless', Promise.resolve(result), true, mock)
@@ -512,6 +610,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listDeviceProfilesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'listDeviceProfiles', 'IoTWireless', Promise.reject(result), true, mock)
   },
+  listDevicesForWirelessDeviceImportTask: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'listDevicesForWirelessDeviceImportTask', 'IoTWireless', Promise.resolve(result), true, mock)
+  },
+  listDevicesForWirelessDeviceImportTaskAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'listDevicesForWirelessDeviceImportTask', 'IoTWireless', Promise.resolve(result), false, mock)
+  },
+  listDevicesForWirelessDeviceImportTaskThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'listDevicesForWirelessDeviceImportTask', 'IoTWireless', Promise.reject(result), true, mock)
+  },
+  listEventConfigurations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'listEventConfigurations', 'IoTWireless', Promise.resolve(result), true, mock)
+  },
+  listEventConfigurationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'listEventConfigurations', 'IoTWireless', Promise.resolve(result), false, mock)
+  },
+  listEventConfigurationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'listEventConfigurations', 'IoTWireless', Promise.reject(result), true, mock)
+  },
   listFuotaTasks: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'listFuotaTasks', 'IoTWireless', Promise.resolve(result), true, mock)
   },
@@ -520,15 +636,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listFuotaTasksThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'listFuotaTasks', 'IoTWireless', Promise.reject(result), true, mock)
-  },
-  listMulticastGroups: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iot-wireless', 'listMulticastGroups', 'IoTWireless', Promise.resolve(result), true, mock)
-  },
-  listMulticastGroupsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iot-wireless', 'listMulticastGroups', 'IoTWireless', Promise.resolve(result), false, mock)
-  },
-  listMulticastGroupsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iot-wireless', 'listMulticastGroups', 'IoTWireless', Promise.reject(result), true, mock)
   },
   listMulticastGroupsByFuotaTask: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'listMulticastGroupsByFuotaTask', 'IoTWireless', Promise.resolve(result), true, mock)
@@ -539,6 +646,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listMulticastGroupsByFuotaTaskThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'listMulticastGroupsByFuotaTask', 'IoTWireless', Promise.reject(result), true, mock)
   },
+  listMulticastGroups: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'listMulticastGroups', 'IoTWireless', Promise.resolve(result), true, mock)
+  },
+  listMulticastGroupsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'listMulticastGroups', 'IoTWireless', Promise.resolve(result), false, mock)
+  },
+  listMulticastGroupsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'listMulticastGroups', 'IoTWireless', Promise.reject(result), true, mock)
+  },
+  listNetworkAnalyzerConfigurations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'listNetworkAnalyzerConfigurations', 'IoTWireless', Promise.resolve(result), true, mock)
+  },
+  listNetworkAnalyzerConfigurationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'listNetworkAnalyzerConfigurations', 'IoTWireless', Promise.resolve(result), false, mock)
+  },
+  listNetworkAnalyzerConfigurationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'listNetworkAnalyzerConfigurations', 'IoTWireless', Promise.reject(result), true, mock)
+  },
   listPartnerAccounts: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'listPartnerAccounts', 'IoTWireless', Promise.resolve(result), true, mock)
   },
@@ -547,6 +672,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listPartnerAccountsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'listPartnerAccounts', 'IoTWireless', Promise.reject(result), true, mock)
+  },
+  listPositionConfigurations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'listPositionConfigurations', 'IoTWireless', Promise.resolve(result), true, mock)
+  },
+  listPositionConfigurationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'listPositionConfigurations', 'IoTWireless', Promise.resolve(result), false, mock)
+  },
+  listPositionConfigurationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'listPositionConfigurations', 'IoTWireless', Promise.reject(result), true, mock)
+  },
+  listQueuedMessages: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'listQueuedMessages', 'IoTWireless', Promise.resolve(result), true, mock)
+  },
+  listQueuedMessagesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'listQueuedMessages', 'IoTWireless', Promise.resolve(result), false, mock)
+  },
+  listQueuedMessagesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'listQueuedMessages', 'IoTWireless', Promise.reject(result), true, mock)
   },
   listServiceProfiles: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'listServiceProfiles', 'IoTWireless', Promise.resolve(result), true, mock)
@@ -565,6 +708,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listTagsForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'listTagsForResource', 'IoTWireless', Promise.reject(result), true, mock)
+  },
+  listWirelessDeviceImportTasks: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'listWirelessDeviceImportTasks', 'IoTWireless', Promise.resolve(result), true, mock)
+  },
+  listWirelessDeviceImportTasksAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'listWirelessDeviceImportTasks', 'IoTWireless', Promise.resolve(result), false, mock)
+  },
+  listWirelessDeviceImportTasksThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'listWirelessDeviceImportTasks', 'IoTWireless', Promise.reject(result), true, mock)
   },
   listWirelessDevices: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'listWirelessDevices', 'IoTWireless', Promise.resolve(result), true, mock)
@@ -592,6 +744,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listWirelessGatewaysThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'listWirelessGateways', 'IoTWireless', Promise.reject(result), true, mock)
+  },
+  putPositionConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'putPositionConfiguration', 'IoTWireless', Promise.resolve(result), true, mock)
+  },
+  putPositionConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'putPositionConfiguration', 'IoTWireless', Promise.resolve(result), false, mock)
+  },
+  putPositionConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'putPositionConfiguration', 'IoTWireless', Promise.reject(result), true, mock)
   },
   putResourceLogLevel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'putResourceLogLevel', 'IoTWireless', Promise.resolve(result), true, mock)
@@ -674,6 +835,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   startMulticastGroupSessionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'startMulticastGroupSession', 'IoTWireless', Promise.reject(result), true, mock)
   },
+  startSingleWirelessDeviceImportTask: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'startSingleWirelessDeviceImportTask', 'IoTWireless', Promise.resolve(result), true, mock)
+  },
+  startSingleWirelessDeviceImportTaskAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'startSingleWirelessDeviceImportTask', 'IoTWireless', Promise.resolve(result), false, mock)
+  },
+  startSingleWirelessDeviceImportTaskThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'startSingleWirelessDeviceImportTask', 'IoTWireless', Promise.reject(result), true, mock)
+  },
+  startWirelessDeviceImportTask: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'startWirelessDeviceImportTask', 'IoTWireless', Promise.resolve(result), true, mock)
+  },
+  startWirelessDeviceImportTaskAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'startWirelessDeviceImportTask', 'IoTWireless', Promise.resolve(result), false, mock)
+  },
+  startWirelessDeviceImportTaskThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'startWirelessDeviceImportTask', 'IoTWireless', Promise.reject(result), true, mock)
+  },
   tagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'tagResource', 'IoTWireless', Promise.resolve(result), true, mock)
   },
@@ -710,6 +889,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   updateDestinationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'updateDestination', 'IoTWireless', Promise.reject(result), true, mock)
   },
+  updateEventConfigurationByResourceTypes: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'updateEventConfigurationByResourceTypes', 'IoTWireless', Promise.resolve(result), true, mock)
+  },
+  updateEventConfigurationByResourceTypesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'updateEventConfigurationByResourceTypes', 'IoTWireless', Promise.resolve(result), false, mock)
+  },
+  updateEventConfigurationByResourceTypesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'updateEventConfigurationByResourceTypes', 'IoTWireless', Promise.reject(result), true, mock)
+  },
   updateFuotaTask: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'updateFuotaTask', 'IoTWireless', Promise.resolve(result), true, mock)
   },
@@ -737,6 +925,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   updateMulticastGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'updateMulticastGroup', 'IoTWireless', Promise.reject(result), true, mock)
   },
+  updateNetworkAnalyzerConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'updateNetworkAnalyzerConfiguration', 'IoTWireless', Promise.resolve(result), true, mock)
+  },
+  updateNetworkAnalyzerConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'updateNetworkAnalyzerConfiguration', 'IoTWireless', Promise.resolve(result), false, mock)
+  },
+  updateNetworkAnalyzerConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'updateNetworkAnalyzerConfiguration', 'IoTWireless', Promise.reject(result), true, mock)
+  },
   updatePartnerAccount: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'updatePartnerAccount', 'IoTWireless', Promise.resolve(result), true, mock)
   },
@@ -745,6 +942,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updatePartnerAccountThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'updatePartnerAccount', 'IoTWireless', Promise.reject(result), true, mock)
+  },
+  updatePosition: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'updatePosition', 'IoTWireless', Promise.resolve(result), true, mock)
+  },
+  updatePositionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'updatePosition', 'IoTWireless', Promise.resolve(result), false, mock)
+  },
+  updatePositionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'updatePosition', 'IoTWireless', Promise.reject(result), true, mock)
   },
   updateResourceEventConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'updateResourceEventConfiguration', 'IoTWireless', Promise.resolve(result), true, mock)
@@ -755,6 +961,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   updateResourceEventConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'updateResourceEventConfiguration', 'IoTWireless', Promise.reject(result), true, mock)
   },
+  updateResourcePosition: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'updateResourcePosition', 'IoTWireless', Promise.resolve(result), true, mock)
+  },
+  updateResourcePositionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'updateResourcePosition', 'IoTWireless', Promise.resolve(result), false, mock)
+  },
+  updateResourcePositionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'updateResourcePosition', 'IoTWireless', Promise.reject(result), true, mock)
+  },
   updateWirelessDevice: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'updateWirelessDevice', 'IoTWireless', Promise.resolve(result), true, mock)
   },
@@ -763,6 +978,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateWirelessDeviceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'updateWirelessDevice', 'IoTWireless', Promise.reject(result), true, mock)
+  },
+  updateWirelessDeviceImportTask: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'updateWirelessDeviceImportTask', 'IoTWireless', Promise.resolve(result), true, mock)
+  },
+  updateWirelessDeviceImportTaskAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'updateWirelessDeviceImportTask', 'IoTWireless', Promise.resolve(result), false, mock)
+  },
+  updateWirelessDeviceImportTaskThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-wireless', 'updateWirelessDeviceImportTask', 'IoTWireless', Promise.reject(result), true, mock)
   },
   updateWirelessGateway: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-wireless', 'updateWirelessGateway', 'IoTWireless', Promise.resolve(result), true, mock)

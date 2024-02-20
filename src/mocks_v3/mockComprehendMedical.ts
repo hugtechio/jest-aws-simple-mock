@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockComprehendMedical = {
+export const mockComprehendMedical = {
   describeEntitiesDetectionV2Job: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-comprehendmedical', 'describeEntitiesDetectionV2Job', 'ComprehendMedical', Promise.resolve(result), true, mock)
   },
@@ -53,14 +52,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeRxNormInferenceJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-comprehendmedical', 'describeRxNormInferenceJob', 'ComprehendMedical', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-comprehendmedical', 'destroy', 'ComprehendMedical', Promise.resolve(result), true, mock)
+  describeSNOMEDCTInferenceJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehendmedical', 'describeSNOMEDCTInferenceJob', 'ComprehendMedical', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-comprehendmedical', 'destroy', 'ComprehendMedical', Promise.resolve(result), false, mock)
+  describeSNOMEDCTInferenceJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehendmedical', 'describeSNOMEDCTInferenceJob', 'ComprehendMedical', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-comprehendmedical', 'destroy', 'ComprehendMedical', Promise.reject(result), true, mock)
+  describeSNOMEDCTInferenceJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehendmedical', 'describeSNOMEDCTInferenceJob', 'ComprehendMedical', Promise.reject(result), true, mock)
   },
   detectEntities: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-comprehendmedical', 'detectEntities', 'ComprehendMedical', Promise.resolve(result), true, mock)
@@ -107,6 +106,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   inferRxNormThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-comprehendmedical', 'inferRxNorm', 'ComprehendMedical', Promise.reject(result), true, mock)
   },
+  inferSNOMEDCT: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehendmedical', 'inferSNOMEDCT', 'ComprehendMedical', Promise.resolve(result), true, mock)
+  },
+  inferSNOMEDCTAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehendmedical', 'inferSNOMEDCT', 'ComprehendMedical', Promise.resolve(result), false, mock)
+  },
+  inferSNOMEDCTThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehendmedical', 'inferSNOMEDCT', 'ComprehendMedical', Promise.reject(result), true, mock)
+  },
   listEntitiesDetectionV2Jobs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-comprehendmedical', 'listEntitiesDetectionV2Jobs', 'ComprehendMedical', Promise.resolve(result), true, mock)
   },
@@ -142,6 +150,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listRxNormInferenceJobsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-comprehendmedical', 'listRxNormInferenceJobs', 'ComprehendMedical', Promise.reject(result), true, mock)
+  },
+  listSNOMEDCTInferenceJobs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehendmedical', 'listSNOMEDCTInferenceJobs', 'ComprehendMedical', Promise.resolve(result), true, mock)
+  },
+  listSNOMEDCTInferenceJobsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehendmedical', 'listSNOMEDCTInferenceJobs', 'ComprehendMedical', Promise.resolve(result), false, mock)
+  },
+  listSNOMEDCTInferenceJobsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehendmedical', 'listSNOMEDCTInferenceJobs', 'ComprehendMedical', Promise.reject(result), true, mock)
   },
   startEntitiesDetectionV2Job: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-comprehendmedical', 'startEntitiesDetectionV2Job', 'ComprehendMedical', Promise.resolve(result), true, mock)
@@ -179,6 +196,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   startRxNormInferenceJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-comprehendmedical', 'startRxNormInferenceJob', 'ComprehendMedical', Promise.reject(result), true, mock)
   },
+  startSNOMEDCTInferenceJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehendmedical', 'startSNOMEDCTInferenceJob', 'ComprehendMedical', Promise.resolve(result), true, mock)
+  },
+  startSNOMEDCTInferenceJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehendmedical', 'startSNOMEDCTInferenceJob', 'ComprehendMedical', Promise.resolve(result), false, mock)
+  },
+  startSNOMEDCTInferenceJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehendmedical', 'startSNOMEDCTInferenceJob', 'ComprehendMedical', Promise.reject(result), true, mock)
+  },
   stopEntitiesDetectionV2Job: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-comprehendmedical', 'stopEntitiesDetectionV2Job', 'ComprehendMedical', Promise.resolve(result), true, mock)
   },
@@ -214,6 +240,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   stopRxNormInferenceJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-comprehendmedical', 'stopRxNormInferenceJob', 'ComprehendMedical', Promise.reject(result), true, mock)
+  },
+  stopSNOMEDCTInferenceJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehendmedical', 'stopSNOMEDCTInferenceJob', 'ComprehendMedical', Promise.resolve(result), true, mock)
+  },
+  stopSNOMEDCTInferenceJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehendmedical', 'stopSNOMEDCTInferenceJob', 'ComprehendMedical', Promise.resolve(result), false, mock)
+  },
+  stopSNOMEDCTInferenceJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehendmedical', 'stopSNOMEDCTInferenceJob', 'ComprehendMedical', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-comprehendmedical', 'send', 'ComprehendMedicalClient', Promise.resolve(result), true, mock)

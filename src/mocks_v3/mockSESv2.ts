@@ -15,8 +15,25 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockSESv2 = {
+export const mockSESv2 = {
+  batchGetMetricData: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sesv2', 'batchGetMetricData', 'SESv2', Promise.resolve(result), true, mock)
+  },
+  batchGetMetricDataAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sesv2', 'batchGetMetricData', 'SESv2', Promise.resolve(result), false, mock)
+  },
+  batchGetMetricDataThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sesv2', 'batchGetMetricData', 'SESv2', Promise.reject(result), true, mock)
+  },
+  cancelExportJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sesv2', 'cancelExportJob', 'SESv2', Promise.resolve(result), true, mock)
+  },
+  cancelExportJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sesv2', 'cancelExportJob', 'SESv2', Promise.resolve(result), false, mock)
+  },
+  cancelExportJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sesv2', 'cancelExportJob', 'SESv2', Promise.reject(result), true, mock)
+  },
   createConfigurationSet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sesv2', 'createConfigurationSet', 'SESv2', Promise.resolve(result), true, mock)
   },
@@ -106,6 +123,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createEmailTemplateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sesv2', 'createEmailTemplate', 'SESv2', Promise.reject(result), true, mock)
+  },
+  createExportJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sesv2', 'createExportJob', 'SESv2', Promise.resolve(result), true, mock)
+  },
+  createExportJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sesv2', 'createExportJob', 'SESv2', Promise.resolve(result), false, mock)
+  },
+  createExportJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sesv2', 'createExportJob', 'SESv2', Promise.reject(result), true, mock)
   },
   createImportJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sesv2', 'createImportJob', 'SESv2', Promise.resolve(result), true, mock)
@@ -206,15 +232,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteSuppressedDestinationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sesv2', 'deleteSuppressedDestination', 'SESv2', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sesv2', 'destroy', 'SESv2', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sesv2', 'destroy', 'SESv2', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sesv2', 'destroy', 'SESv2', Promise.reject(result), true, mock)
-  },
   getAccount: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sesv2', 'getAccount', 'SESv2', Promise.resolve(result), true, mock)
   },
@@ -286,6 +303,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getDedicatedIpThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sesv2', 'getDedicatedIp', 'SESv2', Promise.reject(result), true, mock)
+  },
+  getDedicatedIpPool: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sesv2', 'getDedicatedIpPool', 'SESv2', Promise.resolve(result), true, mock)
+  },
+  getDedicatedIpPoolAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sesv2', 'getDedicatedIpPool', 'SESv2', Promise.resolve(result), false, mock)
+  },
+  getDedicatedIpPoolThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sesv2', 'getDedicatedIpPool', 'SESv2', Promise.reject(result), true, mock)
   },
   getDedicatedIps: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sesv2', 'getDedicatedIps', 'SESv2', Promise.resolve(result), true, mock)
@@ -359,6 +385,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getEmailTemplateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sesv2', 'getEmailTemplate', 'SESv2', Promise.reject(result), true, mock)
   },
+  getExportJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sesv2', 'getExportJob', 'SESv2', Promise.resolve(result), true, mock)
+  },
+  getExportJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sesv2', 'getExportJob', 'SESv2', Promise.resolve(result), false, mock)
+  },
+  getExportJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sesv2', 'getExportJob', 'SESv2', Promise.reject(result), true, mock)
+  },
   getImportJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sesv2', 'getImportJob', 'SESv2', Promise.resolve(result), true, mock)
   },
@@ -367,6 +402,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getImportJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sesv2', 'getImportJob', 'SESv2', Promise.reject(result), true, mock)
+  },
+  getMessageInsights: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sesv2', 'getMessageInsights', 'SESv2', Promise.resolve(result), true, mock)
+  },
+  getMessageInsightsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sesv2', 'getMessageInsights', 'SESv2', Promise.resolve(result), false, mock)
+  },
+  getMessageInsightsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sesv2', 'getMessageInsights', 'SESv2', Promise.reject(result), true, mock)
   },
   getSuppressedDestination: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sesv2', 'getSuppressedDestination', 'SESv2', Promise.resolve(result), true, mock)
@@ -458,6 +502,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listEmailTemplatesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sesv2', 'listEmailTemplates', 'SESv2', Promise.reject(result), true, mock)
   },
+  listExportJobs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sesv2', 'listExportJobs', 'SESv2', Promise.resolve(result), true, mock)
+  },
+  listExportJobsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sesv2', 'listExportJobs', 'SESv2', Promise.resolve(result), false, mock)
+  },
+  listExportJobsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sesv2', 'listExportJobs', 'SESv2', Promise.reject(result), true, mock)
+  },
   listImportJobs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sesv2', 'listImportJobs', 'SESv2', Promise.resolve(result), true, mock)
   },
@@ -466,6 +519,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listImportJobsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sesv2', 'listImportJobs', 'SESv2', Promise.reject(result), true, mock)
+  },
+  listRecommendations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sesv2', 'listRecommendations', 'SESv2', Promise.resolve(result), true, mock)
+  },
+  listRecommendationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sesv2', 'listRecommendations', 'SESv2', Promise.resolve(result), false, mock)
+  },
+  listRecommendationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sesv2', 'listRecommendations', 'SESv2', Promise.reject(result), true, mock)
   },
   listSuppressedDestinations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sesv2', 'listSuppressedDestinations', 'SESv2', Promise.resolve(result), true, mock)
@@ -521,6 +583,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   putAccountSuppressionAttributesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sesv2', 'putAccountSuppressionAttributes', 'SESv2', Promise.reject(result), true, mock)
   },
+  putAccountVdmAttributes: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sesv2', 'putAccountVdmAttributes', 'SESv2', Promise.resolve(result), true, mock)
+  },
+  putAccountVdmAttributesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sesv2', 'putAccountVdmAttributes', 'SESv2', Promise.resolve(result), false, mock)
+  },
+  putAccountVdmAttributesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sesv2', 'putAccountVdmAttributes', 'SESv2', Promise.reject(result), true, mock)
+  },
   putConfigurationSetDeliveryOptions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sesv2', 'putConfigurationSetDeliveryOptions', 'SESv2', Promise.resolve(result), true, mock)
   },
@@ -566,6 +637,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   putConfigurationSetTrackingOptionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sesv2', 'putConfigurationSetTrackingOptions', 'SESv2', Promise.reject(result), true, mock)
   },
+  putConfigurationSetVdmOptions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sesv2', 'putConfigurationSetVdmOptions', 'SESv2', Promise.resolve(result), true, mock)
+  },
+  putConfigurationSetVdmOptionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sesv2', 'putConfigurationSetVdmOptions', 'SESv2', Promise.resolve(result), false, mock)
+  },
+  putConfigurationSetVdmOptionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sesv2', 'putConfigurationSetVdmOptions', 'SESv2', Promise.reject(result), true, mock)
+  },
   putDedicatedIpInPool: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sesv2', 'putDedicatedIpInPool', 'SESv2', Promise.resolve(result), true, mock)
   },
@@ -574,6 +654,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   putDedicatedIpInPoolThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sesv2', 'putDedicatedIpInPool', 'SESv2', Promise.reject(result), true, mock)
+  },
+  putDedicatedIpPoolScalingAttributes: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sesv2', 'putDedicatedIpPoolScalingAttributes', 'SESv2', Promise.resolve(result), true, mock)
+  },
+  putDedicatedIpPoolScalingAttributesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sesv2', 'putDedicatedIpPoolScalingAttributes', 'SESv2', Promise.resolve(result), false, mock)
+  },
+  putDedicatedIpPoolScalingAttributesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sesv2', 'putDedicatedIpPoolScalingAttributes', 'SESv2', Promise.reject(result), true, mock)
   },
   putDedicatedIpWarmupAttributes: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sesv2', 'putDedicatedIpWarmupAttributes', 'SESv2', Promise.resolve(result), true, mock)

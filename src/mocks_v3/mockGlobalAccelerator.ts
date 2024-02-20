@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockGlobalAccelerator = {
+export const mockGlobalAccelerator = {
   addCustomRoutingEndpoints: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-global-accelerator', 'addCustomRoutingEndpoints', 'GlobalAccelerator', Promise.resolve(result), true, mock)
   },
@@ -25,6 +24,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   addCustomRoutingEndpointsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-global-accelerator', 'addCustomRoutingEndpoints', 'GlobalAccelerator', Promise.reject(result), true, mock)
+  },
+  addEndpoints: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-global-accelerator', 'addEndpoints', 'GlobalAccelerator', Promise.resolve(result), true, mock)
+  },
+  addEndpointsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-global-accelerator', 'addEndpoints', 'GlobalAccelerator', Promise.resolve(result), false, mock)
+  },
+  addEndpointsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-global-accelerator', 'addEndpoints', 'GlobalAccelerator', Promise.reject(result), true, mock)
   },
   advertiseByoipCidr: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-global-accelerator', 'advertiseByoipCidr', 'GlobalAccelerator', Promise.resolve(result), true, mock)
@@ -52,6 +60,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createAcceleratorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-global-accelerator', 'createAccelerator', 'GlobalAccelerator', Promise.reject(result), true, mock)
+  },
+  createCrossAccountAttachment: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-global-accelerator', 'createCrossAccountAttachment', 'GlobalAccelerator', Promise.resolve(result), true, mock)
+  },
+  createCrossAccountAttachmentAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-global-accelerator', 'createCrossAccountAttachment', 'GlobalAccelerator', Promise.resolve(result), false, mock)
+  },
+  createCrossAccountAttachmentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-global-accelerator', 'createCrossAccountAttachment', 'GlobalAccelerator', Promise.reject(result), true, mock)
   },
   createCustomRoutingAccelerator: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-global-accelerator', 'createCustomRoutingAccelerator', 'GlobalAccelerator', Promise.resolve(result), true, mock)
@@ -106,6 +123,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteAcceleratorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-global-accelerator', 'deleteAccelerator', 'GlobalAccelerator', Promise.reject(result), true, mock)
+  },
+  deleteCrossAccountAttachment: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-global-accelerator', 'deleteCrossAccountAttachment', 'GlobalAccelerator', Promise.resolve(result), true, mock)
+  },
+  deleteCrossAccountAttachmentAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-global-accelerator', 'deleteCrossAccountAttachment', 'GlobalAccelerator', Promise.resolve(result), false, mock)
+  },
+  deleteCrossAccountAttachmentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-global-accelerator', 'deleteCrossAccountAttachment', 'GlobalAccelerator', Promise.reject(result), true, mock)
   },
   deleteCustomRoutingAccelerator: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-global-accelerator', 'deleteCustomRoutingAccelerator', 'GlobalAccelerator', Promise.resolve(result), true, mock)
@@ -170,15 +196,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deprovisionByoipCidrThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-global-accelerator', 'deprovisionByoipCidr', 'GlobalAccelerator', Promise.reject(result), true, mock)
   },
-  describeAccelerator: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-global-accelerator', 'describeAccelerator', 'GlobalAccelerator', Promise.resolve(result), true, mock)
-  },
-  describeAcceleratorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-global-accelerator', 'describeAccelerator', 'GlobalAccelerator', Promise.resolve(result), false, mock)
-  },
-  describeAcceleratorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-global-accelerator', 'describeAccelerator', 'GlobalAccelerator', Promise.reject(result), true, mock)
-  },
   describeAcceleratorAttributes: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-global-accelerator', 'describeAcceleratorAttributes', 'GlobalAccelerator', Promise.resolve(result), true, mock)
   },
@@ -188,14 +205,23 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeAcceleratorAttributesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-global-accelerator', 'describeAcceleratorAttributes', 'GlobalAccelerator', Promise.reject(result), true, mock)
   },
-  describeCustomRoutingAccelerator: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-global-accelerator', 'describeCustomRoutingAccelerator', 'GlobalAccelerator', Promise.resolve(result), true, mock)
+  describeAccelerator: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-global-accelerator', 'describeAccelerator', 'GlobalAccelerator', Promise.resolve(result), true, mock)
   },
-  describeCustomRoutingAcceleratorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-global-accelerator', 'describeCustomRoutingAccelerator', 'GlobalAccelerator', Promise.resolve(result), false, mock)
+  describeAcceleratorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-global-accelerator', 'describeAccelerator', 'GlobalAccelerator', Promise.resolve(result), false, mock)
   },
-  describeCustomRoutingAcceleratorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-global-accelerator', 'describeCustomRoutingAccelerator', 'GlobalAccelerator', Promise.reject(result), true, mock)
+  describeAcceleratorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-global-accelerator', 'describeAccelerator', 'GlobalAccelerator', Promise.reject(result), true, mock)
+  },
+  describeCrossAccountAttachment: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-global-accelerator', 'describeCrossAccountAttachment', 'GlobalAccelerator', Promise.resolve(result), true, mock)
+  },
+  describeCrossAccountAttachmentAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-global-accelerator', 'describeCrossAccountAttachment', 'GlobalAccelerator', Promise.resolve(result), false, mock)
+  },
+  describeCrossAccountAttachmentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-global-accelerator', 'describeCrossAccountAttachment', 'GlobalAccelerator', Promise.reject(result), true, mock)
   },
   describeCustomRoutingAcceleratorAttributes: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-global-accelerator', 'describeCustomRoutingAcceleratorAttributes', 'GlobalAccelerator', Promise.resolve(result), true, mock)
@@ -205,6 +231,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeCustomRoutingAcceleratorAttributesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-global-accelerator', 'describeCustomRoutingAcceleratorAttributes', 'GlobalAccelerator', Promise.reject(result), true, mock)
+  },
+  describeCustomRoutingAccelerator: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-global-accelerator', 'describeCustomRoutingAccelerator', 'GlobalAccelerator', Promise.resolve(result), true, mock)
+  },
+  describeCustomRoutingAcceleratorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-global-accelerator', 'describeCustomRoutingAccelerator', 'GlobalAccelerator', Promise.resolve(result), false, mock)
+  },
+  describeCustomRoutingAcceleratorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-global-accelerator', 'describeCustomRoutingAccelerator', 'GlobalAccelerator', Promise.reject(result), true, mock)
   },
   describeCustomRoutingEndpointGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-global-accelerator', 'describeCustomRoutingEndpointGroup', 'GlobalAccelerator', Promise.resolve(result), true, mock)
@@ -242,15 +277,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeListenerThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-global-accelerator', 'describeListener', 'GlobalAccelerator', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-global-accelerator', 'destroy', 'GlobalAccelerator', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-global-accelerator', 'destroy', 'GlobalAccelerator', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-global-accelerator', 'destroy', 'GlobalAccelerator', Promise.reject(result), true, mock)
-  },
   listAccelerators: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-global-accelerator', 'listAccelerators', 'GlobalAccelerator', Promise.resolve(result), true, mock)
   },
@@ -268,6 +294,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listByoipCidrsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-global-accelerator', 'listByoipCidrs', 'GlobalAccelerator', Promise.reject(result), true, mock)
+  },
+  listCrossAccountAttachments: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-global-accelerator', 'listCrossAccountAttachments', 'GlobalAccelerator', Promise.resolve(result), true, mock)
+  },
+  listCrossAccountAttachmentsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-global-accelerator', 'listCrossAccountAttachments', 'GlobalAccelerator', Promise.resolve(result), false, mock)
+  },
+  listCrossAccountAttachmentsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-global-accelerator', 'listCrossAccountAttachments', 'GlobalAccelerator', Promise.reject(result), true, mock)
+  },
+  listCrossAccountResourceAccounts: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-global-accelerator', 'listCrossAccountResourceAccounts', 'GlobalAccelerator', Promise.resolve(result), true, mock)
+  },
+  listCrossAccountResourceAccountsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-global-accelerator', 'listCrossAccountResourceAccounts', 'GlobalAccelerator', Promise.resolve(result), false, mock)
+  },
+  listCrossAccountResourceAccountsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-global-accelerator', 'listCrossAccountResourceAccounts', 'GlobalAccelerator', Promise.reject(result), true, mock)
+  },
+  listCrossAccountResources: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-global-accelerator', 'listCrossAccountResources', 'GlobalAccelerator', Promise.resolve(result), true, mock)
+  },
+  listCrossAccountResourcesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-global-accelerator', 'listCrossAccountResources', 'GlobalAccelerator', Promise.resolve(result), false, mock)
+  },
+  listCrossAccountResourcesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-global-accelerator', 'listCrossAccountResources', 'GlobalAccelerator', Promise.reject(result), true, mock)
   },
   listCustomRoutingAccelerators: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-global-accelerator', 'listCustomRoutingAccelerators', 'GlobalAccelerator', Promise.resolve(result), true, mock)
@@ -296,15 +349,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listCustomRoutingListenersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-global-accelerator', 'listCustomRoutingListeners', 'GlobalAccelerator', Promise.reject(result), true, mock)
   },
-  listCustomRoutingPortMappings: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-global-accelerator', 'listCustomRoutingPortMappings', 'GlobalAccelerator', Promise.resolve(result), true, mock)
-  },
-  listCustomRoutingPortMappingsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-global-accelerator', 'listCustomRoutingPortMappings', 'GlobalAccelerator', Promise.resolve(result), false, mock)
-  },
-  listCustomRoutingPortMappingsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-global-accelerator', 'listCustomRoutingPortMappings', 'GlobalAccelerator', Promise.reject(result), true, mock)
-  },
   listCustomRoutingPortMappingsByDestination: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-global-accelerator', 'listCustomRoutingPortMappingsByDestination', 'GlobalAccelerator', Promise.resolve(result), true, mock)
   },
@@ -313,6 +357,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listCustomRoutingPortMappingsByDestinationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-global-accelerator', 'listCustomRoutingPortMappingsByDestination', 'GlobalAccelerator', Promise.reject(result), true, mock)
+  },
+  listCustomRoutingPortMappings: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-global-accelerator', 'listCustomRoutingPortMappings', 'GlobalAccelerator', Promise.resolve(result), true, mock)
+  },
+  listCustomRoutingPortMappingsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-global-accelerator', 'listCustomRoutingPortMappings', 'GlobalAccelerator', Promise.resolve(result), false, mock)
+  },
+  listCustomRoutingPortMappingsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-global-accelerator', 'listCustomRoutingPortMappings', 'GlobalAccelerator', Promise.reject(result), true, mock)
   },
   listEndpointGroups: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-global-accelerator', 'listEndpointGroups', 'GlobalAccelerator', Promise.resolve(result), true, mock)
@@ -359,6 +412,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   removeCustomRoutingEndpointsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-global-accelerator', 'removeCustomRoutingEndpoints', 'GlobalAccelerator', Promise.reject(result), true, mock)
   },
+  removeEndpoints: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-global-accelerator', 'removeEndpoints', 'GlobalAccelerator', Promise.resolve(result), true, mock)
+  },
+  removeEndpointsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-global-accelerator', 'removeEndpoints', 'GlobalAccelerator', Promise.resolve(result), false, mock)
+  },
+  removeEndpointsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-global-accelerator', 'removeEndpoints', 'GlobalAccelerator', Promise.reject(result), true, mock)
+  },
   tagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-global-accelerator', 'tagResource', 'GlobalAccelerator', Promise.resolve(result), true, mock)
   },
@@ -377,15 +439,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   untagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-global-accelerator', 'untagResource', 'GlobalAccelerator', Promise.reject(result), true, mock)
   },
-  updateAccelerator: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-global-accelerator', 'updateAccelerator', 'GlobalAccelerator', Promise.resolve(result), true, mock)
-  },
-  updateAcceleratorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-global-accelerator', 'updateAccelerator', 'GlobalAccelerator', Promise.resolve(result), false, mock)
-  },
-  updateAcceleratorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-global-accelerator', 'updateAccelerator', 'GlobalAccelerator', Promise.reject(result), true, mock)
-  },
   updateAcceleratorAttributes: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-global-accelerator', 'updateAcceleratorAttributes', 'GlobalAccelerator', Promise.resolve(result), true, mock)
   },
@@ -395,14 +448,23 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   updateAcceleratorAttributesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-global-accelerator', 'updateAcceleratorAttributes', 'GlobalAccelerator', Promise.reject(result), true, mock)
   },
-  updateCustomRoutingAccelerator: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-global-accelerator', 'updateCustomRoutingAccelerator', 'GlobalAccelerator', Promise.resolve(result), true, mock)
+  updateAccelerator: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-global-accelerator', 'updateAccelerator', 'GlobalAccelerator', Promise.resolve(result), true, mock)
   },
-  updateCustomRoutingAcceleratorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-global-accelerator', 'updateCustomRoutingAccelerator', 'GlobalAccelerator', Promise.resolve(result), false, mock)
+  updateAcceleratorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-global-accelerator', 'updateAccelerator', 'GlobalAccelerator', Promise.resolve(result), false, mock)
   },
-  updateCustomRoutingAcceleratorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-global-accelerator', 'updateCustomRoutingAccelerator', 'GlobalAccelerator', Promise.reject(result), true, mock)
+  updateAcceleratorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-global-accelerator', 'updateAccelerator', 'GlobalAccelerator', Promise.reject(result), true, mock)
+  },
+  updateCrossAccountAttachment: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-global-accelerator', 'updateCrossAccountAttachment', 'GlobalAccelerator', Promise.resolve(result), true, mock)
+  },
+  updateCrossAccountAttachmentAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-global-accelerator', 'updateCrossAccountAttachment', 'GlobalAccelerator', Promise.resolve(result), false, mock)
+  },
+  updateCrossAccountAttachmentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-global-accelerator', 'updateCrossAccountAttachment', 'GlobalAccelerator', Promise.reject(result), true, mock)
   },
   updateCustomRoutingAcceleratorAttributes: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-global-accelerator', 'updateCustomRoutingAcceleratorAttributes', 'GlobalAccelerator', Promise.resolve(result), true, mock)
@@ -412,6 +474,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateCustomRoutingAcceleratorAttributesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-global-accelerator', 'updateCustomRoutingAcceleratorAttributes', 'GlobalAccelerator', Promise.reject(result), true, mock)
+  },
+  updateCustomRoutingAccelerator: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-global-accelerator', 'updateCustomRoutingAccelerator', 'GlobalAccelerator', Promise.resolve(result), true, mock)
+  },
+  updateCustomRoutingAcceleratorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-global-accelerator', 'updateCustomRoutingAccelerator', 'GlobalAccelerator', Promise.resolve(result), false, mock)
+  },
+  updateCustomRoutingAcceleratorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-global-accelerator', 'updateCustomRoutingAccelerator', 'GlobalAccelerator', Promise.reject(result), true, mock)
   },
   updateCustomRoutingListener: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-global-accelerator', 'updateCustomRoutingListener', 'GlobalAccelerator', Promise.resolve(result), true, mock)

@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockHealthLake = {
+export const mockHealthLake = {
   createFHIRDatastore: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-healthlake', 'createFHIRDatastore', 'HealthLake', Promise.resolve(result), true, mock)
   },
@@ -61,15 +60,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeFHIRImportJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-healthlake', 'describeFHIRImportJob', 'HealthLake', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-healthlake', 'destroy', 'HealthLake', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-healthlake', 'destroy', 'HealthLake', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-healthlake', 'destroy', 'HealthLake', Promise.reject(result), true, mock)
   },
   listFHIRDatastores: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-healthlake', 'listFHIRDatastores', 'HealthLake', Promise.resolve(result), true, mock)

@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockKafkaConnect = {
+export const mockKafkaConnect = {
   createConnector: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kafkaconnect', 'createConnector', 'KafkaConnect', Promise.resolve(result), true, mock)
   },
@@ -53,6 +52,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteConnectorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kafkaconnect', 'deleteConnector', 'KafkaConnect', Promise.reject(result), true, mock)
   },
+  deleteCustomPlugin: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafkaconnect', 'deleteCustomPlugin', 'KafkaConnect', Promise.resolve(result), true, mock)
+  },
+  deleteCustomPluginAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafkaconnect', 'deleteCustomPlugin', 'KafkaConnect', Promise.resolve(result), false, mock)
+  },
+  deleteCustomPluginThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafkaconnect', 'deleteCustomPlugin', 'KafkaConnect', Promise.reject(result), true, mock)
+  },
   describeConnector: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kafkaconnect', 'describeConnector', 'KafkaConnect', Promise.resolve(result), true, mock)
   },
@@ -79,15 +87,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeWorkerConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kafkaconnect', 'describeWorkerConfiguration', 'KafkaConnect', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-kafkaconnect', 'destroy', 'KafkaConnect', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-kafkaconnect', 'destroy', 'KafkaConnect', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-kafkaconnect', 'destroy', 'KafkaConnect', Promise.reject(result), true, mock)
   },
   listConnectors: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kafkaconnect', 'listConnectors', 'KafkaConnect', Promise.resolve(result), true, mock)

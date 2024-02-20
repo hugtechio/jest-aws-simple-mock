@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockServiceQuotas = {
+export const mockServiceQuotas = {
   associateServiceQuotaTemplate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-service-quotas', 'associateServiceQuotaTemplate', 'ServiceQuotas', Promise.resolve(result), true, mock)
   },
@@ -34,15 +33,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteServiceQuotaIncreaseRequestFromTemplateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-service-quotas', 'deleteServiceQuotaIncreaseRequestFromTemplate', 'ServiceQuotas', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-service-quotas', 'destroy', 'ServiceQuotas', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-service-quotas', 'destroy', 'ServiceQuotas', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-service-quotas', 'destroy', 'ServiceQuotas', Promise.reject(result), true, mock)
   },
   disassociateServiceQuotaTemplate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-service-quotas', 'disassociateServiceQuotaTemplate', 'ServiceQuotas', Promise.resolve(result), true, mock)
@@ -107,15 +97,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listAWSDefaultServiceQuotasThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-service-quotas', 'listAWSDefaultServiceQuotas', 'ServiceQuotas', Promise.reject(result), true, mock)
   },
-  listRequestedServiceQuotaChangeHistory: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-service-quotas', 'listRequestedServiceQuotaChangeHistory', 'ServiceQuotas', Promise.resolve(result), true, mock)
-  },
-  listRequestedServiceQuotaChangeHistoryAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-service-quotas', 'listRequestedServiceQuotaChangeHistory', 'ServiceQuotas', Promise.resolve(result), false, mock)
-  },
-  listRequestedServiceQuotaChangeHistoryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-service-quotas', 'listRequestedServiceQuotaChangeHistory', 'ServiceQuotas', Promise.reject(result), true, mock)
-  },
   listRequestedServiceQuotaChangeHistoryByQuota: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-service-quotas', 'listRequestedServiceQuotaChangeHistoryByQuota', 'ServiceQuotas', Promise.resolve(result), true, mock)
   },
@@ -124,6 +105,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listRequestedServiceQuotaChangeHistoryByQuotaThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-service-quotas', 'listRequestedServiceQuotaChangeHistoryByQuota', 'ServiceQuotas', Promise.reject(result), true, mock)
+  },
+  listRequestedServiceQuotaChangeHistory: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-service-quotas', 'listRequestedServiceQuotaChangeHistory', 'ServiceQuotas', Promise.resolve(result), true, mock)
+  },
+  listRequestedServiceQuotaChangeHistoryAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-service-quotas', 'listRequestedServiceQuotaChangeHistory', 'ServiceQuotas', Promise.resolve(result), false, mock)
+  },
+  listRequestedServiceQuotaChangeHistoryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-service-quotas', 'listRequestedServiceQuotaChangeHistory', 'ServiceQuotas', Promise.reject(result), true, mock)
   },
   listServiceQuotaIncreaseRequestsInTemplate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-service-quotas', 'listServiceQuotaIncreaseRequestsInTemplate', 'ServiceQuotas', Promise.resolve(result), true, mock)

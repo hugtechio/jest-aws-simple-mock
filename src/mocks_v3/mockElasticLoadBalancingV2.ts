@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockElasticLoadBalancingV2 = {
+export const mockElasticLoadBalancingV2 = {
   addListenerCertificates: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'addListenerCertificates', 'ElasticLoadBalancingV2', Promise.resolve(result), true, mock)
   },
@@ -34,6 +33,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   addTagsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'addTags', 'ElasticLoadBalancingV2', Promise.reject(result), true, mock)
+  },
+  addTrustStoreRevocations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'addTrustStoreRevocations', 'ElasticLoadBalancingV2', Promise.resolve(result), true, mock)
+  },
+  addTrustStoreRevocationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'addTrustStoreRevocations', 'ElasticLoadBalancingV2', Promise.resolve(result), false, mock)
+  },
+  addTrustStoreRevocationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'addTrustStoreRevocations', 'ElasticLoadBalancingV2', Promise.reject(result), true, mock)
   },
   createListener: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'createListener', 'ElasticLoadBalancingV2', Promise.resolve(result), true, mock)
@@ -71,6 +79,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createTargetGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'createTargetGroup', 'ElasticLoadBalancingV2', Promise.reject(result), true, mock)
   },
+  createTrustStore: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'createTrustStore', 'ElasticLoadBalancingV2', Promise.resolve(result), true, mock)
+  },
+  createTrustStoreAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'createTrustStore', 'ElasticLoadBalancingV2', Promise.resolve(result), false, mock)
+  },
+  createTrustStoreThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'createTrustStore', 'ElasticLoadBalancingV2', Promise.reject(result), true, mock)
+  },
   deleteListener: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'deleteListener', 'ElasticLoadBalancingV2', Promise.resolve(result), true, mock)
   },
@@ -106,6 +123,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteTargetGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'deleteTargetGroup', 'ElasticLoadBalancingV2', Promise.reject(result), true, mock)
+  },
+  deleteTrustStore: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'deleteTrustStore', 'ElasticLoadBalancingV2', Promise.resolve(result), true, mock)
+  },
+  deleteTrustStoreAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'deleteTrustStore', 'ElasticLoadBalancingV2', Promise.resolve(result), false, mock)
+  },
+  deleteTrustStoreThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'deleteTrustStore', 'ElasticLoadBalancingV2', Promise.reject(result), true, mock)
   },
   deregisterTargets: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'deregisterTargets', 'ElasticLoadBalancingV2', Promise.resolve(result), true, mock)
@@ -215,14 +241,50 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeTargetHealthThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'describeTargetHealth', 'ElasticLoadBalancingV2', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'destroy', 'ElasticLoadBalancingV2', Promise.resolve(result), true, mock)
+  describeTrustStoreAssociations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'describeTrustStoreAssociations', 'ElasticLoadBalancingV2', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'destroy', 'ElasticLoadBalancingV2', Promise.resolve(result), false, mock)
+  describeTrustStoreAssociationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'describeTrustStoreAssociations', 'ElasticLoadBalancingV2', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'destroy', 'ElasticLoadBalancingV2', Promise.reject(result), true, mock)
+  describeTrustStoreAssociationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'describeTrustStoreAssociations', 'ElasticLoadBalancingV2', Promise.reject(result), true, mock)
+  },
+  describeTrustStoreRevocations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'describeTrustStoreRevocations', 'ElasticLoadBalancingV2', Promise.resolve(result), true, mock)
+  },
+  describeTrustStoreRevocationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'describeTrustStoreRevocations', 'ElasticLoadBalancingV2', Promise.resolve(result), false, mock)
+  },
+  describeTrustStoreRevocationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'describeTrustStoreRevocations', 'ElasticLoadBalancingV2', Promise.reject(result), true, mock)
+  },
+  describeTrustStores: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'describeTrustStores', 'ElasticLoadBalancingV2', Promise.resolve(result), true, mock)
+  },
+  describeTrustStoresAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'describeTrustStores', 'ElasticLoadBalancingV2', Promise.resolve(result), false, mock)
+  },
+  describeTrustStoresThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'describeTrustStores', 'ElasticLoadBalancingV2', Promise.reject(result), true, mock)
+  },
+  getTrustStoreCaCertificatesBundle: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'getTrustStoreCaCertificatesBundle', 'ElasticLoadBalancingV2', Promise.resolve(result), true, mock)
+  },
+  getTrustStoreCaCertificatesBundleAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'getTrustStoreCaCertificatesBundle', 'ElasticLoadBalancingV2', Promise.resolve(result), false, mock)
+  },
+  getTrustStoreCaCertificatesBundleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'getTrustStoreCaCertificatesBundle', 'ElasticLoadBalancingV2', Promise.reject(result), true, mock)
+  },
+  getTrustStoreRevocationContent: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'getTrustStoreRevocationContent', 'ElasticLoadBalancingV2', Promise.resolve(result), true, mock)
+  },
+  getTrustStoreRevocationContentAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'getTrustStoreRevocationContent', 'ElasticLoadBalancingV2', Promise.resolve(result), false, mock)
+  },
+  getTrustStoreRevocationContentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'getTrustStoreRevocationContent', 'ElasticLoadBalancingV2', Promise.reject(result), true, mock)
   },
   modifyListener: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'modifyListener', 'ElasticLoadBalancingV2', Promise.resolve(result), true, mock)
@@ -251,6 +313,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   modifyRuleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'modifyRule', 'ElasticLoadBalancingV2', Promise.reject(result), true, mock)
   },
+  modifyTargetGroupAttributes: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'modifyTargetGroupAttributes', 'ElasticLoadBalancingV2', Promise.resolve(result), true, mock)
+  },
+  modifyTargetGroupAttributesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'modifyTargetGroupAttributes', 'ElasticLoadBalancingV2', Promise.resolve(result), false, mock)
+  },
+  modifyTargetGroupAttributesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'modifyTargetGroupAttributes', 'ElasticLoadBalancingV2', Promise.reject(result), true, mock)
+  },
   modifyTargetGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'modifyTargetGroup', 'ElasticLoadBalancingV2', Promise.resolve(result), true, mock)
   },
@@ -260,14 +331,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   modifyTargetGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'modifyTargetGroup', 'ElasticLoadBalancingV2', Promise.reject(result), true, mock)
   },
-  modifyTargetGroupAttributes: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'modifyTargetGroupAttributes', 'ElasticLoadBalancingV2', Promise.resolve(result), true, mock)
+  modifyTrustStore: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'modifyTrustStore', 'ElasticLoadBalancingV2', Promise.resolve(result), true, mock)
   },
-  modifyTargetGroupAttributesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'modifyTargetGroupAttributes', 'ElasticLoadBalancingV2', Promise.resolve(result), false, mock)
+  modifyTrustStoreAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'modifyTrustStore', 'ElasticLoadBalancingV2', Promise.resolve(result), false, mock)
   },
-  modifyTargetGroupAttributesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'modifyTargetGroupAttributes', 'ElasticLoadBalancingV2', Promise.reject(result), true, mock)
+  modifyTrustStoreThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'modifyTrustStore', 'ElasticLoadBalancingV2', Promise.reject(result), true, mock)
   },
   registerTargets: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'registerTargets', 'ElasticLoadBalancingV2', Promise.resolve(result), true, mock)
@@ -295,6 +366,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   removeTagsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'removeTags', 'ElasticLoadBalancingV2', Promise.reject(result), true, mock)
+  },
+  removeTrustStoreRevocations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'removeTrustStoreRevocations', 'ElasticLoadBalancingV2', Promise.resolve(result), true, mock)
+  },
+  removeTrustStoreRevocationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'removeTrustStoreRevocations', 'ElasticLoadBalancingV2', Promise.resolve(result), false, mock)
+  },
+  removeTrustStoreRevocationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'removeTrustStoreRevocations', 'ElasticLoadBalancingV2', Promise.reject(result), true, mock)
   },
   setIpAddressType: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-elastic-load-balancing-v2', 'setIpAddressType', 'ElasticLoadBalancingV2', Promise.resolve(result), true, mock)

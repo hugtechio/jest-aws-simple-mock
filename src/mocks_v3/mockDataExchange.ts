@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockDataExchange = {
+export const mockDataExchange = {
   cancelJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-dataexchange', 'cancelJob', 'DataExchange', Promise.resolve(result), true, mock)
   },
@@ -97,15 +96,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteRevisionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-dataexchange', 'deleteRevision', 'DataExchange', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-dataexchange', 'destroy', 'DataExchange', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-dataexchange', 'destroy', 'DataExchange', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-dataexchange', 'destroy', 'DataExchange', Promise.reject(result), true, mock)
   },
   getAsset: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-dataexchange', 'getAsset', 'DataExchange', Promise.resolve(result), true, mock)
@@ -205,6 +195,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listTagsForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-dataexchange', 'listTagsForResource', 'DataExchange', Promise.reject(result), true, mock)
+  },
+  revokeRevision: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-dataexchange', 'revokeRevision', 'DataExchange', Promise.resolve(result), true, mock)
+  },
+  revokeRevisionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-dataexchange', 'revokeRevision', 'DataExchange', Promise.resolve(result), false, mock)
+  },
+  revokeRevisionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-dataexchange', 'revokeRevision', 'DataExchange', Promise.reject(result), true, mock)
+  },
+  sendApiAsset: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-dataexchange', 'sendApiAsset', 'DataExchange', Promise.resolve(result), true, mock)
+  },
+  sendApiAssetAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-dataexchange', 'sendApiAsset', 'DataExchange', Promise.resolve(result), false, mock)
+  },
+  sendApiAssetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-dataexchange', 'sendApiAsset', 'DataExchange', Promise.reject(result), true, mock)
+  },
+  sendDataSetNotification: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-dataexchange', 'sendDataSetNotification', 'DataExchange', Promise.resolve(result), true, mock)
+  },
+  sendDataSetNotificationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-dataexchange', 'sendDataSetNotification', 'DataExchange', Promise.resolve(result), false, mock)
+  },
+  sendDataSetNotificationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-dataexchange', 'sendDataSetNotification', 'DataExchange', Promise.reject(result), true, mock)
   },
   startJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-dataexchange', 'startJob', 'DataExchange', Promise.resolve(result), true, mock)

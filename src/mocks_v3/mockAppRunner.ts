@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockAppRunner = {
+export const mockAppRunner = {
   associateCustomDomain: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-apprunner', 'associateCustomDomain', 'AppRunner', Promise.resolve(result), true, mock)
   },
@@ -44,6 +43,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createConnectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-apprunner', 'createConnection', 'AppRunner', Promise.reject(result), true, mock)
   },
+  createObservabilityConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'createObservabilityConfiguration', 'AppRunner', Promise.resolve(result), true, mock)
+  },
+  createObservabilityConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'createObservabilityConfiguration', 'AppRunner', Promise.resolve(result), false, mock)
+  },
+  createObservabilityConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'createObservabilityConfiguration', 'AppRunner', Promise.reject(result), true, mock)
+  },
   createService: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-apprunner', 'createService', 'AppRunner', Promise.resolve(result), true, mock)
   },
@@ -52,6 +60,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createServiceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-apprunner', 'createService', 'AppRunner', Promise.reject(result), true, mock)
+  },
+  createVpcConnector: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'createVpcConnector', 'AppRunner', Promise.resolve(result), true, mock)
+  },
+  createVpcConnectorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'createVpcConnector', 'AppRunner', Promise.resolve(result), false, mock)
+  },
+  createVpcConnectorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'createVpcConnector', 'AppRunner', Promise.reject(result), true, mock)
+  },
+  createVpcIngressConnection: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'createVpcIngressConnection', 'AppRunner', Promise.resolve(result), true, mock)
+  },
+  createVpcIngressConnectionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'createVpcIngressConnection', 'AppRunner', Promise.resolve(result), false, mock)
+  },
+  createVpcIngressConnectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'createVpcIngressConnection', 'AppRunner', Promise.reject(result), true, mock)
   },
   deleteAutoScalingConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-apprunner', 'deleteAutoScalingConfiguration', 'AppRunner', Promise.resolve(result), true, mock)
@@ -71,6 +97,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteConnectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-apprunner', 'deleteConnection', 'AppRunner', Promise.reject(result), true, mock)
   },
+  deleteObservabilityConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'deleteObservabilityConfiguration', 'AppRunner', Promise.resolve(result), true, mock)
+  },
+  deleteObservabilityConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'deleteObservabilityConfiguration', 'AppRunner', Promise.resolve(result), false, mock)
+  },
+  deleteObservabilityConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'deleteObservabilityConfiguration', 'AppRunner', Promise.reject(result), true, mock)
+  },
   deleteService: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-apprunner', 'deleteService', 'AppRunner', Promise.resolve(result), true, mock)
   },
@@ -79,6 +114,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteServiceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-apprunner', 'deleteService', 'AppRunner', Promise.reject(result), true, mock)
+  },
+  deleteVpcConnector: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'deleteVpcConnector', 'AppRunner', Promise.resolve(result), true, mock)
+  },
+  deleteVpcConnectorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'deleteVpcConnector', 'AppRunner', Promise.resolve(result), false, mock)
+  },
+  deleteVpcConnectorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'deleteVpcConnector', 'AppRunner', Promise.reject(result), true, mock)
+  },
+  deleteVpcIngressConnection: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'deleteVpcIngressConnection', 'AppRunner', Promise.resolve(result), true, mock)
+  },
+  deleteVpcIngressConnectionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'deleteVpcIngressConnection', 'AppRunner', Promise.resolve(result), false, mock)
+  },
+  deleteVpcIngressConnectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'deleteVpcIngressConnection', 'AppRunner', Promise.reject(result), true, mock)
   },
   describeAutoScalingConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-apprunner', 'describeAutoScalingConfiguration', 'AppRunner', Promise.resolve(result), true, mock)
@@ -98,6 +151,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeCustomDomainsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-apprunner', 'describeCustomDomains', 'AppRunner', Promise.reject(result), true, mock)
   },
+  describeObservabilityConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'describeObservabilityConfiguration', 'AppRunner', Promise.resolve(result), true, mock)
+  },
+  describeObservabilityConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'describeObservabilityConfiguration', 'AppRunner', Promise.resolve(result), false, mock)
+  },
+  describeObservabilityConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'describeObservabilityConfiguration', 'AppRunner', Promise.reject(result), true, mock)
+  },
   describeService: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-apprunner', 'describeService', 'AppRunner', Promise.resolve(result), true, mock)
   },
@@ -107,14 +169,23 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeServiceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-apprunner', 'describeService', 'AppRunner', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-apprunner', 'destroy', 'AppRunner', Promise.resolve(result), true, mock)
+  describeVpcConnector: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'describeVpcConnector', 'AppRunner', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-apprunner', 'destroy', 'AppRunner', Promise.resolve(result), false, mock)
+  describeVpcConnectorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'describeVpcConnector', 'AppRunner', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-apprunner', 'destroy', 'AppRunner', Promise.reject(result), true, mock)
+  describeVpcConnectorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'describeVpcConnector', 'AppRunner', Promise.reject(result), true, mock)
+  },
+  describeVpcIngressConnection: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'describeVpcIngressConnection', 'AppRunner', Promise.resolve(result), true, mock)
+  },
+  describeVpcIngressConnectionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'describeVpcIngressConnection', 'AppRunner', Promise.resolve(result), false, mock)
+  },
+  describeVpcIngressConnectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'describeVpcIngressConnection', 'AppRunner', Promise.reject(result), true, mock)
   },
   disassociateCustomDomain: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-apprunner', 'disassociateCustomDomain', 'AppRunner', Promise.resolve(result), true, mock)
@@ -143,6 +214,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listConnectionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-apprunner', 'listConnections', 'AppRunner', Promise.reject(result), true, mock)
   },
+  listObservabilityConfigurations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'listObservabilityConfigurations', 'AppRunner', Promise.resolve(result), true, mock)
+  },
+  listObservabilityConfigurationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'listObservabilityConfigurations', 'AppRunner', Promise.resolve(result), false, mock)
+  },
+  listObservabilityConfigurationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'listObservabilityConfigurations', 'AppRunner', Promise.reject(result), true, mock)
+  },
   listOperations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-apprunner', 'listOperations', 'AppRunner', Promise.resolve(result), true, mock)
   },
@@ -161,6 +241,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listServicesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-apprunner', 'listServices', 'AppRunner', Promise.reject(result), true, mock)
   },
+  listServicesForAutoScalingConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'listServicesForAutoScalingConfiguration', 'AppRunner', Promise.resolve(result), true, mock)
+  },
+  listServicesForAutoScalingConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'listServicesForAutoScalingConfiguration', 'AppRunner', Promise.resolve(result), false, mock)
+  },
+  listServicesForAutoScalingConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'listServicesForAutoScalingConfiguration', 'AppRunner', Promise.reject(result), true, mock)
+  },
   listTagsForResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-apprunner', 'listTagsForResource', 'AppRunner', Promise.resolve(result), true, mock)
   },
@@ -169,6 +258,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listTagsForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-apprunner', 'listTagsForResource', 'AppRunner', Promise.reject(result), true, mock)
+  },
+  listVpcConnectors: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'listVpcConnectors', 'AppRunner', Promise.resolve(result), true, mock)
+  },
+  listVpcConnectorsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'listVpcConnectors', 'AppRunner', Promise.resolve(result), false, mock)
+  },
+  listVpcConnectorsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'listVpcConnectors', 'AppRunner', Promise.reject(result), true, mock)
+  },
+  listVpcIngressConnections: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'listVpcIngressConnections', 'AppRunner', Promise.resolve(result), true, mock)
+  },
+  listVpcIngressConnectionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'listVpcIngressConnections', 'AppRunner', Promise.resolve(result), false, mock)
+  },
+  listVpcIngressConnectionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'listVpcIngressConnections', 'AppRunner', Promise.reject(result), true, mock)
   },
   pauseService: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-apprunner', 'pauseService', 'AppRunner', Promise.resolve(result), true, mock)
@@ -215,6 +322,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   untagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-apprunner', 'untagResource', 'AppRunner', Promise.reject(result), true, mock)
   },
+  updateDefaultAutoScalingConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'updateDefaultAutoScalingConfiguration', 'AppRunner', Promise.resolve(result), true, mock)
+  },
+  updateDefaultAutoScalingConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'updateDefaultAutoScalingConfiguration', 'AppRunner', Promise.resolve(result), false, mock)
+  },
+  updateDefaultAutoScalingConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'updateDefaultAutoScalingConfiguration', 'AppRunner', Promise.reject(result), true, mock)
+  },
   updateService: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-apprunner', 'updateService', 'AppRunner', Promise.resolve(result), true, mock)
   },
@@ -223,6 +339,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateServiceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-apprunner', 'updateService', 'AppRunner', Promise.reject(result), true, mock)
+  },
+  updateVpcIngressConnection: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'updateVpcIngressConnection', 'AppRunner', Promise.resolve(result), true, mock)
+  },
+  updateVpcIngressConnectionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'updateVpcIngressConnection', 'AppRunner', Promise.resolve(result), false, mock)
+  },
+  updateVpcIngressConnectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-apprunner', 'updateVpcIngressConnection', 'AppRunner', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-apprunner', 'send', 'AppRunnerClient', Promise.resolve(result), true, mock)

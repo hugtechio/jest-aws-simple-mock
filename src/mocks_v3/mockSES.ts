@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockSES = {
+export const mockSES = {
   cloneReceiptRuleSet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ses', 'cloneReceiptRuleSet', 'SES', Promise.resolve(result), true, mock)
   },
@@ -232,15 +231,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeReceiptRuleSetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ses', 'describeReceiptRuleSet', 'SES', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ses', 'destroy', 'SES', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ses', 'destroy', 'SES', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ses', 'destroy', 'SES', Promise.reject(result), true, mock)
   },
   getAccountSendingEnabled: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ses', 'getAccountSendingEnabled', 'SES', Promise.resolve(result), true, mock)

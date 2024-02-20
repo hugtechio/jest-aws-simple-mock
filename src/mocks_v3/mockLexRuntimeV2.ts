@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockLexRuntimeV2 = {
+export const mockLexRuntimeV2 = {
   deleteSession: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-runtime-v2', 'deleteSession', 'LexRuntimeV2', Promise.resolve(result), true, mock)
   },
@@ -25,15 +24,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteSessionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-runtime-v2', 'deleteSession', 'LexRuntimeV2', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lex-runtime-v2', 'destroy', 'LexRuntimeV2', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lex-runtime-v2', 'destroy', 'LexRuntimeV2', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lex-runtime-v2', 'destroy', 'LexRuntimeV2', Promise.reject(result), true, mock)
   },
   getSession: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-runtime-v2', 'getSession', 'LexRuntimeV2', Promise.resolve(result), true, mock)

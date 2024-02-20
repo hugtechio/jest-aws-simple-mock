@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockECRPUBLIC = {
+export const mockECRPUBLIC = {
   batchCheckLayerAvailability: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ecr-public', 'batchCheckLayerAvailability', 'ECRPUBLIC', Promise.resolve(result), true, mock)
   },
@@ -106,15 +105,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeRepositoriesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ecr-public', 'describeRepositories', 'ECRPUBLIC', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ecr-public', 'destroy', 'ECRPUBLIC', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ecr-public', 'destroy', 'ECRPUBLIC', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ecr-public', 'destroy', 'ECRPUBLIC', Promise.reject(result), true, mock)
   },
   getAuthorizationToken: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ecr-public', 'getAuthorizationToken', 'ECRPUBLIC', Promise.resolve(result), true, mock)

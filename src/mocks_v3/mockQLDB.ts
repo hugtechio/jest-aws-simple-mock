@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockQLDB = {
+export const mockQLDB = {
   cancelJournalKinesisStream: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-qldb', 'cancelJournalKinesisStream', 'QLDB', Promise.resolve(result), true, mock)
   },
@@ -70,15 +69,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeLedgerThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-qldb', 'describeLedger', 'QLDB', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-qldb', 'destroy', 'QLDB', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-qldb', 'destroy', 'QLDB', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-qldb', 'destroy', 'QLDB', Promise.reject(result), true, mock)
   },
   exportJournalToS3: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-qldb', 'exportJournalToS3', 'QLDB', Promise.resolve(result), true, mock)

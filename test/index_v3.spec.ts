@@ -22,9 +22,9 @@ describe('#index_v3', () => {
             // construct mock chain
             const chain = new MockChain()
             chain
-                .addWithName('dynamoSend', V3.mockDynamo.send, 1)
-                .addWithName('lambdaSend', V3.mockLambda.send, {})
-                .addWithName('dynamoSend', V3.mockDynamo.send, 2)
+                .append('dynamoSend', V3.mockDynamo.send, 1)
+                .append('lambdaSend', V3.mockLambda.send, {})
+                .append('dynamoSend', V3.mockDynamo.send, 2)
             const spies = chain.getNamedSpies()
 
             // call methods
@@ -87,7 +87,7 @@ describe('#index_v3', () => {
         })
 
         it ('should be return dynamoDB mock', async () => {
-            V3.mockDynamo.getItem({})
+            V3.mockDynamoDB.getItem({})
             const dynamodb = new DynamoDB({region: 'us-east-1'})
             // @ts-ignore
             const result = await dynamodb.getItem({})
@@ -95,10 +95,10 @@ describe('#index_v3', () => {
         })
 
         it ('should be return dynamoDB mock(chaining)', async () => {
-            let m = V3.mockDynamo.getItem({
+            let m = V3.mockDynamoDB.getItem({
                 times:1
             })
-            m = V3.mockDynamo.getItem({
+            m = V3.mockDynamoDB.getItem({
                 times:2
             }, m)
             const dynamodb = new DynamoDB({region: 'us-east-1'})
@@ -111,7 +111,7 @@ describe('#index_v3', () => {
         })
 
         it ('should be return dynamoDB mock(all)', async () => {
-            V3.mockDynamo.getItemAll({
+            V3.mockDynamoDB.getItemAll({
                 times: 'all'
             })
             const dynamodb = new DynamoDB({region: 'us-east-1'})
@@ -124,7 +124,7 @@ describe('#index_v3', () => {
         })
 
         it ('should be return dynamoDB mock(throw)', async () => {
-            V3.mockDynamo.getItemThrow({
+            V3.mockDynamoDB.getItemThrow({
                 error: 'error'
             })
             const dynamodb = new DynamoDB({region: 'us-east-1'})

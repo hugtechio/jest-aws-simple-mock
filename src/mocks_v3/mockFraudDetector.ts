@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockFraudDetector = {
+export const mockFraudDetector = {
   batchCreateVariable: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-frauddetector', 'batchCreateVariable', 'FraudDetector', Promise.resolve(result), true, mock)
   },
@@ -79,6 +78,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createDetectorVersionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-frauddetector', 'createDetectorVersion', 'FraudDetector', Promise.reject(result), true, mock)
+  },
+  createList: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-frauddetector', 'createList', 'FraudDetector', Promise.resolve(result), true, mock)
+  },
+  createListAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-frauddetector', 'createList', 'FraudDetector', Promise.resolve(result), false, mock)
+  },
+  createListThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-frauddetector', 'createList', 'FraudDetector', Promise.reject(result), true, mock)
   },
   createModel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-frauddetector', 'createModel', 'FraudDetector', Promise.resolve(result), true, mock)
@@ -206,6 +214,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteLabelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-frauddetector', 'deleteLabel', 'FraudDetector', Promise.reject(result), true, mock)
   },
+  deleteList: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-frauddetector', 'deleteList', 'FraudDetector', Promise.resolve(result), true, mock)
+  },
+  deleteListAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-frauddetector', 'deleteList', 'FraudDetector', Promise.resolve(result), false, mock)
+  },
+  deleteListThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-frauddetector', 'deleteList', 'FraudDetector', Promise.reject(result), true, mock)
+  },
   deleteModel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-frauddetector', 'deleteModel', 'FraudDetector', Promise.resolve(result), true, mock)
   },
@@ -268,15 +285,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeModelVersionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-frauddetector', 'describeModelVersions', 'FraudDetector', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-frauddetector', 'destroy', 'FraudDetector', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-frauddetector', 'destroy', 'FraudDetector', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-frauddetector', 'destroy', 'FraudDetector', Promise.reject(result), true, mock)
   },
   getBatchImportJobs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-frauddetector', 'getBatchImportJobs', 'FraudDetector', Promise.resolve(result), true, mock)
@@ -350,6 +358,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getEventPredictionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-frauddetector', 'getEventPrediction', 'FraudDetector', Promise.reject(result), true, mock)
   },
+  getEventPredictionMetadata: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-frauddetector', 'getEventPredictionMetadata', 'FraudDetector', Promise.resolve(result), true, mock)
+  },
+  getEventPredictionMetadataAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-frauddetector', 'getEventPredictionMetadata', 'FraudDetector', Promise.resolve(result), false, mock)
+  },
+  getEventPredictionMetadataThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-frauddetector', 'getEventPredictionMetadata', 'FraudDetector', Promise.reject(result), true, mock)
+  },
   getEventTypes: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-frauddetector', 'getEventTypes', 'FraudDetector', Promise.resolve(result), true, mock)
   },
@@ -385,6 +402,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getLabelsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-frauddetector', 'getLabels', 'FraudDetector', Promise.reject(result), true, mock)
+  },
+  getListElements: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-frauddetector', 'getListElements', 'FraudDetector', Promise.resolve(result), true, mock)
+  },
+  getListElementsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-frauddetector', 'getListElements', 'FraudDetector', Promise.resolve(result), false, mock)
+  },
+  getListElementsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-frauddetector', 'getListElements', 'FraudDetector', Promise.reject(result), true, mock)
+  },
+  getListsMetadata: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-frauddetector', 'getListsMetadata', 'FraudDetector', Promise.resolve(result), true, mock)
+  },
+  getListsMetadataAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-frauddetector', 'getListsMetadata', 'FraudDetector', Promise.resolve(result), false, mock)
+  },
+  getListsMetadataThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-frauddetector', 'getListsMetadata', 'FraudDetector', Promise.reject(result), true, mock)
   },
   getModelVersion: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-frauddetector', 'getModelVersion', 'FraudDetector', Promise.resolve(result), true, mock)
@@ -430,6 +465,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getVariablesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-frauddetector', 'getVariables', 'FraudDetector', Promise.reject(result), true, mock)
+  },
+  listEventPredictions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-frauddetector', 'listEventPredictions', 'FraudDetector', Promise.resolve(result), true, mock)
+  },
+  listEventPredictionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-frauddetector', 'listEventPredictions', 'FraudDetector', Promise.resolve(result), false, mock)
+  },
+  listEventPredictionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-frauddetector', 'listEventPredictions', 'FraudDetector', Promise.reject(result), true, mock)
   },
   listTagsForResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-frauddetector', 'listTagsForResource', 'FraudDetector', Promise.resolve(result), true, mock)
@@ -565,6 +609,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateEventLabelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-frauddetector', 'updateEventLabel', 'FraudDetector', Promise.reject(result), true, mock)
+  },
+  updateList: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-frauddetector', 'updateList', 'FraudDetector', Promise.resolve(result), true, mock)
+  },
+  updateListAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-frauddetector', 'updateList', 'FraudDetector', Promise.resolve(result), false, mock)
+  },
+  updateListThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-frauddetector', 'updateList', 'FraudDetector', Promise.reject(result), true, mock)
   },
   updateModel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-frauddetector', 'updateModel', 'FraudDetector', Promise.resolve(result), true, mock)

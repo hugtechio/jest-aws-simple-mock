@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockSageMaker = {
+export const mockSageMaker = {
   addAssociation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'addAssociation', 'SageMaker', Promise.resolve(result), true, mock)
   },
@@ -107,6 +106,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createAutoMLJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'createAutoMLJob', 'SageMaker', Promise.reject(result), true, mock)
   },
+  createAutoMLJobV2: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'createAutoMLJobV2', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  createAutoMLJobV2All: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'createAutoMLJobV2', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  createAutoMLJobV2Throw: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'createAutoMLJobV2', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  createCluster: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'createCluster', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  createClusterAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'createCluster', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  createClusterThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'createCluster', 'SageMaker', Promise.reject(result), true, mock)
+  },
   createCodeRepository: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'createCodeRepository', 'SageMaker', Promise.resolve(result), true, mock)
   },
@@ -160,6 +177,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createDomainThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'createDomain', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  createEdgeDeploymentPlan: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'createEdgeDeploymentPlan', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  createEdgeDeploymentPlanAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'createEdgeDeploymentPlan', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  createEdgeDeploymentPlanThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'createEdgeDeploymentPlan', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  createEdgeDeploymentStage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'createEdgeDeploymentStage', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  createEdgeDeploymentStageAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'createEdgeDeploymentStage', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  createEdgeDeploymentStageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'createEdgeDeploymentStage', 'SageMaker', Promise.reject(result), true, mock)
   },
   createEdgePackagingJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'createEdgePackagingJob', 'SageMaker', Promise.resolve(result), true, mock)
@@ -215,6 +250,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createFlowDefinitionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'createFlowDefinition', 'SageMaker', Promise.reject(result), true, mock)
   },
+  createHub: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'createHub', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  createHubAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'createHub', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  createHubThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'createHub', 'SageMaker', Promise.reject(result), true, mock)
+  },
   createHumanTaskUi: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'createHumanTaskUi', 'SageMaker', Promise.resolve(result), true, mock)
   },
@@ -251,6 +295,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createImageVersionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'createImageVersion', 'SageMaker', Promise.reject(result), true, mock)
   },
+  createInferenceComponent: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'createInferenceComponent', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  createInferenceComponentAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'createInferenceComponent', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  createInferenceComponentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'createInferenceComponent', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  createInferenceExperiment: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'createInferenceExperiment', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  createInferenceExperimentAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'createInferenceExperiment', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  createInferenceExperimentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'createInferenceExperiment', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  createInferenceRecommendationsJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'createInferenceRecommendationsJob', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  createInferenceRecommendationsJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'createInferenceRecommendationsJob', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  createInferenceRecommendationsJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'createInferenceRecommendationsJob', 'SageMaker', Promise.reject(result), true, mock)
+  },
   createLabelingJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'createLabelingJob', 'SageMaker', Promise.resolve(result), true, mock)
   },
@@ -260,15 +331,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createLabelingJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'createLabelingJob', 'SageMaker', Promise.reject(result), true, mock)
   },
-  createModel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sagemaker', 'createModel', 'SageMaker', Promise.resolve(result), true, mock)
-  },
-  createModelAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sagemaker', 'createModel', 'SageMaker', Promise.resolve(result), false, mock)
-  },
-  createModelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sagemaker', 'createModel', 'SageMaker', Promise.reject(result), true, mock)
-  },
   createModelBiasJobDefinition: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'createModelBiasJobDefinition', 'SageMaker', Promise.resolve(result), true, mock)
   },
@@ -277,6 +339,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createModelBiasJobDefinitionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'createModelBiasJobDefinition', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  createModelCard: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'createModelCard', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  createModelCardAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'createModelCard', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  createModelCardThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'createModelCard', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  createModelCardExportJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'createModelCardExportJob', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  createModelCardExportJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'createModelCardExportJob', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  createModelCardExportJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'createModelCardExportJob', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  createModel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'createModel', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  createModelAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'createModel', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  createModelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'createModel', 'SageMaker', Promise.reject(result), true, mock)
   },
   createModelExplainabilityJobDefinition: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'createModelExplainabilityJobDefinition', 'SageMaker', Promise.resolve(result), true, mock)
@@ -385,6 +474,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createProjectThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'createProject', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  createSpace: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'createSpace', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  createSpaceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'createSpace', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  createSpaceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'createSpace', 'SageMaker', Promise.reject(result), true, mock)
   },
   createStudioLifecycleConfig: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'createStudioLifecycleConfig', 'SageMaker', Promise.resolve(result), true, mock)
@@ -512,6 +610,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteAssociationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'deleteAssociation', 'SageMaker', Promise.reject(result), true, mock)
   },
+  deleteCluster: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'deleteCluster', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  deleteClusterAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'deleteCluster', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  deleteClusterThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'deleteCluster', 'SageMaker', Promise.reject(result), true, mock)
+  },
   deleteCodeRepository: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'deleteCodeRepository', 'SageMaker', Promise.resolve(result), true, mock)
   },
@@ -520,6 +627,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteCodeRepositoryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'deleteCodeRepository', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  deleteCompilationJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'deleteCompilationJob', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  deleteCompilationJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'deleteCompilationJob', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  deleteCompilationJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'deleteCompilationJob', 'SageMaker', Promise.reject(result), true, mock)
   },
   deleteContext: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'deleteContext', 'SageMaker', Promise.resolve(result), true, mock)
@@ -556,6 +672,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteDomainThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'deleteDomain', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  deleteEdgeDeploymentPlan: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'deleteEdgeDeploymentPlan', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  deleteEdgeDeploymentPlanAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'deleteEdgeDeploymentPlan', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  deleteEdgeDeploymentPlanThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'deleteEdgeDeploymentPlan', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  deleteEdgeDeploymentStage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'deleteEdgeDeploymentStage', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  deleteEdgeDeploymentStageAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'deleteEdgeDeploymentStage', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  deleteEdgeDeploymentStageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'deleteEdgeDeploymentStage', 'SageMaker', Promise.reject(result), true, mock)
   },
   deleteEndpoint: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'deleteEndpoint', 'SageMaker', Promise.resolve(result), true, mock)
@@ -602,6 +736,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteFlowDefinitionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'deleteFlowDefinition', 'SageMaker', Promise.reject(result), true, mock)
   },
+  deleteHub: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'deleteHub', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  deleteHubAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'deleteHub', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  deleteHubThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'deleteHub', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  deleteHubContent: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'deleteHubContent', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  deleteHubContentAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'deleteHubContent', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  deleteHubContentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'deleteHubContent', 'SageMaker', Promise.reject(result), true, mock)
+  },
   deleteHumanTaskUi: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'deleteHumanTaskUi', 'SageMaker', Promise.resolve(result), true, mock)
   },
@@ -610,6 +762,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteHumanTaskUiThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'deleteHumanTaskUi', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  deleteHyperParameterTuningJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'deleteHyperParameterTuningJob', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  deleteHyperParameterTuningJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'deleteHyperParameterTuningJob', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  deleteHyperParameterTuningJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'deleteHyperParameterTuningJob', 'SageMaker', Promise.reject(result), true, mock)
   },
   deleteImage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'deleteImage', 'SageMaker', Promise.resolve(result), true, mock)
@@ -629,14 +790,23 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteImageVersionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'deleteImageVersion', 'SageMaker', Promise.reject(result), true, mock)
   },
-  deleteModel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sagemaker', 'deleteModel', 'SageMaker', Promise.resolve(result), true, mock)
+  deleteInferenceComponent: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'deleteInferenceComponent', 'SageMaker', Promise.resolve(result), true, mock)
   },
-  deleteModelAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sagemaker', 'deleteModel', 'SageMaker', Promise.resolve(result), false, mock)
+  deleteInferenceComponentAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'deleteInferenceComponent', 'SageMaker', Promise.resolve(result), false, mock)
   },
-  deleteModelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sagemaker', 'deleteModel', 'SageMaker', Promise.reject(result), true, mock)
+  deleteInferenceComponentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'deleteInferenceComponent', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  deleteInferenceExperiment: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'deleteInferenceExperiment', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  deleteInferenceExperimentAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'deleteInferenceExperiment', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  deleteInferenceExperimentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'deleteInferenceExperiment', 'SageMaker', Promise.reject(result), true, mock)
   },
   deleteModelBiasJobDefinition: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'deleteModelBiasJobDefinition', 'SageMaker', Promise.resolve(result), true, mock)
@@ -646,6 +816,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteModelBiasJobDefinitionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'deleteModelBiasJobDefinition', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  deleteModelCard: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'deleteModelCard', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  deleteModelCardAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'deleteModelCard', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  deleteModelCardThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'deleteModelCard', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  deleteModel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'deleteModel', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  deleteModelAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'deleteModel', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  deleteModelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'deleteModel', 'SageMaker', Promise.reject(result), true, mock)
   },
   deleteModelExplainabilityJobDefinition: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'deleteModelExplainabilityJobDefinition', 'SageMaker', Promise.resolve(result), true, mock)
@@ -736,6 +924,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteProjectThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'deleteProject', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  deleteSpace: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'deleteSpace', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  deleteSpaceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'deleteSpace', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  deleteSpaceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'deleteSpace', 'SageMaker', Promise.reject(result), true, mock)
   },
   deleteStudioLifecycleConfig: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'deleteStudioLifecycleConfig', 'SageMaker', Promise.resolve(result), true, mock)
@@ -863,6 +1060,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeAutoMLJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'describeAutoMLJob', 'SageMaker', Promise.reject(result), true, mock)
   },
+  describeAutoMLJobV2: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeAutoMLJobV2', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  describeAutoMLJobV2All: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeAutoMLJobV2', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  describeAutoMLJobV2Throw: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeAutoMLJobV2', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  describeCluster: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeCluster', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  describeClusterAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeCluster', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  describeClusterThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeCluster', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  describeClusterNode: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeClusterNode', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  describeClusterNodeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeClusterNode', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  describeClusterNodeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeClusterNode', 'SageMaker', Promise.reject(result), true, mock)
+  },
   describeCodeRepository: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'describeCodeRepository', 'SageMaker', Promise.resolve(result), true, mock)
   },
@@ -926,6 +1150,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeDomainThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'describeDomain', 'SageMaker', Promise.reject(result), true, mock)
   },
+  describeEdgeDeploymentPlan: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeEdgeDeploymentPlan', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  describeEdgeDeploymentPlanAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeEdgeDeploymentPlan', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  describeEdgeDeploymentPlanThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeEdgeDeploymentPlan', 'SageMaker', Promise.reject(result), true, mock)
+  },
   describeEdgePackagingJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'describeEdgePackagingJob', 'SageMaker', Promise.resolve(result), true, mock)
   },
@@ -971,6 +1204,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeFeatureGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'describeFeatureGroup', 'SageMaker', Promise.reject(result), true, mock)
   },
+  describeFeatureMetadata: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeFeatureMetadata', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  describeFeatureMetadataAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeFeatureMetadata', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  describeFeatureMetadataThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeFeatureMetadata', 'SageMaker', Promise.reject(result), true, mock)
+  },
   describeFlowDefinition: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'describeFlowDefinition', 'SageMaker', Promise.resolve(result), true, mock)
   },
@@ -979,6 +1221,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeFlowDefinitionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'describeFlowDefinition', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  describeHub: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeHub', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  describeHubAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeHub', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  describeHubThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeHub', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  describeHubContent: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeHubContent', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  describeHubContentAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeHubContent', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  describeHubContentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeHubContent', 'SageMaker', Promise.reject(result), true, mock)
   },
   describeHumanTaskUi: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'describeHumanTaskUi', 'SageMaker', Promise.resolve(result), true, mock)
@@ -1016,6 +1276,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeImageVersionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'describeImageVersion', 'SageMaker', Promise.reject(result), true, mock)
   },
+  describeInferenceComponent: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeInferenceComponent', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  describeInferenceComponentAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeInferenceComponent', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  describeInferenceComponentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeInferenceComponent', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  describeInferenceExperiment: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeInferenceExperiment', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  describeInferenceExperimentAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeInferenceExperiment', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  describeInferenceExperimentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeInferenceExperiment', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  describeInferenceRecommendationsJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeInferenceRecommendationsJob', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  describeInferenceRecommendationsJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeInferenceRecommendationsJob', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  describeInferenceRecommendationsJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeInferenceRecommendationsJob', 'SageMaker', Promise.reject(result), true, mock)
+  },
   describeLabelingJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'describeLabelingJob', 'SageMaker', Promise.resolve(result), true, mock)
   },
@@ -1025,14 +1312,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeLabelingJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'describeLabelingJob', 'SageMaker', Promise.reject(result), true, mock)
   },
-  describeModel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sagemaker', 'describeModel', 'SageMaker', Promise.resolve(result), true, mock)
+  describeLineageGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeLineageGroup', 'SageMaker', Promise.resolve(result), true, mock)
   },
-  describeModelAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sagemaker', 'describeModel', 'SageMaker', Promise.resolve(result), false, mock)
+  describeLineageGroupAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeLineageGroup', 'SageMaker', Promise.resolve(result), false, mock)
   },
-  describeModelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sagemaker', 'describeModel', 'SageMaker', Promise.reject(result), true, mock)
+  describeLineageGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeLineageGroup', 'SageMaker', Promise.reject(result), true, mock)
   },
   describeModelBiasJobDefinition: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'describeModelBiasJobDefinition', 'SageMaker', Promise.resolve(result), true, mock)
@@ -1042,6 +1329,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeModelBiasJobDefinitionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'describeModelBiasJobDefinition', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  describeModelCard: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeModelCard', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  describeModelCardAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeModelCard', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  describeModelCardThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeModelCard', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  describeModelCardExportJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeModelCardExportJob', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  describeModelCardExportJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeModelCardExportJob', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  describeModelCardExportJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeModelCardExportJob', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  describeModel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeModel', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  describeModelAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeModel', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  describeModelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeModel', 'SageMaker', Promise.reject(result), true, mock)
   },
   describeModelExplainabilityJobDefinition: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'describeModelExplainabilityJobDefinition', 'SageMaker', Promise.resolve(result), true, mock)
@@ -1151,6 +1465,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeProjectThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'describeProject', 'SageMaker', Promise.reject(result), true, mock)
   },
+  describeSpace: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeSpace', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  describeSpaceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeSpace', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  describeSpaceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'describeSpace', 'SageMaker', Promise.reject(result), true, mock)
+  },
   describeStudioLifecycleConfig: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'describeStudioLifecycleConfig', 'SageMaker', Promise.resolve(result), true, mock)
   },
@@ -1232,15 +1555,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeWorkteamThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'describeWorkteam', 'SageMaker', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sagemaker', 'destroy', 'SageMaker', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sagemaker', 'destroy', 'SageMaker', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sagemaker', 'destroy', 'SageMaker', Promise.reject(result), true, mock)
-  },
   disableSagemakerServicecatalogPortfolio: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'disableSagemakerServicecatalogPortfolio', 'SageMaker', Promise.resolve(result), true, mock)
   },
@@ -1277,6 +1591,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getDeviceFleetReportThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'getDeviceFleetReport', 'SageMaker', Promise.reject(result), true, mock)
   },
+  getLineageGroupPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'getLineageGroupPolicy', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  getLineageGroupPolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'getLineageGroupPolicy', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  getLineageGroupPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'getLineageGroupPolicy', 'SageMaker', Promise.reject(result), true, mock)
+  },
   getModelPackageGroupPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'getModelPackageGroupPolicy', 'SageMaker', Promise.resolve(result), true, mock)
   },
@@ -1295,6 +1618,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getSagemakerServicecatalogPortfolioStatusThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'getSagemakerServicecatalogPortfolioStatus', 'SageMaker', Promise.reject(result), true, mock)
   },
+  getScalingConfigurationRecommendation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'getScalingConfigurationRecommendation', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  getScalingConfigurationRecommendationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'getScalingConfigurationRecommendation', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  getScalingConfigurationRecommendationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'getScalingConfigurationRecommendation', 'SageMaker', Promise.reject(result), true, mock)
+  },
   getSearchSuggestions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'getSearchSuggestions', 'SageMaker', Promise.resolve(result), true, mock)
   },
@@ -1303,6 +1635,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getSearchSuggestionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'getSearchSuggestions', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  importHubContent: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'importHubContent', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  importHubContentAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'importHubContent', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  importHubContentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'importHubContent', 'SageMaker', Promise.reject(result), true, mock)
   },
   listActions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'listActions', 'SageMaker', Promise.resolve(result), true, mock)
@@ -1321,6 +1662,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listAlgorithmsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'listAlgorithms', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  listAliases: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listAliases', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  listAliasesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listAliases', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  listAliasesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listAliases', 'SageMaker', Promise.reject(result), true, mock)
   },
   listAppImageConfigs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'listAppImageConfigs', 'SageMaker', Promise.resolve(result), true, mock)
@@ -1375,6 +1725,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listCandidatesForAutoMLJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'listCandidatesForAutoMLJob', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  listClusterNodes: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listClusterNodes', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  listClusterNodesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listClusterNodes', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  listClusterNodesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listClusterNodes', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  listClusters: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listClusters', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  listClustersAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listClusters', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  listClustersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listClusters', 'SageMaker', Promise.reject(result), true, mock)
   },
   listCodeRepositories: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'listCodeRepositories', 'SageMaker', Promise.resolve(result), true, mock)
@@ -1439,6 +1807,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listDomainsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'listDomains', 'SageMaker', Promise.reject(result), true, mock)
   },
+  listEdgeDeploymentPlans: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listEdgeDeploymentPlans', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  listEdgeDeploymentPlansAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listEdgeDeploymentPlans', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  listEdgeDeploymentPlansThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listEdgeDeploymentPlans', 'SageMaker', Promise.reject(result), true, mock)
+  },
   listEdgePackagingJobs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'listEdgePackagingJobs', 'SageMaker', Promise.resolve(result), true, mock)
   },
@@ -1493,6 +1870,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listFlowDefinitionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'listFlowDefinitions', 'SageMaker', Promise.reject(result), true, mock)
   },
+  listHubContentVersions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listHubContentVersions', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  listHubContentVersionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listHubContentVersions', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  listHubContentVersionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listHubContentVersions', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  listHubContents: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listHubContents', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  listHubContentsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listHubContents', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  listHubContentsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listHubContents', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  listHubs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listHubs', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  listHubsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listHubs', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  listHubsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listHubs', 'SageMaker', Promise.reject(result), true, mock)
+  },
   listHumanTaskUis: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'listHumanTaskUis', 'SageMaker', Promise.resolve(result), true, mock)
   },
@@ -1529,6 +1933,42 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listImagesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'listImages', 'SageMaker', Promise.reject(result), true, mock)
   },
+  listInferenceComponents: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listInferenceComponents', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  listInferenceComponentsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listInferenceComponents', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  listInferenceComponentsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listInferenceComponents', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  listInferenceExperiments: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listInferenceExperiments', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  listInferenceExperimentsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listInferenceExperiments', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  listInferenceExperimentsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listInferenceExperiments', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  listInferenceRecommendationsJobSteps: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listInferenceRecommendationsJobSteps', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  listInferenceRecommendationsJobStepsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listInferenceRecommendationsJobSteps', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  listInferenceRecommendationsJobStepsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listInferenceRecommendationsJobSteps', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  listInferenceRecommendationsJobs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listInferenceRecommendationsJobs', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  listInferenceRecommendationsJobsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listInferenceRecommendationsJobs', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  listInferenceRecommendationsJobsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listInferenceRecommendationsJobs', 'SageMaker', Promise.reject(result), true, mock)
+  },
   listLabelingJobs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'listLabelingJobs', 'SageMaker', Promise.resolve(result), true, mock)
   },
@@ -1547,6 +1987,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listLabelingJobsForWorkteamThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'listLabelingJobsForWorkteam', 'SageMaker', Promise.reject(result), true, mock)
   },
+  listLineageGroups: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listLineageGroups', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  listLineageGroupsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listLineageGroups', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  listLineageGroupsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listLineageGroups', 'SageMaker', Promise.reject(result), true, mock)
+  },
   listModelBiasJobDefinitions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'listModelBiasJobDefinitions', 'SageMaker', Promise.resolve(result), true, mock)
   },
@@ -1556,6 +2005,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listModelBiasJobDefinitionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'listModelBiasJobDefinitions', 'SageMaker', Promise.reject(result), true, mock)
   },
+  listModelCardExportJobs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listModelCardExportJobs', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  listModelCardExportJobsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listModelCardExportJobs', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  listModelCardExportJobsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listModelCardExportJobs', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  listModelCardVersions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listModelCardVersions', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  listModelCardVersionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listModelCardVersions', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  listModelCardVersionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listModelCardVersions', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  listModelCards: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listModelCards', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  listModelCardsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listModelCards', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  listModelCardsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listModelCards', 'SageMaker', Promise.reject(result), true, mock)
+  },
   listModelExplainabilityJobDefinitions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'listModelExplainabilityJobDefinitions', 'SageMaker', Promise.resolve(result), true, mock)
   },
@@ -1564,6 +2040,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listModelExplainabilityJobDefinitionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'listModelExplainabilityJobDefinitions', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  listModelMetadata: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listModelMetadata', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  listModelMetadataAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listModelMetadata', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  listModelMetadataThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listModelMetadata', 'SageMaker', Promise.reject(result), true, mock)
   },
   listModelPackageGroups: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'listModelPackageGroups', 'SageMaker', Promise.resolve(result), true, mock)
@@ -1600,6 +2085,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listModelsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'listModels', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  listMonitoringAlertHistory: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listMonitoringAlertHistory', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  listMonitoringAlertHistoryAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listMonitoringAlertHistory', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  listMonitoringAlertHistoryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listMonitoringAlertHistory', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  listMonitoringAlerts: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listMonitoringAlerts', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  listMonitoringAlertsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listMonitoringAlerts', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  listMonitoringAlertsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listMonitoringAlerts', 'SageMaker', Promise.reject(result), true, mock)
   },
   listMonitoringExecutions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'listMonitoringExecutions', 'SageMaker', Promise.resolve(result), true, mock)
@@ -1690,6 +2193,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listProjectsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'listProjects', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  listResourceCatalogs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listResourceCatalogs', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  listResourceCatalogsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listResourceCatalogs', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  listResourceCatalogsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listResourceCatalogs', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  listSpaces: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listSpaces', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  listSpacesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listSpaces', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  listSpacesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listSpaces', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  listStageDevices: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listStageDevices', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  listStageDevicesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listStageDevices', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  listStageDevicesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'listStageDevices', 'SageMaker', Promise.reject(result), true, mock)
   },
   listStudioLifecycleConfigs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'listStudioLifecycleConfigs', 'SageMaker', Promise.resolve(result), true, mock)
@@ -1799,6 +2329,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   putModelPackageGroupPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'putModelPackageGroupPolicy', 'SageMaker', Promise.reject(result), true, mock)
   },
+  queryLineage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'queryLineage', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  queryLineageAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'queryLineage', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  queryLineageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'queryLineage', 'SageMaker', Promise.reject(result), true, mock)
+  },
   registerDevices: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'registerDevices', 'SageMaker', Promise.resolve(result), true, mock)
   },
@@ -1853,6 +2392,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   sendPipelineExecutionStepSuccessThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'sendPipelineExecutionStepSuccess', 'SageMaker', Promise.reject(result), true, mock)
   },
+  startEdgeDeploymentStage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'startEdgeDeploymentStage', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  startEdgeDeploymentStageAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'startEdgeDeploymentStage', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  startEdgeDeploymentStageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'startEdgeDeploymentStage', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  startInferenceExperiment: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'startInferenceExperiment', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  startInferenceExperimentAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'startInferenceExperiment', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  startInferenceExperimentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'startInferenceExperiment', 'SageMaker', Promise.reject(result), true, mock)
+  },
   startMonitoringSchedule: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'startMonitoringSchedule', 'SageMaker', Promise.resolve(result), true, mock)
   },
@@ -1898,6 +2455,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   stopCompilationJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'stopCompilationJob', 'SageMaker', Promise.reject(result), true, mock)
   },
+  stopEdgeDeploymentStage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'stopEdgeDeploymentStage', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  stopEdgeDeploymentStageAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'stopEdgeDeploymentStage', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  stopEdgeDeploymentStageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'stopEdgeDeploymentStage', 'SageMaker', Promise.reject(result), true, mock)
+  },
   stopEdgePackagingJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'stopEdgePackagingJob', 'SageMaker', Promise.resolve(result), true, mock)
   },
@@ -1915,6 +2481,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   stopHyperParameterTuningJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'stopHyperParameterTuningJob', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  stopInferenceExperiment: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'stopInferenceExperiment', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  stopInferenceExperimentAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'stopInferenceExperiment', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  stopInferenceExperimentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'stopInferenceExperiment', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  stopInferenceRecommendationsJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'stopInferenceRecommendationsJob', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  stopInferenceRecommendationsJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'stopInferenceRecommendationsJob', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  stopInferenceRecommendationsJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'stopInferenceRecommendationsJob', 'SageMaker', Promise.reject(result), true, mock)
   },
   stopLabelingJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'stopLabelingJob', 'SageMaker', Promise.resolve(result), true, mock)
@@ -2006,6 +2590,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   updateArtifactThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'updateArtifact', 'SageMaker', Promise.reject(result), true, mock)
   },
+  updateCluster: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'updateCluster', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  updateClusterAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'updateCluster', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  updateClusterThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'updateCluster', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  updateClusterSoftware: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'updateClusterSoftware', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  updateClusterSoftwareAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'updateClusterSoftware', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  updateClusterSoftwareThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'updateClusterSoftware', 'SageMaker', Promise.reject(result), true, mock)
+  },
   updateCodeRepository: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'updateCodeRepository', 'SageMaker', Promise.resolve(result), true, mock)
   },
@@ -2078,6 +2680,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   updateExperimentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'updateExperiment', 'SageMaker', Promise.reject(result), true, mock)
   },
+  updateFeatureGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'updateFeatureGroup', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  updateFeatureGroupAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'updateFeatureGroup', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  updateFeatureGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'updateFeatureGroup', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  updateFeatureMetadata: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'updateFeatureMetadata', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  updateFeatureMetadataAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'updateFeatureMetadata', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  updateFeatureMetadataThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'updateFeatureMetadata', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  updateHub: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'updateHub', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  updateHubAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'updateHub', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  updateHubThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'updateHub', 'SageMaker', Promise.reject(result), true, mock)
+  },
   updateImage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'updateImage', 'SageMaker', Promise.resolve(result), true, mock)
   },
@@ -2087,6 +2716,51 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   updateImageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'updateImage', 'SageMaker', Promise.reject(result), true, mock)
   },
+  updateImageVersion: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'updateImageVersion', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  updateImageVersionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'updateImageVersion', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  updateImageVersionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'updateImageVersion', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  updateInferenceComponent: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'updateInferenceComponent', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  updateInferenceComponentAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'updateInferenceComponent', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  updateInferenceComponentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'updateInferenceComponent', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  updateInferenceComponentRuntimeConfig: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'updateInferenceComponentRuntimeConfig', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  updateInferenceComponentRuntimeConfigAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'updateInferenceComponentRuntimeConfig', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  updateInferenceComponentRuntimeConfigThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'updateInferenceComponentRuntimeConfig', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  updateInferenceExperiment: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'updateInferenceExperiment', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  updateInferenceExperimentAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'updateInferenceExperiment', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  updateInferenceExperimentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'updateInferenceExperiment', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  updateModelCard: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'updateModelCard', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  updateModelCardAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'updateModelCard', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  updateModelCardThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'updateModelCard', 'SageMaker', Promise.reject(result), true, mock)
+  },
   updateModelPackage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'updateModelPackage', 'SageMaker', Promise.resolve(result), true, mock)
   },
@@ -2095,6 +2769,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateModelPackageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'updateModelPackage', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  updateMonitoringAlert: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'updateMonitoringAlert', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  updateMonitoringAlertAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'updateMonitoringAlert', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  updateMonitoringAlertThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'updateMonitoringAlert', 'SageMaker', Promise.reject(result), true, mock)
   },
   updateMonitoringSchedule: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'updateMonitoringSchedule', 'SageMaker', Promise.resolve(result), true, mock)
@@ -2149,6 +2832,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateProjectThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'updateProject', 'SageMaker', Promise.reject(result), true, mock)
+  },
+  updateSpace: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'updateSpace', 'SageMaker', Promise.resolve(result), true, mock)
+  },
+  updateSpaceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'updateSpace', 'SageMaker', Promise.resolve(result), false, mock)
+  },
+  updateSpaceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker', 'updateSpace', 'SageMaker', Promise.reject(result), true, mock)
   },
   updateTrainingJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker', 'updateTrainingJob', 'SageMaker', Promise.resolve(result), true, mock)

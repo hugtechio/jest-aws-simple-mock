@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockDevOpsGuru = {
+export const mockDevOpsGuru = {
   addNotificationChannel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-devops-guru', 'addNotificationChannel', 'DevOpsGuru', Promise.resolve(result), true, mock)
   },
@@ -25,6 +24,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   addNotificationChannelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-devops-guru', 'addNotificationChannel', 'DevOpsGuru', Promise.reject(result), true, mock)
+  },
+  deleteInsight: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-devops-guru', 'deleteInsight', 'DevOpsGuru', Promise.resolve(result), true, mock)
+  },
+  deleteInsightAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-devops-guru', 'deleteInsight', 'DevOpsGuru', Promise.resolve(result), false, mock)
+  },
+  deleteInsightThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-devops-guru', 'deleteInsight', 'DevOpsGuru', Promise.reject(result), true, mock)
   },
   describeAccountHealth: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-devops-guru', 'describeAccountHealth', 'DevOpsGuru', Promise.resolve(result), true, mock)
@@ -52,6 +60,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeAnomalyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-devops-guru', 'describeAnomaly', 'DevOpsGuru', Promise.reject(result), true, mock)
+  },
+  describeEventSourcesConfig: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-devops-guru', 'describeEventSourcesConfig', 'DevOpsGuru', Promise.resolve(result), true, mock)
+  },
+  describeEventSourcesConfigAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-devops-guru', 'describeEventSourcesConfig', 'DevOpsGuru', Promise.resolve(result), false, mock)
+  },
+  describeEventSourcesConfigThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-devops-guru', 'describeEventSourcesConfig', 'DevOpsGuru', Promise.reject(result), true, mock)
   },
   describeFeedback: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-devops-guru', 'describeFeedback', 'DevOpsGuru', Promise.resolve(result), true, mock)
@@ -116,15 +133,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeServiceIntegrationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-devops-guru', 'describeServiceIntegration', 'DevOpsGuru', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-devops-guru', 'destroy', 'DevOpsGuru', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-devops-guru', 'destroy', 'DevOpsGuru', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-devops-guru', 'destroy', 'DevOpsGuru', Promise.reject(result), true, mock)
-  },
   getCostEstimation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-devops-guru', 'getCostEstimation', 'DevOpsGuru', Promise.resolve(result), true, mock)
   },
@@ -152,6 +160,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listAnomaliesForInsightThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-devops-guru', 'listAnomaliesForInsight', 'DevOpsGuru', Promise.reject(result), true, mock)
   },
+  listAnomalousLogGroups: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-devops-guru', 'listAnomalousLogGroups', 'DevOpsGuru', Promise.resolve(result), true, mock)
+  },
+  listAnomalousLogGroupsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-devops-guru', 'listAnomalousLogGroups', 'DevOpsGuru', Promise.resolve(result), false, mock)
+  },
+  listAnomalousLogGroupsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-devops-guru', 'listAnomalousLogGroups', 'DevOpsGuru', Promise.reject(result), true, mock)
+  },
   listEvents: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-devops-guru', 'listEvents', 'DevOpsGuru', Promise.resolve(result), true, mock)
   },
@@ -169,6 +186,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listInsightsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-devops-guru', 'listInsights', 'DevOpsGuru', Promise.reject(result), true, mock)
+  },
+  listMonitoredResources: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-devops-guru', 'listMonitoredResources', 'DevOpsGuru', Promise.resolve(result), true, mock)
+  },
+  listMonitoredResourcesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-devops-guru', 'listMonitoredResources', 'DevOpsGuru', Promise.resolve(result), false, mock)
+  },
+  listMonitoredResourcesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-devops-guru', 'listMonitoredResources', 'DevOpsGuru', Promise.reject(result), true, mock)
   },
   listNotificationChannels: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-devops-guru', 'listNotificationChannels', 'DevOpsGuru', Promise.resolve(result), true, mock)
@@ -241,6 +267,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   startCostEstimationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-devops-guru', 'startCostEstimation', 'DevOpsGuru', Promise.reject(result), true, mock)
+  },
+  updateEventSourcesConfig: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-devops-guru', 'updateEventSourcesConfig', 'DevOpsGuru', Promise.resolve(result), true, mock)
+  },
+  updateEventSourcesConfigAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-devops-guru', 'updateEventSourcesConfig', 'DevOpsGuru', Promise.resolve(result), false, mock)
+  },
+  updateEventSourcesConfigThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-devops-guru', 'updateEventSourcesConfig', 'DevOpsGuru', Promise.reject(result), true, mock)
   },
   updateResourceCollection: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-devops-guru', 'updateResourceCollection', 'DevOpsGuru', Promise.resolve(result), true, mock)

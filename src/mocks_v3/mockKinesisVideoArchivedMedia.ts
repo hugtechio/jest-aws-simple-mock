@@ -15,17 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockKinesisVideoArchivedMedia = {
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-kinesis-video-archived-media', 'destroy', 'KinesisVideoArchivedMedia', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-kinesis-video-archived-media', 'destroy', 'KinesisVideoArchivedMedia', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-kinesis-video-archived-media', 'destroy', 'KinesisVideoArchivedMedia', Promise.reject(result), true, mock)
-  },
+export const mockKinesisVideoArchivedMedia = {
   getClip: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kinesis-video-archived-media', 'getClip', 'KinesisVideoArchivedMedia', Promise.resolve(result), true, mock)
   },
@@ -52,6 +42,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getHLSStreamingSessionURLThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kinesis-video-archived-media', 'getHLSStreamingSessionURL', 'KinesisVideoArchivedMedia', Promise.reject(result), true, mock)
+  },
+  getImages: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kinesis-video-archived-media', 'getImages', 'KinesisVideoArchivedMedia', Promise.resolve(result), true, mock)
+  },
+  getImagesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kinesis-video-archived-media', 'getImages', 'KinesisVideoArchivedMedia', Promise.resolve(result), false, mock)
+  },
+  getImagesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kinesis-video-archived-media', 'getImages', 'KinesisVideoArchivedMedia', Promise.reject(result), true, mock)
   },
   getMediaForFragmentList: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kinesis-video-archived-media', 'getMediaForFragmentList', 'KinesisVideoArchivedMedia', Promise.resolve(result), true, mock)

@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockSFN = {
+export const mockSFN = {
   createActivity: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sfn', 'createActivity', 'SFN', Promise.resolve(result), true, mock)
   },
@@ -25,6 +24,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createActivityThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sfn', 'createActivity', 'SFN', Promise.reject(result), true, mock)
+  },
+  createStateMachineAlias: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sfn', 'createStateMachineAlias', 'SFN', Promise.resolve(result), true, mock)
+  },
+  createStateMachineAliasAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sfn', 'createStateMachineAlias', 'SFN', Promise.resolve(result), false, mock)
+  },
+  createStateMachineAliasThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sfn', 'createStateMachineAlias', 'SFN', Promise.reject(result), true, mock)
   },
   createStateMachine: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sfn', 'createStateMachine', 'SFN', Promise.resolve(result), true, mock)
@@ -44,6 +52,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteActivityThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sfn', 'deleteActivity', 'SFN', Promise.reject(result), true, mock)
   },
+  deleteStateMachineAlias: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sfn', 'deleteStateMachineAlias', 'SFN', Promise.resolve(result), true, mock)
+  },
+  deleteStateMachineAliasAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sfn', 'deleteStateMachineAlias', 'SFN', Promise.resolve(result), false, mock)
+  },
+  deleteStateMachineAliasThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sfn', 'deleteStateMachineAlias', 'SFN', Promise.reject(result), true, mock)
+  },
   deleteStateMachine: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sfn', 'deleteStateMachine', 'SFN', Promise.resolve(result), true, mock)
   },
@@ -52,6 +69,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteStateMachineThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sfn', 'deleteStateMachine', 'SFN', Promise.reject(result), true, mock)
+  },
+  deleteStateMachineVersion: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sfn', 'deleteStateMachineVersion', 'SFN', Promise.resolve(result), true, mock)
+  },
+  deleteStateMachineVersionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sfn', 'deleteStateMachineVersion', 'SFN', Promise.resolve(result), false, mock)
+  },
+  deleteStateMachineVersionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sfn', 'deleteStateMachineVersion', 'SFN', Promise.reject(result), true, mock)
   },
   describeActivity: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sfn', 'describeActivity', 'SFN', Promise.resolve(result), true, mock)
@@ -71,6 +97,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeExecutionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sfn', 'describeExecution', 'SFN', Promise.reject(result), true, mock)
   },
+  describeMapRun: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sfn', 'describeMapRun', 'SFN', Promise.resolve(result), true, mock)
+  },
+  describeMapRunAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sfn', 'describeMapRun', 'SFN', Promise.resolve(result), false, mock)
+  },
+  describeMapRunThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sfn', 'describeMapRun', 'SFN', Promise.reject(result), true, mock)
+  },
+  describeStateMachineAlias: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sfn', 'describeStateMachineAlias', 'SFN', Promise.resolve(result), true, mock)
+  },
+  describeStateMachineAliasAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sfn', 'describeStateMachineAlias', 'SFN', Promise.resolve(result), false, mock)
+  },
+  describeStateMachineAliasThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sfn', 'describeStateMachineAlias', 'SFN', Promise.reject(result), true, mock)
+  },
   describeStateMachine: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sfn', 'describeStateMachine', 'SFN', Promise.resolve(result), true, mock)
   },
@@ -88,15 +132,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeStateMachineForExecutionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sfn', 'describeStateMachineForExecution', 'SFN', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sfn', 'destroy', 'SFN', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sfn', 'destroy', 'SFN', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sfn', 'destroy', 'SFN', Promise.reject(result), true, mock)
   },
   getActivityTask: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sfn', 'getActivityTask', 'SFN', Promise.resolve(result), true, mock)
@@ -134,6 +169,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listExecutionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sfn', 'listExecutions', 'SFN', Promise.reject(result), true, mock)
   },
+  listMapRuns: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sfn', 'listMapRuns', 'SFN', Promise.resolve(result), true, mock)
+  },
+  listMapRunsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sfn', 'listMapRuns', 'SFN', Promise.resolve(result), false, mock)
+  },
+  listMapRunsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sfn', 'listMapRuns', 'SFN', Promise.reject(result), true, mock)
+  },
+  listStateMachineAliases: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sfn', 'listStateMachineAliases', 'SFN', Promise.resolve(result), true, mock)
+  },
+  listStateMachineAliasesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sfn', 'listStateMachineAliases', 'SFN', Promise.resolve(result), false, mock)
+  },
+  listStateMachineAliasesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sfn', 'listStateMachineAliases', 'SFN', Promise.reject(result), true, mock)
+  },
+  listStateMachineVersions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sfn', 'listStateMachineVersions', 'SFN', Promise.resolve(result), true, mock)
+  },
+  listStateMachineVersionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sfn', 'listStateMachineVersions', 'SFN', Promise.resolve(result), false, mock)
+  },
+  listStateMachineVersionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sfn', 'listStateMachineVersions', 'SFN', Promise.reject(result), true, mock)
+  },
   listStateMachines: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sfn', 'listStateMachines', 'SFN', Promise.resolve(result), true, mock)
   },
@@ -151,6 +213,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listTagsForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sfn', 'listTagsForResource', 'SFN', Promise.reject(result), true, mock)
+  },
+  publishStateMachineVersion: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sfn', 'publishStateMachineVersion', 'SFN', Promise.resolve(result), true, mock)
+  },
+  publishStateMachineVersionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sfn', 'publishStateMachineVersion', 'SFN', Promise.resolve(result), false, mock)
+  },
+  publishStateMachineVersionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sfn', 'publishStateMachineVersion', 'SFN', Promise.reject(result), true, mock)
+  },
+  redriveExecution: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sfn', 'redriveExecution', 'SFN', Promise.resolve(result), true, mock)
+  },
+  redriveExecutionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sfn', 'redriveExecution', 'SFN', Promise.resolve(result), false, mock)
+  },
+  redriveExecutionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sfn', 'redriveExecution', 'SFN', Promise.reject(result), true, mock)
   },
   sendTaskFailure: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sfn', 'sendTaskFailure', 'SFN', Promise.resolve(result), true, mock)
@@ -215,6 +295,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   tagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sfn', 'tagResource', 'SFN', Promise.reject(result), true, mock)
   },
+  testState: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sfn', 'testState', 'SFN', Promise.resolve(result), true, mock)
+  },
+  testStateAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sfn', 'testState', 'SFN', Promise.resolve(result), false, mock)
+  },
+  testStateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sfn', 'testState', 'SFN', Promise.reject(result), true, mock)
+  },
   untagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sfn', 'untagResource', 'SFN', Promise.resolve(result), true, mock)
   },
@@ -223,6 +312,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   untagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sfn', 'untagResource', 'SFN', Promise.reject(result), true, mock)
+  },
+  updateMapRun: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sfn', 'updateMapRun', 'SFN', Promise.resolve(result), true, mock)
+  },
+  updateMapRunAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sfn', 'updateMapRun', 'SFN', Promise.resolve(result), false, mock)
+  },
+  updateMapRunThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sfn', 'updateMapRun', 'SFN', Promise.reject(result), true, mock)
+  },
+  updateStateMachineAlias: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sfn', 'updateStateMachineAlias', 'SFN', Promise.resolve(result), true, mock)
+  },
+  updateStateMachineAliasAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sfn', 'updateStateMachineAlias', 'SFN', Promise.resolve(result), false, mock)
+  },
+  updateStateMachineAliasThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sfn', 'updateStateMachineAlias', 'SFN', Promise.reject(result), true, mock)
   },
   updateStateMachine: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sfn', 'updateStateMachine', 'SFN', Promise.resolve(result), true, mock)

@@ -15,8 +15,16 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockApplicationInsights = {
+export const mockApplicationInsights = {
+  addWorkload: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-application-insights', 'addWorkload', 'ApplicationInsights', Promise.resolve(result), true, mock)
+  },
+  addWorkloadAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-application-insights', 'addWorkload', 'ApplicationInsights', Promise.resolve(result), false, mock)
+  },
+  addWorkloadThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-application-insights', 'addWorkload', 'ApplicationInsights', Promise.reject(result), true, mock)
+  },
   createApplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-application-insights', 'createApplication', 'ApplicationInsights', Promise.resolve(result), true, mock)
   },
@@ -143,14 +151,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeProblemObservationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-application-insights', 'describeProblemObservations', 'ApplicationInsights', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-application-insights', 'destroy', 'ApplicationInsights', Promise.resolve(result), true, mock)
+  describeWorkload: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-application-insights', 'describeWorkload', 'ApplicationInsights', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-application-insights', 'destroy', 'ApplicationInsights', Promise.resolve(result), false, mock)
+  describeWorkloadAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-application-insights', 'describeWorkload', 'ApplicationInsights', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-application-insights', 'destroy', 'ApplicationInsights', Promise.reject(result), true, mock)
+  describeWorkloadThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-application-insights', 'describeWorkload', 'ApplicationInsights', Promise.reject(result), true, mock)
   },
   listApplications: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-application-insights', 'listApplications', 'ApplicationInsights', Promise.resolve(result), true, mock)
@@ -215,6 +223,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listTagsForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-application-insights', 'listTagsForResource', 'ApplicationInsights', Promise.reject(result), true, mock)
   },
+  listWorkloads: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-application-insights', 'listWorkloads', 'ApplicationInsights', Promise.resolve(result), true, mock)
+  },
+  listWorkloadsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-application-insights', 'listWorkloads', 'ApplicationInsights', Promise.resolve(result), false, mock)
+  },
+  listWorkloadsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-application-insights', 'listWorkloads', 'ApplicationInsights', Promise.reject(result), true, mock)
+  },
+  removeWorkload: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-application-insights', 'removeWorkload', 'ApplicationInsights', Promise.resolve(result), true, mock)
+  },
+  removeWorkloadAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-application-insights', 'removeWorkload', 'ApplicationInsights', Promise.resolve(result), false, mock)
+  },
+  removeWorkloadThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-application-insights', 'removeWorkload', 'ApplicationInsights', Promise.reject(result), true, mock)
+  },
   tagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-application-insights', 'tagResource', 'ApplicationInsights', Promise.resolve(result), true, mock)
   },
@@ -268,6 +294,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateLogPatternThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-application-insights', 'updateLogPattern', 'ApplicationInsights', Promise.reject(result), true, mock)
+  },
+  updateProblem: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-application-insights', 'updateProblem', 'ApplicationInsights', Promise.resolve(result), true, mock)
+  },
+  updateProblemAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-application-insights', 'updateProblem', 'ApplicationInsights', Promise.resolve(result), false, mock)
+  },
+  updateProblemThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-application-insights', 'updateProblem', 'ApplicationInsights', Promise.reject(result), true, mock)
+  },
+  updateWorkload: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-application-insights', 'updateWorkload', 'ApplicationInsights', Promise.resolve(result), true, mock)
+  },
+  updateWorkloadAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-application-insights', 'updateWorkload', 'ApplicationInsights', Promise.resolve(result), false, mock)
+  },
+  updateWorkloadThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-application-insights', 'updateWorkload', 'ApplicationInsights', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-application-insights', 'send', 'ApplicationInsightsClient', Promise.resolve(result), true, mock)

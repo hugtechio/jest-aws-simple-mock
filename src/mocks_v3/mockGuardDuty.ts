@@ -15,8 +15,16 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockGuardDuty = {
+export const mockGuardDuty = {
+  acceptAdministratorInvitation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-guardduty', 'acceptAdministratorInvitation', 'GuardDuty', Promise.resolve(result), true, mock)
+  },
+  acceptAdministratorInvitationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-guardduty', 'acceptAdministratorInvitation', 'GuardDuty', Promise.resolve(result), false, mock)
+  },
+  acceptAdministratorInvitationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-guardduty', 'acceptAdministratorInvitation', 'GuardDuty', Promise.reject(result), true, mock)
+  },
   acceptInvitation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-guardduty', 'acceptInvitation', 'GuardDuty', Promise.resolve(result), true, mock)
   },
@@ -170,6 +178,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteThreatIntelSetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-guardduty', 'deleteThreatIntelSet', 'GuardDuty', Promise.reject(result), true, mock)
   },
+  describeMalwareScans: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-guardduty', 'describeMalwareScans', 'GuardDuty', Promise.resolve(result), true, mock)
+  },
+  describeMalwareScansAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-guardduty', 'describeMalwareScans', 'GuardDuty', Promise.resolve(result), false, mock)
+  },
+  describeMalwareScansThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-guardduty', 'describeMalwareScans', 'GuardDuty', Promise.reject(result), true, mock)
+  },
   describeOrganizationConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-guardduty', 'describeOrganizationConfiguration', 'GuardDuty', Promise.resolve(result), true, mock)
   },
@@ -188,15 +205,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describePublishingDestinationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-guardduty', 'describePublishingDestination', 'GuardDuty', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-guardduty', 'destroy', 'GuardDuty', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-guardduty', 'destroy', 'GuardDuty', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-guardduty', 'destroy', 'GuardDuty', Promise.reject(result), true, mock)
-  },
   disableOrganizationAdminAccount: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-guardduty', 'disableOrganizationAdminAccount', 'GuardDuty', Promise.resolve(result), true, mock)
   },
@@ -205,6 +213,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   disableOrganizationAdminAccountThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-guardduty', 'disableOrganizationAdminAccount', 'GuardDuty', Promise.reject(result), true, mock)
+  },
+  disassociateFromAdministratorAccount: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-guardduty', 'disassociateFromAdministratorAccount', 'GuardDuty', Promise.resolve(result), true, mock)
+  },
+  disassociateFromAdministratorAccountAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-guardduty', 'disassociateFromAdministratorAccount', 'GuardDuty', Promise.resolve(result), false, mock)
+  },
+  disassociateFromAdministratorAccountThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-guardduty', 'disassociateFromAdministratorAccount', 'GuardDuty', Promise.reject(result), true, mock)
   },
   disassociateFromMasterAccount: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-guardduty', 'disassociateFromMasterAccount', 'GuardDuty', Promise.resolve(result), true, mock)
@@ -232,6 +249,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   enableOrganizationAdminAccountThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-guardduty', 'enableOrganizationAdminAccount', 'GuardDuty', Promise.reject(result), true, mock)
+  },
+  getAdministratorAccount: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-guardduty', 'getAdministratorAccount', 'GuardDuty', Promise.resolve(result), true, mock)
+  },
+  getAdministratorAccountAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-guardduty', 'getAdministratorAccount', 'GuardDuty', Promise.resolve(result), false, mock)
+  },
+  getAdministratorAccountThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-guardduty', 'getAdministratorAccount', 'GuardDuty', Promise.reject(result), true, mock)
+  },
+  getCoverageStatistics: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-guardduty', 'getCoverageStatistics', 'GuardDuty', Promise.resolve(result), true, mock)
+  },
+  getCoverageStatisticsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-guardduty', 'getCoverageStatistics', 'GuardDuty', Promise.resolve(result), false, mock)
+  },
+  getCoverageStatisticsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-guardduty', 'getCoverageStatistics', 'GuardDuty', Promise.reject(result), true, mock)
   },
   getDetector: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-guardduty', 'getDetector', 'GuardDuty', Promise.resolve(result), true, mock)
@@ -287,6 +322,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getInvitationsCountThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-guardduty', 'getInvitationsCount', 'GuardDuty', Promise.reject(result), true, mock)
   },
+  getMalwareScanSettings: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-guardduty', 'getMalwareScanSettings', 'GuardDuty', Promise.resolve(result), true, mock)
+  },
+  getMalwareScanSettingsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-guardduty', 'getMalwareScanSettings', 'GuardDuty', Promise.resolve(result), false, mock)
+  },
+  getMalwareScanSettingsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-guardduty', 'getMalwareScanSettings', 'GuardDuty', Promise.reject(result), true, mock)
+  },
   getMasterAccount: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-guardduty', 'getMasterAccount', 'GuardDuty', Promise.resolve(result), true, mock)
   },
@@ -314,6 +358,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getMembersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-guardduty', 'getMembers', 'GuardDuty', Promise.reject(result), true, mock)
   },
+  getOrganizationStatistics: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-guardduty', 'getOrganizationStatistics', 'GuardDuty', Promise.resolve(result), true, mock)
+  },
+  getOrganizationStatisticsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-guardduty', 'getOrganizationStatistics', 'GuardDuty', Promise.resolve(result), false, mock)
+  },
+  getOrganizationStatisticsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-guardduty', 'getOrganizationStatistics', 'GuardDuty', Promise.reject(result), true, mock)
+  },
+  getRemainingFreeTrialDays: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-guardduty', 'getRemainingFreeTrialDays', 'GuardDuty', Promise.resolve(result), true, mock)
+  },
+  getRemainingFreeTrialDaysAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-guardduty', 'getRemainingFreeTrialDays', 'GuardDuty', Promise.resolve(result), false, mock)
+  },
+  getRemainingFreeTrialDaysThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-guardduty', 'getRemainingFreeTrialDays', 'GuardDuty', Promise.reject(result), true, mock)
+  },
   getThreatIntelSet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-guardduty', 'getThreatIntelSet', 'GuardDuty', Promise.resolve(result), true, mock)
   },
@@ -340,6 +402,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   inviteMembersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-guardduty', 'inviteMembers', 'GuardDuty', Promise.reject(result), true, mock)
+  },
+  listCoverage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-guardduty', 'listCoverage', 'GuardDuty', Promise.resolve(result), true, mock)
+  },
+  listCoverageAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-guardduty', 'listCoverage', 'GuardDuty', Promise.resolve(result), false, mock)
+  },
+  listCoverageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-guardduty', 'listCoverage', 'GuardDuty', Promise.reject(result), true, mock)
   },
   listDetectors: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-guardduty', 'listDetectors', 'GuardDuty', Promise.resolve(result), true, mock)
@@ -431,6 +502,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listThreatIntelSetsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-guardduty', 'listThreatIntelSets', 'GuardDuty', Promise.reject(result), true, mock)
   },
+  startMalwareScan: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-guardduty', 'startMalwareScan', 'GuardDuty', Promise.resolve(result), true, mock)
+  },
+  startMalwareScanAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-guardduty', 'startMalwareScan', 'GuardDuty', Promise.resolve(result), false, mock)
+  },
+  startMalwareScanThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-guardduty', 'startMalwareScan', 'GuardDuty', Promise.reject(result), true, mock)
+  },
   startMonitoringMembers: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-guardduty', 'startMonitoringMembers', 'GuardDuty', Promise.resolve(result), true, mock)
   },
@@ -511,6 +591,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateIPSetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-guardduty', 'updateIPSet', 'GuardDuty', Promise.reject(result), true, mock)
+  },
+  updateMalwareScanSettings: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-guardduty', 'updateMalwareScanSettings', 'GuardDuty', Promise.resolve(result), true, mock)
+  },
+  updateMalwareScanSettingsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-guardduty', 'updateMalwareScanSettings', 'GuardDuty', Promise.resolve(result), false, mock)
+  },
+  updateMalwareScanSettingsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-guardduty', 'updateMalwareScanSettings', 'GuardDuty', Promise.reject(result), true, mock)
   },
   updateMemberDetectors: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-guardduty', 'updateMemberDetectors', 'GuardDuty', Promise.resolve(result), true, mock)

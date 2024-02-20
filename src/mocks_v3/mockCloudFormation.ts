@@ -15,8 +15,16 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockCloudFormation = {
+export const mockCloudFormation = {
+  activateOrganizationsAccess: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'activateOrganizationsAccess', 'CloudFormation', Promise.resolve(result), true, mock)
+  },
+  activateOrganizationsAccessAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'activateOrganizationsAccess', 'CloudFormation', Promise.resolve(result), false, mock)
+  },
+  activateOrganizationsAccessThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'activateOrganizationsAccess', 'CloudFormation', Promise.reject(result), true, mock)
+  },
   activateType: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudformation', 'activateType', 'CloudFormation', Promise.resolve(result), true, mock)
   },
@@ -62,6 +70,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createChangeSetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudformation', 'createChangeSet', 'CloudFormation', Promise.reject(result), true, mock)
   },
+  createGeneratedTemplate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'createGeneratedTemplate', 'CloudFormation', Promise.resolve(result), true, mock)
+  },
+  createGeneratedTemplateAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'createGeneratedTemplate', 'CloudFormation', Promise.resolve(result), false, mock)
+  },
+  createGeneratedTemplateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'createGeneratedTemplate', 'CloudFormation', Promise.reject(result), true, mock)
+  },
   createStack: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudformation', 'createStack', 'CloudFormation', Promise.resolve(result), true, mock)
   },
@@ -89,6 +106,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createStackSetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudformation', 'createStackSet', 'CloudFormation', Promise.reject(result), true, mock)
   },
+  deactivateOrganizationsAccess: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'deactivateOrganizationsAccess', 'CloudFormation', Promise.resolve(result), true, mock)
+  },
+  deactivateOrganizationsAccessAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'deactivateOrganizationsAccess', 'CloudFormation', Promise.resolve(result), false, mock)
+  },
+  deactivateOrganizationsAccessThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'deactivateOrganizationsAccess', 'CloudFormation', Promise.reject(result), true, mock)
+  },
   deactivateType: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudformation', 'deactivateType', 'CloudFormation', Promise.resolve(result), true, mock)
   },
@@ -106,6 +132,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteChangeSetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudformation', 'deleteChangeSet', 'CloudFormation', Promise.reject(result), true, mock)
+  },
+  deleteGeneratedTemplate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'deleteGeneratedTemplate', 'CloudFormation', Promise.resolve(result), true, mock)
+  },
+  deleteGeneratedTemplateAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'deleteGeneratedTemplate', 'CloudFormation', Promise.resolve(result), false, mock)
+  },
+  deleteGeneratedTemplateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'deleteGeneratedTemplate', 'CloudFormation', Promise.reject(result), true, mock)
   },
   deleteStack: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudformation', 'deleteStack', 'CloudFormation', Promise.resolve(result), true, mock)
@@ -161,6 +196,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeChangeSetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudformation', 'describeChangeSet', 'CloudFormation', Promise.reject(result), true, mock)
   },
+  describeChangeSetHooks: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'describeChangeSetHooks', 'CloudFormation', Promise.resolve(result), true, mock)
+  },
+  describeChangeSetHooksAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'describeChangeSetHooks', 'CloudFormation', Promise.resolve(result), false, mock)
+  },
+  describeChangeSetHooksThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'describeChangeSetHooks', 'CloudFormation', Promise.reject(result), true, mock)
+  },
+  describeGeneratedTemplate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'describeGeneratedTemplate', 'CloudFormation', Promise.resolve(result), true, mock)
+  },
+  describeGeneratedTemplateAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'describeGeneratedTemplate', 'CloudFormation', Promise.resolve(result), false, mock)
+  },
+  describeGeneratedTemplateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'describeGeneratedTemplate', 'CloudFormation', Promise.reject(result), true, mock)
+  },
+  describeOrganizationsAccess: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'describeOrganizationsAccess', 'CloudFormation', Promise.resolve(result), true, mock)
+  },
+  describeOrganizationsAccessAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'describeOrganizationsAccess', 'CloudFormation', Promise.resolve(result), false, mock)
+  },
+  describeOrganizationsAccessThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'describeOrganizationsAccess', 'CloudFormation', Promise.reject(result), true, mock)
+  },
   describePublisher: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudformation', 'describePublisher', 'CloudFormation', Promise.resolve(result), true, mock)
   },
@@ -169,6 +231,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describePublisherThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudformation', 'describePublisher', 'CloudFormation', Promise.reject(result), true, mock)
+  },
+  describeResourceScan: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'describeResourceScan', 'CloudFormation', Promise.resolve(result), true, mock)
+  },
+  describeResourceScanAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'describeResourceScan', 'CloudFormation', Promise.resolve(result), false, mock)
+  },
+  describeResourceScanThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'describeResourceScan', 'CloudFormation', Promise.reject(result), true, mock)
   },
   describeStackDriftDetectionStatus: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudformation', 'describeStackDriftDetectionStatus', 'CloudFormation', Promise.resolve(result), true, mock)
@@ -269,15 +340,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeTypeRegistrationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudformation', 'describeTypeRegistration', 'CloudFormation', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cloudformation', 'destroy', 'CloudFormation', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cloudformation', 'destroy', 'CloudFormation', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cloudformation', 'destroy', 'CloudFormation', Promise.reject(result), true, mock)
-  },
   detectStackDrift: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudformation', 'detectStackDrift', 'CloudFormation', Promise.resolve(result), true, mock)
   },
@@ -322,6 +384,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   executeChangeSetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudformation', 'executeChangeSet', 'CloudFormation', Promise.reject(result), true, mock)
+  },
+  getGeneratedTemplate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'getGeneratedTemplate', 'CloudFormation', Promise.resolve(result), true, mock)
+  },
+  getGeneratedTemplateAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'getGeneratedTemplate', 'CloudFormation', Promise.resolve(result), false, mock)
+  },
+  getGeneratedTemplateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'getGeneratedTemplate', 'CloudFormation', Promise.reject(result), true, mock)
   },
   getStackPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudformation', 'getStackPolicy', 'CloudFormation', Promise.resolve(result), true, mock)
@@ -377,6 +448,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listExportsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudformation', 'listExports', 'CloudFormation', Promise.reject(result), true, mock)
   },
+  listGeneratedTemplates: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'listGeneratedTemplates', 'CloudFormation', Promise.resolve(result), true, mock)
+  },
+  listGeneratedTemplatesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'listGeneratedTemplates', 'CloudFormation', Promise.resolve(result), false, mock)
+  },
+  listGeneratedTemplatesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'listGeneratedTemplates', 'CloudFormation', Promise.reject(result), true, mock)
+  },
   listImports: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudformation', 'listImports', 'CloudFormation', Promise.resolve(result), true, mock)
   },
@@ -385,6 +465,42 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listImportsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudformation', 'listImports', 'CloudFormation', Promise.reject(result), true, mock)
+  },
+  listResourceScanRelatedResources: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'listResourceScanRelatedResources', 'CloudFormation', Promise.resolve(result), true, mock)
+  },
+  listResourceScanRelatedResourcesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'listResourceScanRelatedResources', 'CloudFormation', Promise.resolve(result), false, mock)
+  },
+  listResourceScanRelatedResourcesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'listResourceScanRelatedResources', 'CloudFormation', Promise.reject(result), true, mock)
+  },
+  listResourceScanResources: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'listResourceScanResources', 'CloudFormation', Promise.resolve(result), true, mock)
+  },
+  listResourceScanResourcesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'listResourceScanResources', 'CloudFormation', Promise.resolve(result), false, mock)
+  },
+  listResourceScanResourcesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'listResourceScanResources', 'CloudFormation', Promise.reject(result), true, mock)
+  },
+  listResourceScans: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'listResourceScans', 'CloudFormation', Promise.resolve(result), true, mock)
+  },
+  listResourceScansAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'listResourceScans', 'CloudFormation', Promise.resolve(result), false, mock)
+  },
+  listResourceScansThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'listResourceScans', 'CloudFormation', Promise.reject(result), true, mock)
+  },
+  listStackInstanceResourceDrifts: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'listStackInstanceResourceDrifts', 'CloudFormation', Promise.resolve(result), true, mock)
+  },
+  listStackInstanceResourceDriftsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'listStackInstanceResourceDrifts', 'CloudFormation', Promise.resolve(result), false, mock)
+  },
+  listStackInstanceResourceDriftsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'listStackInstanceResourceDrifts', 'CloudFormation', Promise.reject(result), true, mock)
   },
   listStackInstances: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudformation', 'listStackInstances', 'CloudFormation', Promise.resolve(result), true, mock)
@@ -548,6 +664,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   signalResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudformation', 'signalResource', 'CloudFormation', Promise.reject(result), true, mock)
   },
+  startResourceScan: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'startResourceScan', 'CloudFormation', Promise.resolve(result), true, mock)
+  },
+  startResourceScanAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'startResourceScan', 'CloudFormation', Promise.resolve(result), false, mock)
+  },
+  startResourceScanThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'startResourceScan', 'CloudFormation', Promise.reject(result), true, mock)
+  },
   stopStackSetOperation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudformation', 'stopStackSetOperation', 'CloudFormation', Promise.resolve(result), true, mock)
   },
@@ -565,6 +690,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   testTypeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudformation', 'testType', 'CloudFormation', Promise.reject(result), true, mock)
+  },
+  updateGeneratedTemplate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'updateGeneratedTemplate', 'CloudFormation', Promise.resolve(result), true, mock)
+  },
+  updateGeneratedTemplateAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'updateGeneratedTemplate', 'CloudFormation', Promise.resolve(result), false, mock)
+  },
+  updateGeneratedTemplateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudformation', 'updateGeneratedTemplate', 'CloudFormation', Promise.reject(result), true, mock)
   },
   updateStack: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudformation', 'updateStack', 'CloudFormation', Promise.resolve(result), true, mock)

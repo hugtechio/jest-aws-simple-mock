@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockConnectParticipant = {
+export const mockConnectParticipant = {
   completeAttachmentUpload: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-connectparticipant', 'completeAttachmentUpload', 'ConnectParticipant', Promise.resolve(result), true, mock)
   },
@@ -35,14 +34,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createParticipantConnectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-connectparticipant', 'createParticipantConnection', 'ConnectParticipant', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-connectparticipant', 'destroy', 'ConnectParticipant', Promise.resolve(result), true, mock)
+  describeView: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-connectparticipant', 'describeView', 'ConnectParticipant', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-connectparticipant', 'destroy', 'ConnectParticipant', Promise.resolve(result), false, mock)
+  describeViewAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-connectparticipant', 'describeView', 'ConnectParticipant', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-connectparticipant', 'destroy', 'ConnectParticipant', Promise.reject(result), true, mock)
+  describeViewThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-connectparticipant', 'describeView', 'ConnectParticipant', Promise.reject(result), true, mock)
   },
   disconnectParticipant: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-connectparticipant', 'disconnectParticipant', 'ConnectParticipant', Promise.resolve(result), true, mock)

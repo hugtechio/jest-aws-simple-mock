@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockLexModelBuildingService = {
+export const mockLexModelBuildingService = {
   createBotVersion: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-model-building-service', 'createBotVersion', 'LexModelBuildingService', Promise.resolve(result), true, mock)
   },
@@ -44,15 +43,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createSlotTypeVersionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-model-building-service', 'createSlotTypeVersion', 'LexModelBuildingService', Promise.reject(result), true, mock)
   },
-  deleteBot: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lex-model-building-service', 'deleteBot', 'LexModelBuildingService', Promise.resolve(result), true, mock)
-  },
-  deleteBotAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lex-model-building-service', 'deleteBot', 'LexModelBuildingService', Promise.resolve(result), false, mock)
-  },
-  deleteBotThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lex-model-building-service', 'deleteBot', 'LexModelBuildingService', Promise.reject(result), true, mock)
-  },
   deleteBotAlias: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-model-building-service', 'deleteBotAlias', 'LexModelBuildingService', Promise.resolve(result), true, mock)
   },
@@ -70,6 +60,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteBotChannelAssociationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-model-building-service', 'deleteBotChannelAssociation', 'LexModelBuildingService', Promise.reject(result), true, mock)
+  },
+  deleteBot: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-model-building-service', 'deleteBot', 'LexModelBuildingService', Promise.resolve(result), true, mock)
+  },
+  deleteBotAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-model-building-service', 'deleteBot', 'LexModelBuildingService', Promise.resolve(result), false, mock)
+  },
+  deleteBotThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-model-building-service', 'deleteBot', 'LexModelBuildingService', Promise.reject(result), true, mock)
   },
   deleteBotVersion: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-model-building-service', 'deleteBotVersion', 'LexModelBuildingService', Promise.resolve(result), true, mock)
@@ -125,24 +124,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteUtterancesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-model-building-service', 'deleteUtterances', 'LexModelBuildingService', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lex-model-building-service', 'destroy', 'LexModelBuildingService', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lex-model-building-service', 'destroy', 'LexModelBuildingService', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lex-model-building-service', 'destroy', 'LexModelBuildingService', Promise.reject(result), true, mock)
-  },
-  getBot: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lex-model-building-service', 'getBot', 'LexModelBuildingService', Promise.resolve(result), true, mock)
-  },
-  getBotAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lex-model-building-service', 'getBot', 'LexModelBuildingService', Promise.resolve(result), false, mock)
-  },
-  getBotThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lex-model-building-service', 'getBot', 'LexModelBuildingService', Promise.reject(result), true, mock)
-  },
   getBotAlias: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-model-building-service', 'getBotAlias', 'LexModelBuildingService', Promise.resolve(result), true, mock)
   },
@@ -178,6 +159,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getBotChannelAssociationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-model-building-service', 'getBotChannelAssociations', 'LexModelBuildingService', Promise.reject(result), true, mock)
+  },
+  getBot: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-model-building-service', 'getBot', 'LexModelBuildingService', Promise.resolve(result), true, mock)
+  },
+  getBotAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-model-building-service', 'getBot', 'LexModelBuildingService', Promise.resolve(result), false, mock)
+  },
+  getBotThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-model-building-service', 'getBot', 'LexModelBuildingService', Promise.reject(result), true, mock)
   },
   getBotVersions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-model-building-service', 'getBotVersions', 'LexModelBuildingService', Promise.resolve(result), true, mock)
@@ -332,15 +322,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listTagsForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-model-building-service', 'listTagsForResource', 'LexModelBuildingService', Promise.reject(result), true, mock)
   },
-  putBot: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lex-model-building-service', 'putBot', 'LexModelBuildingService', Promise.resolve(result), true, mock)
-  },
-  putBotAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lex-model-building-service', 'putBot', 'LexModelBuildingService', Promise.resolve(result), false, mock)
-  },
-  putBotThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lex-model-building-service', 'putBot', 'LexModelBuildingService', Promise.reject(result), true, mock)
-  },
   putBotAlias: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-model-building-service', 'putBotAlias', 'LexModelBuildingService', Promise.resolve(result), true, mock)
   },
@@ -349,6 +330,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   putBotAliasThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-model-building-service', 'putBotAlias', 'LexModelBuildingService', Promise.reject(result), true, mock)
+  },
+  putBot: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-model-building-service', 'putBot', 'LexModelBuildingService', Promise.resolve(result), true, mock)
+  },
+  putBotAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-model-building-service', 'putBot', 'LexModelBuildingService', Promise.resolve(result), false, mock)
+  },
+  putBotThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lex-model-building-service', 'putBot', 'LexModelBuildingService', Promise.reject(result), true, mock)
   },
   putIntent: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lex-model-building-service', 'putIntent', 'LexModelBuildingService', Promise.resolve(result), true, mock)

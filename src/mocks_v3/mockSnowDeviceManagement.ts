@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockSnowDeviceManagement = {
+export const mockSnowDeviceManagement = {
   cancelTask: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-snow-device-management', 'cancelTask', 'SnowDeviceManagement', Promise.resolve(result), true, mock)
   },
@@ -70,15 +69,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeTaskThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-snow-device-management', 'describeTask', 'SnowDeviceManagement', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-snow-device-management', 'destroy', 'SnowDeviceManagement', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-snow-device-management', 'destroy', 'SnowDeviceManagement', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-snow-device-management', 'destroy', 'SnowDeviceManagement', Promise.reject(result), true, mock)
   },
   listDeviceResources: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-snow-device-management', 'listDeviceResources', 'SnowDeviceManagement', Promise.resolve(result), true, mock)

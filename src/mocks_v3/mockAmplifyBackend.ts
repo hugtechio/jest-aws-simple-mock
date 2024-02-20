@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockAmplifyBackend = {
+export const mockAmplifyBackend = {
   cloneBackend: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-amplifybackend', 'cloneBackend', 'AmplifyBackend', Promise.resolve(result), true, mock)
   },
@@ -25,15 +24,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   cloneBackendThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-amplifybackend', 'cloneBackend', 'AmplifyBackend', Promise.reject(result), true, mock)
-  },
-  createBackend: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-amplifybackend', 'createBackend', 'AmplifyBackend', Promise.resolve(result), true, mock)
-  },
-  createBackendAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-amplifybackend', 'createBackend', 'AmplifyBackend', Promise.resolve(result), false, mock)
-  },
-  createBackendThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-amplifybackend', 'createBackend', 'AmplifyBackend', Promise.reject(result), true, mock)
   },
   createBackendAPI: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-amplifybackend', 'createBackendAPI', 'AmplifyBackend', Promise.resolve(result), true, mock)
@@ -52,6 +42,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createBackendAuthThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-amplifybackend', 'createBackendAuth', 'AmplifyBackend', Promise.reject(result), true, mock)
+  },
+  createBackend: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-amplifybackend', 'createBackend', 'AmplifyBackend', Promise.resolve(result), true, mock)
+  },
+  createBackendAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-amplifybackend', 'createBackend', 'AmplifyBackend', Promise.resolve(result), false, mock)
+  },
+  createBackendThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-amplifybackend', 'createBackend', 'AmplifyBackend', Promise.reject(result), true, mock)
   },
   createBackendConfig: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-amplifybackend', 'createBackendConfig', 'AmplifyBackend', Promise.resolve(result), true, mock)
@@ -80,15 +79,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createTokenThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-amplifybackend', 'createToken', 'AmplifyBackend', Promise.reject(result), true, mock)
   },
-  deleteBackend: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-amplifybackend', 'deleteBackend', 'AmplifyBackend', Promise.resolve(result), true, mock)
-  },
-  deleteBackendAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-amplifybackend', 'deleteBackend', 'AmplifyBackend', Promise.resolve(result), false, mock)
-  },
-  deleteBackendThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-amplifybackend', 'deleteBackend', 'AmplifyBackend', Promise.reject(result), true, mock)
-  },
   deleteBackendAPI: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-amplifybackend', 'deleteBackendAPI', 'AmplifyBackend', Promise.resolve(result), true, mock)
   },
@@ -106,6 +96,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteBackendAuthThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-amplifybackend', 'deleteBackendAuth', 'AmplifyBackend', Promise.reject(result), true, mock)
+  },
+  deleteBackend: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-amplifybackend', 'deleteBackend', 'AmplifyBackend', Promise.resolve(result), true, mock)
+  },
+  deleteBackendAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-amplifybackend', 'deleteBackend', 'AmplifyBackend', Promise.resolve(result), false, mock)
+  },
+  deleteBackendThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-amplifybackend', 'deleteBackend', 'AmplifyBackend', Promise.reject(result), true, mock)
   },
   deleteBackendStorage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-amplifybackend', 'deleteBackendStorage', 'AmplifyBackend', Promise.resolve(result), true, mock)
@@ -125,15 +124,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteTokenThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-amplifybackend', 'deleteToken', 'AmplifyBackend', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-amplifybackend', 'destroy', 'AmplifyBackend', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-amplifybackend', 'destroy', 'AmplifyBackend', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-amplifybackend', 'destroy', 'AmplifyBackend', Promise.reject(result), true, mock)
-  },
   generateBackendAPIModels: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-amplifybackend', 'generateBackendAPIModels', 'AmplifyBackend', Promise.resolve(result), true, mock)
   },
@@ -142,15 +132,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   generateBackendAPIModelsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-amplifybackend', 'generateBackendAPIModels', 'AmplifyBackend', Promise.reject(result), true, mock)
-  },
-  getBackend: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-amplifybackend', 'getBackend', 'AmplifyBackend', Promise.resolve(result), true, mock)
-  },
-  getBackendAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-amplifybackend', 'getBackend', 'AmplifyBackend', Promise.resolve(result), false, mock)
-  },
-  getBackendThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-amplifybackend', 'getBackend', 'AmplifyBackend', Promise.reject(result), true, mock)
   },
   getBackendAPI: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-amplifybackend', 'getBackendAPI', 'AmplifyBackend', Promise.resolve(result), true, mock)
@@ -178,6 +159,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getBackendAuthThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-amplifybackend', 'getBackendAuth', 'AmplifyBackend', Promise.reject(result), true, mock)
+  },
+  getBackend: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-amplifybackend', 'getBackend', 'AmplifyBackend', Promise.resolve(result), true, mock)
+  },
+  getBackendAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-amplifybackend', 'getBackend', 'AmplifyBackend', Promise.resolve(result), false, mock)
+  },
+  getBackendThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-amplifybackend', 'getBackend', 'AmplifyBackend', Promise.reject(result), true, mock)
   },
   getBackendJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-amplifybackend', 'getBackendJob', 'AmplifyBackend', Promise.resolve(result), true, mock)

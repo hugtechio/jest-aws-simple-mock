@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockSWF = {
+export const mockSWF = {
   countClosedWorkflowExecutions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-swf', 'countClosedWorkflowExecutions', 'SWF', Promise.resolve(result), true, mock)
   },
@@ -115,15 +114,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeWorkflowTypeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-swf', 'describeWorkflowType', 'SWF', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-swf', 'destroy', 'SWF', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-swf', 'destroy', 'SWF', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-swf', 'destroy', 'SWF', Promise.reject(result), true, mock)
   },
   getWorkflowExecutionHistory: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-swf', 'getWorkflowExecutionHistory', 'SWF', Promise.resolve(result), true, mock)

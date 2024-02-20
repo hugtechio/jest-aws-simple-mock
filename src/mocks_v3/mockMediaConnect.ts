@@ -15,8 +15,25 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockMediaConnect = {
+export const mockMediaConnect = {
+  addBridgeOutputs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'addBridgeOutputs', 'MediaConnect', Promise.resolve(result), true, mock)
+  },
+  addBridgeOutputsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'addBridgeOutputs', 'MediaConnect', Promise.resolve(result), false, mock)
+  },
+  addBridgeOutputsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'addBridgeOutputs', 'MediaConnect', Promise.reject(result), true, mock)
+  },
+  addBridgeSources: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'addBridgeSources', 'MediaConnect', Promise.resolve(result), true, mock)
+  },
+  addBridgeSourcesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'addBridgeSources', 'MediaConnect', Promise.resolve(result), false, mock)
+  },
+  addBridgeSourcesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'addBridgeSources', 'MediaConnect', Promise.reject(result), true, mock)
+  },
   addFlowMediaStreams: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mediaconnect', 'addFlowMediaStreams', 'MediaConnect', Promise.resolve(result), true, mock)
   },
@@ -53,6 +70,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   addFlowVpcInterfacesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mediaconnect', 'addFlowVpcInterfaces', 'MediaConnect', Promise.reject(result), true, mock)
   },
+  createBridge: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'createBridge', 'MediaConnect', Promise.resolve(result), true, mock)
+  },
+  createBridgeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'createBridge', 'MediaConnect', Promise.resolve(result), false, mock)
+  },
+  createBridgeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'createBridge', 'MediaConnect', Promise.reject(result), true, mock)
+  },
   createFlow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mediaconnect', 'createFlow', 'MediaConnect', Promise.resolve(result), true, mock)
   },
@@ -61,6 +87,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createFlowThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mediaconnect', 'createFlow', 'MediaConnect', Promise.reject(result), true, mock)
+  },
+  createGateway: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'createGateway', 'MediaConnect', Promise.resolve(result), true, mock)
+  },
+  createGatewayAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'createGateway', 'MediaConnect', Promise.resolve(result), false, mock)
+  },
+  createGatewayThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'createGateway', 'MediaConnect', Promise.reject(result), true, mock)
+  },
+  deleteBridge: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'deleteBridge', 'MediaConnect', Promise.resolve(result), true, mock)
+  },
+  deleteBridgeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'deleteBridge', 'MediaConnect', Promise.resolve(result), false, mock)
+  },
+  deleteBridgeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'deleteBridge', 'MediaConnect', Promise.reject(result), true, mock)
   },
   deleteFlow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mediaconnect', 'deleteFlow', 'MediaConnect', Promise.resolve(result), true, mock)
@@ -71,6 +115,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteFlowThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mediaconnect', 'deleteFlow', 'MediaConnect', Promise.reject(result), true, mock)
   },
+  deleteGateway: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'deleteGateway', 'MediaConnect', Promise.resolve(result), true, mock)
+  },
+  deleteGatewayAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'deleteGateway', 'MediaConnect', Promise.resolve(result), false, mock)
+  },
+  deleteGatewayThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'deleteGateway', 'MediaConnect', Promise.reject(result), true, mock)
+  },
+  deregisterGatewayInstance: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'deregisterGatewayInstance', 'MediaConnect', Promise.resolve(result), true, mock)
+  },
+  deregisterGatewayInstanceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'deregisterGatewayInstance', 'MediaConnect', Promise.resolve(result), false, mock)
+  },
+  deregisterGatewayInstanceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'deregisterGatewayInstance', 'MediaConnect', Promise.reject(result), true, mock)
+  },
+  describeBridge: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'describeBridge', 'MediaConnect', Promise.resolve(result), true, mock)
+  },
+  describeBridgeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'describeBridge', 'MediaConnect', Promise.resolve(result), false, mock)
+  },
+  describeBridgeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'describeBridge', 'MediaConnect', Promise.reject(result), true, mock)
+  },
   describeFlow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mediaconnect', 'describeFlow', 'MediaConnect', Promise.resolve(result), true, mock)
   },
@@ -79,6 +150,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeFlowThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mediaconnect', 'describeFlow', 'MediaConnect', Promise.reject(result), true, mock)
+  },
+  describeFlowSourceMetadata: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'describeFlowSourceMetadata', 'MediaConnect', Promise.resolve(result), true, mock)
+  },
+  describeFlowSourceMetadataAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'describeFlowSourceMetadata', 'MediaConnect', Promise.resolve(result), false, mock)
+  },
+  describeFlowSourceMetadataThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'describeFlowSourceMetadata', 'MediaConnect', Promise.reject(result), true, mock)
+  },
+  describeGateway: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'describeGateway', 'MediaConnect', Promise.resolve(result), true, mock)
+  },
+  describeGatewayAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'describeGateway', 'MediaConnect', Promise.resolve(result), false, mock)
+  },
+  describeGatewayThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'describeGateway', 'MediaConnect', Promise.reject(result), true, mock)
+  },
+  describeGatewayInstance: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'describeGatewayInstance', 'MediaConnect', Promise.resolve(result), true, mock)
+  },
+  describeGatewayInstanceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'describeGatewayInstance', 'MediaConnect', Promise.resolve(result), false, mock)
+  },
+  describeGatewayInstanceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'describeGatewayInstance', 'MediaConnect', Promise.reject(result), true, mock)
   },
   describeOffering: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mediaconnect', 'describeOffering', 'MediaConnect', Promise.resolve(result), true, mock)
@@ -98,15 +196,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeReservationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mediaconnect', 'describeReservation', 'MediaConnect', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-mediaconnect', 'destroy', 'MediaConnect', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-mediaconnect', 'destroy', 'MediaConnect', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-mediaconnect', 'destroy', 'MediaConnect', Promise.reject(result), true, mock)
-  },
   grantFlowEntitlements: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mediaconnect', 'grantFlowEntitlements', 'MediaConnect', Promise.resolve(result), true, mock)
   },
@@ -115,6 +204,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   grantFlowEntitlementsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mediaconnect', 'grantFlowEntitlements', 'MediaConnect', Promise.reject(result), true, mock)
+  },
+  listBridges: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'listBridges', 'MediaConnect', Promise.resolve(result), true, mock)
+  },
+  listBridgesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'listBridges', 'MediaConnect', Promise.resolve(result), false, mock)
+  },
+  listBridgesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'listBridges', 'MediaConnect', Promise.reject(result), true, mock)
   },
   listEntitlements: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mediaconnect', 'listEntitlements', 'MediaConnect', Promise.resolve(result), true, mock)
@@ -133,6 +231,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listFlowsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mediaconnect', 'listFlows', 'MediaConnect', Promise.reject(result), true, mock)
+  },
+  listGatewayInstances: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'listGatewayInstances', 'MediaConnect', Promise.resolve(result), true, mock)
+  },
+  listGatewayInstancesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'listGatewayInstances', 'MediaConnect', Promise.resolve(result), false, mock)
+  },
+  listGatewayInstancesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'listGatewayInstances', 'MediaConnect', Promise.reject(result), true, mock)
+  },
+  listGateways: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'listGateways', 'MediaConnect', Promise.resolve(result), true, mock)
+  },
+  listGatewaysAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'listGateways', 'MediaConnect', Promise.resolve(result), false, mock)
+  },
+  listGatewaysThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'listGateways', 'MediaConnect', Promise.reject(result), true, mock)
   },
   listOfferings: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mediaconnect', 'listOfferings', 'MediaConnect', Promise.resolve(result), true, mock)
@@ -169,6 +285,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   purchaseOfferingThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mediaconnect', 'purchaseOffering', 'MediaConnect', Promise.reject(result), true, mock)
+  },
+  removeBridgeOutput: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'removeBridgeOutput', 'MediaConnect', Promise.resolve(result), true, mock)
+  },
+  removeBridgeOutputAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'removeBridgeOutput', 'MediaConnect', Promise.resolve(result), false, mock)
+  },
+  removeBridgeOutputThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'removeBridgeOutput', 'MediaConnect', Promise.reject(result), true, mock)
+  },
+  removeBridgeSource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'removeBridgeSource', 'MediaConnect', Promise.resolve(result), true, mock)
+  },
+  removeBridgeSourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'removeBridgeSource', 'MediaConnect', Promise.resolve(result), false, mock)
+  },
+  removeBridgeSourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'removeBridgeSource', 'MediaConnect', Promise.reject(result), true, mock)
   },
   removeFlowMediaStream: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mediaconnect', 'removeFlowMediaStream', 'MediaConnect', Promise.resolve(result), true, mock)
@@ -251,6 +385,42 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   untagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mediaconnect', 'untagResource', 'MediaConnect', Promise.reject(result), true, mock)
   },
+  updateBridge: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'updateBridge', 'MediaConnect', Promise.resolve(result), true, mock)
+  },
+  updateBridgeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'updateBridge', 'MediaConnect', Promise.resolve(result), false, mock)
+  },
+  updateBridgeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'updateBridge', 'MediaConnect', Promise.reject(result), true, mock)
+  },
+  updateBridgeOutput: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'updateBridgeOutput', 'MediaConnect', Promise.resolve(result), true, mock)
+  },
+  updateBridgeOutputAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'updateBridgeOutput', 'MediaConnect', Promise.resolve(result), false, mock)
+  },
+  updateBridgeOutputThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'updateBridgeOutput', 'MediaConnect', Promise.reject(result), true, mock)
+  },
+  updateBridgeSource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'updateBridgeSource', 'MediaConnect', Promise.resolve(result), true, mock)
+  },
+  updateBridgeSourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'updateBridgeSource', 'MediaConnect', Promise.resolve(result), false, mock)
+  },
+  updateBridgeSourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'updateBridgeSource', 'MediaConnect', Promise.reject(result), true, mock)
+  },
+  updateBridgeState: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'updateBridgeState', 'MediaConnect', Promise.resolve(result), true, mock)
+  },
+  updateBridgeStateAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'updateBridgeState', 'MediaConnect', Promise.resolve(result), false, mock)
+  },
+  updateBridgeStateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'updateBridgeState', 'MediaConnect', Promise.reject(result), true, mock)
+  },
   updateFlow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mediaconnect', 'updateFlow', 'MediaConnect', Promise.resolve(result), true, mock)
   },
@@ -295,6 +465,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateFlowSourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mediaconnect', 'updateFlowSource', 'MediaConnect', Promise.reject(result), true, mock)
+  },
+  updateGatewayInstance: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'updateGatewayInstance', 'MediaConnect', Promise.resolve(result), true, mock)
+  },
+  updateGatewayInstanceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'updateGatewayInstance', 'MediaConnect', Promise.resolve(result), false, mock)
+  },
+  updateGatewayInstanceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediaconnect', 'updateGatewayInstance', 'MediaConnect', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mediaconnect', 'send', 'MediaConnectClient', Promise.resolve(result), true, mock)

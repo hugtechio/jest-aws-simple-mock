@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockAppConfig = {
+export const mockAppConfig = {
   createApplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appconfig', 'createApplication', 'AppConfig', Promise.resolve(result), true, mock)
   },
@@ -52,6 +51,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createEnvironmentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appconfig', 'createEnvironment', 'AppConfig', Promise.reject(result), true, mock)
+  },
+  createExtensionAssociation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appconfig', 'createExtensionAssociation', 'AppConfig', Promise.resolve(result), true, mock)
+  },
+  createExtensionAssociationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appconfig', 'createExtensionAssociation', 'AppConfig', Promise.resolve(result), false, mock)
+  },
+  createExtensionAssociationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appconfig', 'createExtensionAssociation', 'AppConfig', Promise.reject(result), true, mock)
+  },
+  createExtension: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appconfig', 'createExtension', 'AppConfig', Promise.resolve(result), true, mock)
+  },
+  createExtensionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appconfig', 'createExtension', 'AppConfig', Promise.resolve(result), false, mock)
+  },
+  createExtensionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appconfig', 'createExtension', 'AppConfig', Promise.reject(result), true, mock)
   },
   createHostedConfigurationVersion: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appconfig', 'createHostedConfigurationVersion', 'AppConfig', Promise.resolve(result), true, mock)
@@ -98,6 +115,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteEnvironmentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appconfig', 'deleteEnvironment', 'AppConfig', Promise.reject(result), true, mock)
   },
+  deleteExtensionAssociation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appconfig', 'deleteExtensionAssociation', 'AppConfig', Promise.resolve(result), true, mock)
+  },
+  deleteExtensionAssociationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appconfig', 'deleteExtensionAssociation', 'AppConfig', Promise.resolve(result), false, mock)
+  },
+  deleteExtensionAssociationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appconfig', 'deleteExtensionAssociation', 'AppConfig', Promise.reject(result), true, mock)
+  },
+  deleteExtension: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appconfig', 'deleteExtension', 'AppConfig', Promise.resolve(result), true, mock)
+  },
+  deleteExtensionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appconfig', 'deleteExtension', 'AppConfig', Promise.resolve(result), false, mock)
+  },
+  deleteExtensionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appconfig', 'deleteExtension', 'AppConfig', Promise.reject(result), true, mock)
+  },
   deleteHostedConfigurationVersion: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appconfig', 'deleteHostedConfigurationVersion', 'AppConfig', Promise.resolve(result), true, mock)
   },
@@ -106,15 +141,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteHostedConfigurationVersionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appconfig', 'deleteHostedConfigurationVersion', 'AppConfig', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-appconfig', 'destroy', 'AppConfig', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-appconfig', 'destroy', 'AppConfig', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-appconfig', 'destroy', 'AppConfig', Promise.reject(result), true, mock)
   },
   getApplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appconfig', 'getApplication', 'AppConfig', Promise.resolve(result), true, mock)
@@ -170,6 +196,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getEnvironmentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appconfig', 'getEnvironment', 'AppConfig', Promise.reject(result), true, mock)
   },
+  getExtensionAssociation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appconfig', 'getExtensionAssociation', 'AppConfig', Promise.resolve(result), true, mock)
+  },
+  getExtensionAssociationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appconfig', 'getExtensionAssociation', 'AppConfig', Promise.resolve(result), false, mock)
+  },
+  getExtensionAssociationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appconfig', 'getExtensionAssociation', 'AppConfig', Promise.reject(result), true, mock)
+  },
+  getExtension: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appconfig', 'getExtension', 'AppConfig', Promise.resolve(result), true, mock)
+  },
+  getExtensionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appconfig', 'getExtension', 'AppConfig', Promise.resolve(result), false, mock)
+  },
+  getExtensionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appconfig', 'getExtension', 'AppConfig', Promise.reject(result), true, mock)
+  },
   getHostedConfigurationVersion: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appconfig', 'getHostedConfigurationVersion', 'AppConfig', Promise.resolve(result), true, mock)
   },
@@ -223,6 +267,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listEnvironmentsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appconfig', 'listEnvironments', 'AppConfig', Promise.reject(result), true, mock)
+  },
+  listExtensionAssociations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appconfig', 'listExtensionAssociations', 'AppConfig', Promise.resolve(result), true, mock)
+  },
+  listExtensionAssociationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appconfig', 'listExtensionAssociations', 'AppConfig', Promise.resolve(result), false, mock)
+  },
+  listExtensionAssociationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appconfig', 'listExtensionAssociations', 'AppConfig', Promise.reject(result), true, mock)
+  },
+  listExtensions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appconfig', 'listExtensions', 'AppConfig', Promise.resolve(result), true, mock)
+  },
+  listExtensionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appconfig', 'listExtensions', 'AppConfig', Promise.resolve(result), false, mock)
+  },
+  listExtensionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appconfig', 'listExtensions', 'AppConfig', Promise.reject(result), true, mock)
   },
   listHostedConfigurationVersions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appconfig', 'listHostedConfigurationVersions', 'AppConfig', Promise.resolve(result), true, mock)
@@ -313,6 +375,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateEnvironmentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appconfig', 'updateEnvironment', 'AppConfig', Promise.reject(result), true, mock)
+  },
+  updateExtensionAssociation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appconfig', 'updateExtensionAssociation', 'AppConfig', Promise.resolve(result), true, mock)
+  },
+  updateExtensionAssociationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appconfig', 'updateExtensionAssociation', 'AppConfig', Promise.resolve(result), false, mock)
+  },
+  updateExtensionAssociationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appconfig', 'updateExtensionAssociation', 'AppConfig', Promise.reject(result), true, mock)
+  },
+  updateExtension: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appconfig', 'updateExtension', 'AppConfig', Promise.resolve(result), true, mock)
+  },
+  updateExtensionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appconfig', 'updateExtension', 'AppConfig', Promise.resolve(result), false, mock)
+  },
+  updateExtensionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appconfig', 'updateExtension', 'AppConfig', Promise.reject(result), true, mock)
   },
   validateConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appconfig', 'validateConfiguration', 'AppConfig', Promise.resolve(result), true, mock)

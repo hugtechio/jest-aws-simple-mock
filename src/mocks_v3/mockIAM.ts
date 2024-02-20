@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockIAM = {
+export const mockIAM = {
   addClientIDToOpenIDConnectProvider: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iam', 'addClientIDToOpenIDConnectProvider', 'IAM', Promise.resolve(result), true, mock)
   },
@@ -422,15 +421,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteVirtualMFADeviceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iam', 'deleteVirtualMFADevice', 'IAM', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iam', 'destroy', 'IAM', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iam', 'destroy', 'IAM', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iam', 'destroy', 'IAM', Promise.reject(result), true, mock)
-  },
   detachGroupPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iam', 'detachGroupPolicy', 'IAM', Promise.resolve(result), true, mock)
   },
@@ -592,6 +582,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getLoginProfileThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iam', 'getLoginProfile', 'IAM', Promise.reject(result), true, mock)
+  },
+  getMFADevice: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iam', 'getMFADevice', 'IAM', Promise.resolve(result), true, mock)
+  },
+  getMFADeviceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iam', 'getMFADevice', 'IAM', Promise.resolve(result), false, mock)
+  },
+  getMFADeviceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iam', 'getMFADevice', 'IAM', Promise.reject(result), true, mock)
   },
   getOpenIDConnectProvider: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iam', 'getOpenIDConnectProvider', 'IAM', Promise.resolve(result), true, mock)

@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockMWAA = {
+export const mockMWAA = {
   createCliToken: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mwaa', 'createCliToken', 'MWAA', Promise.resolve(result), true, mock)
   },
@@ -52,15 +51,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteEnvironmentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mwaa', 'deleteEnvironment', 'MWAA', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-mwaa', 'destroy', 'MWAA', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-mwaa', 'destroy', 'MWAA', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-mwaa', 'destroy', 'MWAA', Promise.reject(result), true, mock)
   },
   getEnvironment: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mwaa', 'getEnvironment', 'MWAA', Promise.resolve(result), true, mock)

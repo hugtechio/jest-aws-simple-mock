@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockMTurk = {
+export const mockMTurk = {
   acceptQualificationRequest: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mturk', 'acceptQualificationRequest', 'MTurk', Promise.resolve(result), true, mock)
   },
@@ -124,15 +123,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteWorkerBlockThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mturk', 'deleteWorkerBlock', 'MTurk', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-mturk', 'destroy', 'MTurk', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-mturk', 'destroy', 'MTurk', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-mturk', 'destroy', 'MTurk', Promise.reject(result), true, mock)
   },
   disassociateQualificationFromWorker: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mturk', 'disassociateQualificationFromWorker', 'MTurk', Promise.resolve(result), true, mock)

@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockResourceGroups = {
+export const mockResourceGroups = {
   createGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-resource-groups', 'createGroup', 'ResourceGroups', Promise.resolve(result), true, mock)
   },
@@ -35,14 +34,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-resource-groups', 'deleteGroup', 'ResourceGroups', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-resource-groups', 'destroy', 'ResourceGroups', Promise.resolve(result), true, mock)
+  getAccountSettings: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resource-groups', 'getAccountSettings', 'ResourceGroups', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-resource-groups', 'destroy', 'ResourceGroups', Promise.resolve(result), false, mock)
+  getAccountSettingsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resource-groups', 'getAccountSettings', 'ResourceGroups', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-resource-groups', 'destroy', 'ResourceGroups', Promise.reject(result), true, mock)
+  getAccountSettingsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resource-groups', 'getAccountSettings', 'ResourceGroups', Promise.reject(result), true, mock)
   },
   getGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-resource-groups', 'getGroup', 'ResourceGroups', Promise.resolve(result), true, mock)
@@ -151,6 +150,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   untagThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-resource-groups', 'untag', 'ResourceGroups', Promise.reject(result), true, mock)
+  },
+  updateAccountSettings: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resource-groups', 'updateAccountSettings', 'ResourceGroups', Promise.resolve(result), true, mock)
+  },
+  updateAccountSettingsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resource-groups', 'updateAccountSettings', 'ResourceGroups', Promise.resolve(result), false, mock)
+  },
+  updateAccountSettingsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-resource-groups', 'updateAccountSettings', 'ResourceGroups', Promise.reject(result), true, mock)
   },
   updateGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-resource-groups', 'updateGroup', 'ResourceGroups', Promise.resolve(result), true, mock)

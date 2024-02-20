@@ -15,8 +15,16 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockVoiceID = {
+export const mockVoiceID = {
+  associateFraudster: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-voice-id', 'associateFraudster', 'VoiceID', Promise.resolve(result), true, mock)
+  },
+  associateFraudsterAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-voice-id', 'associateFraudster', 'VoiceID', Promise.resolve(result), false, mock)
+  },
+  associateFraudsterThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-voice-id', 'associateFraudster', 'VoiceID', Promise.reject(result), true, mock)
+  },
   createDomain: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-voice-id', 'createDomain', 'VoiceID', Promise.resolve(result), true, mock)
   },
@@ -25,6 +33,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createDomainThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-voice-id', 'createDomain', 'VoiceID', Promise.reject(result), true, mock)
+  },
+  createWatchlist: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-voice-id', 'createWatchlist', 'VoiceID', Promise.resolve(result), true, mock)
+  },
+  createWatchlistAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-voice-id', 'createWatchlist', 'VoiceID', Promise.resolve(result), false, mock)
+  },
+  createWatchlistThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-voice-id', 'createWatchlist', 'VoiceID', Promise.reject(result), true, mock)
   },
   deleteDomain: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-voice-id', 'deleteDomain', 'VoiceID', Promise.resolve(result), true, mock)
@@ -52,6 +69,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteSpeakerThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-voice-id', 'deleteSpeaker', 'VoiceID', Promise.reject(result), true, mock)
+  },
+  deleteWatchlist: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-voice-id', 'deleteWatchlist', 'VoiceID', Promise.resolve(result), true, mock)
+  },
+  deleteWatchlistAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-voice-id', 'deleteWatchlist', 'VoiceID', Promise.resolve(result), false, mock)
+  },
+  deleteWatchlistThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-voice-id', 'deleteWatchlist', 'VoiceID', Promise.reject(result), true, mock)
   },
   describeDomain: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-voice-id', 'describeDomain', 'VoiceID', Promise.resolve(result), true, mock)
@@ -98,14 +124,23 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeSpeakerEnrollmentJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-voice-id', 'describeSpeakerEnrollmentJob', 'VoiceID', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-voice-id', 'destroy', 'VoiceID', Promise.resolve(result), true, mock)
+  describeWatchlist: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-voice-id', 'describeWatchlist', 'VoiceID', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-voice-id', 'destroy', 'VoiceID', Promise.resolve(result), false, mock)
+  describeWatchlistAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-voice-id', 'describeWatchlist', 'VoiceID', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-voice-id', 'destroy', 'VoiceID', Promise.reject(result), true, mock)
+  describeWatchlistThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-voice-id', 'describeWatchlist', 'VoiceID', Promise.reject(result), true, mock)
+  },
+  disassociateFraudster: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-voice-id', 'disassociateFraudster', 'VoiceID', Promise.resolve(result), true, mock)
+  },
+  disassociateFraudsterAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-voice-id', 'disassociateFraudster', 'VoiceID', Promise.resolve(result), false, mock)
+  },
+  disassociateFraudsterThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-voice-id', 'disassociateFraudster', 'VoiceID', Promise.reject(result), true, mock)
   },
   evaluateSession: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-voice-id', 'evaluateSession', 'VoiceID', Promise.resolve(result), true, mock)
@@ -134,6 +169,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listFraudsterRegistrationJobsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-voice-id', 'listFraudsterRegistrationJobs', 'VoiceID', Promise.reject(result), true, mock)
   },
+  listFraudsters: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-voice-id', 'listFraudsters', 'VoiceID', Promise.resolve(result), true, mock)
+  },
+  listFraudstersAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-voice-id', 'listFraudsters', 'VoiceID', Promise.resolve(result), false, mock)
+  },
+  listFraudstersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-voice-id', 'listFraudsters', 'VoiceID', Promise.reject(result), true, mock)
+  },
   listSpeakerEnrollmentJobs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-voice-id', 'listSpeakerEnrollmentJobs', 'VoiceID', Promise.resolve(result), true, mock)
   },
@@ -160,6 +204,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listTagsForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-voice-id', 'listTagsForResource', 'VoiceID', Promise.reject(result), true, mock)
+  },
+  listWatchlists: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-voice-id', 'listWatchlists', 'VoiceID', Promise.resolve(result), true, mock)
+  },
+  listWatchlistsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-voice-id', 'listWatchlists', 'VoiceID', Promise.resolve(result), false, mock)
+  },
+  listWatchlistsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-voice-id', 'listWatchlists', 'VoiceID', Promise.reject(result), true, mock)
   },
   optOutSpeaker: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-voice-id', 'optOutSpeaker', 'VoiceID', Promise.resolve(result), true, mock)
@@ -214,6 +267,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateDomainThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-voice-id', 'updateDomain', 'VoiceID', Promise.reject(result), true, mock)
+  },
+  updateWatchlist: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-voice-id', 'updateWatchlist', 'VoiceID', Promise.resolve(result), true, mock)
+  },
+  updateWatchlistAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-voice-id', 'updateWatchlist', 'VoiceID', Promise.resolve(result), false, mock)
+  },
+  updateWatchlistThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-voice-id', 'updateWatchlist', 'VoiceID', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-voice-id', 'send', 'VoiceIDClient', Promise.resolve(result), true, mock)

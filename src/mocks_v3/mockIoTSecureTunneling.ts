@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockIoTSecureTunneling = {
+export const mockIoTSecureTunneling = {
   closeTunnel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsecuretunneling', 'closeTunnel', 'IoTSecureTunneling', Promise.resolve(result), true, mock)
   },
@@ -34,15 +33,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeTunnelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsecuretunneling', 'describeTunnel', 'IoTSecureTunneling', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iotsecuretunneling', 'destroy', 'IoTSecureTunneling', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iotsecuretunneling', 'destroy', 'IoTSecureTunneling', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iotsecuretunneling', 'destroy', 'IoTSecureTunneling', Promise.reject(result), true, mock)
   },
   listTagsForResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsecuretunneling', 'listTagsForResource', 'IoTSecureTunneling', Promise.resolve(result), true, mock)
@@ -70,6 +60,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   openTunnelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsecuretunneling', 'openTunnel', 'IoTSecureTunneling', Promise.reject(result), true, mock)
+  },
+  rotateTunnelAccessToken: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsecuretunneling', 'rotateTunnelAccessToken', 'IoTSecureTunneling', Promise.resolve(result), true, mock)
+  },
+  rotateTunnelAccessTokenAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsecuretunneling', 'rotateTunnelAccessToken', 'IoTSecureTunneling', Promise.resolve(result), false, mock)
+  },
+  rotateTunnelAccessTokenThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsecuretunneling', 'rotateTunnelAccessToken', 'IoTSecureTunneling', Promise.reject(result), true, mock)
   },
   tagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsecuretunneling', 'tagResource', 'IoTSecureTunneling', Promise.resolve(result), true, mock)

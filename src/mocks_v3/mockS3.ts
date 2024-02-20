@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockS3 = {
+export const mockS3 = {
   abortMultipartUpload: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3', 'abortMultipartUpload', 'S3', Promise.resolve(result), true, mock)
   },
@@ -62,14 +61,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createMultipartUploadThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3', 'createMultipartUpload', 'S3', Promise.reject(result), true, mock)
   },
-  deleteBucket: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-s3', 'deleteBucket', 'S3', Promise.resolve(result), true, mock)
+  createSession: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3', 'createSession', 'S3', Promise.resolve(result), true, mock)
   },
-  deleteBucketAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-s3', 'deleteBucket', 'S3', Promise.resolve(result), false, mock)
+  createSessionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3', 'createSession', 'S3', Promise.resolve(result), false, mock)
   },
-  deleteBucketThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-s3', 'deleteBucket', 'S3', Promise.reject(result), true, mock)
+  createSessionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3', 'createSession', 'S3', Promise.reject(result), true, mock)
   },
   deleteBucketAnalyticsConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3', 'deleteBucketAnalyticsConfiguration', 'S3', Promise.resolve(result), true, mock)
@@ -79,6 +78,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteBucketAnalyticsConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3', 'deleteBucketAnalyticsConfiguration', 'S3', Promise.reject(result), true, mock)
+  },
+  deleteBucket: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3', 'deleteBucket', 'S3', Promise.resolve(result), true, mock)
+  },
+  deleteBucketAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3', 'deleteBucket', 'S3', Promise.resolve(result), false, mock)
+  },
+  deleteBucketThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3', 'deleteBucket', 'S3', Promise.reject(result), true, mock)
   },
   deleteBucketCors: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3', 'deleteBucketCors', 'S3', Promise.resolve(result), true, mock)
@@ -214,15 +222,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deletePublicAccessBlockThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3', 'deletePublicAccessBlock', 'S3', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-s3', 'destroy', 'S3', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-s3', 'destroy', 'S3', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-s3', 'destroy', 'S3', Promise.reject(result), true, mock)
   },
   getBucketAccelerateConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3', 'getBucketAccelerateConfiguration', 'S3', Promise.resolve(result), true, mock)
@@ -404,15 +403,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getBucketWebsiteThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3', 'getBucketWebsite', 'S3', Promise.reject(result), true, mock)
   },
-  getObject: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-s3', 'getObject', 'S3', Promise.resolve(result), true, mock)
-  },
-  getObjectAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-s3', 'getObject', 'S3', Promise.resolve(result), false, mock)
-  },
-  getObjectThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-s3', 'getObject', 'S3', Promise.reject(result), true, mock)
-  },
   getObjectAcl: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3', 'getObjectAcl', 'S3', Promise.resolve(result), true, mock)
   },
@@ -421,6 +411,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getObjectAclThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3', 'getObjectAcl', 'S3', Promise.reject(result), true, mock)
+  },
+  getObjectAttributes: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3', 'getObjectAttributes', 'S3', Promise.resolve(result), true, mock)
+  },
+  getObjectAttributesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3', 'getObjectAttributes', 'S3', Promise.resolve(result), false, mock)
+  },
+  getObjectAttributesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3', 'getObjectAttributes', 'S3', Promise.reject(result), true, mock)
+  },
+  getObject: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3', 'getObject', 'S3', Promise.resolve(result), true, mock)
+  },
+  getObjectAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3', 'getObject', 'S3', Promise.resolve(result), false, mock)
+  },
+  getObjectThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3', 'getObject', 'S3', Promise.reject(result), true, mock)
   },
   getObjectLegalHold: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3', 'getObjectLegalHold', 'S3', Promise.resolve(result), true, mock)
@@ -538,6 +546,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listBucketsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3', 'listBuckets', 'S3', Promise.reject(result), true, mock)
+  },
+  listDirectoryBuckets: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3', 'listDirectoryBuckets', 'S3', Promise.resolve(result), true, mock)
+  },
+  listDirectoryBucketsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3', 'listDirectoryBuckets', 'S3', Promise.resolve(result), false, mock)
+  },
+  listDirectoryBucketsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3', 'listDirectoryBuckets', 'S3', Promise.reject(result), true, mock)
   },
   listMultipartUploads: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3', 'listMultipartUploads', 'S3', Promise.resolve(result), true, mock)
@@ -746,15 +763,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   putBucketWebsiteThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3', 'putBucketWebsite', 'S3', Promise.reject(result), true, mock)
   },
-  putObject: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-s3', 'putObject', 'S3', Promise.resolve(result), true, mock)
-  },
-  putObjectAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-s3', 'putObject', 'S3', Promise.resolve(result), false, mock)
-  },
-  putObjectThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-s3', 'putObject', 'S3', Promise.reject(result), true, mock)
-  },
   putObjectAcl: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3', 'putObjectAcl', 'S3', Promise.resolve(result), true, mock)
   },
@@ -763,6 +771,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   putObjectAclThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3', 'putObjectAcl', 'S3', Promise.reject(result), true, mock)
+  },
+  putObject: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3', 'putObject', 'S3', Promise.resolve(result), true, mock)
+  },
+  putObjectAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3', 'putObject', 'S3', Promise.resolve(result), false, mock)
+  },
+  putObjectThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3', 'putObject', 'S3', Promise.reject(result), true, mock)
   },
   putObjectLegalHold: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3', 'putObjectLegalHold', 'S3', Promise.resolve(result), true, mock)

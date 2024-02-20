@@ -15,8 +15,16 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockManagedBlockchain = {
+export const mockManagedBlockchain = {
+  createAccessor: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-managedblockchain', 'createAccessor', 'ManagedBlockchain', Promise.resolve(result), true, mock)
+  },
+  createAccessorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-managedblockchain', 'createAccessor', 'ManagedBlockchain', Promise.resolve(result), false, mock)
+  },
+  createAccessorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-managedblockchain', 'createAccessor', 'ManagedBlockchain', Promise.reject(result), true, mock)
+  },
   createMember: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-managedblockchain', 'createMember', 'ManagedBlockchain', Promise.resolve(result), true, mock)
   },
@@ -53,6 +61,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createProposalThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-managedblockchain', 'createProposal', 'ManagedBlockchain', Promise.reject(result), true, mock)
   },
+  deleteAccessor: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-managedblockchain', 'deleteAccessor', 'ManagedBlockchain', Promise.resolve(result), true, mock)
+  },
+  deleteAccessorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-managedblockchain', 'deleteAccessor', 'ManagedBlockchain', Promise.resolve(result), false, mock)
+  },
+  deleteAccessorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-managedblockchain', 'deleteAccessor', 'ManagedBlockchain', Promise.reject(result), true, mock)
+  },
   deleteMember: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-managedblockchain', 'deleteMember', 'ManagedBlockchain', Promise.resolve(result), true, mock)
   },
@@ -71,14 +88,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteNodeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-managedblockchain', 'deleteNode', 'ManagedBlockchain', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-managedblockchain', 'destroy', 'ManagedBlockchain', Promise.resolve(result), true, mock)
+  getAccessor: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-managedblockchain', 'getAccessor', 'ManagedBlockchain', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-managedblockchain', 'destroy', 'ManagedBlockchain', Promise.resolve(result), false, mock)
+  getAccessorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-managedblockchain', 'getAccessor', 'ManagedBlockchain', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-managedblockchain', 'destroy', 'ManagedBlockchain', Promise.reject(result), true, mock)
+  getAccessorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-managedblockchain', 'getAccessor', 'ManagedBlockchain', Promise.reject(result), true, mock)
   },
   getMember: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-managedblockchain', 'getMember', 'ManagedBlockchain', Promise.resolve(result), true, mock)
@@ -115,6 +132,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getProposalThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-managedblockchain', 'getProposal', 'ManagedBlockchain', Promise.reject(result), true, mock)
+  },
+  listAccessors: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-managedblockchain', 'listAccessors', 'ManagedBlockchain', Promise.resolve(result), true, mock)
+  },
+  listAccessorsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-managedblockchain', 'listAccessors', 'ManagedBlockchain', Promise.resolve(result), false, mock)
+  },
+  listAccessorsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-managedblockchain', 'listAccessors', 'ManagedBlockchain', Promise.reject(result), true, mock)
   },
   listInvitations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-managedblockchain', 'listInvitations', 'ManagedBlockchain', Promise.resolve(result), true, mock)

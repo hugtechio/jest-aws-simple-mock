@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockPinpointEmail = {
+export const mockPinpointEmail = {
   createConfigurationSet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-pinpoint-email', 'createConfigurationSet', 'PinpointEmail', Promise.resolve(result), true, mock)
   },
@@ -97,15 +96,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteEmailIdentityThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-pinpoint-email', 'deleteEmailIdentity', 'PinpointEmail', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-pinpoint-email', 'destroy', 'PinpointEmail', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-pinpoint-email', 'destroy', 'PinpointEmail', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-pinpoint-email', 'destroy', 'PinpointEmail', Promise.reject(result), true, mock)
   },
   getAccount: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-pinpoint-email', 'getAccount', 'PinpointEmail', Promise.resolve(result), true, mock)

@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockMediaPackage = {
+export const mockMediaPackage = {
   configureLogs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mediapackage', 'configureLogs', 'MediaPackage', Promise.resolve(result), true, mock)
   },
@@ -97,15 +96,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeOriginEndpointThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mediapackage', 'describeOriginEndpoint', 'MediaPackage', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-mediapackage', 'destroy', 'MediaPackage', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-mediapackage', 'destroy', 'MediaPackage', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-mediapackage', 'destroy', 'MediaPackage', Promise.reject(result), true, mock)
   },
   listChannels: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mediapackage', 'listChannels', 'MediaPackage', Promise.resolve(result), true, mock)

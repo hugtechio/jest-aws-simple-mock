@@ -15,8 +15,16 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockSSMIncidents = {
+export const mockSSMIncidents = {
+  batchGetIncidentFindings: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-incidents', 'batchGetIncidentFindings', 'SSMIncidents', Promise.resolve(result), true, mock)
+  },
+  batchGetIncidentFindingsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-incidents', 'batchGetIncidentFindings', 'SSMIncidents', Promise.resolve(result), false, mock)
+  },
+  batchGetIncidentFindingsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-incidents', 'batchGetIncidentFindings', 'SSMIncidents', Promise.reject(result), true, mock)
+  },
   createReplicationSet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm-incidents', 'createReplicationSet', 'SSMIncidents', Promise.resolve(result), true, mock)
   },
@@ -89,15 +97,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteTimelineEventThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm-incidents', 'deleteTimelineEvent', 'SSMIncidents', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ssm-incidents', 'destroy', 'SSMIncidents', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ssm-incidents', 'destroy', 'SSMIncidents', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ssm-incidents', 'destroy', 'SSMIncidents', Promise.reject(result), true, mock)
-  },
   getIncidentRecord: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm-incidents', 'getIncidentRecord', 'SSMIncidents', Promise.resolve(result), true, mock)
   },
@@ -142,6 +141,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getTimelineEventThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm-incidents', 'getTimelineEvent', 'SSMIncidents', Promise.reject(result), true, mock)
+  },
+  listIncidentFindings: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-incidents', 'listIncidentFindings', 'SSMIncidents', Promise.resolve(result), true, mock)
+  },
+  listIncidentFindingsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-incidents', 'listIncidentFindings', 'SSMIncidents', Promise.resolve(result), false, mock)
+  },
+  listIncidentFindingsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-incidents', 'listIncidentFindings', 'SSMIncidents', Promise.reject(result), true, mock)
   },
   listIncidentRecords: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm-incidents', 'listIncidentRecords', 'SSMIncidents', Promise.resolve(result), true, mock)

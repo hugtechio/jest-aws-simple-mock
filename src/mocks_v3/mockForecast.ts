@@ -15,8 +15,16 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockForecast = {
+export const mockForecast = {
+  createAutoPredictor: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'createAutoPredictor', 'Forecast', Promise.resolve(result), true, mock)
+  },
+  createAutoPredictorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'createAutoPredictor', 'Forecast', Promise.resolve(result), false, mock)
+  },
+  createAutoPredictorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'createAutoPredictor', 'Forecast', Promise.reject(result), true, mock)
+  },
   createDataset: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-forecast', 'createDataset', 'Forecast', Promise.resolve(result), true, mock)
   },
@@ -44,6 +52,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createDatasetImportJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-forecast', 'createDatasetImportJob', 'Forecast', Promise.reject(result), true, mock)
   },
+  createExplainability: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'createExplainability', 'Forecast', Promise.resolve(result), true, mock)
+  },
+  createExplainabilityAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'createExplainability', 'Forecast', Promise.resolve(result), false, mock)
+  },
+  createExplainabilityThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'createExplainability', 'Forecast', Promise.reject(result), true, mock)
+  },
+  createExplainabilityExport: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'createExplainabilityExport', 'Forecast', Promise.resolve(result), true, mock)
+  },
+  createExplainabilityExportAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'createExplainabilityExport', 'Forecast', Promise.resolve(result), false, mock)
+  },
+  createExplainabilityExportThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'createExplainabilityExport', 'Forecast', Promise.reject(result), true, mock)
+  },
   createForecast: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-forecast', 'createForecast', 'Forecast', Promise.resolve(result), true, mock)
   },
@@ -62,14 +88,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createForecastExportJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-forecast', 'createForecastExportJob', 'Forecast', Promise.reject(result), true, mock)
   },
-  createPredictor: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-forecast', 'createPredictor', 'Forecast', Promise.resolve(result), true, mock)
+  createMonitor: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'createMonitor', 'Forecast', Promise.resolve(result), true, mock)
   },
-  createPredictorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-forecast', 'createPredictor', 'Forecast', Promise.resolve(result), false, mock)
+  createMonitorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'createMonitor', 'Forecast', Promise.resolve(result), false, mock)
   },
-  createPredictorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-forecast', 'createPredictor', 'Forecast', Promise.reject(result), true, mock)
+  createMonitorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'createMonitor', 'Forecast', Promise.reject(result), true, mock)
   },
   createPredictorBacktestExportJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-forecast', 'createPredictorBacktestExportJob', 'Forecast', Promise.resolve(result), true, mock)
@@ -79,6 +105,42 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createPredictorBacktestExportJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-forecast', 'createPredictorBacktestExportJob', 'Forecast', Promise.reject(result), true, mock)
+  },
+  createPredictor: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'createPredictor', 'Forecast', Promise.resolve(result), true, mock)
+  },
+  createPredictorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'createPredictor', 'Forecast', Promise.resolve(result), false, mock)
+  },
+  createPredictorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'createPredictor', 'Forecast', Promise.reject(result), true, mock)
+  },
+  createWhatIfAnalysis: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'createWhatIfAnalysis', 'Forecast', Promise.resolve(result), true, mock)
+  },
+  createWhatIfAnalysisAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'createWhatIfAnalysis', 'Forecast', Promise.resolve(result), false, mock)
+  },
+  createWhatIfAnalysisThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'createWhatIfAnalysis', 'Forecast', Promise.reject(result), true, mock)
+  },
+  createWhatIfForecast: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'createWhatIfForecast', 'Forecast', Promise.resolve(result), true, mock)
+  },
+  createWhatIfForecastAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'createWhatIfForecast', 'Forecast', Promise.resolve(result), false, mock)
+  },
+  createWhatIfForecastThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'createWhatIfForecast', 'Forecast', Promise.reject(result), true, mock)
+  },
+  createWhatIfForecastExport: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'createWhatIfForecastExport', 'Forecast', Promise.resolve(result), true, mock)
+  },
+  createWhatIfForecastExportAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'createWhatIfForecastExport', 'Forecast', Promise.resolve(result), false, mock)
+  },
+  createWhatIfForecastExportThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'createWhatIfForecastExport', 'Forecast', Promise.reject(result), true, mock)
   },
   deleteDataset: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-forecast', 'deleteDataset', 'Forecast', Promise.resolve(result), true, mock)
@@ -107,6 +169,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteDatasetImportJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-forecast', 'deleteDatasetImportJob', 'Forecast', Promise.reject(result), true, mock)
   },
+  deleteExplainability: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'deleteExplainability', 'Forecast', Promise.resolve(result), true, mock)
+  },
+  deleteExplainabilityAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'deleteExplainability', 'Forecast', Promise.resolve(result), false, mock)
+  },
+  deleteExplainabilityThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'deleteExplainability', 'Forecast', Promise.reject(result), true, mock)
+  },
+  deleteExplainabilityExport: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'deleteExplainabilityExport', 'Forecast', Promise.resolve(result), true, mock)
+  },
+  deleteExplainabilityExportAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'deleteExplainabilityExport', 'Forecast', Promise.resolve(result), false, mock)
+  },
+  deleteExplainabilityExportThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'deleteExplainabilityExport', 'Forecast', Promise.reject(result), true, mock)
+  },
   deleteForecast: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-forecast', 'deleteForecast', 'Forecast', Promise.resolve(result), true, mock)
   },
@@ -125,14 +205,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteForecastExportJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-forecast', 'deleteForecastExportJob', 'Forecast', Promise.reject(result), true, mock)
   },
-  deletePredictor: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-forecast', 'deletePredictor', 'Forecast', Promise.resolve(result), true, mock)
+  deleteMonitor: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'deleteMonitor', 'Forecast', Promise.resolve(result), true, mock)
   },
-  deletePredictorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-forecast', 'deletePredictor', 'Forecast', Promise.resolve(result), false, mock)
+  deleteMonitorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'deleteMonitor', 'Forecast', Promise.resolve(result), false, mock)
   },
-  deletePredictorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-forecast', 'deletePredictor', 'Forecast', Promise.reject(result), true, mock)
+  deleteMonitorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'deleteMonitor', 'Forecast', Promise.reject(result), true, mock)
   },
   deletePredictorBacktestExportJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-forecast', 'deletePredictorBacktestExportJob', 'Forecast', Promise.resolve(result), true, mock)
@@ -143,6 +223,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deletePredictorBacktestExportJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-forecast', 'deletePredictorBacktestExportJob', 'Forecast', Promise.reject(result), true, mock)
   },
+  deletePredictor: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'deletePredictor', 'Forecast', Promise.resolve(result), true, mock)
+  },
+  deletePredictorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'deletePredictor', 'Forecast', Promise.resolve(result), false, mock)
+  },
+  deletePredictorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'deletePredictor', 'Forecast', Promise.reject(result), true, mock)
+  },
   deleteResourceTree: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-forecast', 'deleteResourceTree', 'Forecast', Promise.resolve(result), true, mock)
   },
@@ -151,6 +240,42 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteResourceTreeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-forecast', 'deleteResourceTree', 'Forecast', Promise.reject(result), true, mock)
+  },
+  deleteWhatIfAnalysis: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'deleteWhatIfAnalysis', 'Forecast', Promise.resolve(result), true, mock)
+  },
+  deleteWhatIfAnalysisAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'deleteWhatIfAnalysis', 'Forecast', Promise.resolve(result), false, mock)
+  },
+  deleteWhatIfAnalysisThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'deleteWhatIfAnalysis', 'Forecast', Promise.reject(result), true, mock)
+  },
+  deleteWhatIfForecast: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'deleteWhatIfForecast', 'Forecast', Promise.resolve(result), true, mock)
+  },
+  deleteWhatIfForecastAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'deleteWhatIfForecast', 'Forecast', Promise.resolve(result), false, mock)
+  },
+  deleteWhatIfForecastThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'deleteWhatIfForecast', 'Forecast', Promise.reject(result), true, mock)
+  },
+  deleteWhatIfForecastExport: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'deleteWhatIfForecastExport', 'Forecast', Promise.resolve(result), true, mock)
+  },
+  deleteWhatIfForecastExportAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'deleteWhatIfForecastExport', 'Forecast', Promise.resolve(result), false, mock)
+  },
+  deleteWhatIfForecastExportThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'deleteWhatIfForecastExport', 'Forecast', Promise.reject(result), true, mock)
+  },
+  describeAutoPredictor: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'describeAutoPredictor', 'Forecast', Promise.resolve(result), true, mock)
+  },
+  describeAutoPredictorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'describeAutoPredictor', 'Forecast', Promise.resolve(result), false, mock)
+  },
+  describeAutoPredictorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'describeAutoPredictor', 'Forecast', Promise.reject(result), true, mock)
   },
   describeDataset: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-forecast', 'describeDataset', 'Forecast', Promise.resolve(result), true, mock)
@@ -179,6 +304,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeDatasetImportJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-forecast', 'describeDatasetImportJob', 'Forecast', Promise.reject(result), true, mock)
   },
+  describeExplainability: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'describeExplainability', 'Forecast', Promise.resolve(result), true, mock)
+  },
+  describeExplainabilityAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'describeExplainability', 'Forecast', Promise.resolve(result), false, mock)
+  },
+  describeExplainabilityThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'describeExplainability', 'Forecast', Promise.reject(result), true, mock)
+  },
+  describeExplainabilityExport: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'describeExplainabilityExport', 'Forecast', Promise.resolve(result), true, mock)
+  },
+  describeExplainabilityExportAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'describeExplainabilityExport', 'Forecast', Promise.resolve(result), false, mock)
+  },
+  describeExplainabilityExportThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'describeExplainabilityExport', 'Forecast', Promise.reject(result), true, mock)
+  },
   describeForecast: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-forecast', 'describeForecast', 'Forecast', Promise.resolve(result), true, mock)
   },
@@ -197,14 +340,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeForecastExportJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-forecast', 'describeForecastExportJob', 'Forecast', Promise.reject(result), true, mock)
   },
-  describePredictor: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-forecast', 'describePredictor', 'Forecast', Promise.resolve(result), true, mock)
+  describeMonitor: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'describeMonitor', 'Forecast', Promise.resolve(result), true, mock)
   },
-  describePredictorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-forecast', 'describePredictor', 'Forecast', Promise.resolve(result), false, mock)
+  describeMonitorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'describeMonitor', 'Forecast', Promise.resolve(result), false, mock)
   },
-  describePredictorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-forecast', 'describePredictor', 'Forecast', Promise.reject(result), true, mock)
+  describeMonitorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'describeMonitor', 'Forecast', Promise.reject(result), true, mock)
   },
   describePredictorBacktestExportJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-forecast', 'describePredictorBacktestExportJob', 'Forecast', Promise.resolve(result), true, mock)
@@ -215,14 +358,41 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describePredictorBacktestExportJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-forecast', 'describePredictorBacktestExportJob', 'Forecast', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-forecast', 'destroy', 'Forecast', Promise.resolve(result), true, mock)
+  describePredictor: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'describePredictor', 'Forecast', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-forecast', 'destroy', 'Forecast', Promise.resolve(result), false, mock)
+  describePredictorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'describePredictor', 'Forecast', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-forecast', 'destroy', 'Forecast', Promise.reject(result), true, mock)
+  describePredictorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'describePredictor', 'Forecast', Promise.reject(result), true, mock)
+  },
+  describeWhatIfAnalysis: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'describeWhatIfAnalysis', 'Forecast', Promise.resolve(result), true, mock)
+  },
+  describeWhatIfAnalysisAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'describeWhatIfAnalysis', 'Forecast', Promise.resolve(result), false, mock)
+  },
+  describeWhatIfAnalysisThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'describeWhatIfAnalysis', 'Forecast', Promise.reject(result), true, mock)
+  },
+  describeWhatIfForecast: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'describeWhatIfForecast', 'Forecast', Promise.resolve(result), true, mock)
+  },
+  describeWhatIfForecastAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'describeWhatIfForecast', 'Forecast', Promise.resolve(result), false, mock)
+  },
+  describeWhatIfForecastThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'describeWhatIfForecast', 'Forecast', Promise.reject(result), true, mock)
+  },
+  describeWhatIfForecastExport: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'describeWhatIfForecastExport', 'Forecast', Promise.resolve(result), true, mock)
+  },
+  describeWhatIfForecastExportAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'describeWhatIfForecastExport', 'Forecast', Promise.resolve(result), false, mock)
+  },
+  describeWhatIfForecastExportThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'describeWhatIfForecastExport', 'Forecast', Promise.reject(result), true, mock)
   },
   getAccuracyMetrics: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-forecast', 'getAccuracyMetrics', 'Forecast', Promise.resolve(result), true, mock)
@@ -260,6 +430,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listDatasetsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-forecast', 'listDatasets', 'Forecast', Promise.reject(result), true, mock)
   },
+  listExplainabilities: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'listExplainabilities', 'Forecast', Promise.resolve(result), true, mock)
+  },
+  listExplainabilitiesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'listExplainabilities', 'Forecast', Promise.resolve(result), false, mock)
+  },
+  listExplainabilitiesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'listExplainabilities', 'Forecast', Promise.reject(result), true, mock)
+  },
+  listExplainabilityExports: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'listExplainabilityExports', 'Forecast', Promise.resolve(result), true, mock)
+  },
+  listExplainabilityExportsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'listExplainabilityExports', 'Forecast', Promise.resolve(result), false, mock)
+  },
+  listExplainabilityExportsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'listExplainabilityExports', 'Forecast', Promise.reject(result), true, mock)
+  },
   listForecastExportJobs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-forecast', 'listForecastExportJobs', 'Forecast', Promise.resolve(result), true, mock)
   },
@@ -277,6 +465,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listForecastsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-forecast', 'listForecasts', 'Forecast', Promise.reject(result), true, mock)
+  },
+  listMonitorEvaluations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'listMonitorEvaluations', 'Forecast', Promise.resolve(result), true, mock)
+  },
+  listMonitorEvaluationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'listMonitorEvaluations', 'Forecast', Promise.resolve(result), false, mock)
+  },
+  listMonitorEvaluationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'listMonitorEvaluations', 'Forecast', Promise.reject(result), true, mock)
+  },
+  listMonitors: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'listMonitors', 'Forecast', Promise.resolve(result), true, mock)
+  },
+  listMonitorsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'listMonitors', 'Forecast', Promise.resolve(result), false, mock)
+  },
+  listMonitorsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'listMonitors', 'Forecast', Promise.reject(result), true, mock)
   },
   listPredictorBacktestExportJobs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-forecast', 'listPredictorBacktestExportJobs', 'Forecast', Promise.resolve(result), true, mock)
@@ -304,6 +510,42 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listTagsForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-forecast', 'listTagsForResource', 'Forecast', Promise.reject(result), true, mock)
+  },
+  listWhatIfAnalyses: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'listWhatIfAnalyses', 'Forecast', Promise.resolve(result), true, mock)
+  },
+  listWhatIfAnalysesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'listWhatIfAnalyses', 'Forecast', Promise.resolve(result), false, mock)
+  },
+  listWhatIfAnalysesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'listWhatIfAnalyses', 'Forecast', Promise.reject(result), true, mock)
+  },
+  listWhatIfForecastExports: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'listWhatIfForecastExports', 'Forecast', Promise.resolve(result), true, mock)
+  },
+  listWhatIfForecastExportsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'listWhatIfForecastExports', 'Forecast', Promise.resolve(result), false, mock)
+  },
+  listWhatIfForecastExportsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'listWhatIfForecastExports', 'Forecast', Promise.reject(result), true, mock)
+  },
+  listWhatIfForecasts: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'listWhatIfForecasts', 'Forecast', Promise.resolve(result), true, mock)
+  },
+  listWhatIfForecastsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'listWhatIfForecasts', 'Forecast', Promise.resolve(result), false, mock)
+  },
+  listWhatIfForecastsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'listWhatIfForecasts', 'Forecast', Promise.reject(result), true, mock)
+  },
+  resumeResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'resumeResource', 'Forecast', Promise.resolve(result), true, mock)
+  },
+  resumeResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'resumeResource', 'Forecast', Promise.resolve(result), false, mock)
+  },
+  resumeResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-forecast', 'resumeResource', 'Forecast', Promise.reject(result), true, mock)
   },
   stopResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-forecast', 'stopResource', 'Forecast', Promise.resolve(result), true, mock)

@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockComprehend = {
+export const mockComprehend = {
   batchDetectDominantLanguage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-comprehend', 'batchDetectDominantLanguage', 'Comprehend', Promise.resolve(result), true, mock)
   },
@@ -62,6 +61,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   batchDetectSyntaxThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-comprehend', 'batchDetectSyntax', 'Comprehend', Promise.reject(result), true, mock)
   },
+  batchDetectTargetedSentiment: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'batchDetectTargetedSentiment', 'Comprehend', Promise.resolve(result), true, mock)
+  },
+  batchDetectTargetedSentimentAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'batchDetectTargetedSentiment', 'Comprehend', Promise.resolve(result), false, mock)
+  },
+  batchDetectTargetedSentimentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'batchDetectTargetedSentiment', 'Comprehend', Promise.reject(result), true, mock)
+  },
   classifyDocument: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-comprehend', 'classifyDocument', 'Comprehend', Promise.resolve(result), true, mock)
   },
@@ -79,6 +87,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   containsPiiEntitiesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-comprehend', 'containsPiiEntities', 'Comprehend', Promise.reject(result), true, mock)
+  },
+  createDataset: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'createDataset', 'Comprehend', Promise.resolve(result), true, mock)
+  },
+  createDatasetAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'createDataset', 'Comprehend', Promise.resolve(result), false, mock)
+  },
+  createDatasetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'createDataset', 'Comprehend', Promise.reject(result), true, mock)
   },
   createDocumentClassifier: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-comprehend', 'createDocumentClassifier', 'Comprehend', Promise.resolve(result), true, mock)
@@ -107,6 +124,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createEntityRecognizerThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-comprehend', 'createEntityRecognizer', 'Comprehend', Promise.reject(result), true, mock)
   },
+  createFlywheel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'createFlywheel', 'Comprehend', Promise.resolve(result), true, mock)
+  },
+  createFlywheelAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'createFlywheel', 'Comprehend', Promise.resolve(result), false, mock)
+  },
+  createFlywheelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'createFlywheel', 'Comprehend', Promise.reject(result), true, mock)
+  },
   deleteDocumentClassifier: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-comprehend', 'deleteDocumentClassifier', 'Comprehend', Promise.resolve(result), true, mock)
   },
@@ -133,6 +159,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteEntityRecognizerThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-comprehend', 'deleteEntityRecognizer', 'Comprehend', Promise.reject(result), true, mock)
+  },
+  deleteFlywheel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'deleteFlywheel', 'Comprehend', Promise.resolve(result), true, mock)
+  },
+  deleteFlywheelAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'deleteFlywheel', 'Comprehend', Promise.resolve(result), false, mock)
+  },
+  deleteFlywheelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'deleteFlywheel', 'Comprehend', Promise.reject(result), true, mock)
+  },
+  deleteResourcePolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'deleteResourcePolicy', 'Comprehend', Promise.resolve(result), true, mock)
+  },
+  deleteResourcePolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'deleteResourcePolicy', 'Comprehend', Promise.resolve(result), false, mock)
+  },
+  deleteResourcePolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'deleteResourcePolicy', 'Comprehend', Promise.reject(result), true, mock)
+  },
+  describeDataset: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'describeDataset', 'Comprehend', Promise.resolve(result), true, mock)
+  },
+  describeDatasetAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'describeDataset', 'Comprehend', Promise.resolve(result), false, mock)
+  },
+  describeDatasetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'describeDataset', 'Comprehend', Promise.reject(result), true, mock)
   },
   describeDocumentClassificationJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-comprehend', 'describeDocumentClassificationJob', 'Comprehend', Promise.resolve(result), true, mock)
@@ -197,6 +250,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeEventsDetectionJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-comprehend', 'describeEventsDetectionJob', 'Comprehend', Promise.reject(result), true, mock)
   },
+  describeFlywheel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'describeFlywheel', 'Comprehend', Promise.resolve(result), true, mock)
+  },
+  describeFlywheelAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'describeFlywheel', 'Comprehend', Promise.resolve(result), false, mock)
+  },
+  describeFlywheelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'describeFlywheel', 'Comprehend', Promise.reject(result), true, mock)
+  },
+  describeFlywheelIteration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'describeFlywheelIteration', 'Comprehend', Promise.resolve(result), true, mock)
+  },
+  describeFlywheelIterationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'describeFlywheelIteration', 'Comprehend', Promise.resolve(result), false, mock)
+  },
+  describeFlywheelIterationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'describeFlywheelIteration', 'Comprehend', Promise.reject(result), true, mock)
+  },
   describeKeyPhrasesDetectionJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-comprehend', 'describeKeyPhrasesDetectionJob', 'Comprehend', Promise.resolve(result), true, mock)
   },
@@ -215,6 +286,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describePiiEntitiesDetectionJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-comprehend', 'describePiiEntitiesDetectionJob', 'Comprehend', Promise.reject(result), true, mock)
   },
+  describeResourcePolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'describeResourcePolicy', 'Comprehend', Promise.resolve(result), true, mock)
+  },
+  describeResourcePolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'describeResourcePolicy', 'Comprehend', Promise.resolve(result), false, mock)
+  },
+  describeResourcePolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'describeResourcePolicy', 'Comprehend', Promise.reject(result), true, mock)
+  },
   describeSentimentDetectionJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-comprehend', 'describeSentimentDetectionJob', 'Comprehend', Promise.resolve(result), true, mock)
   },
@@ -224,6 +304,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeSentimentDetectionJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-comprehend', 'describeSentimentDetectionJob', 'Comprehend', Promise.reject(result), true, mock)
   },
+  describeTargetedSentimentDetectionJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'describeTargetedSentimentDetectionJob', 'Comprehend', Promise.resolve(result), true, mock)
+  },
+  describeTargetedSentimentDetectionJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'describeTargetedSentimentDetectionJob', 'Comprehend', Promise.resolve(result), false, mock)
+  },
+  describeTargetedSentimentDetectionJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'describeTargetedSentimentDetectionJob', 'Comprehend', Promise.reject(result), true, mock)
+  },
   describeTopicsDetectionJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-comprehend', 'describeTopicsDetectionJob', 'Comprehend', Promise.resolve(result), true, mock)
   },
@@ -232,15 +321,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeTopicsDetectionJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-comprehend', 'describeTopicsDetectionJob', 'Comprehend', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-comprehend', 'destroy', 'Comprehend', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-comprehend', 'destroy', 'Comprehend', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-comprehend', 'destroy', 'Comprehend', Promise.reject(result), true, mock)
   },
   detectDominantLanguage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-comprehend', 'detectDominantLanguage', 'Comprehend', Promise.resolve(result), true, mock)
@@ -295,6 +375,42 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   detectSyntaxThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-comprehend', 'detectSyntax', 'Comprehend', Promise.reject(result), true, mock)
+  },
+  detectTargetedSentiment: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'detectTargetedSentiment', 'Comprehend', Promise.resolve(result), true, mock)
+  },
+  detectTargetedSentimentAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'detectTargetedSentiment', 'Comprehend', Promise.resolve(result), false, mock)
+  },
+  detectTargetedSentimentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'detectTargetedSentiment', 'Comprehend', Promise.reject(result), true, mock)
+  },
+  detectToxicContent: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'detectToxicContent', 'Comprehend', Promise.resolve(result), true, mock)
+  },
+  detectToxicContentAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'detectToxicContent', 'Comprehend', Promise.resolve(result), false, mock)
+  },
+  detectToxicContentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'detectToxicContent', 'Comprehend', Promise.reject(result), true, mock)
+  },
+  importModel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'importModel', 'Comprehend', Promise.resolve(result), true, mock)
+  },
+  importModelAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'importModel', 'Comprehend', Promise.resolve(result), false, mock)
+  },
+  importModelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'importModel', 'Comprehend', Promise.reject(result), true, mock)
+  },
+  listDatasets: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'listDatasets', 'Comprehend', Promise.resolve(result), true, mock)
+  },
+  listDatasetsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'listDatasets', 'Comprehend', Promise.resolve(result), false, mock)
+  },
+  listDatasetsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'listDatasets', 'Comprehend', Promise.reject(result), true, mock)
   },
   listDocumentClassificationJobs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-comprehend', 'listDocumentClassificationJobs', 'Comprehend', Promise.resolve(result), true, mock)
@@ -377,6 +493,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listEventsDetectionJobsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-comprehend', 'listEventsDetectionJobs', 'Comprehend', Promise.reject(result), true, mock)
   },
+  listFlywheelIterationHistory: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'listFlywheelIterationHistory', 'Comprehend', Promise.resolve(result), true, mock)
+  },
+  listFlywheelIterationHistoryAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'listFlywheelIterationHistory', 'Comprehend', Promise.resolve(result), false, mock)
+  },
+  listFlywheelIterationHistoryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'listFlywheelIterationHistory', 'Comprehend', Promise.reject(result), true, mock)
+  },
+  listFlywheels: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'listFlywheels', 'Comprehend', Promise.resolve(result), true, mock)
+  },
+  listFlywheelsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'listFlywheels', 'Comprehend', Promise.resolve(result), false, mock)
+  },
+  listFlywheelsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'listFlywheels', 'Comprehend', Promise.reject(result), true, mock)
+  },
   listKeyPhrasesDetectionJobs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-comprehend', 'listKeyPhrasesDetectionJobs', 'Comprehend', Promise.resolve(result), true, mock)
   },
@@ -413,6 +547,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listTagsForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-comprehend', 'listTagsForResource', 'Comprehend', Promise.reject(result), true, mock)
   },
+  listTargetedSentimentDetectionJobs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'listTargetedSentimentDetectionJobs', 'Comprehend', Promise.resolve(result), true, mock)
+  },
+  listTargetedSentimentDetectionJobsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'listTargetedSentimentDetectionJobs', 'Comprehend', Promise.resolve(result), false, mock)
+  },
+  listTargetedSentimentDetectionJobsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'listTargetedSentimentDetectionJobs', 'Comprehend', Promise.reject(result), true, mock)
+  },
   listTopicsDetectionJobs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-comprehend', 'listTopicsDetectionJobs', 'Comprehend', Promise.resolve(result), true, mock)
   },
@@ -421,6 +564,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listTopicsDetectionJobsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-comprehend', 'listTopicsDetectionJobs', 'Comprehend', Promise.reject(result), true, mock)
+  },
+  putResourcePolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'putResourcePolicy', 'Comprehend', Promise.resolve(result), true, mock)
+  },
+  putResourcePolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'putResourcePolicy', 'Comprehend', Promise.resolve(result), false, mock)
+  },
+  putResourcePolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'putResourcePolicy', 'Comprehend', Promise.reject(result), true, mock)
   },
   startDocumentClassificationJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-comprehend', 'startDocumentClassificationJob', 'Comprehend', Promise.resolve(result), true, mock)
@@ -458,6 +610,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   startEventsDetectionJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-comprehend', 'startEventsDetectionJob', 'Comprehend', Promise.reject(result), true, mock)
   },
+  startFlywheelIteration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'startFlywheelIteration', 'Comprehend', Promise.resolve(result), true, mock)
+  },
+  startFlywheelIterationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'startFlywheelIteration', 'Comprehend', Promise.resolve(result), false, mock)
+  },
+  startFlywheelIterationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'startFlywheelIteration', 'Comprehend', Promise.reject(result), true, mock)
+  },
   startKeyPhrasesDetectionJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-comprehend', 'startKeyPhrasesDetectionJob', 'Comprehend', Promise.resolve(result), true, mock)
   },
@@ -484,6 +645,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   startSentimentDetectionJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-comprehend', 'startSentimentDetectionJob', 'Comprehend', Promise.reject(result), true, mock)
+  },
+  startTargetedSentimentDetectionJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'startTargetedSentimentDetectionJob', 'Comprehend', Promise.resolve(result), true, mock)
+  },
+  startTargetedSentimentDetectionJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'startTargetedSentimentDetectionJob', 'Comprehend', Promise.resolve(result), false, mock)
+  },
+  startTargetedSentimentDetectionJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'startTargetedSentimentDetectionJob', 'Comprehend', Promise.reject(result), true, mock)
   },
   startTopicsDetectionJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-comprehend', 'startTopicsDetectionJob', 'Comprehend', Promise.resolve(result), true, mock)
@@ -548,6 +718,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   stopSentimentDetectionJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-comprehend', 'stopSentimentDetectionJob', 'Comprehend', Promise.reject(result), true, mock)
   },
+  stopTargetedSentimentDetectionJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'stopTargetedSentimentDetectionJob', 'Comprehend', Promise.resolve(result), true, mock)
+  },
+  stopTargetedSentimentDetectionJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'stopTargetedSentimentDetectionJob', 'Comprehend', Promise.resolve(result), false, mock)
+  },
+  stopTargetedSentimentDetectionJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'stopTargetedSentimentDetectionJob', 'Comprehend', Promise.reject(result), true, mock)
+  },
   stopTrainingDocumentClassifier: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-comprehend', 'stopTrainingDocumentClassifier', 'Comprehend', Promise.resolve(result), true, mock)
   },
@@ -592,6 +771,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateEndpointThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-comprehend', 'updateEndpoint', 'Comprehend', Promise.reject(result), true, mock)
+  },
+  updateFlywheel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'updateFlywheel', 'Comprehend', Promise.resolve(result), true, mock)
+  },
+  updateFlywheelAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'updateFlywheel', 'Comprehend', Promise.resolve(result), false, mock)
+  },
+  updateFlywheelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-comprehend', 'updateFlywheel', 'Comprehend', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-comprehend', 'send', 'ComprehendClient', Promise.resolve(result), true, mock)

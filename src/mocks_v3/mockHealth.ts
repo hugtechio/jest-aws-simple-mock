@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockHealth = {
+export const mockHealth = {
   describeAffectedAccountsForOrganization: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-health', 'describeAffectedAccountsForOrganization', 'Health', Promise.resolve(result), true, mock)
   },
@@ -52,6 +51,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeEntityAggregatesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-health', 'describeEntityAggregates', 'Health', Promise.reject(result), true, mock)
+  },
+  describeEntityAggregatesForOrganization: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-health', 'describeEntityAggregatesForOrganization', 'Health', Promise.resolve(result), true, mock)
+  },
+  describeEntityAggregatesForOrganizationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-health', 'describeEntityAggregatesForOrganization', 'Health', Promise.resolve(result), false, mock)
+  },
+  describeEntityAggregatesForOrganizationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-health', 'describeEntityAggregatesForOrganization', 'Health', Promise.reject(result), true, mock)
   },
   describeEventAggregates: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-health', 'describeEventAggregates', 'Health', Promise.resolve(result), true, mock)
@@ -115,15 +123,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeHealthServiceStatusForOrganizationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-health', 'describeHealthServiceStatusForOrganization', 'Health', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-health', 'destroy', 'Health', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-health', 'destroy', 'Health', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-health', 'destroy', 'Health', Promise.reject(result), true, mock)
   },
   disableHealthServiceAccessForOrganization: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-health', 'disableHealthServiceAccessForOrganization', 'Health', Promise.resolve(result), true, mock)

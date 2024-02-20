@@ -15,16 +15,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockSageMakerRuntime = {
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sagemaker-runtime', 'destroy', 'SageMakerRuntime', Promise.resolve(result), true, mock)
+export const mockSageMakerRuntime = {
+  invokeEndpointAsync: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker-runtime', 'invokeEndpointAsync', 'SageMakerRuntime', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sagemaker-runtime', 'destroy', 'SageMakerRuntime', Promise.resolve(result), false, mock)
+  invokeEndpointAsyncAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker-runtime', 'invokeEndpointAsync', 'SageMakerRuntime', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sagemaker-runtime', 'destroy', 'SageMakerRuntime', Promise.reject(result), true, mock)
+  invokeEndpointAsyncThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker-runtime', 'invokeEndpointAsync', 'SageMakerRuntime', Promise.reject(result), true, mock)
   },
   invokeEndpoint: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker-runtime', 'invokeEndpoint', 'SageMakerRuntime', Promise.resolve(result), true, mock)
@@ -35,14 +34,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   invokeEndpointThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker-runtime', 'invokeEndpoint', 'SageMakerRuntime', Promise.reject(result), true, mock)
   },
-  invokeEndpointAsync: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sagemaker-runtime', 'invokeEndpointAsync', 'SageMakerRuntime', Promise.resolve(result), true, mock)
+  invokeEndpointWithResponseStream: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker-runtime', 'invokeEndpointWithResponseStream', 'SageMakerRuntime', Promise.resolve(result), true, mock)
   },
-  invokeEndpointAsyncAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sagemaker-runtime', 'invokeEndpointAsync', 'SageMakerRuntime', Promise.resolve(result), false, mock)
+  invokeEndpointWithResponseStreamAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker-runtime', 'invokeEndpointWithResponseStream', 'SageMakerRuntime', Promise.resolve(result), false, mock)
   },
-  invokeEndpointAsyncThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sagemaker-runtime', 'invokeEndpointAsync', 'SageMakerRuntime', Promise.reject(result), true, mock)
+  invokeEndpointWithResponseStreamThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sagemaker-runtime', 'invokeEndpointWithResponseStream', 'SageMakerRuntime', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sagemaker-runtime', 'send', 'SageMakerRuntimeClient', Promise.resolve(result), true, mock)

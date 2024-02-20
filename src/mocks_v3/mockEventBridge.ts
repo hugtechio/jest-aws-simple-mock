@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockEventBridge = {
+export const mockEventBridge = {
   activateEventSource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eventbridge', 'activateEventSource', 'EventBridge', Promise.resolve(result), true, mock)
   },
@@ -61,6 +60,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createConnectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eventbridge', 'createConnection', 'EventBridge', Promise.reject(result), true, mock)
+  },
+  createEndpoint: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eventbridge', 'createEndpoint', 'EventBridge', Promise.resolve(result), true, mock)
+  },
+  createEndpointAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eventbridge', 'createEndpoint', 'EventBridge', Promise.resolve(result), false, mock)
+  },
+  createEndpointThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eventbridge', 'createEndpoint', 'EventBridge', Promise.reject(result), true, mock)
   },
   createEventBus: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eventbridge', 'createEventBus', 'EventBridge', Promise.resolve(result), true, mock)
@@ -125,6 +133,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteConnectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eventbridge', 'deleteConnection', 'EventBridge', Promise.reject(result), true, mock)
   },
+  deleteEndpoint: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eventbridge', 'deleteEndpoint', 'EventBridge', Promise.resolve(result), true, mock)
+  },
+  deleteEndpointAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eventbridge', 'deleteEndpoint', 'EventBridge', Promise.resolve(result), false, mock)
+  },
+  deleteEndpointThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eventbridge', 'deleteEndpoint', 'EventBridge', Promise.reject(result), true, mock)
+  },
   deleteEventBus: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eventbridge', 'deleteEventBus', 'EventBridge', Promise.resolve(result), true, mock)
   },
@@ -179,6 +196,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeConnectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eventbridge', 'describeConnection', 'EventBridge', Promise.reject(result), true, mock)
   },
+  describeEndpoint: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eventbridge', 'describeEndpoint', 'EventBridge', Promise.resolve(result), true, mock)
+  },
+  describeEndpointAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eventbridge', 'describeEndpoint', 'EventBridge', Promise.resolve(result), false, mock)
+  },
+  describeEndpointThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eventbridge', 'describeEndpoint', 'EventBridge', Promise.reject(result), true, mock)
+  },
   describeEventBus: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eventbridge', 'describeEventBus', 'EventBridge', Promise.resolve(result), true, mock)
   },
@@ -224,15 +250,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeRuleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eventbridge', 'describeRule', 'EventBridge', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-eventbridge', 'destroy', 'EventBridge', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-eventbridge', 'destroy', 'EventBridge', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-eventbridge', 'destroy', 'EventBridge', Promise.reject(result), true, mock)
-  },
   disableRule: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eventbridge', 'disableRule', 'EventBridge', Promise.resolve(result), true, mock)
   },
@@ -277,6 +294,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listConnectionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eventbridge', 'listConnections', 'EventBridge', Promise.reject(result), true, mock)
+  },
+  listEndpoints: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eventbridge', 'listEndpoints', 'EventBridge', Promise.resolve(result), true, mock)
+  },
+  listEndpointsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eventbridge', 'listEndpoints', 'EventBridge', Promise.resolve(result), false, mock)
+  },
+  listEndpointsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eventbridge', 'listEndpoints', 'EventBridge', Promise.reject(result), true, mock)
   },
   listEventBuses: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eventbridge', 'listEventBuses', 'EventBridge', Promise.resolve(result), true, mock)
@@ -484,6 +510,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateConnectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eventbridge', 'updateConnection', 'EventBridge', Promise.reject(result), true, mock)
+  },
+  updateEndpoint: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eventbridge', 'updateEndpoint', 'EventBridge', Promise.resolve(result), true, mock)
+  },
+  updateEndpointAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eventbridge', 'updateEndpoint', 'EventBridge', Promise.resolve(result), false, mock)
+  },
+  updateEndpointThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eventbridge', 'updateEndpoint', 'EventBridge', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eventbridge', 'send', 'EventBridgeClient', Promise.resolve(result), true, mock)

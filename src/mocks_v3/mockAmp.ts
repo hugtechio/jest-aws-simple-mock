@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockAmp = {
+export const mockAmp = {
   createAlertManagerDefinition: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-amp', 'createAlertManagerDefinition', 'Amp', Promise.resolve(result), true, mock)
   },
@@ -26,6 +25,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createAlertManagerDefinitionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-amp', 'createAlertManagerDefinition', 'Amp', Promise.reject(result), true, mock)
   },
+  createLoggingConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-amp', 'createLoggingConfiguration', 'Amp', Promise.resolve(result), true, mock)
+  },
+  createLoggingConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-amp', 'createLoggingConfiguration', 'Amp', Promise.resolve(result), false, mock)
+  },
+  createLoggingConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-amp', 'createLoggingConfiguration', 'Amp', Promise.reject(result), true, mock)
+  },
   createRuleGroupsNamespace: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-amp', 'createRuleGroupsNamespace', 'Amp', Promise.resolve(result), true, mock)
   },
@@ -34,6 +42,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createRuleGroupsNamespaceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-amp', 'createRuleGroupsNamespace', 'Amp', Promise.reject(result), true, mock)
+  },
+  createScraper: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-amp', 'createScraper', 'Amp', Promise.resolve(result), true, mock)
+  },
+  createScraperAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-amp', 'createScraper', 'Amp', Promise.resolve(result), false, mock)
+  },
+  createScraperThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-amp', 'createScraper', 'Amp', Promise.reject(result), true, mock)
   },
   createWorkspace: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-amp', 'createWorkspace', 'Amp', Promise.resolve(result), true, mock)
@@ -53,6 +70,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteAlertManagerDefinitionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-amp', 'deleteAlertManagerDefinition', 'Amp', Promise.reject(result), true, mock)
   },
+  deleteLoggingConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-amp', 'deleteLoggingConfiguration', 'Amp', Promise.resolve(result), true, mock)
+  },
+  deleteLoggingConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-amp', 'deleteLoggingConfiguration', 'Amp', Promise.resolve(result), false, mock)
+  },
+  deleteLoggingConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-amp', 'deleteLoggingConfiguration', 'Amp', Promise.reject(result), true, mock)
+  },
   deleteRuleGroupsNamespace: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-amp', 'deleteRuleGroupsNamespace', 'Amp', Promise.resolve(result), true, mock)
   },
@@ -61,6 +87,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteRuleGroupsNamespaceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-amp', 'deleteRuleGroupsNamespace', 'Amp', Promise.reject(result), true, mock)
+  },
+  deleteScraper: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-amp', 'deleteScraper', 'Amp', Promise.resolve(result), true, mock)
+  },
+  deleteScraperAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-amp', 'deleteScraper', 'Amp', Promise.resolve(result), false, mock)
+  },
+  deleteScraperThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-amp', 'deleteScraper', 'Amp', Promise.reject(result), true, mock)
   },
   deleteWorkspace: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-amp', 'deleteWorkspace', 'Amp', Promise.resolve(result), true, mock)
@@ -80,6 +115,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeAlertManagerDefinitionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-amp', 'describeAlertManagerDefinition', 'Amp', Promise.reject(result), true, mock)
   },
+  describeLoggingConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-amp', 'describeLoggingConfiguration', 'Amp', Promise.resolve(result), true, mock)
+  },
+  describeLoggingConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-amp', 'describeLoggingConfiguration', 'Amp', Promise.resolve(result), false, mock)
+  },
+  describeLoggingConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-amp', 'describeLoggingConfiguration', 'Amp', Promise.reject(result), true, mock)
+  },
   describeRuleGroupsNamespace: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-amp', 'describeRuleGroupsNamespace', 'Amp', Promise.resolve(result), true, mock)
   },
@@ -88,6 +132,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeRuleGroupsNamespaceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-amp', 'describeRuleGroupsNamespace', 'Amp', Promise.reject(result), true, mock)
+  },
+  describeScraper: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-amp', 'describeScraper', 'Amp', Promise.resolve(result), true, mock)
+  },
+  describeScraperAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-amp', 'describeScraper', 'Amp', Promise.resolve(result), false, mock)
+  },
+  describeScraperThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-amp', 'describeScraper', 'Amp', Promise.reject(result), true, mock)
   },
   describeWorkspace: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-amp', 'describeWorkspace', 'Amp', Promise.resolve(result), true, mock)
@@ -98,14 +151,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeWorkspaceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-amp', 'describeWorkspace', 'Amp', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-amp', 'destroy', 'Amp', Promise.resolve(result), true, mock)
+  getDefaultScraperConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-amp', 'getDefaultScraperConfiguration', 'Amp', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-amp', 'destroy', 'Amp', Promise.resolve(result), false, mock)
+  getDefaultScraperConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-amp', 'getDefaultScraperConfiguration', 'Amp', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-amp', 'destroy', 'Amp', Promise.reject(result), true, mock)
+  getDefaultScraperConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-amp', 'getDefaultScraperConfiguration', 'Amp', Promise.reject(result), true, mock)
   },
   listRuleGroupsNamespaces: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-amp', 'listRuleGroupsNamespaces', 'Amp', Promise.resolve(result), true, mock)
@@ -115,6 +168,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listRuleGroupsNamespacesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-amp', 'listRuleGroupsNamespaces', 'Amp', Promise.reject(result), true, mock)
+  },
+  listScrapers: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-amp', 'listScrapers', 'Amp', Promise.resolve(result), true, mock)
+  },
+  listScrapersAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-amp', 'listScrapers', 'Amp', Promise.resolve(result), false, mock)
+  },
+  listScrapersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-amp', 'listScrapers', 'Amp', Promise.reject(result), true, mock)
   },
   listTagsForResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-amp', 'listTagsForResource', 'Amp', Promise.resolve(result), true, mock)
@@ -169,6 +231,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   untagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-amp', 'untagResource', 'Amp', Promise.reject(result), true, mock)
+  },
+  updateLoggingConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-amp', 'updateLoggingConfiguration', 'Amp', Promise.resolve(result), true, mock)
+  },
+  updateLoggingConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-amp', 'updateLoggingConfiguration', 'Amp', Promise.resolve(result), false, mock)
+  },
+  updateLoggingConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-amp', 'updateLoggingConfiguration', 'Amp', Promise.reject(result), true, mock)
   },
   updateWorkspaceAlias: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-amp', 'updateWorkspaceAlias', 'Amp', Promise.resolve(result), true, mock)

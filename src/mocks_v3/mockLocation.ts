@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockLocation = {
+export const mockLocation = {
   associateTrackerConsumer: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-location', 'associateTrackerConsumer', 'Location', Promise.resolve(result), true, mock)
   },
@@ -89,6 +88,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   calculateRouteThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-location', 'calculateRoute', 'Location', Promise.reject(result), true, mock)
   },
+  calculateRouteMatrix: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-location', 'calculateRouteMatrix', 'Location', Promise.resolve(result), true, mock)
+  },
+  calculateRouteMatrixAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-location', 'calculateRouteMatrix', 'Location', Promise.resolve(result), false, mock)
+  },
+  calculateRouteMatrixThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-location', 'calculateRouteMatrix', 'Location', Promise.reject(result), true, mock)
+  },
   createGeofenceCollection: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-location', 'createGeofenceCollection', 'Location', Promise.resolve(result), true, mock)
   },
@@ -97,6 +105,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createGeofenceCollectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-location', 'createGeofenceCollection', 'Location', Promise.reject(result), true, mock)
+  },
+  createKey: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-location', 'createKey', 'Location', Promise.resolve(result), true, mock)
+  },
+  createKeyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-location', 'createKey', 'Location', Promise.resolve(result), false, mock)
+  },
+  createKeyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-location', 'createKey', 'Location', Promise.reject(result), true, mock)
   },
   createMap: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-location', 'createMap', 'Location', Promise.resolve(result), true, mock)
@@ -143,6 +160,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteGeofenceCollectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-location', 'deleteGeofenceCollection', 'Location', Promise.reject(result), true, mock)
   },
+  deleteKey: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-location', 'deleteKey', 'Location', Promise.resolve(result), true, mock)
+  },
+  deleteKeyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-location', 'deleteKey', 'Location', Promise.resolve(result), false, mock)
+  },
+  deleteKeyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-location', 'deleteKey', 'Location', Promise.reject(result), true, mock)
+  },
   deleteMap: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-location', 'deleteMap', 'Location', Promise.resolve(result), true, mock)
   },
@@ -188,6 +214,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeGeofenceCollectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-location', 'describeGeofenceCollection', 'Location', Promise.reject(result), true, mock)
   },
+  describeKey: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-location', 'describeKey', 'Location', Promise.resolve(result), true, mock)
+  },
+  describeKeyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-location', 'describeKey', 'Location', Promise.resolve(result), false, mock)
+  },
+  describeKeyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-location', 'describeKey', 'Location', Promise.reject(result), true, mock)
+  },
   describeMap: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-location', 'describeMap', 'Location', Promise.resolve(result), true, mock)
   },
@@ -223,15 +258,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeTrackerThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-location', 'describeTracker', 'Location', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-location', 'destroy', 'Location', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-location', 'destroy', 'Location', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-location', 'destroy', 'Location', Promise.reject(result), true, mock)
   },
   disassociateTrackerConsumer: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-location', 'disassociateTrackerConsumer', 'Location', Promise.resolve(result), true, mock)
@@ -305,6 +331,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getMapTileThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-location', 'getMapTile', 'Location', Promise.reject(result), true, mock)
   },
+  getPlace: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-location', 'getPlace', 'Location', Promise.resolve(result), true, mock)
+  },
+  getPlaceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-location', 'getPlace', 'Location', Promise.resolve(result), false, mock)
+  },
+  getPlaceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-location', 'getPlace', 'Location', Promise.reject(result), true, mock)
+  },
   listDevicePositions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-location', 'listDevicePositions', 'Location', Promise.resolve(result), true, mock)
   },
@@ -331,6 +366,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listGeofencesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-location', 'listGeofences', 'Location', Promise.reject(result), true, mock)
+  },
+  listKeys: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-location', 'listKeys', 'Location', Promise.resolve(result), true, mock)
+  },
+  listKeysAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-location', 'listKeys', 'Location', Promise.resolve(result), false, mock)
+  },
+  listKeysThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-location', 'listKeys', 'Location', Promise.reject(result), true, mock)
   },
   listMaps: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-location', 'listMaps', 'Location', Promise.resolve(result), true, mock)
@@ -404,6 +448,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   searchPlaceIndexForPositionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-location', 'searchPlaceIndexForPosition', 'Location', Promise.reject(result), true, mock)
   },
+  searchPlaceIndexForSuggestions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-location', 'searchPlaceIndexForSuggestions', 'Location', Promise.resolve(result), true, mock)
+  },
+  searchPlaceIndexForSuggestionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-location', 'searchPlaceIndexForSuggestions', 'Location', Promise.resolve(result), false, mock)
+  },
+  searchPlaceIndexForSuggestionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-location', 'searchPlaceIndexForSuggestions', 'Location', Promise.reject(result), true, mock)
+  },
   searchPlaceIndexForText: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-location', 'searchPlaceIndexForText', 'Location', Promise.resolve(result), true, mock)
   },
@@ -439,6 +492,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateGeofenceCollectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-location', 'updateGeofenceCollection', 'Location', Promise.reject(result), true, mock)
+  },
+  updateKey: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-location', 'updateKey', 'Location', Promise.resolve(result), true, mock)
+  },
+  updateKeyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-location', 'updateKey', 'Location', Promise.resolve(result), false, mock)
+  },
+  updateKeyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-location', 'updateKey', 'Location', Promise.reject(result), true, mock)
   },
   updateMap: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-location', 'updateMap', 'Location', Promise.resolve(result), true, mock)

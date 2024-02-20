@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockGroundStation = {
+export const mockGroundStation = {
   cancelContact: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-groundstation', 'cancelContact', 'GroundStation', Promise.resolve(result), true, mock)
   },
@@ -43,6 +42,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createDataflowEndpointGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-groundstation', 'createDataflowEndpointGroup', 'GroundStation', Promise.reject(result), true, mock)
+  },
+  createEphemeris: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-groundstation', 'createEphemeris', 'GroundStation', Promise.resolve(result), true, mock)
+  },
+  createEphemerisAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-groundstation', 'createEphemeris', 'GroundStation', Promise.resolve(result), false, mock)
+  },
+  createEphemerisThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-groundstation', 'createEphemeris', 'GroundStation', Promise.reject(result), true, mock)
   },
   createMissionProfile: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-groundstation', 'createMissionProfile', 'GroundStation', Promise.resolve(result), true, mock)
@@ -71,6 +79,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteDataflowEndpointGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-groundstation', 'deleteDataflowEndpointGroup', 'GroundStation', Promise.reject(result), true, mock)
   },
+  deleteEphemeris: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-groundstation', 'deleteEphemeris', 'GroundStation', Promise.resolve(result), true, mock)
+  },
+  deleteEphemerisAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-groundstation', 'deleteEphemeris', 'GroundStation', Promise.resolve(result), false, mock)
+  },
+  deleteEphemerisThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-groundstation', 'deleteEphemeris', 'GroundStation', Promise.reject(result), true, mock)
+  },
   deleteMissionProfile: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-groundstation', 'deleteMissionProfile', 'GroundStation', Promise.resolve(result), true, mock)
   },
@@ -89,14 +106,23 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeContactThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-groundstation', 'describeContact', 'GroundStation', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-groundstation', 'destroy', 'GroundStation', Promise.resolve(result), true, mock)
+  describeEphemeris: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-groundstation', 'describeEphemeris', 'GroundStation', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-groundstation', 'destroy', 'GroundStation', Promise.resolve(result), false, mock)
+  describeEphemerisAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-groundstation', 'describeEphemeris', 'GroundStation', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-groundstation', 'destroy', 'GroundStation', Promise.reject(result), true, mock)
+  describeEphemerisThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-groundstation', 'describeEphemeris', 'GroundStation', Promise.reject(result), true, mock)
+  },
+  getAgentConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-groundstation', 'getAgentConfiguration', 'GroundStation', Promise.resolve(result), true, mock)
+  },
+  getAgentConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-groundstation', 'getAgentConfiguration', 'GroundStation', Promise.resolve(result), false, mock)
+  },
+  getAgentConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-groundstation', 'getAgentConfiguration', 'GroundStation', Promise.reject(result), true, mock)
   },
   getConfig: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-groundstation', 'getConfig', 'GroundStation', Promise.resolve(result), true, mock)
@@ -170,6 +196,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listDataflowEndpointGroupsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-groundstation', 'listDataflowEndpointGroups', 'GroundStation', Promise.reject(result), true, mock)
   },
+  listEphemerides: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-groundstation', 'listEphemerides', 'GroundStation', Promise.resolve(result), true, mock)
+  },
+  listEphemeridesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-groundstation', 'listEphemerides', 'GroundStation', Promise.resolve(result), false, mock)
+  },
+  listEphemeridesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-groundstation', 'listEphemerides', 'GroundStation', Promise.reject(result), true, mock)
+  },
   listGroundStations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-groundstation', 'listGroundStations', 'GroundStation', Promise.resolve(result), true, mock)
   },
@@ -206,6 +241,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listTagsForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-groundstation', 'listTagsForResource', 'GroundStation', Promise.reject(result), true, mock)
   },
+  registerAgent: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-groundstation', 'registerAgent', 'GroundStation', Promise.resolve(result), true, mock)
+  },
+  registerAgentAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-groundstation', 'registerAgent', 'GroundStation', Promise.resolve(result), false, mock)
+  },
+  registerAgentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-groundstation', 'registerAgent', 'GroundStation', Promise.reject(result), true, mock)
+  },
   reserveContact: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-groundstation', 'reserveContact', 'GroundStation', Promise.resolve(result), true, mock)
   },
@@ -233,6 +277,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   untagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-groundstation', 'untagResource', 'GroundStation', Promise.reject(result), true, mock)
   },
+  updateAgentStatus: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-groundstation', 'updateAgentStatus', 'GroundStation', Promise.resolve(result), true, mock)
+  },
+  updateAgentStatusAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-groundstation', 'updateAgentStatus', 'GroundStation', Promise.resolve(result), false, mock)
+  },
+  updateAgentStatusThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-groundstation', 'updateAgentStatus', 'GroundStation', Promise.reject(result), true, mock)
+  },
   updateConfig: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-groundstation', 'updateConfig', 'GroundStation', Promise.resolve(result), true, mock)
   },
@@ -241,6 +294,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateConfigThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-groundstation', 'updateConfig', 'GroundStation', Promise.reject(result), true, mock)
+  },
+  updateEphemeris: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-groundstation', 'updateEphemeris', 'GroundStation', Promise.resolve(result), true, mock)
+  },
+  updateEphemerisAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-groundstation', 'updateEphemeris', 'GroundStation', Promise.resolve(result), false, mock)
+  },
+  updateEphemerisThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-groundstation', 'updateEphemeris', 'GroundStation', Promise.reject(result), true, mock)
   },
   updateMissionProfile: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-groundstation', 'updateMissionProfile', 'GroundStation', Promise.resolve(result), true, mock)

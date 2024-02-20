@@ -15,8 +15,16 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockBraket = {
+export const mockBraket = {
+  cancelJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-braket', 'cancelJob', 'Braket', Promise.resolve(result), true, mock)
+  },
+  cancelJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-braket', 'cancelJob', 'Braket', Promise.resolve(result), false, mock)
+  },
+  cancelJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-braket', 'cancelJob', 'Braket', Promise.reject(result), true, mock)
+  },
   cancelQuantumTask: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-braket', 'cancelQuantumTask', 'Braket', Promise.resolve(result), true, mock)
   },
@@ -25,6 +33,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   cancelQuantumTaskThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-braket', 'cancelQuantumTask', 'Braket', Promise.reject(result), true, mock)
+  },
+  createJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-braket', 'createJob', 'Braket', Promise.resolve(result), true, mock)
+  },
+  createJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-braket', 'createJob', 'Braket', Promise.resolve(result), false, mock)
+  },
+  createJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-braket', 'createJob', 'Braket', Promise.reject(result), true, mock)
   },
   createQuantumTask: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-braket', 'createQuantumTask', 'Braket', Promise.resolve(result), true, mock)
@@ -35,15 +52,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createQuantumTaskThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-braket', 'createQuantumTask', 'Braket', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-braket', 'destroy', 'Braket', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-braket', 'destroy', 'Braket', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-braket', 'destroy', 'Braket', Promise.reject(result), true, mock)
-  },
   getDevice: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-braket', 'getDevice', 'Braket', Promise.resolve(result), true, mock)
   },
@@ -52,6 +60,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getDeviceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-braket', 'getDevice', 'Braket', Promise.reject(result), true, mock)
+  },
+  getJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-braket', 'getJob', 'Braket', Promise.resolve(result), true, mock)
+  },
+  getJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-braket', 'getJob', 'Braket', Promise.resolve(result), false, mock)
+  },
+  getJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-braket', 'getJob', 'Braket', Promise.reject(result), true, mock)
   },
   getQuantumTask: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-braket', 'getQuantumTask', 'Braket', Promise.resolve(result), true, mock)
@@ -79,6 +96,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   searchDevicesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-braket', 'searchDevices', 'Braket', Promise.reject(result), true, mock)
+  },
+  searchJobs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-braket', 'searchJobs', 'Braket', Promise.resolve(result), true, mock)
+  },
+  searchJobsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-braket', 'searchJobs', 'Braket', Promise.resolve(result), false, mock)
+  },
+  searchJobsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-braket', 'searchJobs', 'Braket', Promise.reject(result), true, mock)
   },
   searchQuantumTasks: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-braket', 'searchQuantumTasks', 'Braket', Promise.resolve(result), true, mock)

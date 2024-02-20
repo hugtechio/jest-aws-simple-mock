@@ -15,8 +15,25 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockKendra = {
+export const mockKendra = {
+  associateEntitiesToExperience: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'associateEntitiesToExperience', 'Kendra', Promise.resolve(result), true, mock)
+  },
+  associateEntitiesToExperienceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'associateEntitiesToExperience', 'Kendra', Promise.resolve(result), false, mock)
+  },
+  associateEntitiesToExperienceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'associateEntitiesToExperience', 'Kendra', Promise.reject(result), true, mock)
+  },
+  associatePersonasToEntities: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'associatePersonasToEntities', 'Kendra', Promise.resolve(result), true, mock)
+  },
+  associatePersonasToEntitiesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'associatePersonasToEntities', 'Kendra', Promise.resolve(result), false, mock)
+  },
+  associatePersonasToEntitiesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'associatePersonasToEntities', 'Kendra', Promise.reject(result), true, mock)
+  },
   batchDeleteDocument: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kendra', 'batchDeleteDocument', 'Kendra', Promise.resolve(result), true, mock)
   },
@@ -25,6 +42,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   batchDeleteDocumentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kendra', 'batchDeleteDocument', 'Kendra', Promise.reject(result), true, mock)
+  },
+  batchDeleteFeaturedResultsSet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'batchDeleteFeaturedResultsSet', 'Kendra', Promise.resolve(result), true, mock)
+  },
+  batchDeleteFeaturedResultsSetAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'batchDeleteFeaturedResultsSet', 'Kendra', Promise.resolve(result), false, mock)
+  },
+  batchDeleteFeaturedResultsSetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'batchDeleteFeaturedResultsSet', 'Kendra', Promise.reject(result), true, mock)
   },
   batchGetDocumentStatus: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kendra', 'batchGetDocumentStatus', 'Kendra', Promise.resolve(result), true, mock)
@@ -53,6 +79,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   clearQuerySuggestionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kendra', 'clearQuerySuggestions', 'Kendra', Promise.reject(result), true, mock)
   },
+  createAccessControlConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'createAccessControlConfiguration', 'Kendra', Promise.resolve(result), true, mock)
+  },
+  createAccessControlConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'createAccessControlConfiguration', 'Kendra', Promise.resolve(result), false, mock)
+  },
+  createAccessControlConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'createAccessControlConfiguration', 'Kendra', Promise.reject(result), true, mock)
+  },
   createDataSource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kendra', 'createDataSource', 'Kendra', Promise.resolve(result), true, mock)
   },
@@ -62,6 +97,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createDataSourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kendra', 'createDataSource', 'Kendra', Promise.reject(result), true, mock)
   },
+  createExperience: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'createExperience', 'Kendra', Promise.resolve(result), true, mock)
+  },
+  createExperienceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'createExperience', 'Kendra', Promise.resolve(result), false, mock)
+  },
+  createExperienceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'createExperience', 'Kendra', Promise.reject(result), true, mock)
+  },
   createFaq: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kendra', 'createFaq', 'Kendra', Promise.resolve(result), true, mock)
   },
@@ -70,6 +114,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createFaqThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kendra', 'createFaq', 'Kendra', Promise.reject(result), true, mock)
+  },
+  createFeaturedResultsSet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'createFeaturedResultsSet', 'Kendra', Promise.resolve(result), true, mock)
+  },
+  createFeaturedResultsSetAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'createFeaturedResultsSet', 'Kendra', Promise.resolve(result), false, mock)
+  },
+  createFeaturedResultsSetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'createFeaturedResultsSet', 'Kendra', Promise.reject(result), true, mock)
   },
   createIndex: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kendra', 'createIndex', 'Kendra', Promise.resolve(result), true, mock)
@@ -98,6 +151,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createThesaurusThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kendra', 'createThesaurus', 'Kendra', Promise.reject(result), true, mock)
   },
+  deleteAccessControlConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'deleteAccessControlConfiguration', 'Kendra', Promise.resolve(result), true, mock)
+  },
+  deleteAccessControlConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'deleteAccessControlConfiguration', 'Kendra', Promise.resolve(result), false, mock)
+  },
+  deleteAccessControlConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'deleteAccessControlConfiguration', 'Kendra', Promise.reject(result), true, mock)
+  },
   deleteDataSource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kendra', 'deleteDataSource', 'Kendra', Promise.resolve(result), true, mock)
   },
@@ -106,6 +168,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteDataSourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kendra', 'deleteDataSource', 'Kendra', Promise.reject(result), true, mock)
+  },
+  deleteExperience: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'deleteExperience', 'Kendra', Promise.resolve(result), true, mock)
+  },
+  deleteExperienceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'deleteExperience', 'Kendra', Promise.resolve(result), false, mock)
+  },
+  deleteExperienceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'deleteExperience', 'Kendra', Promise.reject(result), true, mock)
   },
   deleteFaq: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kendra', 'deleteFaq', 'Kendra', Promise.resolve(result), true, mock)
@@ -152,6 +223,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteThesaurusThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kendra', 'deleteThesaurus', 'Kendra', Promise.reject(result), true, mock)
   },
+  describeAccessControlConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'describeAccessControlConfiguration', 'Kendra', Promise.resolve(result), true, mock)
+  },
+  describeAccessControlConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'describeAccessControlConfiguration', 'Kendra', Promise.resolve(result), false, mock)
+  },
+  describeAccessControlConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'describeAccessControlConfiguration', 'Kendra', Promise.reject(result), true, mock)
+  },
   describeDataSource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kendra', 'describeDataSource', 'Kendra', Promise.resolve(result), true, mock)
   },
@@ -161,6 +241,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeDataSourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kendra', 'describeDataSource', 'Kendra', Promise.reject(result), true, mock)
   },
+  describeExperience: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'describeExperience', 'Kendra', Promise.resolve(result), true, mock)
+  },
+  describeExperienceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'describeExperience', 'Kendra', Promise.resolve(result), false, mock)
+  },
+  describeExperienceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'describeExperience', 'Kendra', Promise.reject(result), true, mock)
+  },
   describeFaq: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kendra', 'describeFaq', 'Kendra', Promise.resolve(result), true, mock)
   },
@@ -169,6 +258,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeFaqThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kendra', 'describeFaq', 'Kendra', Promise.reject(result), true, mock)
+  },
+  describeFeaturedResultsSet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'describeFeaturedResultsSet', 'Kendra', Promise.resolve(result), true, mock)
+  },
+  describeFeaturedResultsSetAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'describeFeaturedResultsSet', 'Kendra', Promise.resolve(result), false, mock)
+  },
+  describeFeaturedResultsSetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'describeFeaturedResultsSet', 'Kendra', Promise.reject(result), true, mock)
   },
   describeIndex: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kendra', 'describeIndex', 'Kendra', Promise.resolve(result), true, mock)
@@ -215,14 +313,23 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeThesaurusThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kendra', 'describeThesaurus', 'Kendra', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-kendra', 'destroy', 'Kendra', Promise.resolve(result), true, mock)
+  disassociateEntitiesFromExperience: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'disassociateEntitiesFromExperience', 'Kendra', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-kendra', 'destroy', 'Kendra', Promise.resolve(result), false, mock)
+  disassociateEntitiesFromExperienceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'disassociateEntitiesFromExperience', 'Kendra', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-kendra', 'destroy', 'Kendra', Promise.reject(result), true, mock)
+  disassociateEntitiesFromExperienceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'disassociateEntitiesFromExperience', 'Kendra', Promise.reject(result), true, mock)
+  },
+  disassociatePersonasFromEntities: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'disassociatePersonasFromEntities', 'Kendra', Promise.resolve(result), true, mock)
+  },
+  disassociatePersonasFromEntitiesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'disassociatePersonasFromEntities', 'Kendra', Promise.resolve(result), false, mock)
+  },
+  disassociatePersonasFromEntitiesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'disassociatePersonasFromEntities', 'Kendra', Promise.reject(result), true, mock)
   },
   getQuerySuggestions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kendra', 'getQuerySuggestions', 'Kendra', Promise.resolve(result), true, mock)
@@ -232,6 +339,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getQuerySuggestionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kendra', 'getQuerySuggestions', 'Kendra', Promise.reject(result), true, mock)
+  },
+  getSnapshots: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'getSnapshots', 'Kendra', Promise.resolve(result), true, mock)
+  },
+  getSnapshotsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'getSnapshots', 'Kendra', Promise.resolve(result), false, mock)
+  },
+  getSnapshotsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'getSnapshots', 'Kendra', Promise.reject(result), true, mock)
+  },
+  listAccessControlConfigurations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'listAccessControlConfigurations', 'Kendra', Promise.resolve(result), true, mock)
+  },
+  listAccessControlConfigurationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'listAccessControlConfigurations', 'Kendra', Promise.resolve(result), false, mock)
+  },
+  listAccessControlConfigurationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'listAccessControlConfigurations', 'Kendra', Promise.reject(result), true, mock)
   },
   listDataSourceSyncJobs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kendra', 'listDataSourceSyncJobs', 'Kendra', Promise.resolve(result), true, mock)
@@ -251,6 +376,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listDataSourcesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kendra', 'listDataSources', 'Kendra', Promise.reject(result), true, mock)
   },
+  listEntityPersonas: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'listEntityPersonas', 'Kendra', Promise.resolve(result), true, mock)
+  },
+  listEntityPersonasAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'listEntityPersonas', 'Kendra', Promise.resolve(result), false, mock)
+  },
+  listEntityPersonasThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'listEntityPersonas', 'Kendra', Promise.reject(result), true, mock)
+  },
+  listExperienceEntities: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'listExperienceEntities', 'Kendra', Promise.resolve(result), true, mock)
+  },
+  listExperienceEntitiesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'listExperienceEntities', 'Kendra', Promise.resolve(result), false, mock)
+  },
+  listExperienceEntitiesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'listExperienceEntities', 'Kendra', Promise.reject(result), true, mock)
+  },
+  listExperiences: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'listExperiences', 'Kendra', Promise.resolve(result), true, mock)
+  },
+  listExperiencesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'listExperiences', 'Kendra', Promise.resolve(result), false, mock)
+  },
+  listExperiencesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'listExperiences', 'Kendra', Promise.reject(result), true, mock)
+  },
   listFaqs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kendra', 'listFaqs', 'Kendra', Promise.resolve(result), true, mock)
   },
@@ -259,6 +411,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listFaqsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kendra', 'listFaqs', 'Kendra', Promise.reject(result), true, mock)
+  },
+  listFeaturedResultsSets: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'listFeaturedResultsSets', 'Kendra', Promise.resolve(result), true, mock)
+  },
+  listFeaturedResultsSetsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'listFeaturedResultsSets', 'Kendra', Promise.resolve(result), false, mock)
+  },
+  listFeaturedResultsSetsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'listFeaturedResultsSets', 'Kendra', Promise.reject(result), true, mock)
   },
   listGroupsOlderThanOrderingId: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kendra', 'listGroupsOlderThanOrderingId', 'Kendra', Promise.resolve(result), true, mock)
@@ -323,6 +484,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   queryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kendra', 'query', 'Kendra', Promise.reject(result), true, mock)
   },
+  retrieve: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'retrieve', 'Kendra', Promise.resolve(result), true, mock)
+  },
+  retrieveAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'retrieve', 'Kendra', Promise.resolve(result), false, mock)
+  },
+  retrieveThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'retrieve', 'Kendra', Promise.reject(result), true, mock)
+  },
   startDataSourceSyncJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kendra', 'startDataSourceSyncJob', 'Kendra', Promise.resolve(result), true, mock)
   },
@@ -368,6 +538,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   untagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kendra', 'untagResource', 'Kendra', Promise.reject(result), true, mock)
   },
+  updateAccessControlConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'updateAccessControlConfiguration', 'Kendra', Promise.resolve(result), true, mock)
+  },
+  updateAccessControlConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'updateAccessControlConfiguration', 'Kendra', Promise.resolve(result), false, mock)
+  },
+  updateAccessControlConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'updateAccessControlConfiguration', 'Kendra', Promise.reject(result), true, mock)
+  },
   updateDataSource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kendra', 'updateDataSource', 'Kendra', Promise.resolve(result), true, mock)
   },
@@ -376,6 +555,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateDataSourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kendra', 'updateDataSource', 'Kendra', Promise.reject(result), true, mock)
+  },
+  updateExperience: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'updateExperience', 'Kendra', Promise.resolve(result), true, mock)
+  },
+  updateExperienceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'updateExperience', 'Kendra', Promise.resolve(result), false, mock)
+  },
+  updateExperienceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'updateExperience', 'Kendra', Promise.reject(result), true, mock)
+  },
+  updateFeaturedResultsSet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'updateFeaturedResultsSet', 'Kendra', Promise.resolve(result), true, mock)
+  },
+  updateFeaturedResultsSetAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'updateFeaturedResultsSet', 'Kendra', Promise.resolve(result), false, mock)
+  },
+  updateFeaturedResultsSetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kendra', 'updateFeaturedResultsSet', 'Kendra', Promise.reject(result), true, mock)
   },
   updateIndex: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kendra', 'updateIndex', 'Kendra', Promise.resolve(result), true, mock)

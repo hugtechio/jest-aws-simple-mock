@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockRAM = {
+export const mockRAM = {
   acceptResourceShareInvitation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ram', 'acceptResourceShareInvitation', 'RAM', Promise.resolve(result), true, mock)
   },
@@ -44,6 +43,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   associateResourceSharePermissionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ram', 'associateResourceSharePermission', 'RAM', Promise.reject(result), true, mock)
   },
+  createPermission: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ram', 'createPermission', 'RAM', Promise.resolve(result), true, mock)
+  },
+  createPermissionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ram', 'createPermission', 'RAM', Promise.resolve(result), false, mock)
+  },
+  createPermissionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ram', 'createPermission', 'RAM', Promise.reject(result), true, mock)
+  },
+  createPermissionVersion: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ram', 'createPermissionVersion', 'RAM', Promise.resolve(result), true, mock)
+  },
+  createPermissionVersionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ram', 'createPermissionVersion', 'RAM', Promise.resolve(result), false, mock)
+  },
+  createPermissionVersionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ram', 'createPermissionVersion', 'RAM', Promise.reject(result), true, mock)
+  },
   createResourceShare: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ram', 'createResourceShare', 'RAM', Promise.resolve(result), true, mock)
   },
@@ -53,6 +70,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createResourceShareThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ram', 'createResourceShare', 'RAM', Promise.reject(result), true, mock)
   },
+  deletePermission: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ram', 'deletePermission', 'RAM', Promise.resolve(result), true, mock)
+  },
+  deletePermissionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ram', 'deletePermission', 'RAM', Promise.resolve(result), false, mock)
+  },
+  deletePermissionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ram', 'deletePermission', 'RAM', Promise.reject(result), true, mock)
+  },
+  deletePermissionVersion: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ram', 'deletePermissionVersion', 'RAM', Promise.resolve(result), true, mock)
+  },
+  deletePermissionVersionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ram', 'deletePermissionVersion', 'RAM', Promise.resolve(result), false, mock)
+  },
+  deletePermissionVersionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ram', 'deletePermissionVersion', 'RAM', Promise.reject(result), true, mock)
+  },
   deleteResourceShare: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ram', 'deleteResourceShare', 'RAM', Promise.resolve(result), true, mock)
   },
@@ -61,15 +96,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteResourceShareThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ram', 'deleteResourceShare', 'RAM', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ram', 'destroy', 'RAM', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ram', 'destroy', 'RAM', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ram', 'destroy', 'RAM', Promise.reject(result), true, mock)
   },
   disassociateResourceShare: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ram', 'disassociateResourceShare', 'RAM', Promise.resolve(result), true, mock)
@@ -152,6 +178,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listPendingInvitationResourcesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ram', 'listPendingInvitationResources', 'RAM', Promise.reject(result), true, mock)
   },
+  listPermissionAssociations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ram', 'listPermissionAssociations', 'RAM', Promise.resolve(result), true, mock)
+  },
+  listPermissionAssociationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ram', 'listPermissionAssociations', 'RAM', Promise.resolve(result), false, mock)
+  },
+  listPermissionAssociationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ram', 'listPermissionAssociations', 'RAM', Promise.reject(result), true, mock)
+  },
+  listPermissionVersions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ram', 'listPermissionVersions', 'RAM', Promise.resolve(result), true, mock)
+  },
+  listPermissionVersionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ram', 'listPermissionVersions', 'RAM', Promise.resolve(result), false, mock)
+  },
+  listPermissionVersionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ram', 'listPermissionVersions', 'RAM', Promise.reject(result), true, mock)
+  },
   listPermissions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ram', 'listPermissions', 'RAM', Promise.resolve(result), true, mock)
   },
@@ -169,6 +213,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listPrincipalsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ram', 'listPrincipals', 'RAM', Promise.reject(result), true, mock)
+  },
+  listReplacePermissionAssociationsWork: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ram', 'listReplacePermissionAssociationsWork', 'RAM', Promise.resolve(result), true, mock)
+  },
+  listReplacePermissionAssociationsWorkAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ram', 'listReplacePermissionAssociationsWork', 'RAM', Promise.resolve(result), false, mock)
+  },
+  listReplacePermissionAssociationsWorkThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ram', 'listReplacePermissionAssociationsWork', 'RAM', Promise.reject(result), true, mock)
   },
   listResourceSharePermissions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ram', 'listResourceSharePermissions', 'RAM', Promise.resolve(result), true, mock)
@@ -197,6 +250,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listResourcesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ram', 'listResources', 'RAM', Promise.reject(result), true, mock)
   },
+  promotePermissionCreatedFromPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ram', 'promotePermissionCreatedFromPolicy', 'RAM', Promise.resolve(result), true, mock)
+  },
+  promotePermissionCreatedFromPolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ram', 'promotePermissionCreatedFromPolicy', 'RAM', Promise.resolve(result), false, mock)
+  },
+  promotePermissionCreatedFromPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ram', 'promotePermissionCreatedFromPolicy', 'RAM', Promise.reject(result), true, mock)
+  },
   promoteResourceShareCreatedFromPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ram', 'promoteResourceShareCreatedFromPolicy', 'RAM', Promise.resolve(result), true, mock)
   },
@@ -214,6 +276,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   rejectResourceShareInvitationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ram', 'rejectResourceShareInvitation', 'RAM', Promise.reject(result), true, mock)
+  },
+  replacePermissionAssociations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ram', 'replacePermissionAssociations', 'RAM', Promise.resolve(result), true, mock)
+  },
+  replacePermissionAssociationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ram', 'replacePermissionAssociations', 'RAM', Promise.resolve(result), false, mock)
+  },
+  replacePermissionAssociationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ram', 'replacePermissionAssociations', 'RAM', Promise.reject(result), true, mock)
+  },
+  setDefaultPermissionVersion: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ram', 'setDefaultPermissionVersion', 'RAM', Promise.resolve(result), true, mock)
+  },
+  setDefaultPermissionVersionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ram', 'setDefaultPermissionVersion', 'RAM', Promise.resolve(result), false, mock)
+  },
+  setDefaultPermissionVersionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ram', 'setDefaultPermissionVersion', 'RAM', Promise.reject(result), true, mock)
   },
   tagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ram', 'tagResource', 'RAM', Promise.resolve(result), true, mock)

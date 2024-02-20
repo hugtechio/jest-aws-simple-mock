@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockChime = {
+export const mockChime = {
   associatePhoneNumberWithUser: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime', 'associatePhoneNumberWithUser', 'Chime', Promise.resolve(result), true, mock)
   },
@@ -134,15 +133,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createAccountThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime', 'createAccount', 'Chime', Promise.reject(result), true, mock)
   },
-  createAppInstance: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime', 'createAppInstance', 'Chime', Promise.resolve(result), true, mock)
-  },
-  createAppInstanceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime', 'createAppInstance', 'Chime', Promise.resolve(result), false, mock)
-  },
-  createAppInstanceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime', 'createAppInstance', 'Chime', Promise.reject(result), true, mock)
-  },
   createAppInstanceAdmin: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime', 'createAppInstanceAdmin', 'Chime', Promise.resolve(result), true, mock)
   },
@@ -151,6 +141,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createAppInstanceAdminThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime', 'createAppInstanceAdmin', 'Chime', Promise.reject(result), true, mock)
+  },
+  createAppInstance: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime', 'createAppInstance', 'Chime', Promise.resolve(result), true, mock)
+  },
+  createAppInstanceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime', 'createAppInstance', 'Chime', Promise.resolve(result), false, mock)
+  },
+  createAppInstanceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime', 'createAppInstance', 'Chime', Promise.reject(result), true, mock)
   },
   createAppInstanceUser: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime', 'createAppInstanceUser', 'Chime', Promise.resolve(result), true, mock)
@@ -179,15 +178,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createBotThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime', 'createBot', 'Chime', Promise.reject(result), true, mock)
   },
-  createChannel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime', 'createChannel', 'Chime', Promise.resolve(result), true, mock)
-  },
-  createChannelAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime', 'createChannel', 'Chime', Promise.resolve(result), false, mock)
-  },
-  createChannelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime', 'createChannel', 'Chime', Promise.reject(result), true, mock)
-  },
   createChannelBan: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime', 'createChannelBan', 'Chime', Promise.resolve(result), true, mock)
   },
@@ -196,6 +186,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createChannelBanThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime', 'createChannelBan', 'Chime', Promise.reject(result), true, mock)
+  },
+  createChannel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime', 'createChannel', 'Chime', Promise.resolve(result), true, mock)
+  },
+  createChannelAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime', 'createChannel', 'Chime', Promise.resolve(result), false, mock)
+  },
+  createChannelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime', 'createChannel', 'Chime', Promise.reject(result), true, mock)
   },
   createChannelMembership: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime', 'createChannelMembership', 'Chime', Promise.resolve(result), true, mock)
@@ -287,15 +286,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createRoomMembershipThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime', 'createRoomMembership', 'Chime', Promise.reject(result), true, mock)
   },
-  createSipMediaApplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime', 'createSipMediaApplication', 'Chime', Promise.resolve(result), true, mock)
-  },
-  createSipMediaApplicationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime', 'createSipMediaApplication', 'Chime', Promise.resolve(result), false, mock)
-  },
-  createSipMediaApplicationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime', 'createSipMediaApplication', 'Chime', Promise.reject(result), true, mock)
-  },
   createSipMediaApplicationCall: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime', 'createSipMediaApplicationCall', 'Chime', Promise.resolve(result), true, mock)
   },
@@ -304,6 +294,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createSipMediaApplicationCallThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime', 'createSipMediaApplicationCall', 'Chime', Promise.reject(result), true, mock)
+  },
+  createSipMediaApplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime', 'createSipMediaApplication', 'Chime', Promise.resolve(result), true, mock)
+  },
+  createSipMediaApplicationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime', 'createSipMediaApplication', 'Chime', Promise.resolve(result), false, mock)
+  },
+  createSipMediaApplicationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime', 'createSipMediaApplication', 'Chime', Promise.reject(result), true, mock)
   },
   createSipRule: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime', 'createSipRule', 'Chime', Promise.resolve(result), true, mock)
@@ -350,15 +349,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteAccountThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime', 'deleteAccount', 'Chime', Promise.reject(result), true, mock)
   },
-  deleteAppInstance: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime', 'deleteAppInstance', 'Chime', Promise.resolve(result), true, mock)
-  },
-  deleteAppInstanceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime', 'deleteAppInstance', 'Chime', Promise.resolve(result), false, mock)
-  },
-  deleteAppInstanceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime', 'deleteAppInstance', 'Chime', Promise.reject(result), true, mock)
-  },
   deleteAppInstanceAdmin: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime', 'deleteAppInstanceAdmin', 'Chime', Promise.resolve(result), true, mock)
   },
@@ -367,6 +357,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteAppInstanceAdminThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime', 'deleteAppInstanceAdmin', 'Chime', Promise.reject(result), true, mock)
+  },
+  deleteAppInstance: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime', 'deleteAppInstance', 'Chime', Promise.resolve(result), true, mock)
+  },
+  deleteAppInstanceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime', 'deleteAppInstance', 'Chime', Promise.resolve(result), false, mock)
+  },
+  deleteAppInstanceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime', 'deleteAppInstance', 'Chime', Promise.reject(result), true, mock)
   },
   deleteAppInstanceStreamingConfigurations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime', 'deleteAppInstanceStreamingConfigurations', 'Chime', Promise.resolve(result), true, mock)
@@ -395,15 +394,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteAttendeeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime', 'deleteAttendee', 'Chime', Promise.reject(result), true, mock)
   },
-  deleteChannel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime', 'deleteChannel', 'Chime', Promise.resolve(result), true, mock)
-  },
-  deleteChannelAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime', 'deleteChannel', 'Chime', Promise.resolve(result), false, mock)
-  },
-  deleteChannelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime', 'deleteChannel', 'Chime', Promise.reject(result), true, mock)
-  },
   deleteChannelBan: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime', 'deleteChannelBan', 'Chime', Promise.resolve(result), true, mock)
   },
@@ -412,6 +402,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteChannelBanThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime', 'deleteChannelBan', 'Chime', Promise.reject(result), true, mock)
+  },
+  deleteChannel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime', 'deleteChannel', 'Chime', Promise.resolve(result), true, mock)
+  },
+  deleteChannelAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime', 'deleteChannel', 'Chime', Promise.resolve(result), false, mock)
+  },
+  deleteChannelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime', 'deleteChannel', 'Chime', Promise.reject(result), true, mock)
   },
   deleteChannelMembership: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime', 'deleteChannelMembership', 'Chime', Promise.resolve(result), true, mock)
@@ -593,15 +592,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteVoiceConnectorTerminationCredentialsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime', 'deleteVoiceConnectorTerminationCredentials', 'Chime', Promise.reject(result), true, mock)
   },
-  describeAppInstance: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime', 'describeAppInstance', 'Chime', Promise.resolve(result), true, mock)
-  },
-  describeAppInstanceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime', 'describeAppInstance', 'Chime', Promise.resolve(result), false, mock)
-  },
-  describeAppInstanceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime', 'describeAppInstance', 'Chime', Promise.reject(result), true, mock)
-  },
   describeAppInstanceAdmin: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime', 'describeAppInstanceAdmin', 'Chime', Promise.resolve(result), true, mock)
   },
@@ -610,6 +600,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeAppInstanceAdminThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime', 'describeAppInstanceAdmin', 'Chime', Promise.reject(result), true, mock)
+  },
+  describeAppInstance: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime', 'describeAppInstance', 'Chime', Promise.resolve(result), true, mock)
+  },
+  describeAppInstanceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime', 'describeAppInstance', 'Chime', Promise.resolve(result), false, mock)
+  },
+  describeAppInstanceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime', 'describeAppInstance', 'Chime', Promise.reject(result), true, mock)
   },
   describeAppInstanceUser: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime', 'describeAppInstanceUser', 'Chime', Promise.resolve(result), true, mock)
@@ -620,15 +619,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeAppInstanceUserThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime', 'describeAppInstanceUser', 'Chime', Promise.reject(result), true, mock)
   },
-  describeChannel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime', 'describeChannel', 'Chime', Promise.resolve(result), true, mock)
-  },
-  describeChannelAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime', 'describeChannel', 'Chime', Promise.resolve(result), false, mock)
-  },
-  describeChannelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime', 'describeChannel', 'Chime', Promise.reject(result), true, mock)
-  },
   describeChannelBan: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime', 'describeChannelBan', 'Chime', Promise.resolve(result), true, mock)
   },
@@ -637,6 +627,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeChannelBanThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime', 'describeChannelBan', 'Chime', Promise.reject(result), true, mock)
+  },
+  describeChannel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime', 'describeChannel', 'Chime', Promise.resolve(result), true, mock)
+  },
+  describeChannelAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime', 'describeChannel', 'Chime', Promise.resolve(result), false, mock)
+  },
+  describeChannelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime', 'describeChannel', 'Chime', Promise.reject(result), true, mock)
   },
   describeChannelMembership: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime', 'describeChannelMembership', 'Chime', Promise.resolve(result), true, mock)
@@ -673,15 +672,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeChannelModeratorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime', 'describeChannelModerator', 'Chime', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime', 'destroy', 'Chime', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime', 'destroy', 'Chime', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime', 'destroy', 'Chime', Promise.reject(result), true, mock)
   },
   disassociatePhoneNumberFromUser: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime', 'disassociatePhoneNumberFromUser', 'Chime', Promise.resolve(result), true, mock)
@@ -1673,15 +1663,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   updateRoomMembershipThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime', 'updateRoomMembership', 'Chime', Promise.reject(result), true, mock)
   },
-  updateSipMediaApplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime', 'updateSipMediaApplication', 'Chime', Promise.resolve(result), true, mock)
-  },
-  updateSipMediaApplicationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime', 'updateSipMediaApplication', 'Chime', Promise.resolve(result), false, mock)
-  },
-  updateSipMediaApplicationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-chime', 'updateSipMediaApplication', 'Chime', Promise.reject(result), true, mock)
-  },
   updateSipMediaApplicationCall: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime', 'updateSipMediaApplicationCall', 'Chime', Promise.resolve(result), true, mock)
   },
@@ -1690,6 +1671,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateSipMediaApplicationCallThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime', 'updateSipMediaApplicationCall', 'Chime', Promise.reject(result), true, mock)
+  },
+  updateSipMediaApplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime', 'updateSipMediaApplication', 'Chime', Promise.resolve(result), true, mock)
+  },
+  updateSipMediaApplicationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime', 'updateSipMediaApplication', 'Chime', Promise.resolve(result), false, mock)
+  },
+  updateSipMediaApplicationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime', 'updateSipMediaApplication', 'Chime', Promise.reject(result), true, mock)
   },
   updateSipRule: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime', 'updateSipRule', 'Chime', Promise.resolve(result), true, mock)
@@ -1735,6 +1725,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateVoiceConnectorGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime', 'updateVoiceConnectorGroup', 'Chime', Promise.reject(result), true, mock)
+  },
+  validateE911Address: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime', 'validateE911Address', 'Chime', Promise.resolve(result), true, mock)
+  },
+  validateE911AddressAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime', 'validateE911Address', 'Chime', Promise.resolve(result), false, mock)
+  },
+  validateE911AddressThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-chime', 'validateE911Address', 'Chime', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-chime', 'send', 'ChimeClient', Promise.resolve(result), true, mock)

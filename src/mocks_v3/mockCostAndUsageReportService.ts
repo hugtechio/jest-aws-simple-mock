@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockCostAndUsageReportService = {
+export const mockCostAndUsageReportService = {
   deleteReportDefinition: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cost-and-usage-report-service', 'deleteReportDefinition', 'CostAndUsageReportService', Promise.resolve(result), true, mock)
   },
@@ -35,14 +34,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeReportDefinitionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cost-and-usage-report-service', 'describeReportDefinitions', 'CostAndUsageReportService', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cost-and-usage-report-service', 'destroy', 'CostAndUsageReportService', Promise.resolve(result), true, mock)
+  listTagsForResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cost-and-usage-report-service', 'listTagsForResource', 'CostAndUsageReportService', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cost-and-usage-report-service', 'destroy', 'CostAndUsageReportService', Promise.resolve(result), false, mock)
+  listTagsForResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cost-and-usage-report-service', 'listTagsForResource', 'CostAndUsageReportService', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cost-and-usage-report-service', 'destroy', 'CostAndUsageReportService', Promise.reject(result), true, mock)
+  listTagsForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cost-and-usage-report-service', 'listTagsForResource', 'CostAndUsageReportService', Promise.reject(result), true, mock)
   },
   modifyReportDefinition: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cost-and-usage-report-service', 'modifyReportDefinition', 'CostAndUsageReportService', Promise.resolve(result), true, mock)
@@ -61,6 +60,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   putReportDefinitionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cost-and-usage-report-service', 'putReportDefinition', 'CostAndUsageReportService', Promise.reject(result), true, mock)
+  },
+  tagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cost-and-usage-report-service', 'tagResource', 'CostAndUsageReportService', Promise.resolve(result), true, mock)
+  },
+  tagResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cost-and-usage-report-service', 'tagResource', 'CostAndUsageReportService', Promise.resolve(result), false, mock)
+  },
+  tagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cost-and-usage-report-service', 'tagResource', 'CostAndUsageReportService', Promise.reject(result), true, mock)
+  },
+  untagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cost-and-usage-report-service', 'untagResource', 'CostAndUsageReportService', Promise.resolve(result), true, mock)
+  },
+  untagResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cost-and-usage-report-service', 'untagResource', 'CostAndUsageReportService', Promise.resolve(result), false, mock)
+  },
+  untagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cost-and-usage-report-service', 'untagResource', 'CostAndUsageReportService', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cost-and-usage-report-service', 'send', 'CostAndUsageReportServiceClient', Promise.resolve(result), true, mock)

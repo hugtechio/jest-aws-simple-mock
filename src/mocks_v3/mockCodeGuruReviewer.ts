@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockCodeGuruReviewer = {
+export const mockCodeGuruReviewer = {
   associateRepository: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codeguru-reviewer', 'associateRepository', 'CodeGuruReviewer', Promise.resolve(result), true, mock)
   },
@@ -61,15 +60,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeRepositoryAssociationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codeguru-reviewer', 'describeRepositoryAssociation', 'CodeGuruReviewer', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-codeguru-reviewer', 'destroy', 'CodeGuruReviewer', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-codeguru-reviewer', 'destroy', 'CodeGuruReviewer', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-codeguru-reviewer', 'destroy', 'CodeGuruReviewer', Promise.reject(result), true, mock)
   },
   disassociateRepository: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codeguru-reviewer', 'disassociateRepository', 'CodeGuruReviewer', Promise.resolve(result), true, mock)

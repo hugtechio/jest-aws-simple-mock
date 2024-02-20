@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockTransfer = {
+export const mockTransfer = {
   createAccess: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-transfer', 'createAccess', 'Transfer', Promise.resolve(result), true, mock)
   },
@@ -25,6 +24,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createAccessThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-transfer', 'createAccess', 'Transfer', Promise.reject(result), true, mock)
+  },
+  createAgreement: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'createAgreement', 'Transfer', Promise.resolve(result), true, mock)
+  },
+  createAgreementAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'createAgreement', 'Transfer', Promise.resolve(result), false, mock)
+  },
+  createAgreementThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'createAgreement', 'Transfer', Promise.reject(result), true, mock)
+  },
+  createConnector: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'createConnector', 'Transfer', Promise.resolve(result), true, mock)
+  },
+  createConnectorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'createConnector', 'Transfer', Promise.resolve(result), false, mock)
+  },
+  createConnectorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'createConnector', 'Transfer', Promise.reject(result), true, mock)
+  },
+  createProfile: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'createProfile', 'Transfer', Promise.resolve(result), true, mock)
+  },
+  createProfileAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'createProfile', 'Transfer', Promise.resolve(result), false, mock)
+  },
+  createProfileThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'createProfile', 'Transfer', Promise.reject(result), true, mock)
   },
   createServer: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-transfer', 'createServer', 'Transfer', Promise.resolve(result), true, mock)
@@ -61,6 +87,51 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteAccessThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-transfer', 'deleteAccess', 'Transfer', Promise.reject(result), true, mock)
+  },
+  deleteAgreement: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'deleteAgreement', 'Transfer', Promise.resolve(result), true, mock)
+  },
+  deleteAgreementAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'deleteAgreement', 'Transfer', Promise.resolve(result), false, mock)
+  },
+  deleteAgreementThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'deleteAgreement', 'Transfer', Promise.reject(result), true, mock)
+  },
+  deleteCertificate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'deleteCertificate', 'Transfer', Promise.resolve(result), true, mock)
+  },
+  deleteCertificateAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'deleteCertificate', 'Transfer', Promise.resolve(result), false, mock)
+  },
+  deleteCertificateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'deleteCertificate', 'Transfer', Promise.reject(result), true, mock)
+  },
+  deleteConnector: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'deleteConnector', 'Transfer', Promise.resolve(result), true, mock)
+  },
+  deleteConnectorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'deleteConnector', 'Transfer', Promise.resolve(result), false, mock)
+  },
+  deleteConnectorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'deleteConnector', 'Transfer', Promise.reject(result), true, mock)
+  },
+  deleteHostKey: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'deleteHostKey', 'Transfer', Promise.resolve(result), true, mock)
+  },
+  deleteHostKeyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'deleteHostKey', 'Transfer', Promise.resolve(result), false, mock)
+  },
+  deleteHostKeyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'deleteHostKey', 'Transfer', Promise.reject(result), true, mock)
+  },
+  deleteProfile: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'deleteProfile', 'Transfer', Promise.resolve(result), true, mock)
+  },
+  deleteProfileAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'deleteProfile', 'Transfer', Promise.resolve(result), false, mock)
+  },
+  deleteProfileThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'deleteProfile', 'Transfer', Promise.reject(result), true, mock)
   },
   deleteServer: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-transfer', 'deleteServer', 'Transfer', Promise.resolve(result), true, mock)
@@ -107,6 +178,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeAccessThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-transfer', 'describeAccess', 'Transfer', Promise.reject(result), true, mock)
   },
+  describeAgreement: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'describeAgreement', 'Transfer', Promise.resolve(result), true, mock)
+  },
+  describeAgreementAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'describeAgreement', 'Transfer', Promise.resolve(result), false, mock)
+  },
+  describeAgreementThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'describeAgreement', 'Transfer', Promise.reject(result), true, mock)
+  },
+  describeCertificate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'describeCertificate', 'Transfer', Promise.resolve(result), true, mock)
+  },
+  describeCertificateAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'describeCertificate', 'Transfer', Promise.resolve(result), false, mock)
+  },
+  describeCertificateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'describeCertificate', 'Transfer', Promise.reject(result), true, mock)
+  },
+  describeConnector: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'describeConnector', 'Transfer', Promise.resolve(result), true, mock)
+  },
+  describeConnectorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'describeConnector', 'Transfer', Promise.resolve(result), false, mock)
+  },
+  describeConnectorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'describeConnector', 'Transfer', Promise.reject(result), true, mock)
+  },
   describeExecution: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-transfer', 'describeExecution', 'Transfer', Promise.resolve(result), true, mock)
   },
@@ -115,6 +213,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeExecutionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-transfer', 'describeExecution', 'Transfer', Promise.reject(result), true, mock)
+  },
+  describeHostKey: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'describeHostKey', 'Transfer', Promise.resolve(result), true, mock)
+  },
+  describeHostKeyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'describeHostKey', 'Transfer', Promise.resolve(result), false, mock)
+  },
+  describeHostKeyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'describeHostKey', 'Transfer', Promise.reject(result), true, mock)
+  },
+  describeProfile: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'describeProfile', 'Transfer', Promise.resolve(result), true, mock)
+  },
+  describeProfileAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'describeProfile', 'Transfer', Promise.resolve(result), false, mock)
+  },
+  describeProfileThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'describeProfile', 'Transfer', Promise.reject(result), true, mock)
   },
   describeSecurityPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-transfer', 'describeSecurityPolicy', 'Transfer', Promise.resolve(result), true, mock)
@@ -152,14 +268,23 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeWorkflowThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-transfer', 'describeWorkflow', 'Transfer', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-transfer', 'destroy', 'Transfer', Promise.resolve(result), true, mock)
+  importCertificate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'importCertificate', 'Transfer', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-transfer', 'destroy', 'Transfer', Promise.resolve(result), false, mock)
+  importCertificateAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'importCertificate', 'Transfer', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-transfer', 'destroy', 'Transfer', Promise.reject(result), true, mock)
+  importCertificateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'importCertificate', 'Transfer', Promise.reject(result), true, mock)
+  },
+  importHostKey: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'importHostKey', 'Transfer', Promise.resolve(result), true, mock)
+  },
+  importHostKeyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'importHostKey', 'Transfer', Promise.resolve(result), false, mock)
+  },
+  importHostKeyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'importHostKey', 'Transfer', Promise.reject(result), true, mock)
   },
   importSshPublicKey: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-transfer', 'importSshPublicKey', 'Transfer', Promise.resolve(result), true, mock)
@@ -179,6 +304,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listAccessesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-transfer', 'listAccesses', 'Transfer', Promise.reject(result), true, mock)
   },
+  listAgreements: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'listAgreements', 'Transfer', Promise.resolve(result), true, mock)
+  },
+  listAgreementsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'listAgreements', 'Transfer', Promise.resolve(result), false, mock)
+  },
+  listAgreementsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'listAgreements', 'Transfer', Promise.reject(result), true, mock)
+  },
+  listCertificates: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'listCertificates', 'Transfer', Promise.resolve(result), true, mock)
+  },
+  listCertificatesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'listCertificates', 'Transfer', Promise.resolve(result), false, mock)
+  },
+  listCertificatesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'listCertificates', 'Transfer', Promise.reject(result), true, mock)
+  },
+  listConnectors: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'listConnectors', 'Transfer', Promise.resolve(result), true, mock)
+  },
+  listConnectorsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'listConnectors', 'Transfer', Promise.resolve(result), false, mock)
+  },
+  listConnectorsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'listConnectors', 'Transfer', Promise.reject(result), true, mock)
+  },
   listExecutions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-transfer', 'listExecutions', 'Transfer', Promise.resolve(result), true, mock)
   },
@@ -187,6 +339,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listExecutionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-transfer', 'listExecutions', 'Transfer', Promise.reject(result), true, mock)
+  },
+  listHostKeys: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'listHostKeys', 'Transfer', Promise.resolve(result), true, mock)
+  },
+  listHostKeysAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'listHostKeys', 'Transfer', Promise.resolve(result), false, mock)
+  },
+  listHostKeysThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'listHostKeys', 'Transfer', Promise.reject(result), true, mock)
+  },
+  listProfiles: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'listProfiles', 'Transfer', Promise.resolve(result), true, mock)
+  },
+  listProfilesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'listProfiles', 'Transfer', Promise.resolve(result), false, mock)
+  },
+  listProfilesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'listProfiles', 'Transfer', Promise.reject(result), true, mock)
   },
   listSecurityPolicies: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-transfer', 'listSecurityPolicies', 'Transfer', Promise.resolve(result), true, mock)
@@ -242,6 +412,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   sendWorkflowStepStateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-transfer', 'sendWorkflowStepState', 'Transfer', Promise.reject(result), true, mock)
   },
+  startFileTransfer: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'startFileTransfer', 'Transfer', Promise.resolve(result), true, mock)
+  },
+  startFileTransferAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'startFileTransfer', 'Transfer', Promise.resolve(result), false, mock)
+  },
+  startFileTransferThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'startFileTransfer', 'Transfer', Promise.reject(result), true, mock)
+  },
   startServer: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-transfer', 'startServer', 'Transfer', Promise.resolve(result), true, mock)
   },
@@ -269,6 +448,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   tagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-transfer', 'tagResource', 'Transfer', Promise.reject(result), true, mock)
   },
+  testConnection: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'testConnection', 'Transfer', Promise.resolve(result), true, mock)
+  },
+  testConnectionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'testConnection', 'Transfer', Promise.resolve(result), false, mock)
+  },
+  testConnectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'testConnection', 'Transfer', Promise.reject(result), true, mock)
+  },
   testIdentityProvider: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-transfer', 'testIdentityProvider', 'Transfer', Promise.resolve(result), true, mock)
   },
@@ -295,6 +483,51 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateAccessThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-transfer', 'updateAccess', 'Transfer', Promise.reject(result), true, mock)
+  },
+  updateAgreement: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'updateAgreement', 'Transfer', Promise.resolve(result), true, mock)
+  },
+  updateAgreementAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'updateAgreement', 'Transfer', Promise.resolve(result), false, mock)
+  },
+  updateAgreementThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'updateAgreement', 'Transfer', Promise.reject(result), true, mock)
+  },
+  updateCertificate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'updateCertificate', 'Transfer', Promise.resolve(result), true, mock)
+  },
+  updateCertificateAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'updateCertificate', 'Transfer', Promise.resolve(result), false, mock)
+  },
+  updateCertificateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'updateCertificate', 'Transfer', Promise.reject(result), true, mock)
+  },
+  updateConnector: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'updateConnector', 'Transfer', Promise.resolve(result), true, mock)
+  },
+  updateConnectorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'updateConnector', 'Transfer', Promise.resolve(result), false, mock)
+  },
+  updateConnectorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'updateConnector', 'Transfer', Promise.reject(result), true, mock)
+  },
+  updateHostKey: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'updateHostKey', 'Transfer', Promise.resolve(result), true, mock)
+  },
+  updateHostKeyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'updateHostKey', 'Transfer', Promise.resolve(result), false, mock)
+  },
+  updateHostKeyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'updateHostKey', 'Transfer', Promise.reject(result), true, mock)
+  },
+  updateProfile: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'updateProfile', 'Transfer', Promise.resolve(result), true, mock)
+  },
+  updateProfileAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'updateProfile', 'Transfer', Promise.resolve(result), false, mock)
+  },
+  updateProfileThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transfer', 'updateProfile', 'Transfer', Promise.reject(result), true, mock)
   },
   updateServer: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-transfer', 'updateServer', 'Transfer', Promise.resolve(result), true, mock)

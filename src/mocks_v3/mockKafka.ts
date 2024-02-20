@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockKafka = {
+export const mockKafka = {
   batchAssociateScramSecret: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kafka', 'batchAssociateScramSecret', 'Kafka', Promise.resolve(result), true, mock)
   },
@@ -44,6 +43,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createClusterThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kafka', 'createCluster', 'Kafka', Promise.reject(result), true, mock)
   },
+  createClusterV2: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'createClusterV2', 'Kafka', Promise.resolve(result), true, mock)
+  },
+  createClusterV2All: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'createClusterV2', 'Kafka', Promise.resolve(result), false, mock)
+  },
+  createClusterV2Throw: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'createClusterV2', 'Kafka', Promise.reject(result), true, mock)
+  },
   createConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kafka', 'createConfiguration', 'Kafka', Promise.resolve(result), true, mock)
   },
@@ -52,6 +60,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kafka', 'createConfiguration', 'Kafka', Promise.reject(result), true, mock)
+  },
+  createReplicator: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'createReplicator', 'Kafka', Promise.resolve(result), true, mock)
+  },
+  createReplicatorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'createReplicator', 'Kafka', Promise.resolve(result), false, mock)
+  },
+  createReplicatorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'createReplicator', 'Kafka', Promise.reject(result), true, mock)
+  },
+  createVpcConnection: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'createVpcConnection', 'Kafka', Promise.resolve(result), true, mock)
+  },
+  createVpcConnectionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'createVpcConnection', 'Kafka', Promise.resolve(result), false, mock)
+  },
+  createVpcConnectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'createVpcConnection', 'Kafka', Promise.reject(result), true, mock)
   },
   deleteCluster: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kafka', 'deleteCluster', 'Kafka', Promise.resolve(result), true, mock)
@@ -62,6 +88,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteClusterThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kafka', 'deleteCluster', 'Kafka', Promise.reject(result), true, mock)
   },
+  deleteClusterPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'deleteClusterPolicy', 'Kafka', Promise.resolve(result), true, mock)
+  },
+  deleteClusterPolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'deleteClusterPolicy', 'Kafka', Promise.resolve(result), false, mock)
+  },
+  deleteClusterPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'deleteClusterPolicy', 'Kafka', Promise.reject(result), true, mock)
+  },
   deleteConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kafka', 'deleteConfiguration', 'Kafka', Promise.resolve(result), true, mock)
   },
@@ -70,6 +105,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kafka', 'deleteConfiguration', 'Kafka', Promise.reject(result), true, mock)
+  },
+  deleteReplicator: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'deleteReplicator', 'Kafka', Promise.resolve(result), true, mock)
+  },
+  deleteReplicatorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'deleteReplicator', 'Kafka', Promise.resolve(result), false, mock)
+  },
+  deleteReplicatorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'deleteReplicator', 'Kafka', Promise.reject(result), true, mock)
+  },
+  deleteVpcConnection: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'deleteVpcConnection', 'Kafka', Promise.resolve(result), true, mock)
+  },
+  deleteVpcConnectionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'deleteVpcConnection', 'Kafka', Promise.resolve(result), false, mock)
+  },
+  deleteVpcConnectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'deleteVpcConnection', 'Kafka', Promise.reject(result), true, mock)
   },
   describeCluster: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kafka', 'describeCluster', 'Kafka', Promise.resolve(result), true, mock)
@@ -89,6 +142,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeClusterOperationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kafka', 'describeClusterOperation', 'Kafka', Promise.reject(result), true, mock)
   },
+  describeClusterOperationV2: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'describeClusterOperationV2', 'Kafka', Promise.resolve(result), true, mock)
+  },
+  describeClusterOperationV2All: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'describeClusterOperationV2', 'Kafka', Promise.resolve(result), false, mock)
+  },
+  describeClusterOperationV2Throw: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'describeClusterOperationV2', 'Kafka', Promise.reject(result), true, mock)
+  },
+  describeClusterV2: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'describeClusterV2', 'Kafka', Promise.resolve(result), true, mock)
+  },
+  describeClusterV2All: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'describeClusterV2', 'Kafka', Promise.resolve(result), false, mock)
+  },
+  describeClusterV2Throw: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'describeClusterV2', 'Kafka', Promise.reject(result), true, mock)
+  },
   describeConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kafka', 'describeConfiguration', 'Kafka', Promise.resolve(result), true, mock)
   },
@@ -107,14 +178,23 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeConfigurationRevisionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kafka', 'describeConfigurationRevision', 'Kafka', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-kafka', 'destroy', 'Kafka', Promise.resolve(result), true, mock)
+  describeReplicator: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'describeReplicator', 'Kafka', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-kafka', 'destroy', 'Kafka', Promise.resolve(result), false, mock)
+  describeReplicatorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'describeReplicator', 'Kafka', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-kafka', 'destroy', 'Kafka', Promise.reject(result), true, mock)
+  describeReplicatorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'describeReplicator', 'Kafka', Promise.reject(result), true, mock)
+  },
+  describeVpcConnection: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'describeVpcConnection', 'Kafka', Promise.resolve(result), true, mock)
+  },
+  describeVpcConnectionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'describeVpcConnection', 'Kafka', Promise.resolve(result), false, mock)
+  },
+  describeVpcConnectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'describeVpcConnection', 'Kafka', Promise.reject(result), true, mock)
   },
   getBootstrapBrokers: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kafka', 'getBootstrapBrokers', 'Kafka', Promise.resolve(result), true, mock)
@@ -125,6 +205,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getBootstrapBrokersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kafka', 'getBootstrapBrokers', 'Kafka', Promise.reject(result), true, mock)
   },
+  getClusterPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'getClusterPolicy', 'Kafka', Promise.resolve(result), true, mock)
+  },
+  getClusterPolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'getClusterPolicy', 'Kafka', Promise.resolve(result), false, mock)
+  },
+  getClusterPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'getClusterPolicy', 'Kafka', Promise.reject(result), true, mock)
+  },
   getCompatibleKafkaVersions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kafka', 'getCompatibleKafkaVersions', 'Kafka', Promise.resolve(result), true, mock)
   },
@@ -133,6 +222,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getCompatibleKafkaVersionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kafka', 'getCompatibleKafkaVersions', 'Kafka', Promise.reject(result), true, mock)
+  },
+  listClientVpcConnections: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'listClientVpcConnections', 'Kafka', Promise.resolve(result), true, mock)
+  },
+  listClientVpcConnectionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'listClientVpcConnections', 'Kafka', Promise.resolve(result), false, mock)
+  },
+  listClientVpcConnectionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'listClientVpcConnections', 'Kafka', Promise.reject(result), true, mock)
   },
   listClusterOperations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kafka', 'listClusterOperations', 'Kafka', Promise.resolve(result), true, mock)
@@ -143,6 +241,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listClusterOperationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kafka', 'listClusterOperations', 'Kafka', Promise.reject(result), true, mock)
   },
+  listClusterOperationsV2: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'listClusterOperationsV2', 'Kafka', Promise.resolve(result), true, mock)
+  },
+  listClusterOperationsV2All: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'listClusterOperationsV2', 'Kafka', Promise.resolve(result), false, mock)
+  },
+  listClusterOperationsV2Throw: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'listClusterOperationsV2', 'Kafka', Promise.reject(result), true, mock)
+  },
   listClusters: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kafka', 'listClusters', 'Kafka', Promise.resolve(result), true, mock)
   },
@@ -151,6 +258,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listClustersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kafka', 'listClusters', 'Kafka', Promise.reject(result), true, mock)
+  },
+  listClustersV2: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'listClustersV2', 'Kafka', Promise.resolve(result), true, mock)
+  },
+  listClustersV2All: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'listClustersV2', 'Kafka', Promise.resolve(result), false, mock)
+  },
+  listClustersV2Throw: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'listClustersV2', 'Kafka', Promise.reject(result), true, mock)
   },
   listConfigurationRevisions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kafka', 'listConfigurationRevisions', 'Kafka', Promise.resolve(result), true, mock)
@@ -188,6 +304,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listNodesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kafka', 'listNodes', 'Kafka', Promise.reject(result), true, mock)
   },
+  listReplicators: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'listReplicators', 'Kafka', Promise.resolve(result), true, mock)
+  },
+  listReplicatorsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'listReplicators', 'Kafka', Promise.resolve(result), false, mock)
+  },
+  listReplicatorsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'listReplicators', 'Kafka', Promise.reject(result), true, mock)
+  },
   listScramSecrets: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kafka', 'listScramSecrets', 'Kafka', Promise.resolve(result), true, mock)
   },
@@ -206,6 +331,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listTagsForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kafka', 'listTagsForResource', 'Kafka', Promise.reject(result), true, mock)
   },
+  listVpcConnections: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'listVpcConnections', 'Kafka', Promise.resolve(result), true, mock)
+  },
+  listVpcConnectionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'listVpcConnections', 'Kafka', Promise.resolve(result), false, mock)
+  },
+  listVpcConnectionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'listVpcConnections', 'Kafka', Promise.reject(result), true, mock)
+  },
+  putClusterPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'putClusterPolicy', 'Kafka', Promise.resolve(result), true, mock)
+  },
+  putClusterPolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'putClusterPolicy', 'Kafka', Promise.resolve(result), false, mock)
+  },
+  putClusterPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'putClusterPolicy', 'Kafka', Promise.reject(result), true, mock)
+  },
   rebootBroker: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kafka', 'rebootBroker', 'Kafka', Promise.resolve(result), true, mock)
   },
@@ -214,6 +357,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   rebootBrokerThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kafka', 'rebootBroker', 'Kafka', Promise.reject(result), true, mock)
+  },
+  rejectClientVpcConnection: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'rejectClientVpcConnection', 'Kafka', Promise.resolve(result), true, mock)
+  },
+  rejectClientVpcConnectionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'rejectClientVpcConnection', 'Kafka', Promise.resolve(result), false, mock)
+  },
+  rejectClientVpcConnectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'rejectClientVpcConnection', 'Kafka', Promise.reject(result), true, mock)
   },
   tagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kafka', 'tagResource', 'Kafka', Promise.resolve(result), true, mock)
@@ -287,6 +439,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   updateConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kafka', 'updateConfiguration', 'Kafka', Promise.reject(result), true, mock)
   },
+  updateConnectivity: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'updateConnectivity', 'Kafka', Promise.resolve(result), true, mock)
+  },
+  updateConnectivityAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'updateConnectivity', 'Kafka', Promise.resolve(result), false, mock)
+  },
+  updateConnectivityThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'updateConnectivity', 'Kafka', Promise.reject(result), true, mock)
+  },
   updateMonitoring: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kafka', 'updateMonitoring', 'Kafka', Promise.resolve(result), true, mock)
   },
@@ -296,6 +457,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   updateMonitoringThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kafka', 'updateMonitoring', 'Kafka', Promise.reject(result), true, mock)
   },
+  updateReplicationInfo: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'updateReplicationInfo', 'Kafka', Promise.resolve(result), true, mock)
+  },
+  updateReplicationInfoAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'updateReplicationInfo', 'Kafka', Promise.resolve(result), false, mock)
+  },
+  updateReplicationInfoThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'updateReplicationInfo', 'Kafka', Promise.reject(result), true, mock)
+  },
   updateSecurity: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kafka', 'updateSecurity', 'Kafka', Promise.resolve(result), true, mock)
   },
@@ -304,6 +474,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateSecurityThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kafka', 'updateSecurity', 'Kafka', Promise.reject(result), true, mock)
+  },
+  updateStorage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'updateStorage', 'Kafka', Promise.resolve(result), true, mock)
+  },
+  updateStorageAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'updateStorage', 'Kafka', Promise.resolve(result), false, mock)
+  },
+  updateStorageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-kafka', 'updateStorage', 'Kafka', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kafka', 'send', 'KafkaClient', Promise.resolve(result), true, mock)

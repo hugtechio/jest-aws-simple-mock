@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockECS = {
+export const mockECS = {
   createCapacityProvider: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ecs', 'createCapacityProvider', 'ECS', Promise.resolve(result), true, mock)
   },
@@ -97,6 +96,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteServiceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ecs', 'deleteService', 'ECS', Promise.reject(result), true, mock)
+  },
+  deleteTaskDefinitions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ecs', 'deleteTaskDefinitions', 'ECS', Promise.resolve(result), true, mock)
+  },
+  deleteTaskDefinitionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ecs', 'deleteTaskDefinitions', 'ECS', Promise.resolve(result), false, mock)
+  },
+  deleteTaskDefinitionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ecs', 'deleteTaskDefinitions', 'ECS', Promise.reject(result), true, mock)
   },
   deleteTaskSet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ecs', 'deleteTaskSet', 'ECS', Promise.resolve(result), true, mock)
@@ -188,15 +196,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeTasksThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ecs', 'describeTasks', 'ECS', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ecs', 'destroy', 'ECS', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ecs', 'destroy', 'ECS', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ecs', 'destroy', 'ECS', Promise.reject(result), true, mock)
-  },
   discoverPollEndpoint: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ecs', 'discoverPollEndpoint', 'ECS', Promise.resolve(result), true, mock)
   },
@@ -206,14 +205,23 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   discoverPollEndpointThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ecs', 'discoverPollEndpoint', 'ECS', Promise.reject(result), true, mock)
   },
-  executeCommand: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ecs', 'executeCommand', 'ECS', Promise.resolve(result), true, mock)
+  execute: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ecs', 'execute', 'ECS', Promise.resolve(result), true, mock)
   },
-  executeCommandAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ecs', 'executeCommand', 'ECS', Promise.resolve(result), false, mock)
+  executeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ecs', 'execute', 'ECS', Promise.resolve(result), false, mock)
   },
-  executeCommandThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ecs', 'executeCommand', 'ECS', Promise.reject(result), true, mock)
+  executeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ecs', 'execute', 'ECS', Promise.reject(result), true, mock)
+  },
+  getTaskProtection: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ecs', 'getTaskProtection', 'ECS', Promise.resolve(result), true, mock)
+  },
+  getTaskProtectionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ecs', 'getTaskProtection', 'ECS', Promise.resolve(result), false, mock)
+  },
+  getTaskProtectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ecs', 'getTaskProtection', 'ECS', Promise.reject(result), true, mock)
   },
   listAccountSettings: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ecs', 'listAccountSettings', 'ECS', Promise.resolve(result), true, mock)
@@ -250,6 +258,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listContainerInstancesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ecs', 'listContainerInstances', 'ECS', Promise.reject(result), true, mock)
+  },
+  listServicesByNamespace: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ecs', 'listServicesByNamespace', 'ECS', Promise.resolve(result), true, mock)
+  },
+  listServicesByNamespaceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ecs', 'listServicesByNamespace', 'ECS', Promise.resolve(result), false, mock)
+  },
+  listServicesByNamespaceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ecs', 'listServicesByNamespace', 'ECS', Promise.reject(result), true, mock)
   },
   listServices: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ecs', 'listServices', 'ECS', Promise.resolve(result), true, mock)
@@ -484,6 +501,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateServicePrimaryTaskSetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ecs', 'updateServicePrimaryTaskSet', 'ECS', Promise.reject(result), true, mock)
+  },
+  updateTaskProtection: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ecs', 'updateTaskProtection', 'ECS', Promise.resolve(result), true, mock)
+  },
+  updateTaskProtectionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ecs', 'updateTaskProtection', 'ECS', Promise.resolve(result), false, mock)
+  },
+  updateTaskProtectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ecs', 'updateTaskProtection', 'ECS', Promise.reject(result), true, mock)
   },
   updateTaskSet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ecs', 'updateTaskSet', 'ECS', Promise.resolve(result), true, mock)

@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockSecurityHub = {
+export const mockSecurityHub = {
   acceptAdministratorInvitation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-securityhub', 'acceptAdministratorInvitation', 'SecurityHub', Promise.resolve(result), true, mock)
   },
@@ -34,6 +33,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   acceptInvitationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-securityhub', 'acceptInvitation', 'SecurityHub', Promise.reject(result), true, mock)
+  },
+  batchDeleteAutomationRules: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'batchDeleteAutomationRules', 'SecurityHub', Promise.resolve(result), true, mock)
+  },
+  batchDeleteAutomationRulesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'batchDeleteAutomationRules', 'SecurityHub', Promise.resolve(result), false, mock)
+  },
+  batchDeleteAutomationRulesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'batchDeleteAutomationRules', 'SecurityHub', Promise.reject(result), true, mock)
   },
   batchDisableStandards: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-securityhub', 'batchDisableStandards', 'SecurityHub', Promise.resolve(result), true, mock)
@@ -53,6 +61,42 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   batchEnableStandardsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-securityhub', 'batchEnableStandards', 'SecurityHub', Promise.reject(result), true, mock)
   },
+  batchGetAutomationRules: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'batchGetAutomationRules', 'SecurityHub', Promise.resolve(result), true, mock)
+  },
+  batchGetAutomationRulesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'batchGetAutomationRules', 'SecurityHub', Promise.resolve(result), false, mock)
+  },
+  batchGetAutomationRulesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'batchGetAutomationRules', 'SecurityHub', Promise.reject(result), true, mock)
+  },
+  batchGetConfigurationPolicyAssociations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'batchGetConfigurationPolicyAssociations', 'SecurityHub', Promise.resolve(result), true, mock)
+  },
+  batchGetConfigurationPolicyAssociationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'batchGetConfigurationPolicyAssociations', 'SecurityHub', Promise.resolve(result), false, mock)
+  },
+  batchGetConfigurationPolicyAssociationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'batchGetConfigurationPolicyAssociations', 'SecurityHub', Promise.reject(result), true, mock)
+  },
+  batchGetSecurityControls: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'batchGetSecurityControls', 'SecurityHub', Promise.resolve(result), true, mock)
+  },
+  batchGetSecurityControlsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'batchGetSecurityControls', 'SecurityHub', Promise.resolve(result), false, mock)
+  },
+  batchGetSecurityControlsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'batchGetSecurityControls', 'SecurityHub', Promise.reject(result), true, mock)
+  },
+  batchGetStandardsControlAssociations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'batchGetStandardsControlAssociations', 'SecurityHub', Promise.resolve(result), true, mock)
+  },
+  batchGetStandardsControlAssociationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'batchGetStandardsControlAssociations', 'SecurityHub', Promise.resolve(result), false, mock)
+  },
+  batchGetStandardsControlAssociationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'batchGetStandardsControlAssociations', 'SecurityHub', Promise.reject(result), true, mock)
+  },
   batchImportFindings: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-securityhub', 'batchImportFindings', 'SecurityHub', Promise.resolve(result), true, mock)
   },
@@ -61,6 +105,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   batchImportFindingsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-securityhub', 'batchImportFindings', 'SecurityHub', Promise.reject(result), true, mock)
+  },
+  batchUpdateAutomationRules: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'batchUpdateAutomationRules', 'SecurityHub', Promise.resolve(result), true, mock)
+  },
+  batchUpdateAutomationRulesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'batchUpdateAutomationRules', 'SecurityHub', Promise.resolve(result), false, mock)
+  },
+  batchUpdateAutomationRulesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'batchUpdateAutomationRules', 'SecurityHub', Promise.reject(result), true, mock)
   },
   batchUpdateFindings: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-securityhub', 'batchUpdateFindings', 'SecurityHub', Promise.resolve(result), true, mock)
@@ -71,6 +124,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   batchUpdateFindingsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-securityhub', 'batchUpdateFindings', 'SecurityHub', Promise.reject(result), true, mock)
   },
+  batchUpdateStandardsControlAssociations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'batchUpdateStandardsControlAssociations', 'SecurityHub', Promise.resolve(result), true, mock)
+  },
+  batchUpdateStandardsControlAssociationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'batchUpdateStandardsControlAssociations', 'SecurityHub', Promise.resolve(result), false, mock)
+  },
+  batchUpdateStandardsControlAssociationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'batchUpdateStandardsControlAssociations', 'SecurityHub', Promise.reject(result), true, mock)
+  },
   createActionTarget: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-securityhub', 'createActionTarget', 'SecurityHub', Promise.resolve(result), true, mock)
   },
@@ -79,6 +141,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createActionTargetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-securityhub', 'createActionTarget', 'SecurityHub', Promise.reject(result), true, mock)
+  },
+  createAutomationRule: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'createAutomationRule', 'SecurityHub', Promise.resolve(result), true, mock)
+  },
+  createAutomationRuleAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'createAutomationRule', 'SecurityHub', Promise.resolve(result), false, mock)
+  },
+  createAutomationRuleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'createAutomationRule', 'SecurityHub', Promise.reject(result), true, mock)
+  },
+  createConfigurationPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'createConfigurationPolicy', 'SecurityHub', Promise.resolve(result), true, mock)
+  },
+  createConfigurationPolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'createConfigurationPolicy', 'SecurityHub', Promise.resolve(result), false, mock)
+  },
+  createConfigurationPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'createConfigurationPolicy', 'SecurityHub', Promise.reject(result), true, mock)
   },
   createFindingAggregator: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-securityhub', 'createFindingAggregator', 'SecurityHub', Promise.resolve(result), true, mock)
@@ -124,6 +204,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteActionTargetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-securityhub', 'deleteActionTarget', 'SecurityHub', Promise.reject(result), true, mock)
+  },
+  deleteConfigurationPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'deleteConfigurationPolicy', 'SecurityHub', Promise.resolve(result), true, mock)
+  },
+  deleteConfigurationPolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'deleteConfigurationPolicy', 'SecurityHub', Promise.resolve(result), false, mock)
+  },
+  deleteConfigurationPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'deleteConfigurationPolicy', 'SecurityHub', Promise.reject(result), true, mock)
   },
   deleteFindingAggregator: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-securityhub', 'deleteFindingAggregator', 'SecurityHub', Promise.resolve(result), true, mock)
@@ -215,15 +304,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeStandardsControlsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-securityhub', 'describeStandardsControls', 'SecurityHub', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-securityhub', 'destroy', 'SecurityHub', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-securityhub', 'destroy', 'SecurityHub', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-securityhub', 'destroy', 'SecurityHub', Promise.reject(result), true, mock)
-  },
   disableImportFindingsForProduct: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-securityhub', 'disableImportFindingsForProduct', 'SecurityHub', Promise.resolve(result), true, mock)
   },
@@ -314,6 +394,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getAdministratorAccountThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-securityhub', 'getAdministratorAccount', 'SecurityHub', Promise.reject(result), true, mock)
   },
+  getConfigurationPolicyAssociation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'getConfigurationPolicyAssociation', 'SecurityHub', Promise.resolve(result), true, mock)
+  },
+  getConfigurationPolicyAssociationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'getConfigurationPolicyAssociation', 'SecurityHub', Promise.resolve(result), false, mock)
+  },
+  getConfigurationPolicyAssociationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'getConfigurationPolicyAssociation', 'SecurityHub', Promise.reject(result), true, mock)
+  },
+  getConfigurationPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'getConfigurationPolicy', 'SecurityHub', Promise.resolve(result), true, mock)
+  },
+  getConfigurationPolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'getConfigurationPolicy', 'SecurityHub', Promise.resolve(result), false, mock)
+  },
+  getConfigurationPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'getConfigurationPolicy', 'SecurityHub', Promise.reject(result), true, mock)
+  },
   getEnabledStandards: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-securityhub', 'getEnabledStandards', 'SecurityHub', Promise.resolve(result), true, mock)
   },
@@ -331,6 +429,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getFindingAggregatorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-securityhub', 'getFindingAggregator', 'SecurityHub', Promise.reject(result), true, mock)
+  },
+  getFindingHistory: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'getFindingHistory', 'SecurityHub', Promise.resolve(result), true, mock)
+  },
+  getFindingHistoryAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'getFindingHistory', 'SecurityHub', Promise.resolve(result), false, mock)
+  },
+  getFindingHistoryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'getFindingHistory', 'SecurityHub', Promise.reject(result), true, mock)
   },
   getFindings: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-securityhub', 'getFindings', 'SecurityHub', Promise.resolve(result), true, mock)
@@ -386,6 +493,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getMembersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-securityhub', 'getMembers', 'SecurityHub', Promise.reject(result), true, mock)
   },
+  getSecurityControlDefinition: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'getSecurityControlDefinition', 'SecurityHub', Promise.resolve(result), true, mock)
+  },
+  getSecurityControlDefinitionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'getSecurityControlDefinition', 'SecurityHub', Promise.resolve(result), false, mock)
+  },
+  getSecurityControlDefinitionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'getSecurityControlDefinition', 'SecurityHub', Promise.reject(result), true, mock)
+  },
   inviteMembers: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-securityhub', 'inviteMembers', 'SecurityHub', Promise.resolve(result), true, mock)
   },
@@ -394,6 +510,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   inviteMembersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-securityhub', 'inviteMembers', 'SecurityHub', Promise.reject(result), true, mock)
+  },
+  listAutomationRules: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'listAutomationRules', 'SecurityHub', Promise.resolve(result), true, mock)
+  },
+  listAutomationRulesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'listAutomationRules', 'SecurityHub', Promise.resolve(result), false, mock)
+  },
+  listAutomationRulesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'listAutomationRules', 'SecurityHub', Promise.reject(result), true, mock)
+  },
+  listConfigurationPolicies: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'listConfigurationPolicies', 'SecurityHub', Promise.resolve(result), true, mock)
+  },
+  listConfigurationPoliciesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'listConfigurationPolicies', 'SecurityHub', Promise.resolve(result), false, mock)
+  },
+  listConfigurationPoliciesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'listConfigurationPolicies', 'SecurityHub', Promise.reject(result), true, mock)
+  },
+  listConfigurationPolicyAssociations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'listConfigurationPolicyAssociations', 'SecurityHub', Promise.resolve(result), true, mock)
+  },
+  listConfigurationPolicyAssociationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'listConfigurationPolicyAssociations', 'SecurityHub', Promise.resolve(result), false, mock)
+  },
+  listConfigurationPolicyAssociationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'listConfigurationPolicyAssociations', 'SecurityHub', Promise.reject(result), true, mock)
   },
   listEnabledProductsForImport: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-securityhub', 'listEnabledProductsForImport', 'SecurityHub', Promise.resolve(result), true, mock)
@@ -440,6 +583,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listOrganizationAdminAccountsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-securityhub', 'listOrganizationAdminAccounts', 'SecurityHub', Promise.reject(result), true, mock)
   },
+  listSecurityControlDefinitions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'listSecurityControlDefinitions', 'SecurityHub', Promise.resolve(result), true, mock)
+  },
+  listSecurityControlDefinitionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'listSecurityControlDefinitions', 'SecurityHub', Promise.resolve(result), false, mock)
+  },
+  listSecurityControlDefinitionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'listSecurityControlDefinitions', 'SecurityHub', Promise.reject(result), true, mock)
+  },
+  listStandardsControlAssociations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'listStandardsControlAssociations', 'SecurityHub', Promise.resolve(result), true, mock)
+  },
+  listStandardsControlAssociationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'listStandardsControlAssociations', 'SecurityHub', Promise.resolve(result), false, mock)
+  },
+  listStandardsControlAssociationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'listStandardsControlAssociations', 'SecurityHub', Promise.reject(result), true, mock)
+  },
   listTagsForResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-securityhub', 'listTagsForResource', 'SecurityHub', Promise.resolve(result), true, mock)
   },
@@ -448,6 +609,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listTagsForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-securityhub', 'listTagsForResource', 'SecurityHub', Promise.reject(result), true, mock)
+  },
+  startConfigurationPolicyAssociation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'startConfigurationPolicyAssociation', 'SecurityHub', Promise.resolve(result), true, mock)
+  },
+  startConfigurationPolicyAssociationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'startConfigurationPolicyAssociation', 'SecurityHub', Promise.resolve(result), false, mock)
+  },
+  startConfigurationPolicyAssociationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'startConfigurationPolicyAssociation', 'SecurityHub', Promise.reject(result), true, mock)
+  },
+  startConfigurationPolicyDisassociation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'startConfigurationPolicyDisassociation', 'SecurityHub', Promise.resolve(result), true, mock)
+  },
+  startConfigurationPolicyDisassociationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'startConfigurationPolicyDisassociation', 'SecurityHub', Promise.resolve(result), false, mock)
+  },
+  startConfigurationPolicyDisassociationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'startConfigurationPolicyDisassociation', 'SecurityHub', Promise.reject(result), true, mock)
   },
   tagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-securityhub', 'tagResource', 'SecurityHub', Promise.resolve(result), true, mock)
@@ -475,6 +654,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateActionTargetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-securityhub', 'updateActionTarget', 'SecurityHub', Promise.reject(result), true, mock)
+  },
+  updateConfigurationPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'updateConfigurationPolicy', 'SecurityHub', Promise.resolve(result), true, mock)
+  },
+  updateConfigurationPolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'updateConfigurationPolicy', 'SecurityHub', Promise.resolve(result), false, mock)
+  },
+  updateConfigurationPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'updateConfigurationPolicy', 'SecurityHub', Promise.reject(result), true, mock)
   },
   updateFindingAggregator: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-securityhub', 'updateFindingAggregator', 'SecurityHub', Promise.resolve(result), true, mock)
@@ -511,6 +699,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateOrganizationConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-securityhub', 'updateOrganizationConfiguration', 'SecurityHub', Promise.reject(result), true, mock)
+  },
+  updateSecurityControl: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'updateSecurityControl', 'SecurityHub', Promise.resolve(result), true, mock)
+  },
+  updateSecurityControlAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'updateSecurityControl', 'SecurityHub', Promise.resolve(result), false, mock)
+  },
+  updateSecurityControlThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-securityhub', 'updateSecurityControl', 'SecurityHub', Promise.reject(result), true, mock)
   },
   updateSecurityHubConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-securityhub', 'updateSecurityHubConfiguration', 'SecurityHub', Promise.resolve(result), true, mock)

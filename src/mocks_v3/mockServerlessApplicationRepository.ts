@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockServerlessApplicationRepository = {
+export const mockServerlessApplicationRepository = {
   createApplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-serverlessapplicationrepository', 'createApplication', 'ServerlessApplicationRepository', Promise.resolve(result), true, mock)
   },
@@ -61,15 +60,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteApplicationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-serverlessapplicationrepository', 'deleteApplication', 'ServerlessApplicationRepository', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-serverlessapplicationrepository', 'destroy', 'ServerlessApplicationRepository', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-serverlessapplicationrepository', 'destroy', 'ServerlessApplicationRepository', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-serverlessapplicationrepository', 'destroy', 'ServerlessApplicationRepository', Promise.reject(result), true, mock)
   },
   getApplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-serverlessapplicationrepository', 'getApplication', 'ServerlessApplicationRepository', Promise.resolve(result), true, mock)

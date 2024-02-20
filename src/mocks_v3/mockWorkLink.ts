@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockWorkLink = {
+export const mockWorkLink = {
   associateDomain: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-worklink', 'associateDomain', 'WorkLink', Promise.resolve(result), true, mock)
   },
@@ -133,15 +132,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeWebsiteCertificateAuthorityThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-worklink', 'describeWebsiteCertificateAuthority', 'WorkLink', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-worklink', 'destroy', 'WorkLink', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-worklink', 'destroy', 'WorkLink', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-worklink', 'destroy', 'WorkLink', Promise.reject(result), true, mock)
   },
   disassociateDomain: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-worklink', 'disassociateDomain', 'WorkLink', Promise.resolve(result), true, mock)

@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockCustomerProfiles = {
+export const mockCustomerProfiles = {
   addProfileKey: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-customer-profiles', 'addProfileKey', 'CustomerProfiles', Promise.resolve(result), true, mock)
   },
@@ -25,6 +24,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   addProfileKeyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-customer-profiles', 'addProfileKey', 'CustomerProfiles', Promise.reject(result), true, mock)
+  },
+  createCalculatedAttributeDefinition: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'createCalculatedAttributeDefinition', 'CustomerProfiles', Promise.resolve(result), true, mock)
+  },
+  createCalculatedAttributeDefinitionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'createCalculatedAttributeDefinition', 'CustomerProfiles', Promise.resolve(result), false, mock)
+  },
+  createCalculatedAttributeDefinitionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'createCalculatedAttributeDefinition', 'CustomerProfiles', Promise.reject(result), true, mock)
   },
   createDomain: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-customer-profiles', 'createDomain', 'CustomerProfiles', Promise.resolve(result), true, mock)
@@ -35,6 +43,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createDomainThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-customer-profiles', 'createDomain', 'CustomerProfiles', Promise.reject(result), true, mock)
   },
+  createEventStream: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'createEventStream', 'CustomerProfiles', Promise.resolve(result), true, mock)
+  },
+  createEventStreamAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'createEventStream', 'CustomerProfiles', Promise.resolve(result), false, mock)
+  },
+  createEventStreamThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'createEventStream', 'CustomerProfiles', Promise.reject(result), true, mock)
+  },
+  createIntegrationWorkflow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'createIntegrationWorkflow', 'CustomerProfiles', Promise.resolve(result), true, mock)
+  },
+  createIntegrationWorkflowAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'createIntegrationWorkflow', 'CustomerProfiles', Promise.resolve(result), false, mock)
+  },
+  createIntegrationWorkflowThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'createIntegrationWorkflow', 'CustomerProfiles', Promise.reject(result), true, mock)
+  },
   createProfile: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-customer-profiles', 'createProfile', 'CustomerProfiles', Promise.resolve(result), true, mock)
   },
@@ -44,6 +70,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createProfileThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-customer-profiles', 'createProfile', 'CustomerProfiles', Promise.reject(result), true, mock)
   },
+  deleteCalculatedAttributeDefinition: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'deleteCalculatedAttributeDefinition', 'CustomerProfiles', Promise.resolve(result), true, mock)
+  },
+  deleteCalculatedAttributeDefinitionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'deleteCalculatedAttributeDefinition', 'CustomerProfiles', Promise.resolve(result), false, mock)
+  },
+  deleteCalculatedAttributeDefinitionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'deleteCalculatedAttributeDefinition', 'CustomerProfiles', Promise.reject(result), true, mock)
+  },
   deleteDomain: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-customer-profiles', 'deleteDomain', 'CustomerProfiles', Promise.resolve(result), true, mock)
   },
@@ -52,6 +87,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteDomainThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-customer-profiles', 'deleteDomain', 'CustomerProfiles', Promise.reject(result), true, mock)
+  },
+  deleteEventStream: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'deleteEventStream', 'CustomerProfiles', Promise.resolve(result), true, mock)
+  },
+  deleteEventStreamAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'deleteEventStream', 'CustomerProfiles', Promise.resolve(result), false, mock)
+  },
+  deleteEventStreamThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'deleteEventStream', 'CustomerProfiles', Promise.reject(result), true, mock)
   },
   deleteIntegration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-customer-profiles', 'deleteIntegration', 'CustomerProfiles', Promise.resolve(result), true, mock)
@@ -98,14 +142,50 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteProfileObjectTypeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-customer-profiles', 'deleteProfileObjectType', 'CustomerProfiles', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-customer-profiles', 'destroy', 'CustomerProfiles', Promise.resolve(result), true, mock)
+  deleteWorkflow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'deleteWorkflow', 'CustomerProfiles', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-customer-profiles', 'destroy', 'CustomerProfiles', Promise.resolve(result), false, mock)
+  deleteWorkflowAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'deleteWorkflow', 'CustomerProfiles', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-customer-profiles', 'destroy', 'CustomerProfiles', Promise.reject(result), true, mock)
+  deleteWorkflowThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'deleteWorkflow', 'CustomerProfiles', Promise.reject(result), true, mock)
+  },
+  detectProfileObjectType: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'detectProfileObjectType', 'CustomerProfiles', Promise.resolve(result), true, mock)
+  },
+  detectProfileObjectTypeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'detectProfileObjectType', 'CustomerProfiles', Promise.resolve(result), false, mock)
+  },
+  detectProfileObjectTypeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'detectProfileObjectType', 'CustomerProfiles', Promise.reject(result), true, mock)
+  },
+  getAutoMergingPreview: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'getAutoMergingPreview', 'CustomerProfiles', Promise.resolve(result), true, mock)
+  },
+  getAutoMergingPreviewAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'getAutoMergingPreview', 'CustomerProfiles', Promise.resolve(result), false, mock)
+  },
+  getAutoMergingPreviewThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'getAutoMergingPreview', 'CustomerProfiles', Promise.reject(result), true, mock)
+  },
+  getCalculatedAttributeDefinition: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'getCalculatedAttributeDefinition', 'CustomerProfiles', Promise.resolve(result), true, mock)
+  },
+  getCalculatedAttributeDefinitionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'getCalculatedAttributeDefinition', 'CustomerProfiles', Promise.resolve(result), false, mock)
+  },
+  getCalculatedAttributeDefinitionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'getCalculatedAttributeDefinition', 'CustomerProfiles', Promise.reject(result), true, mock)
+  },
+  getCalculatedAttributeForProfile: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'getCalculatedAttributeForProfile', 'CustomerProfiles', Promise.resolve(result), true, mock)
+  },
+  getCalculatedAttributeForProfileAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'getCalculatedAttributeForProfile', 'CustomerProfiles', Promise.resolve(result), false, mock)
+  },
+  getCalculatedAttributeForProfileThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'getCalculatedAttributeForProfile', 'CustomerProfiles', Promise.reject(result), true, mock)
   },
   getDomain: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-customer-profiles', 'getDomain', 'CustomerProfiles', Promise.resolve(result), true, mock)
@@ -115,6 +195,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getDomainThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-customer-profiles', 'getDomain', 'CustomerProfiles', Promise.reject(result), true, mock)
+  },
+  getEventStream: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'getEventStream', 'CustomerProfiles', Promise.resolve(result), true, mock)
+  },
+  getEventStreamAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'getEventStream', 'CustomerProfiles', Promise.resolve(result), false, mock)
+  },
+  getEventStreamThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'getEventStream', 'CustomerProfiles', Promise.reject(result), true, mock)
+  },
+  getIdentityResolutionJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'getIdentityResolutionJob', 'CustomerProfiles', Promise.resolve(result), true, mock)
+  },
+  getIdentityResolutionJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'getIdentityResolutionJob', 'CustomerProfiles', Promise.resolve(result), false, mock)
+  },
+  getIdentityResolutionJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'getIdentityResolutionJob', 'CustomerProfiles', Promise.reject(result), true, mock)
   },
   getIntegration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-customer-profiles', 'getIntegration', 'CustomerProfiles', Promise.resolve(result), true, mock)
@@ -152,6 +250,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getProfileObjectTypeTemplateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-customer-profiles', 'getProfileObjectTypeTemplate', 'CustomerProfiles', Promise.reject(result), true, mock)
   },
+  getSimilarProfiles: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'getSimilarProfiles', 'CustomerProfiles', Promise.resolve(result), true, mock)
+  },
+  getSimilarProfilesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'getSimilarProfiles', 'CustomerProfiles', Promise.resolve(result), false, mock)
+  },
+  getSimilarProfilesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'getSimilarProfiles', 'CustomerProfiles', Promise.reject(result), true, mock)
+  },
+  getWorkflow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'getWorkflow', 'CustomerProfiles', Promise.resolve(result), true, mock)
+  },
+  getWorkflowAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'getWorkflow', 'CustomerProfiles', Promise.resolve(result), false, mock)
+  },
+  getWorkflowThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'getWorkflow', 'CustomerProfiles', Promise.reject(result), true, mock)
+  },
+  getWorkflowSteps: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'getWorkflowSteps', 'CustomerProfiles', Promise.resolve(result), true, mock)
+  },
+  getWorkflowStepsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'getWorkflowSteps', 'CustomerProfiles', Promise.resolve(result), false, mock)
+  },
+  getWorkflowStepsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'getWorkflowSteps', 'CustomerProfiles', Promise.reject(result), true, mock)
+  },
   listAccountIntegrations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-customer-profiles', 'listAccountIntegrations', 'CustomerProfiles', Promise.resolve(result), true, mock)
   },
@@ -161,6 +286,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listAccountIntegrationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-customer-profiles', 'listAccountIntegrations', 'CustomerProfiles', Promise.reject(result), true, mock)
   },
+  listCalculatedAttributeDefinitions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'listCalculatedAttributeDefinitions', 'CustomerProfiles', Promise.resolve(result), true, mock)
+  },
+  listCalculatedAttributeDefinitionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'listCalculatedAttributeDefinitions', 'CustomerProfiles', Promise.resolve(result), false, mock)
+  },
+  listCalculatedAttributeDefinitionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'listCalculatedAttributeDefinitions', 'CustomerProfiles', Promise.reject(result), true, mock)
+  },
+  listCalculatedAttributesForProfile: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'listCalculatedAttributesForProfile', 'CustomerProfiles', Promise.resolve(result), true, mock)
+  },
+  listCalculatedAttributesForProfileAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'listCalculatedAttributesForProfile', 'CustomerProfiles', Promise.resolve(result), false, mock)
+  },
+  listCalculatedAttributesForProfileThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'listCalculatedAttributesForProfile', 'CustomerProfiles', Promise.reject(result), true, mock)
+  },
   listDomains: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-customer-profiles', 'listDomains', 'CustomerProfiles', Promise.resolve(result), true, mock)
   },
@@ -169,6 +312,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listDomainsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-customer-profiles', 'listDomains', 'CustomerProfiles', Promise.reject(result), true, mock)
+  },
+  listEventStreams: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'listEventStreams', 'CustomerProfiles', Promise.resolve(result), true, mock)
+  },
+  listEventStreamsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'listEventStreams', 'CustomerProfiles', Promise.resolve(result), false, mock)
+  },
+  listEventStreamsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'listEventStreams', 'CustomerProfiles', Promise.reject(result), true, mock)
+  },
+  listIdentityResolutionJobs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'listIdentityResolutionJobs', 'CustomerProfiles', Promise.resolve(result), true, mock)
+  },
+  listIdentityResolutionJobsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'listIdentityResolutionJobs', 'CustomerProfiles', Promise.resolve(result), false, mock)
+  },
+  listIdentityResolutionJobsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'listIdentityResolutionJobs', 'CustomerProfiles', Promise.reject(result), true, mock)
   },
   listIntegrations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-customer-profiles', 'listIntegrations', 'CustomerProfiles', Promise.resolve(result), true, mock)
@@ -206,6 +367,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listProfileObjectsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-customer-profiles', 'listProfileObjects', 'CustomerProfiles', Promise.reject(result), true, mock)
   },
+  listRuleBasedMatches: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'listRuleBasedMatches', 'CustomerProfiles', Promise.resolve(result), true, mock)
+  },
+  listRuleBasedMatchesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'listRuleBasedMatches', 'CustomerProfiles', Promise.resolve(result), false, mock)
+  },
+  listRuleBasedMatchesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'listRuleBasedMatches', 'CustomerProfiles', Promise.reject(result), true, mock)
+  },
   listTagsForResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-customer-profiles', 'listTagsForResource', 'CustomerProfiles', Promise.resolve(result), true, mock)
   },
@@ -214,6 +384,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listTagsForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-customer-profiles', 'listTagsForResource', 'CustomerProfiles', Promise.reject(result), true, mock)
+  },
+  listWorkflows: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'listWorkflows', 'CustomerProfiles', Promise.resolve(result), true, mock)
+  },
+  listWorkflowsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'listWorkflows', 'CustomerProfiles', Promise.resolve(result), false, mock)
+  },
+  listWorkflowsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'listWorkflows', 'CustomerProfiles', Promise.reject(result), true, mock)
   },
   mergeProfiles: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-customer-profiles', 'mergeProfiles', 'CustomerProfiles', Promise.resolve(result), true, mock)
@@ -277,6 +456,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   untagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-customer-profiles', 'untagResource', 'CustomerProfiles', Promise.reject(result), true, mock)
+  },
+  updateCalculatedAttributeDefinition: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'updateCalculatedAttributeDefinition', 'CustomerProfiles', Promise.resolve(result), true, mock)
+  },
+  updateCalculatedAttributeDefinitionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'updateCalculatedAttributeDefinition', 'CustomerProfiles', Promise.resolve(result), false, mock)
+  },
+  updateCalculatedAttributeDefinitionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-customer-profiles', 'updateCalculatedAttributeDefinition', 'CustomerProfiles', Promise.reject(result), true, mock)
   },
   updateDomain: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-customer-profiles', 'updateDomain', 'CustomerProfiles', Promise.resolve(result), true, mock)

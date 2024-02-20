@@ -15,8 +15,34 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockAppStream = {
+export const mockAppStream = {
+  associateAppBlockBuilderAppBlock: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'associateAppBlockBuilderAppBlock', 'AppStream', Promise.resolve(result), true, mock)
+  },
+  associateAppBlockBuilderAppBlockAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'associateAppBlockBuilderAppBlock', 'AppStream', Promise.resolve(result), false, mock)
+  },
+  associateAppBlockBuilderAppBlockThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'associateAppBlockBuilderAppBlock', 'AppStream', Promise.reject(result), true, mock)
+  },
+  associateApplicationFleet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'associateApplicationFleet', 'AppStream', Promise.resolve(result), true, mock)
+  },
+  associateApplicationFleetAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'associateApplicationFleet', 'AppStream', Promise.resolve(result), false, mock)
+  },
+  associateApplicationFleetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'associateApplicationFleet', 'AppStream', Promise.reject(result), true, mock)
+  },
+  associateApplicationToEntitlement: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'associateApplicationToEntitlement', 'AppStream', Promise.resolve(result), true, mock)
+  },
+  associateApplicationToEntitlementAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'associateApplicationToEntitlement', 'AppStream', Promise.resolve(result), false, mock)
+  },
+  associateApplicationToEntitlementThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'associateApplicationToEntitlement', 'AppStream', Promise.reject(result), true, mock)
+  },
   associateFleet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appstream', 'associateFleet', 'AppStream', Promise.resolve(result), true, mock)
   },
@@ -53,6 +79,42 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   copyImageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appstream', 'copyImage', 'AppStream', Promise.reject(result), true, mock)
   },
+  createAppBlockBuilder: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'createAppBlockBuilder', 'AppStream', Promise.resolve(result), true, mock)
+  },
+  createAppBlockBuilderAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'createAppBlockBuilder', 'AppStream', Promise.resolve(result), false, mock)
+  },
+  createAppBlockBuilderThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'createAppBlockBuilder', 'AppStream', Promise.reject(result), true, mock)
+  },
+  createAppBlockBuilderStreamingURL: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'createAppBlockBuilderStreamingURL', 'AppStream', Promise.resolve(result), true, mock)
+  },
+  createAppBlockBuilderStreamingURLAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'createAppBlockBuilderStreamingURL', 'AppStream', Promise.resolve(result), false, mock)
+  },
+  createAppBlockBuilderStreamingURLThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'createAppBlockBuilderStreamingURL', 'AppStream', Promise.reject(result), true, mock)
+  },
+  createAppBlock: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'createAppBlock', 'AppStream', Promise.resolve(result), true, mock)
+  },
+  createAppBlockAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'createAppBlock', 'AppStream', Promise.resolve(result), false, mock)
+  },
+  createAppBlockThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'createAppBlock', 'AppStream', Promise.reject(result), true, mock)
+  },
+  createApplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'createApplication', 'AppStream', Promise.resolve(result), true, mock)
+  },
+  createApplicationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'createApplication', 'AppStream', Promise.resolve(result), false, mock)
+  },
+  createApplicationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'createApplication', 'AppStream', Promise.reject(result), true, mock)
+  },
   createDirectoryConfig: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appstream', 'createDirectoryConfig', 'AppStream', Promise.resolve(result), true, mock)
   },
@@ -61,6 +123,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createDirectoryConfigThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appstream', 'createDirectoryConfig', 'AppStream', Promise.reject(result), true, mock)
+  },
+  createEntitlement: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'createEntitlement', 'AppStream', Promise.resolve(result), true, mock)
+  },
+  createEntitlementAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'createEntitlement', 'AppStream', Promise.resolve(result), false, mock)
+  },
+  createEntitlementThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'createEntitlement', 'AppStream', Promise.reject(result), true, mock)
   },
   createFleet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appstream', 'createFleet', 'AppStream', Promise.resolve(result), true, mock)
@@ -134,6 +205,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createUserThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appstream', 'createUser', 'AppStream', Promise.reject(result), true, mock)
   },
+  deleteAppBlockBuilder: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'deleteAppBlockBuilder', 'AppStream', Promise.resolve(result), true, mock)
+  },
+  deleteAppBlockBuilderAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'deleteAppBlockBuilder', 'AppStream', Promise.resolve(result), false, mock)
+  },
+  deleteAppBlockBuilderThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'deleteAppBlockBuilder', 'AppStream', Promise.reject(result), true, mock)
+  },
+  deleteAppBlock: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'deleteAppBlock', 'AppStream', Promise.resolve(result), true, mock)
+  },
+  deleteAppBlockAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'deleteAppBlock', 'AppStream', Promise.resolve(result), false, mock)
+  },
+  deleteAppBlockThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'deleteAppBlock', 'AppStream', Promise.reject(result), true, mock)
+  },
+  deleteApplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'deleteApplication', 'AppStream', Promise.resolve(result), true, mock)
+  },
+  deleteApplicationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'deleteApplication', 'AppStream', Promise.resolve(result), false, mock)
+  },
+  deleteApplicationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'deleteApplication', 'AppStream', Promise.reject(result), true, mock)
+  },
   deleteDirectoryConfig: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appstream', 'deleteDirectoryConfig', 'AppStream', Promise.resolve(result), true, mock)
   },
@@ -142,6 +240,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteDirectoryConfigThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appstream', 'deleteDirectoryConfig', 'AppStream', Promise.reject(result), true, mock)
+  },
+  deleteEntitlement: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'deleteEntitlement', 'AppStream', Promise.resolve(result), true, mock)
+  },
+  deleteEntitlementAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'deleteEntitlement', 'AppStream', Promise.resolve(result), false, mock)
+  },
+  deleteEntitlementThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'deleteEntitlement', 'AppStream', Promise.reject(result), true, mock)
   },
   deleteFleet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appstream', 'deleteFleet', 'AppStream', Promise.resolve(result), true, mock)
@@ -152,15 +259,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteFleetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appstream', 'deleteFleet', 'AppStream', Promise.reject(result), true, mock)
   },
-  deleteImage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-appstream', 'deleteImage', 'AppStream', Promise.resolve(result), true, mock)
-  },
-  deleteImageAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-appstream', 'deleteImage', 'AppStream', Promise.resolve(result), false, mock)
-  },
-  deleteImageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-appstream', 'deleteImage', 'AppStream', Promise.reject(result), true, mock)
-  },
   deleteImageBuilder: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appstream', 'deleteImageBuilder', 'AppStream', Promise.resolve(result), true, mock)
   },
@@ -169,6 +267,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteImageBuilderThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appstream', 'deleteImageBuilder', 'AppStream', Promise.reject(result), true, mock)
+  },
+  deleteImage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'deleteImage', 'AppStream', Promise.resolve(result), true, mock)
+  },
+  deleteImageAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'deleteImage', 'AppStream', Promise.resolve(result), false, mock)
+  },
+  deleteImageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'deleteImage', 'AppStream', Promise.reject(result), true, mock)
   },
   deleteImagePermissions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appstream', 'deleteImagePermissions', 'AppStream', Promise.resolve(result), true, mock)
@@ -206,6 +313,51 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteUserThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appstream', 'deleteUser', 'AppStream', Promise.reject(result), true, mock)
   },
+  describeAppBlockBuilderAppBlockAssociations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'describeAppBlockBuilderAppBlockAssociations', 'AppStream', Promise.resolve(result), true, mock)
+  },
+  describeAppBlockBuilderAppBlockAssociationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'describeAppBlockBuilderAppBlockAssociations', 'AppStream', Promise.resolve(result), false, mock)
+  },
+  describeAppBlockBuilderAppBlockAssociationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'describeAppBlockBuilderAppBlockAssociations', 'AppStream', Promise.reject(result), true, mock)
+  },
+  describeAppBlockBuilders: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'describeAppBlockBuilders', 'AppStream', Promise.resolve(result), true, mock)
+  },
+  describeAppBlockBuildersAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'describeAppBlockBuilders', 'AppStream', Promise.resolve(result), false, mock)
+  },
+  describeAppBlockBuildersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'describeAppBlockBuilders', 'AppStream', Promise.reject(result), true, mock)
+  },
+  describeAppBlocks: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'describeAppBlocks', 'AppStream', Promise.resolve(result), true, mock)
+  },
+  describeAppBlocksAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'describeAppBlocks', 'AppStream', Promise.resolve(result), false, mock)
+  },
+  describeAppBlocksThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'describeAppBlocks', 'AppStream', Promise.reject(result), true, mock)
+  },
+  describeApplicationFleetAssociations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'describeApplicationFleetAssociations', 'AppStream', Promise.resolve(result), true, mock)
+  },
+  describeApplicationFleetAssociationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'describeApplicationFleetAssociations', 'AppStream', Promise.resolve(result), false, mock)
+  },
+  describeApplicationFleetAssociationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'describeApplicationFleetAssociations', 'AppStream', Promise.reject(result), true, mock)
+  },
+  describeApplications: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'describeApplications', 'AppStream', Promise.resolve(result), true, mock)
+  },
+  describeApplicationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'describeApplications', 'AppStream', Promise.resolve(result), false, mock)
+  },
+  describeApplicationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'describeApplications', 'AppStream', Promise.reject(result), true, mock)
+  },
   describeDirectoryConfigs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appstream', 'describeDirectoryConfigs', 'AppStream', Promise.resolve(result), true, mock)
   },
@@ -214,6 +366,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeDirectoryConfigsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appstream', 'describeDirectoryConfigs', 'AppStream', Promise.reject(result), true, mock)
+  },
+  describeEntitlements: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'describeEntitlements', 'AppStream', Promise.resolve(result), true, mock)
+  },
+  describeEntitlementsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'describeEntitlements', 'AppStream', Promise.resolve(result), false, mock)
+  },
+  describeEntitlementsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'describeEntitlements', 'AppStream', Promise.reject(result), true, mock)
   },
   describeFleets: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appstream', 'describeFleets', 'AppStream', Promise.resolve(result), true, mock)
@@ -296,15 +457,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeUsersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appstream', 'describeUsers', 'AppStream', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-appstream', 'destroy', 'AppStream', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-appstream', 'destroy', 'AppStream', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-appstream', 'destroy', 'AppStream', Promise.reject(result), true, mock)
-  },
   disableUser: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appstream', 'disableUser', 'AppStream', Promise.resolve(result), true, mock)
   },
@@ -313,6 +465,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   disableUserThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appstream', 'disableUser', 'AppStream', Promise.reject(result), true, mock)
+  },
+  disassociateAppBlockBuilderAppBlock: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'disassociateAppBlockBuilderAppBlock', 'AppStream', Promise.resolve(result), true, mock)
+  },
+  disassociateAppBlockBuilderAppBlockAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'disassociateAppBlockBuilderAppBlock', 'AppStream', Promise.resolve(result), false, mock)
+  },
+  disassociateAppBlockBuilderAppBlockThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'disassociateAppBlockBuilderAppBlock', 'AppStream', Promise.reject(result), true, mock)
+  },
+  disassociateApplicationFleet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'disassociateApplicationFleet', 'AppStream', Promise.resolve(result), true, mock)
+  },
+  disassociateApplicationFleetAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'disassociateApplicationFleet', 'AppStream', Promise.resolve(result), false, mock)
+  },
+  disassociateApplicationFleetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'disassociateApplicationFleet', 'AppStream', Promise.reject(result), true, mock)
+  },
+  disassociateApplicationFromEntitlement: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'disassociateApplicationFromEntitlement', 'AppStream', Promise.resolve(result), true, mock)
+  },
+  disassociateApplicationFromEntitlementAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'disassociateApplicationFromEntitlement', 'AppStream', Promise.resolve(result), false, mock)
+  },
+  disassociateApplicationFromEntitlementThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'disassociateApplicationFromEntitlement', 'AppStream', Promise.reject(result), true, mock)
   },
   disassociateFleet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appstream', 'disassociateFleet', 'AppStream', Promise.resolve(result), true, mock)
@@ -359,6 +538,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listAssociatedStacksThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appstream', 'listAssociatedStacks', 'AppStream', Promise.reject(result), true, mock)
   },
+  listEntitledApplications: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'listEntitledApplications', 'AppStream', Promise.resolve(result), true, mock)
+  },
+  listEntitledApplicationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'listEntitledApplications', 'AppStream', Promise.resolve(result), false, mock)
+  },
+  listEntitledApplicationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'listEntitledApplications', 'AppStream', Promise.reject(result), true, mock)
+  },
   listTagsForResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appstream', 'listTagsForResource', 'AppStream', Promise.resolve(result), true, mock)
   },
@@ -367,6 +555,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listTagsForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appstream', 'listTagsForResource', 'AppStream', Promise.reject(result), true, mock)
+  },
+  startAppBlockBuilder: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'startAppBlockBuilder', 'AppStream', Promise.resolve(result), true, mock)
+  },
+  startAppBlockBuilderAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'startAppBlockBuilder', 'AppStream', Promise.resolve(result), false, mock)
+  },
+  startAppBlockBuilderThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'startAppBlockBuilder', 'AppStream', Promise.reject(result), true, mock)
   },
   startFleet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appstream', 'startFleet', 'AppStream', Promise.resolve(result), true, mock)
@@ -385,6 +582,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   startImageBuilderThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appstream', 'startImageBuilder', 'AppStream', Promise.reject(result), true, mock)
+  },
+  stopAppBlockBuilder: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'stopAppBlockBuilder', 'AppStream', Promise.resolve(result), true, mock)
+  },
+  stopAppBlockBuilderAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'stopAppBlockBuilder', 'AppStream', Promise.resolve(result), false, mock)
+  },
+  stopAppBlockBuilderThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'stopAppBlockBuilder', 'AppStream', Promise.reject(result), true, mock)
   },
   stopFleet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appstream', 'stopFleet', 'AppStream', Promise.resolve(result), true, mock)
@@ -422,6 +628,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   untagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appstream', 'untagResource', 'AppStream', Promise.reject(result), true, mock)
   },
+  updateAppBlockBuilder: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'updateAppBlockBuilder', 'AppStream', Promise.resolve(result), true, mock)
+  },
+  updateAppBlockBuilderAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'updateAppBlockBuilder', 'AppStream', Promise.resolve(result), false, mock)
+  },
+  updateAppBlockBuilderThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'updateAppBlockBuilder', 'AppStream', Promise.reject(result), true, mock)
+  },
+  updateApplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'updateApplication', 'AppStream', Promise.resolve(result), true, mock)
+  },
+  updateApplicationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'updateApplication', 'AppStream', Promise.resolve(result), false, mock)
+  },
+  updateApplicationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'updateApplication', 'AppStream', Promise.reject(result), true, mock)
+  },
   updateDirectoryConfig: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appstream', 'updateDirectoryConfig', 'AppStream', Promise.resolve(result), true, mock)
   },
@@ -430,6 +654,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateDirectoryConfigThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appstream', 'updateDirectoryConfig', 'AppStream', Promise.reject(result), true, mock)
+  },
+  updateEntitlement: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'updateEntitlement', 'AppStream', Promise.resolve(result), true, mock)
+  },
+  updateEntitlementAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'updateEntitlement', 'AppStream', Promise.resolve(result), false, mock)
+  },
+  updateEntitlementThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appstream', 'updateEntitlement', 'AppStream', Promise.reject(result), true, mock)
   },
   updateFleet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appstream', 'updateFleet', 'AppStream', Promise.resolve(result), true, mock)

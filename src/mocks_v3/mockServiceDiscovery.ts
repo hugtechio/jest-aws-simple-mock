@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockServiceDiscovery = {
+export const mockServiceDiscovery = {
   createHttpNamespace: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-servicediscovery', 'createHttpNamespace', 'ServiceDiscovery', Promise.resolve(result), true, mock)
   },
@@ -80,15 +79,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deregisterInstanceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-servicediscovery', 'deregisterInstance', 'ServiceDiscovery', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-servicediscovery', 'destroy', 'ServiceDiscovery', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-servicediscovery', 'destroy', 'ServiceDiscovery', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-servicediscovery', 'destroy', 'ServiceDiscovery', Promise.reject(result), true, mock)
-  },
   discoverInstances: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-servicediscovery', 'discoverInstances', 'ServiceDiscovery', Promise.resolve(result), true, mock)
   },
@@ -97,6 +87,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   discoverInstancesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-servicediscovery', 'discoverInstances', 'ServiceDiscovery', Promise.reject(result), true, mock)
+  },
+  discoverInstancesRevision: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-servicediscovery', 'discoverInstancesRevision', 'ServiceDiscovery', Promise.resolve(result), true, mock)
+  },
+  discoverInstancesRevisionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-servicediscovery', 'discoverInstancesRevision', 'ServiceDiscovery', Promise.resolve(result), false, mock)
+  },
+  discoverInstancesRevisionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-servicediscovery', 'discoverInstancesRevision', 'ServiceDiscovery', Promise.reject(result), true, mock)
   },
   getInstance: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-servicediscovery', 'getInstance', 'ServiceDiscovery', Promise.resolve(result), true, mock)

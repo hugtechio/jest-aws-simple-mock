@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockFSx = {
+export const mockFSx = {
   associateFileSystemAliases: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fsx', 'associateFileSystemAliases', 'FSx', Promise.resolve(result), true, mock)
   },
@@ -44,6 +43,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   copyBackupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fsx', 'copyBackup', 'FSx', Promise.reject(result), true, mock)
   },
+  copySnapshotAndUpdateVolume: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'copySnapshotAndUpdateVolume', 'FSx', Promise.resolve(result), true, mock)
+  },
+  copySnapshotAndUpdateVolumeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'copySnapshotAndUpdateVolume', 'FSx', Promise.resolve(result), false, mock)
+  },
+  copySnapshotAndUpdateVolumeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'copySnapshotAndUpdateVolume', 'FSx', Promise.reject(result), true, mock)
+  },
   createBackup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fsx', 'createBackup', 'FSx', Promise.resolve(result), true, mock)
   },
@@ -53,6 +61,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createBackupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fsx', 'createBackup', 'FSx', Promise.reject(result), true, mock)
   },
+  createDataRepositoryAssociation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'createDataRepositoryAssociation', 'FSx', Promise.resolve(result), true, mock)
+  },
+  createDataRepositoryAssociationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'createDataRepositoryAssociation', 'FSx', Promise.resolve(result), false, mock)
+  },
+  createDataRepositoryAssociationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'createDataRepositoryAssociation', 'FSx', Promise.reject(result), true, mock)
+  },
   createDataRepositoryTask: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fsx', 'createDataRepositoryTask', 'FSx', Promise.resolve(result), true, mock)
   },
@@ -61,6 +78,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createDataRepositoryTaskThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fsx', 'createDataRepositoryTask', 'FSx', Promise.reject(result), true, mock)
+  },
+  createFileCache: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'createFileCache', 'FSx', Promise.resolve(result), true, mock)
+  },
+  createFileCacheAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'createFileCache', 'FSx', Promise.resolve(result), false, mock)
+  },
+  createFileCacheThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'createFileCache', 'FSx', Promise.reject(result), true, mock)
   },
   createFileSystem: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fsx', 'createFileSystem', 'FSx', Promise.resolve(result), true, mock)
@@ -79,6 +105,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createFileSystemFromBackupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fsx', 'createFileSystemFromBackup', 'FSx', Promise.reject(result), true, mock)
+  },
+  createSnapshot: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'createSnapshot', 'FSx', Promise.resolve(result), true, mock)
+  },
+  createSnapshotAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'createSnapshot', 'FSx', Promise.resolve(result), false, mock)
+  },
+  createSnapshotThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'createSnapshot', 'FSx', Promise.reject(result), true, mock)
   },
   createStorageVirtualMachine: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fsx', 'createStorageVirtualMachine', 'FSx', Promise.resolve(result), true, mock)
@@ -116,6 +151,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteBackupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fsx', 'deleteBackup', 'FSx', Promise.reject(result), true, mock)
   },
+  deleteDataRepositoryAssociation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'deleteDataRepositoryAssociation', 'FSx', Promise.resolve(result), true, mock)
+  },
+  deleteDataRepositoryAssociationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'deleteDataRepositoryAssociation', 'FSx', Promise.resolve(result), false, mock)
+  },
+  deleteDataRepositoryAssociationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'deleteDataRepositoryAssociation', 'FSx', Promise.reject(result), true, mock)
+  },
+  deleteFileCache: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'deleteFileCache', 'FSx', Promise.resolve(result), true, mock)
+  },
+  deleteFileCacheAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'deleteFileCache', 'FSx', Promise.resolve(result), false, mock)
+  },
+  deleteFileCacheThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'deleteFileCache', 'FSx', Promise.reject(result), true, mock)
+  },
   deleteFileSystem: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fsx', 'deleteFileSystem', 'FSx', Promise.resolve(result), true, mock)
   },
@@ -124,6 +177,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteFileSystemThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fsx', 'deleteFileSystem', 'FSx', Promise.reject(result), true, mock)
+  },
+  deleteSnapshot: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'deleteSnapshot', 'FSx', Promise.resolve(result), true, mock)
+  },
+  deleteSnapshotAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'deleteSnapshot', 'FSx', Promise.resolve(result), false, mock)
+  },
+  deleteSnapshotThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'deleteSnapshot', 'FSx', Promise.reject(result), true, mock)
   },
   deleteStorageVirtualMachine: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fsx', 'deleteStorageVirtualMachine', 'FSx', Promise.resolve(result), true, mock)
@@ -152,6 +214,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeBackupsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fsx', 'describeBackups', 'FSx', Promise.reject(result), true, mock)
   },
+  describeDataRepositoryAssociations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'describeDataRepositoryAssociations', 'FSx', Promise.resolve(result), true, mock)
+  },
+  describeDataRepositoryAssociationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'describeDataRepositoryAssociations', 'FSx', Promise.resolve(result), false, mock)
+  },
+  describeDataRepositoryAssociationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'describeDataRepositoryAssociations', 'FSx', Promise.reject(result), true, mock)
+  },
   describeDataRepositoryTasks: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fsx', 'describeDataRepositoryTasks', 'FSx', Promise.resolve(result), true, mock)
   },
@@ -160,6 +231,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeDataRepositoryTasksThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fsx', 'describeDataRepositoryTasks', 'FSx', Promise.reject(result), true, mock)
+  },
+  describeFileCaches: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'describeFileCaches', 'FSx', Promise.resolve(result), true, mock)
+  },
+  describeFileCachesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'describeFileCaches', 'FSx', Promise.resolve(result), false, mock)
+  },
+  describeFileCachesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'describeFileCaches', 'FSx', Promise.reject(result), true, mock)
   },
   describeFileSystemAliases: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fsx', 'describeFileSystemAliases', 'FSx', Promise.resolve(result), true, mock)
@@ -179,6 +259,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeFileSystemsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fsx', 'describeFileSystems', 'FSx', Promise.reject(result), true, mock)
   },
+  describeSharedVpcConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'describeSharedVpcConfiguration', 'FSx', Promise.resolve(result), true, mock)
+  },
+  describeSharedVpcConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'describeSharedVpcConfiguration', 'FSx', Promise.resolve(result), false, mock)
+  },
+  describeSharedVpcConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'describeSharedVpcConfiguration', 'FSx', Promise.reject(result), true, mock)
+  },
+  describeSnapshots: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'describeSnapshots', 'FSx', Promise.resolve(result), true, mock)
+  },
+  describeSnapshotsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'describeSnapshots', 'FSx', Promise.resolve(result), false, mock)
+  },
+  describeSnapshotsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'describeSnapshots', 'FSx', Promise.reject(result), true, mock)
+  },
   describeStorageVirtualMachines: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fsx', 'describeStorageVirtualMachines', 'FSx', Promise.resolve(result), true, mock)
   },
@@ -196,15 +294,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeVolumesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fsx', 'describeVolumes', 'FSx', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-fsx', 'destroy', 'FSx', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-fsx', 'destroy', 'FSx', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-fsx', 'destroy', 'FSx', Promise.reject(result), true, mock)
   },
   disassociateFileSystemAliases: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fsx', 'disassociateFileSystemAliases', 'FSx', Promise.resolve(result), true, mock)
@@ -224,6 +313,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listTagsForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fsx', 'listTagsForResource', 'FSx', Promise.reject(result), true, mock)
   },
+  releaseFileSystemNfsV3Locks: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'releaseFileSystemNfsV3Locks', 'FSx', Promise.resolve(result), true, mock)
+  },
+  releaseFileSystemNfsV3LocksAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'releaseFileSystemNfsV3Locks', 'FSx', Promise.resolve(result), false, mock)
+  },
+  releaseFileSystemNfsV3LocksThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'releaseFileSystemNfsV3Locks', 'FSx', Promise.reject(result), true, mock)
+  },
+  restoreVolumeFromSnapshot: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'restoreVolumeFromSnapshot', 'FSx', Promise.resolve(result), true, mock)
+  },
+  restoreVolumeFromSnapshotAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'restoreVolumeFromSnapshot', 'FSx', Promise.resolve(result), false, mock)
+  },
+  restoreVolumeFromSnapshotThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'restoreVolumeFromSnapshot', 'FSx', Promise.reject(result), true, mock)
+  },
+  startMisconfiguredStateRecovery: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'startMisconfiguredStateRecovery', 'FSx', Promise.resolve(result), true, mock)
+  },
+  startMisconfiguredStateRecoveryAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'startMisconfiguredStateRecovery', 'FSx', Promise.resolve(result), false, mock)
+  },
+  startMisconfiguredStateRecoveryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'startMisconfiguredStateRecovery', 'FSx', Promise.reject(result), true, mock)
+  },
   tagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fsx', 'tagResource', 'FSx', Promise.resolve(result), true, mock)
   },
@@ -242,6 +358,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   untagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fsx', 'untagResource', 'FSx', Promise.reject(result), true, mock)
   },
+  updateDataRepositoryAssociation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'updateDataRepositoryAssociation', 'FSx', Promise.resolve(result), true, mock)
+  },
+  updateDataRepositoryAssociationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'updateDataRepositoryAssociation', 'FSx', Promise.resolve(result), false, mock)
+  },
+  updateDataRepositoryAssociationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'updateDataRepositoryAssociation', 'FSx', Promise.reject(result), true, mock)
+  },
+  updateFileCache: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'updateFileCache', 'FSx', Promise.resolve(result), true, mock)
+  },
+  updateFileCacheAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'updateFileCache', 'FSx', Promise.resolve(result), false, mock)
+  },
+  updateFileCacheThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'updateFileCache', 'FSx', Promise.reject(result), true, mock)
+  },
   updateFileSystem: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fsx', 'updateFileSystem', 'FSx', Promise.resolve(result), true, mock)
   },
@@ -250,6 +384,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateFileSystemThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fsx', 'updateFileSystem', 'FSx', Promise.reject(result), true, mock)
+  },
+  updateSharedVpcConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'updateSharedVpcConfiguration', 'FSx', Promise.resolve(result), true, mock)
+  },
+  updateSharedVpcConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'updateSharedVpcConfiguration', 'FSx', Promise.resolve(result), false, mock)
+  },
+  updateSharedVpcConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'updateSharedVpcConfiguration', 'FSx', Promise.reject(result), true, mock)
+  },
+  updateSnapshot: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'updateSnapshot', 'FSx', Promise.resolve(result), true, mock)
+  },
+  updateSnapshotAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'updateSnapshot', 'FSx', Promise.resolve(result), false, mock)
+  },
+  updateSnapshotThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-fsx', 'updateSnapshot', 'FSx', Promise.reject(result), true, mock)
   },
   updateStorageVirtualMachine: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-fsx', 'updateStorageVirtualMachine', 'FSx', Promise.resolve(result), true, mock)

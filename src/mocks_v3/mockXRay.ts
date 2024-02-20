@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockXRay = {
+export const mockXRay = {
   batchGetTraces: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-xray', 'batchGetTraces', 'XRay', Promise.resolve(result), true, mock)
   },
@@ -53,6 +52,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-xray', 'deleteGroup', 'XRay', Promise.reject(result), true, mock)
   },
+  deleteResourcePolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-xray', 'deleteResourcePolicy', 'XRay', Promise.resolve(result), true, mock)
+  },
+  deleteResourcePolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-xray', 'deleteResourcePolicy', 'XRay', Promise.resolve(result), false, mock)
+  },
+  deleteResourcePolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-xray', 'deleteResourcePolicy', 'XRay', Promise.reject(result), true, mock)
+  },
   deleteSamplingRule: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-xray', 'deleteSamplingRule', 'XRay', Promise.resolve(result), true, mock)
   },
@@ -61,15 +69,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteSamplingRuleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-xray', 'deleteSamplingRule', 'XRay', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-xray', 'destroy', 'XRay', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-xray', 'destroy', 'XRay', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-xray', 'destroy', 'XRay', Promise.reject(result), true, mock)
   },
   getEncryptionConfig: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-xray', 'getEncryptionConfig', 'XRay', Promise.resolve(result), true, mock)
@@ -197,6 +196,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getTraceSummariesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-xray', 'getTraceSummaries', 'XRay', Promise.reject(result), true, mock)
   },
+  listResourcePolicies: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-xray', 'listResourcePolicies', 'XRay', Promise.resolve(result), true, mock)
+  },
+  listResourcePoliciesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-xray', 'listResourcePolicies', 'XRay', Promise.resolve(result), false, mock)
+  },
+  listResourcePoliciesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-xray', 'listResourcePolicies', 'XRay', Promise.reject(result), true, mock)
+  },
   listTagsForResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-xray', 'listTagsForResource', 'XRay', Promise.resolve(result), true, mock)
   },
@@ -214,6 +222,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   putEncryptionConfigThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-xray', 'putEncryptionConfig', 'XRay', Promise.reject(result), true, mock)
+  },
+  putResourcePolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-xray', 'putResourcePolicy', 'XRay', Promise.resolve(result), true, mock)
+  },
+  putResourcePolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-xray', 'putResourcePolicy', 'XRay', Promise.resolve(result), false, mock)
+  },
+  putResourcePolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-xray', 'putResourcePolicy', 'XRay', Promise.reject(result), true, mock)
   },
   putTelemetryRecords: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-xray', 'putTelemetryRecords', 'XRay', Promise.resolve(result), true, mock)

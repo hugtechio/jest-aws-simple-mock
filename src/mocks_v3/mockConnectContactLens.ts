@@ -15,17 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockConnectContactLens = {
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-connect-contact-lens', 'destroy', 'ConnectContactLens', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-connect-contact-lens', 'destroy', 'ConnectContactLens', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-connect-contact-lens', 'destroy', 'ConnectContactLens', Promise.reject(result), true, mock)
-  },
+export const mockConnectContactLens = {
   listRealtimeContactAnalysisSegments: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-connect-contact-lens', 'listRealtimeContactAnalysisSegments', 'ConnectContactLens', Promise.resolve(result), true, mock)
   },

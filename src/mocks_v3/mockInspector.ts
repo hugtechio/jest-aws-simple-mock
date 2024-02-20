@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockInspector = {
+export const mockInspector = {
   addAttributesToFindings: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-inspector', 'addAttributesToFindings', 'Inspector', Promise.resolve(result), true, mock)
   },
@@ -160,15 +159,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeRulesPackagesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-inspector', 'describeRulesPackages', 'Inspector', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-inspector', 'destroy', 'Inspector', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-inspector', 'destroy', 'Inspector', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-inspector', 'destroy', 'Inspector', Promise.reject(result), true, mock)
   },
   getAssessmentReport: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-inspector', 'getAssessmentReport', 'Inspector', Promise.resolve(result), true, mock)

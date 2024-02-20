@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockWorkMail = {
+export const mockWorkMail = {
   associateDelegateToResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workmail', 'associateDelegateToResource', 'WorkMail', Promise.resolve(result), true, mock)
   },
@@ -34,6 +33,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   associateMemberToGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workmail', 'associateMemberToGroup', 'WorkMail', Promise.reject(result), true, mock)
+  },
+  assumeImpersonationRole: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'assumeImpersonationRole', 'WorkMail', Promise.resolve(result), true, mock)
+  },
+  assumeImpersonationRoleAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'assumeImpersonationRole', 'WorkMail', Promise.resolve(result), false, mock)
+  },
+  assumeImpersonationRoleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'assumeImpersonationRole', 'WorkMail', Promise.reject(result), true, mock)
   },
   cancelMailboxExportJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workmail', 'cancelMailboxExportJob', 'WorkMail', Promise.resolve(result), true, mock)
@@ -53,6 +61,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createAliasThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workmail', 'createAlias', 'WorkMail', Promise.reject(result), true, mock)
   },
+  createAvailabilityConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'createAvailabilityConfiguration', 'WorkMail', Promise.resolve(result), true, mock)
+  },
+  createAvailabilityConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'createAvailabilityConfiguration', 'WorkMail', Promise.resolve(result), false, mock)
+  },
+  createAvailabilityConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'createAvailabilityConfiguration', 'WorkMail', Promise.reject(result), true, mock)
+  },
   createGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workmail', 'createGroup', 'WorkMail', Promise.resolve(result), true, mock)
   },
@@ -61,6 +78,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workmail', 'createGroup', 'WorkMail', Promise.reject(result), true, mock)
+  },
+  createImpersonationRole: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'createImpersonationRole', 'WorkMail', Promise.resolve(result), true, mock)
+  },
+  createImpersonationRoleAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'createImpersonationRole', 'WorkMail', Promise.resolve(result), false, mock)
+  },
+  createImpersonationRoleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'createImpersonationRole', 'WorkMail', Promise.reject(result), true, mock)
   },
   createMobileDeviceAccessRule: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workmail', 'createMobileDeviceAccessRule', 'WorkMail', Promise.resolve(result), true, mock)
@@ -116,6 +142,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteAliasThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workmail', 'deleteAlias', 'WorkMail', Promise.reject(result), true, mock)
   },
+  deleteAvailabilityConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'deleteAvailabilityConfiguration', 'WorkMail', Promise.resolve(result), true, mock)
+  },
+  deleteAvailabilityConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'deleteAvailabilityConfiguration', 'WorkMail', Promise.resolve(result), false, mock)
+  },
+  deleteAvailabilityConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'deleteAvailabilityConfiguration', 'WorkMail', Promise.reject(result), true, mock)
+  },
+  deleteEmailMonitoringConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'deleteEmailMonitoringConfiguration', 'WorkMail', Promise.resolve(result), true, mock)
+  },
+  deleteEmailMonitoringConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'deleteEmailMonitoringConfiguration', 'WorkMail', Promise.resolve(result), false, mock)
+  },
+  deleteEmailMonitoringConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'deleteEmailMonitoringConfiguration', 'WorkMail', Promise.reject(result), true, mock)
+  },
   deleteGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workmail', 'deleteGroup', 'WorkMail', Promise.resolve(result), true, mock)
   },
@@ -124,6 +168,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workmail', 'deleteGroup', 'WorkMail', Promise.reject(result), true, mock)
+  },
+  deleteImpersonationRole: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'deleteImpersonationRole', 'WorkMail', Promise.resolve(result), true, mock)
+  },
+  deleteImpersonationRoleAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'deleteImpersonationRole', 'WorkMail', Promise.resolve(result), false, mock)
+  },
+  deleteImpersonationRoleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'deleteImpersonationRole', 'WorkMail', Promise.reject(result), true, mock)
   },
   deleteMailboxPermissions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workmail', 'deleteMailboxPermissions', 'WorkMail', Promise.resolve(result), true, mock)
@@ -206,6 +259,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deregisterMailDomainThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workmail', 'deregisterMailDomain', 'WorkMail', Promise.reject(result), true, mock)
   },
+  describeEmailMonitoringConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'describeEmailMonitoringConfiguration', 'WorkMail', Promise.resolve(result), true, mock)
+  },
+  describeEmailMonitoringConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'describeEmailMonitoringConfiguration', 'WorkMail', Promise.resolve(result), false, mock)
+  },
+  describeEmailMonitoringConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'describeEmailMonitoringConfiguration', 'WorkMail', Promise.reject(result), true, mock)
+  },
+  describeEntity: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'describeEntity', 'WorkMail', Promise.resolve(result), true, mock)
+  },
+  describeEntityAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'describeEntity', 'WorkMail', Promise.resolve(result), false, mock)
+  },
+  describeEntityThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'describeEntity', 'WorkMail', Promise.reject(result), true, mock)
+  },
   describeGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workmail', 'describeGroup', 'WorkMail', Promise.resolve(result), true, mock)
   },
@@ -260,15 +331,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeUserThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workmail', 'describeUser', 'WorkMail', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-workmail', 'destroy', 'WorkMail', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-workmail', 'destroy', 'WorkMail', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-workmail', 'destroy', 'WorkMail', Promise.reject(result), true, mock)
-  },
   disassociateDelegateFromResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workmail', 'disassociateDelegateFromResource', 'WorkMail', Promise.resolve(result), true, mock)
   },
@@ -304,6 +366,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getDefaultRetentionPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workmail', 'getDefaultRetentionPolicy', 'WorkMail', Promise.reject(result), true, mock)
+  },
+  getImpersonationRole: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'getImpersonationRole', 'WorkMail', Promise.resolve(result), true, mock)
+  },
+  getImpersonationRoleAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'getImpersonationRole', 'WorkMail', Promise.resolve(result), false, mock)
+  },
+  getImpersonationRoleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'getImpersonationRole', 'WorkMail', Promise.reject(result), true, mock)
+  },
+  getImpersonationRoleEffect: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'getImpersonationRoleEffect', 'WorkMail', Promise.resolve(result), true, mock)
+  },
+  getImpersonationRoleEffectAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'getImpersonationRoleEffect', 'WorkMail', Promise.resolve(result), false, mock)
+  },
+  getImpersonationRoleEffectThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'getImpersonationRoleEffect', 'WorkMail', Promise.reject(result), true, mock)
   },
   getMailDomain: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workmail', 'getMailDomain', 'WorkMail', Promise.resolve(result), true, mock)
@@ -359,6 +439,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listAliasesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workmail', 'listAliases', 'WorkMail', Promise.reject(result), true, mock)
   },
+  listAvailabilityConfigurations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'listAvailabilityConfigurations', 'WorkMail', Promise.resolve(result), true, mock)
+  },
+  listAvailabilityConfigurationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'listAvailabilityConfigurations', 'WorkMail', Promise.resolve(result), false, mock)
+  },
+  listAvailabilityConfigurationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'listAvailabilityConfigurations', 'WorkMail', Promise.reject(result), true, mock)
+  },
   listGroupMembers: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workmail', 'listGroupMembers', 'WorkMail', Promise.resolve(result), true, mock)
   },
@@ -376,6 +465,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listGroupsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workmail', 'listGroups', 'WorkMail', Promise.reject(result), true, mock)
+  },
+  listGroupsForEntity: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'listGroupsForEntity', 'WorkMail', Promise.resolve(result), true, mock)
+  },
+  listGroupsForEntityAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'listGroupsForEntity', 'WorkMail', Promise.resolve(result), false, mock)
+  },
+  listGroupsForEntityThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'listGroupsForEntity', 'WorkMail', Promise.reject(result), true, mock)
+  },
+  listImpersonationRoles: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'listImpersonationRoles', 'WorkMail', Promise.resolve(result), true, mock)
+  },
+  listImpersonationRolesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'listImpersonationRoles', 'WorkMail', Promise.resolve(result), false, mock)
+  },
+  listImpersonationRolesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'listImpersonationRoles', 'WorkMail', Promise.reject(result), true, mock)
   },
   listMailDomains: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workmail', 'listMailDomains', 'WorkMail', Promise.resolve(result), true, mock)
@@ -476,6 +583,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   putAccessControlRuleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workmail', 'putAccessControlRule', 'WorkMail', Promise.reject(result), true, mock)
   },
+  putEmailMonitoringConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'putEmailMonitoringConfiguration', 'WorkMail', Promise.resolve(result), true, mock)
+  },
+  putEmailMonitoringConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'putEmailMonitoringConfiguration', 'WorkMail', Promise.resolve(result), false, mock)
+  },
+  putEmailMonitoringConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'putEmailMonitoringConfiguration', 'WorkMail', Promise.reject(result), true, mock)
+  },
   putInboundDmarcSettings: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workmail', 'putInboundDmarcSettings', 'WorkMail', Promise.resolve(result), true, mock)
   },
@@ -557,6 +673,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   tagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workmail', 'tagResource', 'WorkMail', Promise.reject(result), true, mock)
   },
+  testAvailabilityConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'testAvailabilityConfiguration', 'WorkMail', Promise.resolve(result), true, mock)
+  },
+  testAvailabilityConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'testAvailabilityConfiguration', 'WorkMail', Promise.resolve(result), false, mock)
+  },
+  testAvailabilityConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'testAvailabilityConfiguration', 'WorkMail', Promise.reject(result), true, mock)
+  },
   untagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workmail', 'untagResource', 'WorkMail', Promise.resolve(result), true, mock)
   },
@@ -566,6 +691,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   untagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workmail', 'untagResource', 'WorkMail', Promise.reject(result), true, mock)
   },
+  updateAvailabilityConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'updateAvailabilityConfiguration', 'WorkMail', Promise.resolve(result), true, mock)
+  },
+  updateAvailabilityConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'updateAvailabilityConfiguration', 'WorkMail', Promise.resolve(result), false, mock)
+  },
+  updateAvailabilityConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'updateAvailabilityConfiguration', 'WorkMail', Promise.reject(result), true, mock)
+  },
   updateDefaultMailDomain: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workmail', 'updateDefaultMailDomain', 'WorkMail', Promise.resolve(result), true, mock)
   },
@@ -574,6 +708,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateDefaultMailDomainThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workmail', 'updateDefaultMailDomain', 'WorkMail', Promise.reject(result), true, mock)
+  },
+  updateGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'updateGroup', 'WorkMail', Promise.resolve(result), true, mock)
+  },
+  updateGroupAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'updateGroup', 'WorkMail', Promise.resolve(result), false, mock)
+  },
+  updateGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'updateGroup', 'WorkMail', Promise.reject(result), true, mock)
+  },
+  updateImpersonationRole: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'updateImpersonationRole', 'WorkMail', Promise.resolve(result), true, mock)
+  },
+  updateImpersonationRoleAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'updateImpersonationRole', 'WorkMail', Promise.resolve(result), false, mock)
+  },
+  updateImpersonationRoleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'updateImpersonationRole', 'WorkMail', Promise.reject(result), true, mock)
   },
   updateMailboxQuota: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workmail', 'updateMailboxQuota', 'WorkMail', Promise.resolve(result), true, mock)
@@ -610,6 +762,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workmail', 'updateResource', 'WorkMail', Promise.reject(result), true, mock)
+  },
+  updateUser: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'updateUser', 'WorkMail', Promise.resolve(result), true, mock)
+  },
+  updateUserAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'updateUser', 'WorkMail', Promise.resolve(result), false, mock)
+  },
+  updateUserThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-workmail', 'updateUser', 'WorkMail', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-workmail', 'send', 'WorkMailClient', Promise.resolve(result), true, mock)

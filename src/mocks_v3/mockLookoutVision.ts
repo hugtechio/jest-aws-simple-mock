@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockLookoutVision = {
+export const mockLookoutVision = {
   createDataset: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lookoutvision', 'createDataset', 'LookoutVision', Promise.resolve(result), true, mock)
   },
@@ -89,6 +88,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeModelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lookoutvision', 'describeModel', 'LookoutVision', Promise.reject(result), true, mock)
   },
+  describeModelPackagingJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lookoutvision', 'describeModelPackagingJob', 'LookoutVision', Promise.resolve(result), true, mock)
+  },
+  describeModelPackagingJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lookoutvision', 'describeModelPackagingJob', 'LookoutVision', Promise.resolve(result), false, mock)
+  },
+  describeModelPackagingJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lookoutvision', 'describeModelPackagingJob', 'LookoutVision', Promise.reject(result), true, mock)
+  },
   describeProject: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lookoutvision', 'describeProject', 'LookoutVision', Promise.resolve(result), true, mock)
   },
@@ -97,15 +105,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeProjectThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lookoutvision', 'describeProject', 'LookoutVision', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lookoutvision', 'destroy', 'LookoutVision', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lookoutvision', 'destroy', 'LookoutVision', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-lookoutvision', 'destroy', 'LookoutVision', Promise.reject(result), true, mock)
   },
   detectAnomalies: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lookoutvision', 'detectAnomalies', 'LookoutVision', Promise.resolve(result), true, mock)
@@ -124,6 +123,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listDatasetEntriesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lookoutvision', 'listDatasetEntries', 'LookoutVision', Promise.reject(result), true, mock)
+  },
+  listModelPackagingJobs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lookoutvision', 'listModelPackagingJobs', 'LookoutVision', Promise.resolve(result), true, mock)
+  },
+  listModelPackagingJobsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lookoutvision', 'listModelPackagingJobs', 'LookoutVision', Promise.resolve(result), false, mock)
+  },
+  listModelPackagingJobsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lookoutvision', 'listModelPackagingJobs', 'LookoutVision', Promise.reject(result), true, mock)
   },
   listModels: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lookoutvision', 'listModels', 'LookoutVision', Promise.resolve(result), true, mock)
@@ -160,6 +168,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   startModelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lookoutvision', 'startModel', 'LookoutVision', Promise.reject(result), true, mock)
+  },
+  startModelPackagingJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lookoutvision', 'startModelPackagingJob', 'LookoutVision', Promise.resolve(result), true, mock)
+  },
+  startModelPackagingJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lookoutvision', 'startModelPackagingJob', 'LookoutVision', Promise.resolve(result), false, mock)
+  },
+  startModelPackagingJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-lookoutvision', 'startModelPackagingJob', 'LookoutVision', Promise.reject(result), true, mock)
   },
   stopModel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-lookoutvision', 'stopModel', 'LookoutVision', Promise.resolve(result), true, mock)

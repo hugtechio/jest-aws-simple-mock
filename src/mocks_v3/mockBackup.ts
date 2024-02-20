@@ -15,8 +15,16 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockBackup = {
+export const mockBackup = {
+  cancelLegalHold: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'cancelLegalHold', 'Backup', Promise.resolve(result), true, mock)
+  },
+  cancelLegalHoldAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'cancelLegalHold', 'Backup', Promise.resolve(result), false, mock)
+  },
+  cancelLegalHoldThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'cancelLegalHold', 'Backup', Promise.reject(result), true, mock)
+  },
   createBackupPlan: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-backup', 'createBackupPlan', 'Backup', Promise.resolve(result), true, mock)
   },
@@ -53,6 +61,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createFrameworkThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-backup', 'createFramework', 'Backup', Promise.reject(result), true, mock)
   },
+  createLegalHold: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'createLegalHold', 'Backup', Promise.resolve(result), true, mock)
+  },
+  createLegalHoldAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'createLegalHold', 'Backup', Promise.resolve(result), false, mock)
+  },
+  createLegalHoldThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'createLegalHold', 'Backup', Promise.reject(result), true, mock)
+  },
+  createLogicallyAirGappedBackupVault: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'createLogicallyAirGappedBackupVault', 'Backup', Promise.resolve(result), true, mock)
+  },
+  createLogicallyAirGappedBackupVaultAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'createLogicallyAirGappedBackupVault', 'Backup', Promise.resolve(result), false, mock)
+  },
+  createLogicallyAirGappedBackupVaultThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'createLogicallyAirGappedBackupVault', 'Backup', Promise.reject(result), true, mock)
+  },
   createReportPlan: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-backup', 'createReportPlan', 'Backup', Promise.resolve(result), true, mock)
   },
@@ -61,6 +87,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createReportPlanThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-backup', 'createReportPlan', 'Backup', Promise.reject(result), true, mock)
+  },
+  createRestoreTestingPlan: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'createRestoreTestingPlan', 'Backup', Promise.resolve(result), true, mock)
+  },
+  createRestoreTestingPlanAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'createRestoreTestingPlan', 'Backup', Promise.resolve(result), false, mock)
+  },
+  createRestoreTestingPlanThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'createRestoreTestingPlan', 'Backup', Promise.reject(result), true, mock)
+  },
+  createRestoreTestingSelection: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'createRestoreTestingSelection', 'Backup', Promise.resolve(result), true, mock)
+  },
+  createRestoreTestingSelectionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'createRestoreTestingSelection', 'Backup', Promise.resolve(result), false, mock)
+  },
+  createRestoreTestingSelectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'createRestoreTestingSelection', 'Backup', Promise.reject(result), true, mock)
   },
   deleteBackupPlan: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-backup', 'deleteBackupPlan', 'Backup', Promise.resolve(result), true, mock)
@@ -80,15 +124,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteBackupSelectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-backup', 'deleteBackupSelection', 'Backup', Promise.reject(result), true, mock)
   },
-  deleteBackupVault: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-backup', 'deleteBackupVault', 'Backup', Promise.resolve(result), true, mock)
-  },
-  deleteBackupVaultAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-backup', 'deleteBackupVault', 'Backup', Promise.resolve(result), false, mock)
-  },
-  deleteBackupVaultThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-backup', 'deleteBackupVault', 'Backup', Promise.reject(result), true, mock)
-  },
   deleteBackupVaultAccessPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-backup', 'deleteBackupVaultAccessPolicy', 'Backup', Promise.resolve(result), true, mock)
   },
@@ -97,6 +132,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteBackupVaultAccessPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-backup', 'deleteBackupVaultAccessPolicy', 'Backup', Promise.reject(result), true, mock)
+  },
+  deleteBackupVault: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'deleteBackupVault', 'Backup', Promise.resolve(result), true, mock)
+  },
+  deleteBackupVaultAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'deleteBackupVault', 'Backup', Promise.resolve(result), false, mock)
+  },
+  deleteBackupVaultThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'deleteBackupVault', 'Backup', Promise.reject(result), true, mock)
   },
   deleteBackupVaultLockConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-backup', 'deleteBackupVaultLockConfiguration', 'Backup', Promise.resolve(result), true, mock)
@@ -142,6 +186,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteReportPlanThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-backup', 'deleteReportPlan', 'Backup', Promise.reject(result), true, mock)
+  },
+  deleteRestoreTestingPlan: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'deleteRestoreTestingPlan', 'Backup', Promise.resolve(result), true, mock)
+  },
+  deleteRestoreTestingPlanAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'deleteRestoreTestingPlan', 'Backup', Promise.resolve(result), false, mock)
+  },
+  deleteRestoreTestingPlanThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'deleteRestoreTestingPlan', 'Backup', Promise.reject(result), true, mock)
+  },
+  deleteRestoreTestingSelection: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'deleteRestoreTestingSelection', 'Backup', Promise.resolve(result), true, mock)
+  },
+  deleteRestoreTestingSelectionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'deleteRestoreTestingSelection', 'Backup', Promise.resolve(result), false, mock)
+  },
+  deleteRestoreTestingSelectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'deleteRestoreTestingSelection', 'Backup', Promise.reject(result), true, mock)
   },
   describeBackupJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-backup', 'describeBackupJob', 'Backup', Promise.resolve(result), true, mock)
@@ -242,15 +304,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeRestoreJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-backup', 'describeRestoreJob', 'Backup', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-backup', 'destroy', 'Backup', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-backup', 'destroy', 'Backup', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-backup', 'destroy', 'Backup', Promise.reject(result), true, mock)
-  },
   disassociateRecoveryPoint: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-backup', 'disassociateRecoveryPoint', 'Backup', Promise.resolve(result), true, mock)
   },
@@ -259,6 +312,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   disassociateRecoveryPointThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-backup', 'disassociateRecoveryPoint', 'Backup', Promise.reject(result), true, mock)
+  },
+  disassociateRecoveryPointFromParent: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'disassociateRecoveryPointFromParent', 'Backup', Promise.resolve(result), true, mock)
+  },
+  disassociateRecoveryPointFromParentAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'disassociateRecoveryPointFromParent', 'Backup', Promise.resolve(result), false, mock)
+  },
+  disassociateRecoveryPointFromParentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'disassociateRecoveryPointFromParent', 'Backup', Promise.reject(result), true, mock)
   },
   exportBackupPlanTemplate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-backup', 'exportBackupPlanTemplate', 'Backup', Promise.resolve(result), true, mock)
@@ -323,6 +385,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getBackupVaultNotificationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-backup', 'getBackupVaultNotifications', 'Backup', Promise.reject(result), true, mock)
   },
+  getLegalHold: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'getLegalHold', 'Backup', Promise.resolve(result), true, mock)
+  },
+  getLegalHoldAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'getLegalHold', 'Backup', Promise.resolve(result), false, mock)
+  },
+  getLegalHoldThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'getLegalHold', 'Backup', Promise.reject(result), true, mock)
+  },
   getRecoveryPointRestoreMetadata: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-backup', 'getRecoveryPointRestoreMetadata', 'Backup', Promise.resolve(result), true, mock)
   },
@@ -332,6 +403,42 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getRecoveryPointRestoreMetadataThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-backup', 'getRecoveryPointRestoreMetadata', 'Backup', Promise.reject(result), true, mock)
   },
+  getRestoreJobMetadata: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'getRestoreJobMetadata', 'Backup', Promise.resolve(result), true, mock)
+  },
+  getRestoreJobMetadataAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'getRestoreJobMetadata', 'Backup', Promise.resolve(result), false, mock)
+  },
+  getRestoreJobMetadataThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'getRestoreJobMetadata', 'Backup', Promise.reject(result), true, mock)
+  },
+  getRestoreTestingInferredMetadata: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'getRestoreTestingInferredMetadata', 'Backup', Promise.resolve(result), true, mock)
+  },
+  getRestoreTestingInferredMetadataAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'getRestoreTestingInferredMetadata', 'Backup', Promise.resolve(result), false, mock)
+  },
+  getRestoreTestingInferredMetadataThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'getRestoreTestingInferredMetadata', 'Backup', Promise.reject(result), true, mock)
+  },
+  getRestoreTestingPlan: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'getRestoreTestingPlan', 'Backup', Promise.resolve(result), true, mock)
+  },
+  getRestoreTestingPlanAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'getRestoreTestingPlan', 'Backup', Promise.resolve(result), false, mock)
+  },
+  getRestoreTestingPlanThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'getRestoreTestingPlan', 'Backup', Promise.reject(result), true, mock)
+  },
+  getRestoreTestingSelection: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'getRestoreTestingSelection', 'Backup', Promise.resolve(result), true, mock)
+  },
+  getRestoreTestingSelectionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'getRestoreTestingSelection', 'Backup', Promise.resolve(result), false, mock)
+  },
+  getRestoreTestingSelectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'getRestoreTestingSelection', 'Backup', Promise.reject(result), true, mock)
+  },
   getSupportedResourceTypes: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-backup', 'getSupportedResourceTypes', 'Backup', Promise.resolve(result), true, mock)
   },
@@ -340,6 +447,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getSupportedResourceTypesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-backup', 'getSupportedResourceTypes', 'Backup', Promise.reject(result), true, mock)
+  },
+  listBackupJobSummaries: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'listBackupJobSummaries', 'Backup', Promise.resolve(result), true, mock)
+  },
+  listBackupJobSummariesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'listBackupJobSummaries', 'Backup', Promise.resolve(result), false, mock)
+  },
+  listBackupJobSummariesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'listBackupJobSummaries', 'Backup', Promise.reject(result), true, mock)
   },
   listBackupJobs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-backup', 'listBackupJobs', 'Backup', Promise.resolve(result), true, mock)
@@ -395,6 +511,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listBackupVaultsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-backup', 'listBackupVaults', 'Backup', Promise.reject(result), true, mock)
   },
+  listCopyJobSummaries: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'listCopyJobSummaries', 'Backup', Promise.resolve(result), true, mock)
+  },
+  listCopyJobSummariesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'listCopyJobSummaries', 'Backup', Promise.resolve(result), false, mock)
+  },
+  listCopyJobSummariesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'listCopyJobSummaries', 'Backup', Promise.reject(result), true, mock)
+  },
   listCopyJobs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-backup', 'listCopyJobs', 'Backup', Promise.resolve(result), true, mock)
   },
@@ -413,6 +538,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listFrameworksThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-backup', 'listFrameworks', 'Backup', Promise.reject(result), true, mock)
   },
+  listLegalHolds: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'listLegalHolds', 'Backup', Promise.resolve(result), true, mock)
+  },
+  listLegalHoldsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'listLegalHolds', 'Backup', Promise.resolve(result), false, mock)
+  },
+  listLegalHoldsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'listLegalHolds', 'Backup', Promise.reject(result), true, mock)
+  },
+  listProtectedResourcesByBackupVault: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'listProtectedResourcesByBackupVault', 'Backup', Promise.resolve(result), true, mock)
+  },
+  listProtectedResourcesByBackupVaultAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'listProtectedResourcesByBackupVault', 'Backup', Promise.resolve(result), false, mock)
+  },
+  listProtectedResourcesByBackupVaultThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'listProtectedResourcesByBackupVault', 'Backup', Promise.reject(result), true, mock)
+  },
   listProtectedResources: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-backup', 'listProtectedResources', 'Backup', Promise.resolve(result), true, mock)
   },
@@ -430,6 +573,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listRecoveryPointsByBackupVaultThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-backup', 'listRecoveryPointsByBackupVault', 'Backup', Promise.reject(result), true, mock)
+  },
+  listRecoveryPointsByLegalHold: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'listRecoveryPointsByLegalHold', 'Backup', Promise.resolve(result), true, mock)
+  },
+  listRecoveryPointsByLegalHoldAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'listRecoveryPointsByLegalHold', 'Backup', Promise.resolve(result), false, mock)
+  },
+  listRecoveryPointsByLegalHoldThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'listRecoveryPointsByLegalHold', 'Backup', Promise.reject(result), true, mock)
   },
   listRecoveryPointsByResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-backup', 'listRecoveryPointsByResource', 'Backup', Promise.resolve(result), true, mock)
@@ -458,6 +610,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listReportPlansThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-backup', 'listReportPlans', 'Backup', Promise.reject(result), true, mock)
   },
+  listRestoreJobSummaries: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'listRestoreJobSummaries', 'Backup', Promise.resolve(result), true, mock)
+  },
+  listRestoreJobSummariesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'listRestoreJobSummaries', 'Backup', Promise.resolve(result), false, mock)
+  },
+  listRestoreJobSummariesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'listRestoreJobSummaries', 'Backup', Promise.reject(result), true, mock)
+  },
+  listRestoreJobsByProtectedResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'listRestoreJobsByProtectedResource', 'Backup', Promise.resolve(result), true, mock)
+  },
+  listRestoreJobsByProtectedResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'listRestoreJobsByProtectedResource', 'Backup', Promise.resolve(result), false, mock)
+  },
+  listRestoreJobsByProtectedResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'listRestoreJobsByProtectedResource', 'Backup', Promise.reject(result), true, mock)
+  },
   listRestoreJobs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-backup', 'listRestoreJobs', 'Backup', Promise.resolve(result), true, mock)
   },
@@ -466,6 +636,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listRestoreJobsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-backup', 'listRestoreJobs', 'Backup', Promise.reject(result), true, mock)
+  },
+  listRestoreTestingPlans: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'listRestoreTestingPlans', 'Backup', Promise.resolve(result), true, mock)
+  },
+  listRestoreTestingPlansAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'listRestoreTestingPlans', 'Backup', Promise.resolve(result), false, mock)
+  },
+  listRestoreTestingPlansThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'listRestoreTestingPlans', 'Backup', Promise.reject(result), true, mock)
+  },
+  listRestoreTestingSelections: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'listRestoreTestingSelections', 'Backup', Promise.resolve(result), true, mock)
+  },
+  listRestoreTestingSelectionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'listRestoreTestingSelections', 'Backup', Promise.resolve(result), false, mock)
+  },
+  listRestoreTestingSelectionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'listRestoreTestingSelections', 'Backup', Promise.reject(result), true, mock)
   },
   listTags: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-backup', 'listTags', 'Backup', Promise.resolve(result), true, mock)
@@ -502,6 +690,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   putBackupVaultNotificationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-backup', 'putBackupVaultNotifications', 'Backup', Promise.reject(result), true, mock)
+  },
+  putRestoreValidationResult: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'putRestoreValidationResult', 'Backup', Promise.resolve(result), true, mock)
+  },
+  putRestoreValidationResultAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'putRestoreValidationResult', 'Backup', Promise.resolve(result), false, mock)
+  },
+  putRestoreValidationResultThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'putRestoreValidationResult', 'Backup', Promise.reject(result), true, mock)
   },
   startBackupJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-backup', 'startBackupJob', 'Backup', Promise.resolve(result), true, mock)
@@ -619,6 +816,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateReportPlanThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-backup', 'updateReportPlan', 'Backup', Promise.reject(result), true, mock)
+  },
+  updateRestoreTestingPlan: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'updateRestoreTestingPlan', 'Backup', Promise.resolve(result), true, mock)
+  },
+  updateRestoreTestingPlanAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'updateRestoreTestingPlan', 'Backup', Promise.resolve(result), false, mock)
+  },
+  updateRestoreTestingPlanThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'updateRestoreTestingPlan', 'Backup', Promise.reject(result), true, mock)
+  },
+  updateRestoreTestingSelection: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'updateRestoreTestingSelection', 'Backup', Promise.resolve(result), true, mock)
+  },
+  updateRestoreTestingSelectionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'updateRestoreTestingSelection', 'Backup', Promise.resolve(result), false, mock)
+  },
+  updateRestoreTestingSelectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-backup', 'updateRestoreTestingSelection', 'Backup', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-backup', 'send', 'BackupClient', Promise.resolve(result), true, mock)

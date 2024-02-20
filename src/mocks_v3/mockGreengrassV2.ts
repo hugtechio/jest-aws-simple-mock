@@ -15,8 +15,16 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockGreengrassV2 = {
+export const mockGreengrassV2 = {
+  associateServiceRoleToAccount: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-greengrassv2', 'associateServiceRoleToAccount', 'GreengrassV2', Promise.resolve(result), true, mock)
+  },
+  associateServiceRoleToAccountAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-greengrassv2', 'associateServiceRoleToAccount', 'GreengrassV2', Promise.resolve(result), false, mock)
+  },
+  associateServiceRoleToAccountThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-greengrassv2', 'associateServiceRoleToAccount', 'GreengrassV2', Promise.reject(result), true, mock)
+  },
   batchAssociateClientDeviceWithCoreDevice: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-greengrassv2', 'batchAssociateClientDeviceWithCoreDevice', 'GreengrassV2', Promise.resolve(result), true, mock)
   },
@@ -80,6 +88,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteCoreDeviceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-greengrassv2', 'deleteCoreDevice', 'GreengrassV2', Promise.reject(result), true, mock)
   },
+  deleteDeployment: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-greengrassv2', 'deleteDeployment', 'GreengrassV2', Promise.resolve(result), true, mock)
+  },
+  deleteDeploymentAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-greengrassv2', 'deleteDeployment', 'GreengrassV2', Promise.resolve(result), false, mock)
+  },
+  deleteDeploymentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-greengrassv2', 'deleteDeployment', 'GreengrassV2', Promise.reject(result), true, mock)
+  },
   describeComponent: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-greengrassv2', 'describeComponent', 'GreengrassV2', Promise.resolve(result), true, mock)
   },
@@ -89,14 +106,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeComponentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-greengrassv2', 'describeComponent', 'GreengrassV2', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-greengrassv2', 'destroy', 'GreengrassV2', Promise.resolve(result), true, mock)
+  disassociateServiceRoleFromAccount: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-greengrassv2', 'disassociateServiceRoleFromAccount', 'GreengrassV2', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-greengrassv2', 'destroy', 'GreengrassV2', Promise.resolve(result), false, mock)
+  disassociateServiceRoleFromAccountAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-greengrassv2', 'disassociateServiceRoleFromAccount', 'GreengrassV2', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-greengrassv2', 'destroy', 'GreengrassV2', Promise.reject(result), true, mock)
+  disassociateServiceRoleFromAccountThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-greengrassv2', 'disassociateServiceRoleFromAccount', 'GreengrassV2', Promise.reject(result), true, mock)
   },
   getComponent: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-greengrassv2', 'getComponent', 'GreengrassV2', Promise.resolve(result), true, mock)
@@ -116,6 +133,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getComponentVersionArtifactThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-greengrassv2', 'getComponentVersionArtifact', 'GreengrassV2', Promise.reject(result), true, mock)
   },
+  getConnectivityInfo: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-greengrassv2', 'getConnectivityInfo', 'GreengrassV2', Promise.resolve(result), true, mock)
+  },
+  getConnectivityInfoAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-greengrassv2', 'getConnectivityInfo', 'GreengrassV2', Promise.resolve(result), false, mock)
+  },
+  getConnectivityInfoThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-greengrassv2', 'getConnectivityInfo', 'GreengrassV2', Promise.reject(result), true, mock)
+  },
   getCoreDevice: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-greengrassv2', 'getCoreDevice', 'GreengrassV2', Promise.resolve(result), true, mock)
   },
@@ -133,6 +159,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getDeploymentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-greengrassv2', 'getDeployment', 'GreengrassV2', Promise.reject(result), true, mock)
+  },
+  getServiceRoleForAccount: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-greengrassv2', 'getServiceRoleForAccount', 'GreengrassV2', Promise.resolve(result), true, mock)
+  },
+  getServiceRoleForAccountAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-greengrassv2', 'getServiceRoleForAccount', 'GreengrassV2', Promise.resolve(result), false, mock)
+  },
+  getServiceRoleForAccountThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-greengrassv2', 'getServiceRoleForAccount', 'GreengrassV2', Promise.reject(result), true, mock)
   },
   listClientDevicesAssociatedWithCoreDevice: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-greengrassv2', 'listClientDevicesAssociatedWithCoreDevice', 'GreengrassV2', Promise.resolve(result), true, mock)
@@ -232,6 +267,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   untagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-greengrassv2', 'untagResource', 'GreengrassV2', Promise.reject(result), true, mock)
+  },
+  updateConnectivityInfo: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-greengrassv2', 'updateConnectivityInfo', 'GreengrassV2', Promise.resolve(result), true, mock)
+  },
+  updateConnectivityInfoAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-greengrassv2', 'updateConnectivityInfo', 'GreengrassV2', Promise.resolve(result), false, mock)
+  },
+  updateConnectivityInfoThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-greengrassv2', 'updateConnectivityInfo', 'GreengrassV2', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-greengrassv2', 'send', 'GreengrassV2Client', Promise.resolve(result), true, mock)

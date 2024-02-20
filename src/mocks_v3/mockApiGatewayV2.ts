@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockApiGatewayV2 = {
+export const mockApiGatewayV2 = {
   createApi: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-apigatewayv2', 'createApi', 'ApiGatewayV2', Promise.resolve(result), true, mock)
   },
@@ -268,15 +267,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteVpcLinkThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-apigatewayv2', 'deleteVpcLink', 'ApiGatewayV2', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-apigatewayv2', 'destroy', 'ApiGatewayV2', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-apigatewayv2', 'destroy', 'ApiGatewayV2', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-apigatewayv2', 'destroy', 'ApiGatewayV2', Promise.reject(result), true, mock)
   },
   exportApi: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-apigatewayv2', 'exportApi', 'ApiGatewayV2', Promise.resolve(result), true, mock)

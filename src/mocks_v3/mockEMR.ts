@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockEMR = {
+export const mockEMR = {
   addInstanceFleet: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-emr', 'addInstanceFleet', 'EMR', Promise.resolve(result), true, mock)
   },
@@ -179,15 +178,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeStudioThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-emr', 'describeStudio', 'EMR', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-emr', 'destroy', 'EMR', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-emr', 'destroy', 'EMR', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-emr', 'destroy', 'EMR', Promise.reject(result), true, mock)
-  },
   getAutoTerminationPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-emr', 'getAutoTerminationPolicy', 'EMR', Promise.resolve(result), true, mock)
   },
@@ -205,6 +195,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getBlockPublicAccessConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-emr', 'getBlockPublicAccessConfiguration', 'EMR', Promise.reject(result), true, mock)
+  },
+  getClusterSessionCredentials: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-emr', 'getClusterSessionCredentials', 'EMR', Promise.resolve(result), true, mock)
+  },
+  getClusterSessionCredentialsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-emr', 'getClusterSessionCredentials', 'EMR', Promise.resolve(result), false, mock)
+  },
+  getClusterSessionCredentialsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-emr', 'getClusterSessionCredentials', 'EMR', Promise.reject(result), true, mock)
   },
   getManagedScalingPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-emr', 'getManagedScalingPolicy', 'EMR', Promise.resolve(result), true, mock)
@@ -323,6 +322,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listStudiosThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-emr', 'listStudios', 'EMR', Promise.reject(result), true, mock)
   },
+  listSupportedInstanceTypes: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-emr', 'listSupportedInstanceTypes', 'EMR', Promise.resolve(result), true, mock)
+  },
+  listSupportedInstanceTypesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-emr', 'listSupportedInstanceTypes', 'EMR', Promise.resolve(result), false, mock)
+  },
+  listSupportedInstanceTypesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-emr', 'listSupportedInstanceTypes', 'EMR', Promise.reject(result), true, mock)
+  },
   modifyCluster: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-emr', 'modifyCluster', 'EMR', Promise.resolve(result), true, mock)
   },
@@ -431,6 +439,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   runJobFlowThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-emr', 'runJobFlow', 'EMR', Promise.reject(result), true, mock)
   },
+  setKeepJobFlowAliveWhenNoSteps: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-emr', 'setKeepJobFlowAliveWhenNoSteps', 'EMR', Promise.resolve(result), true, mock)
+  },
+  setKeepJobFlowAliveWhenNoStepsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-emr', 'setKeepJobFlowAliveWhenNoSteps', 'EMR', Promise.resolve(result), false, mock)
+  },
+  setKeepJobFlowAliveWhenNoStepsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-emr', 'setKeepJobFlowAliveWhenNoSteps', 'EMR', Promise.reject(result), true, mock)
+  },
   setTerminationProtection: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-emr', 'setTerminationProtection', 'EMR', Promise.resolve(result), true, mock)
   },
@@ -439,6 +456,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   setTerminationProtectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-emr', 'setTerminationProtection', 'EMR', Promise.reject(result), true, mock)
+  },
+  setUnhealthyNodeReplacement: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-emr', 'setUnhealthyNodeReplacement', 'EMR', Promise.resolve(result), true, mock)
+  },
+  setUnhealthyNodeReplacementAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-emr', 'setUnhealthyNodeReplacement', 'EMR', Promise.resolve(result), false, mock)
+  },
+  setUnhealthyNodeReplacementThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-emr', 'setUnhealthyNodeReplacement', 'EMR', Promise.reject(result), true, mock)
   },
   setVisibleToAllUsers: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-emr', 'setVisibleToAllUsers', 'EMR', Promise.resolve(result), true, mock)

@@ -15,17 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockKinesisVideoMedia = {
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-kinesis-video-media', 'destroy', 'KinesisVideoMedia', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-kinesis-video-media', 'destroy', 'KinesisVideoMedia', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-kinesis-video-media', 'destroy', 'KinesisVideoMedia', Promise.reject(result), true, mock)
-  },
+export const mockKinesisVideoMedia = {
   getMedia: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-kinesis-video-media', 'getMedia', 'KinesisVideoMedia', Promise.resolve(result), true, mock)
   },

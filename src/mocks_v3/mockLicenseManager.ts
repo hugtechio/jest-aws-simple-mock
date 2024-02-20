@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockLicenseManager = {
+export const mockLicenseManager = {
   acceptGrant: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-license-manager', 'acceptGrant', 'LicenseManager', Promise.resolve(result), true, mock)
   },
@@ -169,15 +168,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteTokenThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-license-manager', 'deleteToken', 'LicenseManager', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-license-manager', 'destroy', 'LicenseManager', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-license-manager', 'destroy', 'LicenseManager', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-license-manager', 'destroy', 'LicenseManager', Promise.reject(result), true, mock)
   },
   extendLicenseConsumption: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-license-manager', 'extendLicenseConsumption', 'LicenseManager', Promise.resolve(result), true, mock)
@@ -350,6 +340,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listReceivedGrantsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-license-manager', 'listReceivedGrants', 'LicenseManager', Promise.reject(result), true, mock)
   },
+  listReceivedGrantsForOrganization: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-license-manager', 'listReceivedGrantsForOrganization', 'LicenseManager', Promise.resolve(result), true, mock)
+  },
+  listReceivedGrantsForOrganizationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-license-manager', 'listReceivedGrantsForOrganization', 'LicenseManager', Promise.resolve(result), false, mock)
+  },
+  listReceivedGrantsForOrganizationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-license-manager', 'listReceivedGrantsForOrganization', 'LicenseManager', Promise.reject(result), true, mock)
+  },
   listReceivedLicenses: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-license-manager', 'listReceivedLicenses', 'LicenseManager', Promise.resolve(result), true, mock)
   },
@@ -358,6 +357,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listReceivedLicensesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-license-manager', 'listReceivedLicenses', 'LicenseManager', Promise.reject(result), true, mock)
+  },
+  listReceivedLicensesForOrganization: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-license-manager', 'listReceivedLicensesForOrganization', 'LicenseManager', Promise.resolve(result), true, mock)
+  },
+  listReceivedLicensesForOrganizationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-license-manager', 'listReceivedLicensesForOrganization', 'LicenseManager', Promise.resolve(result), false, mock)
+  },
+  listReceivedLicensesForOrganizationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-license-manager', 'listReceivedLicensesForOrganization', 'LicenseManager', Promise.reject(result), true, mock)
   },
   listResourceInventory: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-license-manager', 'listResourceInventory', 'LicenseManager', Promise.resolve(result), true, mock)

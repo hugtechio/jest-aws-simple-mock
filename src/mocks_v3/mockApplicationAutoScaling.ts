@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockApplicationAutoScaling = {
+export const mockApplicationAutoScaling = {
   deleteScalingPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-application-auto-scaling', 'deleteScalingPolicy', 'ApplicationAutoScaling', Promise.resolve(result), true, mock)
   },
@@ -80,14 +79,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeScheduledActionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-application-auto-scaling', 'describeScheduledActions', 'ApplicationAutoScaling', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-application-auto-scaling', 'destroy', 'ApplicationAutoScaling', Promise.resolve(result), true, mock)
+  listTagsForResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-application-auto-scaling', 'listTagsForResource', 'ApplicationAutoScaling', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-application-auto-scaling', 'destroy', 'ApplicationAutoScaling', Promise.resolve(result), false, mock)
+  listTagsForResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-application-auto-scaling', 'listTagsForResource', 'ApplicationAutoScaling', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-application-auto-scaling', 'destroy', 'ApplicationAutoScaling', Promise.reject(result), true, mock)
+  listTagsForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-application-auto-scaling', 'listTagsForResource', 'ApplicationAutoScaling', Promise.reject(result), true, mock)
   },
   putScalingPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-application-auto-scaling', 'putScalingPolicy', 'ApplicationAutoScaling', Promise.resolve(result), true, mock)
@@ -115,6 +114,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   registerScalableTargetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-application-auto-scaling', 'registerScalableTarget', 'ApplicationAutoScaling', Promise.reject(result), true, mock)
+  },
+  tagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-application-auto-scaling', 'tagResource', 'ApplicationAutoScaling', Promise.resolve(result), true, mock)
+  },
+  tagResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-application-auto-scaling', 'tagResource', 'ApplicationAutoScaling', Promise.resolve(result), false, mock)
+  },
+  tagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-application-auto-scaling', 'tagResource', 'ApplicationAutoScaling', Promise.reject(result), true, mock)
+  },
+  untagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-application-auto-scaling', 'untagResource', 'ApplicationAutoScaling', Promise.resolve(result), true, mock)
+  },
+  untagResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-application-auto-scaling', 'untagResource', 'ApplicationAutoScaling', Promise.resolve(result), false, mock)
+  },
+  untagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-application-auto-scaling', 'untagResource', 'ApplicationAutoScaling', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-application-auto-scaling', 'send', 'ApplicationAutoScalingClient', Promise.resolve(result), true, mock)

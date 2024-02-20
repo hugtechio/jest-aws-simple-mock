@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockIoTSiteWise = {
+export const mockIoTSiteWise = {
   associateAssets: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsitewise', 'associateAssets', 'IoTSiteWise', Promise.resolve(result), true, mock)
   },
@@ -25,6 +24,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   associateAssetsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsitewise', 'associateAssets', 'IoTSiteWise', Promise.reject(result), true, mock)
+  },
+  associateTimeSeriesToAssetProperty: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'associateTimeSeriesToAssetProperty', 'IoTSiteWise', Promise.resolve(result), true, mock)
+  },
+  associateTimeSeriesToAssetPropertyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'associateTimeSeriesToAssetProperty', 'IoTSiteWise', Promise.resolve(result), false, mock)
+  },
+  associateTimeSeriesToAssetPropertyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'associateTimeSeriesToAssetProperty', 'IoTSiteWise', Promise.reject(result), true, mock)
   },
   batchAssociateProjectAssets: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsitewise', 'batchAssociateProjectAssets', 'IoTSiteWise', Promise.resolve(result), true, mock)
@@ -43,6 +51,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   batchDisassociateProjectAssetsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsitewise', 'batchDisassociateProjectAssets', 'IoTSiteWise', Promise.reject(result), true, mock)
+  },
+  batchGetAssetPropertyAggregates: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'batchGetAssetPropertyAggregates', 'IoTSiteWise', Promise.resolve(result), true, mock)
+  },
+  batchGetAssetPropertyAggregatesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'batchGetAssetPropertyAggregates', 'IoTSiteWise', Promise.resolve(result), false, mock)
+  },
+  batchGetAssetPropertyAggregatesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'batchGetAssetPropertyAggregates', 'IoTSiteWise', Promise.reject(result), true, mock)
+  },
+  batchGetAssetPropertyValue: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'batchGetAssetPropertyValue', 'IoTSiteWise', Promise.resolve(result), true, mock)
+  },
+  batchGetAssetPropertyValueAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'batchGetAssetPropertyValue', 'IoTSiteWise', Promise.resolve(result), false, mock)
+  },
+  batchGetAssetPropertyValueThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'batchGetAssetPropertyValue', 'IoTSiteWise', Promise.reject(result), true, mock)
+  },
+  batchGetAssetPropertyValueHistory: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'batchGetAssetPropertyValueHistory', 'IoTSiteWise', Promise.resolve(result), true, mock)
+  },
+  batchGetAssetPropertyValueHistoryAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'batchGetAssetPropertyValueHistory', 'IoTSiteWise', Promise.resolve(result), false, mock)
+  },
+  batchGetAssetPropertyValueHistoryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'batchGetAssetPropertyValueHistory', 'IoTSiteWise', Promise.reject(result), true, mock)
   },
   batchPutAssetPropertyValue: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsitewise', 'batchPutAssetPropertyValue', 'IoTSiteWise', Promise.resolve(result), true, mock)
@@ -79,6 +114,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createAssetModelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsitewise', 'createAssetModel', 'IoTSiteWise', Promise.reject(result), true, mock)
+  },
+  createAssetModelCompositeModel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'createAssetModelCompositeModel', 'IoTSiteWise', Promise.resolve(result), true, mock)
+  },
+  createAssetModelCompositeModelAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'createAssetModelCompositeModel', 'IoTSiteWise', Promise.resolve(result), false, mock)
+  },
+  createAssetModelCompositeModelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'createAssetModelCompositeModel', 'IoTSiteWise', Promise.reject(result), true, mock)
+  },
+  createBulkImportJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'createBulkImportJob', 'IoTSiteWise', Promise.resolve(result), true, mock)
+  },
+  createBulkImportJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'createBulkImportJob', 'IoTSiteWise', Promise.resolve(result), false, mock)
+  },
+  createBulkImportJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'createBulkImportJob', 'IoTSiteWise', Promise.reject(result), true, mock)
   },
   createDashboard: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsitewise', 'createDashboard', 'IoTSiteWise', Promise.resolve(result), true, mock)
@@ -143,6 +196,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteAssetModelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsitewise', 'deleteAssetModel', 'IoTSiteWise', Promise.reject(result), true, mock)
   },
+  deleteAssetModelCompositeModel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'deleteAssetModelCompositeModel', 'IoTSiteWise', Promise.resolve(result), true, mock)
+  },
+  deleteAssetModelCompositeModelAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'deleteAssetModelCompositeModel', 'IoTSiteWise', Promise.resolve(result), false, mock)
+  },
+  deleteAssetModelCompositeModelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'deleteAssetModelCompositeModel', 'IoTSiteWise', Promise.reject(result), true, mock)
+  },
   deleteDashboard: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsitewise', 'deleteDashboard', 'IoTSiteWise', Promise.resolve(result), true, mock)
   },
@@ -179,6 +241,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteProjectThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsitewise', 'deleteProject', 'IoTSiteWise', Promise.reject(result), true, mock)
   },
+  deleteTimeSeries: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'deleteTimeSeries', 'IoTSiteWise', Promise.resolve(result), true, mock)
+  },
+  deleteTimeSeriesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'deleteTimeSeries', 'IoTSiteWise', Promise.resolve(result), false, mock)
+  },
+  deleteTimeSeriesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'deleteTimeSeries', 'IoTSiteWise', Promise.reject(result), true, mock)
+  },
   describeAccessPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsitewise', 'describeAccessPolicy', 'IoTSiteWise', Promise.resolve(result), true, mock)
   },
@@ -187,6 +258,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeAccessPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsitewise', 'describeAccessPolicy', 'IoTSiteWise', Promise.reject(result), true, mock)
+  },
+  describeAction: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'describeAction', 'IoTSiteWise', Promise.resolve(result), true, mock)
+  },
+  describeActionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'describeAction', 'IoTSiteWise', Promise.resolve(result), false, mock)
+  },
+  describeActionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'describeAction', 'IoTSiteWise', Promise.reject(result), true, mock)
   },
   describeAsset: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsitewise', 'describeAsset', 'IoTSiteWise', Promise.resolve(result), true, mock)
@@ -197,6 +277,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeAssetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsitewise', 'describeAsset', 'IoTSiteWise', Promise.reject(result), true, mock)
   },
+  describeAssetCompositeModel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'describeAssetCompositeModel', 'IoTSiteWise', Promise.resolve(result), true, mock)
+  },
+  describeAssetCompositeModelAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'describeAssetCompositeModel', 'IoTSiteWise', Promise.resolve(result), false, mock)
+  },
+  describeAssetCompositeModelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'describeAssetCompositeModel', 'IoTSiteWise', Promise.reject(result), true, mock)
+  },
   describeAssetModel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsitewise', 'describeAssetModel', 'IoTSiteWise', Promise.resolve(result), true, mock)
   },
@@ -206,6 +295,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeAssetModelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsitewise', 'describeAssetModel', 'IoTSiteWise', Promise.reject(result), true, mock)
   },
+  describeAssetModelCompositeModel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'describeAssetModelCompositeModel', 'IoTSiteWise', Promise.resolve(result), true, mock)
+  },
+  describeAssetModelCompositeModelAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'describeAssetModelCompositeModel', 'IoTSiteWise', Promise.resolve(result), false, mock)
+  },
+  describeAssetModelCompositeModelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'describeAssetModelCompositeModel', 'IoTSiteWise', Promise.reject(result), true, mock)
+  },
   describeAssetProperty: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsitewise', 'describeAssetProperty', 'IoTSiteWise', Promise.resolve(result), true, mock)
   },
@@ -214,6 +312,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeAssetPropertyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsitewise', 'describeAssetProperty', 'IoTSiteWise', Promise.reject(result), true, mock)
+  },
+  describeBulkImportJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'describeBulkImportJob', 'IoTSiteWise', Promise.resolve(result), true, mock)
+  },
+  describeBulkImportJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'describeBulkImportJob', 'IoTSiteWise', Promise.resolve(result), false, mock)
+  },
+  describeBulkImportJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'describeBulkImportJob', 'IoTSiteWise', Promise.reject(result), true, mock)
   },
   describeDashboard: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsitewise', 'describeDashboard', 'IoTSiteWise', Promise.resolve(result), true, mock)
@@ -233,15 +340,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeDefaultEncryptionConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsitewise', 'describeDefaultEncryptionConfiguration', 'IoTSiteWise', Promise.reject(result), true, mock)
   },
-  describeGateway: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iotsitewise', 'describeGateway', 'IoTSiteWise', Promise.resolve(result), true, mock)
-  },
-  describeGatewayAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iotsitewise', 'describeGateway', 'IoTSiteWise', Promise.resolve(result), false, mock)
-  },
-  describeGatewayThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iotsitewise', 'describeGateway', 'IoTSiteWise', Promise.reject(result), true, mock)
-  },
   describeGatewayCapabilityConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsitewise', 'describeGatewayCapabilityConfiguration', 'IoTSiteWise', Promise.resolve(result), true, mock)
   },
@@ -250,6 +348,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeGatewayCapabilityConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsitewise', 'describeGatewayCapabilityConfiguration', 'IoTSiteWise', Promise.reject(result), true, mock)
+  },
+  describeGateway: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'describeGateway', 'IoTSiteWise', Promise.resolve(result), true, mock)
+  },
+  describeGatewayAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'describeGateway', 'IoTSiteWise', Promise.resolve(result), false, mock)
+  },
+  describeGatewayThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'describeGateway', 'IoTSiteWise', Promise.reject(result), true, mock)
   },
   describeLoggingOptions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsitewise', 'describeLoggingOptions', 'IoTSiteWise', Promise.resolve(result), true, mock)
@@ -287,14 +394,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeStorageConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsitewise', 'describeStorageConfiguration', 'IoTSiteWise', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iotsitewise', 'destroy', 'IoTSiteWise', Promise.resolve(result), true, mock)
+  describeTimeSeries: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'describeTimeSeries', 'IoTSiteWise', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iotsitewise', 'destroy', 'IoTSiteWise', Promise.resolve(result), false, mock)
+  describeTimeSeriesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'describeTimeSeries', 'IoTSiteWise', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iotsitewise', 'destroy', 'IoTSiteWise', Promise.reject(result), true, mock)
+  describeTimeSeriesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'describeTimeSeries', 'IoTSiteWise', Promise.reject(result), true, mock)
   },
   disassociateAssets: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsitewise', 'disassociateAssets', 'IoTSiteWise', Promise.resolve(result), true, mock)
@@ -304,6 +411,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   disassociateAssetsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsitewise', 'disassociateAssets', 'IoTSiteWise', Promise.reject(result), true, mock)
+  },
+  disassociateTimeSeriesFromAssetProperty: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'disassociateTimeSeriesFromAssetProperty', 'IoTSiteWise', Promise.resolve(result), true, mock)
+  },
+  disassociateTimeSeriesFromAssetPropertyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'disassociateTimeSeriesFromAssetProperty', 'IoTSiteWise', Promise.resolve(result), false, mock)
+  },
+  disassociateTimeSeriesFromAssetPropertyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'disassociateTimeSeriesFromAssetProperty', 'IoTSiteWise', Promise.reject(result), true, mock)
+  },
+  executeAction: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'executeAction', 'IoTSiteWise', Promise.resolve(result), true, mock)
+  },
+  executeActionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'executeAction', 'IoTSiteWise', Promise.resolve(result), false, mock)
+  },
+  executeActionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'executeAction', 'IoTSiteWise', Promise.reject(result), true, mock)
+  },
+  executeQuery: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'executeQuery', 'IoTSiteWise', Promise.resolve(result), true, mock)
+  },
+  executeQueryAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'executeQuery', 'IoTSiteWise', Promise.resolve(result), false, mock)
+  },
+  executeQueryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'executeQuery', 'IoTSiteWise', Promise.reject(result), true, mock)
   },
   getAssetPropertyAggregates: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsitewise', 'getAssetPropertyAggregates', 'IoTSiteWise', Promise.resolve(result), true, mock)
@@ -350,6 +484,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listAccessPoliciesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsitewise', 'listAccessPolicies', 'IoTSiteWise', Promise.reject(result), true, mock)
   },
+  listActions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'listActions', 'IoTSiteWise', Promise.resolve(result), true, mock)
+  },
+  listActionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'listActions', 'IoTSiteWise', Promise.resolve(result), false, mock)
+  },
+  listActionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'listActions', 'IoTSiteWise', Promise.reject(result), true, mock)
+  },
+  listAssetModelCompositeModels: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'listAssetModelCompositeModels', 'IoTSiteWise', Promise.resolve(result), true, mock)
+  },
+  listAssetModelCompositeModelsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'listAssetModelCompositeModels', 'IoTSiteWise', Promise.resolve(result), false, mock)
+  },
+  listAssetModelCompositeModelsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'listAssetModelCompositeModels', 'IoTSiteWise', Promise.reject(result), true, mock)
+  },
+  listAssetModelProperties: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'listAssetModelProperties', 'IoTSiteWise', Promise.resolve(result), true, mock)
+  },
+  listAssetModelPropertiesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'listAssetModelProperties', 'IoTSiteWise', Promise.resolve(result), false, mock)
+  },
+  listAssetModelPropertiesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'listAssetModelProperties', 'IoTSiteWise', Promise.reject(result), true, mock)
+  },
   listAssetModels: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsitewise', 'listAssetModels', 'IoTSiteWise', Promise.resolve(result), true, mock)
   },
@@ -358,6 +519,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listAssetModelsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsitewise', 'listAssetModels', 'IoTSiteWise', Promise.reject(result), true, mock)
+  },
+  listAssetProperties: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'listAssetProperties', 'IoTSiteWise', Promise.resolve(result), true, mock)
+  },
+  listAssetPropertiesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'listAssetProperties', 'IoTSiteWise', Promise.resolve(result), false, mock)
+  },
+  listAssetPropertiesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'listAssetProperties', 'IoTSiteWise', Promise.reject(result), true, mock)
   },
   listAssetRelationships: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsitewise', 'listAssetRelationships', 'IoTSiteWise', Promise.resolve(result), true, mock)
@@ -385,6 +555,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listAssociatedAssetsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsitewise', 'listAssociatedAssets', 'IoTSiteWise', Promise.reject(result), true, mock)
+  },
+  listBulkImportJobs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'listBulkImportJobs', 'IoTSiteWise', Promise.resolve(result), true, mock)
+  },
+  listBulkImportJobsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'listBulkImportJobs', 'IoTSiteWise', Promise.resolve(result), false, mock)
+  },
+  listBulkImportJobsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'listBulkImportJobs', 'IoTSiteWise', Promise.reject(result), true, mock)
+  },
+  listCompositionRelationships: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'listCompositionRelationships', 'IoTSiteWise', Promise.resolve(result), true, mock)
+  },
+  listCompositionRelationshipsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'listCompositionRelationships', 'IoTSiteWise', Promise.resolve(result), false, mock)
+  },
+  listCompositionRelationshipsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'listCompositionRelationships', 'IoTSiteWise', Promise.reject(result), true, mock)
   },
   listDashboards: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsitewise', 'listDashboards', 'IoTSiteWise', Promise.resolve(result), true, mock)
@@ -439,6 +627,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listTagsForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsitewise', 'listTagsForResource', 'IoTSiteWise', Promise.reject(result), true, mock)
+  },
+  listTimeSeries: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'listTimeSeries', 'IoTSiteWise', Promise.resolve(result), true, mock)
+  },
+  listTimeSeriesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'listTimeSeries', 'IoTSiteWise', Promise.resolve(result), false, mock)
+  },
+  listTimeSeriesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'listTimeSeries', 'IoTSiteWise', Promise.reject(result), true, mock)
   },
   putDefaultEncryptionConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsitewise', 'putDefaultEncryptionConfiguration', 'IoTSiteWise', Promise.resolve(result), true, mock)
@@ -512,6 +709,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   updateAssetModelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsitewise', 'updateAssetModel', 'IoTSiteWise', Promise.reject(result), true, mock)
   },
+  updateAssetModelCompositeModel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'updateAssetModelCompositeModel', 'IoTSiteWise', Promise.resolve(result), true, mock)
+  },
+  updateAssetModelCompositeModelAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'updateAssetModelCompositeModel', 'IoTSiteWise', Promise.resolve(result), false, mock)
+  },
+  updateAssetModelCompositeModelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'updateAssetModelCompositeModel', 'IoTSiteWise', Promise.reject(result), true, mock)
+  },
   updateAssetProperty: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsitewise', 'updateAssetProperty', 'IoTSiteWise', Promise.resolve(result), true, mock)
   },
@@ -530,15 +736,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   updateDashboardThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsitewise', 'updateDashboard', 'IoTSiteWise', Promise.reject(result), true, mock)
   },
-  updateGateway: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iotsitewise', 'updateGateway', 'IoTSiteWise', Promise.resolve(result), true, mock)
-  },
-  updateGatewayAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iotsitewise', 'updateGateway', 'IoTSiteWise', Promise.resolve(result), false, mock)
-  },
-  updateGatewayThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iotsitewise', 'updateGateway', 'IoTSiteWise', Promise.reject(result), true, mock)
-  },
   updateGatewayCapabilityConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsitewise', 'updateGatewayCapabilityConfiguration', 'IoTSiteWise', Promise.resolve(result), true, mock)
   },
@@ -547,6 +744,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateGatewayCapabilityConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsitewise', 'updateGatewayCapabilityConfiguration', 'IoTSiteWise', Promise.reject(result), true, mock)
+  },
+  updateGateway: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'updateGateway', 'IoTSiteWise', Promise.resolve(result), true, mock)
+  },
+  updateGatewayAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'updateGateway', 'IoTSiteWise', Promise.resolve(result), false, mock)
+  },
+  updateGatewayThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iotsitewise', 'updateGateway', 'IoTSiteWise', Promise.reject(result), true, mock)
   },
   updatePortal: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iotsitewise', 'updatePortal', 'IoTSiteWise', Promise.resolve(result), true, mock)

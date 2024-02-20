@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockPanorama = {
+export const mockPanorama = {
   createApplicationInstance: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-panorama', 'createApplicationInstance', 'Panorama', Promise.resolve(result), true, mock)
   },
@@ -170,15 +169,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describePackageVersionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-panorama', 'describePackageVersion', 'Panorama', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-panorama', 'destroy', 'Panorama', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-panorama', 'destroy', 'Panorama', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-panorama', 'destroy', 'Panorama', Promise.reject(result), true, mock)
-  },
   listApplicationInstanceDependencies: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-panorama', 'listApplicationInstanceDependencies', 'Panorama', Promise.resolve(result), true, mock)
   },
@@ -295,6 +285,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   removeApplicationInstanceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-panorama', 'removeApplicationInstance', 'Panorama', Promise.reject(result), true, mock)
+  },
+  signalApplicationInstanceNodeInstances: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-panorama', 'signalApplicationInstanceNodeInstances', 'Panorama', Promise.resolve(result), true, mock)
+  },
+  signalApplicationInstanceNodeInstancesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-panorama', 'signalApplicationInstanceNodeInstances', 'Panorama', Promise.resolve(result), false, mock)
+  },
+  signalApplicationInstanceNodeInstancesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-panorama', 'signalApplicationInstanceNodeInstances', 'Panorama', Promise.reject(result), true, mock)
   },
   tagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-panorama', 'tagResource', 'Panorama', Promise.resolve(result), true, mock)

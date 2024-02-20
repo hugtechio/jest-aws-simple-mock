@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockMediaLive = {
+export const mockMediaLive = {
   acceptInputDeviceTransfer: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-medialive', 'acceptInputDeviceTransfer', 'MediaLive', Promise.resolve(result), true, mock)
   },
@@ -215,6 +214,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteTagsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-medialive', 'deleteTags', 'MediaLive', Promise.reject(result), true, mock)
   },
+  describeAccountConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-medialive', 'describeAccountConfiguration', 'MediaLive', Promise.resolve(result), true, mock)
+  },
+  describeAccountConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-medialive', 'describeAccountConfiguration', 'MediaLive', Promise.resolve(result), false, mock)
+  },
+  describeAccountConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-medialive', 'describeAccountConfiguration', 'MediaLive', Promise.reject(result), true, mock)
+  },
   describeChannel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-medialive', 'describeChannel', 'MediaLive', Promise.resolve(result), true, mock)
   },
@@ -305,14 +313,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeScheduleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-medialive', 'describeSchedule', 'MediaLive', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-medialive', 'destroy', 'MediaLive', Promise.resolve(result), true, mock)
+  describeThumbnails: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-medialive', 'describeThumbnails', 'MediaLive', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-medialive', 'destroy', 'MediaLive', Promise.resolve(result), false, mock)
+  describeThumbnailsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-medialive', 'describeThumbnails', 'MediaLive', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-medialive', 'destroy', 'MediaLive', Promise.reject(result), true, mock)
+  describeThumbnailsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-medialive', 'describeThumbnails', 'MediaLive', Promise.reject(result), true, mock)
   },
   listChannels: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-medialive', 'listChannels', 'MediaLive', Promise.resolve(result), true, mock)
@@ -413,6 +421,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   purchaseOfferingThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-medialive', 'purchaseOffering', 'MediaLive', Promise.reject(result), true, mock)
   },
+  rebootInputDevice: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-medialive', 'rebootInputDevice', 'MediaLive', Promise.resolve(result), true, mock)
+  },
+  rebootInputDeviceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-medialive', 'rebootInputDevice', 'MediaLive', Promise.resolve(result), false, mock)
+  },
+  rebootInputDeviceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-medialive', 'rebootInputDevice', 'MediaLive', Promise.reject(result), true, mock)
+  },
   rejectInputDeviceTransfer: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-medialive', 'rejectInputDeviceTransfer', 'MediaLive', Promise.resolve(result), true, mock)
   },
@@ -430,6 +447,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   startChannelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-medialive', 'startChannel', 'MediaLive', Promise.reject(result), true, mock)
+  },
+  startInputDevice: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-medialive', 'startInputDevice', 'MediaLive', Promise.resolve(result), true, mock)
+  },
+  startInputDeviceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-medialive', 'startInputDevice', 'MediaLive', Promise.resolve(result), false, mock)
+  },
+  startInputDeviceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-medialive', 'startInputDevice', 'MediaLive', Promise.reject(result), true, mock)
+  },
+  startInputDeviceMaintenanceWindow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-medialive', 'startInputDeviceMaintenanceWindow', 'MediaLive', Promise.resolve(result), true, mock)
+  },
+  startInputDeviceMaintenanceWindowAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-medialive', 'startInputDeviceMaintenanceWindow', 'MediaLive', Promise.resolve(result), false, mock)
+  },
+  startInputDeviceMaintenanceWindowThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-medialive', 'startInputDeviceMaintenanceWindow', 'MediaLive', Promise.reject(result), true, mock)
   },
   startMultiplex: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-medialive', 'startMultiplex', 'MediaLive', Promise.resolve(result), true, mock)
@@ -449,6 +484,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   stopChannelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-medialive', 'stopChannel', 'MediaLive', Promise.reject(result), true, mock)
   },
+  stopInputDevice: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-medialive', 'stopInputDevice', 'MediaLive', Promise.resolve(result), true, mock)
+  },
+  stopInputDeviceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-medialive', 'stopInputDevice', 'MediaLive', Promise.resolve(result), false, mock)
+  },
+  stopInputDeviceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-medialive', 'stopInputDevice', 'MediaLive', Promise.reject(result), true, mock)
+  },
   stopMultiplex: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-medialive', 'stopMultiplex', 'MediaLive', Promise.resolve(result), true, mock)
   },
@@ -467,14 +511,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   transferInputDeviceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-medialive', 'transferInputDevice', 'MediaLive', Promise.reject(result), true, mock)
   },
-  updateChannel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-medialive', 'updateChannel', 'MediaLive', Promise.resolve(result), true, mock)
+  updateAccountConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-medialive', 'updateAccountConfiguration', 'MediaLive', Promise.resolve(result), true, mock)
   },
-  updateChannelAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-medialive', 'updateChannel', 'MediaLive', Promise.resolve(result), false, mock)
+  updateAccountConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-medialive', 'updateAccountConfiguration', 'MediaLive', Promise.resolve(result), false, mock)
   },
-  updateChannelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-medialive', 'updateChannel', 'MediaLive', Promise.reject(result), true, mock)
+  updateAccountConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-medialive', 'updateAccountConfiguration', 'MediaLive', Promise.reject(result), true, mock)
   },
   updateChannelClass: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-medialive', 'updateChannelClass', 'MediaLive', Promise.resolve(result), true, mock)
@@ -484,6 +528,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateChannelClassThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-medialive', 'updateChannelClass', 'MediaLive', Promise.reject(result), true, mock)
+  },
+  updateChannel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-medialive', 'updateChannel', 'MediaLive', Promise.resolve(result), true, mock)
+  },
+  updateChannelAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-medialive', 'updateChannel', 'MediaLive', Promise.resolve(result), false, mock)
+  },
+  updateChannelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-medialive', 'updateChannel', 'MediaLive', Promise.reject(result), true, mock)
   },
   updateInput: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-medialive', 'updateInput', 'MediaLive', Promise.resolve(result), true, mock)

@@ -15,8 +15,16 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockTimestreamWrite = {
+export const mockTimestreamWrite = {
+  createBatchLoadTask: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-timestream-write', 'createBatchLoadTask', 'TimestreamWrite', Promise.resolve(result), true, mock)
+  },
+  createBatchLoadTaskAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-timestream-write', 'createBatchLoadTask', 'TimestreamWrite', Promise.resolve(result), false, mock)
+  },
+  createBatchLoadTaskThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-timestream-write', 'createBatchLoadTask', 'TimestreamWrite', Promise.reject(result), true, mock)
+  },
   createDatabase: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-timestream-write', 'createDatabase', 'TimestreamWrite', Promise.resolve(result), true, mock)
   },
@@ -53,6 +61,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteTableThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-timestream-write', 'deleteTable', 'TimestreamWrite', Promise.reject(result), true, mock)
   },
+  describeBatchLoadTask: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-timestream-write', 'describeBatchLoadTask', 'TimestreamWrite', Promise.resolve(result), true, mock)
+  },
+  describeBatchLoadTaskAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-timestream-write', 'describeBatchLoadTask', 'TimestreamWrite', Promise.resolve(result), false, mock)
+  },
+  describeBatchLoadTaskThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-timestream-write', 'describeBatchLoadTask', 'TimestreamWrite', Promise.reject(result), true, mock)
+  },
   describeDatabase: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-timestream-write', 'describeDatabase', 'TimestreamWrite', Promise.resolve(result), true, mock)
   },
@@ -80,14 +97,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeTableThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-timestream-write', 'describeTable', 'TimestreamWrite', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-timestream-write', 'destroy', 'TimestreamWrite', Promise.resolve(result), true, mock)
+  listBatchLoadTasks: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-timestream-write', 'listBatchLoadTasks', 'TimestreamWrite', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-timestream-write', 'destroy', 'TimestreamWrite', Promise.resolve(result), false, mock)
+  listBatchLoadTasksAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-timestream-write', 'listBatchLoadTasks', 'TimestreamWrite', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-timestream-write', 'destroy', 'TimestreamWrite', Promise.reject(result), true, mock)
+  listBatchLoadTasksThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-timestream-write', 'listBatchLoadTasks', 'TimestreamWrite', Promise.reject(result), true, mock)
   },
   listDatabases: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-timestream-write', 'listDatabases', 'TimestreamWrite', Promise.resolve(result), true, mock)
@@ -115,6 +132,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listTagsForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-timestream-write', 'listTagsForResource', 'TimestreamWrite', Promise.reject(result), true, mock)
+  },
+  resumeBatchLoadTask: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-timestream-write', 'resumeBatchLoadTask', 'TimestreamWrite', Promise.resolve(result), true, mock)
+  },
+  resumeBatchLoadTaskAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-timestream-write', 'resumeBatchLoadTask', 'TimestreamWrite', Promise.resolve(result), false, mock)
+  },
+  resumeBatchLoadTaskThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-timestream-write', 'resumeBatchLoadTask', 'TimestreamWrite', Promise.reject(result), true, mock)
   },
   tagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-timestream-write', 'tagResource', 'TimestreamWrite', Promise.resolve(result), true, mock)

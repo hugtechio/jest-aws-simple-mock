@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockCodeStar = {
+export const mockCodeStar = {
   associateTeamMember: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codestar', 'associateTeamMember', 'CodeStar', Promise.resolve(result), true, mock)
   },
@@ -79,15 +78,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeUserProfileThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codestar', 'describeUserProfile', 'CodeStar', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-codestar', 'destroy', 'CodeStar', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-codestar', 'destroy', 'CodeStar', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-codestar', 'destroy', 'CodeStar', Promise.reject(result), true, mock)
   },
   disassociateTeamMember: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codestar', 'disassociateTeamMember', 'CodeStar', Promise.resolve(result), true, mock)

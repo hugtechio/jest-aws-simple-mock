@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockRDSData = {
+export const mockRDSData = {
   batchExecuteStatement: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds-data', 'batchExecuteStatement', 'RDSData', Promise.resolve(result), true, mock)
   },
@@ -43,15 +42,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   commitTransactionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds-data', 'commitTransaction', 'RDSData', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-rds-data', 'destroy', 'RDSData', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-rds-data', 'destroy', 'RDSData', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-rds-data', 'destroy', 'RDSData', Promise.reject(result), true, mock)
   },
   executeSql: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-rds-data', 'executeSql', 'RDSData', Promise.resolve(result), true, mock)

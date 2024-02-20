@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockTranscribe = {
+export const mockTranscribe = {
   createCallAnalyticsCategory: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-transcribe', 'createCallAnalyticsCategory', 'Transcribe', Promise.resolve(result), true, mock)
   },
@@ -89,6 +88,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteLanguageModelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-transcribe', 'deleteLanguageModel', 'Transcribe', Promise.reject(result), true, mock)
   },
+  deleteMedicalScribeJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transcribe', 'deleteMedicalScribeJob', 'Transcribe', Promise.resolve(result), true, mock)
+  },
+  deleteMedicalScribeJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transcribe', 'deleteMedicalScribeJob', 'Transcribe', Promise.resolve(result), false, mock)
+  },
+  deleteMedicalScribeJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transcribe', 'deleteMedicalScribeJob', 'Transcribe', Promise.reject(result), true, mock)
+  },
   deleteMedicalTranscriptionJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-transcribe', 'deleteMedicalTranscriptionJob', 'Transcribe', Promise.resolve(result), true, mock)
   },
@@ -143,15 +151,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeLanguageModelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-transcribe', 'describeLanguageModel', 'Transcribe', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-transcribe', 'destroy', 'Transcribe', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-transcribe', 'destroy', 'Transcribe', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-transcribe', 'destroy', 'Transcribe', Promise.reject(result), true, mock)
-  },
   getCallAnalyticsCategory: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-transcribe', 'getCallAnalyticsCategory', 'Transcribe', Promise.resolve(result), true, mock)
   },
@@ -169,6 +168,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getCallAnalyticsJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-transcribe', 'getCallAnalyticsJob', 'Transcribe', Promise.reject(result), true, mock)
+  },
+  getMedicalScribeJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transcribe', 'getMedicalScribeJob', 'Transcribe', Promise.resolve(result), true, mock)
+  },
+  getMedicalScribeJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transcribe', 'getMedicalScribeJob', 'Transcribe', Promise.resolve(result), false, mock)
+  },
+  getMedicalScribeJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transcribe', 'getMedicalScribeJob', 'Transcribe', Promise.reject(result), true, mock)
   },
   getMedicalTranscriptionJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-transcribe', 'getMedicalTranscriptionJob', 'Transcribe', Promise.resolve(result), true, mock)
@@ -242,6 +250,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listLanguageModelsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-transcribe', 'listLanguageModels', 'Transcribe', Promise.reject(result), true, mock)
   },
+  listMedicalScribeJobs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transcribe', 'listMedicalScribeJobs', 'Transcribe', Promise.resolve(result), true, mock)
+  },
+  listMedicalScribeJobsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transcribe', 'listMedicalScribeJobs', 'Transcribe', Promise.resolve(result), false, mock)
+  },
+  listMedicalScribeJobsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transcribe', 'listMedicalScribeJobs', 'Transcribe', Promise.reject(result), true, mock)
+  },
   listMedicalTranscriptionJobs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-transcribe', 'listMedicalTranscriptionJobs', 'Transcribe', Promise.resolve(result), true, mock)
   },
@@ -304,6 +321,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   startCallAnalyticsJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-transcribe', 'startCallAnalyticsJob', 'Transcribe', Promise.reject(result), true, mock)
+  },
+  startMedicalScribeJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transcribe', 'startMedicalScribeJob', 'Transcribe', Promise.resolve(result), true, mock)
+  },
+  startMedicalScribeJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transcribe', 'startMedicalScribeJob', 'Transcribe', Promise.resolve(result), false, mock)
+  },
+  startMedicalScribeJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-transcribe', 'startMedicalScribeJob', 'Transcribe', Promise.reject(result), true, mock)
   },
   startMedicalTranscriptionJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-transcribe', 'startMedicalTranscriptionJob', 'Transcribe', Promise.resolve(result), true, mock)

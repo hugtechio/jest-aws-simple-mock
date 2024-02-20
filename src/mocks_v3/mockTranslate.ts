@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockTranslate = {
+export const mockTranslate = {
   createParallelData: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-translate', 'createParallelData', 'Translate', Promise.resolve(result), true, mock)
   },
@@ -53,15 +52,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeTextTranslationJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-translate', 'describeTextTranslationJob', 'Translate', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-translate', 'destroy', 'Translate', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-translate', 'destroy', 'Translate', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-translate', 'destroy', 'Translate', Promise.reject(result), true, mock)
-  },
   getParallelData: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-translate', 'getParallelData', 'Translate', Promise.resolve(result), true, mock)
   },
@@ -89,6 +79,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   importTerminologyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-translate', 'importTerminology', 'Translate', Promise.reject(result), true, mock)
   },
+  listLanguages: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-translate', 'listLanguages', 'Translate', Promise.resolve(result), true, mock)
+  },
+  listLanguagesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-translate', 'listLanguages', 'Translate', Promise.resolve(result), false, mock)
+  },
+  listLanguagesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-translate', 'listLanguages', 'Translate', Promise.reject(result), true, mock)
+  },
   listParallelData: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-translate', 'listParallelData', 'Translate', Promise.resolve(result), true, mock)
   },
@@ -97,6 +96,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listParallelDataThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-translate', 'listParallelData', 'Translate', Promise.reject(result), true, mock)
+  },
+  listTagsForResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-translate', 'listTagsForResource', 'Translate', Promise.resolve(result), true, mock)
+  },
+  listTagsForResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-translate', 'listTagsForResource', 'Translate', Promise.resolve(result), false, mock)
+  },
+  listTagsForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-translate', 'listTagsForResource', 'Translate', Promise.reject(result), true, mock)
   },
   listTerminologies: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-translate', 'listTerminologies', 'Translate', Promise.resolve(result), true, mock)
@@ -134,6 +142,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   stopTextTranslationJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-translate', 'stopTextTranslationJob', 'Translate', Promise.reject(result), true, mock)
   },
+  tagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-translate', 'tagResource', 'Translate', Promise.resolve(result), true, mock)
+  },
+  tagResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-translate', 'tagResource', 'Translate', Promise.resolve(result), false, mock)
+  },
+  tagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-translate', 'tagResource', 'Translate', Promise.reject(result), true, mock)
+  },
+  translateDocument: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-translate', 'translateDocument', 'Translate', Promise.resolve(result), true, mock)
+  },
+  translateDocumentAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-translate', 'translateDocument', 'Translate', Promise.resolve(result), false, mock)
+  },
+  translateDocumentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-translate', 'translateDocument', 'Translate', Promise.reject(result), true, mock)
+  },
   translateText: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-translate', 'translateText', 'Translate', Promise.resolve(result), true, mock)
   },
@@ -142,6 +168,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   translateTextThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-translate', 'translateText', 'Translate', Promise.reject(result), true, mock)
+  },
+  untagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-translate', 'untagResource', 'Translate', Promise.resolve(result), true, mock)
+  },
+  untagResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-translate', 'untagResource', 'Translate', Promise.resolve(result), false, mock)
+  },
+  untagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-translate', 'untagResource', 'Translate', Promise.reject(result), true, mock)
   },
   updateParallelData: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-translate', 'updateParallelData', 'Translate', Promise.resolve(result), true, mock)

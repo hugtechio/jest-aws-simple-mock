@@ -15,8 +15,43 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockS3Control = {
+export const mockS3Control = {
+  associateAccessGrantsIdentityCenter: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'associateAccessGrantsIdentityCenter', 'S3Control', Promise.resolve(result), true, mock)
+  },
+  associateAccessGrantsIdentityCenterAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'associateAccessGrantsIdentityCenter', 'S3Control', Promise.resolve(result), false, mock)
+  },
+  associateAccessGrantsIdentityCenterThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'associateAccessGrantsIdentityCenter', 'S3Control', Promise.reject(result), true, mock)
+  },
+  createAccessGrant: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'createAccessGrant', 'S3Control', Promise.resolve(result), true, mock)
+  },
+  createAccessGrantAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'createAccessGrant', 'S3Control', Promise.resolve(result), false, mock)
+  },
+  createAccessGrantThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'createAccessGrant', 'S3Control', Promise.reject(result), true, mock)
+  },
+  createAccessGrantsInstance: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'createAccessGrantsInstance', 'S3Control', Promise.resolve(result), true, mock)
+  },
+  createAccessGrantsInstanceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'createAccessGrantsInstance', 'S3Control', Promise.resolve(result), false, mock)
+  },
+  createAccessGrantsInstanceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'createAccessGrantsInstance', 'S3Control', Promise.reject(result), true, mock)
+  },
+  createAccessGrantsLocation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'createAccessGrantsLocation', 'S3Control', Promise.resolve(result), true, mock)
+  },
+  createAccessGrantsLocationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'createAccessGrantsLocation', 'S3Control', Promise.resolve(result), false, mock)
+  },
+  createAccessGrantsLocationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'createAccessGrantsLocation', 'S3Control', Promise.reject(result), true, mock)
+  },
   createAccessPoint: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3-control', 'createAccessPoint', 'S3Control', Promise.resolve(result), true, mock)
   },
@@ -61,6 +96,51 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createMultiRegionAccessPointThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3-control', 'createMultiRegionAccessPoint', 'S3Control', Promise.reject(result), true, mock)
+  },
+  createStorageLensGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'createStorageLensGroup', 'S3Control', Promise.resolve(result), true, mock)
+  },
+  createStorageLensGroupAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'createStorageLensGroup', 'S3Control', Promise.resolve(result), false, mock)
+  },
+  createStorageLensGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'createStorageLensGroup', 'S3Control', Promise.reject(result), true, mock)
+  },
+  deleteAccessGrant: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'deleteAccessGrant', 'S3Control', Promise.resolve(result), true, mock)
+  },
+  deleteAccessGrantAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'deleteAccessGrant', 'S3Control', Promise.resolve(result), false, mock)
+  },
+  deleteAccessGrantThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'deleteAccessGrant', 'S3Control', Promise.reject(result), true, mock)
+  },
+  deleteAccessGrantsInstance: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'deleteAccessGrantsInstance', 'S3Control', Promise.resolve(result), true, mock)
+  },
+  deleteAccessGrantsInstanceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'deleteAccessGrantsInstance', 'S3Control', Promise.resolve(result), false, mock)
+  },
+  deleteAccessGrantsInstanceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'deleteAccessGrantsInstance', 'S3Control', Promise.reject(result), true, mock)
+  },
+  deleteAccessGrantsInstanceResourcePolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'deleteAccessGrantsInstanceResourcePolicy', 'S3Control', Promise.resolve(result), true, mock)
+  },
+  deleteAccessGrantsInstanceResourcePolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'deleteAccessGrantsInstanceResourcePolicy', 'S3Control', Promise.resolve(result), false, mock)
+  },
+  deleteAccessGrantsInstanceResourcePolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'deleteAccessGrantsInstanceResourcePolicy', 'S3Control', Promise.reject(result), true, mock)
+  },
+  deleteAccessGrantsLocation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'deleteAccessGrantsLocation', 'S3Control', Promise.resolve(result), true, mock)
+  },
+  deleteAccessGrantsLocationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'deleteAccessGrantsLocation', 'S3Control', Promise.resolve(result), false, mock)
+  },
+  deleteAccessGrantsLocationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'deleteAccessGrantsLocation', 'S3Control', Promise.reject(result), true, mock)
   },
   deleteAccessPoint: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3-control', 'deleteAccessPoint', 'S3Control', Promise.resolve(result), true, mock)
@@ -125,6 +205,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteBucketPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3-control', 'deleteBucketPolicy', 'S3Control', Promise.reject(result), true, mock)
   },
+  deleteBucketReplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'deleteBucketReplication', 'S3Control', Promise.resolve(result), true, mock)
+  },
+  deleteBucketReplicationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'deleteBucketReplication', 'S3Control', Promise.resolve(result), false, mock)
+  },
+  deleteBucketReplicationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'deleteBucketReplication', 'S3Control', Promise.reject(result), true, mock)
+  },
   deleteBucketTagging: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3-control', 'deleteBucketTagging', 'S3Control', Promise.resolve(result), true, mock)
   },
@@ -179,6 +268,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteStorageLensConfigurationTaggingThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3-control', 'deleteStorageLensConfigurationTagging', 'S3Control', Promise.reject(result), true, mock)
   },
+  deleteStorageLensGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'deleteStorageLensGroup', 'S3Control', Promise.resolve(result), true, mock)
+  },
+  deleteStorageLensGroupAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'deleteStorageLensGroup', 'S3Control', Promise.resolve(result), false, mock)
+  },
+  deleteStorageLensGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'deleteStorageLensGroup', 'S3Control', Promise.reject(result), true, mock)
+  },
   describeJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3-control', 'describeJob', 'S3Control', Promise.resolve(result), true, mock)
   },
@@ -197,14 +295,59 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeMultiRegionAccessPointOperationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3-control', 'describeMultiRegionAccessPointOperation', 'S3Control', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-s3-control', 'destroy', 'S3Control', Promise.resolve(result), true, mock)
+  dissociateAccessGrantsIdentityCenter: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'dissociateAccessGrantsIdentityCenter', 'S3Control', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-s3-control', 'destroy', 'S3Control', Promise.resolve(result), false, mock)
+  dissociateAccessGrantsIdentityCenterAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'dissociateAccessGrantsIdentityCenter', 'S3Control', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-s3-control', 'destroy', 'S3Control', Promise.reject(result), true, mock)
+  dissociateAccessGrantsIdentityCenterThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'dissociateAccessGrantsIdentityCenter', 'S3Control', Promise.reject(result), true, mock)
+  },
+  getAccessGrant: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'getAccessGrant', 'S3Control', Promise.resolve(result), true, mock)
+  },
+  getAccessGrantAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'getAccessGrant', 'S3Control', Promise.resolve(result), false, mock)
+  },
+  getAccessGrantThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'getAccessGrant', 'S3Control', Promise.reject(result), true, mock)
+  },
+  getAccessGrantsInstance: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'getAccessGrantsInstance', 'S3Control', Promise.resolve(result), true, mock)
+  },
+  getAccessGrantsInstanceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'getAccessGrantsInstance', 'S3Control', Promise.resolve(result), false, mock)
+  },
+  getAccessGrantsInstanceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'getAccessGrantsInstance', 'S3Control', Promise.reject(result), true, mock)
+  },
+  getAccessGrantsInstanceForPrefix: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'getAccessGrantsInstanceForPrefix', 'S3Control', Promise.resolve(result), true, mock)
+  },
+  getAccessGrantsInstanceForPrefixAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'getAccessGrantsInstanceForPrefix', 'S3Control', Promise.resolve(result), false, mock)
+  },
+  getAccessGrantsInstanceForPrefixThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'getAccessGrantsInstanceForPrefix', 'S3Control', Promise.reject(result), true, mock)
+  },
+  getAccessGrantsInstanceResourcePolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'getAccessGrantsInstanceResourcePolicy', 'S3Control', Promise.resolve(result), true, mock)
+  },
+  getAccessGrantsInstanceResourcePolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'getAccessGrantsInstanceResourcePolicy', 'S3Control', Promise.resolve(result), false, mock)
+  },
+  getAccessGrantsInstanceResourcePolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'getAccessGrantsInstanceResourcePolicy', 'S3Control', Promise.reject(result), true, mock)
+  },
+  getAccessGrantsLocation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'getAccessGrantsLocation', 'S3Control', Promise.resolve(result), true, mock)
+  },
+  getAccessGrantsLocationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'getAccessGrantsLocation', 'S3Control', Promise.resolve(result), false, mock)
+  },
+  getAccessGrantsLocationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'getAccessGrantsLocation', 'S3Control', Promise.reject(result), true, mock)
   },
   getAccessPoint: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3-control', 'getAccessPoint', 'S3Control', Promise.resolve(result), true, mock)
@@ -296,6 +439,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getBucketPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3-control', 'getBucketPolicy', 'S3Control', Promise.reject(result), true, mock)
   },
+  getBucketReplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'getBucketReplication', 'S3Control', Promise.resolve(result), true, mock)
+  },
+  getBucketReplicationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'getBucketReplication', 'S3Control', Promise.resolve(result), false, mock)
+  },
+  getBucketReplicationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'getBucketReplication', 'S3Control', Promise.reject(result), true, mock)
+  },
   getBucketTagging: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3-control', 'getBucketTagging', 'S3Control', Promise.resolve(result), true, mock)
   },
@@ -304,6 +456,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getBucketTaggingThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3-control', 'getBucketTagging', 'S3Control', Promise.reject(result), true, mock)
+  },
+  getBucketVersioning: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'getBucketVersioning', 'S3Control', Promise.resolve(result), true, mock)
+  },
+  getBucketVersioningAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'getBucketVersioning', 'S3Control', Promise.resolve(result), false, mock)
+  },
+  getBucketVersioningThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'getBucketVersioning', 'S3Control', Promise.reject(result), true, mock)
+  },
+  getDataAccess: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'getDataAccess', 'S3Control', Promise.resolve(result), true, mock)
+  },
+  getDataAccessAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'getDataAccess', 'S3Control', Promise.resolve(result), false, mock)
+  },
+  getDataAccessThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'getDataAccess', 'S3Control', Promise.reject(result), true, mock)
   },
   getJobTagging: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3-control', 'getJobTagging', 'S3Control', Promise.resolve(result), true, mock)
@@ -341,6 +511,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getMultiRegionAccessPointPolicyStatusThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3-control', 'getMultiRegionAccessPointPolicyStatus', 'S3Control', Promise.reject(result), true, mock)
   },
+  getMultiRegionAccessPointRoutes: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'getMultiRegionAccessPointRoutes', 'S3Control', Promise.resolve(result), true, mock)
+  },
+  getMultiRegionAccessPointRoutesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'getMultiRegionAccessPointRoutes', 'S3Control', Promise.resolve(result), false, mock)
+  },
+  getMultiRegionAccessPointRoutesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'getMultiRegionAccessPointRoutes', 'S3Control', Promise.reject(result), true, mock)
+  },
   getPublicAccessBlock: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3-control', 'getPublicAccessBlock', 'S3Control', Promise.resolve(result), true, mock)
   },
@@ -367,6 +546,42 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getStorageLensConfigurationTaggingThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3-control', 'getStorageLensConfigurationTagging', 'S3Control', Promise.reject(result), true, mock)
+  },
+  getStorageLensGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'getStorageLensGroup', 'S3Control', Promise.resolve(result), true, mock)
+  },
+  getStorageLensGroupAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'getStorageLensGroup', 'S3Control', Promise.resolve(result), false, mock)
+  },
+  getStorageLensGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'getStorageLensGroup', 'S3Control', Promise.reject(result), true, mock)
+  },
+  listAccessGrants: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'listAccessGrants', 'S3Control', Promise.resolve(result), true, mock)
+  },
+  listAccessGrantsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'listAccessGrants', 'S3Control', Promise.resolve(result), false, mock)
+  },
+  listAccessGrantsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'listAccessGrants', 'S3Control', Promise.reject(result), true, mock)
+  },
+  listAccessGrantsInstances: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'listAccessGrantsInstances', 'S3Control', Promise.resolve(result), true, mock)
+  },
+  listAccessGrantsInstancesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'listAccessGrantsInstances', 'S3Control', Promise.resolve(result), false, mock)
+  },
+  listAccessGrantsInstancesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'listAccessGrantsInstances', 'S3Control', Promise.reject(result), true, mock)
+  },
+  listAccessGrantsLocations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'listAccessGrantsLocations', 'S3Control', Promise.resolve(result), true, mock)
+  },
+  listAccessGrantsLocationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'listAccessGrantsLocations', 'S3Control', Promise.resolve(result), false, mock)
+  },
+  listAccessGrantsLocationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'listAccessGrantsLocations', 'S3Control', Promise.reject(result), true, mock)
   },
   listAccessPoints: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3-control', 'listAccessPoints', 'S3Control', Promise.resolve(result), true, mock)
@@ -422,6 +637,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listStorageLensConfigurationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3-control', 'listStorageLensConfigurations', 'S3Control', Promise.reject(result), true, mock)
   },
+  listStorageLensGroups: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'listStorageLensGroups', 'S3Control', Promise.resolve(result), true, mock)
+  },
+  listStorageLensGroupsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'listStorageLensGroups', 'S3Control', Promise.resolve(result), false, mock)
+  },
+  listStorageLensGroupsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'listStorageLensGroups', 'S3Control', Promise.reject(result), true, mock)
+  },
+  listTagsForResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'listTagsForResource', 'S3Control', Promise.resolve(result), true, mock)
+  },
+  listTagsForResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'listTagsForResource', 'S3Control', Promise.resolve(result), false, mock)
+  },
+  listTagsForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'listTagsForResource', 'S3Control', Promise.reject(result), true, mock)
+  },
+  putAccessGrantsInstanceResourcePolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'putAccessGrantsInstanceResourcePolicy', 'S3Control', Promise.resolve(result), true, mock)
+  },
+  putAccessGrantsInstanceResourcePolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'putAccessGrantsInstanceResourcePolicy', 'S3Control', Promise.resolve(result), false, mock)
+  },
+  putAccessGrantsInstanceResourcePolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'putAccessGrantsInstanceResourcePolicy', 'S3Control', Promise.reject(result), true, mock)
+  },
   putAccessPointConfigurationForObjectLambda: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3-control', 'putAccessPointConfigurationForObjectLambda', 'S3Control', Promise.resolve(result), true, mock)
   },
@@ -467,6 +709,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   putBucketPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3-control', 'putBucketPolicy', 'S3Control', Promise.reject(result), true, mock)
   },
+  putBucketReplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'putBucketReplication', 'S3Control', Promise.resolve(result), true, mock)
+  },
+  putBucketReplicationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'putBucketReplication', 'S3Control', Promise.resolve(result), false, mock)
+  },
+  putBucketReplicationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'putBucketReplication', 'S3Control', Promise.reject(result), true, mock)
+  },
   putBucketTagging: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3-control', 'putBucketTagging', 'S3Control', Promise.resolve(result), true, mock)
   },
@@ -475,6 +726,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   putBucketTaggingThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3-control', 'putBucketTagging', 'S3Control', Promise.reject(result), true, mock)
+  },
+  putBucketVersioning: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'putBucketVersioning', 'S3Control', Promise.resolve(result), true, mock)
+  },
+  putBucketVersioningAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'putBucketVersioning', 'S3Control', Promise.resolve(result), false, mock)
+  },
+  putBucketVersioningThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'putBucketVersioning', 'S3Control', Promise.reject(result), true, mock)
   },
   putJobTagging: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3-control', 'putJobTagging', 'S3Control', Promise.resolve(result), true, mock)
@@ -521,6 +781,42 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   putStorageLensConfigurationTaggingThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3-control', 'putStorageLensConfigurationTagging', 'S3Control', Promise.reject(result), true, mock)
   },
+  submitMultiRegionAccessPointRoutes: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'submitMultiRegionAccessPointRoutes', 'S3Control', Promise.resolve(result), true, mock)
+  },
+  submitMultiRegionAccessPointRoutesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'submitMultiRegionAccessPointRoutes', 'S3Control', Promise.resolve(result), false, mock)
+  },
+  submitMultiRegionAccessPointRoutesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'submitMultiRegionAccessPointRoutes', 'S3Control', Promise.reject(result), true, mock)
+  },
+  tagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'tagResource', 'S3Control', Promise.resolve(result), true, mock)
+  },
+  tagResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'tagResource', 'S3Control', Promise.resolve(result), false, mock)
+  },
+  tagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'tagResource', 'S3Control', Promise.reject(result), true, mock)
+  },
+  untagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'untagResource', 'S3Control', Promise.resolve(result), true, mock)
+  },
+  untagResourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'untagResource', 'S3Control', Promise.resolve(result), false, mock)
+  },
+  untagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'untagResource', 'S3Control', Promise.reject(result), true, mock)
+  },
+  updateAccessGrantsLocation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'updateAccessGrantsLocation', 'S3Control', Promise.resolve(result), true, mock)
+  },
+  updateAccessGrantsLocationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'updateAccessGrantsLocation', 'S3Control', Promise.resolve(result), false, mock)
+  },
+  updateAccessGrantsLocationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'updateAccessGrantsLocation', 'S3Control', Promise.reject(result), true, mock)
+  },
   updateJobPriority: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3-control', 'updateJobPriority', 'S3Control', Promise.resolve(result), true, mock)
   },
@@ -538,6 +834,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateJobStatusThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3-control', 'updateJobStatus', 'S3Control', Promise.reject(result), true, mock)
+  },
+  updateStorageLensGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'updateStorageLensGroup', 'S3Control', Promise.resolve(result), true, mock)
+  },
+  updateStorageLensGroupAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'updateStorageLensGroup', 'S3Control', Promise.resolve(result), false, mock)
+  },
+  updateStorageLensGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-s3-control', 'updateStorageLensGroup', 'S3Control', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-s3-control', 'send', 'S3ControlClient', Promise.resolve(result), true, mock)

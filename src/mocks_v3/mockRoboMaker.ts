@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockRoboMaker = {
+export const mockRoboMaker = {
   batchDeleteWorlds: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-robomaker', 'batchDeleteWorlds', 'RoboMaker', Promise.resolve(result), true, mock)
   },
@@ -44,15 +43,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   cancelDeploymentJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-robomaker', 'cancelDeploymentJob', 'RoboMaker', Promise.reject(result), true, mock)
   },
-  cancelSimulationJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-robomaker', 'cancelSimulationJob', 'RoboMaker', Promise.resolve(result), true, mock)
-  },
-  cancelSimulationJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-robomaker', 'cancelSimulationJob', 'RoboMaker', Promise.resolve(result), false, mock)
-  },
-  cancelSimulationJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-robomaker', 'cancelSimulationJob', 'RoboMaker', Promise.reject(result), true, mock)
-  },
   cancelSimulationJobBatch: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-robomaker', 'cancelSimulationJobBatch', 'RoboMaker', Promise.resolve(result), true, mock)
   },
@@ -61,6 +51,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   cancelSimulationJobBatchThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-robomaker', 'cancelSimulationJobBatch', 'RoboMaker', Promise.reject(result), true, mock)
+  },
+  cancelSimulationJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-robomaker', 'cancelSimulationJob', 'RoboMaker', Promise.resolve(result), true, mock)
+  },
+  cancelSimulationJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-robomaker', 'cancelSimulationJob', 'RoboMaker', Promise.resolve(result), false, mock)
+  },
+  cancelSimulationJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-robomaker', 'cancelSimulationJob', 'RoboMaker', Promise.reject(result), true, mock)
   },
   cancelWorldExportJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-robomaker', 'cancelWorldExportJob', 'RoboMaker', Promise.resolve(result), true, mock)
@@ -98,15 +97,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createFleetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-robomaker', 'createFleet', 'RoboMaker', Promise.reject(result), true, mock)
   },
-  createRobot: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-robomaker', 'createRobot', 'RoboMaker', Promise.resolve(result), true, mock)
-  },
-  createRobotAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-robomaker', 'createRobot', 'RoboMaker', Promise.resolve(result), false, mock)
-  },
-  createRobotThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-robomaker', 'createRobot', 'RoboMaker', Promise.reject(result), true, mock)
-  },
   createRobotApplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-robomaker', 'createRobotApplication', 'RoboMaker', Promise.resolve(result), true, mock)
   },
@@ -124,6 +114,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createRobotApplicationVersionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-robomaker', 'createRobotApplicationVersion', 'RoboMaker', Promise.reject(result), true, mock)
+  },
+  createRobot: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-robomaker', 'createRobot', 'RoboMaker', Promise.resolve(result), true, mock)
+  },
+  createRobotAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-robomaker', 'createRobot', 'RoboMaker', Promise.resolve(result), false, mock)
+  },
+  createRobotThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-robomaker', 'createRobot', 'RoboMaker', Promise.reject(result), true, mock)
   },
   createSimulationApplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-robomaker', 'createSimulationApplication', 'RoboMaker', Promise.resolve(result), true, mock)
@@ -188,15 +187,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteFleetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-robomaker', 'deleteFleet', 'RoboMaker', Promise.reject(result), true, mock)
   },
-  deleteRobot: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-robomaker', 'deleteRobot', 'RoboMaker', Promise.resolve(result), true, mock)
-  },
-  deleteRobotAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-robomaker', 'deleteRobot', 'RoboMaker', Promise.resolve(result), false, mock)
-  },
-  deleteRobotThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-robomaker', 'deleteRobot', 'RoboMaker', Promise.reject(result), true, mock)
-  },
   deleteRobotApplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-robomaker', 'deleteRobotApplication', 'RoboMaker', Promise.resolve(result), true, mock)
   },
@@ -205,6 +195,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteRobotApplicationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-robomaker', 'deleteRobotApplication', 'RoboMaker', Promise.reject(result), true, mock)
+  },
+  deleteRobot: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-robomaker', 'deleteRobot', 'RoboMaker', Promise.resolve(result), true, mock)
+  },
+  deleteRobotAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-robomaker', 'deleteRobot', 'RoboMaker', Promise.resolve(result), false, mock)
+  },
+  deleteRobotThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-robomaker', 'deleteRobot', 'RoboMaker', Promise.reject(result), true, mock)
   },
   deleteSimulationApplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-robomaker', 'deleteSimulationApplication', 'RoboMaker', Promise.resolve(result), true, mock)
@@ -251,15 +250,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeFleetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-robomaker', 'describeFleet', 'RoboMaker', Promise.reject(result), true, mock)
   },
-  describeRobot: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-robomaker', 'describeRobot', 'RoboMaker', Promise.resolve(result), true, mock)
-  },
-  describeRobotAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-robomaker', 'describeRobot', 'RoboMaker', Promise.resolve(result), false, mock)
-  },
-  describeRobotThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-robomaker', 'describeRobot', 'RoboMaker', Promise.reject(result), true, mock)
-  },
   describeRobotApplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-robomaker', 'describeRobotApplication', 'RoboMaker', Promise.resolve(result), true, mock)
   },
@@ -268,6 +258,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeRobotApplicationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-robomaker', 'describeRobotApplication', 'RoboMaker', Promise.reject(result), true, mock)
+  },
+  describeRobot: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-robomaker', 'describeRobot', 'RoboMaker', Promise.resolve(result), true, mock)
+  },
+  describeRobotAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-robomaker', 'describeRobot', 'RoboMaker', Promise.resolve(result), false, mock)
+  },
+  describeRobotThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-robomaker', 'describeRobot', 'RoboMaker', Promise.reject(result), true, mock)
   },
   describeSimulationApplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-robomaker', 'describeSimulationApplication', 'RoboMaker', Promise.resolve(result), true, mock)
@@ -278,15 +277,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeSimulationApplicationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-robomaker', 'describeSimulationApplication', 'RoboMaker', Promise.reject(result), true, mock)
   },
-  describeSimulationJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-robomaker', 'describeSimulationJob', 'RoboMaker', Promise.resolve(result), true, mock)
-  },
-  describeSimulationJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-robomaker', 'describeSimulationJob', 'RoboMaker', Promise.resolve(result), false, mock)
-  },
-  describeSimulationJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-robomaker', 'describeSimulationJob', 'RoboMaker', Promise.reject(result), true, mock)
-  },
   describeSimulationJobBatch: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-robomaker', 'describeSimulationJobBatch', 'RoboMaker', Promise.resolve(result), true, mock)
   },
@@ -295,6 +285,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeSimulationJobBatchThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-robomaker', 'describeSimulationJobBatch', 'RoboMaker', Promise.reject(result), true, mock)
+  },
+  describeSimulationJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-robomaker', 'describeSimulationJob', 'RoboMaker', Promise.resolve(result), true, mock)
+  },
+  describeSimulationJobAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-robomaker', 'describeSimulationJob', 'RoboMaker', Promise.resolve(result), false, mock)
+  },
+  describeSimulationJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-robomaker', 'describeSimulationJob', 'RoboMaker', Promise.reject(result), true, mock)
   },
   describeWorld: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-robomaker', 'describeWorld', 'RoboMaker', Promise.resolve(result), true, mock)
@@ -331,15 +330,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeWorldTemplateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-robomaker', 'describeWorldTemplate', 'RoboMaker', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-robomaker', 'destroy', 'RoboMaker', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-robomaker', 'destroy', 'RoboMaker', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-robomaker', 'destroy', 'RoboMaker', Promise.reject(result), true, mock)
   },
   getWorldTemplateBody: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-robomaker', 'getWorldTemplateBody', 'RoboMaker', Promise.resolve(result), true, mock)

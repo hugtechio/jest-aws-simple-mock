@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockAPIGateway = {
+export const mockAPIGateway = {
   createApiKey: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-api-gateway', 'createApiKey', 'APIGateway', Promise.resolve(result), true, mock)
   },
@@ -340,15 +339,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteVpcLinkThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-api-gateway', 'deleteVpcLink', 'APIGateway', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-api-gateway', 'destroy', 'APIGateway', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-api-gateway', 'destroy', 'APIGateway', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-api-gateway', 'destroy', 'APIGateway', Promise.reject(result), true, mock)
   },
   flushStageAuthorizersCache: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-api-gateway', 'flushStageAuthorizersCache', 'APIGateway', Promise.resolve(result), true, mock)

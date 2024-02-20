@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockPricing = {
+export const mockPricing = {
   describeServices: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-pricing', 'describeServices', 'Pricing', Promise.resolve(result), true, mock)
   },
@@ -25,15 +24,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeServicesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-pricing', 'describeServices', 'Pricing', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-pricing', 'destroy', 'Pricing', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-pricing', 'destroy', 'Pricing', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-pricing', 'destroy', 'Pricing', Promise.reject(result), true, mock)
   },
   getAttributeValues: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-pricing', 'getAttributeValues', 'Pricing', Promise.resolve(result), true, mock)
@@ -44,6 +34,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getAttributeValuesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-pricing', 'getAttributeValues', 'Pricing', Promise.reject(result), true, mock)
   },
+  getPriceListFileUrl: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-pricing', 'getPriceListFileUrl', 'Pricing', Promise.resolve(result), true, mock)
+  },
+  getPriceListFileUrlAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-pricing', 'getPriceListFileUrl', 'Pricing', Promise.resolve(result), false, mock)
+  },
+  getPriceListFileUrlThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-pricing', 'getPriceListFileUrl', 'Pricing', Promise.reject(result), true, mock)
+  },
   getProducts: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-pricing', 'getProducts', 'Pricing', Promise.resolve(result), true, mock)
   },
@@ -52,6 +51,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getProductsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-pricing', 'getProducts', 'Pricing', Promise.reject(result), true, mock)
+  },
+  listPriceLists: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-pricing', 'listPriceLists', 'Pricing', Promise.resolve(result), true, mock)
+  },
+  listPriceListsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-pricing', 'listPriceLists', 'Pricing', Promise.resolve(result), false, mock)
+  },
+  listPriceListsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-pricing', 'listPriceLists', 'Pricing', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-pricing', 'send', 'PricingClient', Promise.resolve(result), true, mock)

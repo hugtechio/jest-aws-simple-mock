@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockEFS = {
+export const mockEFS = {
   createAccessPoint: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-efs', 'createAccessPoint', 'EFS', Promise.resolve(result), true, mock)
   },
@@ -43,6 +42,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createMountTargetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-efs', 'createMountTarget', 'EFS', Promise.reject(result), true, mock)
+  },
+  createReplicationConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-efs', 'createReplicationConfiguration', 'EFS', Promise.resolve(result), true, mock)
+  },
+  createReplicationConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-efs', 'createReplicationConfiguration', 'EFS', Promise.resolve(result), false, mock)
+  },
+  createReplicationConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-efs', 'createReplicationConfiguration', 'EFS', Promise.reject(result), true, mock)
   },
   createTags: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-efs', 'createTags', 'EFS', Promise.resolve(result), true, mock)
@@ -88,6 +96,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteMountTargetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-efs', 'deleteMountTarget', 'EFS', Promise.reject(result), true, mock)
+  },
+  deleteReplicationConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-efs', 'deleteReplicationConfiguration', 'EFS', Promise.resolve(result), true, mock)
+  },
+  deleteReplicationConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-efs', 'deleteReplicationConfiguration', 'EFS', Promise.resolve(result), false, mock)
+  },
+  deleteReplicationConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-efs', 'deleteReplicationConfiguration', 'EFS', Promise.reject(result), true, mock)
   },
   deleteTags: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-efs', 'deleteTags', 'EFS', Promise.resolve(result), true, mock)
@@ -170,6 +187,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeMountTargetsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-efs', 'describeMountTargets', 'EFS', Promise.reject(result), true, mock)
   },
+  describeReplicationConfigurations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-efs', 'describeReplicationConfigurations', 'EFS', Promise.resolve(result), true, mock)
+  },
+  describeReplicationConfigurationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-efs', 'describeReplicationConfigurations', 'EFS', Promise.resolve(result), false, mock)
+  },
+  describeReplicationConfigurationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-efs', 'describeReplicationConfigurations', 'EFS', Promise.reject(result), true, mock)
+  },
   describeTags: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-efs', 'describeTags', 'EFS', Promise.resolve(result), true, mock)
   },
@@ -178,15 +204,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeTagsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-efs', 'describeTags', 'EFS', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-efs', 'destroy', 'EFS', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-efs', 'destroy', 'EFS', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-efs', 'destroy', 'EFS', Promise.reject(result), true, mock)
   },
   listTagsForResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-efs', 'listTagsForResource', 'EFS', Promise.resolve(result), true, mock)
@@ -268,6 +285,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateFileSystemThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-efs', 'updateFileSystem', 'EFS', Promise.reject(result), true, mock)
+  },
+  updateFileSystemProtection: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-efs', 'updateFileSystemProtection', 'EFS', Promise.resolve(result), true, mock)
+  },
+  updateFileSystemProtectionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-efs', 'updateFileSystemProtection', 'EFS', Promise.resolve(result), false, mock)
+  },
+  updateFileSystemProtectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-efs', 'updateFileSystemProtection', 'EFS', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-efs', 'send', 'EFSClient', Promise.resolve(result), true, mock)

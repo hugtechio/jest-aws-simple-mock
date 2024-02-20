@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockSTS = {
+export const mockSTS = {
   assumeRole: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sts', 'assumeRole', 'STS', Promise.resolve(result), true, mock)
   },
@@ -52,15 +51,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   decodeAuthorizationMessageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sts', 'decodeAuthorizationMessage', 'STS', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sts', 'destroy', 'STS', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sts', 'destroy', 'STS', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sts', 'destroy', 'STS', Promise.reject(result), true, mock)
   },
   getAccessKeyInfo: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sts', 'getAccessKeyInfo', 'STS', Promise.resolve(result), true, mock)

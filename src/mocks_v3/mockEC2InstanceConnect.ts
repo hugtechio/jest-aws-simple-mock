@@ -15,17 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockEC2InstanceConnect = {
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ec2-instance-connect', 'destroy', 'EC2InstanceConnect', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ec2-instance-connect', 'destroy', 'EC2InstanceConnect', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ec2-instance-connect', 'destroy', 'EC2InstanceConnect', Promise.reject(result), true, mock)
-  },
+export const mockEC2InstanceConnect = {
   sendSSHPublicKey: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ec2-instance-connect', 'sendSSHPublicKey', 'EC2InstanceConnect', Promise.resolve(result), true, mock)
   },

@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockDirectConnect = {
+export const mockDirectConnect = {
   acceptDirectConnectGatewayAssociationProposal: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-direct-connect', 'acceptDirectConnectGatewayAssociationProposal', 'DirectConnect', Promise.resolve(result), true, mock)
   },
@@ -170,15 +169,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createConnectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-direct-connect', 'createConnection', 'DirectConnect', Promise.reject(result), true, mock)
   },
-  createDirectConnectGateway: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-direct-connect', 'createDirectConnectGateway', 'DirectConnect', Promise.resolve(result), true, mock)
-  },
-  createDirectConnectGatewayAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-direct-connect', 'createDirectConnectGateway', 'DirectConnect', Promise.resolve(result), false, mock)
-  },
-  createDirectConnectGatewayThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-direct-connect', 'createDirectConnectGateway', 'DirectConnect', Promise.reject(result), true, mock)
-  },
   createDirectConnectGatewayAssociation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-direct-connect', 'createDirectConnectGatewayAssociation', 'DirectConnect', Promise.resolve(result), true, mock)
   },
@@ -196,6 +186,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createDirectConnectGatewayAssociationProposalThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-direct-connect', 'createDirectConnectGatewayAssociationProposal', 'DirectConnect', Promise.reject(result), true, mock)
+  },
+  createDirectConnectGateway: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-direct-connect', 'createDirectConnectGateway', 'DirectConnect', Promise.resolve(result), true, mock)
+  },
+  createDirectConnectGatewayAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-direct-connect', 'createDirectConnectGateway', 'DirectConnect', Promise.resolve(result), false, mock)
+  },
+  createDirectConnectGatewayThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-direct-connect', 'createDirectConnectGateway', 'DirectConnect', Promise.reject(result), true, mock)
   },
   createInterconnect: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-direct-connect', 'createInterconnect', 'DirectConnect', Promise.resolve(result), true, mock)
@@ -260,15 +259,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteConnectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-direct-connect', 'deleteConnection', 'DirectConnect', Promise.reject(result), true, mock)
   },
-  deleteDirectConnectGateway: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-direct-connect', 'deleteDirectConnectGateway', 'DirectConnect', Promise.resolve(result), true, mock)
-  },
-  deleteDirectConnectGatewayAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-direct-connect', 'deleteDirectConnectGateway', 'DirectConnect', Promise.resolve(result), false, mock)
-  },
-  deleteDirectConnectGatewayThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-direct-connect', 'deleteDirectConnectGateway', 'DirectConnect', Promise.reject(result), true, mock)
-  },
   deleteDirectConnectGatewayAssociation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-direct-connect', 'deleteDirectConnectGatewayAssociation', 'DirectConnect', Promise.resolve(result), true, mock)
   },
@@ -286,6 +276,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteDirectConnectGatewayAssociationProposalThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-direct-connect', 'deleteDirectConnectGatewayAssociationProposal', 'DirectConnect', Promise.reject(result), true, mock)
+  },
+  deleteDirectConnectGateway: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-direct-connect', 'deleteDirectConnectGateway', 'DirectConnect', Promise.resolve(result), true, mock)
+  },
+  deleteDirectConnectGatewayAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-direct-connect', 'deleteDirectConnectGateway', 'DirectConnect', Promise.resolve(result), false, mock)
+  },
+  deleteDirectConnectGatewayThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-direct-connect', 'deleteDirectConnectGateway', 'DirectConnect', Promise.reject(result), true, mock)
   },
   deleteInterconnect: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-direct-connect', 'deleteInterconnect', 'DirectConnect', Promise.resolve(result), true, mock)
@@ -476,15 +475,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeVirtualInterfacesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-direct-connect', 'describeVirtualInterfaces', 'DirectConnect', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-direct-connect', 'destroy', 'DirectConnect', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-direct-connect', 'destroy', 'DirectConnect', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-direct-connect', 'destroy', 'DirectConnect', Promise.reject(result), true, mock)
-  },
   disassociateConnectionFromLag: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-direct-connect', 'disassociateConnectionFromLag', 'DirectConnect', Promise.resolve(result), true, mock)
   },
@@ -557,15 +547,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   updateConnectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-direct-connect', 'updateConnection', 'DirectConnect', Promise.reject(result), true, mock)
   },
-  updateDirectConnectGateway: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-direct-connect', 'updateDirectConnectGateway', 'DirectConnect', Promise.resolve(result), true, mock)
-  },
-  updateDirectConnectGatewayAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-direct-connect', 'updateDirectConnectGateway', 'DirectConnect', Promise.resolve(result), false, mock)
-  },
-  updateDirectConnectGatewayThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-direct-connect', 'updateDirectConnectGateway', 'DirectConnect', Promise.reject(result), true, mock)
-  },
   updateDirectConnectGatewayAssociation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-direct-connect', 'updateDirectConnectGatewayAssociation', 'DirectConnect', Promise.resolve(result), true, mock)
   },
@@ -574,6 +555,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateDirectConnectGatewayAssociationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-direct-connect', 'updateDirectConnectGatewayAssociation', 'DirectConnect', Promise.reject(result), true, mock)
+  },
+  updateDirectConnectGateway: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-direct-connect', 'updateDirectConnectGateway', 'DirectConnect', Promise.resolve(result), true, mock)
+  },
+  updateDirectConnectGatewayAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-direct-connect', 'updateDirectConnectGateway', 'DirectConnect', Promise.resolve(result), false, mock)
+  },
+  updateDirectConnectGatewayThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-direct-connect', 'updateDirectConnectGateway', 'DirectConnect', Promise.reject(result), true, mock)
   },
   updateLag: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-direct-connect', 'updateLag', 'DirectConnect', Promise.resolve(result), true, mock)

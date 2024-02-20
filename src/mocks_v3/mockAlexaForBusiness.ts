@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockAlexaForBusiness = {
+export const mockAlexaForBusiness = {
   approveSkill: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-alexa-for-business', 'approveSkill', 'AlexaForBusiness', Promise.resolve(result), true, mock)
   },
@@ -295,15 +294,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteUserThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-alexa-for-business', 'deleteUser', 'AlexaForBusiness', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-alexa-for-business', 'destroy', 'AlexaForBusiness', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-alexa-for-business', 'destroy', 'AlexaForBusiness', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-alexa-for-business', 'destroy', 'AlexaForBusiness', Promise.reject(result), true, mock)
   },
   disassociateContactFromAddressBook: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-alexa-for-business', 'disassociateContactFromAddressBook', 'AlexaForBusiness', Promise.resolve(result), true, mock)

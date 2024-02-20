@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockImagebuilder = {
+export const mockImagebuilder = {
   cancelImageCreation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-imagebuilder', 'cancelImageCreation', 'Imagebuilder', Promise.resolve(result), true, mock)
   },
@@ -25,6 +24,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   cancelImageCreationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-imagebuilder', 'cancelImageCreation', 'Imagebuilder', Promise.reject(result), true, mock)
+  },
+  cancelLifecycleExecution: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'cancelLifecycleExecution', 'Imagebuilder', Promise.resolve(result), true, mock)
+  },
+  cancelLifecycleExecutionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'cancelLifecycleExecution', 'Imagebuilder', Promise.resolve(result), false, mock)
+  },
+  cancelLifecycleExecutionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'cancelLifecycleExecution', 'Imagebuilder', Promise.reject(result), true, mock)
   },
   createComponent: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-imagebuilder', 'createComponent', 'Imagebuilder', Promise.resolve(result), true, mock)
@@ -89,6 +97,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createInfrastructureConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-imagebuilder', 'createInfrastructureConfiguration', 'Imagebuilder', Promise.reject(result), true, mock)
   },
+  createLifecyclePolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'createLifecyclePolicy', 'Imagebuilder', Promise.resolve(result), true, mock)
+  },
+  createLifecyclePolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'createLifecyclePolicy', 'Imagebuilder', Promise.resolve(result), false, mock)
+  },
+  createLifecyclePolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'createLifecyclePolicy', 'Imagebuilder', Promise.reject(result), true, mock)
+  },
+  createWorkflow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'createWorkflow', 'Imagebuilder', Promise.resolve(result), true, mock)
+  },
+  createWorkflowAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'createWorkflow', 'Imagebuilder', Promise.resolve(result), false, mock)
+  },
+  createWorkflowThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'createWorkflow', 'Imagebuilder', Promise.reject(result), true, mock)
+  },
   deleteComponent: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-imagebuilder', 'deleteComponent', 'Imagebuilder', Promise.resolve(result), true, mock)
   },
@@ -152,14 +178,23 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteInfrastructureConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-imagebuilder', 'deleteInfrastructureConfiguration', 'Imagebuilder', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-imagebuilder', 'destroy', 'Imagebuilder', Promise.resolve(result), true, mock)
+  deleteLifecyclePolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'deleteLifecyclePolicy', 'Imagebuilder', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-imagebuilder', 'destroy', 'Imagebuilder', Promise.resolve(result), false, mock)
+  deleteLifecyclePolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'deleteLifecyclePolicy', 'Imagebuilder', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-imagebuilder', 'destroy', 'Imagebuilder', Promise.reject(result), true, mock)
+  deleteLifecyclePolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'deleteLifecyclePolicy', 'Imagebuilder', Promise.reject(result), true, mock)
+  },
+  deleteWorkflow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'deleteWorkflow', 'Imagebuilder', Promise.resolve(result), true, mock)
+  },
+  deleteWorkflowAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'deleteWorkflow', 'Imagebuilder', Promise.resolve(result), false, mock)
+  },
+  deleteWorkflowThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'deleteWorkflow', 'Imagebuilder', Promise.reject(result), true, mock)
   },
   getComponent: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-imagebuilder', 'getComponent', 'Imagebuilder', Promise.resolve(result), true, mock)
@@ -260,6 +295,51 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getInfrastructureConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-imagebuilder', 'getInfrastructureConfiguration', 'Imagebuilder', Promise.reject(result), true, mock)
   },
+  getLifecycleExecution: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'getLifecycleExecution', 'Imagebuilder', Promise.resolve(result), true, mock)
+  },
+  getLifecycleExecutionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'getLifecycleExecution', 'Imagebuilder', Promise.resolve(result), false, mock)
+  },
+  getLifecycleExecutionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'getLifecycleExecution', 'Imagebuilder', Promise.reject(result), true, mock)
+  },
+  getLifecyclePolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'getLifecyclePolicy', 'Imagebuilder', Promise.resolve(result), true, mock)
+  },
+  getLifecyclePolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'getLifecyclePolicy', 'Imagebuilder', Promise.resolve(result), false, mock)
+  },
+  getLifecyclePolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'getLifecyclePolicy', 'Imagebuilder', Promise.reject(result), true, mock)
+  },
+  getWorkflow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'getWorkflow', 'Imagebuilder', Promise.resolve(result), true, mock)
+  },
+  getWorkflowAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'getWorkflow', 'Imagebuilder', Promise.resolve(result), false, mock)
+  },
+  getWorkflowThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'getWorkflow', 'Imagebuilder', Promise.reject(result), true, mock)
+  },
+  getWorkflowExecution: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'getWorkflowExecution', 'Imagebuilder', Promise.resolve(result), true, mock)
+  },
+  getWorkflowExecutionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'getWorkflowExecution', 'Imagebuilder', Promise.resolve(result), false, mock)
+  },
+  getWorkflowExecutionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'getWorkflowExecution', 'Imagebuilder', Promise.reject(result), true, mock)
+  },
+  getWorkflowStepExecution: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'getWorkflowStepExecution', 'Imagebuilder', Promise.resolve(result), true, mock)
+  },
+  getWorkflowStepExecutionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'getWorkflowStepExecution', 'Imagebuilder', Promise.resolve(result), false, mock)
+  },
+  getWorkflowStepExecutionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'getWorkflowStepExecution', 'Imagebuilder', Promise.reject(result), true, mock)
+  },
   importComponent: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-imagebuilder', 'importComponent', 'Imagebuilder', Promise.resolve(result), true, mock)
   },
@@ -268,6 +348,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   importComponentThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-imagebuilder', 'importComponent', 'Imagebuilder', Promise.reject(result), true, mock)
+  },
+  importVmImage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'importVmImage', 'Imagebuilder', Promise.resolve(result), true, mock)
+  },
+  importVmImageAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'importVmImage', 'Imagebuilder', Promise.resolve(result), false, mock)
+  },
+  importVmImageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'importVmImage', 'Imagebuilder', Promise.reject(result), true, mock)
   },
   listComponentBuildVersions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-imagebuilder', 'listComponentBuildVersions', 'Imagebuilder', Promise.resolve(result), true, mock)
@@ -350,6 +439,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listImageRecipesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-imagebuilder', 'listImageRecipes', 'Imagebuilder', Promise.reject(result), true, mock)
   },
+  listImageScanFindingAggregations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'listImageScanFindingAggregations', 'Imagebuilder', Promise.resolve(result), true, mock)
+  },
+  listImageScanFindingAggregationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'listImageScanFindingAggregations', 'Imagebuilder', Promise.resolve(result), false, mock)
+  },
+  listImageScanFindingAggregationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'listImageScanFindingAggregations', 'Imagebuilder', Promise.reject(result), true, mock)
+  },
+  listImageScanFindings: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'listImageScanFindings', 'Imagebuilder', Promise.resolve(result), true, mock)
+  },
+  listImageScanFindingsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'listImageScanFindings', 'Imagebuilder', Promise.resolve(result), false, mock)
+  },
+  listImageScanFindingsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'listImageScanFindings', 'Imagebuilder', Promise.reject(result), true, mock)
+  },
   listImages: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-imagebuilder', 'listImages', 'Imagebuilder', Promise.resolve(result), true, mock)
   },
@@ -368,6 +475,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listInfrastructureConfigurationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-imagebuilder', 'listInfrastructureConfigurations', 'Imagebuilder', Promise.reject(result), true, mock)
   },
+  listLifecycleExecutionResources: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'listLifecycleExecutionResources', 'Imagebuilder', Promise.resolve(result), true, mock)
+  },
+  listLifecycleExecutionResourcesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'listLifecycleExecutionResources', 'Imagebuilder', Promise.resolve(result), false, mock)
+  },
+  listLifecycleExecutionResourcesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'listLifecycleExecutionResources', 'Imagebuilder', Promise.reject(result), true, mock)
+  },
+  listLifecycleExecutions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'listLifecycleExecutions', 'Imagebuilder', Promise.resolve(result), true, mock)
+  },
+  listLifecycleExecutionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'listLifecycleExecutions', 'Imagebuilder', Promise.resolve(result), false, mock)
+  },
+  listLifecycleExecutionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'listLifecycleExecutions', 'Imagebuilder', Promise.reject(result), true, mock)
+  },
+  listLifecyclePolicies: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'listLifecyclePolicies', 'Imagebuilder', Promise.resolve(result), true, mock)
+  },
+  listLifecyclePoliciesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'listLifecyclePolicies', 'Imagebuilder', Promise.resolve(result), false, mock)
+  },
+  listLifecyclePoliciesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'listLifecyclePolicies', 'Imagebuilder', Promise.reject(result), true, mock)
+  },
   listTagsForResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-imagebuilder', 'listTagsForResource', 'Imagebuilder', Promise.resolve(result), true, mock)
   },
@@ -376,6 +510,51 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listTagsForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-imagebuilder', 'listTagsForResource', 'Imagebuilder', Promise.reject(result), true, mock)
+  },
+  listWaitingWorkflowSteps: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'listWaitingWorkflowSteps', 'Imagebuilder', Promise.resolve(result), true, mock)
+  },
+  listWaitingWorkflowStepsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'listWaitingWorkflowSteps', 'Imagebuilder', Promise.resolve(result), false, mock)
+  },
+  listWaitingWorkflowStepsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'listWaitingWorkflowSteps', 'Imagebuilder', Promise.reject(result), true, mock)
+  },
+  listWorkflowBuildVersions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'listWorkflowBuildVersions', 'Imagebuilder', Promise.resolve(result), true, mock)
+  },
+  listWorkflowBuildVersionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'listWorkflowBuildVersions', 'Imagebuilder', Promise.resolve(result), false, mock)
+  },
+  listWorkflowBuildVersionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'listWorkflowBuildVersions', 'Imagebuilder', Promise.reject(result), true, mock)
+  },
+  listWorkflowExecutions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'listWorkflowExecutions', 'Imagebuilder', Promise.resolve(result), true, mock)
+  },
+  listWorkflowExecutionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'listWorkflowExecutions', 'Imagebuilder', Promise.resolve(result), false, mock)
+  },
+  listWorkflowExecutionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'listWorkflowExecutions', 'Imagebuilder', Promise.reject(result), true, mock)
+  },
+  listWorkflowStepExecutions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'listWorkflowStepExecutions', 'Imagebuilder', Promise.resolve(result), true, mock)
+  },
+  listWorkflowStepExecutionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'listWorkflowStepExecutions', 'Imagebuilder', Promise.resolve(result), false, mock)
+  },
+  listWorkflowStepExecutionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'listWorkflowStepExecutions', 'Imagebuilder', Promise.reject(result), true, mock)
+  },
+  listWorkflows: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'listWorkflows', 'Imagebuilder', Promise.resolve(result), true, mock)
+  },
+  listWorkflowsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'listWorkflows', 'Imagebuilder', Promise.resolve(result), false, mock)
+  },
+  listWorkflowsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'listWorkflows', 'Imagebuilder', Promise.reject(result), true, mock)
   },
   putComponentPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-imagebuilder', 'putComponentPolicy', 'Imagebuilder', Promise.resolve(result), true, mock)
@@ -413,6 +592,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   putImageRecipePolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-imagebuilder', 'putImageRecipePolicy', 'Imagebuilder', Promise.reject(result), true, mock)
   },
+  sendWorkflowStepAction: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'sendWorkflowStepAction', 'Imagebuilder', Promise.resolve(result), true, mock)
+  },
+  sendWorkflowStepActionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'sendWorkflowStepAction', 'Imagebuilder', Promise.resolve(result), false, mock)
+  },
+  sendWorkflowStepActionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'sendWorkflowStepAction', 'Imagebuilder', Promise.reject(result), true, mock)
+  },
   startImagePipelineExecution: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-imagebuilder', 'startImagePipelineExecution', 'Imagebuilder', Promise.resolve(result), true, mock)
   },
@@ -421,6 +609,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   startImagePipelineExecutionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-imagebuilder', 'startImagePipelineExecution', 'Imagebuilder', Promise.reject(result), true, mock)
+  },
+  startResourceStateUpdate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'startResourceStateUpdate', 'Imagebuilder', Promise.resolve(result), true, mock)
+  },
+  startResourceStateUpdateAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'startResourceStateUpdate', 'Imagebuilder', Promise.resolve(result), false, mock)
+  },
+  startResourceStateUpdateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'startResourceStateUpdate', 'Imagebuilder', Promise.reject(result), true, mock)
   },
   tagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-imagebuilder', 'tagResource', 'Imagebuilder', Promise.resolve(result), true, mock)
@@ -466,6 +663,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateInfrastructureConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-imagebuilder', 'updateInfrastructureConfiguration', 'Imagebuilder', Promise.reject(result), true, mock)
+  },
+  updateLifecyclePolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'updateLifecyclePolicy', 'Imagebuilder', Promise.resolve(result), true, mock)
+  },
+  updateLifecyclePolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'updateLifecyclePolicy', 'Imagebuilder', Promise.resolve(result), false, mock)
+  },
+  updateLifecyclePolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-imagebuilder', 'updateLifecyclePolicy', 'Imagebuilder', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-imagebuilder', 'send', 'ImagebuilderClient', Promise.resolve(result), true, mock)

@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockCloudWatchEvents = {
+export const mockCloudWatchEvents = {
   activateEventSource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudwatch-events', 'activateEventSource', 'CloudWatchEvents', Promise.resolve(result), true, mock)
   },
@@ -223,15 +222,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeRuleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudwatch-events', 'describeRule', 'CloudWatchEvents', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cloudwatch-events', 'destroy', 'CloudWatchEvents', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cloudwatch-events', 'destroy', 'CloudWatchEvents', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cloudwatch-events', 'destroy', 'CloudWatchEvents', Promise.reject(result), true, mock)
   },
   disableRule: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudwatch-events', 'disableRule', 'CloudWatchEvents', Promise.resolve(result), true, mock)

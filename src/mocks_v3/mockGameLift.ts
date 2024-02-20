@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockGameLift = {
+export const mockGameLift = {
   acceptMatch: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-gamelift', 'acceptMatch', 'GameLift', Promise.resolve(result), true, mock)
   },
@@ -97,6 +96,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createGameSessionQueueThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-gamelift', 'createGameSessionQueue', 'GameLift', Promise.reject(result), true, mock)
+  },
+  createLocation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-gamelift', 'createLocation', 'GameLift', Promise.resolve(result), true, mock)
+  },
+  createLocationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-gamelift', 'createLocation', 'GameLift', Promise.resolve(result), false, mock)
+  },
+  createLocationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-gamelift', 'createLocation', 'GameLift', Promise.reject(result), true, mock)
   },
   createMatchmakingConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-gamelift', 'createMatchmakingConfiguration', 'GameLift', Promise.resolve(result), true, mock)
@@ -215,6 +223,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteGameSessionQueueThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-gamelift', 'deleteGameSessionQueue', 'GameLift', Promise.reject(result), true, mock)
   },
+  deleteLocation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-gamelift', 'deleteLocation', 'GameLift', Promise.resolve(result), true, mock)
+  },
+  deleteLocationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-gamelift', 'deleteLocation', 'GameLift', Promise.resolve(result), false, mock)
+  },
+  deleteLocationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-gamelift', 'deleteLocation', 'GameLift', Promise.reject(result), true, mock)
+  },
   deleteMatchmakingConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-gamelift', 'deleteMatchmakingConfiguration', 'GameLift', Promise.resolve(result), true, mock)
   },
@@ -269,6 +286,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteVpcPeeringConnectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-gamelift', 'deleteVpcPeeringConnection', 'GameLift', Promise.reject(result), true, mock)
   },
+  deregisterCompute: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-gamelift', 'deregisterCompute', 'GameLift', Promise.resolve(result), true, mock)
+  },
+  deregisterComputeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-gamelift', 'deregisterCompute', 'GameLift', Promise.resolve(result), false, mock)
+  },
+  deregisterComputeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-gamelift', 'deregisterCompute', 'GameLift', Promise.reject(result), true, mock)
+  },
   deregisterGameServer: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-gamelift', 'deregisterGameServer', 'GameLift', Promise.resolve(result), true, mock)
   },
@@ -295,6 +321,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeBuildThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-gamelift', 'describeBuild', 'GameLift', Promise.reject(result), true, mock)
+  },
+  describeCompute: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-gamelift', 'describeCompute', 'GameLift', Promise.resolve(result), true, mock)
+  },
+  describeComputeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-gamelift', 'describeCompute', 'GameLift', Promise.resolve(result), false, mock)
+  },
+  describeComputeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-gamelift', 'describeCompute', 'GameLift', Promise.reject(result), true, mock)
   },
   describeEC2InstanceLimits: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-gamelift', 'describeEC2InstanceLimits', 'GameLift', Promise.resolve(result), true, mock)
@@ -530,14 +565,23 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeVpcPeeringConnectionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-gamelift', 'describeVpcPeeringConnections', 'GameLift', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-gamelift', 'destroy', 'GameLift', Promise.resolve(result), true, mock)
+  getComputeAccess: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-gamelift', 'getComputeAccess', 'GameLift', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-gamelift', 'destroy', 'GameLift', Promise.resolve(result), false, mock)
+  getComputeAccessAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-gamelift', 'getComputeAccess', 'GameLift', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-gamelift', 'destroy', 'GameLift', Promise.reject(result), true, mock)
+  getComputeAccessThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-gamelift', 'getComputeAccess', 'GameLift', Promise.reject(result), true, mock)
+  },
+  getComputeAuthToken: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-gamelift', 'getComputeAuthToken', 'GameLift', Promise.resolve(result), true, mock)
+  },
+  getComputeAuthTokenAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-gamelift', 'getComputeAuthToken', 'GameLift', Promise.resolve(result), false, mock)
+  },
+  getComputeAuthTokenThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-gamelift', 'getComputeAuthToken', 'GameLift', Promise.reject(result), true, mock)
   },
   getGameSessionLogUrl: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-gamelift', 'getGameSessionLogUrl', 'GameLift', Promise.resolve(result), true, mock)
@@ -575,6 +619,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listBuildsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-gamelift', 'listBuilds', 'GameLift', Promise.reject(result), true, mock)
   },
+  listCompute: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-gamelift', 'listCompute', 'GameLift', Promise.resolve(result), true, mock)
+  },
+  listComputeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-gamelift', 'listCompute', 'GameLift', Promise.resolve(result), false, mock)
+  },
+  listComputeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-gamelift', 'listCompute', 'GameLift', Promise.reject(result), true, mock)
+  },
   listFleets: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-gamelift', 'listFleets', 'GameLift', Promise.resolve(result), true, mock)
   },
@@ -602,6 +655,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listGameServersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-gamelift', 'listGameServers', 'GameLift', Promise.reject(result), true, mock)
   },
+  listLocations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-gamelift', 'listLocations', 'GameLift', Promise.resolve(result), true, mock)
+  },
+  listLocationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-gamelift', 'listLocations', 'GameLift', Promise.resolve(result), false, mock)
+  },
+  listLocationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-gamelift', 'listLocations', 'GameLift', Promise.reject(result), true, mock)
+  },
   listScripts: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-gamelift', 'listScripts', 'GameLift', Promise.resolve(result), true, mock)
   },
@@ -628,6 +690,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   putScalingPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-gamelift', 'putScalingPolicy', 'GameLift', Promise.reject(result), true, mock)
+  },
+  registerCompute: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-gamelift', 'registerCompute', 'GameLift', Promise.resolve(result), true, mock)
+  },
+  registerComputeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-gamelift', 'registerCompute', 'GameLift', Promise.resolve(result), false, mock)
+  },
+  registerComputeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-gamelift', 'registerCompute', 'GameLift', Promise.reject(result), true, mock)
   },
   registerGameServer: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-gamelift', 'registerGameServer', 'GameLift', Promise.resolve(result), true, mock)

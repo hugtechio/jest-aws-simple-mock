@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockMacie2 = {
+export const mockMacie2 = {
   acceptInvitation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-macie2', 'acceptInvitation', 'Macie2', Promise.resolve(result), true, mock)
   },
@@ -34,6 +33,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   batchGetCustomDataIdentifiersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-macie2', 'batchGetCustomDataIdentifiers', 'Macie2', Promise.reject(result), true, mock)
+  },
+  createAllowList: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'createAllowList', 'Macie2', Promise.resolve(result), true, mock)
+  },
+  createAllowListAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'createAllowList', 'Macie2', Promise.resolve(result), false, mock)
+  },
+  createAllowListThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'createAllowList', 'Macie2', Promise.reject(result), true, mock)
   },
   createClassificationJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-macie2', 'createClassificationJob', 'Macie2', Promise.resolve(result), true, mock)
@@ -98,6 +106,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   declineInvitationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-macie2', 'declineInvitations', 'Macie2', Promise.reject(result), true, mock)
   },
+  deleteAllowList: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'deleteAllowList', 'Macie2', Promise.resolve(result), true, mock)
+  },
+  deleteAllowListAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'deleteAllowList', 'Macie2', Promise.resolve(result), false, mock)
+  },
+  deleteAllowListThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'deleteAllowList', 'Macie2', Promise.reject(result), true, mock)
+  },
   deleteCustomDataIdentifier: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-macie2', 'deleteCustomDataIdentifier', 'Macie2', Promise.resolve(result), true, mock)
   },
@@ -160,15 +177,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeOrganizationConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-macie2', 'describeOrganizationConfiguration', 'Macie2', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-macie2', 'destroy', 'Macie2', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-macie2', 'destroy', 'Macie2', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-macie2', 'destroy', 'Macie2', Promise.reject(result), true, mock)
   },
   disableMacie: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-macie2', 'disableMacie', 'Macie2', Promise.resolve(result), true, mock)
@@ -242,6 +250,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getAdministratorAccountThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-macie2', 'getAdministratorAccount', 'Macie2', Promise.reject(result), true, mock)
   },
+  getAllowList: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'getAllowList', 'Macie2', Promise.resolve(result), true, mock)
+  },
+  getAllowListAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'getAllowList', 'Macie2', Promise.resolve(result), false, mock)
+  },
+  getAllowListThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'getAllowList', 'Macie2', Promise.reject(result), true, mock)
+  },
+  getAutomatedDiscoveryConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'getAutomatedDiscoveryConfiguration', 'Macie2', Promise.resolve(result), true, mock)
+  },
+  getAutomatedDiscoveryConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'getAutomatedDiscoveryConfiguration', 'Macie2', Promise.resolve(result), false, mock)
+  },
+  getAutomatedDiscoveryConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'getAutomatedDiscoveryConfiguration', 'Macie2', Promise.reject(result), true, mock)
+  },
   getBucketStatistics: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-macie2', 'getBucketStatistics', 'Macie2', Promise.resolve(result), true, mock)
   },
@@ -259,6 +285,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getClassificationExportConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-macie2', 'getClassificationExportConfiguration', 'Macie2', Promise.reject(result), true, mock)
+  },
+  getClassificationScope: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'getClassificationScope', 'Macie2', Promise.resolve(result), true, mock)
+  },
+  getClassificationScopeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'getClassificationScope', 'Macie2', Promise.resolve(result), false, mock)
+  },
+  getClassificationScopeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'getClassificationScope', 'Macie2', Promise.reject(result), true, mock)
   },
   getCustomDataIdentifier: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-macie2', 'getCustomDataIdentifier', 'Macie2', Promise.resolve(result), true, mock)
@@ -341,6 +376,51 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getMemberThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-macie2', 'getMember', 'Macie2', Promise.reject(result), true, mock)
   },
+  getResourceProfile: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'getResourceProfile', 'Macie2', Promise.resolve(result), true, mock)
+  },
+  getResourceProfileAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'getResourceProfile', 'Macie2', Promise.resolve(result), false, mock)
+  },
+  getResourceProfileThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'getResourceProfile', 'Macie2', Promise.reject(result), true, mock)
+  },
+  getRevealConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'getRevealConfiguration', 'Macie2', Promise.resolve(result), true, mock)
+  },
+  getRevealConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'getRevealConfiguration', 'Macie2', Promise.resolve(result), false, mock)
+  },
+  getRevealConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'getRevealConfiguration', 'Macie2', Promise.reject(result), true, mock)
+  },
+  getSensitiveDataOccurrencesAvailability: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'getSensitiveDataOccurrencesAvailability', 'Macie2', Promise.resolve(result), true, mock)
+  },
+  getSensitiveDataOccurrencesAvailabilityAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'getSensitiveDataOccurrencesAvailability', 'Macie2', Promise.resolve(result), false, mock)
+  },
+  getSensitiveDataOccurrencesAvailabilityThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'getSensitiveDataOccurrencesAvailability', 'Macie2', Promise.reject(result), true, mock)
+  },
+  getSensitiveDataOccurrences: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'getSensitiveDataOccurrences', 'Macie2', Promise.resolve(result), true, mock)
+  },
+  getSensitiveDataOccurrencesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'getSensitiveDataOccurrences', 'Macie2', Promise.resolve(result), false, mock)
+  },
+  getSensitiveDataOccurrencesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'getSensitiveDataOccurrences', 'Macie2', Promise.reject(result), true, mock)
+  },
+  getSensitivityInspectionTemplate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'getSensitivityInspectionTemplate', 'Macie2', Promise.resolve(result), true, mock)
+  },
+  getSensitivityInspectionTemplateAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'getSensitivityInspectionTemplate', 'Macie2', Promise.resolve(result), false, mock)
+  },
+  getSensitivityInspectionTemplateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'getSensitivityInspectionTemplate', 'Macie2', Promise.reject(result), true, mock)
+  },
   getUsageStatistics: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-macie2', 'getUsageStatistics', 'Macie2', Promise.resolve(result), true, mock)
   },
@@ -359,6 +439,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getUsageTotalsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-macie2', 'getUsageTotals', 'Macie2', Promise.reject(result), true, mock)
   },
+  listAllowLists: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'listAllowLists', 'Macie2', Promise.resolve(result), true, mock)
+  },
+  listAllowListsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'listAllowLists', 'Macie2', Promise.resolve(result), false, mock)
+  },
+  listAllowListsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'listAllowLists', 'Macie2', Promise.reject(result), true, mock)
+  },
   listClassificationJobs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-macie2', 'listClassificationJobs', 'Macie2', Promise.resolve(result), true, mock)
   },
@@ -367,6 +456,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listClassificationJobsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-macie2', 'listClassificationJobs', 'Macie2', Promise.reject(result), true, mock)
+  },
+  listClassificationScopes: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'listClassificationScopes', 'Macie2', Promise.resolve(result), true, mock)
+  },
+  listClassificationScopesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'listClassificationScopes', 'Macie2', Promise.resolve(result), false, mock)
+  },
+  listClassificationScopesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'listClassificationScopes', 'Macie2', Promise.reject(result), true, mock)
   },
   listCustomDataIdentifiers: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-macie2', 'listCustomDataIdentifiers', 'Macie2', Promise.resolve(result), true, mock)
@@ -431,6 +529,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listOrganizationAdminAccountsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-macie2', 'listOrganizationAdminAccounts', 'Macie2', Promise.reject(result), true, mock)
   },
+  listResourceProfileArtifacts: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'listResourceProfileArtifacts', 'Macie2', Promise.resolve(result), true, mock)
+  },
+  listResourceProfileArtifactsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'listResourceProfileArtifacts', 'Macie2', Promise.resolve(result), false, mock)
+  },
+  listResourceProfileArtifactsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'listResourceProfileArtifacts', 'Macie2', Promise.reject(result), true, mock)
+  },
+  listResourceProfileDetections: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'listResourceProfileDetections', 'Macie2', Promise.resolve(result), true, mock)
+  },
+  listResourceProfileDetectionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'listResourceProfileDetections', 'Macie2', Promise.resolve(result), false, mock)
+  },
+  listResourceProfileDetectionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'listResourceProfileDetections', 'Macie2', Promise.reject(result), true, mock)
+  },
+  listSensitivityInspectionTemplates: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'listSensitivityInspectionTemplates', 'Macie2', Promise.resolve(result), true, mock)
+  },
+  listSensitivityInspectionTemplatesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'listSensitivityInspectionTemplates', 'Macie2', Promise.resolve(result), false, mock)
+  },
+  listSensitivityInspectionTemplatesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'listSensitivityInspectionTemplates', 'Macie2', Promise.reject(result), true, mock)
+  },
   listTagsForResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-macie2', 'listTagsForResource', 'Macie2', Promise.resolve(result), true, mock)
   },
@@ -494,6 +619,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   untagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-macie2', 'untagResource', 'Macie2', Promise.reject(result), true, mock)
   },
+  updateAllowList: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'updateAllowList', 'Macie2', Promise.resolve(result), true, mock)
+  },
+  updateAllowListAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'updateAllowList', 'Macie2', Promise.resolve(result), false, mock)
+  },
+  updateAllowListThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'updateAllowList', 'Macie2', Promise.reject(result), true, mock)
+  },
+  updateAutomatedDiscoveryConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'updateAutomatedDiscoveryConfiguration', 'Macie2', Promise.resolve(result), true, mock)
+  },
+  updateAutomatedDiscoveryConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'updateAutomatedDiscoveryConfiguration', 'Macie2', Promise.resolve(result), false, mock)
+  },
+  updateAutomatedDiscoveryConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'updateAutomatedDiscoveryConfiguration', 'Macie2', Promise.reject(result), true, mock)
+  },
   updateClassificationJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-macie2', 'updateClassificationJob', 'Macie2', Promise.resolve(result), true, mock)
   },
@@ -502,6 +645,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateClassificationJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-macie2', 'updateClassificationJob', 'Macie2', Promise.reject(result), true, mock)
+  },
+  updateClassificationScope: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'updateClassificationScope', 'Macie2', Promise.resolve(result), true, mock)
+  },
+  updateClassificationScopeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'updateClassificationScope', 'Macie2', Promise.resolve(result), false, mock)
+  },
+  updateClassificationScopeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'updateClassificationScope', 'Macie2', Promise.reject(result), true, mock)
   },
   updateFindingsFilter: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-macie2', 'updateFindingsFilter', 'Macie2', Promise.resolve(result), true, mock)
@@ -538,6 +690,42 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateOrganizationConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-macie2', 'updateOrganizationConfiguration', 'Macie2', Promise.reject(result), true, mock)
+  },
+  updateResourceProfile: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'updateResourceProfile', 'Macie2', Promise.resolve(result), true, mock)
+  },
+  updateResourceProfileAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'updateResourceProfile', 'Macie2', Promise.resolve(result), false, mock)
+  },
+  updateResourceProfileThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'updateResourceProfile', 'Macie2', Promise.reject(result), true, mock)
+  },
+  updateResourceProfileDetections: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'updateResourceProfileDetections', 'Macie2', Promise.resolve(result), true, mock)
+  },
+  updateResourceProfileDetectionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'updateResourceProfileDetections', 'Macie2', Promise.resolve(result), false, mock)
+  },
+  updateResourceProfileDetectionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'updateResourceProfileDetections', 'Macie2', Promise.reject(result), true, mock)
+  },
+  updateRevealConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'updateRevealConfiguration', 'Macie2', Promise.resolve(result), true, mock)
+  },
+  updateRevealConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'updateRevealConfiguration', 'Macie2', Promise.resolve(result), false, mock)
+  },
+  updateRevealConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'updateRevealConfiguration', 'Macie2', Promise.reject(result), true, mock)
+  },
+  updateSensitivityInspectionTemplate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'updateSensitivityInspectionTemplate', 'Macie2', Promise.resolve(result), true, mock)
+  },
+  updateSensitivityInspectionTemplateAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'updateSensitivityInspectionTemplate', 'Macie2', Promise.resolve(result), false, mock)
+  },
+  updateSensitivityInspectionTemplateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-macie2', 'updateSensitivityInspectionTemplate', 'Macie2', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-macie2', 'send', 'Macie2Client', Promise.resolve(result), true, mock)

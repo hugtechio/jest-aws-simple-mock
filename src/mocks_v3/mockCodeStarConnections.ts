@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockCodeStarConnections = {
+export const mockCodeStarConnections = {
   createConnection: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codestar-connections', 'createConnection', 'CodeStarConnections', Promise.resolve(result), true, mock)
   },
@@ -34,6 +33,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createHostThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codestar-connections', 'createHost', 'CodeStarConnections', Promise.reject(result), true, mock)
+  },
+  createRepositoryLink: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'createRepositoryLink', 'CodeStarConnections', Promise.resolve(result), true, mock)
+  },
+  createRepositoryLinkAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'createRepositoryLink', 'CodeStarConnections', Promise.resolve(result), false, mock)
+  },
+  createRepositoryLinkThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'createRepositoryLink', 'CodeStarConnections', Promise.reject(result), true, mock)
+  },
+  createSyncConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'createSyncConfiguration', 'CodeStarConnections', Promise.resolve(result), true, mock)
+  },
+  createSyncConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'createSyncConfiguration', 'CodeStarConnections', Promise.resolve(result), false, mock)
+  },
+  createSyncConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'createSyncConfiguration', 'CodeStarConnections', Promise.reject(result), true, mock)
   },
   deleteConnection: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codestar-connections', 'deleteConnection', 'CodeStarConnections', Promise.resolve(result), true, mock)
@@ -53,14 +70,23 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteHostThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codestar-connections', 'deleteHost', 'CodeStarConnections', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-codestar-connections', 'destroy', 'CodeStarConnections', Promise.resolve(result), true, mock)
+  deleteRepositoryLink: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'deleteRepositoryLink', 'CodeStarConnections', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-codestar-connections', 'destroy', 'CodeStarConnections', Promise.resolve(result), false, mock)
+  deleteRepositoryLinkAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'deleteRepositoryLink', 'CodeStarConnections', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-codestar-connections', 'destroy', 'CodeStarConnections', Promise.reject(result), true, mock)
+  deleteRepositoryLinkThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'deleteRepositoryLink', 'CodeStarConnections', Promise.reject(result), true, mock)
+  },
+  deleteSyncConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'deleteSyncConfiguration', 'CodeStarConnections', Promise.resolve(result), true, mock)
+  },
+  deleteSyncConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'deleteSyncConfiguration', 'CodeStarConnections', Promise.resolve(result), false, mock)
+  },
+  deleteSyncConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'deleteSyncConfiguration', 'CodeStarConnections', Promise.reject(result), true, mock)
   },
   getConnection: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codestar-connections', 'getConnection', 'CodeStarConnections', Promise.resolve(result), true, mock)
@@ -80,6 +106,51 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getHostThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codestar-connections', 'getHost', 'CodeStarConnections', Promise.reject(result), true, mock)
   },
+  getRepositoryLink: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'getRepositoryLink', 'CodeStarConnections', Promise.resolve(result), true, mock)
+  },
+  getRepositoryLinkAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'getRepositoryLink', 'CodeStarConnections', Promise.resolve(result), false, mock)
+  },
+  getRepositoryLinkThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'getRepositoryLink', 'CodeStarConnections', Promise.reject(result), true, mock)
+  },
+  getRepositorySyncStatus: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'getRepositorySyncStatus', 'CodeStarConnections', Promise.resolve(result), true, mock)
+  },
+  getRepositorySyncStatusAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'getRepositorySyncStatus', 'CodeStarConnections', Promise.resolve(result), false, mock)
+  },
+  getRepositorySyncStatusThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'getRepositorySyncStatus', 'CodeStarConnections', Promise.reject(result), true, mock)
+  },
+  getResourceSyncStatus: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'getResourceSyncStatus', 'CodeStarConnections', Promise.resolve(result), true, mock)
+  },
+  getResourceSyncStatusAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'getResourceSyncStatus', 'CodeStarConnections', Promise.resolve(result), false, mock)
+  },
+  getResourceSyncStatusThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'getResourceSyncStatus', 'CodeStarConnections', Promise.reject(result), true, mock)
+  },
+  getSyncBlockerSummary: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'getSyncBlockerSummary', 'CodeStarConnections', Promise.resolve(result), true, mock)
+  },
+  getSyncBlockerSummaryAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'getSyncBlockerSummary', 'CodeStarConnections', Promise.resolve(result), false, mock)
+  },
+  getSyncBlockerSummaryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'getSyncBlockerSummary', 'CodeStarConnections', Promise.reject(result), true, mock)
+  },
+  getSyncConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'getSyncConfiguration', 'CodeStarConnections', Promise.resolve(result), true, mock)
+  },
+  getSyncConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'getSyncConfiguration', 'CodeStarConnections', Promise.resolve(result), false, mock)
+  },
+  getSyncConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'getSyncConfiguration', 'CodeStarConnections', Promise.reject(result), true, mock)
+  },
   listConnections: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codestar-connections', 'listConnections', 'CodeStarConnections', Promise.resolve(result), true, mock)
   },
@@ -97,6 +168,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listHostsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codestar-connections', 'listHosts', 'CodeStarConnections', Promise.reject(result), true, mock)
+  },
+  listRepositoryLinks: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'listRepositoryLinks', 'CodeStarConnections', Promise.resolve(result), true, mock)
+  },
+  listRepositoryLinksAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'listRepositoryLinks', 'CodeStarConnections', Promise.resolve(result), false, mock)
+  },
+  listRepositoryLinksThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'listRepositoryLinks', 'CodeStarConnections', Promise.reject(result), true, mock)
+  },
+  listRepositorySyncDefinitions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'listRepositorySyncDefinitions', 'CodeStarConnections', Promise.resolve(result), true, mock)
+  },
+  listRepositorySyncDefinitionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'listRepositorySyncDefinitions', 'CodeStarConnections', Promise.resolve(result), false, mock)
+  },
+  listRepositorySyncDefinitionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'listRepositorySyncDefinitions', 'CodeStarConnections', Promise.reject(result), true, mock)
+  },
+  listSyncConfigurations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'listSyncConfigurations', 'CodeStarConnections', Promise.resolve(result), true, mock)
+  },
+  listSyncConfigurationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'listSyncConfigurations', 'CodeStarConnections', Promise.resolve(result), false, mock)
+  },
+  listSyncConfigurationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'listSyncConfigurations', 'CodeStarConnections', Promise.reject(result), true, mock)
   },
   listTagsForResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codestar-connections', 'listTagsForResource', 'CodeStarConnections', Promise.resolve(result), true, mock)
@@ -133,6 +231,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateHostThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codestar-connections', 'updateHost', 'CodeStarConnections', Promise.reject(result), true, mock)
+  },
+  updateRepositoryLink: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'updateRepositoryLink', 'CodeStarConnections', Promise.resolve(result), true, mock)
+  },
+  updateRepositoryLinkAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'updateRepositoryLink', 'CodeStarConnections', Promise.resolve(result), false, mock)
+  },
+  updateRepositoryLinkThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'updateRepositoryLink', 'CodeStarConnections', Promise.reject(result), true, mock)
+  },
+  updateSyncBlocker: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'updateSyncBlocker', 'CodeStarConnections', Promise.resolve(result), true, mock)
+  },
+  updateSyncBlockerAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'updateSyncBlocker', 'CodeStarConnections', Promise.resolve(result), false, mock)
+  },
+  updateSyncBlockerThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'updateSyncBlocker', 'CodeStarConnections', Promise.reject(result), true, mock)
+  },
+  updateSyncConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'updateSyncConfiguration', 'CodeStarConnections', Promise.resolve(result), true, mock)
+  },
+  updateSyncConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'updateSyncConfiguration', 'CodeStarConnections', Promise.resolve(result), false, mock)
+  },
+  updateSyncConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-codestar-connections', 'updateSyncConfiguration', 'CodeStarConnections', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-codestar-connections', 'send', 'CodeStarConnectionsClient', Promise.resolve(result), true, mock)

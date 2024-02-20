@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockIoTEvents = {
+export const mockIoTEvents = {
   createAlarmModel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-events', 'createAlarmModel', 'IoTEvents', Promise.resolve(result), true, mock)
   },
@@ -80,15 +79,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeAlarmModelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-events', 'describeAlarmModel', 'IoTEvents', Promise.reject(result), true, mock)
   },
-  describeDetectorModel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iot-events', 'describeDetectorModel', 'IoTEvents', Promise.resolve(result), true, mock)
-  },
-  describeDetectorModelAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iot-events', 'describeDetectorModel', 'IoTEvents', Promise.resolve(result), false, mock)
-  },
-  describeDetectorModelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iot-events', 'describeDetectorModel', 'IoTEvents', Promise.reject(result), true, mock)
-  },
   describeDetectorModelAnalysis: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-events', 'describeDetectorModelAnalysis', 'IoTEvents', Promise.resolve(result), true, mock)
   },
@@ -97,6 +87,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeDetectorModelAnalysisThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-events', 'describeDetectorModelAnalysis', 'IoTEvents', Promise.reject(result), true, mock)
+  },
+  describeDetectorModel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-events', 'describeDetectorModel', 'IoTEvents', Promise.resolve(result), true, mock)
+  },
+  describeDetectorModelAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-events', 'describeDetectorModel', 'IoTEvents', Promise.resolve(result), false, mock)
+  },
+  describeDetectorModelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-iot-events', 'describeDetectorModel', 'IoTEvents', Promise.reject(result), true, mock)
   },
   describeInput: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-events', 'describeInput', 'IoTEvents', Promise.resolve(result), true, mock)
@@ -115,15 +114,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeLoggingOptionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-events', 'describeLoggingOptions', 'IoTEvents', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iot-events', 'destroy', 'IoTEvents', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iot-events', 'destroy', 'IoTEvents', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-iot-events', 'destroy', 'IoTEvents', Promise.reject(result), true, mock)
   },
   getDetectorModelAnalysisResults: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-iot-events', 'getDetectorModelAnalysisResults', 'IoTEvents', Promise.resolve(result), true, mock)

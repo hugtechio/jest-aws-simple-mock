@@ -15,8 +15,16 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockEKS = {
+export const mockEKS = {
+  associateAccessPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'associateAccessPolicy', 'EKS', Promise.resolve(result), true, mock)
+  },
+  associateAccessPolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'associateAccessPolicy', 'EKS', Promise.resolve(result), false, mock)
+  },
+  associateAccessPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'associateAccessPolicy', 'EKS', Promise.reject(result), true, mock)
+  },
   associateEncryptionConfig: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eks', 'associateEncryptionConfig', 'EKS', Promise.resolve(result), true, mock)
   },
@@ -34,6 +42,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   associateIdentityProviderConfigThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eks', 'associateIdentityProviderConfig', 'EKS', Promise.reject(result), true, mock)
+  },
+  createAccessEntry: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'createAccessEntry', 'EKS', Promise.resolve(result), true, mock)
+  },
+  createAccessEntryAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'createAccessEntry', 'EKS', Promise.resolve(result), false, mock)
+  },
+  createAccessEntryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'createAccessEntry', 'EKS', Promise.reject(result), true, mock)
   },
   createAddon: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eks', 'createAddon', 'EKS', Promise.resolve(result), true, mock)
@@ -53,6 +70,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createClusterThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eks', 'createCluster', 'EKS', Promise.reject(result), true, mock)
   },
+  createEksAnywhereSubscription: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'createEksAnywhereSubscription', 'EKS', Promise.resolve(result), true, mock)
+  },
+  createEksAnywhereSubscriptionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'createEksAnywhereSubscription', 'EKS', Promise.resolve(result), false, mock)
+  },
+  createEksAnywhereSubscriptionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'createEksAnywhereSubscription', 'EKS', Promise.reject(result), true, mock)
+  },
   createFargateProfile: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eks', 'createFargateProfile', 'EKS', Promise.resolve(result), true, mock)
   },
@@ -70,6 +96,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createNodegroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eks', 'createNodegroup', 'EKS', Promise.reject(result), true, mock)
+  },
+  createPodIdentityAssociation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'createPodIdentityAssociation', 'EKS', Promise.resolve(result), true, mock)
+  },
+  createPodIdentityAssociationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'createPodIdentityAssociation', 'EKS', Promise.resolve(result), false, mock)
+  },
+  createPodIdentityAssociationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'createPodIdentityAssociation', 'EKS', Promise.reject(result), true, mock)
+  },
+  deleteAccessEntry: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'deleteAccessEntry', 'EKS', Promise.resolve(result), true, mock)
+  },
+  deleteAccessEntryAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'deleteAccessEntry', 'EKS', Promise.resolve(result), false, mock)
+  },
+  deleteAccessEntryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'deleteAccessEntry', 'EKS', Promise.reject(result), true, mock)
   },
   deleteAddon: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eks', 'deleteAddon', 'EKS', Promise.resolve(result), true, mock)
@@ -89,6 +133,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteClusterThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eks', 'deleteCluster', 'EKS', Promise.reject(result), true, mock)
   },
+  deleteEksAnywhereSubscription: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'deleteEksAnywhereSubscription', 'EKS', Promise.resolve(result), true, mock)
+  },
+  deleteEksAnywhereSubscriptionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'deleteEksAnywhereSubscription', 'EKS', Promise.resolve(result), false, mock)
+  },
+  deleteEksAnywhereSubscriptionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'deleteEksAnywhereSubscription', 'EKS', Promise.reject(result), true, mock)
+  },
   deleteFargateProfile: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eks', 'deleteFargateProfile', 'EKS', Promise.resolve(result), true, mock)
   },
@@ -107,6 +160,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteNodegroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eks', 'deleteNodegroup', 'EKS', Promise.reject(result), true, mock)
   },
+  deletePodIdentityAssociation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'deletePodIdentityAssociation', 'EKS', Promise.resolve(result), true, mock)
+  },
+  deletePodIdentityAssociationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'deletePodIdentityAssociation', 'EKS', Promise.resolve(result), false, mock)
+  },
+  deletePodIdentityAssociationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'deletePodIdentityAssociation', 'EKS', Promise.reject(result), true, mock)
+  },
   deregisterCluster: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eks', 'deregisterCluster', 'EKS', Promise.resolve(result), true, mock)
   },
@@ -116,6 +178,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deregisterClusterThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eks', 'deregisterCluster', 'EKS', Promise.reject(result), true, mock)
   },
+  describeAccessEntry: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'describeAccessEntry', 'EKS', Promise.resolve(result), true, mock)
+  },
+  describeAccessEntryAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'describeAccessEntry', 'EKS', Promise.resolve(result), false, mock)
+  },
+  describeAccessEntryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'describeAccessEntry', 'EKS', Promise.reject(result), true, mock)
+  },
   describeAddon: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eks', 'describeAddon', 'EKS', Promise.resolve(result), true, mock)
   },
@@ -124,6 +195,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeAddonThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eks', 'describeAddon', 'EKS', Promise.reject(result), true, mock)
+  },
+  describeAddonConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'describeAddonConfiguration', 'EKS', Promise.resolve(result), true, mock)
+  },
+  describeAddonConfigurationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'describeAddonConfiguration', 'EKS', Promise.resolve(result), false, mock)
+  },
+  describeAddonConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'describeAddonConfiguration', 'EKS', Promise.reject(result), true, mock)
   },
   describeAddonVersions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eks', 'describeAddonVersions', 'EKS', Promise.resolve(result), true, mock)
@@ -143,6 +223,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeClusterThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eks', 'describeCluster', 'EKS', Promise.reject(result), true, mock)
   },
+  describeEksAnywhereSubscription: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'describeEksAnywhereSubscription', 'EKS', Promise.resolve(result), true, mock)
+  },
+  describeEksAnywhereSubscriptionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'describeEksAnywhereSubscription', 'EKS', Promise.resolve(result), false, mock)
+  },
+  describeEksAnywhereSubscriptionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'describeEksAnywhereSubscription', 'EKS', Promise.reject(result), true, mock)
+  },
   describeFargateProfile: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eks', 'describeFargateProfile', 'EKS', Promise.resolve(result), true, mock)
   },
@@ -161,6 +250,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeIdentityProviderConfigThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eks', 'describeIdentityProviderConfig', 'EKS', Promise.reject(result), true, mock)
   },
+  describeInsight: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'describeInsight', 'EKS', Promise.resolve(result), true, mock)
+  },
+  describeInsightAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'describeInsight', 'EKS', Promise.resolve(result), false, mock)
+  },
+  describeInsightThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'describeInsight', 'EKS', Promise.reject(result), true, mock)
+  },
   describeNodegroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eks', 'describeNodegroup', 'EKS', Promise.resolve(result), true, mock)
   },
@@ -169,6 +267,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeNodegroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eks', 'describeNodegroup', 'EKS', Promise.reject(result), true, mock)
+  },
+  describePodIdentityAssociation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'describePodIdentityAssociation', 'EKS', Promise.resolve(result), true, mock)
+  },
+  describePodIdentityAssociationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'describePodIdentityAssociation', 'EKS', Promise.resolve(result), false, mock)
+  },
+  describePodIdentityAssociationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'describePodIdentityAssociation', 'EKS', Promise.reject(result), true, mock)
   },
   describeUpdate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eks', 'describeUpdate', 'EKS', Promise.resolve(result), true, mock)
@@ -179,14 +286,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeUpdateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eks', 'describeUpdate', 'EKS', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-eks', 'destroy', 'EKS', Promise.resolve(result), true, mock)
+  disassociateAccessPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'disassociateAccessPolicy', 'EKS', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-eks', 'destroy', 'EKS', Promise.resolve(result), false, mock)
+  disassociateAccessPolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'disassociateAccessPolicy', 'EKS', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-eks', 'destroy', 'EKS', Promise.reject(result), true, mock)
+  disassociateAccessPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'disassociateAccessPolicy', 'EKS', Promise.reject(result), true, mock)
   },
   disassociateIdentityProviderConfig: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eks', 'disassociateIdentityProviderConfig', 'EKS', Promise.resolve(result), true, mock)
@@ -197,6 +304,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   disassociateIdentityProviderConfigThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eks', 'disassociateIdentityProviderConfig', 'EKS', Promise.reject(result), true, mock)
   },
+  listAccessEntries: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'listAccessEntries', 'EKS', Promise.resolve(result), true, mock)
+  },
+  listAccessEntriesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'listAccessEntries', 'EKS', Promise.resolve(result), false, mock)
+  },
+  listAccessEntriesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'listAccessEntries', 'EKS', Promise.reject(result), true, mock)
+  },
+  listAccessPolicies: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'listAccessPolicies', 'EKS', Promise.resolve(result), true, mock)
+  },
+  listAccessPoliciesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'listAccessPolicies', 'EKS', Promise.resolve(result), false, mock)
+  },
+  listAccessPoliciesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'listAccessPolicies', 'EKS', Promise.reject(result), true, mock)
+  },
   listAddons: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eks', 'listAddons', 'EKS', Promise.resolve(result), true, mock)
   },
@@ -206,6 +331,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listAddonsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eks', 'listAddons', 'EKS', Promise.reject(result), true, mock)
   },
+  listAssociatedAccessPolicies: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'listAssociatedAccessPolicies', 'EKS', Promise.resolve(result), true, mock)
+  },
+  listAssociatedAccessPoliciesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'listAssociatedAccessPolicies', 'EKS', Promise.resolve(result), false, mock)
+  },
+  listAssociatedAccessPoliciesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'listAssociatedAccessPolicies', 'EKS', Promise.reject(result), true, mock)
+  },
   listClusters: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eks', 'listClusters', 'EKS', Promise.resolve(result), true, mock)
   },
@@ -214,6 +348,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listClustersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eks', 'listClusters', 'EKS', Promise.reject(result), true, mock)
+  },
+  listEksAnywhereSubscriptions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'listEksAnywhereSubscriptions', 'EKS', Promise.resolve(result), true, mock)
+  },
+  listEksAnywhereSubscriptionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'listEksAnywhereSubscriptions', 'EKS', Promise.resolve(result), false, mock)
+  },
+  listEksAnywhereSubscriptionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'listEksAnywhereSubscriptions', 'EKS', Promise.reject(result), true, mock)
   },
   listFargateProfiles: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eks', 'listFargateProfiles', 'EKS', Promise.resolve(result), true, mock)
@@ -233,6 +376,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listIdentityProviderConfigsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eks', 'listIdentityProviderConfigs', 'EKS', Promise.reject(result), true, mock)
   },
+  listInsights: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'listInsights', 'EKS', Promise.resolve(result), true, mock)
+  },
+  listInsightsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'listInsights', 'EKS', Promise.resolve(result), false, mock)
+  },
+  listInsightsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'listInsights', 'EKS', Promise.reject(result), true, mock)
+  },
   listNodegroups: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eks', 'listNodegroups', 'EKS', Promise.resolve(result), true, mock)
   },
@@ -241,6 +393,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listNodegroupsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eks', 'listNodegroups', 'EKS', Promise.reject(result), true, mock)
+  },
+  listPodIdentityAssociations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'listPodIdentityAssociations', 'EKS', Promise.resolve(result), true, mock)
+  },
+  listPodIdentityAssociationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'listPodIdentityAssociations', 'EKS', Promise.resolve(result), false, mock)
+  },
+  listPodIdentityAssociationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'listPodIdentityAssociations', 'EKS', Promise.reject(result), true, mock)
   },
   listTagsForResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eks', 'listTagsForResource', 'EKS', Promise.resolve(result), true, mock)
@@ -287,6 +448,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   untagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eks', 'untagResource', 'EKS', Promise.reject(result), true, mock)
   },
+  updateAccessEntry: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'updateAccessEntry', 'EKS', Promise.resolve(result), true, mock)
+  },
+  updateAccessEntryAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'updateAccessEntry', 'EKS', Promise.resolve(result), false, mock)
+  },
+  updateAccessEntryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'updateAccessEntry', 'EKS', Promise.reject(result), true, mock)
+  },
   updateAddon: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eks', 'updateAddon', 'EKS', Promise.resolve(result), true, mock)
   },
@@ -314,6 +484,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   updateClusterVersionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eks', 'updateClusterVersion', 'EKS', Promise.reject(result), true, mock)
   },
+  updateEksAnywhereSubscription: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'updateEksAnywhereSubscription', 'EKS', Promise.resolve(result), true, mock)
+  },
+  updateEksAnywhereSubscriptionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'updateEksAnywhereSubscription', 'EKS', Promise.resolve(result), false, mock)
+  },
+  updateEksAnywhereSubscriptionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'updateEksAnywhereSubscription', 'EKS', Promise.reject(result), true, mock)
+  },
   updateNodegroupConfig: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eks', 'updateNodegroupConfig', 'EKS', Promise.resolve(result), true, mock)
   },
@@ -331,6 +510,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateNodegroupVersionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eks', 'updateNodegroupVersion', 'EKS', Promise.reject(result), true, mock)
+  },
+  updatePodIdentityAssociation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'updatePodIdentityAssociation', 'EKS', Promise.resolve(result), true, mock)
+  },
+  updatePodIdentityAssociationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'updatePodIdentityAssociation', 'EKS', Promise.resolve(result), false, mock)
+  },
+  updatePodIdentityAssociationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-eks', 'updatePodIdentityAssociation', 'EKS', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-eks', 'send', 'EKSClient', Promise.resolve(result), true, mock)

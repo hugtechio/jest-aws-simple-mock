@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockCloudFront = {
+export const mockCloudFront = {
   associateAlias: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudfront', 'associateAlias', 'CloudFront', Promise.resolve(result), true, mock)
   },
@@ -25,6 +24,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   associateAliasThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudfront', 'associateAlias', 'CloudFront', Promise.reject(result), true, mock)
+  },
+  copyDistribution: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'copyDistribution', 'CloudFront', Promise.resolve(result), true, mock)
+  },
+  copyDistributionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'copyDistribution', 'CloudFront', Promise.resolve(result), false, mock)
+  },
+  copyDistributionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'copyDistribution', 'CloudFront', Promise.reject(result), true, mock)
   },
   createCachePolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudfront', 'createCachePolicy', 'CloudFront', Promise.resolve(result), true, mock)
@@ -43,6 +51,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createCloudFrontOriginAccessIdentityThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudfront', 'createCloudFrontOriginAccessIdentity', 'CloudFront', Promise.reject(result), true, mock)
+  },
+  createContinuousDeploymentPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'createContinuousDeploymentPolicy', 'CloudFront', Promise.resolve(result), true, mock)
+  },
+  createContinuousDeploymentPolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'createContinuousDeploymentPolicy', 'CloudFront', Promise.resolve(result), false, mock)
+  },
+  createContinuousDeploymentPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'createContinuousDeploymentPolicy', 'CloudFront', Promise.reject(result), true, mock)
   },
   createDistribution: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudfront', 'createDistribution', 'CloudFront', Promise.resolve(result), true, mock)
@@ -107,6 +124,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createKeyGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudfront', 'createKeyGroup', 'CloudFront', Promise.reject(result), true, mock)
   },
+  createKeyValueStore: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'createKeyValueStore', 'CloudFront', Promise.resolve(result), true, mock)
+  },
+  createKeyValueStoreAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'createKeyValueStore', 'CloudFront', Promise.resolve(result), false, mock)
+  },
+  createKeyValueStoreThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'createKeyValueStore', 'CloudFront', Promise.reject(result), true, mock)
+  },
   createMonitoringSubscription: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudfront', 'createMonitoringSubscription', 'CloudFront', Promise.resolve(result), true, mock)
   },
@@ -115,6 +141,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createMonitoringSubscriptionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudfront', 'createMonitoringSubscription', 'CloudFront', Promise.reject(result), true, mock)
+  },
+  createOriginAccessControl: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'createOriginAccessControl', 'CloudFront', Promise.resolve(result), true, mock)
+  },
+  createOriginAccessControlAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'createOriginAccessControl', 'CloudFront', Promise.resolve(result), false, mock)
+  },
+  createOriginAccessControlThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'createOriginAccessControl', 'CloudFront', Promise.reject(result), true, mock)
   },
   createOriginRequestPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudfront', 'createOriginRequestPolicy', 'CloudFront', Promise.resolve(result), true, mock)
@@ -188,6 +223,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteCloudFrontOriginAccessIdentityThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudfront', 'deleteCloudFrontOriginAccessIdentity', 'CloudFront', Promise.reject(result), true, mock)
   },
+  deleteContinuousDeploymentPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'deleteContinuousDeploymentPolicy', 'CloudFront', Promise.resolve(result), true, mock)
+  },
+  deleteContinuousDeploymentPolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'deleteContinuousDeploymentPolicy', 'CloudFront', Promise.resolve(result), false, mock)
+  },
+  deleteContinuousDeploymentPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'deleteContinuousDeploymentPolicy', 'CloudFront', Promise.reject(result), true, mock)
+  },
   deleteDistribution: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudfront', 'deleteDistribution', 'CloudFront', Promise.resolve(result), true, mock)
   },
@@ -233,6 +277,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteKeyGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudfront', 'deleteKeyGroup', 'CloudFront', Promise.reject(result), true, mock)
   },
+  deleteKeyValueStore: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'deleteKeyValueStore', 'CloudFront', Promise.resolve(result), true, mock)
+  },
+  deleteKeyValueStoreAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'deleteKeyValueStore', 'CloudFront', Promise.resolve(result), false, mock)
+  },
+  deleteKeyValueStoreThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'deleteKeyValueStore', 'CloudFront', Promise.reject(result), true, mock)
+  },
   deleteMonitoringSubscription: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudfront', 'deleteMonitoringSubscription', 'CloudFront', Promise.resolve(result), true, mock)
   },
@@ -241,6 +294,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteMonitoringSubscriptionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudfront', 'deleteMonitoringSubscription', 'CloudFront', Promise.reject(result), true, mock)
+  },
+  deleteOriginAccessControl: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'deleteOriginAccessControl', 'CloudFront', Promise.resolve(result), true, mock)
+  },
+  deleteOriginAccessControlAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'deleteOriginAccessControl', 'CloudFront', Promise.resolve(result), false, mock)
+  },
+  deleteOriginAccessControlThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'deleteOriginAccessControl', 'CloudFront', Promise.reject(result), true, mock)
   },
   deleteOriginRequestPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudfront', 'deleteOriginRequestPolicy', 'CloudFront', Promise.resolve(result), true, mock)
@@ -296,14 +358,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeFunctionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudfront', 'describeFunction', 'CloudFront', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cloudfront', 'destroy', 'CloudFront', Promise.resolve(result), true, mock)
+  describeKeyValueStore: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'describeKeyValueStore', 'CloudFront', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cloudfront', 'destroy', 'CloudFront', Promise.resolve(result), false, mock)
+  describeKeyValueStoreAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'describeKeyValueStore', 'CloudFront', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cloudfront', 'destroy', 'CloudFront', Promise.reject(result), true, mock)
+  describeKeyValueStoreThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'describeKeyValueStore', 'CloudFront', Promise.reject(result), true, mock)
   },
   getCachePolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudfront', 'getCachePolicy', 'CloudFront', Promise.resolve(result), true, mock)
@@ -340,6 +402,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getCloudFrontOriginAccessIdentityConfigThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudfront', 'getCloudFrontOriginAccessIdentityConfig', 'CloudFront', Promise.reject(result), true, mock)
+  },
+  getContinuousDeploymentPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'getContinuousDeploymentPolicy', 'CloudFront', Promise.resolve(result), true, mock)
+  },
+  getContinuousDeploymentPolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'getContinuousDeploymentPolicy', 'CloudFront', Promise.resolve(result), false, mock)
+  },
+  getContinuousDeploymentPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'getContinuousDeploymentPolicy', 'CloudFront', Promise.reject(result), true, mock)
+  },
+  getContinuousDeploymentPolicyConfig: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'getContinuousDeploymentPolicyConfig', 'CloudFront', Promise.resolve(result), true, mock)
+  },
+  getContinuousDeploymentPolicyConfigAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'getContinuousDeploymentPolicyConfig', 'CloudFront', Promise.resolve(result), false, mock)
+  },
+  getContinuousDeploymentPolicyConfigThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'getContinuousDeploymentPolicyConfig', 'CloudFront', Promise.reject(result), true, mock)
   },
   getDistribution: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudfront', 'getDistribution', 'CloudFront', Promise.resolve(result), true, mock)
@@ -439,6 +519,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getMonitoringSubscriptionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudfront', 'getMonitoringSubscription', 'CloudFront', Promise.reject(result), true, mock)
+  },
+  getOriginAccessControl: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'getOriginAccessControl', 'CloudFront', Promise.resolve(result), true, mock)
+  },
+  getOriginAccessControlAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'getOriginAccessControl', 'CloudFront', Promise.resolve(result), false, mock)
+  },
+  getOriginAccessControlThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'getOriginAccessControl', 'CloudFront', Promise.reject(result), true, mock)
+  },
+  getOriginAccessControlConfig: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'getOriginAccessControlConfig', 'CloudFront', Promise.resolve(result), true, mock)
+  },
+  getOriginAccessControlConfigAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'getOriginAccessControlConfig', 'CloudFront', Promise.resolve(result), false, mock)
+  },
+  getOriginAccessControlConfigThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'getOriginAccessControlConfig', 'CloudFront', Promise.reject(result), true, mock)
   },
   getOriginRequestPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudfront', 'getOriginRequestPolicy', 'CloudFront', Promise.resolve(result), true, mock)
@@ -548,14 +646,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listConflictingAliasesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudfront', 'listConflictingAliases', 'CloudFront', Promise.reject(result), true, mock)
   },
-  listDistributions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cloudfront', 'listDistributions', 'CloudFront', Promise.resolve(result), true, mock)
+  listContinuousDeploymentPolicies: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'listContinuousDeploymentPolicies', 'CloudFront', Promise.resolve(result), true, mock)
   },
-  listDistributionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cloudfront', 'listDistributions', 'CloudFront', Promise.resolve(result), false, mock)
+  listContinuousDeploymentPoliciesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'listContinuousDeploymentPolicies', 'CloudFront', Promise.resolve(result), false, mock)
   },
-  listDistributionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cloudfront', 'listDistributions', 'CloudFront', Promise.reject(result), true, mock)
+  listContinuousDeploymentPoliciesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'listContinuousDeploymentPolicies', 'CloudFront', Promise.reject(result), true, mock)
   },
   listDistributionsByCachePolicyId: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudfront', 'listDistributionsByCachePolicyId', 'CloudFront', Promise.resolve(result), true, mock)
@@ -611,6 +709,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listDistributionsByWebACLIdThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudfront', 'listDistributionsByWebACLId', 'CloudFront', Promise.reject(result), true, mock)
   },
+  listDistributions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'listDistributions', 'CloudFront', Promise.resolve(result), true, mock)
+  },
+  listDistributionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'listDistributions', 'CloudFront', Promise.resolve(result), false, mock)
+  },
+  listDistributionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'listDistributions', 'CloudFront', Promise.reject(result), true, mock)
+  },
   listFieldLevelEncryptionConfigs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudfront', 'listFieldLevelEncryptionConfigs', 'CloudFront', Promise.resolve(result), true, mock)
   },
@@ -655,6 +762,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listKeyGroupsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudfront', 'listKeyGroups', 'CloudFront', Promise.reject(result), true, mock)
+  },
+  listKeyValueStores: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'listKeyValueStores', 'CloudFront', Promise.resolve(result), true, mock)
+  },
+  listKeyValueStoresAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'listKeyValueStores', 'CloudFront', Promise.resolve(result), false, mock)
+  },
+  listKeyValueStoresThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'listKeyValueStores', 'CloudFront', Promise.reject(result), true, mock)
+  },
+  listOriginAccessControls: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'listOriginAccessControls', 'CloudFront', Promise.resolve(result), true, mock)
+  },
+  listOriginAccessControlsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'listOriginAccessControls', 'CloudFront', Promise.resolve(result), false, mock)
+  },
+  listOriginAccessControlsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'listOriginAccessControls', 'CloudFront', Promise.reject(result), true, mock)
   },
   listOriginRequestPolicies: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudfront', 'listOriginRequestPolicies', 'CloudFront', Promise.resolve(result), true, mock)
@@ -764,6 +889,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   updateCloudFrontOriginAccessIdentityThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudfront', 'updateCloudFrontOriginAccessIdentity', 'CloudFront', Promise.reject(result), true, mock)
   },
+  updateContinuousDeploymentPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'updateContinuousDeploymentPolicy', 'CloudFront', Promise.resolve(result), true, mock)
+  },
+  updateContinuousDeploymentPolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'updateContinuousDeploymentPolicy', 'CloudFront', Promise.resolve(result), false, mock)
+  },
+  updateContinuousDeploymentPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'updateContinuousDeploymentPolicy', 'CloudFront', Promise.reject(result), true, mock)
+  },
   updateDistribution: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudfront', 'updateDistribution', 'CloudFront', Promise.resolve(result), true, mock)
   },
@@ -772,6 +906,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateDistributionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudfront', 'updateDistribution', 'CloudFront', Promise.reject(result), true, mock)
+  },
+  updateDistributionWithStagingConfig: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'updateDistributionWithStagingConfig', 'CloudFront', Promise.resolve(result), true, mock)
+  },
+  updateDistributionWithStagingConfigAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'updateDistributionWithStagingConfig', 'CloudFront', Promise.resolve(result), false, mock)
+  },
+  updateDistributionWithStagingConfigThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'updateDistributionWithStagingConfig', 'CloudFront', Promise.reject(result), true, mock)
   },
   updateFieldLevelEncryptionConfig: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudfront', 'updateFieldLevelEncryptionConfig', 'CloudFront', Promise.resolve(result), true, mock)
@@ -808,6 +951,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateKeyGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudfront', 'updateKeyGroup', 'CloudFront', Promise.reject(result), true, mock)
+  },
+  updateKeyValueStore: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'updateKeyValueStore', 'CloudFront', Promise.resolve(result), true, mock)
+  },
+  updateKeyValueStoreAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'updateKeyValueStore', 'CloudFront', Promise.resolve(result), false, mock)
+  },
+  updateKeyValueStoreThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'updateKeyValueStore', 'CloudFront', Promise.reject(result), true, mock)
+  },
+  updateOriginAccessControl: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'updateOriginAccessControl', 'CloudFront', Promise.resolve(result), true, mock)
+  },
+  updateOriginAccessControlAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'updateOriginAccessControl', 'CloudFront', Promise.resolve(result), false, mock)
+  },
+  updateOriginAccessControlThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-cloudfront', 'updateOriginAccessControl', 'CloudFront', Promise.reject(result), true, mock)
   },
   updateOriginRequestPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudfront', 'updateOriginRequestPolicy', 'CloudFront', Promise.resolve(result), true, mock)

@@ -15,8 +15,16 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockAppIntegrations = {
+export const mockAppIntegrations = {
+  createApplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appintegrations', 'createApplication', 'AppIntegrations', Promise.resolve(result), true, mock)
+  },
+  createApplicationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appintegrations', 'createApplication', 'AppIntegrations', Promise.resolve(result), false, mock)
+  },
+  createApplicationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appintegrations', 'createApplication', 'AppIntegrations', Promise.reject(result), true, mock)
+  },
   createDataIntegration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appintegrations', 'createDataIntegration', 'AppIntegrations', Promise.resolve(result), true, mock)
   },
@@ -34,6 +42,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createEventIntegrationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appintegrations', 'createEventIntegration', 'AppIntegrations', Promise.reject(result), true, mock)
+  },
+  deleteApplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appintegrations', 'deleteApplication', 'AppIntegrations', Promise.resolve(result), true, mock)
+  },
+  deleteApplicationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appintegrations', 'deleteApplication', 'AppIntegrations', Promise.resolve(result), false, mock)
+  },
+  deleteApplicationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appintegrations', 'deleteApplication', 'AppIntegrations', Promise.reject(result), true, mock)
   },
   deleteDataIntegration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appintegrations', 'deleteDataIntegration', 'AppIntegrations', Promise.resolve(result), true, mock)
@@ -53,14 +70,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteEventIntegrationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appintegrations', 'deleteEventIntegration', 'AppIntegrations', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-appintegrations', 'destroy', 'AppIntegrations', Promise.resolve(result), true, mock)
+  getApplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appintegrations', 'getApplication', 'AppIntegrations', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-appintegrations', 'destroy', 'AppIntegrations', Promise.resolve(result), false, mock)
+  getApplicationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appintegrations', 'getApplication', 'AppIntegrations', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-appintegrations', 'destroy', 'AppIntegrations', Promise.reject(result), true, mock)
+  getApplicationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appintegrations', 'getApplication', 'AppIntegrations', Promise.reject(result), true, mock)
   },
   getDataIntegration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appintegrations', 'getDataIntegration', 'AppIntegrations', Promise.resolve(result), true, mock)
@@ -79,6 +96,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getEventIntegrationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appintegrations', 'getEventIntegration', 'AppIntegrations', Promise.reject(result), true, mock)
+  },
+  listApplicationAssociations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appintegrations', 'listApplicationAssociations', 'AppIntegrations', Promise.resolve(result), true, mock)
+  },
+  listApplicationAssociationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appintegrations', 'listApplicationAssociations', 'AppIntegrations', Promise.resolve(result), false, mock)
+  },
+  listApplicationAssociationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appintegrations', 'listApplicationAssociations', 'AppIntegrations', Promise.reject(result), true, mock)
+  },
+  listApplications: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appintegrations', 'listApplications', 'AppIntegrations', Promise.resolve(result), true, mock)
+  },
+  listApplicationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appintegrations', 'listApplications', 'AppIntegrations', Promise.resolve(result), false, mock)
+  },
+  listApplicationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appintegrations', 'listApplications', 'AppIntegrations', Promise.reject(result), true, mock)
   },
   listDataIntegrationAssociations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appintegrations', 'listDataIntegrationAssociations', 'AppIntegrations', Promise.resolve(result), true, mock)
@@ -142,6 +177,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   untagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appintegrations', 'untagResource', 'AppIntegrations', Promise.reject(result), true, mock)
+  },
+  updateApplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appintegrations', 'updateApplication', 'AppIntegrations', Promise.resolve(result), true, mock)
+  },
+  updateApplicationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appintegrations', 'updateApplication', 'AppIntegrations', Promise.resolve(result), false, mock)
+  },
+  updateApplicationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-appintegrations', 'updateApplication', 'AppIntegrations', Promise.reject(result), true, mock)
   },
   updateDataIntegration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-appintegrations', 'updateDataIntegration', 'AppIntegrations', Promise.resolve(result), true, mock)

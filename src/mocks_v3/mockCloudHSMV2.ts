@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockCloudHSMV2 = {
+export const mockCloudHSMV2 = {
   copyBackupToRegion: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudhsm-v2', 'copyBackupToRegion', 'CloudHSMV2', Promise.resolve(result), true, mock)
   },
@@ -88,15 +87,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeClustersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudhsm-v2', 'describeClusters', 'CloudHSMV2', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cloudhsm-v2', 'destroy', 'CloudHSMV2', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cloudhsm-v2', 'destroy', 'CloudHSMV2', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-cloudhsm-v2', 'destroy', 'CloudHSMV2', Promise.reject(result), true, mock)
   },
   initializeCluster: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-cloudhsm-v2', 'initializeCluster', 'CloudHSMV2', Promise.resolve(result), true, mock)

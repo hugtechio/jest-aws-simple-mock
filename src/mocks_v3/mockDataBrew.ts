@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockDataBrew = {
+export const mockDataBrew = {
   batchDeleteRecipeVersion: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-databrew', 'batchDeleteRecipeVersion', 'DataBrew', Promise.resolve(result), true, mock)
   },
@@ -71,6 +70,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createRecipeJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-databrew', 'createRecipeJob', 'DataBrew', Promise.reject(result), true, mock)
   },
+  createRuleset: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-databrew', 'createRuleset', 'DataBrew', Promise.resolve(result), true, mock)
+  },
+  createRulesetAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-databrew', 'createRuleset', 'DataBrew', Promise.resolve(result), false, mock)
+  },
+  createRulesetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-databrew', 'createRuleset', 'DataBrew', Promise.reject(result), true, mock)
+  },
   createSchedule: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-databrew', 'createSchedule', 'DataBrew', Promise.resolve(result), true, mock)
   },
@@ -115,6 +123,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteRecipeVersionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-databrew', 'deleteRecipeVersion', 'DataBrew', Promise.reject(result), true, mock)
+  },
+  deleteRuleset: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-databrew', 'deleteRuleset', 'DataBrew', Promise.resolve(result), true, mock)
+  },
+  deleteRulesetAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-databrew', 'deleteRuleset', 'DataBrew', Promise.resolve(result), false, mock)
+  },
+  deleteRulesetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-databrew', 'deleteRuleset', 'DataBrew', Promise.reject(result), true, mock)
   },
   deleteSchedule: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-databrew', 'deleteSchedule', 'DataBrew', Promise.resolve(result), true, mock)
@@ -170,6 +187,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeRecipeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-databrew', 'describeRecipe', 'DataBrew', Promise.reject(result), true, mock)
   },
+  describeRuleset: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-databrew', 'describeRuleset', 'DataBrew', Promise.resolve(result), true, mock)
+  },
+  describeRulesetAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-databrew', 'describeRuleset', 'DataBrew', Promise.resolve(result), false, mock)
+  },
+  describeRulesetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-databrew', 'describeRuleset', 'DataBrew', Promise.reject(result), true, mock)
+  },
   describeSchedule: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-databrew', 'describeSchedule', 'DataBrew', Promise.resolve(result), true, mock)
   },
@@ -178,15 +204,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeScheduleThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-databrew', 'describeSchedule', 'DataBrew', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-databrew', 'destroy', 'DataBrew', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-databrew', 'destroy', 'DataBrew', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-databrew', 'destroy', 'DataBrew', Promise.reject(result), true, mock)
   },
   listDatasets: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-databrew', 'listDatasets', 'DataBrew', Promise.resolve(result), true, mock)
@@ -241,6 +258,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listRecipesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-databrew', 'listRecipes', 'DataBrew', Promise.reject(result), true, mock)
+  },
+  listRulesets: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-databrew', 'listRulesets', 'DataBrew', Promise.resolve(result), true, mock)
+  },
+  listRulesetsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-databrew', 'listRulesets', 'DataBrew', Promise.resolve(result), false, mock)
+  },
+  listRulesetsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-databrew', 'listRulesets', 'DataBrew', Promise.reject(result), true, mock)
   },
   listSchedules: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-databrew', 'listSchedules', 'DataBrew', Promise.resolve(result), true, mock)
@@ -367,6 +393,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateRecipeJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-databrew', 'updateRecipeJob', 'DataBrew', Promise.reject(result), true, mock)
+  },
+  updateRuleset: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-databrew', 'updateRuleset', 'DataBrew', Promise.resolve(result), true, mock)
+  },
+  updateRulesetAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-databrew', 'updateRuleset', 'DataBrew', Promise.resolve(result), false, mock)
+  },
+  updateRulesetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-databrew', 'updateRuleset', 'DataBrew', Promise.reject(result), true, mock)
   },
   updateSchedule: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-databrew', 'updateSchedule', 'DataBrew', Promise.resolve(result), true, mock)

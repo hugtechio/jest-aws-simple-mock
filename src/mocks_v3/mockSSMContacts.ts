@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockSSMContacts = {
+export const mockSSMContacts = {
   acceptPage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm-contacts', 'acceptPage', 'SSMContacts', Promise.resolve(result), true, mock)
   },
@@ -35,6 +34,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   activateContactChannelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm-contacts', 'activateContactChannel', 'SSMContacts', Promise.reject(result), true, mock)
   },
+  createContactChannel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'createContactChannel', 'SSMContacts', Promise.resolve(result), true, mock)
+  },
+  createContactChannelAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'createContactChannel', 'SSMContacts', Promise.resolve(result), false, mock)
+  },
+  createContactChannelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'createContactChannel', 'SSMContacts', Promise.reject(result), true, mock)
+  },
   createContact: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm-contacts', 'createContact', 'SSMContacts', Promise.resolve(result), true, mock)
   },
@@ -44,14 +52,23 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createContactThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm-contacts', 'createContact', 'SSMContacts', Promise.reject(result), true, mock)
   },
-  createContactChannel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ssm-contacts', 'createContactChannel', 'SSMContacts', Promise.resolve(result), true, mock)
+  createRotation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'createRotation', 'SSMContacts', Promise.resolve(result), true, mock)
   },
-  createContactChannelAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ssm-contacts', 'createContactChannel', 'SSMContacts', Promise.resolve(result), false, mock)
+  createRotationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'createRotation', 'SSMContacts', Promise.resolve(result), false, mock)
   },
-  createContactChannelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ssm-contacts', 'createContactChannel', 'SSMContacts', Promise.reject(result), true, mock)
+  createRotationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'createRotation', 'SSMContacts', Promise.reject(result), true, mock)
+  },
+  createRotationOverride: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'createRotationOverride', 'SSMContacts', Promise.resolve(result), true, mock)
+  },
+  createRotationOverrideAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'createRotationOverride', 'SSMContacts', Promise.resolve(result), false, mock)
+  },
+  createRotationOverrideThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'createRotationOverride', 'SSMContacts', Promise.reject(result), true, mock)
   },
   deactivateContactChannel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm-contacts', 'deactivateContactChannel', 'SSMContacts', Promise.resolve(result), true, mock)
@@ -62,6 +79,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deactivateContactChannelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm-contacts', 'deactivateContactChannel', 'SSMContacts', Promise.reject(result), true, mock)
   },
+  deleteContactChannel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'deleteContactChannel', 'SSMContacts', Promise.resolve(result), true, mock)
+  },
+  deleteContactChannelAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'deleteContactChannel', 'SSMContacts', Promise.resolve(result), false, mock)
+  },
+  deleteContactChannelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'deleteContactChannel', 'SSMContacts', Promise.reject(result), true, mock)
+  },
   deleteContact: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm-contacts', 'deleteContact', 'SSMContacts', Promise.resolve(result), true, mock)
   },
@@ -71,14 +97,23 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteContactThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm-contacts', 'deleteContact', 'SSMContacts', Promise.reject(result), true, mock)
   },
-  deleteContactChannel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ssm-contacts', 'deleteContactChannel', 'SSMContacts', Promise.resolve(result), true, mock)
+  deleteRotation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'deleteRotation', 'SSMContacts', Promise.resolve(result), true, mock)
   },
-  deleteContactChannelAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ssm-contacts', 'deleteContactChannel', 'SSMContacts', Promise.resolve(result), false, mock)
+  deleteRotationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'deleteRotation', 'SSMContacts', Promise.resolve(result), false, mock)
   },
-  deleteContactChannelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ssm-contacts', 'deleteContactChannel', 'SSMContacts', Promise.reject(result), true, mock)
+  deleteRotationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'deleteRotation', 'SSMContacts', Promise.reject(result), true, mock)
+  },
+  deleteRotationOverride: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'deleteRotationOverride', 'SSMContacts', Promise.resolve(result), true, mock)
+  },
+  deleteRotationOverrideAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'deleteRotationOverride', 'SSMContacts', Promise.resolve(result), false, mock)
+  },
+  deleteRotationOverrideThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'deleteRotationOverride', 'SSMContacts', Promise.reject(result), true, mock)
   },
   describeEngagement: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm-contacts', 'describeEngagement', 'SSMContacts', Promise.resolve(result), true, mock)
@@ -98,14 +133,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describePageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm-contacts', 'describePage', 'SSMContacts', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ssm-contacts', 'destroy', 'SSMContacts', Promise.resolve(result), true, mock)
+  getContactChannel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'getContactChannel', 'SSMContacts', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ssm-contacts', 'destroy', 'SSMContacts', Promise.resolve(result), false, mock)
+  getContactChannelAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'getContactChannel', 'SSMContacts', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ssm-contacts', 'destroy', 'SSMContacts', Promise.reject(result), true, mock)
+  getContactChannelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'getContactChannel', 'SSMContacts', Promise.reject(result), true, mock)
   },
   getContact: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm-contacts', 'getContact', 'SSMContacts', Promise.resolve(result), true, mock)
@@ -116,15 +151,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getContactThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm-contacts', 'getContact', 'SSMContacts', Promise.reject(result), true, mock)
   },
-  getContactChannel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ssm-contacts', 'getContactChannel', 'SSMContacts', Promise.resolve(result), true, mock)
-  },
-  getContactChannelAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ssm-contacts', 'getContactChannel', 'SSMContacts', Promise.resolve(result), false, mock)
-  },
-  getContactChannelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ssm-contacts', 'getContactChannel', 'SSMContacts', Promise.reject(result), true, mock)
-  },
   getContactPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm-contacts', 'getContactPolicy', 'SSMContacts', Promise.resolve(result), true, mock)
   },
@@ -133,6 +159,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getContactPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm-contacts', 'getContactPolicy', 'SSMContacts', Promise.reject(result), true, mock)
+  },
+  getRotation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'getRotation', 'SSMContacts', Promise.resolve(result), true, mock)
+  },
+  getRotationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'getRotation', 'SSMContacts', Promise.resolve(result), false, mock)
+  },
+  getRotationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'getRotation', 'SSMContacts', Promise.reject(result), true, mock)
+  },
+  getRotationOverride: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'getRotationOverride', 'SSMContacts', Promise.resolve(result), true, mock)
+  },
+  getRotationOverrideAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'getRotationOverride', 'SSMContacts', Promise.resolve(result), false, mock)
+  },
+  getRotationOverrideThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'getRotationOverride', 'SSMContacts', Promise.reject(result), true, mock)
   },
   listContactChannels: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm-contacts', 'listContactChannels', 'SSMContacts', Promise.resolve(result), true, mock)
@@ -170,6 +214,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listPageReceiptsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm-contacts', 'listPageReceipts', 'SSMContacts', Promise.reject(result), true, mock)
   },
+  listPageResolutions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'listPageResolutions', 'SSMContacts', Promise.resolve(result), true, mock)
+  },
+  listPageResolutionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'listPageResolutions', 'SSMContacts', Promise.resolve(result), false, mock)
+  },
+  listPageResolutionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'listPageResolutions', 'SSMContacts', Promise.reject(result), true, mock)
+  },
   listPagesByContact: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm-contacts', 'listPagesByContact', 'SSMContacts', Promise.resolve(result), true, mock)
   },
@@ -187,6 +240,42 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listPagesByEngagementThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm-contacts', 'listPagesByEngagement', 'SSMContacts', Promise.reject(result), true, mock)
+  },
+  listPreviewRotationShifts: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'listPreviewRotationShifts', 'SSMContacts', Promise.resolve(result), true, mock)
+  },
+  listPreviewRotationShiftsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'listPreviewRotationShifts', 'SSMContacts', Promise.resolve(result), false, mock)
+  },
+  listPreviewRotationShiftsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'listPreviewRotationShifts', 'SSMContacts', Promise.reject(result), true, mock)
+  },
+  listRotationOverrides: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'listRotationOverrides', 'SSMContacts', Promise.resolve(result), true, mock)
+  },
+  listRotationOverridesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'listRotationOverrides', 'SSMContacts', Promise.resolve(result), false, mock)
+  },
+  listRotationOverridesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'listRotationOverrides', 'SSMContacts', Promise.reject(result), true, mock)
+  },
+  listRotationShifts: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'listRotationShifts', 'SSMContacts', Promise.resolve(result), true, mock)
+  },
+  listRotationShiftsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'listRotationShifts', 'SSMContacts', Promise.resolve(result), false, mock)
+  },
+  listRotationShiftsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'listRotationShifts', 'SSMContacts', Promise.reject(result), true, mock)
+  },
+  listRotations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'listRotations', 'SSMContacts', Promise.resolve(result), true, mock)
+  },
+  listRotationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'listRotations', 'SSMContacts', Promise.resolve(result), false, mock)
+  },
+  listRotationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'listRotations', 'SSMContacts', Promise.reject(result), true, mock)
   },
   listTagsForResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm-contacts', 'listTagsForResource', 'SSMContacts', Promise.resolve(result), true, mock)
@@ -251,6 +340,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   untagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm-contacts', 'untagResource', 'SSMContacts', Promise.reject(result), true, mock)
   },
+  updateContactChannel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'updateContactChannel', 'SSMContacts', Promise.resolve(result), true, mock)
+  },
+  updateContactChannelAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'updateContactChannel', 'SSMContacts', Promise.resolve(result), false, mock)
+  },
+  updateContactChannelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'updateContactChannel', 'SSMContacts', Promise.reject(result), true, mock)
+  },
   updateContact: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm-contacts', 'updateContact', 'SSMContacts', Promise.resolve(result), true, mock)
   },
@@ -260,14 +358,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   updateContactThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm-contacts', 'updateContact', 'SSMContacts', Promise.reject(result), true, mock)
   },
-  updateContactChannel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ssm-contacts', 'updateContactChannel', 'SSMContacts', Promise.resolve(result), true, mock)
+  updateRotation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'updateRotation', 'SSMContacts', Promise.resolve(result), true, mock)
   },
-  updateContactChannelAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ssm-contacts', 'updateContactChannel', 'SSMContacts', Promise.resolve(result), false, mock)
+  updateRotationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'updateRotation', 'SSMContacts', Promise.resolve(result), false, mock)
   },
-  updateContactChannelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-ssm-contacts', 'updateContactChannel', 'SSMContacts', Promise.reject(result), true, mock)
+  updateRotationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-ssm-contacts', 'updateRotation', 'SSMContacts', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-ssm-contacts', 'send', 'SSMContactsClient', Promise.resolve(result), true, mock)

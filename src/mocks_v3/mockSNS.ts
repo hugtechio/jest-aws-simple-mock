@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockSNS = {
+export const mockSNS = {
   addPermission: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sns', 'addPermission', 'SNS', Promise.resolve(result), true, mock)
   },
@@ -116,14 +115,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteTopicThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sns', 'deleteTopic', 'SNS', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sns', 'destroy', 'SNS', Promise.resolve(result), true, mock)
+  getDataProtectionPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sns', 'getDataProtectionPolicy', 'SNS', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sns', 'destroy', 'SNS', Promise.resolve(result), false, mock)
+  getDataProtectionPolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sns', 'getDataProtectionPolicy', 'SNS', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sns', 'destroy', 'SNS', Promise.reject(result), true, mock)
+  getDataProtectionPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sns', 'getDataProtectionPolicy', 'SNS', Promise.reject(result), true, mock)
   },
   getEndpointAttributes: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sns', 'getEndpointAttributes', 'SNS', Promise.resolve(result), true, mock)
@@ -224,15 +223,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listSMSSandboxPhoneNumbersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sns', 'listSMSSandboxPhoneNumbers', 'SNS', Promise.reject(result), true, mock)
   },
-  listSubscriptions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sns', 'listSubscriptions', 'SNS', Promise.resolve(result), true, mock)
-  },
-  listSubscriptionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sns', 'listSubscriptions', 'SNS', Promise.resolve(result), false, mock)
-  },
-  listSubscriptionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sns', 'listSubscriptions', 'SNS', Promise.reject(result), true, mock)
-  },
   listSubscriptionsByTopic: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sns', 'listSubscriptionsByTopic', 'SNS', Promise.resolve(result), true, mock)
   },
@@ -241,6 +231,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listSubscriptionsByTopicThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sns', 'listSubscriptionsByTopic', 'SNS', Promise.reject(result), true, mock)
+  },
+  listSubscriptions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sns', 'listSubscriptions', 'SNS', Promise.resolve(result), true, mock)
+  },
+  listSubscriptionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sns', 'listSubscriptions', 'SNS', Promise.resolve(result), false, mock)
+  },
+  listSubscriptionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sns', 'listSubscriptions', 'SNS', Promise.reject(result), true, mock)
   },
   listTagsForResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sns', 'listTagsForResource', 'SNS', Promise.resolve(result), true, mock)
@@ -269,6 +268,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   optInPhoneNumberThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sns', 'optInPhoneNumber', 'SNS', Promise.reject(result), true, mock)
   },
+  publishBatch: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sns', 'publishBatch', 'SNS', Promise.resolve(result), true, mock)
+  },
+  publishBatchAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sns', 'publishBatch', 'SNS', Promise.resolve(result), false, mock)
+  },
+  publishBatchThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sns', 'publishBatch', 'SNS', Promise.reject(result), true, mock)
+  },
   publish: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sns', 'publish', 'SNS', Promise.resolve(result), true, mock)
   },
@@ -278,14 +286,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   publishThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sns', 'publish', 'SNS', Promise.reject(result), true, mock)
   },
-  publishBatch: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sns', 'publishBatch', 'SNS', Promise.resolve(result), true, mock)
+  putDataProtectionPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sns', 'putDataProtectionPolicy', 'SNS', Promise.resolve(result), true, mock)
   },
-  publishBatchAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sns', 'publishBatch', 'SNS', Promise.resolve(result), false, mock)
+  putDataProtectionPolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sns', 'putDataProtectionPolicy', 'SNS', Promise.resolve(result), false, mock)
   },
-  publishBatchThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-sns', 'publishBatch', 'SNS', Promise.reject(result), true, mock)
+  putDataProtectionPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-sns', 'putDataProtectionPolicy', 'SNS', Promise.reject(result), true, mock)
   },
   removePermission: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-sns', 'removePermission', 'SNS', Promise.resolve(result), true, mock)

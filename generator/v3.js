@@ -15,53 +15,7 @@ const Header = (fileName) => `
 
 `
 
-async function genDef (clients_file_path, noCache) {
-  console.log('[Params]:', clients_file_path, noCache)
-  const handle = await open(clients_file_path)
-  const content = await handle.readFile({encoding: 'utf-8'})
-  const clients = content.split('\n').filter(c => c)
-
-  async function* asyncGet () {
-    for (let i = 0; i < clients.length; i++) {
-      const path = `https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/${clients[i]}/classes/${clients[i].slice('client-'.length).replace(/-/g,'')}.html`
-      try {
-        const sdkpath = `./tmp/aws-sdk-js-v3/clients/${clients[i]}/src/`
-        const files = await readdir(sdkpath)
-        const klass = files[0].slice(0, files[0].length - 3)
-        const module = `@aws-sdk/${clients[i]}`
-
-        const r = await axios.get(path)
-        console.log('[Success]:', path)
-        yield {mockName: `mock${klass}`, name: klass, moduleName: module, methods: [...new Set(
-          parse(r.data)
-            // Pick up HTML class of method list
-            .querySelectorAll('.tsd-kind-method > a')
-            // Pick up text element and Join
-            .map(a => a.childNodes ? a.childNodes.filter(n => n.nodeType === 3).join('') : '')
-            // remove empty
-            .filter(m => m && m !== 'send')
-          )]
-        }
-      } catch (e) {
-        console.log('[Error]:', path)
-      }
-    }
-  }
-
-  let modules = []
-  if (noCache === 'true') {
-    console.log('[Flag]: nocache')
-    for await (const r of asyncGet()) modules.push(r)
-    fs.writeFileSync('./tmp/modules_cache.json', JSON.stringify(modules))
-  } else {
-    console.log('[Flag]: from cache')
-    modules = JSON.parse(fs.readFileSync('./tmp/modules_cache.json', 'utf8'))
-  }
-
-  let code = ''
-  let index = `\n`
-
-  const attachMockFunctionString = `
+const AttachMockFunctionString = `
 function attachMock(moduleName:string, method:string, name:string, promise:Promise<any>, once:boolean=true, mock?:jest.SpyInstance): jest.SpyInstance {
   const mod = require(moduleName)
   const awsSdkObject = mod[name]
@@ -69,8 +23,85 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
+`
 
-  `
+async function genDef () {
+  async function readFile (path) {
+    const handle = await open(path)
+    const content = await handle.readFile({encoding: 'utf-8'})
+    await handle.close()
+    return content.split('\n').filter(c => c)
+  }
+
+  function getPaths(type, packageName) {
+    if (type === 'client') {
+      return {
+        docPath: `https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/${packageName.slice('client-'.length)}`,
+        sdkPath: `./tmp/aws-sdk-js-v3/clients/${packageName}/src/`,
+        modulePath: `@aws-sdk/${packageName}`
+      }
+    } else {
+      return {
+        docPath: `https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-${packageName}/`,
+        sdkPath: `./tmp/aws-sdk-js-v3/lib/${packageName}/src/`,
+        modulePath: `@aws-sdk/${packageName}`
+      }
+    }
+
+  }
+  async function createMockDefinitions (packageNames, type) {
+    let returns = []
+    function getAttr(json) {
+      if (type === 'client') {
+        return json.props.pageProps.operations
+      } else {
+        return json.props.pageProps.items.filter(i => i.type === 'Class')
+      }
+    }
+
+    for (let i = 0; i < packageNames.length; i++) {
+      const paths = getPaths(type, packageNames[i])
+      const path = paths.docPath
+      console.log('Document Path: => ', path)
+      try {
+        const sdkpath = paths.sdkPath
+        const files = await readdir(sdkpath)
+        const klass = files[0].slice(0, files[0].length - 3)
+        const module = paths.modulePath 
+        const r = await axios.get(path)
+
+        console.log('[Success]:', path)
+        const topIndex = r.data.indexOf('{')
+        const lastIndex = r.data.lastIndexOf('}')
+        let jsonStrng = r.data.slice(topIndex, lastIndex + 1)
+        let json = JSON.parse(jsonStrng)
+        const itemsFromDocument = getAttr(json, type)
+        console.log(itemsFromDocument)
+        const methods = itemsFromDocument.map(o => {
+          if (o.name.indexOf('Command') !== -1) {
+            const sliced = o.name.slice(0, o.name.indexOf('Command'))
+            const firstLetter = sliced.charAt(0).toLowerCase()
+            return firstLetter + sliced.slice(1)
+          } else {
+            return undefined
+          }
+        }).filter(m => m)
+        console.log(methods)
+
+        returns.push({mockName: `mock${klass}`, name: klass, moduleName: module, methods: [...new Set(
+          methods
+          )]
+        })
+      } catch (e) {
+        console.log('[Error]:', e)
+      }
+    }
+    return returns
+  }
+
+  let code = ''
+  let index = `\n`
+  const attachMockFunctionString = AttachMockFunctionString
   function writeMockMethodObject(mockMethod, method, moduleName, name, resultPromiseMethod, once=true, eof=false) {
     code += (`  ${mockMethod}: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {\n`)
     code += (`    return attachMock('${moduleName}', '${method}', '${name}', Promise.${resultPromiseMethod}(result), ${once}, mock)\n`)
@@ -82,24 +113,38 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
     }
   }
 
-  modules.forEach(r => {
+  let mocks = []
+  // Generate Client 
+  const clientPackageNames = await readFile('./tmp/client_list.txt')
+  mocks = await createMockDefinitions(clientPackageNames, 'client')
+  console.log(mocks)
+
+  mocks.forEach(r => {
     code = Header(r.mockName) 
     console.log('[Begin]:', r.mockName)
     code += attachMockFunctionString
 
     code += (`export const ${r.mockName} = {\n`)
     r.methods.forEach(m => {
-      writeMockMethodObject(m, m, r.moduleName, r.name, 'resolve', true)
-      writeMockMethodObject(`${m}All`, m, r.moduleName, r.name, 'resolve', false)
-      writeMockMethodObject(`${m}Throw`, m, r.moduleName, r.name, 'reject', true)
+      if (m === 'send') {
+        writeMockMethodObject(m + 'Promise', m, r.moduleName, r.name, 'resolve', true)
+        writeMockMethodObject(`${m}PromiseAll`, m, r.moduleName, r.name, 'resolve', false)
+        writeMockMethodObject(`${m}PromiseThrow`, m, r.moduleName, r.name, 'reject', true)
+      } else {
+        writeMockMethodObject(m, m, r.moduleName, r.name, 'resolve', true)
+        writeMockMethodObject(`${m}All`, m, r.moduleName, r.name, 'resolve', false)
+        writeMockMethodObject(`${m}Throw`, m, r.moduleName, r.name, 'reject', true)
+      }
     })
-      writeMockMethodObject('send', 'send', r.moduleName, `${r.name}Client`, 'resolve', true)
-      writeMockMethodObject('sendAll', 'send', r.moduleName, `${r.name}Client`, 'resolve', false)
-      writeMockMethodObject('sendThrow', 'send', r.moduleName, `${r.name}Client`, 'reject', true, true)
-    code += (`}`)
+    // For backward compatibility
+    writeMockMethodObject('send', 'send', r.moduleName, `${r.name}Client`, 'resolve', true)
+    writeMockMethodObject('sendAll', 'send', r.moduleName, `${r.name}Client`, 'resolve', false)
+    writeMockMethodObject('sendThrow', 'send', r.moduleName, `${r.name}Client`, 'reject', true, true)
+    code += (`}\n`)
 
     fs.writeFileSync(`./tmp/mocks_v3/${r.mockName}.ts`, code, 'utf8')
     index += (`export * from './${r.mockName}'\n`)
+
     console.log('[End]:', r.mockName)
 
     if (r.name === 'DynamoDB') {
@@ -113,16 +158,44 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
         writeMockMethodObject(`${m}All`, m, r.moduleName, r.name, 'resolve', false)
         writeMockMethodObject(`${m}Throw`, m, r.moduleName, r.name, 'reject', true)
       })
-        writeMockMethodObject('send', 'send', r.moduleName, `${r.name}Client`, 'resolve', true)
-        writeMockMethodObject('sendAll', 'send', r.moduleName, `${r.name}Client`, 'resolve', false)
-        writeMockMethodObject('sendThrow', 'send', r.moduleName, `${r.name}Client`, 'reject', true, true)
-      code += (`}`)
+      writeMockMethodObject('send', 'send', r.moduleName, `${r.name}Client`, 'resolve', true)
+      writeMockMethodObject('sendAll', 'send', r.moduleName, `${r.name}Client`, 'resolve', false)
+      writeMockMethodObject('sendThrow', 'send', r.moduleName, `${r.name}Client`, 'reject', true, true)
+      code += (`}\n`)
 
       fs.writeFileSync(`./tmp/mocks_v3/mockDynamo.ts`, code, 'utf8')
       index += (`export * from './mockDynamo'\n`)
     }
   })
+
+
+
+  // Generate Lib
+  mocks = await createMockDefinitions(['lib-dynamodb'], 'lib')
+  mocks.forEach(r => {
+    code = Header(r.mockName) 
+    console.log('[Begin]:', r.mockName)
+    code += attachMockFunctionString
+
+    code += (`export const ${r.mockName} = {\n`)
+    r.methods.forEach(m => {
+      writeMockMethodObject(m, m, r.moduleName, r.name, 'resolve', true)
+      writeMockMethodObject(`${m}All`, m, r.moduleName, r.name, 'resolve', false)
+      writeMockMethodObject(`${m}Throw`, m, r.moduleName, r.name, 'reject', true)
+    })
+    writeMockMethodObject('send', 'send', r.moduleName, `${r.name}Client`, 'resolve', true)
+    writeMockMethodObject('sendAll', 'send', r.moduleName, `${r.name}Client`, 'resolve', false)
+    writeMockMethodObject('sendThrow', 'send', r.moduleName, `${r.name}Client`, 'reject', true, true)
+    code += (`}\n`)
+
+    fs.writeFileSync(`./tmp/mocks_v3/${r.mockName}.ts`, code, 'utf8')
+    index += (`export * from './${r.mockName}'\n`)
+    console.log('[End]:', r.mockName)
+  })
+
   fs.writeFileSync(`./tmp/mocks_v3/index.ts`, index, 'utf8')
+
+  fs.writeFileSync('./tmp/modules_cache.json', JSON.stringify(mocks), 'utf8')
 }
 
-genDef(process.argv[2], process.argv[3], process.argv[4])
+genDef()

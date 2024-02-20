@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockApplicationDiscoveryService = {
+export const mockApplicationDiscoveryService = {
   associateConfigurationItemsToApplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-application-discovery-service', 'associateConfigurationItemsToApplication', 'ApplicationDiscoveryService', Promise.resolve(result), true, mock)
   },
@@ -25,6 +24,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   associateConfigurationItemsToApplicationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-application-discovery-service', 'associateConfigurationItemsToApplication', 'ApplicationDiscoveryService', Promise.reject(result), true, mock)
+  },
+  batchDeleteAgents: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-application-discovery-service', 'batchDeleteAgents', 'ApplicationDiscoveryService', Promise.resolve(result), true, mock)
+  },
+  batchDeleteAgentsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-application-discovery-service', 'batchDeleteAgents', 'ApplicationDiscoveryService', Promise.resolve(result), false, mock)
+  },
+  batchDeleteAgentsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-application-discovery-service', 'batchDeleteAgents', 'ApplicationDiscoveryService', Promise.reject(result), true, mock)
   },
   batchDeleteImportData: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-application-discovery-service', 'batchDeleteImportData', 'ApplicationDiscoveryService', Promise.resolve(result), true, mock)
@@ -80,6 +88,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeAgentsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-application-discovery-service', 'describeAgents', 'ApplicationDiscoveryService', Promise.reject(result), true, mock)
   },
+  describeBatchDeleteConfigurationTask: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-application-discovery-service', 'describeBatchDeleteConfigurationTask', 'ApplicationDiscoveryService', Promise.resolve(result), true, mock)
+  },
+  describeBatchDeleteConfigurationTaskAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-application-discovery-service', 'describeBatchDeleteConfigurationTask', 'ApplicationDiscoveryService', Promise.resolve(result), false, mock)
+  },
+  describeBatchDeleteConfigurationTaskThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-application-discovery-service', 'describeBatchDeleteConfigurationTask', 'ApplicationDiscoveryService', Promise.reject(result), true, mock)
+  },
   describeConfigurations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-application-discovery-service', 'describeConfigurations', 'ApplicationDiscoveryService', Promise.resolve(result), true, mock)
   },
@@ -134,15 +151,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeTagsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-application-discovery-service', 'describeTags', 'ApplicationDiscoveryService', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-application-discovery-service', 'destroy', 'ApplicationDiscoveryService', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-application-discovery-service', 'destroy', 'ApplicationDiscoveryService', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-application-discovery-service', 'destroy', 'ApplicationDiscoveryService', Promise.reject(result), true, mock)
-  },
   disassociateConfigurationItemsFromApplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-application-discovery-service', 'disassociateConfigurationItemsFromApplication', 'ApplicationDiscoveryService', Promise.resolve(result), true, mock)
   },
@@ -187,6 +195,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listServerNeighborsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-application-discovery-service', 'listServerNeighbors', 'ApplicationDiscoveryService', Promise.reject(result), true, mock)
+  },
+  startBatchDeleteConfigurationTask: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-application-discovery-service', 'startBatchDeleteConfigurationTask', 'ApplicationDiscoveryService', Promise.resolve(result), true, mock)
+  },
+  startBatchDeleteConfigurationTaskAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-application-discovery-service', 'startBatchDeleteConfigurationTask', 'ApplicationDiscoveryService', Promise.resolve(result), false, mock)
+  },
+  startBatchDeleteConfigurationTaskThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-application-discovery-service', 'startBatchDeleteConfigurationTask', 'ApplicationDiscoveryService', Promise.reject(result), true, mock)
   },
   startContinuousExport: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-application-discovery-service', 'startContinuousExport', 'ApplicationDiscoveryService', Promise.resolve(result), true, mock)

@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockGreengrass = {
+export const mockGreengrass = {
   associateRoleToGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-greengrass', 'associateRoleToGroup', 'Greengrass', Promise.resolve(result), true, mock)
   },
@@ -116,15 +115,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createFunctionDefinitionVersionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-greengrass', 'createFunctionDefinitionVersion', 'Greengrass', Promise.reject(result), true, mock)
   },
-  createGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-greengrass', 'createGroup', 'Greengrass', Promise.resolve(result), true, mock)
-  },
-  createGroupAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-greengrass', 'createGroup', 'Greengrass', Promise.resolve(result), false, mock)
-  },
-  createGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-greengrass', 'createGroup', 'Greengrass', Promise.reject(result), true, mock)
-  },
   createGroupCertificateAuthority: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-greengrass', 'createGroupCertificateAuthority', 'Greengrass', Promise.resolve(result), true, mock)
   },
@@ -133,6 +123,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createGroupCertificateAuthorityThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-greengrass', 'createGroupCertificateAuthority', 'Greengrass', Promise.reject(result), true, mock)
+  },
+  createGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-greengrass', 'createGroup', 'Greengrass', Promise.resolve(result), true, mock)
+  },
+  createGroupAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-greengrass', 'createGroup', 'Greengrass', Promise.resolve(result), false, mock)
+  },
+  createGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-greengrass', 'createGroup', 'Greengrass', Promise.reject(result), true, mock)
   },
   createGroupVersion: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-greengrass', 'createGroupVersion', 'Greengrass', Promise.resolve(result), true, mock)
@@ -278,15 +277,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteSubscriptionDefinitionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-greengrass', 'deleteSubscriptionDefinition', 'Greengrass', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-greengrass', 'destroy', 'Greengrass', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-greengrass', 'destroy', 'Greengrass', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-greengrass', 'destroy', 'Greengrass', Promise.reject(result), true, mock)
-  },
   disassociateRoleFromGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-greengrass', 'disassociateRoleFromGroup', 'Greengrass', Promise.resolve(result), true, mock)
   },
@@ -413,15 +403,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getFunctionDefinitionVersionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-greengrass', 'getFunctionDefinitionVersion', 'Greengrass', Promise.reject(result), true, mock)
   },
-  getGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-greengrass', 'getGroup', 'Greengrass', Promise.resolve(result), true, mock)
-  },
-  getGroupAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-greengrass', 'getGroup', 'Greengrass', Promise.resolve(result), false, mock)
-  },
-  getGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-greengrass', 'getGroup', 'Greengrass', Promise.reject(result), true, mock)
-  },
   getGroupCertificateAuthority: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-greengrass', 'getGroupCertificateAuthority', 'Greengrass', Promise.resolve(result), true, mock)
   },
@@ -439,6 +420,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getGroupCertificateConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-greengrass', 'getGroupCertificateConfiguration', 'Greengrass', Promise.reject(result), true, mock)
+  },
+  getGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-greengrass', 'getGroup', 'Greengrass', Promise.resolve(result), true, mock)
+  },
+  getGroupAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-greengrass', 'getGroup', 'Greengrass', Promise.resolve(result), false, mock)
+  },
+  getGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-greengrass', 'getGroup', 'Greengrass', Promise.reject(result), true, mock)
   },
   getGroupVersion: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-greengrass', 'getGroupVersion', 'Greengrass', Promise.resolve(result), true, mock)
@@ -800,15 +790,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   updateFunctionDefinitionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-greengrass', 'updateFunctionDefinition', 'Greengrass', Promise.reject(result), true, mock)
   },
-  updateGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-greengrass', 'updateGroup', 'Greengrass', Promise.resolve(result), true, mock)
-  },
-  updateGroupAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-greengrass', 'updateGroup', 'Greengrass', Promise.resolve(result), false, mock)
-  },
-  updateGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-greengrass', 'updateGroup', 'Greengrass', Promise.reject(result), true, mock)
-  },
   updateGroupCertificateConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-greengrass', 'updateGroupCertificateConfiguration', 'Greengrass', Promise.resolve(result), true, mock)
   },
@@ -817,6 +798,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateGroupCertificateConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-greengrass', 'updateGroupCertificateConfiguration', 'Greengrass', Promise.reject(result), true, mock)
+  },
+  updateGroup: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-greengrass', 'updateGroup', 'Greengrass', Promise.resolve(result), true, mock)
+  },
+  updateGroupAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-greengrass', 'updateGroup', 'Greengrass', Promise.resolve(result), false, mock)
+  },
+  updateGroupThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-greengrass', 'updateGroup', 'Greengrass', Promise.reject(result), true, mock)
   },
   updateLoggerDefinition: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-greengrass', 'updateLoggerDefinition', 'Greengrass', Promise.resolve(result), true, mock)

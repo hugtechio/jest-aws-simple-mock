@@ -15,17 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockBudgets = {
-  createBudget: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-budgets', 'createBudget', 'Budgets', Promise.resolve(result), true, mock)
-  },
-  createBudgetAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-budgets', 'createBudget', 'Budgets', Promise.resolve(result), false, mock)
-  },
-  createBudgetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-budgets', 'createBudget', 'Budgets', Promise.reject(result), true, mock)
-  },
+export const mockBudgets = {
   createBudgetAction: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-budgets', 'createBudgetAction', 'Budgets', Promise.resolve(result), true, mock)
   },
@@ -34,6 +24,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createBudgetActionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-budgets', 'createBudgetAction', 'Budgets', Promise.reject(result), true, mock)
+  },
+  createBudget: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-budgets', 'createBudget', 'Budgets', Promise.resolve(result), true, mock)
+  },
+  createBudgetAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-budgets', 'createBudget', 'Budgets', Promise.resolve(result), false, mock)
+  },
+  createBudgetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-budgets', 'createBudget', 'Budgets', Promise.reject(result), true, mock)
   },
   createNotification: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-budgets', 'createNotification', 'Budgets', Promise.resolve(result), true, mock)
@@ -53,15 +52,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createSubscriberThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-budgets', 'createSubscriber', 'Budgets', Promise.reject(result), true, mock)
   },
-  deleteBudget: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-budgets', 'deleteBudget', 'Budgets', Promise.resolve(result), true, mock)
-  },
-  deleteBudgetAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-budgets', 'deleteBudget', 'Budgets', Promise.resolve(result), false, mock)
-  },
-  deleteBudgetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-budgets', 'deleteBudget', 'Budgets', Promise.reject(result), true, mock)
-  },
   deleteBudgetAction: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-budgets', 'deleteBudgetAction', 'Budgets', Promise.resolve(result), true, mock)
   },
@@ -70,6 +60,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteBudgetActionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-budgets', 'deleteBudgetAction', 'Budgets', Promise.reject(result), true, mock)
+  },
+  deleteBudget: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-budgets', 'deleteBudget', 'Budgets', Promise.resolve(result), true, mock)
+  },
+  deleteBudgetAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-budgets', 'deleteBudget', 'Budgets', Promise.resolve(result), false, mock)
+  },
+  deleteBudgetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-budgets', 'deleteBudget', 'Budgets', Promise.reject(result), true, mock)
   },
   deleteNotification: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-budgets', 'deleteNotification', 'Budgets', Promise.resolve(result), true, mock)
@@ -88,15 +87,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteSubscriberThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-budgets', 'deleteSubscriber', 'Budgets', Promise.reject(result), true, mock)
-  },
-  describeBudget: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-budgets', 'describeBudget', 'Budgets', Promise.resolve(result), true, mock)
-  },
-  describeBudgetAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-budgets', 'describeBudget', 'Budgets', Promise.resolve(result), false, mock)
-  },
-  describeBudgetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-budgets', 'describeBudget', 'Budgets', Promise.reject(result), true, mock)
   },
   describeBudgetAction: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-budgets', 'describeBudgetAction', 'Budgets', Promise.resolve(result), true, mock)
@@ -134,6 +124,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeBudgetActionsForBudgetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-budgets', 'describeBudgetActionsForBudget', 'Budgets', Promise.reject(result), true, mock)
   },
+  describeBudget: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-budgets', 'describeBudget', 'Budgets', Promise.resolve(result), true, mock)
+  },
+  describeBudgetAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-budgets', 'describeBudget', 'Budgets', Promise.resolve(result), false, mock)
+  },
+  describeBudgetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-budgets', 'describeBudget', 'Budgets', Promise.reject(result), true, mock)
+  },
+  describeBudgetNotificationsForAccount: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-budgets', 'describeBudgetNotificationsForAccount', 'Budgets', Promise.resolve(result), true, mock)
+  },
+  describeBudgetNotificationsForAccountAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-budgets', 'describeBudgetNotificationsForAccount', 'Budgets', Promise.resolve(result), false, mock)
+  },
+  describeBudgetNotificationsForAccountThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-budgets', 'describeBudgetNotificationsForAccount', 'Budgets', Promise.reject(result), true, mock)
+  },
   describeBudgetPerformanceHistory: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-budgets', 'describeBudgetPerformanceHistory', 'Budgets', Promise.resolve(result), true, mock)
   },
@@ -170,15 +178,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeSubscribersForNotificationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-budgets', 'describeSubscribersForNotification', 'Budgets', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-budgets', 'destroy', 'Budgets', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-budgets', 'destroy', 'Budgets', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-budgets', 'destroy', 'Budgets', Promise.reject(result), true, mock)
-  },
   executeBudgetAction: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-budgets', 'executeBudgetAction', 'Budgets', Promise.resolve(result), true, mock)
   },
@@ -188,15 +187,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   executeBudgetActionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-budgets', 'executeBudgetAction', 'Budgets', Promise.reject(result), true, mock)
   },
-  updateBudget: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-budgets', 'updateBudget', 'Budgets', Promise.resolve(result), true, mock)
-  },
-  updateBudgetAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-budgets', 'updateBudget', 'Budgets', Promise.resolve(result), false, mock)
-  },
-  updateBudgetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-budgets', 'updateBudget', 'Budgets', Promise.reject(result), true, mock)
-  },
   updateBudgetAction: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-budgets', 'updateBudgetAction', 'Budgets', Promise.resolve(result), true, mock)
   },
@@ -205,6 +195,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateBudgetActionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-budgets', 'updateBudgetAction', 'Budgets', Promise.reject(result), true, mock)
+  },
+  updateBudget: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-budgets', 'updateBudget', 'Budgets', Promise.resolve(result), true, mock)
+  },
+  updateBudgetAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-budgets', 'updateBudget', 'Budgets', Promise.resolve(result), false, mock)
+  },
+  updateBudgetThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-budgets', 'updateBudget', 'Budgets', Promise.reject(result), true, mock)
   },
   updateNotification: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-budgets', 'updateNotification', 'Budgets', Promise.resolve(result), true, mock)

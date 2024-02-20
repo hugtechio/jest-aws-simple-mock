@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockShield = {
+export const mockShield = {
   associateDRTLogBucket: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-shield', 'associateDRTLogBucket', 'Shield', Promise.resolve(result), true, mock)
   },
@@ -170,14 +169,14 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeSubscriptionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-shield', 'describeSubscription', 'Shield', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-shield', 'destroy', 'Shield', Promise.resolve(result), true, mock)
+  disableApplicationLayerAutomaticResponse: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-shield', 'disableApplicationLayerAutomaticResponse', 'Shield', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-shield', 'destroy', 'Shield', Promise.resolve(result), false, mock)
+  disableApplicationLayerAutomaticResponseAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-shield', 'disableApplicationLayerAutomaticResponse', 'Shield', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-shield', 'destroy', 'Shield', Promise.reject(result), true, mock)
+  disableApplicationLayerAutomaticResponseThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-shield', 'disableApplicationLayerAutomaticResponse', 'Shield', Promise.reject(result), true, mock)
   },
   disableProactiveEngagement: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-shield', 'disableProactiveEngagement', 'Shield', Promise.resolve(result), true, mock)
@@ -214,6 +213,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   disassociateHealthCheckThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-shield', 'disassociateHealthCheck', 'Shield', Promise.reject(result), true, mock)
+  },
+  enableApplicationLayerAutomaticResponse: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-shield', 'enableApplicationLayerAutomaticResponse', 'Shield', Promise.resolve(result), true, mock)
+  },
+  enableApplicationLayerAutomaticResponseAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-shield', 'enableApplicationLayerAutomaticResponse', 'Shield', Promise.resolve(result), false, mock)
+  },
+  enableApplicationLayerAutomaticResponseThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-shield', 'enableApplicationLayerAutomaticResponse', 'Shield', Promise.reject(result), true, mock)
   },
   enableProactiveEngagement: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-shield', 'enableProactiveEngagement', 'Shield', Promise.resolve(result), true, mock)
@@ -295,6 +303,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   untagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-shield', 'untagResource', 'Shield', Promise.reject(result), true, mock)
+  },
+  updateApplicationLayerAutomaticResponse: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-shield', 'updateApplicationLayerAutomaticResponse', 'Shield', Promise.resolve(result), true, mock)
+  },
+  updateApplicationLayerAutomaticResponseAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-shield', 'updateApplicationLayerAutomaticResponse', 'Shield', Promise.resolve(result), false, mock)
+  },
+  updateApplicationLayerAutomaticResponseThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-shield', 'updateApplicationLayerAutomaticResponse', 'Shield', Promise.reject(result), true, mock)
   },
   updateEmergencyContactSettings: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-shield', 'updateEmergencyContactSettings', 'Shield', Promise.resolve(result), true, mock)

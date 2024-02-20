@@ -15,8 +15,16 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockOutposts = {
+export const mockOutposts = {
+  cancelOrder: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'cancelOrder', 'Outposts', Promise.resolve(result), true, mock)
+  },
+  cancelOrderAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'cancelOrder', 'Outposts', Promise.resolve(result), false, mock)
+  },
+  cancelOrderThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'cancelOrder', 'Outposts', Promise.reject(result), true, mock)
+  },
   createOrder: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-outposts', 'createOrder', 'Outposts', Promise.resolve(result), true, mock)
   },
@@ -34,6 +42,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createOutpostThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-outposts', 'createOutpost', 'Outposts', Promise.reject(result), true, mock)
+  },
+  createSite: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'createSite', 'Outposts', Promise.resolve(result), true, mock)
+  },
+  createSiteAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'createSite', 'Outposts', Promise.resolve(result), false, mock)
+  },
+  createSiteThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'createSite', 'Outposts', Promise.reject(result), true, mock)
   },
   deleteOutpost: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-outposts', 'deleteOutpost', 'Outposts', Promise.resolve(result), true, mock)
@@ -53,14 +70,32 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteSiteThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-outposts', 'deleteSite', 'Outposts', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-outposts', 'destroy', 'Outposts', Promise.resolve(result), true, mock)
+  getCatalogItem: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'getCatalogItem', 'Outposts', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-outposts', 'destroy', 'Outposts', Promise.resolve(result), false, mock)
+  getCatalogItemAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'getCatalogItem', 'Outposts', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-outposts', 'destroy', 'Outposts', Promise.reject(result), true, mock)
+  getCatalogItemThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'getCatalogItem', 'Outposts', Promise.reject(result), true, mock)
+  },
+  getConnection: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'getConnection', 'Outposts', Promise.resolve(result), true, mock)
+  },
+  getConnectionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'getConnection', 'Outposts', Promise.resolve(result), false, mock)
+  },
+  getConnectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'getConnection', 'Outposts', Promise.reject(result), true, mock)
+  },
+  getOrder: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'getOrder', 'Outposts', Promise.resolve(result), true, mock)
+  },
+  getOrderAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'getOrder', 'Outposts', Promise.resolve(result), false, mock)
+  },
+  getOrderThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'getOrder', 'Outposts', Promise.reject(result), true, mock)
   },
   getOutpost: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-outposts', 'getOutpost', 'Outposts', Promise.resolve(result), true, mock)
@@ -79,6 +114,51 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getOutpostInstanceTypesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-outposts', 'getOutpostInstanceTypes', 'Outposts', Promise.reject(result), true, mock)
+  },
+  getSiteAddress: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'getSiteAddress', 'Outposts', Promise.resolve(result), true, mock)
+  },
+  getSiteAddressAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'getSiteAddress', 'Outposts', Promise.resolve(result), false, mock)
+  },
+  getSiteAddressThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'getSiteAddress', 'Outposts', Promise.reject(result), true, mock)
+  },
+  getSite: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'getSite', 'Outposts', Promise.resolve(result), true, mock)
+  },
+  getSiteAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'getSite', 'Outposts', Promise.resolve(result), false, mock)
+  },
+  getSiteThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'getSite', 'Outposts', Promise.reject(result), true, mock)
+  },
+  listAssets: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'listAssets', 'Outposts', Promise.resolve(result), true, mock)
+  },
+  listAssetsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'listAssets', 'Outposts', Promise.resolve(result), false, mock)
+  },
+  listAssetsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'listAssets', 'Outposts', Promise.reject(result), true, mock)
+  },
+  listCatalogItems: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'listCatalogItems', 'Outposts', Promise.resolve(result), true, mock)
+  },
+  listCatalogItemsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'listCatalogItems', 'Outposts', Promise.resolve(result), false, mock)
+  },
+  listCatalogItemsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'listCatalogItems', 'Outposts', Promise.reject(result), true, mock)
+  },
+  listOrders: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'listOrders', 'Outposts', Promise.resolve(result), true, mock)
+  },
+  listOrdersAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'listOrders', 'Outposts', Promise.resolve(result), false, mock)
+  },
+  listOrdersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'listOrders', 'Outposts', Promise.reject(result), true, mock)
   },
   listOutposts: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-outposts', 'listOutposts', 'Outposts', Promise.resolve(result), true, mock)
@@ -107,6 +187,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listTagsForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-outposts', 'listTagsForResource', 'Outposts', Promise.reject(result), true, mock)
   },
+  startConnection: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'startConnection', 'Outposts', Promise.resolve(result), true, mock)
+  },
+  startConnectionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'startConnection', 'Outposts', Promise.resolve(result), false, mock)
+  },
+  startConnectionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'startConnection', 'Outposts', Promise.reject(result), true, mock)
+  },
   tagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-outposts', 'tagResource', 'Outposts', Promise.resolve(result), true, mock)
   },
@@ -124,6 +213,42 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   untagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-outposts', 'untagResource', 'Outposts', Promise.reject(result), true, mock)
+  },
+  updateOutpost: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'updateOutpost', 'Outposts', Promise.resolve(result), true, mock)
+  },
+  updateOutpostAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'updateOutpost', 'Outposts', Promise.resolve(result), false, mock)
+  },
+  updateOutpostThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'updateOutpost', 'Outposts', Promise.reject(result), true, mock)
+  },
+  updateSiteAddress: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'updateSiteAddress', 'Outposts', Promise.resolve(result), true, mock)
+  },
+  updateSiteAddressAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'updateSiteAddress', 'Outposts', Promise.resolve(result), false, mock)
+  },
+  updateSiteAddressThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'updateSiteAddress', 'Outposts', Promise.reject(result), true, mock)
+  },
+  updateSite: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'updateSite', 'Outposts', Promise.resolve(result), true, mock)
+  },
+  updateSiteAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'updateSite', 'Outposts', Promise.resolve(result), false, mock)
+  },
+  updateSiteThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'updateSite', 'Outposts', Promise.reject(result), true, mock)
+  },
+  updateSiteRackPhysicalProperties: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'updateSiteRackPhysicalProperties', 'Outposts', Promise.resolve(result), true, mock)
+  },
+  updateSiteRackPhysicalPropertiesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'updateSiteRackPhysicalProperties', 'Outposts', Promise.resolve(result), false, mock)
+  },
+  updateSiteRackPhysicalPropertiesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-outposts', 'updateSiteRackPhysicalProperties', 'Outposts', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-outposts', 'send', 'OutpostsClient', Promise.resolve(result), true, mock)

@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockAmplify = {
+export const mockAmplify = {
   createApp: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-amplify', 'createApp', 'Amplify', Promise.resolve(result), true, mock)
   },
@@ -124,15 +123,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteWebhookThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-amplify', 'deleteWebhook', 'Amplify', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-amplify', 'destroy', 'Amplify', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-amplify', 'destroy', 'Amplify', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-amplify', 'destroy', 'Amplify', Promise.reject(result), true, mock)
   },
   generateAccessLogs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-amplify', 'generateAccessLogs', 'Amplify', Promise.resolve(result), true, mock)

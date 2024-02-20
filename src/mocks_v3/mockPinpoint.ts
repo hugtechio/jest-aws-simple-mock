@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockPinpoint = {
+export const mockPinpoint = {
   createApp: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-pinpoint', 'createApp', 'Pinpoint', Promise.resolve(result), true, mock)
   },
@@ -332,15 +331,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteVoiceTemplateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-pinpoint', 'deleteVoiceTemplate', 'Pinpoint', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-pinpoint', 'destroy', 'Pinpoint', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-pinpoint', 'destroy', 'Pinpoint', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-pinpoint', 'destroy', 'Pinpoint', Promise.reject(result), true, mock)
-  },
   getAdmChannel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-pinpoint', 'getAdmChannel', 'Pinpoint', Promise.resolve(result), true, mock)
   },
@@ -431,15 +421,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getBaiduChannelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-pinpoint', 'getBaiduChannel', 'Pinpoint', Promise.reject(result), true, mock)
   },
-  getCampaign: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-pinpoint', 'getCampaign', 'Pinpoint', Promise.resolve(result), true, mock)
-  },
-  getCampaignAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-pinpoint', 'getCampaign', 'Pinpoint', Promise.resolve(result), false, mock)
-  },
-  getCampaignThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-pinpoint', 'getCampaign', 'Pinpoint', Promise.reject(result), true, mock)
-  },
   getCampaignActivities: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-pinpoint', 'getCampaignActivities', 'Pinpoint', Promise.resolve(result), true, mock)
   },
@@ -448,6 +429,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getCampaignActivitiesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-pinpoint', 'getCampaignActivities', 'Pinpoint', Promise.reject(result), true, mock)
+  },
+  getCampaign: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-pinpoint', 'getCampaign', 'Pinpoint', Promise.resolve(result), true, mock)
+  },
+  getCampaignAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-pinpoint', 'getCampaign', 'Pinpoint', Promise.resolve(result), false, mock)
+  },
+  getCampaignThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-pinpoint', 'getCampaign', 'Pinpoint', Promise.reject(result), true, mock)
   },
   getCampaignDateRangeKpi: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-pinpoint', 'getCampaignDateRangeKpi', 'Pinpoint', Promise.resolve(result), true, mock)
@@ -628,6 +618,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getJourneyExecutionMetricsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-pinpoint', 'getJourneyExecutionMetrics', 'Pinpoint', Promise.reject(result), true, mock)
+  },
+  getJourneyRunExecutionActivityMetrics: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-pinpoint', 'getJourneyRunExecutionActivityMetrics', 'Pinpoint', Promise.resolve(result), true, mock)
+  },
+  getJourneyRunExecutionActivityMetricsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-pinpoint', 'getJourneyRunExecutionActivityMetrics', 'Pinpoint', Promise.resolve(result), false, mock)
+  },
+  getJourneyRunExecutionActivityMetricsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-pinpoint', 'getJourneyRunExecutionActivityMetrics', 'Pinpoint', Promise.reject(result), true, mock)
+  },
+  getJourneyRunExecutionMetrics: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-pinpoint', 'getJourneyRunExecutionMetrics', 'Pinpoint', Promise.resolve(result), true, mock)
+  },
+  getJourneyRunExecutionMetricsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-pinpoint', 'getJourneyRunExecutionMetrics', 'Pinpoint', Promise.resolve(result), false, mock)
+  },
+  getJourneyRunExecutionMetricsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-pinpoint', 'getJourneyRunExecutionMetrics', 'Pinpoint', Promise.reject(result), true, mock)
+  },
+  getJourneyRuns: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-pinpoint', 'getJourneyRuns', 'Pinpoint', Promise.resolve(result), true, mock)
+  },
+  getJourneyRunsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-pinpoint', 'getJourneyRuns', 'Pinpoint', Promise.resolve(result), false, mock)
+  },
+  getJourneyRunsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-pinpoint', 'getJourneyRuns', 'Pinpoint', Promise.reject(result), true, mock)
   },
   getPushTemplate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-pinpoint', 'getPushTemplate', 'Pinpoint', Promise.resolve(result), true, mock)
@@ -835,6 +852,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   sendMessagesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-pinpoint', 'sendMessages', 'Pinpoint', Promise.reject(result), true, mock)
+  },
+  sendOTPMessage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-pinpoint', 'sendOTPMessage', 'Pinpoint', Promise.resolve(result), true, mock)
+  },
+  sendOTPMessageAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-pinpoint', 'sendOTPMessage', 'Pinpoint', Promise.resolve(result), false, mock)
+  },
+  sendOTPMessageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-pinpoint', 'sendOTPMessage', 'Pinpoint', Promise.reject(result), true, mock)
   },
   sendUsersMessages: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-pinpoint', 'sendUsersMessages', 'Pinpoint', Promise.resolve(result), true, mock)
@@ -1078,6 +1104,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateVoiceTemplateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-pinpoint', 'updateVoiceTemplate', 'Pinpoint', Promise.reject(result), true, mock)
+  },
+  verifyOTPMessage: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-pinpoint', 'verifyOTPMessage', 'Pinpoint', Promise.resolve(result), true, mock)
+  },
+  verifyOTPMessageAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-pinpoint', 'verifyOTPMessage', 'Pinpoint', Promise.resolve(result), false, mock)
+  },
+  verifyOTPMessageThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-pinpoint', 'verifyOTPMessage', 'Pinpoint', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-pinpoint', 'send', 'PinpointClient', Promise.resolve(result), true, mock)

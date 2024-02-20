@@ -15,8 +15,7 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockConfigService = {
+export const mockConfigService = {
   batchGetAggregateResourceConfig: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-config-service', 'batchGetAggregateResourceConfig', 'ConfigService', Promise.resolve(result), true, mock)
   },
@@ -404,15 +403,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeRetentionConfigurationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-config-service', 'describeRetentionConfigurations', 'ConfigService', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-config-service', 'destroy', 'ConfigService', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-config-service', 'destroy', 'ConfigService', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-config-service', 'destroy', 'ConfigService', Promise.reject(result), true, mock)
-  },
   getAggregateComplianceDetailsByConfigRule: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-config-service', 'getAggregateComplianceDetailsByConfigRule', 'ConfigService', Promise.resolve(result), true, mock)
   },
@@ -512,6 +502,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getConformancePackComplianceSummaryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-config-service', 'getConformancePackComplianceSummary', 'ConfigService', Promise.reject(result), true, mock)
   },
+  getCustomRulePolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-config-service', 'getCustomRulePolicy', 'ConfigService', Promise.resolve(result), true, mock)
+  },
+  getCustomRulePolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-config-service', 'getCustomRulePolicy', 'ConfigService', Promise.resolve(result), false, mock)
+  },
+  getCustomRulePolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-config-service', 'getCustomRulePolicy', 'ConfigService', Promise.reject(result), true, mock)
+  },
   getDiscoveredResourceCounts: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-config-service', 'getDiscoveredResourceCounts', 'ConfigService', Promise.resolve(result), true, mock)
   },
@@ -539,6 +538,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getOrganizationConformancePackDetailedStatusThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-config-service', 'getOrganizationConformancePackDetailedStatus', 'ConfigService', Promise.reject(result), true, mock)
   },
+  getOrganizationCustomRulePolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-config-service', 'getOrganizationCustomRulePolicy', 'ConfigService', Promise.resolve(result), true, mock)
+  },
+  getOrganizationCustomRulePolicyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-config-service', 'getOrganizationCustomRulePolicy', 'ConfigService', Promise.resolve(result), false, mock)
+  },
+  getOrganizationCustomRulePolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-config-service', 'getOrganizationCustomRulePolicy', 'ConfigService', Promise.reject(result), true, mock)
+  },
   getResourceConfigHistory: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-config-service', 'getResourceConfigHistory', 'ConfigService', Promise.resolve(result), true, mock)
   },
@@ -547,6 +555,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getResourceConfigHistoryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-config-service', 'getResourceConfigHistory', 'ConfigService', Promise.reject(result), true, mock)
+  },
+  getResourceEvaluationSummary: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-config-service', 'getResourceEvaluationSummary', 'ConfigService', Promise.resolve(result), true, mock)
+  },
+  getResourceEvaluationSummaryAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-config-service', 'getResourceEvaluationSummary', 'ConfigService', Promise.resolve(result), false, mock)
+  },
+  getResourceEvaluationSummaryThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-config-service', 'getResourceEvaluationSummary', 'ConfigService', Promise.reject(result), true, mock)
   },
   getStoredQuery: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-config-service', 'getStoredQuery', 'ConfigService', Promise.resolve(result), true, mock)
@@ -566,6 +583,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listAggregateDiscoveredResourcesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-config-service', 'listAggregateDiscoveredResources', 'ConfigService', Promise.reject(result), true, mock)
   },
+  listConformancePackComplianceScores: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-config-service', 'listConformancePackComplianceScores', 'ConfigService', Promise.resolve(result), true, mock)
+  },
+  listConformancePackComplianceScoresAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-config-service', 'listConformancePackComplianceScores', 'ConfigService', Promise.resolve(result), false, mock)
+  },
+  listConformancePackComplianceScoresThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-config-service', 'listConformancePackComplianceScores', 'ConfigService', Promise.reject(result), true, mock)
+  },
   listDiscoveredResources: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-config-service', 'listDiscoveredResources', 'ConfigService', Promise.resolve(result), true, mock)
   },
@@ -574,6 +600,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listDiscoveredResourcesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-config-service', 'listDiscoveredResources', 'ConfigService', Promise.reject(result), true, mock)
+  },
+  listResourceEvaluations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-config-service', 'listResourceEvaluations', 'ConfigService', Promise.resolve(result), true, mock)
+  },
+  listResourceEvaluationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-config-service', 'listResourceEvaluations', 'ConfigService', Promise.resolve(result), false, mock)
+  },
+  listResourceEvaluationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-config-service', 'listResourceEvaluations', 'ConfigService', Promise.reject(result), true, mock)
   },
   listStoredQueries: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-config-service', 'listStoredQueries', 'ConfigService', Promise.resolve(result), true, mock)
@@ -772,6 +807,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   startRemediationExecutionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-config-service', 'startRemediationExecution', 'ConfigService', Promise.reject(result), true, mock)
+  },
+  startResourceEvaluation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-config-service', 'startResourceEvaluation', 'ConfigService', Promise.resolve(result), true, mock)
+  },
+  startResourceEvaluationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-config-service', 'startResourceEvaluation', 'ConfigService', Promise.resolve(result), false, mock)
+  },
+  startResourceEvaluationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-config-service', 'startResourceEvaluation', 'ConfigService', Promise.reject(result), true, mock)
   },
   stopConfigurationRecorder: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-config-service', 'stopConfigurationRecorder', 'ConfigService', Promise.resolve(result), true, mock)

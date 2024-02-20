@@ -15,8 +15,16 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockMediaTailor = {
+export const mockMediaTailor = {
+  configureLogsForChannel: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediatailor', 'configureLogsForChannel', 'MediaTailor', Promise.resolve(result), true, mock)
+  },
+  configureLogsForChannelAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediatailor', 'configureLogsForChannel', 'MediaTailor', Promise.resolve(result), false, mock)
+  },
+  configureLogsForChannelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediatailor', 'configureLogsForChannel', 'MediaTailor', Promise.reject(result), true, mock)
+  },
   configureLogsForPlaybackConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mediatailor', 'configureLogsForPlaybackConfiguration', 'MediaTailor', Promise.resolve(result), true, mock)
   },
@@ -34,6 +42,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   createChannelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mediatailor', 'createChannel', 'MediaTailor', Promise.reject(result), true, mock)
+  },
+  createLiveSource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediatailor', 'createLiveSource', 'MediaTailor', Promise.resolve(result), true, mock)
+  },
+  createLiveSourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediatailor', 'createLiveSource', 'MediaTailor', Promise.resolve(result), false, mock)
+  },
+  createLiveSourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediatailor', 'createLiveSource', 'MediaTailor', Promise.reject(result), true, mock)
   },
   createPrefetchSchedule: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mediatailor', 'createPrefetchSchedule', 'MediaTailor', Promise.resolve(result), true, mock)
@@ -89,6 +106,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteChannelPolicyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mediatailor', 'deleteChannelPolicy', 'MediaTailor', Promise.reject(result), true, mock)
   },
+  deleteLiveSource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediatailor', 'deleteLiveSource', 'MediaTailor', Promise.resolve(result), true, mock)
+  },
+  deleteLiveSourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediatailor', 'deleteLiveSource', 'MediaTailor', Promise.resolve(result), false, mock)
+  },
+  deleteLiveSourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediatailor', 'deleteLiveSource', 'MediaTailor', Promise.reject(result), true, mock)
+  },
   deletePlaybackConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mediatailor', 'deletePlaybackConfiguration', 'MediaTailor', Promise.resolve(result), true, mock)
   },
@@ -143,6 +169,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeChannelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mediatailor', 'describeChannel', 'MediaTailor', Promise.reject(result), true, mock)
   },
+  describeLiveSource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediatailor', 'describeLiveSource', 'MediaTailor', Promise.resolve(result), true, mock)
+  },
+  describeLiveSourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediatailor', 'describeLiveSource', 'MediaTailor', Promise.resolve(result), false, mock)
+  },
+  describeLiveSourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediatailor', 'describeLiveSource', 'MediaTailor', Promise.reject(result), true, mock)
+  },
   describeProgram: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mediatailor', 'describeProgram', 'MediaTailor', Promise.resolve(result), true, mock)
   },
@@ -169,15 +204,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeVodSourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mediatailor', 'describeVodSource', 'MediaTailor', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-mediatailor', 'destroy', 'MediaTailor', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-mediatailor', 'destroy', 'MediaTailor', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-mediatailor', 'destroy', 'MediaTailor', Promise.reject(result), true, mock)
   },
   getChannelPolicy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mediatailor', 'getChannelPolicy', 'MediaTailor', Promise.resolve(result), true, mock)
@@ -232,6 +258,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   listChannelsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mediatailor', 'listChannels', 'MediaTailor', Promise.reject(result), true, mock)
+  },
+  listLiveSources: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediatailor', 'listLiveSources', 'MediaTailor', Promise.resolve(result), true, mock)
+  },
+  listLiveSourcesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediatailor', 'listLiveSources', 'MediaTailor', Promise.resolve(result), false, mock)
+  },
+  listLiveSourcesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediatailor', 'listLiveSources', 'MediaTailor', Promise.reject(result), true, mock)
   },
   listPlaybackConfigurations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mediatailor', 'listPlaybackConfigurations', 'MediaTailor', Promise.resolve(result), true, mock)
@@ -340,6 +375,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateChannelThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mediatailor', 'updateChannel', 'MediaTailor', Promise.reject(result), true, mock)
+  },
+  updateLiveSource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediatailor', 'updateLiveSource', 'MediaTailor', Promise.resolve(result), true, mock)
+  },
+  updateLiveSourceAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediatailor', 'updateLiveSource', 'MediaTailor', Promise.resolve(result), false, mock)
+  },
+  updateLiveSourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediatailor', 'updateLiveSource', 'MediaTailor', Promise.reject(result), true, mock)
+  },
+  updateProgram: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediatailor', 'updateProgram', 'MediaTailor', Promise.resolve(result), true, mock)
+  },
+  updateProgramAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediatailor', 'updateProgram', 'MediaTailor', Promise.resolve(result), false, mock)
+  },
+  updateProgramThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mediatailor', 'updateProgram', 'MediaTailor', Promise.reject(result), true, mock)
   },
   updateSourceLocation: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mediatailor', 'updateSourceLocation', 'MediaTailor', Promise.resolve(result), true, mock)

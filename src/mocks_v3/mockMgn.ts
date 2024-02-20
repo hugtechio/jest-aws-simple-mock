@@ -15,8 +15,43 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockMgn = {
+export const mockMgn = {
+  archiveApplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'archiveApplication', 'Mgn', Promise.resolve(result), true, mock)
+  },
+  archiveApplicationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'archiveApplication', 'Mgn', Promise.resolve(result), false, mock)
+  },
+  archiveApplicationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'archiveApplication', 'Mgn', Promise.reject(result), true, mock)
+  },
+  archiveWave: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'archiveWave', 'Mgn', Promise.resolve(result), true, mock)
+  },
+  archiveWaveAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'archiveWave', 'Mgn', Promise.resolve(result), false, mock)
+  },
+  archiveWaveThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'archiveWave', 'Mgn', Promise.reject(result), true, mock)
+  },
+  associateApplications: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'associateApplications', 'Mgn', Promise.resolve(result), true, mock)
+  },
+  associateApplicationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'associateApplications', 'Mgn', Promise.resolve(result), false, mock)
+  },
+  associateApplicationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'associateApplications', 'Mgn', Promise.reject(result), true, mock)
+  },
+  associateSourceServers: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'associateSourceServers', 'Mgn', Promise.resolve(result), true, mock)
+  },
+  associateSourceServersAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'associateSourceServers', 'Mgn', Promise.resolve(result), false, mock)
+  },
+  associateSourceServersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'associateSourceServers', 'Mgn', Promise.reject(result), true, mock)
+  },
   changeServerLifeCycleState: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mgn', 'changeServerLifeCycleState', 'Mgn', Promise.resolve(result), true, mock)
   },
@@ -25,6 +60,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   changeServerLifeCycleStateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mgn', 'changeServerLifeCycleState', 'Mgn', Promise.reject(result), true, mock)
+  },
+  createApplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'createApplication', 'Mgn', Promise.resolve(result), true, mock)
+  },
+  createApplicationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'createApplication', 'Mgn', Promise.resolve(result), false, mock)
+  },
+  createApplicationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'createApplication', 'Mgn', Promise.reject(result), true, mock)
+  },
+  createConnector: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'createConnector', 'Mgn', Promise.resolve(result), true, mock)
+  },
+  createConnectorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'createConnector', 'Mgn', Promise.resolve(result), false, mock)
+  },
+  createConnectorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'createConnector', 'Mgn', Promise.reject(result), true, mock)
+  },
+  createLaunchConfigurationTemplate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'createLaunchConfigurationTemplate', 'Mgn', Promise.resolve(result), true, mock)
+  },
+  createLaunchConfigurationTemplateAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'createLaunchConfigurationTemplate', 'Mgn', Promise.resolve(result), false, mock)
+  },
+  createLaunchConfigurationTemplateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'createLaunchConfigurationTemplate', 'Mgn', Promise.reject(result), true, mock)
   },
   createReplicationConfigurationTemplate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mgn', 'createReplicationConfigurationTemplate', 'Mgn', Promise.resolve(result), true, mock)
@@ -35,6 +97,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   createReplicationConfigurationTemplateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mgn', 'createReplicationConfigurationTemplate', 'Mgn', Promise.reject(result), true, mock)
   },
+  createWave: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'createWave', 'Mgn', Promise.resolve(result), true, mock)
+  },
+  createWaveAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'createWave', 'Mgn', Promise.resolve(result), false, mock)
+  },
+  createWaveThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'createWave', 'Mgn', Promise.reject(result), true, mock)
+  },
+  deleteApplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'deleteApplication', 'Mgn', Promise.resolve(result), true, mock)
+  },
+  deleteApplicationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'deleteApplication', 'Mgn', Promise.resolve(result), false, mock)
+  },
+  deleteApplicationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'deleteApplication', 'Mgn', Promise.reject(result), true, mock)
+  },
+  deleteConnector: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'deleteConnector', 'Mgn', Promise.resolve(result), true, mock)
+  },
+  deleteConnectorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'deleteConnector', 'Mgn', Promise.resolve(result), false, mock)
+  },
+  deleteConnectorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'deleteConnector', 'Mgn', Promise.reject(result), true, mock)
+  },
   deleteJob: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mgn', 'deleteJob', 'Mgn', Promise.resolve(result), true, mock)
   },
@@ -43,6 +132,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   deleteJobThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mgn', 'deleteJob', 'Mgn', Promise.reject(result), true, mock)
+  },
+  deleteLaunchConfigurationTemplate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'deleteLaunchConfigurationTemplate', 'Mgn', Promise.resolve(result), true, mock)
+  },
+  deleteLaunchConfigurationTemplateAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'deleteLaunchConfigurationTemplate', 'Mgn', Promise.resolve(result), false, mock)
+  },
+  deleteLaunchConfigurationTemplateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'deleteLaunchConfigurationTemplate', 'Mgn', Promise.reject(result), true, mock)
   },
   deleteReplicationConfigurationTemplate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mgn', 'deleteReplicationConfigurationTemplate', 'Mgn', Promise.resolve(result), true, mock)
@@ -62,6 +160,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   deleteSourceServerThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mgn', 'deleteSourceServer', 'Mgn', Promise.reject(result), true, mock)
   },
+  deleteVcenterClient: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'deleteVcenterClient', 'Mgn', Promise.resolve(result), true, mock)
+  },
+  deleteVcenterClientAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'deleteVcenterClient', 'Mgn', Promise.resolve(result), false, mock)
+  },
+  deleteVcenterClientThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'deleteVcenterClient', 'Mgn', Promise.reject(result), true, mock)
+  },
+  deleteWave: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'deleteWave', 'Mgn', Promise.resolve(result), true, mock)
+  },
+  deleteWaveAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'deleteWave', 'Mgn', Promise.resolve(result), false, mock)
+  },
+  deleteWaveThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'deleteWave', 'Mgn', Promise.reject(result), true, mock)
+  },
   describeJobLogItems: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mgn', 'describeJobLogItems', 'Mgn', Promise.resolve(result), true, mock)
   },
@@ -79,6 +195,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeJobsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mgn', 'describeJobs', 'Mgn', Promise.reject(result), true, mock)
+  },
+  describeLaunchConfigurationTemplates: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'describeLaunchConfigurationTemplates', 'Mgn', Promise.resolve(result), true, mock)
+  },
+  describeLaunchConfigurationTemplatesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'describeLaunchConfigurationTemplates', 'Mgn', Promise.resolve(result), false, mock)
+  },
+  describeLaunchConfigurationTemplatesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'describeLaunchConfigurationTemplates', 'Mgn', Promise.reject(result), true, mock)
   },
   describeReplicationConfigurationTemplates: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mgn', 'describeReplicationConfigurationTemplates', 'Mgn', Promise.resolve(result), true, mock)
@@ -98,14 +223,32 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   describeSourceServersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mgn', 'describeSourceServers', 'Mgn', Promise.reject(result), true, mock)
   },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-mgn', 'destroy', 'Mgn', Promise.resolve(result), true, mock)
+  describeVcenterClients: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'describeVcenterClients', 'Mgn', Promise.resolve(result), true, mock)
   },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-mgn', 'destroy', 'Mgn', Promise.resolve(result), false, mock)
+  describeVcenterClientsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'describeVcenterClients', 'Mgn', Promise.resolve(result), false, mock)
   },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-mgn', 'destroy', 'Mgn', Promise.reject(result), true, mock)
+  describeVcenterClientsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'describeVcenterClients', 'Mgn', Promise.reject(result), true, mock)
+  },
+  disassociateApplications: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'disassociateApplications', 'Mgn', Promise.resolve(result), true, mock)
+  },
+  disassociateApplicationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'disassociateApplications', 'Mgn', Promise.resolve(result), false, mock)
+  },
+  disassociateApplicationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'disassociateApplications', 'Mgn', Promise.reject(result), true, mock)
+  },
+  disassociateSourceServers: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'disassociateSourceServers', 'Mgn', Promise.resolve(result), true, mock)
+  },
+  disassociateSourceServersAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'disassociateSourceServers', 'Mgn', Promise.resolve(result), false, mock)
+  },
+  disassociateSourceServersThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'disassociateSourceServers', 'Mgn', Promise.reject(result), true, mock)
   },
   disconnectFromService: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mgn', 'disconnectFromService', 'Mgn', Promise.resolve(result), true, mock)
@@ -152,6 +295,78 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   initializeServiceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mgn', 'initializeService', 'Mgn', Promise.reject(result), true, mock)
   },
+  listApplications: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'listApplications', 'Mgn', Promise.resolve(result), true, mock)
+  },
+  listApplicationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'listApplications', 'Mgn', Promise.resolve(result), false, mock)
+  },
+  listApplicationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'listApplications', 'Mgn', Promise.reject(result), true, mock)
+  },
+  listConnectors: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'listConnectors', 'Mgn', Promise.resolve(result), true, mock)
+  },
+  listConnectorsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'listConnectors', 'Mgn', Promise.resolve(result), false, mock)
+  },
+  listConnectorsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'listConnectors', 'Mgn', Promise.reject(result), true, mock)
+  },
+  listExportErrors: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'listExportErrors', 'Mgn', Promise.resolve(result), true, mock)
+  },
+  listExportErrorsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'listExportErrors', 'Mgn', Promise.resolve(result), false, mock)
+  },
+  listExportErrorsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'listExportErrors', 'Mgn', Promise.reject(result), true, mock)
+  },
+  listExports: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'listExports', 'Mgn', Promise.resolve(result), true, mock)
+  },
+  listExportsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'listExports', 'Mgn', Promise.resolve(result), false, mock)
+  },
+  listExportsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'listExports', 'Mgn', Promise.reject(result), true, mock)
+  },
+  listImportErrors: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'listImportErrors', 'Mgn', Promise.resolve(result), true, mock)
+  },
+  listImportErrorsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'listImportErrors', 'Mgn', Promise.resolve(result), false, mock)
+  },
+  listImportErrorsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'listImportErrors', 'Mgn', Promise.reject(result), true, mock)
+  },
+  listImports: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'listImports', 'Mgn', Promise.resolve(result), true, mock)
+  },
+  listImportsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'listImports', 'Mgn', Promise.resolve(result), false, mock)
+  },
+  listImportsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'listImports', 'Mgn', Promise.reject(result), true, mock)
+  },
+  listManagedAccounts: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'listManagedAccounts', 'Mgn', Promise.resolve(result), true, mock)
+  },
+  listManagedAccountsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'listManagedAccounts', 'Mgn', Promise.resolve(result), false, mock)
+  },
+  listManagedAccountsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'listManagedAccounts', 'Mgn', Promise.reject(result), true, mock)
+  },
+  listSourceServerActions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'listSourceServerActions', 'Mgn', Promise.resolve(result), true, mock)
+  },
+  listSourceServerActionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'listSourceServerActions', 'Mgn', Promise.resolve(result), false, mock)
+  },
+  listSourceServerActionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'listSourceServerActions', 'Mgn', Promise.reject(result), true, mock)
+  },
   listTagsForResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mgn', 'listTagsForResource', 'Mgn', Promise.resolve(result), true, mock)
   },
@@ -161,6 +376,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   listTagsForResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mgn', 'listTagsForResource', 'Mgn', Promise.reject(result), true, mock)
   },
+  listTemplateActions: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'listTemplateActions', 'Mgn', Promise.resolve(result), true, mock)
+  },
+  listTemplateActionsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'listTemplateActions', 'Mgn', Promise.resolve(result), false, mock)
+  },
+  listTemplateActionsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'listTemplateActions', 'Mgn', Promise.reject(result), true, mock)
+  },
+  listWaves: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'listWaves', 'Mgn', Promise.resolve(result), true, mock)
+  },
+  listWavesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'listWaves', 'Mgn', Promise.resolve(result), false, mock)
+  },
+  listWavesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'listWaves', 'Mgn', Promise.reject(result), true, mock)
+  },
   markAsArchived: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mgn', 'markAsArchived', 'Mgn', Promise.resolve(result), true, mock)
   },
@@ -169,6 +402,60 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   markAsArchivedThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mgn', 'markAsArchived', 'Mgn', Promise.reject(result), true, mock)
+  },
+  pauseReplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'pauseReplication', 'Mgn', Promise.resolve(result), true, mock)
+  },
+  pauseReplicationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'pauseReplication', 'Mgn', Promise.resolve(result), false, mock)
+  },
+  pauseReplicationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'pauseReplication', 'Mgn', Promise.reject(result), true, mock)
+  },
+  putSourceServerAction: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'putSourceServerAction', 'Mgn', Promise.resolve(result), true, mock)
+  },
+  putSourceServerActionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'putSourceServerAction', 'Mgn', Promise.resolve(result), false, mock)
+  },
+  putSourceServerActionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'putSourceServerAction', 'Mgn', Promise.reject(result), true, mock)
+  },
+  putTemplateAction: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'putTemplateAction', 'Mgn', Promise.resolve(result), true, mock)
+  },
+  putTemplateActionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'putTemplateAction', 'Mgn', Promise.resolve(result), false, mock)
+  },
+  putTemplateActionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'putTemplateAction', 'Mgn', Promise.reject(result), true, mock)
+  },
+  removeSourceServerAction: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'removeSourceServerAction', 'Mgn', Promise.resolve(result), true, mock)
+  },
+  removeSourceServerActionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'removeSourceServerAction', 'Mgn', Promise.resolve(result), false, mock)
+  },
+  removeSourceServerActionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'removeSourceServerAction', 'Mgn', Promise.reject(result), true, mock)
+  },
+  removeTemplateAction: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'removeTemplateAction', 'Mgn', Promise.resolve(result), true, mock)
+  },
+  removeTemplateActionAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'removeTemplateAction', 'Mgn', Promise.resolve(result), false, mock)
+  },
+  removeTemplateActionThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'removeTemplateAction', 'Mgn', Promise.reject(result), true, mock)
+  },
+  resumeReplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'resumeReplication', 'Mgn', Promise.resolve(result), true, mock)
+  },
+  resumeReplicationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'resumeReplication', 'Mgn', Promise.resolve(result), false, mock)
+  },
+  resumeReplicationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'resumeReplication', 'Mgn', Promise.reject(result), true, mock)
   },
   retryDataReplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mgn', 'retryDataReplication', 'Mgn', Promise.resolve(result), true, mock)
@@ -188,6 +475,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   startCutoverThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mgn', 'startCutover', 'Mgn', Promise.reject(result), true, mock)
   },
+  startExport: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'startExport', 'Mgn', Promise.resolve(result), true, mock)
+  },
+  startExportAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'startExport', 'Mgn', Promise.resolve(result), false, mock)
+  },
+  startExportThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'startExport', 'Mgn', Promise.reject(result), true, mock)
+  },
+  startImport: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'startImport', 'Mgn', Promise.resolve(result), true, mock)
+  },
+  startImportAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'startImport', 'Mgn', Promise.resolve(result), false, mock)
+  },
+  startImportThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'startImport', 'Mgn', Promise.reject(result), true, mock)
+  },
+  startReplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'startReplication', 'Mgn', Promise.resolve(result), true, mock)
+  },
+  startReplicationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'startReplication', 'Mgn', Promise.resolve(result), false, mock)
+  },
+  startReplicationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'startReplication', 'Mgn', Promise.reject(result), true, mock)
+  },
   startTest: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mgn', 'startTest', 'Mgn', Promise.resolve(result), true, mock)
   },
@@ -196,6 +510,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   startTestThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mgn', 'startTest', 'Mgn', Promise.reject(result), true, mock)
+  },
+  stopReplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'stopReplication', 'Mgn', Promise.resolve(result), true, mock)
+  },
+  stopReplicationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'stopReplication', 'Mgn', Promise.resolve(result), false, mock)
+  },
+  stopReplicationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'stopReplication', 'Mgn', Promise.reject(result), true, mock)
   },
   tagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mgn', 'tagResource', 'Mgn', Promise.resolve(result), true, mock)
@@ -215,6 +538,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   terminateTargetInstancesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mgn', 'terminateTargetInstances', 'Mgn', Promise.reject(result), true, mock)
   },
+  unarchiveApplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'unarchiveApplication', 'Mgn', Promise.resolve(result), true, mock)
+  },
+  unarchiveApplicationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'unarchiveApplication', 'Mgn', Promise.resolve(result), false, mock)
+  },
+  unarchiveApplicationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'unarchiveApplication', 'Mgn', Promise.reject(result), true, mock)
+  },
+  unarchiveWave: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'unarchiveWave', 'Mgn', Promise.resolve(result), true, mock)
+  },
+  unarchiveWaveAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'unarchiveWave', 'Mgn', Promise.resolve(result), false, mock)
+  },
+  unarchiveWaveThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'unarchiveWave', 'Mgn', Promise.reject(result), true, mock)
+  },
   untagResource: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mgn', 'untagResource', 'Mgn', Promise.resolve(result), true, mock)
   },
@@ -224,6 +565,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   untagResourceThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mgn', 'untagResource', 'Mgn', Promise.reject(result), true, mock)
   },
+  updateApplication: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'updateApplication', 'Mgn', Promise.resolve(result), true, mock)
+  },
+  updateApplicationAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'updateApplication', 'Mgn', Promise.resolve(result), false, mock)
+  },
+  updateApplicationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'updateApplication', 'Mgn', Promise.reject(result), true, mock)
+  },
+  updateConnector: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'updateConnector', 'Mgn', Promise.resolve(result), true, mock)
+  },
+  updateConnectorAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'updateConnector', 'Mgn', Promise.resolve(result), false, mock)
+  },
+  updateConnectorThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'updateConnector', 'Mgn', Promise.reject(result), true, mock)
+  },
   updateLaunchConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mgn', 'updateLaunchConfiguration', 'Mgn', Promise.resolve(result), true, mock)
   },
@@ -232,6 +591,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateLaunchConfigurationThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mgn', 'updateLaunchConfiguration', 'Mgn', Promise.reject(result), true, mock)
+  },
+  updateLaunchConfigurationTemplate: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'updateLaunchConfigurationTemplate', 'Mgn', Promise.resolve(result), true, mock)
+  },
+  updateLaunchConfigurationTemplateAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'updateLaunchConfigurationTemplate', 'Mgn', Promise.resolve(result), false, mock)
+  },
+  updateLaunchConfigurationTemplateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'updateLaunchConfigurationTemplate', 'Mgn', Promise.reject(result), true, mock)
   },
   updateReplicationConfiguration: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mgn', 'updateReplicationConfiguration', 'Mgn', Promise.resolve(result), true, mock)
@@ -250,6 +618,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   updateReplicationConfigurationTemplateThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mgn', 'updateReplicationConfigurationTemplate', 'Mgn', Promise.reject(result), true, mock)
+  },
+  updateSourceServer: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'updateSourceServer', 'Mgn', Promise.resolve(result), true, mock)
+  },
+  updateSourceServerAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'updateSourceServer', 'Mgn', Promise.resolve(result), false, mock)
+  },
+  updateSourceServerThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'updateSourceServer', 'Mgn', Promise.reject(result), true, mock)
+  },
+  updateSourceServerReplicationType: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'updateSourceServerReplicationType', 'Mgn', Promise.resolve(result), true, mock)
+  },
+  updateSourceServerReplicationTypeAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'updateSourceServerReplicationType', 'Mgn', Promise.resolve(result), false, mock)
+  },
+  updateSourceServerReplicationTypeThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'updateSourceServerReplicationType', 'Mgn', Promise.reject(result), true, mock)
+  },
+  updateWave: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'updateWave', 'Mgn', Promise.resolve(result), true, mock)
+  },
+  updateWaveAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'updateWave', 'Mgn', Promise.resolve(result), false, mock)
+  },
+  updateWaveThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-mgn', 'updateWave', 'Mgn', Promise.reject(result), true, mock)
   },
   send: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-mgn', 'send', 'MgnClient', Promise.resolve(result), true, mock)

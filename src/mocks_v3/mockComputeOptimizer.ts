@@ -15,8 +15,16 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   const tmp = (mock) ? mock : jest.spyOn(awsSdkObject.prototype, method)
   return (once) ? tmp.mockImplementationOnce(() => promise) : tmp.mockImplementation(() => promise)
 }
-
-  export const mockComputeOptimizer = {
+export const mockComputeOptimizer = {
+  deleteRecommendationPreferences: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-compute-optimizer', 'deleteRecommendationPreferences', 'ComputeOptimizer', Promise.resolve(result), true, mock)
+  },
+  deleteRecommendationPreferencesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-compute-optimizer', 'deleteRecommendationPreferences', 'ComputeOptimizer', Promise.resolve(result), false, mock)
+  },
+  deleteRecommendationPreferencesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-compute-optimizer', 'deleteRecommendationPreferences', 'ComputeOptimizer', Promise.reject(result), true, mock)
+  },
   describeRecommendationExportJobs: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-compute-optimizer', 'describeRecommendationExportJobs', 'ComputeOptimizer', Promise.resolve(result), true, mock)
   },
@@ -25,15 +33,6 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   describeRecommendationExportJobsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-compute-optimizer', 'describeRecommendationExportJobs', 'ComputeOptimizer', Promise.reject(result), true, mock)
-  },
-  destroy: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-compute-optimizer', 'destroy', 'ComputeOptimizer', Promise.resolve(result), true, mock)
-  },
-  destroyAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-compute-optimizer', 'destroy', 'ComputeOptimizer', Promise.resolve(result), false, mock)
-  },
-  destroyThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
-    return attachMock('@aws-sdk/client-compute-optimizer', 'destroy', 'ComputeOptimizer', Promise.reject(result), true, mock)
   },
   exportAutoScalingGroupRecommendations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-compute-optimizer', 'exportAutoScalingGroupRecommendations', 'ComputeOptimizer', Promise.resolve(result), true, mock)
@@ -62,6 +61,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   exportEC2InstanceRecommendationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-compute-optimizer', 'exportEC2InstanceRecommendations', 'ComputeOptimizer', Promise.reject(result), true, mock)
   },
+  exportECSServiceRecommendations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-compute-optimizer', 'exportECSServiceRecommendations', 'ComputeOptimizer', Promise.resolve(result), true, mock)
+  },
+  exportECSServiceRecommendationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-compute-optimizer', 'exportECSServiceRecommendations', 'ComputeOptimizer', Promise.resolve(result), false, mock)
+  },
+  exportECSServiceRecommendationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-compute-optimizer', 'exportECSServiceRecommendations', 'ComputeOptimizer', Promise.reject(result), true, mock)
+  },
   exportLambdaFunctionRecommendations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-compute-optimizer', 'exportLambdaFunctionRecommendations', 'ComputeOptimizer', Promise.resolve(result), true, mock)
   },
@@ -70,6 +78,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   exportLambdaFunctionRecommendationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-compute-optimizer', 'exportLambdaFunctionRecommendations', 'ComputeOptimizer', Promise.reject(result), true, mock)
+  },
+  exportLicenseRecommendations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-compute-optimizer', 'exportLicenseRecommendations', 'ComputeOptimizer', Promise.resolve(result), true, mock)
+  },
+  exportLicenseRecommendationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-compute-optimizer', 'exportLicenseRecommendations', 'ComputeOptimizer', Promise.resolve(result), false, mock)
+  },
+  exportLicenseRecommendationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-compute-optimizer', 'exportLicenseRecommendations', 'ComputeOptimizer', Promise.reject(result), true, mock)
   },
   getAutoScalingGroupRecommendations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-compute-optimizer', 'getAutoScalingGroupRecommendations', 'ComputeOptimizer', Promise.resolve(result), true, mock)
@@ -107,6 +124,33 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getEC2RecommendationProjectedMetricsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-compute-optimizer', 'getEC2RecommendationProjectedMetrics', 'ComputeOptimizer', Promise.reject(result), true, mock)
   },
+  getECSServiceRecommendationProjectedMetrics: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-compute-optimizer', 'getECSServiceRecommendationProjectedMetrics', 'ComputeOptimizer', Promise.resolve(result), true, mock)
+  },
+  getECSServiceRecommendationProjectedMetricsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-compute-optimizer', 'getECSServiceRecommendationProjectedMetrics', 'ComputeOptimizer', Promise.resolve(result), false, mock)
+  },
+  getECSServiceRecommendationProjectedMetricsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-compute-optimizer', 'getECSServiceRecommendationProjectedMetrics', 'ComputeOptimizer', Promise.reject(result), true, mock)
+  },
+  getECSServiceRecommendations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-compute-optimizer', 'getECSServiceRecommendations', 'ComputeOptimizer', Promise.resolve(result), true, mock)
+  },
+  getECSServiceRecommendationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-compute-optimizer', 'getECSServiceRecommendations', 'ComputeOptimizer', Promise.resolve(result), false, mock)
+  },
+  getECSServiceRecommendationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-compute-optimizer', 'getECSServiceRecommendations', 'ComputeOptimizer', Promise.reject(result), true, mock)
+  },
+  getEffectiveRecommendationPreferences: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-compute-optimizer', 'getEffectiveRecommendationPreferences', 'ComputeOptimizer', Promise.resolve(result), true, mock)
+  },
+  getEffectiveRecommendationPreferencesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-compute-optimizer', 'getEffectiveRecommendationPreferences', 'ComputeOptimizer', Promise.resolve(result), false, mock)
+  },
+  getEffectiveRecommendationPreferencesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-compute-optimizer', 'getEffectiveRecommendationPreferences', 'ComputeOptimizer', Promise.reject(result), true, mock)
+  },
   getEnrollmentStatus: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-compute-optimizer', 'getEnrollmentStatus', 'ComputeOptimizer', Promise.resolve(result), true, mock)
   },
@@ -134,6 +178,24 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   getLambdaFunctionRecommendationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-compute-optimizer', 'getLambdaFunctionRecommendations', 'ComputeOptimizer', Promise.reject(result), true, mock)
   },
+  getLicenseRecommendations: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-compute-optimizer', 'getLicenseRecommendations', 'ComputeOptimizer', Promise.resolve(result), true, mock)
+  },
+  getLicenseRecommendationsAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-compute-optimizer', 'getLicenseRecommendations', 'ComputeOptimizer', Promise.resolve(result), false, mock)
+  },
+  getLicenseRecommendationsThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-compute-optimizer', 'getLicenseRecommendations', 'ComputeOptimizer', Promise.reject(result), true, mock)
+  },
+  getRecommendationPreferences: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-compute-optimizer', 'getRecommendationPreferences', 'ComputeOptimizer', Promise.resolve(result), true, mock)
+  },
+  getRecommendationPreferencesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-compute-optimizer', 'getRecommendationPreferences', 'ComputeOptimizer', Promise.resolve(result), false, mock)
+  },
+  getRecommendationPreferencesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-compute-optimizer', 'getRecommendationPreferences', 'ComputeOptimizer', Promise.reject(result), true, mock)
+  },
   getRecommendationSummaries: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-compute-optimizer', 'getRecommendationSummaries', 'ComputeOptimizer', Promise.resolve(result), true, mock)
   },
@@ -142,6 +204,15 @@ function attachMock(moduleName:string, method:string, name:string, promise:Promi
   },
   getRecommendationSummariesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-compute-optimizer', 'getRecommendationSummaries', 'ComputeOptimizer', Promise.reject(result), true, mock)
+  },
+  putRecommendationPreferences: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-compute-optimizer', 'putRecommendationPreferences', 'ComputeOptimizer', Promise.resolve(result), true, mock)
+  },
+  putRecommendationPreferencesAll: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-compute-optimizer', 'putRecommendationPreferences', 'ComputeOptimizer', Promise.resolve(result), false, mock)
+  },
+  putRecommendationPreferencesThrow: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
+    return attachMock('@aws-sdk/client-compute-optimizer', 'putRecommendationPreferences', 'ComputeOptimizer', Promise.reject(result), true, mock)
   },
   updateEnrollmentStatus: (result:any, mock?: jest.SpyInstance): jest.SpyInstance => {
     return attachMock('@aws-sdk/client-compute-optimizer', 'updateEnrollmentStatus', 'ComputeOptimizer', Promise.resolve(result), true, mock)
