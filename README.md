@@ -7,8 +7,8 @@ SDK references are here.
 [AWS SDK for Javascript v3](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/index.html)  
 [DynamoDB Data Mapper](https://github.com/awslabs/dynamodb-data-mapper-js)
 
-**Latest version is 0.12.0**
-See [npm](https://www.npmjs.com/package/jest-aws-simple-mock)
+**Latest version is 0.12.3**
+See [npm](https://www.npmjs.com/package/jest-aws-simple-mock).  
 Compatible with AWS-SDK v3 version v3.517.0.
 
 # [Important Note]
