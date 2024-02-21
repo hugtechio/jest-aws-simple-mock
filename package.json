@@ -67,7 +67,7 @@
     "@aws/dynamodb-data-mapper": "^0.7.3",
     "@size-limit/preset-small-lib": "^7.0.3",
     "aws-sdk": "^2.1037.0",
-    "axios": "^0.24.0",
+    "axios": "^0.28.0",
     "husky": "^7.0.4",
     "node-html-parser": "^5.1.0",
     "size-limit": "^7.0.3",
